@@ -3,7 +3,7 @@ const config = require("../config/database");
 var Schema = mongoose.Schema;
 
 const SuperAdminSchema = mongoose.Schema({
-    user_name : {
+    username : {
         type : String,
         require : true,
     },

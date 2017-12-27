@@ -88,16 +88,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
 var router_1 = __webpack_require__("../../../router/@angular/router.es5.js");
+var forms_1 = __webpack_require__("../../../forms/@angular/forms.es5.js");
+var http_1 = __webpack_require__("../../../http/@angular/http.es5.js");
 var app_component_1 = __webpack_require__("../../../../../src/app/app.component.ts");
 var top_bar_component_1 = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
 var side_bar_component_1 = __webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.ts");
 var reference_component_component_1 = __webpack_require__("../../../../../src/app/components/reference-component/reference-component.component.ts");
+var admin_login_component_1 = __webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.ts");
+var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var appRoutes = [
     { path: '', component: reference_component_component_1.ReferenceComponentComponent },
     { path: '', redirectTo: '/reference', pathMatch: 'full' },
     { path: 'top-bar', component: top_bar_component_1.TopBarComponent },
     { path: 'side-bar', component: side_bar_component_1.SideBarComponent },
     { path: 'reference', component: reference_component_component_1.ReferenceComponentComponent },
+    { path: 'admin-login', component: admin_login_component_1.AdminLoginComponent },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -110,18 +115,114 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             top_bar_component_1.TopBarComponent,
             side_bar_component_1.SideBarComponent,
-            reference_component_component_1.ReferenceComponentComponent
+            reference_component_component_1.ReferenceComponentComponent,
+            admin_login_component_1.AdminLoginComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
+            http_1.HttpModule,
             router_1.RouterModule.forRoot(appRoutes),
         ],
-        providers: [],
+        providers: [admin_service_1.AdminService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin-login/admin-login.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".login-page {\r\n    width: 360px;\r\n    padding: 13% 0 0;\r\n    margin: auto;\r\n  }\r\n  .form {\r\n    position: relative;\r\n    z-index: 1;\r\n    background: #FFFFFF;\r\n    max-width: 360px;\r\n    margin: 0 auto 100px;\r\n    padding: 45px;\r\n    text-align: center;\r\n    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n        border-radius: 26px;\r\n  }\r\n  .form input {\r\n    font-family: \"Roboto\", sans-serif;\r\n    outline: 0;\r\n    background: #f2f2f2;\r\n    width: 100%;\r\n    border: 0;\r\n    margin: 0 0 0px;\r\n    padding: 15px;\r\n    box-sizing: border-box;\r\n    font-size: 14px;\r\n  }\r\n  \r\n  /* .form button:hover,.form button:active,.form button:focus {\r\n  \r\n  } */\r\n  .form .message {\r\n    margin: 15px 0 0;\r\n    color: #b3b3b3;\r\n    font-size: 12px;\r\n  }\r\n  .form .message a {\r\n    color: #4CAF50;\r\n    text-decoration: none;\r\n  }\r\n  .form .register-form {\r\n    display: none;\r\n  }\r\n  .login-body .container {\r\n    position: relative;\r\n    z-index: 1;\r\n    max-width: 300px;\r\n    margin: 0 auto;\r\n  }\r\n  .login-body .container:before, .container:after {\r\n    content: \"\";\r\n    display: block;\r\n    clear: both;\r\n  }\r\n  .login-body .container .info {\r\n    margin: 50px auto;\r\n    text-align: center;\r\n  }\r\n  .login-body .container .info h1 {\r\n    margin: 0 0 15px;\r\n    padding: 0;\r\n    font-size: 36px;\r\n    font-weight: 300;\r\n    color: #1a1a1a;\r\n  }\r\n  .container .info span {\r\n    color: #4d4d4d;\r\n    font-size: 12px;\r\n  }\r\n  .container .info span a {\r\n    color: #000000;\r\n    text-decoration: none;\r\n  }\r\n  .container .info span .fa {\r\n    color: #EF3B3A;\r\n  }\r\n \r\n  /* body {\r\n   \r\n    \r\n  } */\r\n  .input-group{margin-bottom:15px;}\r\n  .login-body .styles1 {\r\n      border: 0;\r\n      border-bottom: 1px solid #dbdbdb;\r\n      font-family: \"Roboto-Regular\";\r\n      background: none;\r\n      padding: 10px 0px;\r\n      font-size: 13px;\r\n      max-width: 400px;\r\n      width: 100%;\r\n         color: #5d5d5d !important;\r\n      float: left;\r\n  }\r\n  .login-body h2{font-family: \"Roboto-Bold\";text-align:center;color:#111;font-size:30px;    padding: 0;\r\n      line-height: 30px;}\r\n  \r\n  .login-body .input-group-addon{border-radius:0 !important;}\r\n  .login-body{background-color:#242833 !important;    height: 100vh;}\r\n  .login-body .input-group-addon{background-color:inherit !important;border:none !important;border-bottom: 1px solid #ccc !important;border-radius:0;padding-left:0 !important;}\r\n  .btn{    border-radius: 16px !important;    padding: 6px 22px !important;}\r\n  .omb_btn-facebook {background: #3b5998;width:100%;float:left;}\r\n  \r\n  .omb_btn-google {background: #c32f10;width:100%;float:left;}\r\n  .omb_socialButtons>a{color:#fff !important;}\r\n  .omb_socialButtons .col-sm-12{margin-bottom:10px;}\r\n  .hidden-xs{font-size:14px;}\r\n  .omb_socialButtons {\r\n      margin-top: 30px;\r\n      margin-bottom: 16px;\r\n  }\r\n  .login-body .fa{color:#d9534f;}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin-login/admin-login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<body class=\"login-body\">\n   <div class=\"login-page\">\n    <div class=\"form\">\n\t  <h2>Login</h2>\n    <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\n      <div class=\"input-group form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\n\t\t\t  <span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\n        <input type=\"text\" placeholder=\"Username\" class=\"styles1 form-control\" required [(ngModel)]=\"newLogin.username\" name=\"username\" #username=\"ngModel\" />\n        <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\n\t    </div>\n\t    <div class=\"input-group form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n\t\t\t <span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\n       <input type=\"password\" placeholder=\"Password\" class=\"styles1 form-control\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\n       <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\n\t    </div>\n     <br/>\n      <button type=\"submit\" class=\"btn btn-danger\">Sign In</button>\n      <div class=\"form-group\">\n        <div *ngIf=\"showError\" class=\"help-block\">User Not Found...!</div>\n      </div> \n\t  <br/>\n    </form>\n   </div>\n  </div>\n</body>\n\n    \n    \n      \n\n    \n\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin-login/admin-login.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
+var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+var router_1 = __webpack_require__("../../../router/@angular/router.es5.js");
+var AdminLoginComponent = (function () {
+    function AdminLoginComponent(adminService, routes) {
+        this.adminService = adminService;
+        this.routes = routes;
+        this.newLogin = {
+            username: '',
+            password: '',
+        };
+        this.showError = false;
+    }
+    AdminLoginComponent.prototype.ngOnInit = function () {
+    };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Admin Login
+    // Params        : admin username,admin password from form
+    // Returns       : Token, admin id and role
+    // Author        : Rinsha
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Rinsha
+    // Desc          : Admin login
+    AdminLoginComponent.prototype.login = function () {
+        var _this = this;
+        this.adminService.adminLogin(this.newLogin).subscribe(function (data) {
+            console.log(data);
+            if (data.success == false) {
+                _this.showError = true;
+            }
+            if (data.success) {
+                _this.showError = false;
+                _this.adminService.storeUserData(data.token, data.admin);
+                // this.routes.navigate(['/home']);
+            }
+        });
+    };
+    return AdminLoginComponent;
+}());
+AdminLoginComponent = __decorate([
+    core_1.Component({
+        selector: 'admin-login',
+        template: __webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof admin_service_1.AdminService !== "undefined" && admin_service_1.AdminService) === "function" && _a || Object, typeof (_b = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _b || Object])
+], AdminLoginComponent);
+exports.AdminLoginComponent = AdminLoginComponent;
+var _a, _b;
+//# sourceMappingURL=admin-login.component.js.map
 
 /***/ }),
 
@@ -305,6 +406,74 @@ TopBarComponent = __decorate([
 ], TopBarComponent);
 exports.TopBarComponent = TopBarComponent;
 //# sourceMappingURL=top-bar.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/admin.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/@angular/core.es5.js");
+var http_1 = __webpack_require__("../../../http/@angular/http.es5.js");
+__webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+var AdminService = (function () {
+    function AdminService(http) {
+        this.http = http;
+        this._loginUrl = "/admin/login";
+    }
+    AdminService.prototype.setHeader = function () {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return (headers);
+    };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Admin Login
+    // Params        : admin, contains username and password
+    // Returns       : Token, admin id and role
+    // Author        : Rinsha
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Rinsha
+    // Desc          : Admin login
+    AdminService.prototype.adminLogin = function (admin) {
+        var h = this.setHeader();
+        return this.http.post(this._loginUrl, admin, { headers: h })
+            .map(function (res) { return res.json(); });
+    };
+    // -----------------------------------End-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Store User Data
+    // Params        : Token, admin id and role
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Rinsha
+    // Desc          : To locally store admin data
+    AdminService.prototype.storeUserData = function (token, admin) {
+        localStorage.setItem('id_token', token);
+        localStorage.setItem('admin', JSON.stringify(admin));
+        this.authToken = token;
+        this.admin = admin;
+    };
+    return AdminService;
+}());
+AdminService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [typeof (_a = typeof http_1.Http !== "undefined" && http_1.Http) === "function" && _a || Object])
+], AdminService);
+exports.AdminService = AdminService;
+var _a;
+//# sourceMappingURL=admin.service.js.map
 
 /***/ }),
 

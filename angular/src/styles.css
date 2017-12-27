@@ -105,3 +105,12 @@ body{background-color:#f0f0ef !important;margin-top:0 !important; }
     .profilz>li>a{color: #102663 !important;}
     .navbar-inverse .navbar-nav>.open>a{background-color:#ea5a5a !important;color:#fff !important;}
 .side-nav .dropdown-menu{background-color:#0b060c;    min-width:auto !important;width:100% !important;position:relative !important;}
+
+/* @font-face {
+    font-family: "Roboto-Bold";
+    src: url("./fonts/Roboto-Bold.ttf") format("truetype");
+  } 
+  @font-face {
+    font-family: "Roboto-Regular";
+    src: url("./fonts/Roboto-Regular.ttf") format("truetype");
+  }  */
