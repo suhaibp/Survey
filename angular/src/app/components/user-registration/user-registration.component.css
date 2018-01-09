@@ -1,0 +1,12 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+.control-label{padding-top:20px;}
+.panel-primary{border:none;}
+.control-label{color:#797979;}
+.names{padding:20px 16px;}

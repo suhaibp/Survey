@@ -30,7 +30,6 @@ export class AdminLoginComponent implements OnInit {
 
   login(){
      this.adminService.adminLogin(this.newLogin).subscribe(data => {
-      console.log(data);
       if(data.success==false){
         this.showError = true;
       }

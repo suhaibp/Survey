@@ -7,6 +7,9 @@ const GroupSchema = mongoose.Schema({
         type : String,
         require : true,
     },
+    cmp_id : {
+        type :Schema.ObjectId,
+   },
     survey_assigned : {
         type : Boolean,
         default : false,

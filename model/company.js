@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("../config/database");
+const bcrypt = require("bcryptjs");
 var Schema = mongoose.Schema;
 
 const CompanySchema = mongoose.Schema({
@@ -93,12 +94,6 @@ const CompanySchema = mongoose.Schema({
         type: Date, 
         default: Date.now 
     },
-    paid_datetime : { 
-        type: Date, 
-    },
-    subscribed_datetime : { 
-        type: Date,
-    },
     is_profile_completed : { 
         type: Boolean, 
         default: false 
@@ -114,9 +109,10 @@ const CompanySchema = mongoose.Schema({
         email : {
             type : String
         },
-        group : {
-            type : String
-        },
+        group : [{
+            g_id : Schema.ObjectId,
+            group_name : String
+        }],
         is_registered : {
             type : Boolean,
             default : false,
@@ -137,3 +133,25 @@ const CompanySchema = mongoose.Schema({
 });
 
 const Company = module.exports = mongoose.model('Company', CompanySchema, 'company');
+
+module.exports.addCompany = function(newCompany,callback){
+    bcrypt.genSalt(10,(err, salt)=>{
+        bcrypt.hash(newCompany.password,salt,(err, hash) =>{
+            if(err) throw err;
+            newCompany.password = hash;
+            newCompany.save(callback);
+        })
+    })
+}
+
+module.exports.getCompanyById = function(id,callback){
+    Company.findById(id,callback);
+}
+
+module.exports.comparePassword = function(candPass,hash,callback){
+    bcrypt.compare(candPass,hash, (err, isMatch)=>{
+        if(err) throw err;
+        callback(null,isMatch);
+    })
+}
+

@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { tokenNotExpired } from 'angular2-jwt';
+import {Config} from '../config/config';
 
 @Injectable()
 export class AdminService {
   authToken: any;
   admin: any;
-  private _loginUrl = "/admin/login";
+  serviceUrl :string;
 
-  constructor(private http:Http) { }
-
+  constructor(private http:Http, private config: Config) { 
+    this.serviceUrl = config.siteUrl + '/admin/';
+  }
   setHeader(){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
@@ -27,7 +29,7 @@ export class AdminService {
 // Desc          : Admin login
   adminLogin(admin){
     let h=this.setHeader();
-    return this.http.post(this._loginUrl, admin,{headers: h})
+    return this.http.post(this.serviceUrl + "/login", admin,{headers: h})
       .map(res => res.json());
   }
 // -----------------------------------End-----------------------------------------------

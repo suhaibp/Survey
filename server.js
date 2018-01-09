@@ -10,6 +10,8 @@ const io = socketIo(server);
 
 const path = require("path");
 const admin = require("./routes/admin");
+const company = require("./routes/company");
+const user = require("./routes/user");
 //const products = require("./routes/products")(io);
 
 const bodyParser = require("body-parser");
@@ -43,18 +45,18 @@ require('./config/passport')(passport);
 app.use(express.static(path.join(__dirname,"public")));
 
 app.use('/admin',admin);
-// app.use('/products',products);
-// app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'}));
-// app.get('/auth/facebook/callback',passport.authenticate('facebook'),
-// // function(req, res) {
-//     return res.redirect("/socialmedia/" + req.user._id);
-//         });
-// app.get('/auth/google',passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'profile', 'email'] }));
-// {successRedirect: '/registration', failureRedirect: '/login' } in login
-// app.get('/auth/google/callback', passport.authenticate('google'),
-//  function(req, res) {
-//     return res.redirect("/socialmedia/" + req.user._id);
-//         });
+app.use('/company',company);
+app.use('/user',user);
+app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'}));
+app.get('/auth/facebook/callback',passport.authenticate('facebook'),
+function(req, res) {
+    return res.redirect("/additnInfo/" + req.user._id);
+        });
+app.get('/auth/google',passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'profile', 'email'] }));
+app.get('/auth/google/callback', passport.authenticate('google'),
+ function(req, res) {
+    return res.redirect("/additnInfo/" + req.user._id);
+        });
 
 app.use('*',(req, res)=>{
     res.sendFile(path.join(__dirname,'public/index.html'));

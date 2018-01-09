@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("../config/database");
+const bcrypt = require("bcryptjs");
 var Schema = mongoose.Schema;
 
 const UserSchema = mongoose.Schema({
@@ -22,8 +23,11 @@ const UserSchema = mongoose.Schema({
     block_request : [{
         companies : [{
             company_id : {
-                id : Schema.ObjectId,
+                type : Schema.ObjectId,
             },
+            organization : {
+                type : String,
+            },  
             email : {
                 type : String,
             },
@@ -44,6 +48,31 @@ const UserSchema = mongoose.Schema({
             //  Accepted, Rejected
         }
     }],
+    delete_status : { 
+        type: Boolean, 
+        default: false 
+    },
+    block_status : { 
+        type: Boolean, 
+        default: false 
+    },
 });
 
 const User = module.exports = mongoose.model('User', UserSchema, 'user');
+
+module.exports.addUser = function(newUser,callback){
+    bcrypt.genSalt(10,(err, salt)=>{
+        bcrypt.hash(newUser.password,salt,(err, hash) =>{
+            if(err) throw err;
+            newUser.password = hash;
+            newUser.save(callback);
+        })
+    })
+}
+
+module.exports.comparePassword = function(candPass,hash,callback){
+    bcrypt.compare(candPass,hash, (err, isMatch)=>{
+        if(err) throw err;
+        callback(null,isMatch);
+    })
+}

@@ -1,0 +1,51 @@
+
+<flash-messages></flash-messages>
+<br>
+<div class="container">
+<div class="panel panel-default panel-primary">
+<div class="panel-body">
+<form  [formGroup]="regFormGroup" (ngSubmit)="regFormGroup.valid && userRegister()" >
+  <div class="form-group example-container">
+      <div class="col-md-12 names">
+        <label class="col-xs-12">Email : {{userEmail}}</label><br>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" >Name </label>
+          <mat-form-field [formGroup]="regFormGroup">
+              <input matInput autofocus [(ngModel)]="newReg.name" name="name" required formControlName="nameValidation">
+          </mat-form-field>
+      </div>
+
+    
+      <div class="col-md-6 col-sm-6 col-xs-12">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" >Password </label>
+          <mat-form-field [formGroup]="regFormGroup">
+              <input matInput [(ngModel)]="newReg.password" id="password" name="password" [type]="hide ? 'password' : 'text'"  required formControlName="password" validateEqual="confirmPassword" reverse="true">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              <mat-error>Password contain atleast 6 characters and should contain one number,one character and one special character</mat-error>
+            </mat-form-field>
+      </div>
+    
+      <div class="col-md-6 col-sm-6 col-xs-12">
+          <label class="control-label col-md-3 col-sm-3 col-xs-12" >Confirm Password </label>
+          <mat-form-field [formGroup]="regFormGroup">
+              <input type="password" matInput [(ngModel)]="Reg.confirmPassword" reverse="false" validateEqual="password" name="confirmPassword" required formControlName="confirmPassword" id="confirmPassword">
+              <mat-error>Password Not Match</mat-error>
+            </mat-form-field>
+      </div>
+     
+      <div class="clearfix"></div>
+      <br>
+      <br>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-1 col-sm-2 col-xs-6"> 
+        <button type="submit" class="btn btn-danger">Sign Up</button>
+        </div>
+        <div class="text-danger text-center col-md-6 col-sm-3 col-xs-6">
+				{{msg}}
+	    </div>
+      </div>
+</div>
+</form>
+</div>
+</div>
