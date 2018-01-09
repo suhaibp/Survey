@@ -110,3 +110,19 @@
       margin-bottom: 16px;
   }
   .login-body .fa{color:#d9534f;}
+  label{margin-bottom: 0;}
+  .form-control{box-shadow:none;}
+  .login-body .input-group-addon{    padding-left: 10px !important;}
+  .login-body .styles2 {
+    border: 0;
+    text-align: left;
+    border-bottom: 1px solid #dbdbdb;
+    font-family: "Roboto-Regular";
+    background: none;
+    padding: 10px 0px;
+    font-size: 13px;
+    max-width: 400px;
+    width: 100%;
+    color: #5d5d5d !important;
+    float: left;
+  }

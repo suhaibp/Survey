@@ -10,3 +10,38 @@
 .panel-primary{border:none;}
 .control-label{color:#797979;}
 .names{padding:20px 16px;}
+.login-body{
+background-color: #242833 !important;
+height: 100vh;
+padding:8% 0 ;
+}
+.form{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 430px;
+  margin: 0 auto 100px;
+  padding: 5px 0;
+  text-align: left;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 26px;
+}
+.control-label{float:left;}
+.panel{box-shadow:none;}
+.mat-form-field{width: 50%;}
+.names{padding:0 16px;}
+.login-body h2{
+  font-family: "Roboto-Bold";
+  text-align: center;
+  color: #111;
+  font-size: 30px;
+  padding: 0;
+  line-height: 30px;
+}
+.styles2{
+font-family: "Roboto-Regular";
+background: none;
+padding:22px 0px 0px 0px;
+font-size: 13px;}
+.text-cnrt{text-align:center;}
+.btn-danger{border-radius: 29px;padding: 9px 24px;}
