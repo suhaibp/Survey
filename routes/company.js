@@ -12,6 +12,7 @@ const Users = require("../model/user");
 const Survey = require("../model/survey");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
+const emailTemplate = require('../template/verification_email');
 'use strict';
  
 // ---------------------------------Start-------------------------------------------
@@ -119,26 +120,7 @@ router.post('/register', (req, res)=>{
                 if(err){
                     console.log("Error " + err);
                 }else{
-                    // nodemailer.createTestAccount((err, account) => {
-                        
-                    //         // create reusable transporter object using the default SMTP transport
-                        
-                    //         // setup email data with unicode symbols
-                    //         let mailOptions = {
-                    //             from: 'mean.symptots@gmail.com', // sender address
-                    //             to: req.body.contact_person_email, // list of receivers
-                    //             subject: 'Please log in to your account', // Subject line
-                    //             text: '', // plain text body
-                    //             html: '<b><h3>Hi '+req.body.contact_person_fname+' ,</h3><br/>We’re excited to get you started using Survey! You’re on your way to being fully set up, but first, you must finish your account verification by clicking the below link:<br/>Username: '+req.body.contact_person_email+'<br/>Password: '+req.body.password+'<br/>Verification Link:</a> http://localhost:3000/email-verification/'+req.body.verification_code+'</a><br/> Thank You!</b>' // html body
-                    //         };
-                        
-                    //         // send mail with defined transport object
-                    //         transporter.sendMail(mailOptions, (error, info) => {
-                    //         if (error) {
-                    //             return console.log(error);
-                    //         }
-                    //         });
-                    // });
+                    emailTemplate.sendVerificationMail(req.body.contact_person_email, req.body.contact_person_fname, req.body.password, req.body.verification_code);
                     res.json({success: true, msg : "Company registered, Redirecting..."});
                 }
             });
