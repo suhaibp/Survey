@@ -30,6 +30,7 @@ export class CompanyLoginComponent implements OnInit {
 // Desc          : CHeck whether company is expired. If expired, it redirect to expired page, otherwise dashboard
   login(){
   this.btnDisbled = true;
+  console.log(this.newLogin);
   this.companyService.authenticateCompany(this.newLogin).subscribe(data => {
     if(data.success){
       this.btnDisbled = false;

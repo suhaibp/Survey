@@ -360,5 +360,74 @@ changeMailResponseStatus(userId, surveyId){
 }
 
 // ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : get all Mail responsed users
+// Params        : 
+// Returns       : count of mail responsed users
+// Author        : Rinsha
+// Date          : 10-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+getMailResponseCount(data){
+  let id = data.id;
+  let headers = this.setHeaderWithAuthorization();
+  return this.http.get(this.serviceUrl +"getMailResponseCount/" + id, {headers: headers})
+    .map(res => res.json());
+}
+// ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : get all Mail viewed users
+// Params        : 
+// Returns       : count of mail viewed users
+// Author        : Rinsha
+// Date          : 10-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+getMailViewedCount(data){
+  let id = data.id;
+  let headers = this.setHeaderWithAuthorization();
+  return this.http.get(this.serviceUrl +"getMailViewedCount/" + id, {headers: headers})
+    .map(res => res.json());
+}
+// ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : get all survey completed users
+// Params        : 
+// Returns       : count of survey completed users
+// Author        : Rinsha
+// Date          : 10-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+getSurveyCompletedCount(data){
+  let id = data.id;
+  let headers = this.setHeaderWithAuthorization();
+  return this.http.get(this.serviceUrl +"getSurveyCompletedCount/" + id, {headers: headers})
+    .map(res => res.json());
+}
+// ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : get all invited users
+// Params        : 
+// Returns       : count of invited users
+// Author        : Rinsha
+// Date          : 10-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+getInvitedUserCount(data){
+  let id = data.id;
+  let headers = this.setHeaderWithAuthorization();
+  return this.http.get(this.serviceUrl +"getInvitedUserCount/" + id, {headers: headers})
+    .map(res => res.json());
+}
+// ----------------------------------End-------------------------------------------
+
 }
 

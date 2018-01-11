@@ -4,6 +4,7 @@
   "description": "symptots survey",
   "main": "server.js",
   "scripts": {
+    "d3-typings": "typings install d3 --save",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mrjys",
@@ -17,6 +18,7 @@
     "body-parser": "^1.18.2",
     "bootstrap": "^3.3.7",
     "cors": "^2.8.4",
+    "d3": "^3.5.17",
     "datatables.net": "^1.10.16",
     "datatables.net-dt": "^1.10.16",
     "express": "^4.16.2",
@@ -30,5 +32,8 @@
     "passport-google-oauth": "^1.0.0",
     "passport-jwt": "^3.0.1",
     "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "typings": "^2.1.0"
   }
 }

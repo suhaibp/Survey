@@ -115,6 +115,7 @@ var company_users_component_1 = __webpack_require__("../../../../../src/app/comp
 var user_response_email_component_1 = __webpack_require__("../../../../../src/app/components/user-response-email/user-response-email.component.ts");
 var user_login_component_1 = __webpack_require__("../../../../../src/app/components/user-login/user-login.component.ts");
 var user_registration_component_1 = __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.ts");
+var newpie_component_1 = __webpack_require__("../../../../../src/app/components/newpie/newpie.component.ts");
 __webpack_require__("../../../../hammerjs/hammer.js");
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var table_1 = __webpack_require__("../../../cdk/esm5/table.es5.js");
@@ -135,6 +136,8 @@ var appRoutes = [
     { path: 'user-response-email/:id1/:id2', component: user_response_email_component_1.UserResponseEmailComponent },
     { path: 'user-login/:id1/:id2', component: user_login_component_1.UserLoginComponent },
     { path: 'user-register/:id1/:id2', component: user_registration_component_1.UserRegistrationComponent },
+    { path: 'pie', component: newpie_component_1.NewpieComponent },
+    { path: 'pie/:id', component: newpie_component_1.NewpieComponent },
 ];
 var DemoMaterialModule = /** @class */ (function () {
     function DemoMaterialModule() {
@@ -203,6 +206,7 @@ var AppModule = /** @class */ (function () {
                 user_response_email_component_1.UserResponseEmailComponent,
                 user_login_component_1.UserLoginComponent,
                 user_registration_component_1.UserRegistrationComponent,
+                newpie_component_1.NewpieComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -789,6 +793,7 @@ var CompanyLoginComponent = /** @class */ (function () {
     CompanyLoginComponent.prototype.login = function () {
         var _this = this;
         this.btnDisbled = true;
+        console.log(this.newLogin);
         this.companyService.authenticateCompany(this.newLogin).subscribe(function (data) {
             if (data.success) {
                 _this.btnDisbled = false;
@@ -1641,6 +1646,159 @@ var CompanyUsersComponent = /** @class */ (function () {
     return CompanyUsersComponent;
 }());
 exports.CompanyUsersComponent = CompanyUsersComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/newpie/newpie.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".arc text {\r\n    font: 10px sans-serif;\r\n    text-anchor: middle;\r\n  }\r\n  \r\n  .arc path {\r\n    stroke: #fff;\r\n  }\r\n  ", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/newpie/newpie.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1>{{title}}</h1>\n<h2>{{subtitle}}</h2>\n<svg width=\"960\" height=\"500\"></svg>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/newpie/newpie.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var d3 = __webpack_require__("../../../../d3-selection/index.js");
+var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
+var d3Shape = __webpack_require__("../../../../d3-shape/index.js");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var NewpieComponent = /** @class */ (function () {
+    function NewpieComponent(companyService, route) {
+        this.companyService = companyService;
+        this.route = route;
+        this.Stats = [];
+        this.mail_response_count = 0;
+        this.mail_viewed_count = 0;
+        this.survey_completed_count = 0;
+        this.invited_user_count = 0;
+        this.mail_not_readed_count = 0;
+        this.title = '';
+        this.subtitle = 'Pie Chart of Survey Response';
+        this.margin = { top: 20, right: 20, bottom: 30, left: 50 };
+        this.width = 900 - this.margin.left - this.margin.right;
+        this.height = 500 - this.margin.top - this.margin.bottom;
+        this.radius = Math.min(this.width, this.height) / 2;
+    }
+    NewpieComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get all Mail responsed users, mail viewed users, survey completed users
+        // Params        : 
+        // Returns       : count of mail responsed users, mail viewed users
+        // Author        : Rinsha
+        // Date          : 10-1-2018
+        // Last Modified : 11-1-2018, Rinsha
+        // Desc          : 
+        var data = {};
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.survey_id = params.id;
+        });
+        if (this.survey_id) {
+            data = { id: this.survey_id };
+        }
+        this.companyService.getMailResponseCount(data).subscribe(function (res) {
+            _this.mail_response_count = res;
+            _this.companyService.getMailViewedCount(data).subscribe(function (res1) {
+                _this.mail_viewed_count = res1;
+                _this.companyService.getSurveyCompletedCount(data).subscribe(function (res2) {
+                    _this.survey_completed_count = res2;
+                    _this.companyService.getInvitedUserCount(data).subscribe(function (res3) {
+                        _this.invited_user_count = res3;
+                        _this.mail_not_readed_count = _this.invited_user_count - _this.mail_viewed_count - _this.mail_response_count - _this.survey_completed_count;
+                        _this.Stats = [];
+                        if (_this.mail_viewed_count != 0) {
+                            _this.Stats.push({ case: "Mail Readed", count: _this.mail_viewed_count });
+                        }
+                        if (_this.mail_not_readed_count != 0) {
+                            _this.Stats.push({ case: "Mail Not Readed", count: _this.mail_not_readed_count });
+                        }
+                        if (_this.mail_response_count != 0) {
+                            _this.Stats.push({ case: "Mail Responsed", count: _this.mail_response_count });
+                        }
+                        if (_this.survey_completed_count != 0) {
+                            _this.Stats.push({ case: "Survey Completed", count: _this.survey_completed_count });
+                        }
+                        _this.initSvg();
+                        _this.drawPie();
+                    });
+                });
+            });
+        });
+        // ---------------------------------End-------------------------------------------
+    };
+    NewpieComponent.prototype.initSvg = function () {
+        this.color = d3Scale.scaleOrdinal()
+            .range(["#ff6666", "#5cd65c", "#ffff66", "#4d94ff"]);
+        this.arc = d3Shape.arc()
+            .outerRadius(this.radius - 10)
+            .innerRadius(0);
+        this.labelArc = d3Shape.arc()
+            .outerRadius(this.radius - 40)
+            .innerRadius(this.radius - 40);
+        this.pie = d3Shape.pie()
+            .sort(null)
+            .value(function (d) { return d.count; });
+        this.svg = d3.select("svg")
+            .append("g")
+            .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
+    };
+    NewpieComponent.prototype.drawPie = function () {
+        var _this = this;
+        var g = this.svg.selectAll(".arc")
+            .data(this.pie(this.Stats))
+            .enter().append("g")
+            .attr("class", "arc");
+        g.append("path").attr("d", this.arc)
+            .style("fill", function (d) { return _this.color(d.data.case); });
+        g.append("text").attr("transform", function (d) { return "translate(" + _this.labelArc.centroid(d) + ")"; })
+            .attr("dy", ".35em")
+            .text(function (d) { return d.data.case; });
+    };
+    NewpieComponent = __decorate([
+        core_1.Component({
+            selector: 'app-newpie',
+            template: __webpack_require__("../../../../../src/app/components/newpie/newpie.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/newpie/newpie.component.css")]
+        }),
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.ActivatedRoute])
+    ], NewpieComponent);
+    return NewpieComponent;
+}());
+exports.NewpieComponent = NewpieComponent;
 
 
 /***/ }),
@@ -2639,6 +2797,66 @@ var CompanyService = /** @class */ (function () {
     CompanyService.prototype.changeMailResponseStatus = function (userId, surveyId) {
         var headers = this.setHeaderWithAuthorization();
         return this.http.post(this.serviceUrl + 'changeMailResponseStatus/' + surveyId, JSON.stringify({ userId: userId }), { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get all Mail responsed users
+    // Params        : 
+    // Returns       : count of mail responsed users
+    // Author        : Rinsha
+    // Date          : 10-1-2018
+    // Last Modified : 11-1-2018, Rinsha
+    // Desc          : 
+    CompanyService.prototype.getMailResponseCount = function (data) {
+        var id = data.id;
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + "getMailResponseCount/" + id, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get all Mail viewed users
+    // Params        : 
+    // Returns       : count of mail viewed users
+    // Author        : Rinsha
+    // Date          : 10-1-2018
+    // Last Modified : 11-1-2018, Rinsha
+    // Desc          : 
+    CompanyService.prototype.getMailViewedCount = function (data) {
+        var id = data.id;
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + "getMailViewedCount/" + id, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get all survey completed users
+    // Params        : 
+    // Returns       : count of survey completed users
+    // Author        : Rinsha
+    // Date          : 10-1-2018
+    // Last Modified : 11-1-2018, Rinsha
+    // Desc          : 
+    CompanyService.prototype.getSurveyCompletedCount = function (data) {
+        var id = data.id;
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + "getSurveyCompletedCount/" + id, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get all invited users
+    // Params        : 
+    // Returns       : count of invited users
+    // Author        : Rinsha
+    // Date          : 10-1-2018
+    // Last Modified : 11-1-2018, Rinsha
+    // Desc          : 
+    CompanyService.prototype.getInvitedUserCount = function (data) {
+        var id = data.id;
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + "getInvitedUserCount/" + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     CompanyService = __decorate([

@@ -842,4 +842,238 @@ router.post('/changeMailResponseStatus/:id', (req, res)=>{
 
 // ----------------------------------End-------------------------------------------
 
+// ---------------------------------Start-------------------------------------------
+// Function      : get all Mail responsed users
+// Params        : 
+// Returns       : count of mail responsed users
+// Author        : Rinsha
+// Date          : 10-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+router.get('/getMailResponseCount/:id', passport.authenticate('jwt',{session:false}), function(req, res){
+    if (req.headers && req.headers.authorization) {
+        var authorization = req.headers.authorization.substring(4),
+         decoded;
+                decoded = jwt.verify(authorization, config.secret);
+                decoded_id = mongoose.Types.ObjectId(decoded._id);
+                match = { "company_id": decoded_id};
+                if(req.params.id != 'undefined'){
+                    survey_id = mongoose.Types.ObjectId(req.params.id);
+                    match = { "company_id": decoded_id, _id : survey_id};
+                }
+                Survey.aggregate([
+                        { $match: match },{"$group" : {_id:"$inv_users", count:{$sum:1}}}]).exec((err, surveys) => {
+                            if(err){
+                                 return res.json({success: false, msg : "Failed, went somthing wrong "});
+                            }else{
+                                count = 0;
+                                surveys.forEach(survey =>{  
+                                    survey._id.forEach(MailResponse => {
+                                        if(MailResponse.survey_completed == false && MailResponse.mail_responsed == true ){
+                                            count++;
+                                        }
+                                    });
+                                });
+                                return res.json(count);
+                            }
+                        });
+    }else{
+        return res.status(401).send('Invalid User');
+    }   
+});
+// ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : get all Mail viewed users
+// Params        : 
+// Returns       : count of mail viewed users
+// Author        : Rinsha
+// Date          : 10-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+router.get('/getMailViewedCount/:id', passport.authenticate('jwt',{session:false}), function(req, res){
+    if (req.headers && req.headers.authorization) {
+        var authorization = req.headers.authorization.substring(4),
+         decoded;
+                decoded = jwt.verify(authorization, config.secret);
+                decoded_id = mongoose.Types.ObjectId(decoded._id);
+                match = { "company_id": decoded_id};
+                if(req.params.id != 'undefined'){
+                    survey_id = mongoose.Types.ObjectId(req.params.id);
+                    match = { "company_id": decoded_id, _id : survey_id};
+                }
+                Survey.aggregate([
+                        { $match: match },{"$group" : {_id:"$inv_users", count:{$sum:1}}}]).exec((err, surveys) => {
+                            if(err){
+                                 return res.json({success: false, msg : "Failed, went somthing wrong "});
+                            }else{
+                                count = 0;
+                                surveys.forEach(survey =>{  
+                                    survey._id.forEach(mailViewed => {
+                                        if(mailViewed.mail_responsed == false && mailViewed.mail_viewed == true){
+                                            count++;
+                                        }
+                                    });
+                                });
+                                return res.json(count);
+                            }
+                        });
+    }else{
+        return res.status(401).send('Invalid User');
+    }   
+});
+// ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : get all survey completed users
+// Params        : 
+// Returns       : count of survey completed users
+// Author        : Rinsha
+// Date          : 10-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+router.get('/getSurveyCompletedCount/:id', passport.authenticate('jwt',{session:false}), function(req, res){
+    if (req.headers && req.headers.authorization) {
+        var authorization = req.headers.authorization.substring(4),
+         decoded;
+                decoded = jwt.verify(authorization, config.secret);
+                // Survey.find({company_id : decoded._id, "inv_users.survey_completed" : true}, (err, survey)=>{
+                decoded_id = mongoose.Types.ObjectId(decoded._id);
+                match = { "company_id": decoded_id};
+                if(req.params.id != 'undefined'){
+                    survey_id = mongoose.Types.ObjectId(req.params.id);
+                    match = { "company_id": decoded_id, _id : survey_id};
+                }
+                Survey.aggregate([
+                        { $match: match},{"$group" : {_id:"$inv_users", count:{$sum:1}}}]).exec((err, surveys) => {
+                            if(err){
+                                 return res.json({success: false, msg : "Failed, went somthing wrong "});
+                            }else{
+                                count = 0;
+                                surveys.forEach(survey =>{  
+                                    survey._id.forEach(surveyCompleted => {
+                                        if(surveyCompleted.survey_completed == true){
+                                            count++;
+                                        }
+                                    });
+                                });
+                                return res.json(count);
+                            }
+                        });
+    }else{
+        return res.status(401).send('Invalid User');
+    }   
+});
+// ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : get all invited users
+// Params        : 
+// Returns       : count of invited users
+// Author        : Rinsha
+// Date          : 10-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+router.get('/getInvitedUserCount/:id', passport.authenticate('jwt',{session:false}), function(req, res){
+    if (req.headers && req.headers.authorization) {
+        var authorization = req.headers.authorization.substring(4),
+         decoded;
+         email = [];
+                decoded = jwt.verify(authorization, config.secret);
+                    decoded_id = mongoose.Types.ObjectId(decoded._id);
+                    match = { "company_id": decoded_id};
+                    if(req.params.id != 'undefined'){
+                        survey_id = mongoose.Types.ObjectId(req.params.id);
+                        match = { "company_id": decoded_id, _id : survey_id};
+                    }
+                    Survey.aggregate([
+                        { $match: match},{"$group" : {_id:"$inv_users", count:{$sum:1}}}]).exec((err, surveys) => {
+                            if(err){
+                                 return res.json({success: false, msg : "Failed, went somthing wrong "});
+                            }else{
+                                count = 0;
+                                surveys.forEach(survey => {
+                                    survey._id.forEach(invitedUsers =>{
+                                        email.push(invitedUsers.email);
+                                    });
+                                });
+                                return res.json(email.length);
+                            }
+                        });
+                    
+    }else{
+        return res.status(401).send('Invalid User');
+    }   
+});
+// ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : google login
+// Params        : email id and google id
+// Returns       : token and status
+// Author        : Rinsha
+// Date          : 11-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+router.post('/googleLogin', function(req, res){
+    Company.findOne({"contact_person_email":req.body.email, "google.id" : req.body.googleId}, function(err, company) {
+            if(err){
+                return res.json({"success" : false});
+            }
+            if(company){
+                console.log(company);
+                const token = jwt.sign(company, config.secret,{
+                    expiresIn: 60400 // sec 1 week
+                });
+                return res.json({
+                    success:true, 
+                    token : 'JWT '+ token,
+                });
+            }
+            else{
+                return res.json({"success" : false, "msg" : "No such company"});
+            }
+    }).lean();
+});
+// ----------------------------------End-------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : facebook login
+// Params        : email id and facebook id
+// Returns       : token and status
+// Author        : Rinsha
+// Date          : 11-1-2018
+// Last Modified : 11-1-2018, Rinsha
+// Desc          : 
+
+router.post('/facebookLogin', function(req, res){
+    Company.findOne({"contact_person_email":req.body.email, "facebook.id" : req.body.faceBookId}, function(err, company) {
+        if(err){
+            return res.json({"success" : false});
+        }
+        if(company){
+            const token = jwt.sign(company, config.secret,{
+                expiresIn: 60400 // sec 1 week
+            });
+            return res.json({
+                success:true, 
+                token : 'JWT '+ token,
+            });
+        }
+        else{
+            return res.json({"success" : false, "msg" : "No such company"});
+        }
+    }).lean();
+});
+// ----------------------------------End-------------------------------------------
+
+
+
+
 module.exports = router;

@@ -59,21 +59,23 @@ passport.deserializeUser(function(id, done) {
             Company.findOne({ 'contact_person_email' : profile.emails[0].value }, function(err, company) {
                 if (err)
                     return done(err);
-                if (company.block_status == false && company.delete_status ==false) {
-                    company.facebook.id    = profile.id;
-                    company.facebook.token = token;
-                    company.facebook.name  = profile.displayName;
-                    company.facebook.email = profile.emails[0].value;
-                    if(company.cmp_status == "Not Verified"){
-                        company.cmp_status = "Trail"; 
+                if(company){
+                    if (company.block_status == false && company.delete_status ==false) {
+                        company.facebook.id    = profile.id;
+                        company.facebook.token = token;
+                        company.facebook.name  = profile.displayName;
+                        company.facebook.email = profile.emails[0].value;
+                        if(company.cmp_status == "Not Verified"){
+                            company.cmp_status = "Trail"; 
+                        }
+                        company.save(function(err) {
+                        if (err)
+                            throw err;
+                        return done(null, company);
+                        });
+                    }else if(company.block_status == true || company.delete_status ==true){
+                        return done(err);
                     }
-                    company.save(function(err) {
-                    if (err)
-                        throw err;
-                    return done(null, company);
-                    });
-                }else if(company.block_status == true || company.delete_status ==true){
-                    return done(err);
                 } else {
                           var newCompany            = new Company();
                           newCompany.facebook.id    = profile.id; // set the users facebook id                   
@@ -109,24 +111,25 @@ passport.deserializeUser(function(id, done) {
                         Company.findOne({ 'contact_person_email' : profile.emails[0].value }, function(err, company) {
                             if (err)
                                 return done(err);
-            
-                            if(company.block_status == false && company.delete_status ==false) {
-                                // if a company is found, log them in
-                                company.google.id    = profile.id;
-                                company.google.token = token;
-                                company.google.name  = profile.displayName;
-                                company.google.email = profile.emails[0].value;
-                                if(company.cmp_status == "Not Verified"){
-                                       company.cmp_status = "Trail"; 
+                            if(company){
+                                if(company.block_status == false && company.delete_status ==false) {
+                                    // if a company is found, log them in
+                                    company.google.id    = profile.id;
+                                    company.google.token = token;
+                                    company.google.name  = profile.displayName;
+                                    company.google.email = profile.emails[0].value;
+                                    if(company.cmp_status == "Not Verified"){
+                                        company.cmp_status = "Trail"; 
+                                    }
+                                    company.save(function(err) {
+                                    if (err)
+                                        throw err;
+                                    return done(null, company);
+                                    });
+                                    // return done(null, company);
+                                }else if(company.block_status == true || company.delete_status ==true){
+                                    return done(err);
                                 }
-                                company.save(function(err) {
-                                if (err)
-                                    throw err;
-                                return done(null, company);
-                                });
-                                // return done(null, company);
-                            }else if(company.block_status == true || company.delete_status ==true){
-                                return done(err);
                             } else {
                                 // if the company isnt in our database, create a new company
                                 var newCompany          = new Company();

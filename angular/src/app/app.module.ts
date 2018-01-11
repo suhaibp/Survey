@@ -1,5 +1,6 @@
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserModule} from '@angular/platform-browser';
+import * as D3 from "d3";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -31,6 +32,8 @@ import { CompanyUsersComponent } from './components/company-users/company-users.
 import { UserResponseEmailComponent } from './components/user-response-email/user-response-email.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { NewpieComponent } from './components/newpie/newpie.component';
+
 
 import 'hammerjs';
 import {
@@ -86,6 +89,8 @@ const appRoutes: Routes = [
   {path:'user-response-email/:id1/:id2', component:UserResponseEmailComponent},
   {path:'user-login/:id1/:id2', component:UserLoginComponent},
   {path:'user-register/:id1/:id2', component:UserRegistrationComponent},
+  {path:'pie', component:NewpieComponent},
+  {path:'pie/:id', component:NewpieComponent},
 ]
 @NgModule({
   exports: [
@@ -122,6 +127,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatTooltipModule,
   ],
+
 })
 export class DemoMaterialModule {}
 @NgModule({
@@ -143,6 +149,7 @@ export class DemoMaterialModule {}
     UserResponseEmailComponent,
     UserLoginComponent, 
     UserRegistrationComponent,
+    NewpieComponent
   ],
   imports: [
     BrowserModule,
