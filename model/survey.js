@@ -14,8 +14,15 @@ const SurveySchema = mongoose.Schema({
             require : true,
         }
     },
+    company_id: {
+        type : Schema.ObjectId,
+        require : true,
+    },
+    organization : {
+        type : String,
+    },
     theme : {
-        id : Schema.ObjectId,
+        type : Schema.ObjectId,
     },
     display_type : {
         ui : {
@@ -68,15 +75,15 @@ const SurveySchema = mongoose.Schema({
             type : String,
         }],
     }],
-    answers : [{
+    answers : [{   
         answer : {
             type : String,
         },
         cmp_user_id : {
-            id : Schema.ObjectId,
+            type : Schema.ObjectId,
         },
         global_user_id : {
-            id : Schema.ObjectId,
+            type : Schema.ObjectId,
         },
         date_time : {
             type : Date,
@@ -93,7 +100,7 @@ const SurveySchema = mongoose.Schema({
     }],
     inv_users : [{
         cmp_user_id : {
-            id : Schema.ObjectId,
+            type : Schema.ObjectId,
         },
         email : {
             type : String,

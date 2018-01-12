@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-
+//var d3 = require("d3");
 const http = require("http");
 const socketIo = require("socket.io");
 
@@ -9,8 +9,9 @@ const server = http.Server(app);
 const io = socketIo(server);
 
 const path = require("path");
-const admin = require("./routes/admin");
-//const products = require("./routes/products")(io);
+const admin = require("./routes/admin")(io);
+const company = require("./routes/company");
+//const  = require("./routes/products")(io);
 
 const bodyParser = require("body-parser");
 const passport = require('passport');
@@ -43,6 +44,7 @@ require('./config/passport')(passport);
 app.use(express.static(path.join(__dirname,"public")));
 
 app.use('/admin',admin);
+app.use('/company',company);
 // app.use('/products',products);
 // app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'}));
 // app.get('/auth/facebook/callback',passport.authenticate('facebook'),

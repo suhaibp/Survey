@@ -1,0 +1,38 @@
+<ul class="nav navbar-nav side-nav">
+  <!-- <li> -->
+      <!-- <a routerLink="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> -->
+  <!-- </li> -->
+  <img style="float: left" > <a class="navbar-brand" routerLink="/dashboard"> Survey</a>
+   <!-- ---------------------------------Start-------------------------------------------
+ Function      : 
+ Params        : 
+ Returns       : 
+ Author        : Jooshifa
+ Date          : 26-12-2017
+ Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha
+ Desc          : Sidebar for master setttings -->
+ 
+ <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+  <a routerLink="/admin-dashboard"><i class="fa fa-tachometer"></i> Dashboard</a>
+
+</li>
+<li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+<a routerLink="/admin-company"><i class="fa fa-building"></i> Company</a>
+
+</li>
+<li  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+      <a routerLink="/admin-users"><i class="fa fa-users"></i> Users</a>
+ 
+</li>
+  <li >
+    <a  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs"></i> Master Settings <span class="caret"></span></a> 
+    <ul class="dropdown-menu" role="menu">
+        <li><a routerLink="/manage-survey-category">Manage Survey Category</a></li>
+        <li><a routerLink="#">Manage Organization Type</a></li>
+        <li><a routerLink="#">Manage Industry</a></li>
+        <li><a routerLink="#">Manage Survey attender type</a></li>
+   </ul>
+</li>
+</ul>
+
+<!-- ----------------------------------End------------------------------------------- -->

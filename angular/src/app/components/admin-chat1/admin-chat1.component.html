@@ -1,0 +1,11 @@
+<h1>Company Vs Status</h1>
+<div style="display: block; width: 910px;
+height: 416px;">
+    <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+

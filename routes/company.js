@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 // const mongoose = require('mongoose');
 const config = require('../config/database');
+const Company = require("../model/company");
 'use strict';
  
 // ---------------------------------Start-------------------------------------------
@@ -16,3 +17,7 @@ const config = require('../config/database');
 // code here
 
 // ----------------------------------End-------------------------------------------
+
+
+
+module.exports = router;
