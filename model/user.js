@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("../config/database");
+const bcrypt = require("bcryptjs");
 var Schema = mongoose.Schema;
 
 const UserSchema = mongoose.Schema({
@@ -27,8 +28,7 @@ const UserSchema = mongoose.Schema({
             },
             organization : {
                 type : String,
-            },            
-
+            },  
             email : {
                 type : String,
             },
@@ -228,4 +228,26 @@ module.exports.getAdminnotification = function(callback){
  
 }
 // -----------------------------------End------------------------------------------
+
+
+module.exports.addUser = function(newUser,callback){
+    bcrypt.genSalt(10,(err, salt)=>{
+        bcrypt.hash(newUser.password,salt,(err, hash) =>{
+            if(err) throw err;
+            newUser.password = hash;
+            newUser.save(callback);
+        })
+    })
+}
+
+module.exports.comparePassword = function(candPass,hash,callback){
+    bcrypt.compare(candPass,hash, (err, isMatch)=>{
+        if(err) throw err;
+        callback(null,isMatch);
+    })
+}
+
+
+
+
 

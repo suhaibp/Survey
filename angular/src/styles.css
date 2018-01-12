@@ -127,3 +127,7 @@ body{background-color:#f0f0ef !important;margin-top:0 !important; }
     font-family: "Roboto-Regular";
     src: url("./fonts/Roboto-Regular.ttf") format("truetype");
   }  */
+  .cdk-overlay-container {
+    z-index: 1052 !important;
+}
+.col-md-offset-3 .mat-form-field{width: 100%;}

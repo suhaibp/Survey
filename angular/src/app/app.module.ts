@@ -8,6 +8,13 @@ import { HttpModule } from '@angular/http';
 import {scaleLinear} from "d3-scale";
 import * as d3 from "d3";
 import {Config} from './config/config';
+import * as D3 from "d3";
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AdminService} from './services/admin.service';
+import { CompanyService} from './services/company.service';
+import { XlsxToJsonService} from './services/xlsx-to-json.service';
+import { UserService} from './services/user.service';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
@@ -18,8 +25,6 @@ import { AdminChat1Component } from './components/admin-chat1/admin-chat1.compon
 import { AdminChat2Component } from './components/admin-chat2/admin-chat2.component';
 import { AdminChatd3Component } from './components/admin-chatd3/admin-chatd3.component';
 import { AdminChatd3pieComponent } from './components/admin-chatd3pie/admin-chatd3pie.component';
-import { AdminService} from './services/admin.service';
-import { CompanyService} from './services/company.service';
 import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 import { AdminSideBarComponent } from './components/admin-side-bar/admin-side-bar.component';
 import { AdminTopBarComponent } from './components/admin-top-bar/admin-top-bar.component';
@@ -33,14 +38,26 @@ import { AdminExpiredComponent } from './components/admin-expired/admin-expired.
 import { AdminCompanyActiveComponent } from './components/admin-company-active/admin-company-active.component';
 import { AdminCompanyBlockedComponent } from './components/admin-company-blocked/admin-company-blocked.component';
 import { AdminCompanyDeletedComponent } from './components/admin-company-deleted/admin-company-deleted.component';
-
 import { AdminHeaderTitleComponent } from './components/admin-header-title/admin-header-title.component';
 import { AdminAllUsersComponent } from './components/admin-all-users/admin-all-users.component';
 import { AdminActiveUsersComponent } from './components/admin-active-users/admin-active-users.component';
 import { AdminBlockedUsersComponent } from './components/admin-blocked-users/admin-blocked-users.component';
 import { AdminDeletedUsersComponent } from './components/admin-deleted-users/admin-deleted-users.component';
 import { AdminRequestUsersComponent } from './components/admin-request-users/admin-request-users.component';
-
+import { CompanyLoginComponent } from './components/company-login/company-login.component';
+import { CompanyRegistrationComponent } from './components/company-registration/company-registration.component';
+import { CompanyAdditnInfoComponent } from './components/company-additn-info/company-additn-info.component';
+import { CompanyExpiredPageComponent } from './components/company-expired-page/company-expired-page.component';
+import { CompanyEmailVerificationComponent } from './components/company-email-verification/company-email-verification.component';
+import { CompanyProfileComponent } from './components/company-profile/company-profile.component';
+import { CompanySidebarComponent } from './components/company-sidebar/company-sidebar.component';
+import { CompanyTopbarComponent } from './components/company-topbar/company-topbar.component';
+import { CompanyUsersComponent } from './components/company-users/company-users.component';
+import { UserResponseEmailComponent } from './components/user-response-email/user-response-email.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { NewpieComponent } from './components/newpie/newpie.component';
+import 'hammerjs';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -76,12 +93,6 @@ import {
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 
-
-
-
-
-
-
 const appRoutes: Routes = [
   { path: '', component: ReferenceComponentComponent },
   {path:'', redirectTo:'/reference', pathMatch:'full'},
@@ -106,8 +117,19 @@ const appRoutes: Routes = [
   {path:'admin-request-users', component:AdminRequestUsersComponent},
   {path:'admin-chart1', component:AdminChat1Component},
   {path:'admin-chartd3', component:AdminChatd3Component},
-  {path:'admin-chatd3pie', component:AdminChatd3Component}
-  
+  {path:'admin-chatd3pie', component:AdminChatd3Component},
+  {path:'clogin', component:CompanyLoginComponent},
+  {path:'creg', component:CompanyRegistrationComponent},
+  {path:'additnInfo/:id', component:CompanyAdditnInfoComponent},
+  {path:'email-verification/:id', component:CompanyEmailVerificationComponent},
+  {path:'expired', component:CompanyExpiredPageComponent},
+  {path:'profile', component:CompanyProfileComponent},
+  {path:'company-users', component:CompanyUsersComponent},
+  {path:'user-response-email/:id1/:id2', component:UserResponseEmailComponent},
+  {path:'user-login/:id1/:id2', component:UserLoginComponent},
+  {path:'user-register/:id1/:id2', component:UserRegistrationComponent},
+  {path:'pie', component:NewpieComponent},
+  {path:'pie/:id', component:NewpieComponent},
 ]
 @NgModule({
   exports: [
@@ -145,12 +167,9 @@ const appRoutes: Routes = [
     MatTooltipModule,
   ],
 
- 
- 
- 
- 
 })
 export class DemoMaterialModule {}
+
 
 @NgModule({
   declarations: [
@@ -181,19 +200,37 @@ export class DemoMaterialModule {}
     AdminChat1Component,
     AdminChat2Component,
     AdminChatd3Component,
-    AdminChatd3pieComponent
+    AdminChatd3pieComponent,
+    CompanyLoginComponent,
+    CompanyRegistrationComponent,
+    CompanyAdditnInfoComponent,
+    CompanyExpiredPageComponent,
+    CompanyEmailVerificationComponent,
+    CompanyProfileComponent,
+    CompanySidebarComponent, 
+    CompanyTopbarComponent, 
+    CompanyUsersComponent,
+    UserResponseEmailComponent,
+    UserLoginComponent, 
+    UserRegistrationComponent,
+    NewpieComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     DemoMaterialModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    ChartsModule
+    ChartsModule,
+    DemoMaterialModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    FlashMessagesModule.forRoot(),
   ],
-  providers: [Config,AdminService,CompanyService],
+  providers: [Config, AdminService, CompanyService, XlsxToJsonService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-//platformBrowserDynamic().bootstrapModule(AppModule);
+// platformBrowserDynamic().bootstrapModule(AppModule);

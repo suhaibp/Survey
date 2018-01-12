@@ -1,0 +1,38 @@
+<body class="login-body">
+    <div class="login-page">
+     <div class="form">
+     <h2>Login</h2>
+     
+     <form class="login-form" role="form" #f="ngForm" (ngSubmit)="f.form.valid && login()" novalidate>
+ 
+       <div class="input-group form-group">
+         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+        <!-- <label class="styles1">{{userEmail}}</label> -->
+        <label class="styles2">{{userEmail}}</label>
+       </div>
+       
+       <div class="input-group form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+        <input type="password" placeholder="Password" class="styles1 form-control" required [(ngModel)]="newLogin.password" name="password" #password="ngModel"/>
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+       </div>
+       
+      <br/>
+       <button type="submit" class="btn btn-danger">Sign In</button>
+       <div class="form-group">
+         <div *ngIf="showError" class="help-block">{{msg}}</div>
+       </div> 
+     <br/>
+     </form>
+    </div>
+   </div>
+ </body>
+ 
+     
+     
+       
+ 
+     
+ 
+ 
+ 

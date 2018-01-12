@@ -8,18 +8,27 @@ import {Config} from '../config/config';
 export class AdminService {
   authToken: any;
   admin: any;
-  loginUrl: string;
   serviceUrl :string;
 
-  constructor(private http:Http,config:Config) {
+  constructor(private http:Http, private config: Config) { 
     this.serviceUrl = config.siteUrl + '/admin/';
-    this.loginUrl = config.siteUrl + "/admin/login";
-   }
-
+  }
   setHeader(){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     return(headers);
+  }
+
+  setHeaderWithAuthorization(){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type','application/json');
+    return(headers);
+  }
+
+  loadToken(){
+    this.authToken = localStorage.getItem('id_token');
   }
 
 // ---------------------------------Start-------------------------------------------
@@ -32,7 +41,7 @@ export class AdminService {
 // Desc          : Admin login
   adminLogin(admin){
     let h=this.setHeader();
-    return this.http.post(this.loginUrl, admin,{headers: h})
+    return this.http.post(this.serviceUrl + "login", admin,{headers: h})
       .map(res => res.json());
   }
 // -----------------------------------End-----------------------------------------------
@@ -722,4 +731,19 @@ getchartbar(){
 
 }
 // -----------------------------------End------------------------------------------
+// ---------------------------------Start-------------------------------------------
+// Function      : get logged user details
+// Params        : 
+// Returns       : user details
+// Author        : Rinsha
+// Date          : 12-1-2018
+// Last Modified : 12-1-2018, Rinsha
+// Desc          :
+getLoggedUSerDetails(){
+  let h=this.setHeaderWithAuthorization();
+  return this.http.get(this.serviceUrl + "getLoggedinUser",{headers: h})
+    .map(res => res.json());
+}
+// -----------------------------------End-----------------------------------------------
+
 }

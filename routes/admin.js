@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 //  const mongoose = require('mongoose');
-// const passport = require("passport");
+const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const config = require('../config/database');
 const Admin = require("../model/super_admin");
@@ -27,10 +27,7 @@ router.post('/login',(req,res,next)=>{
         if(err) {
             throw err;
         }
-        if(admin == null){
-            res.json({success: false, msg : "Failed"});
-        }
-        else{
+        if(admin){
             const token = jwt.sign(admin, config.secret,{
                 expiresIn: 60400 // sec 1 week
             });
@@ -42,6 +39,9 @@ router.post('/login',(req,res,next)=>{
                     role: admin.role
                 }
             });
+        }
+        else{
+            res.json({success: false, msg : "Failed"});
         }
     }).lean();
 });
@@ -671,7 +671,7 @@ router.get('/allrequsers',(req,res,next)=>{
 router.put('/rejectuser/:id',(req,res,next)=>{
    
     User.rejectUser(req.params.id,(err,user)=>{
-        console.log(user);
+        // console.log(user);
         if(err) throw err;
         if(!user){
             return res.json({success:false, msg: 'Faild to reject user'});
@@ -694,7 +694,7 @@ router.put('/rejectuser/:id',(req,res,next)=>{
 router.put('/acceptuser/:id',(req,res,next)=>{
    
     User.acceptUser(req.params.id,(err,user)=>{
-        console.log(user);
+        // console.log(user);
         if(err) throw err;
         if(!user){
             return res.json({success:false, msg: 'Faild to accept user'});
@@ -791,7 +791,7 @@ router.put('/viewstatususer',(req,res,next)=>{
  
   
  User.findOne({_id:req.body.user_id},function(err, user){
-    console.log(user);
+    // console.log(user);
     user.block_request.forEach((elm,i)=> {
         if(elm.action_status == 'Pending'){
             elm.companies.forEach((cmp,j)=> {
@@ -876,7 +876,7 @@ router.get('/adminchart1',(req,res,next)=>{
         // } 
         ], function(err) { //This is the final callback
            //  if(err) throw err;
-           console.log(retData);
+        //    console.log(retData);
                return res.json(retData);
            
         });
@@ -896,11 +896,35 @@ router.get('/admind3',(req,res,next)=>{
     ]).exec((err, data) => {
         if (err) throw err;
         return res.json(data);
-        console.log(data);
+        // console.log(data);
     })
     
 });
 // ----------------------------------End-------------------------------------------
+// Function      : get logged user details
+// Params        : 
+// Returns       : user details
+// Author        : Rinsha
+// Date          : 12-1-2018
+// Last Modified : 12-1-2018, Rinsha
+// Desc          :
+
+router.get('/getLoggedinUser', function(req, res){
+    if (req.headers && req.headers.authorization) {
+        var authorization = req.headers.authorization.substring(4),
+         decoded;
+         try {
+            decoded = jwt.verify(authorization, config.secret);
+            res.json(decoded);
+        } catch (e) {
+            return res.json({success:false, msg: 'Invalid User'});
+        }
+    }else{
+        return res.status(401).send('Invalid User');
+    }   
+});
+// ----------------------------------End-------------------------------------------
+
 module.exports = router;
 //module.exports = router;
 return router;
