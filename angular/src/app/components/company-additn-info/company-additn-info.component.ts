@@ -47,7 +47,28 @@ export class CompanyAdditnInfoComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    
+// ---------------------------------Start-------------------------------------------
+// Function      : get logged company details
+// Params        : 
+// Returns       : company details
+// Author        : Rinsha
+// Date          : 12-1-2018
+// Last Modified : 12-1-2018, Rinsha
+// Desc          :
+this.companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info.role == "admin"){
+    // this.routes.navigate(['/admin dashboard']);
+  }
+  if(info.role == "user"){
+    if(info.delete_status == true || info.block_status == true){
+      // this.routes.navigate(['/404]); 
+    }
+    // this.routes.navigate(['/survey', info.surveyId]); 
+  }
+});
+
+// ---------------------------------End-------------------------------------------
+
 // ---------------------------------Start-------------------------------------------
 // Function      : Get Company Details
 // Params        : id from url

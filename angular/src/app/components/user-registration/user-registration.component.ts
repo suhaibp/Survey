@@ -64,7 +64,7 @@ export class UserRegistrationComponent implements OnInit {
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
   userRegister(){
-    this.userService.registration(this.newReg).subscribe(data => {
+    this.userService.registration(this.newReg, this.surveyId).subscribe(data => {
       if(data.success==true){
         this.userService.storeUserData(data.token, data.user);  
        this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });

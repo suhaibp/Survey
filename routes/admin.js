@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 //  const mongoose = require('mongoose');
-// const passport = require("passport");
+const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const config = require('../config/database');
 const Admin = require("../model/super_admin");
@@ -23,10 +23,7 @@ router.post('/login',(req,res,next)=>{
         if(err) {
             throw err;
         }
-        if(admin == null){
-            res.json({success: false, msg : "Failed"});
-        }
-        else{
+        if(admin){
             const token = jwt.sign(admin, config.secret,{
                 expiresIn: 60400 // sec 1 week
             });
@@ -39,9 +36,37 @@ router.post('/login',(req,res,next)=>{
                 }
             });
         }
+        else{
+            res.json({success: false, msg : "Failed"});
+        }
     }).lean();
 });
 
+// ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : get logged user details
+// Params        : 
+// Returns       : user details
+// Author        : Rinsha
+// Date          : 12-1-2018
+// Last Modified : 12-1-2018, Rinsha
+// Desc          :
+
+router.get('/getLoggedinUser', function(req, res){
+    if (req.headers && req.headers.authorization) {
+        var authorization = req.headers.authorization.substring(4),
+         decoded;
+         try {
+            decoded = jwt.verify(authorization, config.secret);
+            res.json(decoded);
+        } catch (e) {
+            return res.json({success:false, msg: 'Invalid User'});
+        }
+    }else{
+        return res.status(401).send('Invalid User');
+    }   
+});
 // ----------------------------------End-------------------------------------------
 
 module.exports = router;

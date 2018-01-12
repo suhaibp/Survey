@@ -4,14 +4,17 @@ import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
 import { CompanyService} from './../../services/company.service';
 import { CanActivate,ActivatedRoute, Router } from '@angular/router';
+import * as socketIo from 'socket.io-client';
+import { Config } from './../../config/config';
 
 @Component({
-  selector: 'app-newpie',
+  selector: 'newpie',
   templateUrl: './newpie.component.html',
   styleUrls: ['./newpie.component.css']
 })
 export class NewpieComponent implements OnInit {
   sub : any;
+  private socket: any;
   survey_id : any;
   Stats = [];
   mail_response_count : number  = 0;
@@ -34,13 +37,21 @@ export class NewpieComponent implements OnInit {
   private color: any;
   private svg: any;
 
-  constructor(private companyService : CompanyService, private route: ActivatedRoute) {
+  constructor(private companyService : CompanyService, private route: ActivatedRoute, private config: Config) {
     this.width = 900 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
     this.radius = Math.min(this.width, this.height) / 2;
+    this.socket = socketIo(config.siteUrl);
    }
 
   ngOnInit() {
+    this.loadData();
+    this.socket.on('Mail Responsed', (data) => {
+      this.loadData(); 
+    }); 
+  }
+
+  loadData(){
 // ---------------------------------Start-------------------------------------------
 // Function      : get all Mail responsed users, mail viewed users, survey completed users
 // Params        : 
@@ -84,12 +95,11 @@ if(this.survey_id){
           });
       });
   });
-// ---------------------------------End-------------------------------------------
-
   }
+// ---------------------------------End-------------------------------------------
   private initSvg() {
     this.color = d3Scale.scaleOrdinal()
-                        .range(["#ff6666", "#5cd65c", "#ffff66", "#4d94ff"]);
+                        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
     this.arc = d3Shape.arc()
                       .outerRadius(this.radius - 10)
                       .innerRadius(0);

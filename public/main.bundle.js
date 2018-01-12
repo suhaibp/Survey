@@ -285,6 +285,36 @@ var AdminLoginComponent = /** @class */ (function () {
         this.showError = false;
     }
     AdminLoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 12-1-2018
+        // Last Modified : 12-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    // this.routes.navigate(['/404]); 
+                }
+                // this.routes.navigate(['/survey', info.surveyId]); 
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                // this.routes.navigate(['/dashboard]);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
     };
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin Login
@@ -392,6 +422,26 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
     }
     CompanyAdditnInfoComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 12-1-2018
+        // Last Modified : 12-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                // this.routes.navigate(['/admin dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    // this.routes.navigate(['/404]); 
+                }
+                // this.routes.navigate(['/survey', info.surveyId]); 
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         // ---------------------------------Start-------------------------------------------
         // Function      : Get Company Details
         // Params        : id from url
@@ -748,7 +798,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-login/company-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"login-body\">\n   \n\t<div class=\"login-page\">\n  <div class=\"form\">\n\t<h2>Login</h2>\n\t\n    <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\n    <div class=\"input-group\" [ngClass]=\"{ 'has-error': f.submitted && !email.valid }\">\n\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\n\t\t\t<input type=\"text\" placeholder=\"Username\" class=\"styles1\" required [(ngModel)]=\"newLogin.contact_person_email\" name=\"email\" #email=\"ngModel\"/>\n\t\t\t<div *ngIf=\"f.submitted && !email.valid\" class=\"help-block\">Username is required</div>\n\t  </div>\n\t   <div class=\"input-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\n\t\t\t<input type=\"password\" placeholder=\"Password\" class=\"styles1\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\n\t\t\t<div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\n\t  </div>\n     <br/>\n\t\t\t<button [disabled]=\"btnDisbled\" type=\"submit\" class=\"btn btn-danger\">Sign In</button>\n\t\t\t<br>\n\t\t <div class=\"text-danger text-center\">\n\t\t\t\t{{msg}}\n\t </div>\n\t\t<br/>\n\n\t\t<div class=\"row omb_row-sm-offset-3 omb_socialButtons\">\n    \t    <div class=\"col-xs-12 col-sm-12\">\n\t\t        <a href=\"/auth/facebook\" class=\"btn btn-lg btn-block omb_btn-facebook\" style=\"color:#fff;\">\n\t\t\t        <i class=\"fa fa-facebook visible-xs\"></i>\n\t\t\t        <span class=\"hidden-xs\">Sign In With Facebook</span>\n\t\t        </a>\n\t        </div>\n        \t\n        \t<div class=\"col-xs-12 col-sm-12\">\n\t\t        <a href=\"/auth/google\" target=\"_blank\" class=\"btn btn-lg btn-block omb_btn-google\" style=\"color:#fff;\">\n\t\t\t        <i class=\"fa fa-google-plus visible-xs\"></i>\n\t\t\t        <span class=\"hidden-xs\">Sign In With Google+</span>\n\t\t        </a>\n\t        </div>\t\n\t    </div>\n\t\t<button type=\"button\" [routerLink]=\"['/creg']\" class=\"btn btn-danger\">SignUp</button>\n    </form>\n\t\t\t\t\t\t\t\t\n  </div>\n</div>\n\n</body>\n\n\n\n"
+module.exports = "<body class=\"login-body\">\n   \n\t<div class=\"login-page\">\n  <div class=\"form\">\n\t<h2>Login</h2>\n\t\n    <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\n    <div class=\"input-group\" [ngClass]=\"{ 'has-error': f.submitted && !email.valid }\">\n\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\n\t\t\t<input type=\"text\" placeholder=\"Username\" class=\"styles1\" required [(ngModel)]=\"newLogin.contact_person_email\" name=\"email\" #email=\"ngModel\"/>\n\t\t\t<div *ngIf=\"f.submitted && !email.valid\" class=\"help-block\">Username is required</div>\n\t  </div>\n\t   <div class=\"input-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\n\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\n\t\t\t<input type=\"password\" placeholder=\"Password\" class=\"styles1\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\n\t\t\t<div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\n\t  </div>\n     <br/>\n\t\t\t<button [disabled]=\"btnDisbled\" type=\"submit\" class=\"btn btn-danger\">Sign In</button>\n\t\t\t<br>\n\t\t <div class=\"text-danger text-center\">\n\t\t\t\t{{msg}}\n\t </div>\n\t\t<br/>\n\n\t\t<div class=\"row omb_row-sm-offset-3 omb_socialButtons\">\n    \t    <div class=\"col-xs-12 col-sm-12\">\n\t\t        <a href=\"/auth/facebook\" class=\"btn btn-lg btn-block omb_btn-facebook\" style=\"color:#fff;\">\n\t\t\t        <i class=\"fa fa-facebook visible-xs\"></i>\n\t\t\t        <span class=\"hidden-xs\">Sign In With Facebook</span>\n\t\t        </a>\n\t        </div>\n        \t\n        \t<div class=\"col-xs-12 col-sm-12\">\n\t\t        <a href=\"/auth/google\" class=\"btn btn-lg btn-block omb_btn-google\" style=\"color:#fff;\">\n\t\t\t        <i class=\"fa fa-google-plus visible-xs\"></i>\n\t\t\t        <span class=\"hidden-xs\">Sign In With Google+</span>\n\t\t        </a>\n\t        </div>\t\n\t    </div>\n\t\t<button type=\"button\" [routerLink]=\"['/creg']\" class=\"btn btn-danger\">SignUp</button>\n    </form>\n\t\t\t\t\t\t\t\t\n  </div>\n</div>\n\n</body>\n\n\n\n"
 
 /***/ }),
 
@@ -1671,7 +1721,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/newpie/newpie.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>{{title}}</h1>\n<h2>{{subtitle}}</h2>\n<svg width=\"960\" height=\"500\"></svg>"
+module.exports = "<h1>{{title}}</h1>\n<h2>{{subtitle}}</h2>\n<svg width=\"960\" height=\"500\"></svg>\n"
 
 /***/ }),
 
@@ -1696,10 +1746,13 @@ var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
 var d3Shape = __webpack_require__("../../../../d3-shape/index.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var NewpieComponent = /** @class */ (function () {
-    function NewpieComponent(companyService, route) {
+    function NewpieComponent(companyService, route, config) {
         this.companyService = companyService;
         this.route = route;
+        this.config = config;
         this.Stats = [];
         this.mail_response_count = 0;
         this.mail_viewed_count = 0;
@@ -1712,8 +1765,16 @@ var NewpieComponent = /** @class */ (function () {
         this.width = 900 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
         this.radius = Math.min(this.width, this.height) / 2;
+        this.socket = socketIo(config.siteUrl);
     }
     NewpieComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.loadData();
+        this.socket.on('Mail Responsed', function (data) {
+            _this.loadData();
+        });
+    };
+    NewpieComponent.prototype.loadData = function () {
         var _this = this;
         // ---------------------------------Start-------------------------------------------
         // Function      : get all Mail responsed users, mail viewed users, survey completed users
@@ -1758,11 +1819,11 @@ var NewpieComponent = /** @class */ (function () {
                 });
             });
         });
-        // ---------------------------------End-------------------------------------------
     };
+    // ---------------------------------End-------------------------------------------
     NewpieComponent.prototype.initSvg = function () {
         this.color = d3Scale.scaleOrdinal()
-            .range(["#ff6666", "#5cd65c", "#ffff66", "#4d94ff"]);
+            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
         this.arc = d3Shape.arc()
             .outerRadius(this.radius - 10)
             .innerRadius(0);
@@ -1790,11 +1851,11 @@ var NewpieComponent = /** @class */ (function () {
     };
     NewpieComponent = __decorate([
         core_1.Component({
-            selector: 'app-newpie',
+            selector: 'newpie',
             template: __webpack_require__("../../../../../src/app/components/newpie/newpie.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/newpie/newpie.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.ActivatedRoute, config_1.Config])
     ], NewpieComponent);
     return NewpieComponent;
 }());
@@ -2070,7 +2131,7 @@ var UserLoginComponent = /** @class */ (function () {
     // Desc          : 
     UserLoginComponent.prototype.login = function () {
         var _this = this;
-        this.userService.userLogin(this.newLogin).subscribe(function (data) {
+        this.userService.userLogin(this.newLogin, this.surveyId).subscribe(function (data) {
             if (data.success == false) {
                 _this.showError = true;
                 _this.msg = data.msg;
@@ -2225,7 +2286,7 @@ var UserRegistrationComponent = /** @class */ (function () {
     // Desc          : 
     UserRegistrationComponent.prototype.userRegister = function () {
         var _this = this;
-        this.userService.registration(this.newReg).subscribe(function (data) {
+        this.userService.registration(this.newReg, this.surveyId).subscribe(function (data) {
             if (data.success == true) {
                 _this.userService.storeUserData(data.token, data.user);
                 _this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
@@ -2426,6 +2487,16 @@ var AdminService = /** @class */ (function () {
         headers.append('Content-Type', 'application/json');
         return (headers);
     };
+    AdminService.prototype.setHeaderWithAuthorization = function () {
+        var headers = new http_1.Headers();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return (headers);
+    };
+    AdminService.prototype.loadToken = function () {
+        this.authToken = localStorage.getItem('id_token');
+    };
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin Login
     // Params        : admin, contains username and password
@@ -2436,7 +2507,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : Admin login
     AdminService.prototype.adminLogin = function (admin) {
         var h = this.setHeader();
-        return this.http.post(this.serviceUrl + "/login", admin, { headers: h })
+        return this.http.post(this.serviceUrl + "login", admin, { headers: h })
             .map(function (res) { return res.json(); });
     };
     // -----------------------------------End-----------------------------------------------
@@ -2453,6 +2524,20 @@ var AdminService = /** @class */ (function () {
         localStorage.setItem('admin', JSON.stringify(admin));
         this.authToken = token;
         this.admin = admin;
+    };
+    // ---------------------------------------End--------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get logged user details
+    // Params        : 
+    // Returns       : user details
+    // Author        : Rinsha
+    // Date          : 12-1-2018
+    // Last Modified : 12-1-2018, Rinsha
+    // Desc          :
+    AdminService.prototype.getLoggedUSerDetails = function () {
+        var h = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + "getLoggedinUser", { headers: h })
+            .map(function (res) { return res.json(); });
     };
     AdminService = __decorate([
         core_1.Injectable(),
@@ -2932,9 +3017,9 @@ var UserService = /** @class */ (function () {
     // Date          : 08-01-2018
     // Last Modified : 08-01-2018, Rinsha
     // Desc          : 
-    UserService.prototype.registration = function (user) {
+    UserService.prototype.registration = function (user, surveyId) {
         var h = this.setHeader();
-        return this.http.post(this.serviceUrl + "register", JSON.stringify(user), { headers: h })
+        return this.http.post(this.serviceUrl + "register/" + surveyId, JSON.stringify(user), { headers: h })
             .map(function (res) { return res.json(); });
     };
     // ---------------------------------------End--------------------------------------------
@@ -2961,9 +3046,9 @@ var UserService = /** @class */ (function () {
     // Date          : 08-01-2018
     // Last Modified : 08-01-2018, Rinsha
     // Desc          : 
-    UserService.prototype.userLogin = function (user) {
+    UserService.prototype.userLogin = function (user, surveyId) {
         var h = this.setHeader();
-        return this.http.post(this.serviceUrl + "/login", user, { headers: h })
+        return this.http.post(this.serviceUrl + "/login/" + surveyId, user, { headers: h })
             .map(function (res) { return res.json(); });
     };
     // -----------------------------------End-----------------------------------------------
@@ -3126,6 +3211,13 @@ platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1
 
 module.exports = __webpack_require__("../../../../../src/main.ts");
 
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ })
 

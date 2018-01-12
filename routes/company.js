@@ -14,7 +14,7 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const emailTemplate = require('../template/verification_email');
 'use strict';
- 
+var returnRouter = function(io) {
 // ---------------------------------Start-------------------------------------------
 // Function      : Get all organization type
 // Params        : 
@@ -121,6 +121,8 @@ router.post('/register', (req, res)=>{
                     console.log("Error " + err);
                 }else{
                     emailTemplate.sendVerificationMail(req.body.contact_person_email, req.body.contact_person_fname, req.body.password, req.body.verification_code);
+                    io.sockets.emit("Not Verified", {
+                    });
                     res.json({success: true, msg : "Company registered, Redirecting..."});
                 }
             });
@@ -140,7 +142,7 @@ router.post('/register', (req, res)=>{
 // Desc          : 
 
 router.get('/companyVerification/:id', function(req, res){
-    Company.findOneAndUpdate({verification_code : req.params.id }, 
+    Company.findOneAndUpdate({verification_code : req.params.id, cmp_status : "Not Verified"}, 
         { $set: { cmp_status: "Trail", is_profile_completed : true } }, 
         { new: true }, 
         function(err, doc) {
@@ -148,11 +150,13 @@ router.get('/companyVerification/:id', function(req, res){
                 return res.json({success:false, msg: 'Company Not verified'});
             }
             else{
+                io.sockets.emit("Trail", {
+                });
                 return res.json({success:true, msg: 'Company verified'});
             }
         
         });
-    });
+});
 
 // ----------------------------------End-------------------------------------------
 
@@ -238,6 +242,10 @@ router.post('/registerAdditnInfo/:id', (req, res)=>{
                 return res.json({success:false, msg: 'Cant update Company'});
             }
             else{
+                if(doc.cmp_status == "Not Verified"){
+                   io.sockets.emit("Trail", {
+                    });
+                }
                 return res.json({success:true, msg: 'Update Company'});
             }
         });
@@ -322,6 +330,8 @@ router.get('/subscribe', passport.authenticate('jwt',{session:false}), function(
                             if(err){
                                  return res.json({success: false, msg : "Failed, went somthing wrong "});
                             }else{
+                                io.sockets.emit("Subscribed", {
+                                });
                                 return res.json({success: true, msg : "Success "});
                             }
                         });
@@ -835,6 +845,9 @@ router.post('/changeMailResponseStatus/:id', (req, res)=>{
                 return res.json({success:false, msg: 'Cant update Company'});
             }
             else{
+                io.sockets.emit("Mail Responsed", {
+                    survey_id : req.params.id
+                });
                 return res.json({success:true, msg: 'Update Company'});
             }
         });
@@ -1026,13 +1039,17 @@ router.post('/googleLogin', function(req, res){
                 return res.json({"success" : false});
             }
             if(company){
-                console.log(company);
                 const token = jwt.sign(company, config.secret,{
                     expiresIn: 60400 // sec 1 week
                 });
                 return res.json({
                     success:true, 
                     token : 'JWT '+ token,
+                    company:{
+                        id:company._id,
+                        role: company.role,
+                        status : company.cmp_status
+                    }
                 });
             }
             else{
@@ -1064,6 +1081,11 @@ router.post('/facebookLogin', function(req, res){
             return res.json({
                 success:true, 
                 token : 'JWT '+ token,
+                company:{
+                    id:company._id,
+                    role: company.role,
+                    status : company.cmp_status
+                }
             });
         }
         else{
@@ -1073,7 +1095,8 @@ router.post('/facebookLogin', function(req, res){
 });
 // ----------------------------------End-------------------------------------------
 
-
-
-
 module.exports = router;
+
+return router;
+}
+module.exports = returnRouter;

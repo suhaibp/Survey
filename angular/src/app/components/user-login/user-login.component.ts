@@ -49,7 +49,7 @@ export class UserLoginComponent implements OnInit {
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
   login(){
-    this.userService.userLogin(this.newLogin).subscribe(data => {
+    this.userService.userLogin(this.newLogin, this.surveyId).subscribe(data => {
     if(data.success==false){
       this.showError = true;
       this.msg = data.msg;

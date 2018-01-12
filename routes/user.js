@@ -45,7 +45,8 @@ router.get('/checkEmail/:email', function(req, res){
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
 
-router.post('/register', (req, res)=>{
+router.post('/register/:id', (req, res)=>{
+    surveyId = req.params.id;
     if(!req.body.name || !req.body.password){
         res.json({success: false, msg : "All fields are mandatory"});
     }
@@ -76,6 +77,7 @@ router.post('/register', (req, res)=>{
                             delete_status: user.delete_status,
                             role: user.role
                         }
+                        user.surveyId =  surveyId;
                         const token = jwt.sign(user, config.secret,{
                             expiresIn: 60400 // sec 1 week
                         });
@@ -105,9 +107,10 @@ router.post('/register', (req, res)=>{
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
 
-router.post('/login',(req,res,next)=>{
+router.post('/login/:id',(req,res,next)=>{
     const email = req.body.email;
     const password = req.body.password;
+    surveyId = req.params.id;
     User.findOne({email : email}, (err, user)=>{
         if(err){
             throw err;
@@ -127,6 +130,7 @@ router.post('/login',(req,res,next)=>{
                     return res.json({success:false, msg: 'Account deleted'});
                 }
                 else if(user.block_status == false && user.delete_status == false){
+                    user.surveyId =  surveyId;
                     const token = jwt.sign(user, config.secret,{
                         expiresIn: 60400 // sec 1 week
                     });

@@ -55,9 +55,9 @@ checkEmail(email){
 // Date          : 08-01-2018
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
-registration(user){
+registration(user, surveyId){
   let h=this.setHeader();
-  return this.http.post(this.serviceUrl +"register", JSON.stringify(user), {headers: h})
+  return this.http.post(this.serviceUrl +"register/" + surveyId, JSON.stringify(user), {headers: h})
   .map(res =>res.json());
 }
 // ---------------------------------------End--------------------------------------------
@@ -87,9 +87,9 @@ storeUserData(token, user){
 // Date          : 08-01-2018
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
-userLogin(user){
+userLogin(user, surveyId){
   let h=this.setHeader();
-  return this.http.post(this.serviceUrl + "/login", user,{headers: h})
+  return this.http.post(this.serviceUrl + "/login/" + surveyId, user,{headers: h})
     .map(res => res.json());
 }
 // -----------------------------------End-----------------------------------------------
