@@ -70,6 +70,9 @@
         margin-top: 100px
     }
 }
+.cdk-overlay-container {
+    z-index: 1052 !important;
+}
 
 
 /******asif*******/

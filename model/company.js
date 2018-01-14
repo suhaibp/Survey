@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const config = require("../config/database");
 const bcrypt = require("bcryptjs");
 var Schema = mongoose.Schema;
-
+async = require("async");
 const CompanySchema = mongoose.Schema({
     organization : {
         type : String,

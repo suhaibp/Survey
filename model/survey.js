@@ -3,6 +3,7 @@ const config = require("../config/database");
 var Schema = mongoose.Schema;
 
 const SurveySchema = mongoose.Schema({
+    
     name : {
         type : String,
         require : true,
@@ -129,6 +130,8 @@ const SurveySchema = mongoose.Schema({
             type : Boolean,
             default : false,
         },
+
+       
     }]
 });
 

@@ -40,6 +40,10 @@ const UserSchema = mongoose.Schema({
                 type : Boolean,
                 default : false,
             },
+            comp_is_viewed : {
+                type : Boolean,
+                default : false,
+            },
             reason : {
                 type : String
             },
