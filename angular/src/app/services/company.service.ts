@@ -429,5 +429,21 @@ getInvitedUserCount(data){
 }
 // ----------------------------------End-------------------------------------------
 
+// ---------------------------------Start-------------------------------------------
+// Function      : get all survey
+// Params        : 
+// Returns       : count of mail responsed users, mail viewed users
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          : 
+
+getAllSurvey(){
+  let headers = this.setHeaderWithAuthorization();
+  return this.http.get(this.serviceUrl +"getAllSurvey", {headers: headers})
+    .map(res => res.json());
+}
+// ----------------------------------End-------------------------------------------
+
 }
 

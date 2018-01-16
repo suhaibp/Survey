@@ -33,6 +33,7 @@ import { UserResponseEmailComponent } from './components/user-response-email/use
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { NewpieComponent } from './components/newpie/newpie.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 import 'hammerjs';
@@ -72,6 +73,7 @@ import {
 
 import {CdkTableModule} from '@angular/cdk/table';
 
+
 const appRoutes: Routes = [
   { path: '', component: ReferenceComponentComponent },
   {path:'', redirectTo:'/reference', pathMatch:'full'},
@@ -91,6 +93,7 @@ const appRoutes: Routes = [
   {path:'user-register/:id1/:id2', component:UserRegistrationComponent},
   {path:'pie', component:NewpieComponent},
   {path:'pie/:id', component:NewpieComponent},
+  {path:'404', component:PageNotFoundComponent},
 ]
 @NgModule({
   exports: [
@@ -127,6 +130,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatTooltipModule,
   ],
+  declarations: [PageNotFoundComponent],
 
 })
 export class DemoMaterialModule {}
@@ -161,6 +165,7 @@ export class DemoMaterialModule {}
     BrowserAnimationsModule,
     NoopAnimationsModule,
     FlashMessagesModule.forRoot(),
+    
   ],
   providers: [Config, AdminService, CompanyService, XlsxToJsonService, UserService],
   bootstrap: [AppComponent]

@@ -28,7 +28,7 @@ export class AdminLoginComponent implements OnInit {
   this.adminService.getLoggedUSerDetails().subscribe(info =>{
     if(info.role == "user"){
       if(info.delete_status == true || info.block_status == true){
-        // this.routes.navigate(['/404]); 
+        this.routes.navigate(['/404']); 
       }
       // this.routes.navigate(['/survey', info.surveyId]); 
     }

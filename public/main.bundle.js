@@ -116,6 +116,7 @@ var user_response_email_component_1 = __webpack_require__("../../../../../src/ap
 var user_login_component_1 = __webpack_require__("../../../../../src/app/components/user-login/user-login.component.ts");
 var user_registration_component_1 = __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.ts");
 var newpie_component_1 = __webpack_require__("../../../../../src/app/components/newpie/newpie.component.ts");
+var page_not_found_component_1 = __webpack_require__("../../../../../src/app/components/page-not-found/page-not-found.component.ts");
 __webpack_require__("../../../../hammerjs/hammer.js");
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var table_1 = __webpack_require__("../../../cdk/esm5/table.es5.js");
@@ -138,6 +139,7 @@ var appRoutes = [
     { path: 'user-register/:id1/:id2', component: user_registration_component_1.UserRegistrationComponent },
     { path: 'pie', component: newpie_component_1.NewpieComponent },
     { path: 'pie/:id', component: newpie_component_1.NewpieComponent },
+    { path: '404', component: page_not_found_component_1.PageNotFoundComponent },
 ];
 var DemoMaterialModule = /** @class */ (function () {
     function DemoMaterialModule() {
@@ -178,6 +180,7 @@ var DemoMaterialModule = /** @class */ (function () {
                 material_1.MatToolbarModule,
                 material_1.MatTooltipModule,
             ],
+            declarations: [page_not_found_component_1.PageNotFoundComponent],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -297,7 +300,7 @@ var AdminLoginComponent = /** @class */ (function () {
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
-                    // this.routes.navigate(['/404]); 
+                    _this.routes.navigate(['/404']);
                 }
                 // this.routes.navigate(['/survey', info.surveyId]); 
             }
@@ -1721,7 +1724,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/newpie/newpie.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>{{title}}</h1>\n<h2>{{subtitle}}</h2>\n<svg width=\"960\" height=\"500\"></svg>\n"
+module.exports = "<mat-form-field >\n    <mat-select placeholder=\"Select Survey\" [(ngModel)]=\"list.survey\" name=\"survey\" (change)=\"refresh()\" >\n        <mat-option *ngFor=\"let item of allSurvey\" [value]=\"item._id\">\n          {{ item.name }}\n        </mat-option>\n      </mat-select>\n</mat-form-field>\n<svg width=\"960\" height=\"500\"></svg>\n"
 
 /***/ }),
 
@@ -1753,6 +1756,9 @@ var NewpieComponent = /** @class */ (function () {
         this.companyService = companyService;
         this.route = route;
         this.config = config;
+        this.list = {
+            survey: ''
+        };
         this.Stats = [];
         this.mail_response_count = 0;
         this.mail_viewed_count = 0;
@@ -1769,6 +1775,18 @@ var NewpieComponent = /** @class */ (function () {
     }
     NewpieComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get all survey
+        // Params        : 
+        // Returns       : list of all  survey
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          : 
+        this.companyService.getAllSurvey().subscribe(function (info) {
+            _this.allSurvey = info;
+        });
+        // ---------------------------------End-------------------------------------------
         this.loadData();
         this.socket.on('Mail Responsed', function (data) {
             _this.loadData();
@@ -1790,6 +1808,9 @@ var NewpieComponent = /** @class */ (function () {
         });
         if (this.survey_id) {
             data = { id: this.survey_id };
+        }
+        if (this.list.survey != '') {
+            data = { id: this.list.survey };
         }
         this.companyService.getMailResponseCount(data).subscribe(function (res) {
             _this.mail_response_count = res;
@@ -1849,6 +1870,11 @@ var NewpieComponent = /** @class */ (function () {
             .attr("dy", ".35em")
             .text(function (d) { return d.data.case; });
     };
+    NewpieComponent.prototype.refresh = function () {
+        d3.select("svg").remove();
+        var svg = d3.select("body").append("svg").attr("width", "960").attr("height", "500"), inner = svg.append("g");
+        this.loadData();
+    };
     NewpieComponent = __decorate([
         core_1.Component({
             selector: 'newpie',
@@ -1860,6 +1886,67 @@ var NewpieComponent = /** @class */ (function () {
     return NewpieComponent;
 }());
 exports.NewpieComponent = NewpieComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/page-not-found/page-not-found.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "#fof{display:block; width:100%; margin:100px 0; line-height:1.6em; text-align:center;}\r\n#fof .hgroup{text-transform:uppercase;}\r\n#fof .hgroup h1{margin-bottom:25px; font-size:80px;}\r\n#fof .hgroup h1 span{display:inline-block; margin-left:5px; padding:2px; border:1px solid #CCCCCC; overflow:hidden;}\r\n#fof .hgroup h1 span strong{display:inline-block; padding:0 20px 20px; border:1px solid #CCCCCC; font-weight:normal;}\r\n#fof .hgroup h2{font-size:60px;}\r\n#fof .hgroup h2 span{display:block; font-size:30px;}\r\n#fof p{margin:25px 0 0 0; padding:0; font-size:16px;}\r\n#fof p:first-child{margin-top:0;}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/page-not-found/page-not-found.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wrapper row2\">\n  <div id=\"container\" class=\"clear\">\n    <section id=\"fof\" class=\"clear\">\n      <div class=\"hgroup\">\n        <h1><span><strong>4</strong></span><span><strong>0</strong></span><span><strong>4</strong></span></h1>\n        <h2>Error ! <span>Page Not Found</span></h2>\n      </div>\n      <p>For Some Reason The Page You Requested Could Not Be Found On Our Server</p>\n      <p><a href=\"javascript:history.go(-1)\">&laquo; Go Back</a> \n      </p>\n    </section>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/page-not-found/page-not-found.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var PageNotFoundComponent = /** @class */ (function () {
+    function PageNotFoundComponent() {
+    }
+    PageNotFoundComponent.prototype.ngOnInit = function () {
+    };
+    PageNotFoundComponent = __decorate([
+        core_1.Component({
+            selector: 'app-page-not-found',
+            template: __webpack_require__("../../../../../src/app/components/page-not-found/page-not-found.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/page-not-found/page-not-found.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PageNotFoundComponent);
+    return PageNotFoundComponent;
+}());
+exports.PageNotFoundComponent = PageNotFoundComponent;
 
 
 /***/ }),
@@ -2944,6 +3031,20 @@ var CompanyService = /** @class */ (function () {
         return this.http.get(this.serviceUrl + "getInvitedUserCount/" + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get all survey
+    // Params        : 
+    // Returns       : count of mail responsed users, mail viewed users
+    // Author        : Rinsha
+    // Date          : 16-1-2018
+    // Last Modified : 16-1-2018, Rinsha
+    // Desc          : 
+    CompanyService.prototype.getAllSurvey = function () {
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + "getAllSurvey", { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     CompanyService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http, config_1.Config])
@@ -3214,7 +3315,7 @@ module.exports = __webpack_require__("../../../../../src/main.ts");
 
 /***/ }),
 
-/***/ 3:
+/***/ 1:
 /***/ (function(module, exports) {
 
 /* (ignored) */

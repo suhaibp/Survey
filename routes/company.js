@@ -1095,6 +1095,33 @@ router.post('/facebookLogin', function(req, res){
 });
 // ----------------------------------End-------------------------------------------
 
+// ---------------------------------Start-------------------------------------------
+// Function      : get all survey
+// Params        : 
+// Returns       : count of mail responsed users, mail viewed users
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          : 
+
+router.get('/getAllSurvey', passport.authenticate('jwt',{session:false}), function(req, res){
+    if (req.headers && req.headers.authorization) {
+        var authorization = req.headers.authorization.substring(4),
+         decoded;
+                decoded = jwt.verify(authorization, config.secret);
+                Survey.find({company_id : decoded._id}, (err, survey)=>{
+                            if(err){
+                                 return res.json({success: false, msg : "Failed, went somthing wrong "});
+                            }else{
+                                return res.json(survey);
+                            }
+                        });
+    }else{
+        return res.status(401).send('Invalid User');
+    }   
+});
+// ----------------------------------End-------------------------------------------
+
 module.exports = router;
 
 return router;

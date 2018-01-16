@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
@@ -16,6 +16,10 @@ export class NewpieComponent implements OnInit {
   sub : any;
   private socket: any;
   survey_id : any;
+  list = {
+    survey : ''
+  }
+  allSurvey : any;
   Stats = [];
   mail_response_count : number  = 0;
   mail_viewed_count : number  = 0;
@@ -45,6 +49,18 @@ export class NewpieComponent implements OnInit {
    }
 
   ngOnInit() {
+// ---------------------------------Start-------------------------------------------
+// Function      : get all survey
+// Params        : 
+// Returns       : list of all  survey
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          : 
+  this.companyService.getAllSurvey().subscribe(info => {
+    this.allSurvey = info;
+  });
+// ---------------------------------End-------------------------------------------
     this.loadData();
     this.socket.on('Mail Responsed', (data) => {
       this.loadData(); 
@@ -67,6 +83,9 @@ this.sub = this.route.params.subscribe(params => {
 if(this.survey_id){
   data = {id: this.survey_id};
 }
+if(this.list.survey != ''){
+  data = {id: this.list.survey};
+}
   this.companyService.getMailResponseCount(data).subscribe(res => {
     this.mail_response_count = res;
     this.companyService.getMailViewedCount(data).subscribe(res1 => { 
@@ -76,7 +95,7 @@ if(this.survey_id){
             this.companyService.getInvitedUserCount(data).subscribe(res3 => {
                 this.invited_user_count = res3;
                 this.mail_not_readed_count = this.invited_user_count - this.mail_viewed_count - this.mail_response_count - this.survey_completed_count;  
-                this.Stats = [];
+                this.Stats = []; 
                 if(this.mail_viewed_count != 0){
                   this.Stats.push({case: "Mail Readed", count: this.mail_viewed_count});
                 }
@@ -123,9 +142,20 @@ if(this.survey_id){
                     .style("fill", (d: any) => this.color(d.data.case) );
     g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
                     .attr("dy", ".35em")
-                    .text((d: any) => d.data.case);
+                    .text((d: any) => d.data.case);                  
+  }
+
+  refresh(){
+    d3.select("svg").remove(); 
+    var svg = d3.select("body").append("svg").attr("width","960").attr("height", "500"),
+    inner = svg.append("g");
+    this.loadData();
   }
 
 }
 
+  
+
+
+  
 
