@@ -7,6 +7,10 @@ const SurveySchema = mongoose.Schema({
         type : String,
         require : true,
     },
+    company_id: {
+        type : Schema.ObjectId,
+        require:true
+    },
     category : {
         id : Schema.ObjectId,
         name : {
@@ -15,7 +19,7 @@ const SurveySchema = mongoose.Schema({
         }
     },
     theme : {
-        id : Schema.ObjectId,
+        type : Schema.ObjectId,
     },
     display_type : {
         ui : {
@@ -67,33 +71,35 @@ const SurveySchema = mongoose.Schema({
         options : [{
             type : String,
         }],
+        answers : [{
+            answer : {
+                type : String,
+            },
+            cmp_user_id : {
+                type : Schema.ObjectId,
+            },
+            global_user_id : {
+                type : Schema.ObjectId,
+            },
+            date_time : {
+                type : Date,
+                default:Date.now()
+            },
+            ip : {
+                type : String,
+            },
+            latitude : {
+                type : Number,
+            },
+            longitude : {
+                type : Number,
+            }
+        }]
     }],
-    answers : [{
-        answer : {
-            type : String,
-        },
-        cmp_user_id : {
-            id : Schema.ObjectId,
-        },
-        global_user_id : {
-            id : Schema.ObjectId,
-        },
-        date_time : {
-            type : Date,
-        },
-        ip : {
-            type : String,
-        },
-        latitude : {
-            type : String,
-        },
-        longitude : {
-            type : String,
-        }
-    }],
+   
     inv_users : [{
         cmp_user_id : {
-            id : Schema.ObjectId,
+            type : Schema.ObjectId,
         },
         email : {
             type : String,
@@ -106,10 +112,10 @@ const SurveySchema = mongoose.Schema({
             type : String,
         },
         latitude : {
-            type : String,
+            type : Number,
         },
         longitude : {
-            type : String,
+            type : Number,
         },
         img_read_code : {
             type : String,

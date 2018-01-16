@@ -11,6 +11,9 @@ const GroupSchema = mongoose.Schema({
         type : Boolean,
         default : false,
     },
+    cmp_id : {
+        type :String
+   }
 });
 
 const Group = module.exports = mongoose.model('Group', GroupSchema, 'user_group');

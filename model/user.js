@@ -20,14 +20,23 @@ const UserSchema = mongoose.Schema({
         default : "user",
     },
     block_request : [{
+        
         companies : [{
             company_id : {
-                id : Schema.ObjectId,
+                type : Schema.ObjectId,
             },
+            organization : {
+                type : String,
+            },            
+
             email : {
                 type : String,
             },
             is_viewed : {
+                type : Boolean,
+                default : false,
+            },
+            comp_is_viewed : {
                 type : Boolean,
                 default : false,
             },
@@ -44,6 +53,14 @@ const UserSchema = mongoose.Schema({
             //  Accepted, Rejected
         }
     }],
+        delete_status : { 
+            type: Boolean, 
+            default: false 
+        },
+        block_status : { 
+            type: Boolean, 
+            default: false 
+        },
 });
 
 const User = module.exports = mongoose.model('User', UserSchema, 'user');

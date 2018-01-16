@@ -1,0 +1,25 @@
+<ul class="nav navbar-nav side-nav">
+    <!-- <li> -->
+        <!-- <a routerLink="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> -->
+    <!-- </li> -->
+    <img style="float: left" > <a class="navbar-brand" routerLink="/dashboard"> Survey</a>
+   
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a [routerLink]="['/dashboard']"><i class="fa fa-users"></i> Dashboard</a>
+       
+    </li>
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-product-hunt"></i> Users</a> 
+       
+        
+    </li>
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/create-theme']"><i class="fa fa-fw fa-arrows-v"></i> Themes </a>
+       
+    </li>
+
+    <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a ><i class="fa fa-fw fa-arrows-v"></i> Survey </a>
+       
+    </li>
+</ul>

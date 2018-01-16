@@ -9,7 +9,7 @@ const server = http.Server(app);
 const io = socketIo(server);
 
 const path = require("path");
-//const users = require("./routes/user");
+const users = require("./routes/user");
 //const products = require("./routes/products")(io);
 
 const bodyParser = require("body-parser");
@@ -18,6 +18,7 @@ var session = require('express-session');
 const cors = require('cors');
 const mongoose = require("mongoose");
 const config = require("./config/database");
+const company = require('./routes/company');
 
 
 mongoose.connect(config.database);
@@ -42,8 +43,8 @@ require('./config/passport')(passport);
 
 app.use(express.static(path.join(__dirname,"public")));
 
-// app.use('/user',users);
-// app.use('/products',products);
+app.use('/user',users);
+app.use('/company',company);
 // app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'}));
 // app.get('/auth/facebook/callback',passport.authenticate('facebook'),
 // // function(req, res) {

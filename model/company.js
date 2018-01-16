@@ -114,9 +114,8 @@ const CompanySchema = mongoose.Schema({
         email : {
             type : String
         },
-        group : {
-            type : String
-        },
+        group : 
+        [ {g_id :Schema.ObjectId,group_name:String}],
         is_registered : {
             type : Boolean,
             default : false,
