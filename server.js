@@ -13,14 +13,12 @@ const admin = require("./routes/admin")(io);
 const company = require("./routes/company")(io);
 const user = require("./routes/user");
 
-
 const bodyParser = require("body-parser");
 const passport = require('passport');
 var session = require('express-session');
 const cors = require('cors');
 const mongoose = require("mongoose");
 const config = require("./config/database");
-
 
 mongoose.connect(config.database);
 mongoose.Promise = global.Promise;
@@ -30,8 +28,6 @@ mongoose.connection.on('connected',()=>{
 mongoose.connection.on('error',(err)=>{
     console.log("database Error" + err);
 });
-
-//[mfIsServerPagination]="true"
 
 app.use(cors());
 app.use(bodyParser.json());

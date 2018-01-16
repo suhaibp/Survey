@@ -22,15 +22,15 @@ export class AdminLoginComponent implements OnInit {
 // Params        : 
 // Returns       : user details
 // Author        : Rinsha
-// Date          : 12-1-2018
-// Last Modified : 12-1-2018, Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
 // Desc          :
   this.adminService.getLoggedUSerDetails().subscribe(info =>{
     if(info.role == "user"){
       if(info.delete_status == true || info.block_status == true){
         this.routes.navigate(['/404']); 
       }
-      // this.routes.navigate(['/survey', info.surveyId]); 
+      this.routes.navigate(['/survey', info.surveyId]); 
     }
     if(info.role == "company"){
       if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
@@ -42,7 +42,7 @@ export class AdminLoginComponent implements OnInit {
       if(info.is_profile_completed == false){
         this.routes.navigate(['/additnInfo', info._id]);
       }
-      // this.routes.navigate(['/dashboard]);
+      this.routes.navigate(['/dashboard']);
     }
   });
 // ---------------------------------End-------------------------------------------

@@ -16,11 +16,16 @@ import { XlsxToJsonService} from './services/xlsx-to-json.service';
 import { UserService} from './services/user.service';
 import { AdminService} from './services/admin.service';
 import { CompanyService} from './services/company.service';
+import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ReferenceComponentComponent } from './components/reference-component/reference-component.component';
+import { CompanySidebarComponent } from './components/company-sidebar/company-sidebar.component';
+import { CompanyTopBarComponent } from './components/company-top-bar/company-top-bar.component';
+import { CompanyCreateThemeComponent } from './components/company-create-theme/company-create-theme.component';
+import { CompanyCreateThemeContainerComponent } from './components/company-create-theme-container/company-create-theme-container.component';
 import { AdminSideBarComponent } from './components/admin-side-bar/admin-side-bar.component';
 import { AdminTopBarComponent } from './components/admin-top-bar/admin-top-bar.component';
 import { AdminManageSurveyCategoryComponent } from './components/admin-manage-survey-category/admin-manage-survey-category.component';
@@ -28,8 +33,6 @@ import { AdminManageOrganizationTypeComponent } from './components/admin-manage-
 import { AdminManageIndustryComponent } from './components/admin-manage-industry/admin-manage-industry.component';
 import { AdminManageSurveyAttenderTypeComponent } from './components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component';
 import { CompanyUsersComponent } from './components/company-users/company-users.component';
-import { CompanySidebarComponent } from './components/company-sidebar/company-sidebar.component';
-import { CompanyTopBarComponent } from './components/company-top-bar/company-top-bar.component';
 import { CompanyManageUserGroupsComponent } from './components/company-manage-user-groups/company-manage-user-groups.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminChatd3Component } from './components/admin-chatd3/admin-chatd3.component';
@@ -63,9 +66,19 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { NewpieComponent } from './components/newpie/newpie.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
-
+import { CompanyManageThemesComponent } from './components/company-manage-themes/company-manage-themes.component';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { CompanyEditThemeComponent } from './components/company-edit-theme/company-edit-theme.component';
+import { CompanyEditThemeContainerComponent } from './components/company-edit-theme-container/company-edit-theme-container.component';
+import { CompanyDashboardComponent } from './components/company-dashboard/company-dashboard.component';
+import { UserSurveyComponent } from './components/user-survey/user-survey.component';
+import { UserSurveySinglepageComponent } from './components/user-survey-singlepage/user-survey-singlepage.component';
+import { UserSurveyClosedComponent } from './components/user-survey-closed/user-survey-closed.component';
+import { UserSurveyUpcomingComponent } from './components/user-survey-upcoming/user-survey-upcoming.component';
+import { CountDownTimerComponent } from './components/count-down-timer/count-down-timer.component';
+import { UserSurveyMultipleComponent } from './components/user-survey-multiple/user-survey-multiple.component';
 import 'hammerjs';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -100,7 +113,11 @@ import {
   MatStepperModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
-
+import { AgmCoreModule } from '@agm/core';
+import { ReversePipe } from './pipe/reverse.pipe';
+import { StarRatingModule } from 'angular-star-rating';
+import {Component} from "@angular/core";
+import {RatingModule} from "ngx-rating";
 
 const appRoutes: Routes = [
   { path: '', component: ReferenceComponentComponent },
@@ -118,6 +135,11 @@ const appRoutes: Routes = [
   {path:'company-users', component:CompanyUsersComponent},
   {path:'company-manage-user-groups', component:CompanyManageUserGroupsComponent},
   {path:'reference', component:ReferenceComponentComponent},
+  {path:'create-theme', component:CompanyCreateThemeComponent},
+  {path:'edit-theme/:id', component:CompanyEditThemeComponent},
+  {path:'dashboard', component:CompanyDashboardComponent},
+  {path:'survey/:id', component:UserSurveyComponent},
+  {path:'testing', component:CompanyEditThemeContainerComponent},
   {path:'admin-login', component:AdminLoginComponent},
   {path:'admin-dashboard', component:AdminDashboardComponent},
   {path:'admin-company', component:AdminCompanyComponent},
@@ -193,6 +215,20 @@ export class DemoMaterialModule {}
     TopBarComponent,
     SideBarComponent,
     ReferenceComponentComponent,
+    CompanySidebarComponent,
+    CompanyCreateThemeComponent,
+    CompanyCreateThemeContainerComponent,
+    CompanyManageThemesComponent,
+    CompanyEditThemeComponent,
+    CompanyEditThemeContainerComponent, 
+    CompanyDashboardComponent,
+    UserSurveyComponent, 
+    UserSurveySinglepageComponent, 
+    UserSurveyClosedComponent,
+    UserSurveyUpcomingComponent, 
+    CountDownTimerComponent,
+    UserSurveyMultipleComponent,
+    ReversePipe,
     AdminSideBarComponent,
     AdminTopBarComponent,
     AdminManageSurveyCategoryComponent,
@@ -200,7 +236,6 @@ export class DemoMaterialModule {}
     AdminManageIndustryComponent,
     AdminManageSurveyAttenderTypeComponent,
     CompanyUsersComponent, 
-    CompanySidebarComponent,
     CompanyTopBarComponent,
     CompanyManageUserGroupsComponent,
     AdminLoginComponent,
@@ -248,8 +283,14 @@ export class DemoMaterialModule {}
     MatNativeDateModule,
     FlashMessagesModule.forRoot(),
     RouterModule.forRoot(appRoutes),
+    ColorPickerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCTu2njB-RY-TxKiuWx-O7yqYcfNT31k_8'
+    }),
+    StarRatingModule.forRoot(),
+    RatingModule
   ],
-  providers: [Config, AdminService, CompanyService, XlsxToJsonService, UserService],
+  providers: [Config, AdminService, CompanyService, XlsxToJsonService, UserService, D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

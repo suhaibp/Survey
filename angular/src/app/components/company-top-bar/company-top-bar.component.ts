@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CompanyService } from '../../services/company.service';
 import { Config } from './../../config/config';
 import * as socketIo from 'socket.io-client';

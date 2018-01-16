@@ -38,7 +38,7 @@ export class AdminChatd3Component implements OnInit {
   private g: any;
 
   constructor( private adminService : AdminService,
-    private router: Router,private config: Config ) {
+    private routes: Router,private config: Config ) {
       this.socket = socketIo(config.siteUrl);
     }
   refresh(){
@@ -63,6 +63,35 @@ export class AdminChatd3Component implements OnInit {
        
    }
   ngOnInit() {
+// ---------------------------------Start-------------------------------------------
+// Function      : get logged user details
+// Params        : 
+// Returns       : user details
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          :
+this.adminService.getLoggedUSerDetails().subscribe(info =>{
+  if(info.role == "user"){
+    if(info.delete_status == true || info.block_status == true){
+      this.routes.navigate(['/404']); 
+    }
+    this.routes.navigate(['/survey', info.surveyId]); 
+  }
+  if(info.role == "company"){
+    if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
+      this.routes.navigate(['/clogin']); 
+    }
+    if(info.cmp_status == "Expired"){
+      this.routes.navigate(['/expired']);
+    }
+    if(info.is_profile_completed == false){
+      this.routes.navigate(['/additnInfo', info._id]);
+    }
+    this.routes.navigate(['/dashboard']);
+  }
+});
+// ---------------------------------End-------------------------------------------
     this.refresh();
     this.socket.on('new survey created', (data) => {
       

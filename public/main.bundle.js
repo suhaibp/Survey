@@ -99,10 +99,15 @@ var xlsx_to_json_service_1 = __webpack_require__("../../../../../src/app/service
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var d3_ng2_service_1 = __webpack_require__("../../../../d3-ng2-service/index.js");
 var app_component_1 = __webpack_require__("../../../../../src/app/app.component.ts");
 var top_bar_component_1 = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
 var side_bar_component_1 = __webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.ts");
 var reference_component_component_1 = __webpack_require__("../../../../../src/app/components/reference-component/reference-component.component.ts");
+var company_sidebar_component_1 = __webpack_require__("../../../../../src/app/components/company-sidebar/company-sidebar.component.ts");
+var company_top_bar_component_1 = __webpack_require__("../../../../../src/app/components/company-top-bar/company-top-bar.component.ts");
+var company_create_theme_component_1 = __webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.ts");
+var company_create_theme_container_component_1 = __webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.ts");
 var admin_side_bar_component_1 = __webpack_require__("../../../../../src/app/components/admin-side-bar/admin-side-bar.component.ts");
 var admin_top_bar_component_1 = __webpack_require__("../../../../../src/app/components/admin-top-bar/admin-top-bar.component.ts");
 var admin_manage_survey_category_component_1 = __webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.ts");
@@ -110,8 +115,6 @@ var admin_manage_organization_type_component_1 = __webpack_require__("../../../.
 var admin_manage_industry_component_1 = __webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.ts");
 var admin_manage_survey_attender_type_component_1 = __webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.ts");
 var company_users_component_1 = __webpack_require__("../../../../../src/app/components/company-users/company-users.component.ts");
-var company_sidebar_component_1 = __webpack_require__("../../../../../src/app/components/company-sidebar/company-sidebar.component.ts");
-var company_top_bar_component_1 = __webpack_require__("../../../../../src/app/components/company-top-bar/company-top-bar.component.ts");
 var company_manage_user_groups_component_1 = __webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.ts");
 var admin_login_component_1 = __webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.ts");
 var admin_chatd3_component_1 = __webpack_require__("../../../../../src/app/components/admin-chatd3/admin-chatd3.component.ts");
@@ -144,9 +147,24 @@ var user_login_component_1 = __webpack_require__("../../../../../src/app/compone
 var user_registration_component_1 = __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.ts");
 var newpie_component_1 = __webpack_require__("../../../../../src/app/components/newpie/newpie.component.ts");
 var page_not_found_component_1 = __webpack_require__("../../../../../src/app/components/page-not-found/page-not-found.component.ts");
+var company_manage_themes_component_1 = __webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.ts");
+var ngx_color_picker_1 = __webpack_require__("../../../../ngx-color-picker/dist/ngx-color-picker.es5.js");
+var company_edit_theme_component_1 = __webpack_require__("../../../../../src/app/components/company-edit-theme/company-edit-theme.component.ts");
+var company_edit_theme_container_component_1 = __webpack_require__("../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.ts");
+var company_dashboard_component_1 = __webpack_require__("../../../../../src/app/components/company-dashboard/company-dashboard.component.ts");
+var user_survey_component_1 = __webpack_require__("../../../../../src/app/components/user-survey/user-survey.component.ts");
+var user_survey_singlepage_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.ts");
+var user_survey_closed_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.ts");
+var user_survey_upcoming_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.ts");
+var count_down_timer_component_1 = __webpack_require__("../../../../../src/app/components/count-down-timer/count-down-timer.component.ts");
+var user_survey_multiple_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.ts");
 __webpack_require__("../../../../hammerjs/hammer.js");
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var table_1 = __webpack_require__("../../../cdk/esm5/table.es5.js");
+var core_2 = __webpack_require__("../../../../@agm/core/index.js");
+var reverse_pipe_1 = __webpack_require__("../../../../../src/app/pipe/reverse.pipe.ts");
+var angular_star_rating_1 = __webpack_require__("../../../../angular-star-rating/dist/index.js");
+var ngx_rating_1 = __webpack_require__("../../../../ngx-rating/index.js");
 var appRoutes = [
     { path: '', component: reference_component_component_1.ReferenceComponentComponent },
     { path: '', redirectTo: '/reference', pathMatch: 'full' },
@@ -163,6 +181,11 @@ var appRoutes = [
     { path: 'company-users', component: company_users_component_1.CompanyUsersComponent },
     { path: 'company-manage-user-groups', component: company_manage_user_groups_component_1.CompanyManageUserGroupsComponent },
     { path: 'reference', component: reference_component_component_1.ReferenceComponentComponent },
+    { path: 'create-theme', component: company_create_theme_component_1.CompanyCreateThemeComponent },
+    { path: 'edit-theme/:id', component: company_edit_theme_component_1.CompanyEditThemeComponent },
+    { path: 'dashboard', component: company_dashboard_component_1.CompanyDashboardComponent },
+    { path: 'survey/:id', component: user_survey_component_1.UserSurveyComponent },
+    { path: 'testing', component: company_edit_theme_container_component_1.CompanyEditThemeContainerComponent },
     { path: 'admin-login', component: admin_login_component_1.AdminLoginComponent },
     { path: 'admin-dashboard', component: admin_dashboard_component_1.AdminDashboardComponent },
     { path: 'admin-company', component: admin_company_component_1.AdminCompanyComponent },
@@ -249,6 +272,20 @@ var AppModule = /** @class */ (function () {
                 top_bar_component_1.TopBarComponent,
                 side_bar_component_1.SideBarComponent,
                 reference_component_component_1.ReferenceComponentComponent,
+                company_sidebar_component_1.CompanySidebarComponent,
+                company_create_theme_component_1.CompanyCreateThemeComponent,
+                company_create_theme_container_component_1.CompanyCreateThemeContainerComponent,
+                company_manage_themes_component_1.CompanyManageThemesComponent,
+                company_edit_theme_component_1.CompanyEditThemeComponent,
+                company_edit_theme_container_component_1.CompanyEditThemeContainerComponent,
+                company_dashboard_component_1.CompanyDashboardComponent,
+                user_survey_component_1.UserSurveyComponent,
+                user_survey_singlepage_component_1.UserSurveySinglepageComponent,
+                user_survey_closed_component_1.UserSurveyClosedComponent,
+                user_survey_upcoming_component_1.UserSurveyUpcomingComponent,
+                count_down_timer_component_1.CountDownTimerComponent,
+                user_survey_multiple_component_1.UserSurveyMultipleComponent,
+                reverse_pipe_1.ReversePipe,
                 admin_side_bar_component_1.AdminSideBarComponent,
                 admin_top_bar_component_1.AdminTopBarComponent,
                 admin_manage_survey_category_component_1.AdminManageSurveyCategoryComponent,
@@ -256,7 +293,6 @@ var AppModule = /** @class */ (function () {
                 admin_manage_industry_component_1.AdminManageIndustryComponent,
                 admin_manage_survey_attender_type_component_1.AdminManageSurveyAttenderTypeComponent,
                 company_users_component_1.CompanyUsersComponent,
-                company_sidebar_component_1.CompanySidebarComponent,
                 company_top_bar_component_1.CompanyTopBarComponent,
                 company_manage_user_groups_component_1.CompanyManageUserGroupsComponent,
                 admin_login_component_1.AdminLoginComponent,
@@ -304,8 +340,14 @@ var AppModule = /** @class */ (function () {
                 material_1.MatNativeDateModule,
                 angular2_flash_messages_1.FlashMessagesModule.forRoot(),
                 router_1.RouterModule.forRoot(appRoutes),
+                ngx_color_picker_1.ColorPickerModule,
+                core_2.AgmCoreModule.forRoot({
+                    apiKey: 'AIzaSyCTu2njB-RY-TxKiuWx-O7yqYcfNT31k_8'
+                }),
+                angular_star_rating_1.StarRatingModule.forRoot(),
+                ngx_rating_1.RatingModule
             ],
-            providers: [config_1.Config, admin_service_1.AdminService, company_service_1.CompanyService, xlsx_to_json_service_1.XlsxToJsonService, user_service_1.UserService],
+            providers: [config_1.Config, admin_service_1.AdminService, company_service_1.CompanyService, xlsx_to_json_service_1.XlsxToJsonService, user_service_1.UserService, d3_ng2_service_1.D3Service],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
@@ -540,9 +582,9 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     // Date          : 29-12-2017 
     // Last Modified : 03-01-2018
     // Desc          : All users
-    function AdminAllCompaniesComponent(adminService, router) {
+    function AdminAllCompaniesComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -583,6 +625,36 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
         this.dataSource.sort = this.sort;
     };
     AdminAllCompaniesComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     AdminAllCompaniesComponent.prototype.applyFilter = function (filterValue) {
@@ -695,9 +767,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminAllUsersComponent = /** @class */ (function () {
-    function AdminAllUsersComponent(adminService, router) {
+    function AdminAllUsersComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'username', 'email', 'status', 'action'];
         this.notExist = false;
         this.position = 'before';
@@ -724,6 +796,36 @@ var AdminAllUsersComponent = /** @class */ (function () {
         });
     };
     AdminAllUsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------  
         this.refresh();
     };
     AdminAllUsersComponent.prototype.applyFilter = function (filterValue) {
@@ -836,9 +938,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminBlockedUsersComponent = /** @class */ (function () {
-    function AdminBlockedUsersComponent(adminService, router) {
+    function AdminBlockedUsersComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'username', 'email', 'action'];
         this.notExist = false;
     }
@@ -865,6 +967,36 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
         });
     };
     AdminBlockedUsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     AdminBlockedUsersComponent.prototype.applyFilter = function (filterValue) {
@@ -970,9 +1102,9 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var AdminChatd3Component = /** @class */ (function () {
-    function AdminChatd3Component(adminService, router, config) {
+    function AdminChatd3Component(adminService, routes, config) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.config = config;
         this.title = 'Company Vs Survey';
         // subtitle = 'Bar Chart';
@@ -999,6 +1131,35 @@ var AdminChatd3Component = /** @class */ (function () {
     };
     AdminChatd3Component.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
         this.socket.on('new survey created', function (data) {
             _this.refresh();
@@ -1123,9 +1284,9 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var AdminChatd3pieComponent = /** @class */ (function () {
-    function AdminChatd3pieComponent(adminService, router, config) {
+    function AdminChatd3pieComponent(adminService, routes, config) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.config = config;
         this.title = 'Company Vs Status';
         this.margin = { top: 80, right: 20, bottom: 30, left: 50 };
@@ -1153,6 +1314,35 @@ var AdminChatd3pieComponent = /** @class */ (function () {
     };
     AdminChatd3pieComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
         this.socket.on('Not Verified', function (data) {
             _this.refresh();
@@ -1268,9 +1458,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyActiveComponent = /** @class */ (function () {
-    function AdminCompanyActiveComponent(adminService, router) {
+    function AdminCompanyActiveComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -1325,6 +1515,36 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
         this.dataSource.sort = this.sort;
     };
     AdminCompanyActiveComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     AdminCompanyActiveComponent.prototype.applyFilter = function (filterValue) {
@@ -1425,9 +1645,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyBlockedComponent = /** @class */ (function () {
-    function AdminCompanyBlockedComponent(adminService, router) {
+    function AdminCompanyBlockedComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -1482,6 +1702,36 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         this.dataSource.sort = this.sort;
     };
     AdminCompanyBlockedComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     // -----------------------------------End------------------------------------------
@@ -1600,9 +1850,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyDeletedComponent = /** @class */ (function () {
-    function AdminCompanyDeletedComponent(adminService, router) {
+    function AdminCompanyDeletedComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus'];
         this.notExist = false;
     }
@@ -1629,6 +1879,36 @@ var AdminCompanyDeletedComponent = /** @class */ (function () {
         });
     };
     AdminCompanyDeletedComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     // -----------------------------------End------------------------------------------
@@ -1710,13 +1990,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var AdminCompanyComponent = /** @class */ (function () {
-    function AdminCompanyComponent() {
+    function AdminCompanyComponent(adminService, routes) {
+        this.adminService = adminService;
+        this.routes = routes;
         this.viewComp = 'AllCompanies';
     }
     AdminCompanyComponent.prototype.ngOnInit = function () {
+        var _this = this;
         //this.viewComp = 'AllCompanies';
         //this.title = 'Allusers List';
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         console.log(this.viewComp);
     };
     AdminCompanyComponent.prototype.updateView = function (page) {
@@ -1729,7 +2043,7 @@ var AdminCompanyComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-company/admin-company.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-company/admin-company.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router])
     ], AdminCompanyComponent);
     return AdminCompanyComponent;
 }());
@@ -1779,10 +2093,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminDashboardComponent = /** @class */ (function () {
-    function AdminDashboardComponent() {
+    function AdminDashboardComponent(adminService, routes) {
+        this.adminService = adminService;
+        this.routes = routes;
     }
     AdminDashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
     };
     AdminDashboardComponent = __decorate([
         core_1.Component({
@@ -1790,7 +2138,7 @@ var AdminDashboardComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-dashboard/admin-dashboard.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-dashboard/admin-dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router])
     ], AdminDashboardComponent);
     return AdminDashboardComponent;
 }());
@@ -1844,9 +2192,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminDeletedUsersComponent = /** @class */ (function () {
-    function AdminDeletedUsersComponent(adminService, router) {
+    function AdminDeletedUsersComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'username', 'email'];
         this.notExist = false;
     }
@@ -1873,6 +2221,36 @@ var AdminDeletedUsersComponent = /** @class */ (function () {
         });
     };
     AdminDeletedUsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     __decorate([
@@ -1944,9 +2322,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminExpiredComponent = /** @class */ (function () {
-    function AdminExpiredComponent(adminService, router) {
+    function AdminExpiredComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -1996,6 +2374,36 @@ var AdminExpiredComponent = /** @class */ (function () {
         this.dataSource.sort = this.sort;
     };
     AdminExpiredComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     // -----------------------------------End------------------------------------------
@@ -2213,15 +2621,15 @@ var AdminLoginComponent = /** @class */ (function () {
         // Params        : 
         // Returns       : user details
         // Author        : Rinsha
-        // Date          : 12-1-2018
-        // Last Modified : 12-1-2018, Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
                 }
-                // this.routes.navigate(['/survey', info.surveyId]); 
+                _this.routes.navigate(['/survey', info.surveyId]);
             }
             if (info.role == "company") {
                 if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
@@ -2233,7 +2641,7 @@ var AdminLoginComponent = /** @class */ (function () {
                 if (info.is_profile_completed == false) {
                     _this.routes.navigate(['/additnInfo', info._id]);
                 }
-                // this.routes.navigate(['/dashboard]);
+                _this.routes.navigate(['/dashboard']);
             }
         });
         // ---------------------------------End-------------------------------------------
@@ -2320,10 +2728,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminManageIndustryComponent = /** @class */ (function () {
-    function AdminManageIndustryComponent(_adminService, _flashMessagesService, router, route) {
+    function AdminManageIndustryComponent(_adminService, _flashMessagesService, routes, route) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
-        this.router = router;
+        this.routes = routes;
         this.route = route;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
@@ -2343,6 +2751,36 @@ var AdminManageIndustryComponent = /** @class */ (function () {
         return index;
     };
     AdminManageIndustryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.loadData();
     };
     //  ---------------------------------Start-------------------------------------------
@@ -2632,10 +3070,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminManageOrganizationTypeComponent = /** @class */ (function () {
-    function AdminManageOrganizationTypeComponent(_adminService, _flashMessagesService, router, route) {
+    function AdminManageOrganizationTypeComponent(_adminService, _flashMessagesService, routes, route) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
-        this.router = router;
+        this.routes = routes;
         this.route = route;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
@@ -2655,6 +3093,36 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
         return index;
     };
     AdminManageOrganizationTypeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.loadData();
     };
     //  ---------------------------------Start-------------------------------------------
@@ -4669,6 +5137,606 @@ exports.CompanyAdditnInfoComponent = CompanyAdditnInfoComponent;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n\r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n\r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  .ftr h4{\r\n    font-size: 16px ;\r\n}\r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px !important;\r\n  }\r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n    .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n\r\n\r\n    .mat-checkbox-layout{\r\n      margin-bottom: 24px;\r\n  }\r\n  .control-label{\r\n    font-size: 14px;\r\n    font-weight: 400\r\n}\r\n.quest{\r\n  margin: 40px 20px;\r\n}\r\n.progrs{\r\n  margin: 10px 20px;\r\n}\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-12 bg-white\">\r\n  <div class=\"col-md-6 mid-division\">\r\n      <div class=\"col-md-8 col-md-offset-2\">\r\n        <div class=\"col-md-6 col-md-offset-3\">\r\n            <h4 class=\"theme-hd\">Create Theme</h4>            \r\n        </div>\r\n        <form class=\"example-form\" >\r\n          <table class=\"example-full-width\" cellspacing=\"0\"><tr>\r\n            <td> <h4>Title</h4></td>\r\n            <td><mat-form-field class=\"example-full-width\"> \r\n              <input matInput type=\"text\" placeholder=\"Title\" [(ngModel)]=\"newTheme.title\" name=\"title\" required [formControl]=\"titleFormControl\" class=\"nme\">\r\n              <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                  Title is <strong>required</strong>\r\n                </mat-error>\r\n            </mat-form-field></td></tr>\r\n            <tr>\r\n              <td>\r\n                <h4>Header</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.h_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.h_font_color\" [(ngModel)]=\"newTheme.h_font_color\" (colorPickerChange)=\"newTheme.h_font_color=newTheme.h_font_color\" name=\"h-f-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.h_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.h_bg_color\" [(ngModel)]=\"newTheme.h_bg_color\" (colorPickerChange)=\"newTheme.h_bg_color=newTheme.h_bg_color\" name=\"h-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.h_font_family\" name=\"h-f-f\" >\r\n                    <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                      {{ font.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.h_font_size\" name=\"h-f-s\">\r\n                    <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                      {{ fontsize.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n              </td>\r\n              <td>\r\n                <section class=\"example-section\">\r\n                  <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.h_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                  <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.h_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                </section>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <h4>Footer</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.f_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.f_font_color\" [(ngModel)]=\"newTheme.f_font_color\" (colorPickerChange)=\"newTheme.f_font_color=newTheme.f_font_color\" name=\"f-f-color\"/>\r\n              </td>\r\n            </tr>\r\n        \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n              </td>\r\n              <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.f_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.f_bg_color\" [(ngModel)]=\"newTheme.f_bg_color\" (colorPickerChange)=\"newTheme.f_bg_color=newTheme.f_bg_color\" name=\"f-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n        \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.f_font_family\" name=\"f-f-f\">\r\n                    <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                      {{ font.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n                              \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.f_font_size\" name=\"f-f-s\">\r\n                    <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                      {{ fontsize.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n              </td>\r\n              <td>\r\n                <section class=\"example-section\">\r\n                  <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.f_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                  <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.f_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                </section>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <h4>Question</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.q_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.q_font_color\" [(ngModel)]=\"newTheme.q_font_color\" (colorPickerChange)=\"newTheme.q_font_color=newTheme.q_font_color\" name=\"q-f-color\"/>\r\n              </td>\r\n            </tr>\r\n          \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n              </td>\r\n              <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.q_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.q_bg_color\" [(ngModel)]=\"newTheme.q_bg_color\" (colorPickerChange)=\"newTheme.q_bg_color=newTheme.q_bg_color\" name=\"q-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n          \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.q_font_family\" name=\"q-f-f\">\r\n                    <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                      {{ font.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n                                \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.q_font_size\" name=\"q-f-s \">\r\n                    <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                      {{ fontsize.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                </td>\r\n                <td>\r\n                  <section class=\"example-section\">\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.q_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.q_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                  </section>\r\n                </td>\r\n              </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <h4>Progress Bar Text</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.progress_text_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.progress_text_color\" [(ngModel)]=\"newTheme.progress_text_color\" (colorPickerChange)=\"newTheme.progress_text_color=newTheme.progress_text_color\" name=\"p-f-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                  <h4>Progress Bar Color</h4>\r\n                </td>\r\n                <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.progress_bar_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.progress_bar_color\" [(ngModel)]=\"newTheme.progress_bar_color\" (colorPickerChange)=\"newTheme.progress_bar_color=newTheme.progress_bar_color\" name=\"p-color\"/>\r\n                </td>\r\n              </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <h4>Body Background Color</h4>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.body_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.body_bg_color\" [(ngModel)]=\"newTheme.body_bg_color\" (colorPickerChange)=\"newTheme.body_bg_color=newTheme.body_bg_color\" name=\"b-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n          <tr>\r\n            <td>\r\n              <button type=\"submit\" (click)=\"submitTheme()\" class=\"btn btn-danger ourbutton\" [disabled]=\"submitBtnDisabled\">Submit</button> \r\n            </td>\r\n          </tr>\r\n        </table>\r\n      </form>\r\n      </div>\r\n      <!-- <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label for=\"inputEmail3\" class=\"col-sm-12 control-label\">Title</label>\r\n            <div class=\"col-sm-10\">\r\n              <input type=\"text\" class=\"form-control\"  placeholder=\"Title\">\r\n            </div>\r\n          </div>\r\n      </form> -->\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"col-md-8 col-md-offset-2\">\r\n      <h3 class=\"theme-pre-hd\">Preview</h3>\r\n      <div class=\"col-md-12 shdw\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12 hdr\" [ngStyle]=\"{'background-color': newTheme.h_bg_color}\"><h4 [ngStyle]=\"{'color': newTheme.h_font_color, 'font-size':newTheme.h_font_size, 'font-family':newTheme.h_font_family}\" [ngClass]=\"{ 'itlc' : newTheme.h_font_italic, 'bld': newTheme.h_font_bold}\">Sample Header</h4></div>\r\n          <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': newTheme.body_bg_color}\">\r\n            <div class=\"row\">\r\n                <div class=\"quest\" [ngStyle]=\"{'background-color': newTheme.q_bg_color}\">\r\n                    \r\n                         <h4 [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">1. Question here</h4>\r\n                         <mat-radio-group class=\"example-radio-group\">\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                         </mat-radio-group>\r\n                     \r\n                       \r\n                   </div>\r\n                   <div class=\"quest\" [ngStyle]=\"{'background-color': newTheme.q_bg_color}\">\r\n                         <h4 [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">2. Question here</h4>\r\n                         <mat-radio-group class=\"example-radio-group\">\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                         </mat-radio-group>\r\n                     \r\n                       \r\n                   </div>\r\n            </div>\r\n            \r\n            <div>\r\n              <div class=\"col-md-6 progrs\">\r\n                  <h5 [ngStyle]=\"{'color': newTheme.progress_text_color}\">Page No. 4 of 10</h5>\r\n                  <div class=\"progress\" >\r\n                      <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                      aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': newTheme.progress_bar_color}\">\r\n                        <span class=\"sr-only\">70% Complete</span>\r\n                      </div>\r\n                    </div> \r\n              </div>\r\n                          \r\n            </div> \r\n          </div>\r\n          <div class=\"col-md-12 ftr\" [ngStyle]=\"{'background-color': newTheme.f_bg_color}\"><h4 [ngStyle]=\"{'color': newTheme.f_font_color, 'font-size':newTheme.f_font_size, 'font-family':newTheme.f_font_family}\" [ngClass]=\"{ 'itlc' : newTheme.f_font_italic, 'bld': newTheme.f_font_bold}\">Sample Footer</h4></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n<div class=\"modal-dialog\">\r\n\r\n  <!-- Modal content-->\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <h4 class=\"modal-title\">Message</h4>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n        <h4></h4>\r\n    \r\n    </div>\r\n  \r\n    <div class=\"modal-footer\">\r\n      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var CompanyCreateThemeContainerComponent = /** @class */ (function () {
+    function CompanyCreateThemeContainerComponent(_companyService, _router) {
+        this._companyService = _companyService;
+        this._router = _router;
+        this.newTheme = {
+            title: "",
+            h_font_color: "#ffffff",
+            f_font_color: "#ffffff",
+            q_font_color: "#333333",
+            h_bg_color: "#1f7a90",
+            f_bg_color: "#195961",
+            q_bg_color: "#ffffff",
+            h_font_family: "Sans-Serif",
+            f_font_family: "Sans-Serif",
+            q_font_family: "Sans-Serif",
+            h_font_size: "18px",
+            f_font_size: "15px",
+            q_font_size: "14px",
+            progress_text_color: "#333333",
+            progress_bar_color: "#0e88ff",
+            body_bg_color: "#ffffff",
+            h_font_italic: false,
+            h_font_bold: false,
+            f_font_bold: false,
+            f_font_italic: false,
+            q_font_bold: false,
+            q_font_italic: false
+        };
+        this.titleFormControl = new forms_1.FormControl('', [
+            forms_1.Validators.required,
+        ]);
+        // public colorx : string = "#ffffff";
+        // public color2x : string = "#1f7a90";
+        // public color3x : string = "#ffffff";
+        // public color4x : string = "#195961";
+        // public color5x : string = "#333333";
+        // public color6x : string = "#ffffff";
+        // public color7x : string = "#333333";
+        // public color8x : string = "#0e88ff";
+        // public color9x : string = "#ffffff";
+        this.submitBtnDisabled = false;
+    }
+    CompanyCreateThemeContainerComponent.prototype.ngOnInit = function () {
+        this.getFontProperties();
+    };
+    CompanyCreateThemeContainerComponent.prototype.submitTheme = function () {
+        var _this = this;
+        this.submitBtnDisabled = true;
+        if (this.newTheme.title != "") {
+            this._companyService.saveTheme(this.newTheme).subscribe(function (theme) {
+                if (theme.status == 0) {
+                    _this.submitBtnDisabled = false;
+                    $('#myModal .modal-body h4').text("Theme name already exist!");
+                    $('#myModal').modal('show');
+                }
+                else if (theme.status == 1) {
+                    $('#myModal .modal-body h4').text("Error occured!");
+                    $('#myModal').modal('show');
+                    _this.submitBtnDisabled = false;
+                }
+                else {
+                    window.location.reload();
+                }
+            });
+        }
+        else {
+            this.submitBtnDisabled = false;
+        }
+    };
+    CompanyCreateThemeContainerComponent.prototype.getFontProperties = function () {
+        var _this = this;
+        this._companyService.getFonts().subscribe(function (fonts) {
+            // console.log(fonts);
+            _this.fonts = fonts;
+        });
+        this._companyService.getFontSize().subscribe(function (fontSize) {
+            // console.log(fontSize);
+            _this.fontSize = fontSize;
+        });
+    };
+    CompanyCreateThemeContainerComponent = __decorate([
+        core_1.Component({
+            selector: 'app-company-create-theme-container',
+            template: __webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.css")]
+        }),
+        __metadata("design:paramtypes", [company_service_1.CompanyService,
+            router_1.Router])
+    ], CompanyCreateThemeContainerComponent);
+    return CompanyCreateThemeContainerComponent;
+}());
+exports.CompanyCreateThemeContainerComponent = CompanyCreateThemeContainerComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-create-theme/company-create-theme.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-create-theme/company-create-theme.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<body>\r\n    <div id=\"wrapper\">\r\n      <!-- Navigation -->\r\n      <app-company-top-bar></app-company-top-bar>            \r\n      <app-company-sidebar></app-company-sidebar>\r\n      <div id=\"\">\r\n        <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n    \r\n          <!-- /.row -->\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n          <nav class=\"nav-sidebar\">\r\n            <ul class=\"nav tabs\">\r\n              <li [ngClass]=\"{'active1': viewComp == 'All'}\"><a (click)=\"updateView('list')\" href=\"#tab1\" data-toggle=\"tab\">Manage Themes</a></li>\r\n              <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('create')\" href=\"#tab4\" data-toggle=\"tab\">Create Themes</a></li> \r\n            </ul>\r\n          </nav>\r\n                                                       \r\n        </div>\r\n        <div class=\"col-md-10\">\r\n          <div *ngIf=\"viewComp == 'list'\">\r\n            <app-company-manage-themes></app-company-manage-themes>\r\n            <!-- <all-users></all-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'create'\">\r\n            <app-company-create-theme-container></app-company-create-theme-container>\r\n              <!-- <active-users></active-users> -->\r\n            </div>\r\n          <div *ngIf=\"viewComp == 'Blocked'\">\r\n            <!-- <disabled-users></disabled-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'Delete'\">\r\n            <!-- <deleted-users></deleted-users> -->\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /#page-wrapper -->\r\n    </div>\r\n    <footer></footer> \r\n    \r\n  </body>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-create-theme/company-create-theme.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var CompanyCreateThemeComponent = /** @class */ (function () {
+    function CompanyCreateThemeComponent() {
+        this.viewComp = "list";
+    }
+    CompanyCreateThemeComponent.prototype.ngOnInit = function () {
+    };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : updateView()
+    // Params        : name of the view to be shown
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : hide or show the components - manage/create
+    CompanyCreateThemeComponent.prototype.updateView = function (content) {
+        this.viewComp = content;
+    };
+    CompanyCreateThemeComponent = __decorate([
+        core_1.Component({
+            selector: 'app-company-create-theme',
+            template: __webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CompanyCreateThemeComponent);
+    return CompanyCreateThemeComponent;
+}());
+exports.CompanyCreateThemeComponent = CompanyCreateThemeComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-dashboard/company-dashboard.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n    margin-top: 20px;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n\r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n\r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  .ftr h4{\r\n    font-size: 16px;\r\n}\r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px ;\r\n  }\r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n    .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n\r\n\r\n\r\n    .test:after {\r\n      content: '\\2807';\r\n      font-size:25px;\r\n      }\r\n  \r\n  body {\r\n      margin-top: 100px;\r\n      background-color: #222;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      body {\r\n          margin-top: 50px;\r\n      }\r\n  }\r\n  \r\n  #wrapper {\r\n      padding-left: 0;\r\n  }\r\n  \r\n  #page-wrapper {\r\n      width: 100%;\r\n      padding: 0;\r\n      background-color: #fff;\r\n  }\r\n  \r\n  .huge {\r\n      font-size: 50px;\r\n      line-height: normal;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      #wrapper {\r\n          padding-left: 225px;\r\n      }\r\n  \r\n      #page-wrapper {\r\n          padding: 10px;\r\n      }\r\n  }\r\n  \r\n  /* Top Navigation */\r\n  \r\n  .top-nav {\r\n      padding: 0 15px;\r\n  }\r\n  \r\n  .top-nav>li {\r\n      display: inline-block;\r\n      float: left;\r\n  }\r\n  \r\n  .top-nav>li>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n      line-height: 20px;\r\n      color: #999;\r\n  }\r\n  \r\n  .top-nav>li>a:hover,\r\n  .top-nav>li>a:focus,\r\n  .top-nav>.open>a,\r\n  .top-nav>.open>a:hover,\r\n  .top-nav>.open>a:focus {\r\n      color: #fff;\r\n      background-color: #000;\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu {\r\n      float: left;\r\n      position: absolute;\r\n      margin-top: 0;\r\n      border: 1px solid rgba(0,0,0,.15);\r\n      border-top-left-radius: 0;\r\n      border-top-right-radius: 0;\r\n      background-color: #fff;\r\n      box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu>li>a {\r\n      white-space: normal;\r\n  }\r\n  \r\n  ul.message-dropdown {\r\n      padding: 0;\r\n      max-height: 250px;\r\n      overflow-x: hidden;\r\n      overflow-y: auto;\r\n  }\r\n  \r\n  li.message-preview {\r\n      width: 275px;\r\n      border-bottom: 1px solid rgba(0,0,0,.15);\r\n  }\r\n  \r\n  li.message-preview>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  li.message-footer {\r\n      margin: 5px 0;\r\n  }\r\n  \r\n  ul.alert-dropdown {\r\n      width: 200px;\r\n  }\r\n  \r\n  /* Side Navigation */\r\n  \r\n  @media(min-width:768px) {\r\n      .side-nav {\r\n          position: fixed;\r\n          top: 51px;\r\n          left: 225px;\r\n          width: 225px;\r\n          margin-left: -225px;\r\n          border: none;\r\n          border-radius: 0;\r\n          overflow-y: auto;\r\n          background-color: #222;\r\n          bottom: 0;\r\n          overflow-x: hidden;\r\n          padding-bottom: 40px;\r\n      }\r\n  \r\n      .side-nav>li>a {\r\n          width: 225px;\r\n      }\r\n  \r\n      .side-nav li a:hover,\r\n      .side-nav li a:focus {\r\n          outline: none;\r\n          background-color: #000 !important;\r\n      }\r\n  }\r\n  \r\n  .side-nav>li>ul {\r\n      padding: 0;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a {\r\n      display: block;\r\n      padding: 10px 15px 10px 38px;\r\n      text-decoration: none;\r\n      color: #999;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a:hover {\r\n      color: #fff;\r\n  }\r\n  \r\n  /* Flot Chart Containers */\r\n  \r\n  .flot-chart {\r\n      display: block;\r\n      height: 400px;\r\n  }\r\n  \r\n  .flot-chart-content {\r\n      width: 100%;\r\n      height: 100%;\r\n  }\r\n  \r\n  /* Custom Colored Panels */\r\n  \r\n  .huge {\r\n      font-size: 40px;\r\n  }\r\n  \r\n  .panel-green {\r\n      border-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > .panel-heading {\r\n      border-color: #5cb85c;\r\n      color: #fff;\r\n      background-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a {\r\n      color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a:hover {\r\n      color: #3d8b3d;\r\n  }\r\n  \r\n  .panel-red {\r\n      border-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > .panel-heading {\r\n      border-color: #d9534f;\r\n      color: #fff;\r\n      background-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a {\r\n      color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a:hover {\r\n      color: #b52b27;\r\n  }\r\n  \r\n  .panel-yellow {\r\n      border-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > .panel-heading {\r\n      border-color: #f0ad4e;\r\n      color: #fff;\r\n      background-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a {\r\n      color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a:hover {\r\n      color: #df8a13;\r\n  }\r\n  .active1{\r\n      background-color: #eee;\r\n  }\r\n  .control-label{\r\n      font-size: 14px;\r\n      font-weight: 400\r\n  }\r\n\r\n  .quest{\r\n    margin: 40px 20px;\r\n  }\r\n  .progrs{\r\n    margin: 10px 20px;\r\n  }\r\n\r\n\r\n\r\n\r\n  #map {\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n  .stations, .stations svg {\r\n    position: absolute;\r\n  }\r\n  \r\n  .stations svg {\r\n    width: 60px;\r\n    height: 20px;\r\n    padding-right: 100px;\r\n    font: 10px sans-serif;\r\n  }\r\n  \r\n  .stations circle {\r\n    fill: brown;\r\n    stroke: black;\r\n    stroke-width: 1.5px;\r\n  }", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-dashboard/company-dashboard.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n  <div id=\"wrapper\">\r\n      <!-- Navigation -->\r\n      <app-company-top-bar></app-company-top-bar>            \r\n      <app-company-sidebar></app-company-sidebar>\r\n      <div id=\"\">\r\n        <div class=\"container-fluid\">\r\n            <!-- Page Heading -->\r\n          \r\n            <!-- <div *ngFor=\"let item of locations\" >{{item.lat}} {{item.long}}</div> -->\r\n        \r\n          <div class=\"col-md-12\" >\r\n           <div class=\"row\">\r\n              <div class=\"col-md-12 bg-white\">\r\n                  <div class=\"row\">\r\n                      <div class=\"col-md-12 \">\r\n                          <div class=\"row\">\r\n                            \r\n                              <mat-form-field >\r\n                                  <mat-select placeholder=\"Select Survey\" [(ngModel)]=\"locations.x\" name=\"survey\" (change)=\"refresh()\" >\r\n                                    <ng-container *ngFor=\"let item of locations\" >\r\n                                          <mat-option  [value]=\"item._id\" *ngFor=\"let q of item.questions\">\r\n                                    <!-- <ng-container > -->\r\n                                            \r\n                                              {{ q.question }}\r\n                                    <!-- </ng-container > -->\r\n                                              \r\n                                            </mat-option>\r\n                                    </ng-container>\r\n                                  </mat-select>\r\n                                  \r\n                              </mat-form-field>\r\n                              <agm-map [latitude]=\"29.142687\" [longitude]=\"16.085013\" [zoom]=\"3\">\r\n                                  \r\n                                  <ng-container *ngFor=\"let item of locations; let i=index\">\r\n                                      \r\n                                      <ng-container *ngFor=\"let elem of item.questions\">\r\n                                        <ng-container *ngFor=\"let elemx of elem.answers\">\r\n                                            <!-- {{elemx.latitude}} -->\r\n                                          <agm-marker  [latitude]=\"ConvertString(elemx.latitude)\" [longitude]=\"ConvertString(elemx.longitude)\"></agm-marker>\r\n                                            \r\n                                        </ng-container>\r\n                                          \r\n                                      </ng-container>\r\n                                    </ng-container>\r\n                                      <!-- <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n                                      <agm-marker [latitude]=\"27.56\" [longitude]=\"-82.68\"></agm-marker>\r\n                                      <agm-marker [latitude]=\"42.05\" [longitude]=\"-119.47\"></agm-marker> -->\r\n                                      \r\n                                </agm-map>\r\n                                \r\n                                \r\n                          </div>\r\n                          \r\n                      </div>\r\n                  </div>\r\n                  \r\n                </div>\r\n           </div>\r\n            \r\n            \r\n          </div>\r\n          <div class=\"col-md-12\">\r\n            \r\n          </div>\r\n        </div>\r\n      <!-- /#page-wrapper -->\r\n    </div>\r\n    \r\n    </div>\r\n  \r\n  \r\n  \r\n  \r\n  \r\n    <div id=\"myModal\" class=\"modal fade\" role=\"dialog\" >\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Error</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"redirect()\">Close</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n    <footer></footer> \r\n    \r\n  "
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-dashboard/company-dashboard.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+// import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var CompanyDashboardComponent = /** @class */ (function () {
+    function CompanyDashboardComponent(_companyService, _router, config) {
+        this._companyService = _companyService;
+        this._router = _router;
+        this.config = config;
+        this.lat = 51.678418;
+        this.lng = 7.809007;
+        this.locations = [];
+        this.socket = socketIo(config.socketURL);
+    }
+    CompanyDashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.getMapPositions();
+        this.socket.on('closebid', function (data) {
+            console.log(data);
+            _this.getMapPositions();
+        });
+    };
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    CompanyDashboardComponent.prototype.getMapPositions = function () {
+        // this.locations.push({lat:27.56,long:-82.68});
+        // this.locations.push({lat:37.56,long:-72.68});
+        var _this = this;
+        this._companyService.getPositions().subscribe(function (survey) {
+            // console.log(theme);
+            _this.locations = survey;
+            // console.log(this.locations);
+            // survey.questions.forEach((element,i) => {
+            //   // this.locations[i].question = element.question;
+            //   // this.locations[i].answer = element.question;
+            //   // this.locations[i].question = element.question;
+            //   element.forEach((ele,j) => {
+            //     console.log(element._id.longitude);
+            //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
+            //   })
+            // });
+            console.log(_this.locations);
+            // this.locations.push({lat:27.56,long:-82.68});
+            // this.locations.push({lat:37.56,long:-72.68});
+            // console.log(this.locations);
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    CompanyDashboardComponent.prototype.getMapPositionsforId = function () {
+        // this.locations.push({lat:27.56,long:-82.68});
+        // this.locations.push({lat:37.56,long:-72.68});
+        var _this = this;
+        this._companyService.getPositions().subscribe(function (survey) {
+            // console.log(theme);
+            _this.locations = survey;
+            // console.log(this.locations);
+            // survey.questions.forEach((element,i) => {
+            //   // this.locations[i].question = element.question;
+            //   // this.locations[i].answer = element.question;
+            //   // this.locations[i].question = element.question;
+            //   element.forEach((ele,j) => {
+            //     console.log(element._id.longitude);
+            //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
+            //   })
+            // });
+            console.log(_this.locations);
+            // this.locations.push({lat:27.56,long:-82.68});
+            // this.locations.push({lat:37.56,long:-72.68});
+            // console.log(this.locations);
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    CompanyDashboardComponent.prototype.ConvertString = function (value) {
+        return parseFloat(value);
+    };
+    CompanyDashboardComponent = __decorate([
+        core_1.Component({
+            selector: 'app-company-dashboard',
+            template: __webpack_require__("../../../../../src/app/components/company-dashboard/company-dashboard.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-dashboard/company-dashboard.component.css")]
+        }),
+        __metadata("design:paramtypes", [company_service_1.CompanyService,
+            router_1.Router,
+            config_1.Config])
+    ], CompanyDashboardComponent);
+    return CompanyDashboardComponent;
+}());
+exports.CompanyDashboardComponent = CompanyDashboardComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n    background: #F1F1F1;\r\n  }\r\n  body h1 {\r\n    font-family: 'Lobster', cursive;\r\n    margin: 50px 20px 40px;\r\n    font-size: 50px;\r\n    letter-spacing: 0.5px;\r\n    color: #999999;\r\n    text-align: center;\r\n  }\r\n  \r\n  .rating {\r\n    width: 508px;\r\n    height: 40px;\r\n    margin: 0 auto;\r\n    padding: 40px 50px;\r\n    border: 1px solid #CCCCCC;\r\n    /* background: #F9F9F9; */\r\n  }\r\n  /* .rating label {\r\n    float: right;\r\n    position: relative;\r\n    width: 40px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n  } */\r\n  /* .rating label:not(:first-of-type) {\r\n    padding-right: 2px;\r\n  } */\r\n  /* .rating label:before {\r\n    content: \"\\2605\";\r\n    font-size: 42px;\r\n    color: #CCCCCC;\r\n    line-height: 1;\r\n  } */\r\n  /* .rating input {\r\n    display: none;\r\n  } */\r\n  /* .rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before {\r\n    color: #F9DF4A;\r\n  } */\r\n  \r\n  .xyz {\r\n    width: 508px;\r\n    height: 40px;\r\n    margin: 0 auto;\r\n    padding: 40px 50px;\r\n    border: 1px solid #CCCCCC;\r\n    background: #F9F9F9;\r\n  }\r\n  .xyz label {\r\n    float: right;\r\n    position: relative;\r\n    width: 40px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n  }\r\n  .xyz label:not(:first-of-type) {\r\n    padding-right: 2px;\r\n  }\r\n  .xyz label:before {\r\n    content: \"\\2605\";\r\n    font-size: 42px;\r\n    color: #CCCCCC;\r\n    line-height: 1;\r\n  }\r\n  .xyz input {\r\n    display: none;\r\n  }\r\n  /* .xyz input:checked ~ label:before, .xyz:not(:checked) > label:hover:before, .xyz:not(:checked) > label:hover ~ label:before {\r\n    color: #F9DF4A;\r\n  } */", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<div class=\"rating\" *ngIf=\"options !=[]\">\r\n    <ng-container *ngFor=\"let item of options\">\r\n            <input type=\"radio\" id=\"star5\" name=\"rating\" value=\"5\" /><label for=\"star5\" ></label>\r\n    </ng-container>\r\n<!--     \r\n    <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n    <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n    <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n    <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n</div>\r\n<script>\r\n \r\n</script>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var CompanyEditThemeContainerComponent = /** @class */ (function () {
+    function CompanyEditThemeContainerComponent() {
+    }
+    CompanyEditThemeContainerComponent.prototype.ngOnInit = function () {
+        console.log(this.options);
+        $(".rating ").css({ "background-color": "#ccc" });
+        // $(".rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before").css({"color": "#F9DF4A"});
+        $(".rating input:checked ~ label:before").css({ "color": "#F9DF4A" });
+        $(".rating input").css({ "display": "none" });
+        $(".rating label:before").css({ "content": "\\2605", "font-size": "42px", "color": "#CCCCCC", "line-height": "1" });
+        $(".rating label:not(:first-of-type)").css({ "padding-right": "2px" });
+        $(".rating label").css({ "float": "right", "position": "relative", "width": "40px", "height": "40px", "cursor": "pointer", });
+    };
+    CompanyEditThemeContainerComponent = __decorate([
+        core_1.Component({
+            selector: 'app-company-edit-theme-container',
+            template: __webpack_require__("../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.css")],
+            inputs: ["options", 'classz'],
+            template: "\n  <div class=\"container\">\n  \n      <!-- regular rating -->\n      <rating [(ngModel)]=\"starsCount\"></rating>\n      <br/><br/>\n  \n      <!-- rating with 10 stars -->\n      <rating [(ngModel)]=\"starsCount\"\n              [max]=\"10\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with custom icons -->\n      <rating [(ngModel)]=\"starsCount\"\n              fullIcon=\"\u25C6\"\n              emptyIcon=\"\u25C7\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating readonly -->\n      <rating [(ngModel)]=\"starsCount\"\n              [readonly]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating disabled -->\n      <rating [(ngModel)]=\"starsCount\"\n              [disabled]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating required -->\n      <rating [(ngModel)]=\"starsCount\"\n              [required]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with half stars -->\n      <rating [(ngModel)]=\"starsCount\"\n              [float]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with custom titles -->\n      <rating [(ngModel)]=\"starsCount\"\n              [titles]=\"['one', 'two', 'three', 'four', 'five']\">\n      </rating>\n      <br/><br/>\n  \n  </div>\n  ",
+        }),
+        __metadata("design:paramtypes", [])
+    ], CompanyEditThemeContainerComponent);
+    return CompanyEditThemeContainerComponent;
+}());
+exports.CompanyEditThemeContainerComponent = CompanyEditThemeContainerComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-edit-theme/company-edit-theme.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n    margin-top: 20px;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n\r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n\r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  .ftr h4{\r\n    font-size: 16px;\r\n}\r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px ;\r\n  }\r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n    .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n\r\n\r\n\r\n    .test:after {\r\n      content: '\\2807';\r\n      font-size:25px;\r\n      }\r\n  \r\n  body {\r\n      margin-top: 100px;\r\n      background-color: #222;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      body {\r\n          margin-top: 50px;\r\n      }\r\n  }\r\n  \r\n  #wrapper {\r\n      padding-left: 0;\r\n  }\r\n  \r\n  #page-wrapper {\r\n      width: 100%;\r\n      padding: 0;\r\n      background-color: #fff;\r\n  }\r\n  \r\n  .huge {\r\n      font-size: 50px;\r\n      line-height: normal;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      #wrapper {\r\n          padding-left: 225px;\r\n      }\r\n  \r\n      #page-wrapper {\r\n          padding: 10px;\r\n      }\r\n  }\r\n  \r\n  /* Top Navigation */\r\n  \r\n  .top-nav {\r\n      padding: 0 15px;\r\n  }\r\n  \r\n  .top-nav>li {\r\n      display: inline-block;\r\n      float: left;\r\n  }\r\n  \r\n  .top-nav>li>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n      line-height: 20px;\r\n      color: #999;\r\n  }\r\n  \r\n  .top-nav>li>a:hover,\r\n  .top-nav>li>a:focus,\r\n  .top-nav>.open>a,\r\n  .top-nav>.open>a:hover,\r\n  .top-nav>.open>a:focus {\r\n      color: #fff;\r\n      background-color: #000;\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu {\r\n      float: left;\r\n      position: absolute;\r\n      margin-top: 0;\r\n      border: 1px solid rgba(0,0,0,.15);\r\n      border-top-left-radius: 0;\r\n      border-top-right-radius: 0;\r\n      background-color: #fff;\r\n      box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu>li>a {\r\n      white-space: normal;\r\n  }\r\n  \r\n  ul.message-dropdown {\r\n      padding: 0;\r\n      max-height: 250px;\r\n      overflow-x: hidden;\r\n      overflow-y: auto;\r\n  }\r\n  \r\n  li.message-preview {\r\n      width: 275px;\r\n      border-bottom: 1px solid rgba(0,0,0,.15);\r\n  }\r\n  \r\n  li.message-preview>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  li.message-footer {\r\n      margin: 5px 0;\r\n  }\r\n  \r\n  ul.alert-dropdown {\r\n      width: 200px;\r\n  }\r\n  \r\n  /* Side Navigation */\r\n  \r\n  @media(min-width:768px) {\r\n      .side-nav {\r\n          position: fixed;\r\n          top: 51px;\r\n          left: 225px;\r\n          width: 225px;\r\n          margin-left: -225px;\r\n          border: none;\r\n          border-radius: 0;\r\n          overflow-y: auto;\r\n          background-color: #222;\r\n          bottom: 0;\r\n          overflow-x: hidden;\r\n          padding-bottom: 40px;\r\n      }\r\n  \r\n      .side-nav>li>a {\r\n          width: 225px;\r\n      }\r\n  \r\n      .side-nav li a:hover,\r\n      .side-nav li a:focus {\r\n          outline: none;\r\n          background-color: #000 !important;\r\n      }\r\n  }\r\n  \r\n  .side-nav>li>ul {\r\n      padding: 0;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a {\r\n      display: block;\r\n      padding: 10px 15px 10px 38px;\r\n      text-decoration: none;\r\n      color: #999;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a:hover {\r\n      color: #fff;\r\n  }\r\n  \r\n  /* Flot Chart Containers */\r\n  \r\n  .flot-chart {\r\n      display: block;\r\n      height: 400px;\r\n  }\r\n  \r\n  .flot-chart-content {\r\n      width: 100%;\r\n      height: 100%;\r\n  }\r\n  \r\n  /* Custom Colored Panels */\r\n  \r\n  .huge {\r\n      font-size: 40px;\r\n  }\r\n  \r\n  .panel-green {\r\n      border-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > .panel-heading {\r\n      border-color: #5cb85c;\r\n      color: #fff;\r\n      background-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a {\r\n      color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a:hover {\r\n      color: #3d8b3d;\r\n  }\r\n  \r\n  .panel-red {\r\n      border-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > .panel-heading {\r\n      border-color: #d9534f;\r\n      color: #fff;\r\n      background-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a {\r\n      color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a:hover {\r\n      color: #b52b27;\r\n  }\r\n  \r\n  .panel-yellow {\r\n      border-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > .panel-heading {\r\n      border-color: #f0ad4e;\r\n      color: #fff;\r\n      background-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a {\r\n      color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a:hover {\r\n      color: #df8a13;\r\n  }\r\n  .active1{\r\n      background-color: #eee;\r\n  }\r\n  .control-label{\r\n      font-size: 14px;\r\n      font-weight: 400\r\n  }\r\n\r\n  .quest{\r\n    margin: 40px 20px;\r\n  }\r\n  .progrs{\r\n    margin: 10px 20px;\r\n  }\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-edit-theme/company-edit-theme.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n  <div id=\"wrapper\">\r\n    <!-- Navigation -->\r\n    <app-company-top-bar></app-company-top-bar>            \r\n    <app-company-sidebar></app-company-sidebar>\r\n    <div id=\"\">\r\n      <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n    \r\n      \r\n        <div class=\"col-md-12\" *ngIf=\"displatStat\">\r\n         \r\n          <div class=\"col-md-12 bg-white\">\r\n            <div class=\"col-md-6 mid-division\">\r\n                <div class=\"col-md-8 col-md-offset-2\">\r\n                  <div class=\"col-md-6 col-md-offset-3\">\r\n                      <h4 class=\"theme-hd\">Edit Theme</h4>                    \r\n                      \r\n                  </div>\r\n                  <form class=\"example-form\" >\r\n                    <table class=\"example-full-width\" cellspacing=\"0\"><tr>\r\n                      <td> <h4>Title</h4></td>\r\n                      <td><mat-form-field class=\"example-full-width\"> \r\n                        <input matInput type=\"text\" placeholder=\"Title\" [(ngModel)]=\"Theme.title\" name=\"title\" required [formControl]=\"titleFormControl\" class=\"nme\">\r\n                        <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                          Title is empty<strong>required</strong>\r\n                          </mat-error>\r\n                      </mat-form-field></td></tr>\r\n                      <tr>\r\n                        <td>\r\n                          <h4>Header</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.h_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.h_font_color\" [(ngModel)]=\"Theme.h_font_color\" (colorPickerChange)=\"Theme.h_font_color=Theme.h_font_color\" name=\"h-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.h_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.h_bg_color\" [(ngModel)]=\"Theme.h_bg_color\" (colorPickerChange)=\"Theme.h_bg_color=Theme.h_bg_color\" name=\"h-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.h_font_family\" name=\"h-f-f\" >\r\n                              <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                {{ font.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.h_font_size\" name=\"h-f-s\">\r\n                              <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                {{ fontsize.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                        </td>\r\n                        <td>\r\n                          <section class=\"example-section\">\r\n                            <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.h_font_bold\" name=\"bold1\">Bold</mat-checkbox>\r\n                            <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.h_font_italic\" name=\"italic1\"><i>italic</i></mat-checkbox>\r\n                          </section>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <h4>Footer</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.f_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.f_font_color\" [(ngModel)]=\"Theme.f_font_color\" (colorPickerChange)=\"Theme.f_font_color=Theme.f_font_color\" name=\"f-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                  \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                        </td>\r\n                        <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.f_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.f_bg_color\" [(ngModel)]=\"Theme.f_bg_color\" (colorPickerChange)=\"Theme.f_bg_color=Theme.f_bg_color\" name=\"f-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                  \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.f_font_family\" name=\"f-f-f\">\r\n                              <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                {{ font.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n                                        \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.f_font_size\" name=\"f-f-s\">\r\n                              <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                {{ fontsize.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                        </td>\r\n                        <td>\r\n                          <section class=\"example-section\">\r\n                            <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.f_font_bold\" name=\"bold2\">Bold</mat-checkbox>\r\n                            <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.f_font_italic\" name=\"italic2\"><i>italic</i></mat-checkbox>\r\n                          </section>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <h4>Question</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.q_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.q_font_color\" [(ngModel)]=\"Theme.q_font_color\" (colorPickerChange)=\"Theme.q_font_color=Theme.q_font_color\" name=\"q-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                        </td>\r\n                        <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.q_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.q_bg_color\" [(ngModel)]=\"Theme.q_bg_color\" (colorPickerChange)=\"Theme.q_bg_color=Theme.q_bg_color\" name=\"q-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.q_font_family\" name=\"q-f-f\">\r\n                              <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                {{ font.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n                                          \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.q_font_size\" name=\"q-f-s \">\r\n                              <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                {{ fontsize.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                          </td>\r\n                          <td>\r\n                            <section class=\"example-section\">\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.q_font_bold\" name=\"bold3\">Bold</mat-checkbox>\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.q_font_italic\" name=\"italic3\"><i>italic</i></mat-checkbox>\r\n                            </section>\r\n                          </td>\r\n                        </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <h4>Progress Bar Text</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.progress_text_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.progress_text_color\" [(ngModel)]=\"Theme.progress_text_color\" (colorPickerChange)=\"Theme.progress_text_color=Theme.progress_text_color\" name=\"p-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                          <td>\r\n                            <h4>Progress Bar Color</h4>\r\n                          </td>\r\n                          <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.progress_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.progress_color\" [(ngModel)]=\"Theme.progress_color\" (colorPickerChange)=\"Theme.progress_color=Theme.progress_color\" name=\"p-color\"/>\r\n                          </td>\r\n                        </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <h4>Body Background Color</h4>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.b_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.b_bg_color\" [(ngModel)]=\"Theme.b_bg_color\" (colorPickerChange)=\"Theme.b_bg_color=Theme.b_bg_color\" name=\"b-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    <tr>\r\n                      <td>\r\n                        <button type=\"submit\" (click)=\"updateTheme()\" class=\"btn btn-danger ourbutton\" [disabled]=\"submitBtnDisabled\">Update</button> \r\n                      </td>\r\n                    </tr>\r\n                  </table>\r\n                </form>\r\n                </div>\r\n                <!-- <form class=\"form-horizontal\">\r\n                    <div class=\"form-group\">\r\n                      <label for=\"inputEmail3\" class=\"col-sm-12 control-label\">Title</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input type=\"text\" class=\"form-control\"  placeholder=\"Title\">\r\n                      </div>\r\n                    </div>\r\n                </form> -->\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <div class=\"col-md-8 col-md-offset-2\">\r\n                <h3 class=\"theme-pre-hd\">Preview</h3>\r\n                <div class=\"col-md-12 shdw\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-md-12 hdr\" [ngStyle]=\"{'background-color': Theme.h_bg_color}\"><h4 [ngStyle]=\"{'color': Theme.h_font_color, 'font-size':Theme.h_font_size, 'font-family':Theme.h_font_family}\" [ngClass]=\"{ 'itlc' : Theme.h_font_italic, 'bld': Theme.h_font_bold}\">Sample Header</h4></div>\r\n                    <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': Theme.b_bg_color}\">\r\n                      <div class=\"row\">\r\n                          <div class=\"quest\" [ngStyle]=\"{'background-color': Theme.q_bg_color}\">\r\n                              \r\n                                   <h4 [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">1. Question here</h4>\r\n                                   <mat-radio-group class=\"example-radio-group\">\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                                   </mat-radio-group>\r\n                               \r\n                                 \r\n                             </div>\r\n                             <div class=\"quest\" [ngStyle]=\"{'background-color': Theme.q_bg_color}\">\r\n                                   <h4 [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">2. Question here</h4>\r\n                                   <mat-radio-group class=\"example-radio-group\">\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                                   </mat-radio-group>\r\n                               \r\n                                 \r\n                             </div>\r\n                      </div>\r\n                      \r\n                      <div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <h5 [ngStyle]=\"{'color': Theme.progress_text_color}\">Page No. 4 of 10</h5>\r\n                            <div class=\"progress\" >\r\n                                <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': Theme.progress_color}\">\r\n                                  <span class=\"sr-only\">70% Complete</span>\r\n                                </div>\r\n                              </div> \r\n                        </div>\r\n                                    \r\n                      </div> \r\n                    </div>\r\n                    <div class=\"col-md-12 ftr\" [ngStyle]=\"{'background-color': Theme.f_bg_color}\"><h4 [ngStyle]=\"{'color': Theme.f_font_color, 'font-size':Theme.f_font_size, 'font-family':Theme.f_font_family}\" [ngClass]=\"{ 'itlc' : Theme.f_font_italic, 'bld': Theme.f_font_bold}\">Sample Footer</h4></div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          \r\n        </div>\r\n      </div>\r\n    <!-- /#page-wrapper -->\r\n  </div>\r\n  \r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\" >\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Error</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4></h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"redirect()\">Close</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n  <footer></footer> \r\n  \r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-edit-theme/company-edit-theme.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var CompanyEditThemeComponent = /** @class */ (function () {
+    function CompanyEditThemeComponent(_activatedRoute, _companyService, _router) {
+        this._activatedRoute = _activatedRoute;
+        this._companyService = _companyService;
+        this._router = _router;
+        this.displatStat = false;
+        this.titleFormControl = new forms_1.FormControl('', [
+            forms_1.Validators.required,
+        ]);
+        this.submitBtnDisabled = false;
+    }
+    CompanyEditThemeComponent.prototype.ngOnInit = function () {
+        this.getFontProperties();
+        this.getTheme();
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    CompanyEditThemeComponent.prototype.getTheme = function () {
+        var _this = this;
+        this._activatedRoute.params.subscribe(function (params) {
+            _this.themeId = params['id'];
+        });
+        this._companyService.getTheme(this.themeId).subscribe(function (theme) {
+            // console.log(theme);
+            if (theme) {
+                _this.Theme = theme;
+                _this.displatStat = true;
+            }
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getFontProperties
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 4-1-2018
+    // Last Modified : 4-1-2018, Manu Prasad 
+    // Desc          : Get fonts and font sizes from database
+    CompanyEditThemeComponent.prototype.getFontProperties = function () {
+        var _this = this;
+        this._companyService.getFonts().subscribe(function (fonts) {
+            // console.log(fonts);
+            _this.fonts = fonts;
+        });
+        this._companyService.getFontSize().subscribe(function (fontSize) {
+            // console.log(fontSize);
+            _this.fontSize = fontSize;
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : updateTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : update theme properties in  database
+    CompanyEditThemeComponent.prototype.updateTheme = function () {
+        // console.log(this.Theme);
+        this.submitBtnDisabled = true;
+        if (this.Theme.title != "") {
+            this._companyService.updateTheme(this.themeId, this.Theme).subscribe(function (res) {
+                console.log(res);
+                if (res.status == 0) {
+                    $('#myModal .modal-body h4').text('Error in updating!');
+                    $('#myModal').modal('show');
+                }
+                else if (res.status == 1) {
+                    $('#myModal .modal-body h4').text('Title is empty!');
+                    $('#myModal').modal('show');
+                }
+                else if (res.status == 2) {
+                    $('#myModal .modal-body h4').text('Successfully updated!');
+                    $('#myModal .modal-title').text('Message');
+                    $('#myModal').modal('show');
+                }
+                else {
+                    $('#myModal .modal-body h4').text('Error in updating!');
+                    $('#myModal').modal('show');
+                }
+            });
+        }
+        else {
+            this.submitBtnDisabled = false;
+        }
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : redirect
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 2-1-2018
+    // Last Modified : 2-1-2018, Manu Prasad 
+    // Desc          : redirect to manage theme page
+    CompanyEditThemeComponent.prototype.redirect = function () {
+        this._router.navigate(['./create-theme']);
+    };
+    CompanyEditThemeComponent = __decorate([
+        core_1.Component({
+            selector: 'app-company-edit-theme',
+            template: __webpack_require__("../../../../../src/app/components/company-edit-theme/company-edit-theme.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-edit-theme/company-edit-theme.component.css")]
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            company_service_1.CompanyService,
+            router_1.Router])
+    ], CompanyEditThemeComponent);
+    return CompanyEditThemeComponent;
+}());
+exports.CompanyEditThemeComponent = CompanyEditThemeComponent;
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/company-email-verification/company-email-verification.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4970,6 +6038,150 @@ var CompanyLoginComponent = /** @class */ (function () {
     return CompanyLoginComponent;
 }());
 exports.CompanyLoginComponent = CompanyLoginComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-manage-themes/company-manage-themes.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n\r\n  \r\n\r\n\r\n\r\n  .modal-content{border-radius:0;box-shadow:none;}\r\n  .modal-header {\r\n      padding: 7px 15px;\r\n      border-bottom: 1px solid #e5e5e5;\r\n      background: #da524f;\r\n  }\r\n  .modal-title {\r\n      margin: 0;\r\n      line-height: 26px;\r\n      font-size: 15px;\r\n      color: #fff;\r\n  }\r\n  .close {\r\n     \r\n      font-size: 21px;\r\n      font-weight: 400;\r\n      line-height: 28px;\r\n      color: #fff;\r\n      text-shadow: none;\r\n      filter: alpha(opacity=20);\r\n      opacity: inherit;\r\n      padding-top:0px;\r\n  }\r\n  a{outline:none; }\r\n  .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n  #myModal{\r\n    z-index: 2000;\r\n  }\r\n  .margin-class{\r\n    \r\n  }", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-manage-themes/company-manage-themes.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-8 col-md-offset-2\">\r\n  <div class=\"example-header\" *ngIf=\"displatStat\">\r\n    <mat-form-field>\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n    </div>\r\n    \r\n    <div class=\"example-container mat-elevation-z8\">\r\n    \r\n    <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n    \r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n  \r\n      <!-- Theme Name -->\r\n      <ng-container matColumnDef=\"name\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> THEME NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.title}} </mat-cell>\r\n      </ng-container>\r\n    \r\n      <!-- Progress Column -->\r\n      <!-- <ng-container matColumnDef=\"mybid\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Your Bids </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">  -->\r\n          \r\n          <!-- {{row.status}} -->\r\n          <!-- {{row.h_font_family }} -->\r\n          <!-- <p *ngFor=\"let bid of row.mybid\">{{row.h_font_family }} : {{bid.date_time | date: 'dd-MM-yyyy h:mm a'}}</p> -->\r\n        <!-- </mat-cell>\r\n      </ng-container> -->\r\n    \r\n      <!-- ID Column -->\r\n      <!-- <ng-container matColumnDef=\"topbid\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Top Bid </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> {{row.progress_text_color }} </mat-cell>\r\n        </ng-container> -->\r\n    \r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"status\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n            <mat-icon>more_vert</mat-icon>\r\n          </button>\r\n          <mat-menu #menu=\"matMenu\">\r\n            <button mat-menu-item  (click)=\"getThemeId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n              <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n              <span>Delete</span>\r\n            </button>\r\n            <button mat-menu-item [routerLink]=\"['/edit-theme/',row._id]\">\r\n              <mat-icon>mode_edit</mat-icon>\r\n              <span>Edit</span>\r\n            </button>\r\n            \r\n          </mat-menu>\r\n           </mat-cell>\r\n        </ng-container>\r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n    </div>\r\n\r\n</div>\r\n  \r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\" >\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Error</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n          <h4></h4>\r\n      \r\n      </div>\r\n    \r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Delete</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteTheme(themeId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n    \r\n\r\n  \r\n\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-manage-themes/company-manage-themes.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var CompanyManageThemesComponent = /** @class */ (function () {
+    function CompanyManageThemesComponent(_companyService, _router) {
+        this._companyService = _companyService;
+        this._router = _router;
+        this.displayedColumns = ['id', 'name', 'status'];
+        this.displatStat = false;
+        this.showErr = false;
+    }
+    CompanyManageThemesComponent.prototype.ngOnInit = function () {
+        this.getThemes();
+    };
+    CompanyManageThemesComponent.prototype.applyFilter = function (filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    };
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getThemes
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : Get Themes from database
+    CompanyManageThemesComponent.prototype.getThemes = function () {
+        var _this = this;
+        this._companyService.getThemes().subscribe(function (themes) {
+            console.log(themes);
+            if (themes) {
+                _this.displatStat = true;
+                _this.dataSource = new material_1.MatTableDataSource(themes);
+                _this.dataSource.paginator = _this.paginator;
+                _this.dataSource.sort = _this.sort;
+            }
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getThemeId
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : pass id to modal for deleting
+    CompanyManageThemesComponent.prototype.getThemeId = function (id) {
+        this.themeId = id;
+        console.log(id);
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getThemeId
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : pass id to modal for deleting
+    CompanyManageThemesComponent.prototype.deleteTheme = function (id) {
+        var _this = this;
+        console.log(id);
+        this._companyService.deleteTheme(id).subscribe(function (res) {
+            console.log(res);
+            if (res.status == 2) {
+                _this.getThemes();
+            }
+            else if (res.status == 0) {
+                $('#myModal .modal-body h4').text('Theme is currently used for a survey!');
+                $('#myModal').modal('show');
+            }
+            else {
+                $('#myModal .modal-body h4').text('Error in deleting theme!');
+                $('#myModal').modal('show');
+            }
+        });
+    };
+    __decorate([
+        core_1.ViewChild(material_1.MatPaginator),
+        __metadata("design:type", material_1.MatPaginator)
+    ], CompanyManageThemesComponent.prototype, "paginator", void 0);
+    __decorate([
+        core_1.ViewChild(material_1.MatSort),
+        __metadata("design:type", material_1.MatSort)
+    ], CompanyManageThemesComponent.prototype, "sort", void 0);
+    CompanyManageThemesComponent = __decorate([
+        core_1.Component({
+            selector: 'app-company-manage-themes',
+            template: __webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.css")]
+        }),
+        __metadata("design:paramtypes", [company_service_1.CompanyService,
+            router_1.Router])
+    ], CompanyManageThemesComponent);
+    return CompanyManageThemesComponent;
+}());
+exports.CompanyManageThemesComponent = CompanyManageThemesComponent;
 
 
 /***/ }),
@@ -5702,7 +6914,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-sidebar/company-sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/dashboard\"> Survey</a>\r\n \r\n  <li >\r\n          <a><i class=\"fa fa-users\"></i> Dashboard</a>\r\n     \r\n  </li>\r\n  <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <!-- <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-product-hunt\"></i> Users</a>  -->\r\n      <a [routerLink]=\"['/company-users']\" ><i class=\"fa fa-product-hunt\"></i> Users</a> \r\n      \r\n  </li>\r\n  <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n    <!-- <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-product-hunt\"></i> Users</a>  -->\r\n    <a [routerLink]=\"['/company-manage-user-groups']\" ><i class=\"fa fa-users\"></i> Manage user groups</a> \r\n    \r\n</li>\r\n  <li>\r\n      <a ><i class=\"fa fa-fw fa-arrows-v\"></i> Groups </a>\r\n     \r\n  </li>\r\n  <li>\r\n      <a ><i class=\"fa fa-fw fa-arrows-v\"></i> Themes </a>\r\n     \r\n  </li>\r\n\r\n  <li>\r\n      <a ><i class=\"fa fa-fw fa-arrows-v\"></i> Survey </a>\r\n     \r\n  </li>\r\n  \r\n  \r\n</ul>"
+module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n    <!-- <li> -->\r\n        <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n    <!-- </li> -->\r\n    <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/dashboard\"> Survey</a>\r\n   \r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n            <a [routerLink]=\"['/dashboard']\"><i class=\"fa fa-users\"></i> Dashboard</a>\r\n       \r\n    </li>\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n            <!-- <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-product-hunt\"></i> Users</a>  -->\r\n            <a [routerLink]=\"['/company-users']\" ><i class=\"fa fa-product-hunt\"></i> Users</a> \r\n            \r\n        </li>\r\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n          <!-- <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-product-hunt\"></i> Users</a>  -->\r\n          <a [routerLink]=\"['/company-manage-user-groups']\" ><i class=\"fa fa-users\"></i> Manage user groups</a> \r\n          \r\n      </li>\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n        <a [routerLink]=\"['/create-theme']\"><i class=\"fa fa-fw fa-arrows-v\"></i> Themes </a>\r\n       \r\n    </li>\r\n\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n        <a ><i class=\"fa fa-fw fa-arrows-v\"></i> Survey </a>\r\n       \r\n    </li>\r\n</ul>\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n \r\n<!-- </ul> -->\r\n"
 
 /***/ }),
 
@@ -5763,7 +6975,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-top-bar/company-top-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\" role=\"navigation\">\r\n    <!-- Brand and toggle get grouped for better mobile display -->\r\n    \r\n   \r\n    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->\r\n    <div class=\"collapse navbar-collapse navbar-ex1-collapse\">\r\n        <div class=\"navbar-header\">\r\n            \r\n         <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-ex1-collapse\">\r\n             <span class=\"sr-only\">Toggle navigation</span>\r\n             <span class=\"icon-bar\"></span>\r\n             <span class=\"icon-bar\"></span>\r\n             <span class=\"icon-bar\"></span>\r\n         </button>\r\n        \r\n        </div>\r\n   \r\n        <ul class=\"nav navbar-nav pull-right profilz\">\r\n            \r\n                <li class=\"dropdown notification\">\r\n                     \r\n                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                          <span class=\"glyphicon glyphicon-bell alertNotificacao\"></span>\r\n                          <span class='badgeAlert'>{{count}}</span>\r\n                          <span class=\"\"></span></a>\r\n                         \r\n                        <ul class=\"list-notificacao dropdown-menu\" >\r\n                              <h5>Accepted Users</h5>\r\n                          <li id='item_notification_1' *ngFor=\"let users of dataArray;\" >\r\n                              <div class=\"media\" >\r\n                            \r\n                                 <div class=\"media-body\" (click)=\"notifViewed(users.email,users.id)\">\r\n                                    <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs button_exclusao' id='1' (click)=\"notifViewed(users.email,users.id)\">x</button>\r\n                                    </div>\r\n                                    <h4 class=\"media-heading\"></h4>\r\n                                   \r\n                                    <h5>Admin has blocked the user {{users.email}}</h5>\r\n                                  </div>\r\n                           </div>\r\n                           </li>    \r\n                          \r\n                        </ul>\r\n                    \r\n                     </li>\r\n            <li class=\"dropdown\">\r\n              <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Iasmani Pinazo <span class=\"glyphicon glyphicon-user pull-right\"></span></a>\r\n              <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Profile <span class=\"glyphicon glyphicon-cog pull-right\"></span></a></li>\r\n                \r\n                <li class=\"divider\"></li>\r\n                <li>\r\n                    <a  (click)=\"logout()\" ><span class=\"glyphicon glyphicon-log-out pull-right\"></span> LogOut </a>\r\n                    \r\n                </li>\r\n              </ul>\r\n            </li>\r\n  \r\n            \r\n          </ul>\r\n       \r\n          \r\n    </div>\r\n    <!-- /.navbar-collapse -->\r\n  </nav>\r\n  \r\n  <!-- Top Menu Items -->\r\n  <ul class=\"nav navbar-right top-nav\">\r\n    <li class=\"dropdown\" *ngFor= \"let item of info\">\r\n            \r\n        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bell\"><div class=\"notify-count\">2</div></i> <b class=\"caret\"></b></a>\r\n        <ul class=\"dropdown-menu message-dropdown\">\r\n            <li class=\"message-preview\"  >\r\n                <a >\r\n                    <div class=\"media\">\r\n                        <div class=\"row\">\r\n                        <div class=\"col-md-4\">\r\n                        <span class=\"pull-left\">\r\n                            <img class=\"media-object\"\r\n                            \r\n                             alt=\"\">\r\n                        </span>\r\n                       </div>\r\n                       <div class=\"col-md-8\">\r\n                        <div class=\"media-body\">\r\n                            <h5 class=\"media-heading\">\r\n                                <strong>Name</strong>\r\n                            </h5>\r\n                            \r\n                            <p>Item confirmed by bidder</p>\r\n                        </div>\r\n                        </div>\r\n                        </div>\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <!-- <li class=\"message-footer\">\r\n                <a href=\"#\">Read All New Messages</a>\r\n            </li> -->\r\n        </ul>\r\n    </li>\r\n    \r\n    \r\n  </ul>"
+module.exports = "<nav class=\"navbar navbar-inverse\" role=\"navigation\">\r\n    <!-- Brand and toggle get grouped for better mobile display -->\r\n    \r\n   \r\n    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->\r\n    <div class=\"collapse navbar-collapse navbar-ex1-collapse\">\r\n        <div class=\"navbar-header\">\r\n            \r\n         <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-ex1-collapse\">\r\n             <span class=\"sr-only\">Toggle navigation</span>\r\n             <span class=\"icon-bar\"></span>\r\n             <span class=\"icon-bar\"></span>\r\n             <span class=\"icon-bar\"></span>\r\n         </button>\r\n        \r\n        </div>\r\n   \r\n        <ul class=\"nav navbar-nav pull-right profilz\">\r\n            \r\n                <li class=\"dropdown notification\">\r\n                     \r\n                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                          <span class=\"glyphicon glyphicon-bell alertNotificacao\"></span>\r\n                          <span class='badgeAlert'>{{count}}</span>\r\n                          <span class=\"\"></span></a>\r\n                         \r\n                        <ul class=\"list-notificacao dropdown-menu\" >\r\n                              <h5>Accepted Users</h5>\r\n                          <li id='item_notification_1' *ngFor=\"let users of dataArray;\" >\r\n                              <div class=\"media\" >\r\n                            \r\n                                 <div class=\"media-body\" (click)=\"notifViewed(users.email,users.id)\">\r\n                                    <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs button_exclusao' id='1' (click)=\"notifViewed(users.email,users.id)\">x</button>\r\n                                    </div>\r\n                                    <h4 class=\"media-heading\"></h4>\r\n                                   \r\n                                    <h5>Admin has blocked the user {{users.email}}</h5>\r\n                                  </div>\r\n                           </div>\r\n                           </li>    \r\n                          \r\n                        </ul>\r\n                    \r\n                     </li>\r\n            <li class=\"dropdown\">\r\n              <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Iasmani Pinazo <span class=\"glyphicon glyphicon-user pull-right\"></span></a>\r\n              <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Profile <span class=\"glyphicon glyphicon-cog pull-right\"></span></a></li>\r\n                \r\n                <li class=\"divider\"></li>\r\n                <li>\r\n                    <a  (click)=\"logout()\" ><span class=\"glyphicon glyphicon-log-out pull-right\"></span> LogOut </a>\r\n                    \r\n                </li>\r\n              </ul>\r\n            </li>\r\n  \r\n            \r\n          </ul>\r\n       \r\n          \r\n    </div>\r\n    <!-- /.navbar-collapse -->\r\n  </nav>\r\n  \r\n  <!-- Top Menu Items -->\r\n  <ul class=\"nav navbar-right top-nav\">\r\n    <li class=\"dropdown\" *ngFor= \"let item of info\">\r\n            \r\n        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bell\"><div class=\"notify-count\">2</div></i> <b class=\"caret\"></b></a>\r\n        <ul class=\"dropdown-menu message-dropdown\">\r\n            <li class=\"message-preview\"  >\r\n                <a >\r\n                    <div class=\"media\">\r\n                        <div class=\"row\">\r\n                        <div class=\"col-md-4\">\r\n                        <span class=\"pull-left\">\r\n                            <img class=\"media-object\"\r\n                            \r\n                             alt=\"\">\r\n                        </span>\r\n                       </div>\r\n                       <div class=\"col-md-8\">\r\n                        <div class=\"media-body\">\r\n                            <h5 class=\"media-heading\">\r\n                                <strong>Name</strong>\r\n                            </h5>\r\n                            \r\n                            <p>Item confirmed by bidder</p>\r\n                        </div>\r\n                        </div>\r\n                        </div>\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <!-- <li class=\"message-footer\">\r\n                <a href=\"#\">Read All New Messages</a>\r\n            </li> -->\r\n        </ul>\r\n    </li>\r\n    \r\n    \r\n  </ul>\r\n"
 
 /***/ }),
 
@@ -6284,6 +7496,86 @@ exports.CompanyUsersComponent = CompanyUsersComponent;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/count-down-timer/count-down-timer.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var Rx_1 = __webpack_require__("../../../../rxjs/_esm5/Rx.js");
+var CountDownTimerComponent = /** @class */ (function () {
+    function CountDownTimerComponent(elm) {
+        this.onTimeOver = new core_1.EventEmitter();
+        this.futureString = elm.nativeElement.getAttribute('inputDate');
+    }
+    CountDownTimerComponent.prototype.dhms = function (t) {
+        var days, hours, minutes, seconds;
+        days = Math.floor(t / 86400);
+        t -= days * 86400;
+        hours = Math.floor(t / 3600);
+        t -= hours * 3600;
+        minutes = Math.floor(t / 60) % 60;
+        t -= minutes * 60;
+        seconds = t % 60;
+        if (hours < 0) {
+            this.subscription.unsubscribe();
+            this.onTimeOver.emit();
+            return "0:00:00";
+        }
+        else {
+            return [
+                days + 'days ',
+                hours + ':',
+                this.lpad(minutes) + ':',
+                this.lpad(seconds)
+            ].join('');
+        }
+    };
+    CountDownTimerComponent.prototype.lpad = function (num) {
+        var s = num + "";
+        if (s.length < 2)
+            s = "0" + s;
+        return s;
+    };
+    CountDownTimerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log(this.addClass);
+        this.future = new Date(this.inputDate);
+        this.$counter = Rx_1.Observable.interval(1000).map(function (x) {
+            _this.diff = Math.floor((_this.future.getTime() - new Date().getTime()) / 1000);
+            return x;
+        });
+        this.subscription = this.$counter.subscribe(function (x) { return _this.message = _this.dhms(_this.diff); });
+    };
+    CountDownTimerComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
+    };
+    CountDownTimerComponent = __decorate([
+        core_1.Component({
+            selector: 'app-count-down-timer',
+            template: "\n  <div [ngClass]=\"addClass\">\n    {{message}}\n  </div>\n",
+            inputs: ["inputDate", "addClass"],
+            outputs: ['onTimeOver']
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], CountDownTimerComponent);
+    return CountDownTimerComponent;
+}());
+exports.CountDownTimerComponent = CountDownTimerComponent;
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/newpie/newpie.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6553,7 +7845,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/reference-component/reference-component.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\n    \n                  <div id=\"wrapper\">\n              \n                      <!-- Navigation -->\n                      <top-bar></top-bar>            \n          <side-bar></side-bar>\n              \n                      <div id=\"\">\n                          <div class=\"container-fluid\">\n                                  \n                                              <!-- Page Heading -->\n                                            \n                                        \n                                              <!-- /.row -->\n                              \n                                          </div>\n                          <div class=\"col-md-2\">\n                                <nav class=\"nav-sidebar\">\n                                    <ul class=\"nav tabs\">\n                                          <li [ngClass]=\"{'active1': viewComp == 'All'}\"><a (click)=\"updateView('All')\" href=\"#tab1\" data-toggle=\"tab\">All Users</a></li>\n                                          <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \n                                          <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\n                                          <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>  \n                                                                       \n                                    </ul>\n                                  </nav>\n                          </div>\n                          <div class=\"col-md-10\">\n                              \n                            \n      \n                              <div *ngIf=\"viewComp == 'All'\">\n                                <!-- <all-users></all-users> -->\n                              </div>\n                              <div *ngIf=\"viewComp == 'Active'\">\n                                  <!-- <active-users></active-users> -->\n                                </div>\n                              <div *ngIf=\"viewComp == 'Blocked'\">\n                                <!-- <disabled-users></disabled-users> -->\n                              </div>\n                              <div *ngIf=\"viewComp == 'Delete'\">\n                                <!-- <deleted-users></deleted-users> -->\n                              </div>\n                          </div>\n                          \n                        </div>\n                        <!-- /#page-wrapper -->\n                        \n                                   \n                        </div>\n                        \n                        <footer></footer> \n                          \n                        </body>"
+module.exports = "<body>\r\n  <div id=\"wrapper\">\r\n    <!-- Navigation -->\r\n    <top-bar></top-bar>            \r\n    <side-bar></side-bar>\r\n    <div id=\"\">\r\n      <div class=\"container-fluid\">\r\n        <!-- Page Heading -->\r\n      \r\n  \r\n        <!-- /.row -->\r\n      </div>\r\n      <div class=\"col-md-2\">\r\n        <nav class=\"nav-sidebar\">\r\n          <ul class=\"nav tabs\">\r\n            <li [ngClass]=\"{'active1': viewComp == 'All'}\"><a (click)=\"updateView('All')\" href=\"#tab1\" data-toggle=\"tab\">All Users</a></li>\r\n            <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n            <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n            <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>  \r\n          </ul>\r\n        </nav>\r\n                                                     \r\n      </div>\r\n      <div class=\"col-md-10\">\r\n        <div *ngIf=\"viewComp == 'All'\">\r\n          <!-- <all-users></all-users> -->\r\n        </div>\r\n        <div *ngIf=\"viewComp == 'Active'\">\r\n            <!-- <active-users></active-users> -->\r\n          </div>\r\n        <div *ngIf=\"viewComp == 'Blocked'\">\r\n          <!-- <disabled-users></disabled-users> -->\r\n        </div>\r\n        <div *ngIf=\"viewComp == 'Delete'\">\r\n          <!-- <deleted-users></deleted-users> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <!-- /#page-wrapper -->\r\n  </div>\r\n  <footer></footer> \r\n  \r\n</body>\r\n        \r\n    \r\n                \r\n\r\n\r\n              \r\n              \r\n            \r\n\r\n        \r\n                   \r\n    "
 
 /***/ }),
 
@@ -7108,6 +8400,652 @@ exports.UserResponseEmailComponent = UserResponseEmailComponent;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/user-survey-closed/user-survey-closed.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".survey-close {\r\n    text-align: center;\r\n    padding-top: 20%;\r\n}\r\n\r\n.user-layout .navbar-brand {\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    float: none;\r\n}\r\n\r\n.user-layout {}\r\n\r\n.navbar {\r\n    border-radius: 0;\r\n}\r\n\r\n.user-layout h2 {\r\n    font-family: \"Roboto-Regular\";\r\n    text-align: left;\r\n    font-size: 20px;\r\n    color: #111;\r\n}\r\n\r\n.checkbox,\r\n.radio {\r\n    text-align: left;\r\n}\r\n\r\n.radio label {\r\n    padding-left: 11px;\r\n}\r\n\r\n.radio input[type=radio] {\r\n    margin-left: -14px;\r\n}\r\n\r\n.example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n}\r\n\r\n.example-radio-button {\r\n    margin: 5px;\r\n}\r\n\r\n.example-selected-value {\r\n    margin: 15px 0;\r\n}\r\n\r\n.checked {\r\n    color: #ea5a5a;\r\n}\r\n\r\n.user-layout .styles1 {\r\n    border: 0;\r\n    border-bottom: 1px solid #dbdbdb;\r\n    font-family: \"Roboto-Regular\";\r\n    background: none;\r\n    padding: 10px 0px;\r\n    font-size: 13px;\r\n    max-width: 400px;\r\n    width: 100%;\r\n    color: #5d5d5d !important;\r\n    float: left;\r\n}\r\n\r\n.input-group {\r\n    position: relative;\r\n    display: table;\r\n    border-collapse: separate;\r\n    width: 100%;\r\n}\r\n\r\n.navbar-brand {}\r\n\r\n.btn {\r\n    border-radius: 16px !important;\r\n    padding: 6px 22px !important;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n    font-size: 18px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n}\r\n\r\n.navbar-brand h2 {\r\n    color: #fff !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n    font-size: 40px !important;\r\n}\r\n\r\n.x-new {\r\n    background-color: #5d3c3c;\r\n    border: none;\r\n    min-height: 80px;\r\n}\r\n\r\n.user-layout footer {\r\n    background: #111;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 20px 0;\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n}\r\n\r\n.mrgrght {\r\n    margin-right: 10px;\r\n}\r\n\r\n.bg-color {\r\n    background: #f6e8e8;\r\n    padding: 20px 10px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\np {\r\n    font-family: \"Roboto-Regular\";\r\n}\r\n\r\n.survey-close .fa-exclamation-triangle {\r\n    color: #fba21b;\r\n    text-align: center;\r\n    font-size: 148px;\r\n}\r\n\r\n.survey-close h2 {\r\n    font-family: sans-serif;\r\n    text-align: center;\r\n    font-size: 50px;\r\n}\r\n\r\n.survey-close h3 {\r\n    text-align: center;\r\n    font-size: 50px;\r\n    color: #d9534f;\r\n}\r\n\r\n.survey-close {\r\n    text-align: center;\r\n    padding-top: 9%;\r\n}\r\n\r\n.progress {\r\n    position: relative;\r\n    height: 25px;\r\n}\r\n\r\n.progress > .progress-type {\r\n    position: absolute;\r\n    left: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 30px 2px 10px;\r\n    color: rgb(255, 255, 255);\r\n    background-color: rgba(25, 25, 25, 0.2);\r\n}\r\n\r\n.progress > .progress-completed {\r\n    position: absolute;\r\n    right: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 10px 2px;\r\n}\r\n\r\n.progress-bar {\r\n    background-color: #da524f;\r\n}\r\n\r\n.bs-wizard {\r\n    margin-top: 14px;\r\n}\r\n\r\n\r\n/*Form Wizard*/\r\n\r\n.bs-wizard {\r\n    border-bottom: solid 1px #e0e0e0;\r\n    padding: 0 0 10px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step {\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step + .bs-wizard-step {}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {\r\n    color: #595959;\r\n    font-size: 16px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-info {\r\n    color: #999;\r\n    font-size: 14px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot {\r\n    position: absolute;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: block;\r\n    background: #da524f94;\r\n    top: 45px;\r\n    left: 50%;\r\n    margin-top: -15px;\r\n    margin-left: -15px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {\r\n    content: ' ';\r\n    width: 14px;\r\n    height: 14px;\r\n    background: #da524f;\r\n    border-radius: 50px;\r\n    position: absolute;\r\n    top: 8px;\r\n    left: 8px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress {\r\n    position: relative;\r\n    border-radius: 0px;\r\n    height: 8px;\r\n    box-shadow: none;\r\n    margin: 20px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress > .progress-bar {\r\n    width: 0px;\r\n    box-shadow: none;\r\n    background: #efc9c9;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {\r\n    width: 0%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {\r\n    opacity: 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child > .progress {\r\n    left: 50%;\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child > .progress {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n/******survey**********/\r\n\r\n.survey {}\r\n\r\n.survey header {\r\n    background: #4c7e9a;\r\n    width: 100%;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey header h2 {\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey header h4 {\r\n    color: #fff;\r\n    font-size: 12px;\r\n}\r\n\r\n.survey .logo {\r\n    margin: 0 auto;\r\n    max-width: 200px;\r\n    width: 100%;\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey footer {\r\n    background: #111;\r\n    width: 100%;\r\n    padding: 10px 0;\r\n    text-align: center;\r\n    color: #fff;\r\n    text-align: center;\r\n    font-size: 12px;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey label {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #616161;\r\n    font-size: 13px;\r\n}\r\n\r\n.survey h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #111;\r\n    margin-bottom: 0;\r\n    font-size: 16px;\r\n}\r\n\r\n.survey .question {\r\n    color: #31708f;\r\n    background-color: #d9edf7;\r\n    border-color: #bce8f1;\r\n    padding: 11px;\r\n    margin-bottom: 20px;\r\n    border: 1px solid transparent;\r\n    border-radius: 4px;\r\n    overflow: hidden;\r\n}\r\n\r\n.survey .question h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #000;\r\n    margin-top: 0;\r\n}\r\n\r\n.survey .question .fa {\r\n    padding: 4px;\r\n}\r\n\r\n.survey .question .fa:hover {\r\n    opacity: 0.6;\r\n}\r\n.srvey-hd{\r\n    margin-top: 40px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-closed/user-survey-closed.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md  bg-inverse fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n        <div class=\"container\">\r\n            <div class=\"col-md-8 col-md-offset-2\">\r\n              <div class=\"col-md-4\">\r\n                  <a class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family}\">logo</h2></a>\r\n              </div>\r\n              <div class=\"col-md-8\">\r\n                  <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n                  \r\n              </div>\r\n            </div>\r\n          </div>\r\n        </nav>\r\n    \r\n      <div class=\"container\">\r\n          <div class=\"col-md-12 survey-close\">\r\n              <i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>\r\n              <h2>Sorry! Survey Closed</h2>\r\n            </div>\r\n        \r\n      </div>\r\n      <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n          <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n        </footer>\r\n    \r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-closed/user-survey-closed.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var UserSurveyClosedComponent = /** @class */ (function () {
+    function UserSurveyClosedComponent(_activatedRoute, _userService, _companyService, _router) {
+        this._activatedRoute = _activatedRoute;
+        this._userService = _userService;
+        this._companyService = _companyService;
+        this._router = _router;
+        this.gotSurvey = false;
+    }
+    UserSurveyClosedComponent.prototype.ngOnInit = function () {
+        this.getSurvey();
+    };
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 5-1-2018
+    // Last Modified : 5-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    UserSurveyClosedComponent.prototype.getTheme = function () {
+        var _this = this;
+        console.log(this.themeId);
+        this._companyService.getTheme(this.themeId).subscribe(function (theme) {
+            console.log(theme);
+            if (theme.status && theme.status == 0) {
+            }
+            else {
+                _this.disp = true;
+                _this.theme = theme;
+            }
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getSurvey
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 4-1-2018
+    // Last Modified : 4-1-2018, Manu Prasad 
+    // Desc          : Get Survey to be displayed for the user
+    UserSurveyClosedComponent.prototype.getSurvey = function () {
+        var _this = this;
+        this._activatedRoute.params.subscribe(function (params) {
+            _this.surveyId = params['id'];
+        });
+        this._userService.getNotRunningSurvey(this.surveyId).subscribe(function (survey) {
+            if (!survey.status) {
+                console.log(survey);
+                _this.survey = survey;
+                _this.themeId = _this.survey.theme;
+                _this.gotSurvey = true;
+                _this.getTheme();
+            }
+            else {
+                // redirect to not found page
+            }
+        });
+    };
+    UserSurveyClosedComponent = __decorate([
+        core_1.Component({
+            selector: 'app-user-survey-closed',
+            template: __webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.css")],
+            inputs: ['survey']
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            user_service_1.UserService,
+            company_service_1.CompanyService,
+            router_1.Router])
+    ], UserSurveyClosedComponent);
+    return UserSurveyClosedComponent;
+}());
+exports.UserSurveyClosedComponent = UserSurveyClosedComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".survey-close {\r\n    text-align: center;\r\n    padding-top: 20%;\r\n}\r\n\r\n.user-layout .navbar-brand {\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    float: none;\r\n}\r\n\r\n.user-layout {}\r\n\r\n.navbar {\r\n    border-radius: 0;\r\n}\r\n\r\n.user-layout h2 {\r\n    font-family: \"Roboto-Regular\";\r\n    text-align: left;\r\n    font-size: 20px;\r\n    color: #111;\r\n}\r\n\r\n.checkbox,\r\n.radio {\r\n    text-align: left;\r\n}\r\n\r\n.radio label {\r\n    padding-left: 11px;\r\n}\r\n\r\n.radio input[type=radio] {\r\n    margin-left: -14px;\r\n}\r\n\r\n.example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    margin:  0 0 0 5px;\r\n}\r\n\r\n.example-radio-button {\r\n    margin: 5px;\r\n}\r\n\r\n.example-selected-value {\r\n    margin: 15px 0;\r\n}\r\n\r\n.checked {\r\n    color: #ea5a5a;\r\n}\r\n\r\n.user-layout .styles1 {\r\n    border: 0;\r\n    border-bottom: 1px solid #dbdbdb;\r\n    font-family: \"Roboto-Regular\";\r\n    background: none;\r\n    padding: 10px 0px;\r\n    font-size: 13px;\r\n    max-width: 400px;\r\n    width: 100%;\r\n    color: #5d5d5d !important;\r\n    float: left;\r\n}\r\n\r\n.input-group {\r\n    position: relative;\r\n    display: table;\r\n    border-collapse: separate;\r\n    width: 100%;\r\n}\r\n\r\n.navbar-brand {}\r\n\r\n.btn {\r\n    border-radius: 16px !important;\r\n    padding: 6px 22px !important;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n    font-size: 18px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n}\r\n\r\n.navbar-brand h2 {\r\n    color: #fff !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n    font-size: 40px !important;\r\n}\r\n\r\n.x-new {\r\n    background-color: #5d3c3c;\r\n    border: none;\r\n    min-height: 80px;\r\n}\r\n\r\n.user-layout footer {\r\n    background: #111;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 20px 0;\r\n    /* position: absolute; */\r\n    bottom: 0;\r\n    width: 100%;\r\n}\r\n\r\n.mrgrght {\r\n    margin-right: 10px;\r\n}\r\n\r\n.bg-color {\r\n    background: #f6e8e8;\r\n    padding: 20px 10px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\np {\r\n    font-family: \"Roboto-Regular\";\r\n}\r\n\r\n.survey-close .fa-exclamation-triangle {\r\n    color: #fba21b;\r\n    text-align: center;\r\n    font-size: 148px;\r\n}\r\n\r\n.survey-close h2 {\r\n    text-align: center;\r\n    font-family: \"Roboto-Bold\";\r\n    font-size: 50px;\r\n}\r\n\r\n.survey-close h3 {\r\n    text-align: center;\r\n    font-family: \"Roboto-Bold\";\r\n    font-size: 50px;\r\n    color: #d9534f;\r\n}\r\n\r\n.survey-close {\r\n    text-align: center;\r\n    padding-top: 9%;\r\n}\r\n\r\n.progress {\r\n    position: relative;\r\n    height: 25px;\r\n}\r\n\r\n.progress > .progress-type {\r\n    position: absolute;\r\n    left: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 30px 2px 10px;\r\n    color: rgb(255, 255, 255);\r\n    background-color: rgba(25, 25, 25, 0.2);\r\n}\r\n\r\n.progress > .progress-completed {\r\n    position: absolute;\r\n    right: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 10px 2px;\r\n}\r\n\r\n.progress-bar {\r\n    background-color: #da524f;\r\n}\r\n\r\n.bs-wizard {\r\n    margin-top: 14px;\r\n}\r\n\r\n\r\n/*Form Wizard*/\r\n\r\n.bs-wizard {\r\n    border-bottom: solid 1px #e0e0e0;\r\n    padding: 0 0 10px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step {\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step + .bs-wizard-step {}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {\r\n    color: #595959;\r\n    font-size: 16px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-info {\r\n    color: #999;\r\n    font-size: 14px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot {\r\n    position: absolute;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: block;\r\n    background: #da524f94;\r\n    top: 45px;\r\n    left: 50%;\r\n    margin-top: -15px;\r\n    margin-left: -15px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {\r\n    content: ' ';\r\n    width: 14px;\r\n    height: 14px;\r\n    background: #da524f;\r\n    border-radius: 50px;\r\n    position: absolute;\r\n    top: 8px;\r\n    left: 8px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress {\r\n    position: relative;\r\n    border-radius: 0px;\r\n    height: 8px;\r\n    box-shadow: none;\r\n    margin: 20px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress > .progress-bar {\r\n    width: 0px;\r\n    box-shadow: none;\r\n    background: #efc9c9;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {\r\n    width: 0%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {\r\n    opacity: 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child > .progress {\r\n    left: 50%;\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child > .progress {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n/******survey**********/\r\n\r\n.survey {}\r\n\r\n.survey header {\r\n    background: #4c7e9a;\r\n    width: 100%;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey header h2 {\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey header h4 {\r\n    color: #fff;\r\n    font-size: 12px;\r\n}\r\n\r\n.survey .logo {\r\n    margin: 0 auto;\r\n    max-width: 200px;\r\n    width: 100%;\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey footer {\r\n    background: #111;\r\n    width: 100%;\r\n    padding: 10px 0;\r\n    text-align: center;\r\n    color: #fff;\r\n    text-align: center;\r\n    font-size: 12px;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey label {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #616161;\r\n    font-size: 13px;\r\n}\r\n\r\n.survey h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #111;\r\n    margin-bottom: 0;\r\n    font-size: 16px;\r\n}\r\n\r\n.survey .question {\r\n    color: #31708f;\r\n    background-color: #d9edf7;\r\n    border-color: #bce8f1;\r\n    padding: 11px;\r\n    margin-bottom: 20px;\r\n    border: 1px solid transparent;\r\n    border-radius: 4px;\r\n    overflow: hidden;\r\n}\r\n\r\n.survey .question h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #000;\r\n    margin-top: 0;\r\n}\r\n\r\n.survey .question .fa {\r\n    padding: 4px;\r\n}\r\n\r\n.survey .question .fa:hover {\r\n    opacity: 0.6;\r\n}\r\n\r\n\r\n\r\n\r\n.srvey-hd{\r\n    margin-top: 40px;\r\n}\r\n\r\n.bld{\r\n    font-weight: 700 !important\r\n  }\r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n\r\n.star-container{\r\n    width: 104px\r\n}\r\n  .rating label {\r\n    float: right;\r\n    position: relative;\r\n    width: 25px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n  }\r\n  .rating label:not(:first-of-type) {\r\n    padding-right: 2px;\r\n  }\r\n  .rating label:before {\r\n    content: \"\\2605\";\r\n    font-size: 25px;\r\n    color: #CCCCCC;\r\n    line-height: 1;\r\n  }\r\n  .rating input {\r\n    display: none;\r\n  }\r\n  .rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before {\r\n    color: #F9DF4A;\r\n  }\r\n\r\n  .progrs{\r\n    margin: 62px 0px 0 0;\r\n  }\r\n\r\n  .progress {\r\n    position: relative;\r\n    height: 25px;\r\n}\r\n\r\n.progress[_ngcontent-c5] {\r\n    height: 5px;\r\n    border-radius: 0;\r\n}\r\n.progress {\r\n    height: 20px;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    background-color: #f5f5f5;\r\n    border-radius: 4px;\r\n    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);\r\n}\r\n.progress-bar {\r\n    float: left;\r\n    width: 0;\r\n    height: 100%;\r\n    font-size: 12px;\r\n    line-height: 20px;\r\n    color: #fff;\r\n    text-align: center;\r\n    background-color: #337ab7;\r\n    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);\r\n    transition: width .6s ease;\r\n}\r\n.mrgn-50{\r\n    margin: 0 0 50px 0;\r\n}\r\nlg-out{\r\n    margin: 0px 43px 9px 0;\r\n}\r\n.questn-container{\r\n    min-height: 800px;\r\n}\r\n.btn-mrgn{\r\n    margin: 14px 0 0 0;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n          <div class=\"col-md-4\">\r\n              <a class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family}\">logo</h2></a>\r\n          </div>\r\n          <div class=\"col-md-8\">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n              \r\n          </div>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                <form action=\"\">\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\">\r\n                      <div *ngIf=\"cardNo == i\">\r\n                          <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                          <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                              <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                  <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                    <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                  </mat-radio-button>\r\n                                </mat-radio-group>\r\n                          </div>\r\n                          <div class=\"col-md-12\">\r\n                              <div class=\"col-md-6 progrs \">\r\n                                  <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': theme.progress_text_color}\">Page No. {{cardNo+1}} of {{questionCount}}</h5>\r\n                                  <div class=\"progress\" >\r\n                                      <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                      aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\" [ngStyle]=\"{'background-color': theme.progress_bar_color}\">\r\n                                        <span class=\"sr-only\">70% Complete</span>\r\n                                      </div>\r\n                                    </div> \r\n                              </div>\r\n                              <div class=\"col-md-6 progrs\">\r\n                                  <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Back</button> \r\n                                  \r\n                                  <button *ngIf=\"cardNo < questionCount-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Next</button> \r\n                                  <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < questionCount-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Skip</button> </div>\r\n                              </div>\r\n                            \r\n                        \r\n                        \r\n                      </div>\r\n                       \r\n                      \r\n\r\n                        <ng-template #star >\r\n                            <div *ngIf=\"cardNo == i\">\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'Star'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                                      <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                                      <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\" ></rating>\r\n                                      \r\n                                    <!-- </ng-container> -->\r\n                        \r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                        \r\n                              </div>\r\n                              \r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        \r\n                        </ng-template>\r\n                        \r\n                      </div>\r\n                      \r\n                      <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\" >Submit</button> \r\n                      \r\n                </form>\r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n         \r\n    <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n      \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Message</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n          </div>\r\n        </div>\r\n      \r\n      </div>\r\n      </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var UserSurveyMultipleComponent = /** @class */ (function () {
+    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, _router) {
+        this._activatedRoute = _activatedRoute;
+        this._userService = _userService;
+        this._companyService = _companyService;
+        this._router = _router;
+        this.cardNo = 0;
+        this.incDisp = false;
+        this.disp = false;
+        this.skip = false;
+        this.blankAns = false;
+        this.questionCount = 0;
+        this.progressBarWidth = 0;
+        this.progressBarWidthString = '';
+    }
+    UserSurveyMultipleComponent.prototype.ngOnInit = function () {
+        this.themeId = this.survey.theme;
+        if (this.survey.display_type.skip == true) {
+            this.skip = true;
+        }
+        this.getTheme();
+        this.questionCount = this.survey.questions.length;
+        console.log(this.questionCount);
+    };
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 5-1-2018
+    // Last Modified : 5-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    UserSurveyMultipleComponent.prototype.getTheme = function () {
+        var _this = this;
+        this._companyService.getTheme(this.themeId).subscribe(function (theme) {
+            console.log(theme);
+            if (theme.status == 0) {
+            }
+            else {
+                _this.disp = true;
+                _this.theme = theme;
+            }
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    UserSurveyMultipleComponent.prototype.submitAns = function () {
+        var _this = this;
+        console.log(this.survey);
+        if (this.skip == false) {
+            this.survey.questions.forEach(function (element) {
+                if (element.ans == '' || !element.ans) {
+                    _this.blankAns = true;
+                }
+            });
+        }
+        if (!this.blankAns) {
+            this._userService.submitSurvey(this.survey, this.survey._id).subscribe(function (res) {
+                console.log(res);
+                if (res.status == 0) {
+                    _this.blankAns = true;
+                }
+                else if (res.status == 1 || res.status == 3) {
+                    $('#myModal .modal-body h4').text("Somthing went wrong!");
+                    $('#myModal').modal('show');
+                }
+                else if (res.status == 4) {
+                    $('#myModal .modal-body h4').text("Successfully submitted!");
+                    $('#myModal').modal('show');
+                }
+            });
+        }
+    };
+    UserSurveyMultipleComponent.prototype.next = function (i) {
+        if (this.survey.questions[i].ans == '' || !this.survey.questions[i].ans) {
+            this.blankAns = true;
+        }
+        else {
+            this.cardNo = this.cardNo + 1;
+            this.blankAns = false;
+            this.progressBarWidth = (this.cardNo / this.questionCount) * 100;
+            console.log(this.cardNo);
+        }
+    };
+    UserSurveyMultipleComponent.prototype.back = function () {
+        this.cardNo = this.cardNo - 1;
+    };
+    UserSurveyMultipleComponent.prototype.skipQuestion = function () {
+        this.cardNo = this.cardNo + 1;
+    };
+    UserSurveyMultipleComponent.prototype.closed = function () {
+        window.location.reload();
+    };
+    UserSurveyMultipleComponent = __decorate([
+        core_1.Component({
+            selector: 'app-user-survey-multiple',
+            template: __webpack_require__("../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.css")],
+            inputs: ['survey']
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            user_service_1.UserService,
+            company_service_1.CompanyService,
+            router_1.Router])
+    ], UserSurveyMultipleComponent);
+    return UserSurveyMultipleComponent;
+}());
+exports.UserSurveyMultipleComponent = UserSurveyMultipleComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".survey-close {\r\n    text-align: center;\r\n    padding-top: 20%;\r\n}\r\n\r\n.user-layout .navbar-brand {\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    float: none;\r\n}\r\n\r\n.user-layout {}\r\n\r\n.navbar {\r\n    border-radius: 0;\r\n}\r\n\r\n.user-layout h2 {\r\n    font-family: \"Roboto-Regular\";\r\n    text-align: left;\r\n    font-size: 20px;\r\n    color: #111;\r\n}\r\n\r\n.checkbox,\r\n.radio {\r\n    text-align: left;\r\n}\r\n\r\n.radio label {\r\n    padding-left: 11px;\r\n}\r\n\r\n.radio input[type=radio] {\r\n    margin-left: -14px;\r\n}\r\n\r\n.example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    margin:  0 0 0 5px;\r\n}\r\n\r\n.example-radio-button {\r\n    margin: 5px;\r\n}\r\n\r\n.example-selected-value {\r\n    margin: 15px 0;\r\n}\r\n\r\n.checked {\r\n    color: #ea5a5a;\r\n}\r\n\r\n.user-layout .styles1 {\r\n    border: 0;\r\n    border-bottom: 1px solid #dbdbdb;\r\n    font-family: \"Roboto-Regular\";\r\n    background: none;\r\n    padding: 10px 0px;\r\n    font-size: 13px;\r\n    max-width: 400px;\r\n    width: 100%;\r\n    color: #5d5d5d !important;\r\n    float: left;\r\n}\r\n\r\n.input-group {\r\n    position: relative;\r\n    display: table;\r\n    border-collapse: separate;\r\n    width: 100%;\r\n}\r\n\r\n.navbar-brand {}\r\n\r\n.btn {\r\n    border-radius: 16px !important;\r\n    padding: 6px 22px !important;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n    font-size: 18px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n}\r\n\r\n.navbar-brand h2 {\r\n    color: #fff !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n    font-size: 40px !important;\r\n}\r\n\r\n.x-new {\r\n    background-color: #5d3c3c;\r\n    border: none;\r\n    min-height: 80px;\r\n}\r\n\r\n.user-layout footer {\r\n    background: #111;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 20px 0;\r\n    /* position: absolute; */\r\n    bottom: 0;\r\n    width: 100%;\r\n}\r\n\r\n.mrgrght {\r\n    margin-right: 10px;\r\n}\r\n\r\n.bg-color {\r\n    background: #f6e8e8;\r\n    padding: 20px 10px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\np {\r\n    font-family: \"Roboto-Regular\";\r\n}\r\n\r\n.survey-close .fa-exclamation-triangle {\r\n    color: #fba21b;\r\n    text-align: center;\r\n    font-size: 148px;\r\n}\r\n\r\n.survey-close h2 {\r\n    text-align: center;\r\n    font-family: \"Roboto-Bold\";\r\n    font-size: 50px;\r\n}\r\n\r\n.survey-close h3 {\r\n    text-align: center;\r\n    font-family: \"Roboto-Bold\";\r\n    font-size: 50px;\r\n    color: #d9534f;\r\n}\r\n\r\n.survey-close {\r\n    text-align: center;\r\n    padding-top: 9%;\r\n}\r\n\r\n.progress {\r\n    position: relative;\r\n    height: 25px;\r\n}\r\n\r\n.progress > .progress-type {\r\n    position: absolute;\r\n    left: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 30px 2px 10px;\r\n    color: rgb(255, 255, 255);\r\n    background-color: rgba(25, 25, 25, 0.2);\r\n}\r\n\r\n.progress > .progress-completed {\r\n    position: absolute;\r\n    right: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 10px 2px;\r\n}\r\n\r\n.progress-bar {\r\n    background-color: #da524f;\r\n}\r\n\r\n.bs-wizard {\r\n    margin-top: 14px;\r\n}\r\n\r\n\r\n/*Form Wizard*/\r\n\r\n.bs-wizard {\r\n    border-bottom: solid 1px #e0e0e0;\r\n    padding: 0 0 10px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step {\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step + .bs-wizard-step {}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {\r\n    color: #595959;\r\n    font-size: 16px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-info {\r\n    color: #999;\r\n    font-size: 14px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot {\r\n    position: absolute;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: block;\r\n    background: #da524f94;\r\n    top: 45px;\r\n    left: 50%;\r\n    margin-top: -15px;\r\n    margin-left: -15px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {\r\n    content: ' ';\r\n    width: 14px;\r\n    height: 14px;\r\n    background: #da524f;\r\n    border-radius: 50px;\r\n    position: absolute;\r\n    top: 8px;\r\n    left: 8px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress {\r\n    position: relative;\r\n    border-radius: 0px;\r\n    height: 8px;\r\n    box-shadow: none;\r\n    margin: 20px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress > .progress-bar {\r\n    width: 0px;\r\n    box-shadow: none;\r\n    background: #efc9c9;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {\r\n    width: 0%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {\r\n    opacity: 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child > .progress {\r\n    left: 50%;\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child > .progress {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n/******survey**********/\r\n\r\n.survey {}\r\n\r\n.survey header {\r\n    background: #4c7e9a;\r\n    width: 100%;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey header h2 {\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey header h4 {\r\n    color: #fff;\r\n    font-size: 12px;\r\n}\r\n\r\n.survey .logo {\r\n    margin: 0 auto;\r\n    max-width: 200px;\r\n    width: 100%;\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey footer {\r\n    background: #111;\r\n    width: 100%;\r\n    padding: 10px 0;\r\n    text-align: center;\r\n    color: #fff;\r\n    text-align: center;\r\n    font-size: 12px;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey label {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #616161;\r\n    font-size: 13px;\r\n}\r\n\r\n.survey h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #111;\r\n    margin-bottom: 0;\r\n    font-size: 16px;\r\n}\r\n\r\n.survey .question {\r\n    color: #31708f;\r\n    background-color: #d9edf7;\r\n    border-color: #bce8f1;\r\n    padding: 11px;\r\n    margin-bottom: 20px;\r\n    border: 1px solid transparent;\r\n    border-radius: 4px;\r\n    overflow: hidden;\r\n}\r\n\r\n.survey .question h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #000;\r\n    margin-top: 0;\r\n}\r\n\r\n.survey .question .fa {\r\n    padding: 4px;\r\n}\r\n\r\n.survey .question .fa:hover {\r\n    opacity: 0.6;\r\n}\r\n\r\n\r\n\r\n\r\n.srvey-hd{\r\n    margin-top: 40px;\r\n}\r\n\r\n.bld{\r\n    font-weight: 700 !important\r\n  }\r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n\r\n.star-container{\r\n    width: 104px\r\n}\r\n  .rating label {\r\n    float: right;\r\n    position: relative;\r\n    width: 25px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n  }\r\n  .rating label:not(:first-of-type) {\r\n    padding-right: 2px;\r\n  }\r\n  .rating label:before {\r\n    content: \"\\2605\";\r\n    font-size: 25px;\r\n    color: #CCCCCC;\r\n    line-height: 1;\r\n  }\r\n  .rating input {\r\n    display: none;\r\n  }\r\n  .rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before {\r\n    color: #F9DF4A;\r\n  }\r\n\r\nlg-out{\r\n    margin: 0px 43px 9px 0;\r\n}\r\n.questn-container{\r\n    min-height: 800px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n          <div class=\"col-md-4\">\r\n              <a class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family}\">logo</h2></a>\r\n          </div>\r\n          <div class=\"col-md-8\">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n              \r\n          </div>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                <form action=\"\">\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'Star'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                      </div>\r\n                      <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                      \r\n                </form>\r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n         \r\n    <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n      \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Message</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n          </div>\r\n        </div>\r\n      \r\n      </div>\r\n      </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+// import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
+var UserSurveySinglepageComponent = /** @class */ (function () {
+    function UserSurveySinglepageComponent(_activatedRoute, _userService, _companyService, _router) {
+        this._activatedRoute = _activatedRoute;
+        this._userService = _userService;
+        this._companyService = _companyService;
+        this._router = _router;
+        this.disp = false;
+        this.skip = false;
+        this.blankAns = false;
+    }
+    UserSurveySinglepageComponent.prototype.ngOnInit = function () {
+        // console.log(this.survey[0].theme.id);
+        this.themeId = this.survey.theme;
+        if (this.survey.display_type.skip == true) {
+            this.skip = true;
+        }
+        this.getTheme();
+        // console.log(this.survey.questions);
+    };
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 5-1-2018
+    // Last Modified : 5-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    UserSurveySinglepageComponent.prototype.getTheme = function () {
+        var _this = this;
+        this._companyService.getTheme(this.themeId).subscribe(function (theme) {
+            console.log(theme);
+            if (theme.status == 0) {
+            }
+            else {
+                _this.disp = true;
+                _this.theme = theme;
+            }
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    UserSurveySinglepageComponent.prototype.submitAns = function () {
+        var _this = this;
+        console.log(this.survey);
+        if (this.skip == false) {
+            this.survey.questions.forEach(function (element) {
+                if (element.ans == '' || !element.ans) {
+                    _this.blankAns = true;
+                }
+            });
+        }
+        if (!this.blankAns) {
+            this._userService.submitSurvey(this.survey, this.survey._id).subscribe(function (res) {
+                if (res.status == 0) {
+                    _this.blankAns = true;
+                }
+                else if (res.status == 1 || res.status == 3) {
+                    $('#myModal .modal-body h4').text("Somthing went wrong!");
+                    $('#myModal').modal('show');
+                }
+                else if (res.status == 4) {
+                    $('#myModal .modal-body h4').text("Successfully submitted!");
+                    $('#myModal').modal('show');
+                }
+            });
+        }
+    };
+    UserSurveySinglepageComponent.prototype.closed = function () {
+        window.location.reload();
+    };
+    UserSurveySinglepageComponent.prototype.hel = function (event) {
+        console.log(this.survey);
+        console.log("h");
+    };
+    UserSurveySinglepageComponent = __decorate([
+        core_1.Component({
+            selector: 'app-user-survey-singlepage',
+            template: __webpack_require__("../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.css"), __webpack_require__("../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.scss")],
+            inputs: ['survey'],
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            user_service_1.UserService,
+            company_service_1.CompanyService,
+            router_1.Router])
+    ], UserSurveySinglepageComponent);
+    return UserSurveySinglepageComponent;
+}());
+exports.UserSurveySinglepageComponent = UserSurveySinglepageComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".survey-close {\r\n    text-align: center;\r\n    padding-top: 20%;\r\n}\r\n\r\n.user-layout .navbar-brand {\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    float: none;\r\n}\r\n\r\n.user-layout {}\r\n\r\n.navbar {\r\n    border-radius: 0;\r\n}\r\n\r\n.user-layout h2 {\r\n    font-family: \"Roboto-Regular\";\r\n    text-align: left;\r\n    font-size: 20px;\r\n    color: #111;\r\n}\r\n\r\n.checkbox,\r\n.radio {\r\n    text-align: left;\r\n}\r\n\r\n.radio label {\r\n    padding-left: 11px;\r\n}\r\n\r\n.radio input[type=radio] {\r\n    margin-left: -14px;\r\n}\r\n\r\n.example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n}\r\n\r\n.example-radio-button {\r\n    margin: 5px;\r\n}\r\n\r\n.example-selected-value {\r\n    margin: 15px 0;\r\n}\r\n\r\n.checked {\r\n    color: #ea5a5a;\r\n}\r\n\r\n.user-layout .styles1 {\r\n    border: 0;\r\n    border-bottom: 1px solid #dbdbdb;\r\n    font-family: \"Roboto-Regular\";\r\n    background: none;\r\n    padding: 10px 0px;\r\n    font-size: 13px;\r\n    max-width: 400px;\r\n    width: 100%;\r\n    color: #5d5d5d !important;\r\n    float: left;\r\n}\r\n\r\n.input-group {\r\n    position: relative;\r\n    display: table;\r\n    border-collapse: separate;\r\n    width: 100%;\r\n}\r\n\r\n.navbar-brand {}\r\n\r\n.btn {\r\n    border-radius: 16px !important;\r\n    padding: 6px 22px !important;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n    font-size: 18px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n}\r\n\r\n.navbar-brand h2 {\r\n    color: #fff !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n    font-size: 40px !important;\r\n}\r\n\r\n.x-new {\r\n    background-color: #5d3c3c;\r\n    border: none;\r\n    min-height: 80px;\r\n}\r\n\r\n.user-layout footer {\r\n    background: #111;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 20px 0;\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n}\r\n\r\n.mrgrght {\r\n    margin-right: 10px;\r\n}\r\n\r\n.bg-color {\r\n    background: #f6e8e8;\r\n    padding: 20px 10px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\np {\r\n    font-family: \"Roboto-Regular\";\r\n}\r\n\r\n.survey-close .fa-exclamation-triangle {\r\n    color: #fba21b;\r\n    text-align: center;\r\n    font-size: 148px;\r\n}\r\n\r\n.survey-close h2 {\r\n    text-align: center;\r\n    font-size: 50px;\r\n}\r\n\r\n.survey-close h3 {\r\n    text-align: center;\r\n    font-size: 50px;\r\n    color: #d9534f;\r\n}\r\n\r\n.survey-close {\r\n    text-align: center;\r\n    padding-top: 9%;\r\n}\r\n\r\n.progress {\r\n    position: relative;\r\n    height: 25px;\r\n}\r\n\r\n.progress > .progress-type {\r\n    position: absolute;\r\n    left: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 30px 2px 10px;\r\n    color: rgb(255, 255, 255);\r\n    background-color: rgba(25, 25, 25, 0.2);\r\n}\r\n\r\n.progress > .progress-completed {\r\n    position: absolute;\r\n    right: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 10px 2px;\r\n}\r\n\r\n.progress-bar {\r\n    background-color: #da524f;\r\n}\r\n\r\n.bs-wizard {\r\n    margin-top: 14px;\r\n}\r\n\r\n\r\n/*Form Wizard*/\r\n\r\n.bs-wizard {\r\n    border-bottom: solid 1px #e0e0e0;\r\n    padding: 0 0 10px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step {\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step + .bs-wizard-step {}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {\r\n    color: #595959;\r\n    font-size: 16px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-info {\r\n    color: #999;\r\n    font-size: 14px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot {\r\n    position: absolute;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: block;\r\n    background: #da524f94;\r\n    top: 45px;\r\n    left: 50%;\r\n    margin-top: -15px;\r\n    margin-left: -15px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {\r\n    content: ' ';\r\n    width: 14px;\r\n    height: 14px;\r\n    background: #da524f;\r\n    border-radius: 50px;\r\n    position: absolute;\r\n    top: 8px;\r\n    left: 8px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress {\r\n    position: relative;\r\n    border-radius: 0px;\r\n    height: 8px;\r\n    box-shadow: none;\r\n    margin: 20px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress > .progress-bar {\r\n    width: 0px;\r\n    box-shadow: none;\r\n    background: #efc9c9;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {\r\n    width: 0%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {\r\n    opacity: 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child > .progress {\r\n    left: 50%;\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child > .progress {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n/******survey**********/\r\n\r\n.survey {}\r\n\r\n.survey header {\r\n    background: #4c7e9a;\r\n    width: 100%;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey header h2 {\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey header h4 {\r\n    color: #fff;\r\n    font-size: 12px;\r\n}\r\n\r\n.survey .logo {\r\n    margin: 0 auto;\r\n    max-width: 200px;\r\n    width: 100%;\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey footer {\r\n    background: #111;\r\n    width: 100%;\r\n    padding: 10px 0;\r\n    text-align: center;\r\n    color: #fff;\r\n    text-align: center;\r\n    font-size: 12px;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey label {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #616161;\r\n    font-size: 13px;\r\n}\r\n\r\n.survey h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #111;\r\n    margin-bottom: 0;\r\n    font-size: 16px;\r\n}\r\n\r\n.survey .question {\r\n    color: #31708f;\r\n    background-color: #d9edf7;\r\n    border-color: #bce8f1;\r\n    padding: 11px;\r\n    margin-bottom: 20px;\r\n    border: 1px solid transparent;\r\n    border-radius: 4px;\r\n    overflow: hidden;\r\n}\r\n\r\n.survey .question h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #000;\r\n    margin-top: 0;\r\n}\r\n\r\n.survey .question .fa {\r\n    padding: 4px;\r\n}\r\n\r\n.survey .question .fa:hover {\r\n    opacity: 0.6;\r\n}\r\n.srvey-hd{\r\n    margin-top: 40px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n  <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            <div class=\"col-md-4\">\r\n                <a class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family}\">logo</h2></a>\r\n            </div>\r\n            <div class=\"col-md-8\">\r\n                <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header}}</h1>\r\n                \r\n            </div>\r\n          </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"col-md-12 survey-close\">\r\n    <h3><app-count-down-timer   [inputDate]=\"countTime\"></app-count-down-timer></h3>\r\n  </div>        \r\n  <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer}}</p>\r\n    </footer>\r\n            \r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var UserSurveyUpcomingComponent = /** @class */ (function () {
+    function UserSurveyUpcomingComponent(_activatedRoute, _userService, _companyService, _router) {
+        this._activatedRoute = _activatedRoute;
+        this._userService = _userService;
+        this._companyService = _companyService;
+        this._router = _router;
+        this.disp = false;
+    }
+    UserSurveyUpcomingComponent.prototype.ngOnInit = function () {
+        console.log(this.survey.theme);
+        this.themeId = this.survey.theme;
+        this.getTheme();
+    };
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 5-1-2018
+    // Last Modified : 5-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    UserSurveyUpcomingComponent.prototype.getTheme = function () {
+        var _this = this;
+        this._companyService.getTheme(this.themeId).subscribe(function (theme) {
+            console.log(theme);
+            if (theme.status == 0) {
+            }
+            else {
+                _this.disp = true;
+                _this.theme = theme;
+            }
+        });
+    };
+    UserSurveyUpcomingComponent = __decorate([
+        core_1.Component({
+            selector: 'app-user-survey-upcoming',
+            template: __webpack_require__("../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.css")],
+            inputs: ['countTime', 'survey']
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            user_service_1.UserService,
+            company_service_1.CompanyService,
+            router_1.Router])
+    ], UserSurveyUpcomingComponent);
+    return UserSurveyUpcomingComponent;
+}());
+exports.UserSurveyUpcomingComponent = UserSurveyUpcomingComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey/user-survey.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey/user-survey.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n\r\n      <div *ngIf=\"closed\" >\r\n          <app-user-survey-closed [survey]=\"survey\"></app-user-survey-closed>    \r\n      </div>\r\n      <div *ngIf=\"upcoming\" >\r\n          <app-user-survey-upcoming [countTime]=\"countTime\" [survey]=\"survey\"></app-user-survey-upcoming>    \r\n      </div>\r\n      <div *ngIf=\"run\" >\r\n          <app-user-survey-singlepage [survey]=\"survey\" ></app-user-survey-singlepage>    \r\n      </div>\r\n\r\n      <div *ngIf=\"mrun\" >\r\n          <app-user-survey-singlepage [survey]=\"survey\" ></app-user-survey-singlepage>    \r\n      </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey/user-survey.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+var UserSurveyComponent = /** @class */ (function () {
+    function UserSurveyComponent(_activatedRoute, _userService, _router) {
+        this._activatedRoute = _activatedRoute;
+        this._userService = _userService;
+        this._router = _router;
+        this.closed = false;
+        this.upcoming = false;
+        this.run = false;
+        this.mrun = false;
+    }
+    UserSurveyComponent.prototype.ngOnInit = function () {
+        this.getSurvey();
+    };
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getSurvey
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 4-1-2018
+    // Last Modified : 4-1-2018, Manu Prasad 
+    // Desc          : Get Survey to be displayed for the user
+    UserSurveyComponent.prototype.getSurvey = function () {
+        var _this = this;
+        this._activatedRoute.params.subscribe(function (params) {
+            _this.surveyId = params['id'];
+        });
+        this._userService.getSurvey(this.surveyId).subscribe(function (survey) {
+            _this.survey = survey;
+            console.log(survey);
+            if (survey.status == 0) {
+                _this.closed = true;
+            }
+            else if (survey.status == 1) {
+                _this.countTime = survey.start_time;
+                _this.upcoming = true;
+            }
+            else if (survey.status == 2) {
+                //show error
+            }
+            else if (survey.status == 3) {
+                //survey not exist 
+            }
+            else if (survey.status == 4) {
+                _this.closed = true;
+            }
+            else if (!survey.status && survey.display_type.ui == 'single') {
+                // if(){
+                // }
+                _this.run = true;
+            }
+            else if (!survey.status && survey.display_type.ui == 'multiple') {
+                // if(){
+                // }
+                _this.mrun = true;
+            }
+            // console.log(survey);
+        });
+    };
+    UserSurveyComponent = __decorate([
+        core_1.Component({
+            selector: 'app-user-survey',
+            template: __webpack_require__("../../../../../src/app/components/user-survey/user-survey.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-survey/user-survey.component.css")]
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            user_service_1.UserService,
+            router_1.Router])
+    ], UserSurveyComponent);
+    return UserSurveyComponent;
+}());
+exports.UserSurveyComponent = UserSurveyComponent;
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/config/config.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7116,11 +9054,46 @@ exports.UserResponseEmailComponent = UserResponseEmailComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var Config = /** @class */ (function () {
     function Config() {
+        // siteUrl = "http://192.168.1.99:3000";
+        this.socketURL = "http://192.168.1.99:3000";
         this.siteUrl = "http://localhost:3000";
     }
     return Config;
 }());
 exports.Config = Config;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/pipe/reverse.pipe.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var ReversePipe = /** @class */ (function () {
+    function ReversePipe() {
+    }
+    ReversePipe.prototype.transform = function (value) {
+        if (!value)
+            return;
+        return value.reverse();
+    };
+    ReversePipe = __decorate([
+        core_1.Pipe({
+            name: 'reverse'
+        })
+    ], ReversePipe);
+    return ReversePipe;
+}());
+exports.ReversePipe = ReversePipe;
 
 
 /***/ }),
@@ -8081,8 +10054,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var http_1 = __webpack_require__("../../../http/esm5/http.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var http_1 = __webpack_require__("../../../http/esm5/http.js");
 __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var CompanyService = /** @class */ (function () {
     function CompanyService(http, config) {
@@ -8145,6 +10118,77 @@ var CompanyService = /** @class */ (function () {
         return this.http.get(this.serviceUrl + 'get-font-sizes', { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : save theme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Manu Prasad, Desc:
+    // Desc          : routing used to save theme properties
+    CompanyService.prototype.saveTheme = function (theme) {
+        var headers = this.setHeader();
+        return this.http.post(this.serviceUrl + 'save-theme', theme, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : delete theme
+    // Params        : 
+    // Returns       : status of deletion
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad, Desc:
+    // Desc          : routing used to delete a theme from database
+    CompanyService.prototype.deleteTheme = function (id) {
+        var headers = this.setHeader();
+        return this.http.delete(this.serviceUrl + 'delete-theme/' + id, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : Details of a theme
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad, Desc:
+    // Desc          : routing used to get details of a theme from database
+    CompanyService.prototype.getTheme = function (id) {
+        var headers = this.setHeader();
+        return this.http.get(this.serviceUrl + 'get-theme/' + id, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : Details of a theme
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad, Desc:
+    // Desc          : function used to get details of a theme from database
+    CompanyService.prototype.updateTheme = function (id, theme) {
+        var headers = this.setHeader();
+        return this.http.put(this.serviceUrl + 'update-theme/' + id, theme, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : getPositions
+    // Params        : 
+    // Returns       : get longitude and latitude for maps
+    // Author        : Manu Prasad
+    // Date          : 3-1-2018
+    // Last Modified : 3-1-2018, Manu Prasad, Desc:
+    // Desc          : get longitude and latitude for maps
+    CompanyService.prototype.getPositions = function () {
+        var headers = this.setHeader();
+        return this.http.get(this.serviceUrl + 'get-locations', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
     // ----------------------------------End-------------------------------------------
     // ---------------------------------Start-------------------------------------------
     // Function      : getMyUsers
@@ -8709,20 +10753,71 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var http_1 = __webpack_require__("../../../http/esm5/http.js");
 __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var UserService = /** @class */ (function () {
-    function UserService(http, config) {
-        this.http = http;
+    function UserService(_http, config) {
+        this._http = _http;
         this.config = config;
         this.serviceUrl = config.siteUrl + '/user/';
     }
+    // ---------------------------------Start-------------------------------------------
+    // Function      : set Header
+    // Params        : 
+    // Returns       : header
+    // Author        : Manu Prasad
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Manu Prasad, Desc:
+    // Desc          : to set header to call an api
     UserService.prototype.setHeader = function () {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         return (headers);
     };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : getSurvey
+    // Params        : 
+    // Returns       : survey data
+    // Author        : Manu Prasad
+    // Date          : 3-1-2018
+    // Last Modified : 3-1-2018, Manu Prasad, Desc:
+    // Desc          : get survey to be displayed for the user
+    UserService.prototype.getSurvey = function (surveyId) {
+        var headers = this.setHeader();
+        return this._http.get(this.serviceUrl + 'get-survey/' + surveyId, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : getSurvey
+    // Params        : 
+    // Returns       : survey data
+    // Author        : Manu Prasad
+    // Date          : 3-1-2018
+    // Last Modified : 3-1-2018, Manu Prasad, Desc:
+    // Desc          : get survey to be displayed for the user
+    UserService.prototype.getNotRunningSurvey = function (surveyId) {
+        var headers = this.setHeader();
+        return this._http.get(this.serviceUrl + 'get-not-run-survey/' + surveyId, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : save survey
+    // Params        : 
+    // Returns       : response save status
+    // Author        : Manu Prasad
+    // Date          : 9-1-2018
+    // Last Modified : 9-1-2018, Manu Prasad, Desc:
+    // Desc          : routing used to submit the survey
+    UserService.prototype.submitSurvey = function (survey, surveyId) {
+        var headers = this.setHeader();
+        return this._http.put(this.serviceUrl + 'submit-survey/' + surveyId, survey, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
     UserService.prototype.setHeaderWithAuthorization = function () {
         var headers = new http_1.Headers();
         this.loadToken();
@@ -8743,7 +10838,7 @@ var UserService = /** @class */ (function () {
     // Desc          : Check whether the company registered email id is registered globally
     UserService.prototype.checkEmail = function (email) {
         var h = this.setHeader();
-        return this.http.get(this.serviceUrl + "checkEmail/" + email, { headers: h })
+        return this._http.get(this.serviceUrl + "checkEmail/" + email, { headers: h })
             .map(function (res) { return res.json(); });
     };
     // ---------------------------------------End--------------------------------------------
@@ -8757,7 +10852,7 @@ var UserService = /** @class */ (function () {
     // Desc          : 
     UserService.prototype.registration = function (user, surveyId) {
         var h = this.setHeader();
-        return this.http.post(this.serviceUrl + "register/" + surveyId, JSON.stringify(user), { headers: h })
+        return this._http.post(this.serviceUrl + "register/" + surveyId, JSON.stringify(user), { headers: h })
             .map(function (res) { return res.json(); });
     };
     // ---------------------------------------End--------------------------------------------
@@ -8786,7 +10881,7 @@ var UserService = /** @class */ (function () {
     // Desc          : 
     UserService.prototype.userLogin = function (user, surveyId) {
         var h = this.setHeader();
-        return this.http.post(this.serviceUrl + "/login/" + surveyId, user, { headers: h })
+        return this._http.post(this.serviceUrl + "/login/" + surveyId, user, { headers: h })
             .map(function (res) { return res.json(); });
     };
     // -----------------------------------End-----------------------------------------------
@@ -8800,7 +10895,7 @@ var UserService = /** @class */ (function () {
     // Desc          : 
     UserService.prototype.getuserEmail = function (userId) {
         var headers = this.setHeader();
-        return this.http.get(this.serviceUrl + 'getUserEmailByID/' + userId, { headers: headers })
+        return this._http.get(this.serviceUrl + 'getUserEmailByID/' + userId, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     UserService = __decorate([

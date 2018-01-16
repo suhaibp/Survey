@@ -9,9 +9,13 @@ const ThemeSchema = mongoose.Schema({
     },
     h_font_color : {
         type : String,
+        default: "#333"
     },
-    h_font_style : {
-        type : String,
+    h_font_bold : {
+        type : Boolean,
+    },
+    h_font_italic : {
+        type : Boolean,
     },
     h_font_family : {
         type : String,
@@ -24,9 +28,13 @@ const ThemeSchema = mongoose.Schema({
     },
     f_font_color : {
         type : String,
+        default: "#333"
     },
-    f_font_style : {
-        type : String,
+    f_font_bold : {
+        type : Boolean,
+    },
+    f_font_italic : {
+        type : Boolean,
     },
     f_font_family : {
         type : String,
@@ -39,9 +47,13 @@ const ThemeSchema = mongoose.Schema({
     },
     q_font_color : {
         type : String,
+        default: "#333"
     },
-    q_font_style : {
-        type : String,
+    q_font_bold : {
+        type : Boolean,
+    },
+    q_font_italic : {
+        type : Boolean,
     },
     q_font_family : {
         type : String,
@@ -62,11 +74,11 @@ const ThemeSchema = mongoose.Schema({
         type : String,
     },
     cmp_id : {
-        type : String,
+        type : Schema.ObjectId,
     },
-    delete_status : {
-        type : String,
-    }
+    // delete_status : {
+    //     type : String,
+    // }
 });
 
 const Theme = module.exports = mongoose.model('Theme', ThemeSchema, 'theme');

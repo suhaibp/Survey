@@ -1,0 +1,15 @@
+
+
+      <div *ngIf="closed" >
+          <app-user-survey-closed [survey]="survey"></app-user-survey-closed>    
+      </div>
+      <div *ngIf="upcoming" >
+          <app-user-survey-upcoming [countTime]="countTime" [survey]="survey"></app-user-survey-upcoming>    
+      </div>
+      <div *ngIf="run" >
+          <app-user-survey-singlepage [survey]="survey" ></app-user-survey-singlepage>    
+      </div>
+
+      <div *ngIf="mrun" >
+          <app-user-survey-singlepage [survey]="survey" ></app-user-survey-singlepage>    
+      </div>

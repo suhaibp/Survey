@@ -28,7 +28,8 @@ const UserSchema = mongoose.Schema({
             },
             organization : {
                 type : String,
-            },  
+            },            
+
             email : {
                 type : String,
             },
@@ -58,15 +59,14 @@ const UserSchema = mongoose.Schema({
         }
     
     }],
-    delete_status : { 
-        type: Boolean, 
-        default: false 
-    },
-    block_status : { 
-        type: Boolean, 
-        default: false 
-    },
-
+        delete_status : { 
+            type: Boolean, 
+            default: false 
+        },
+        block_status : { 
+            type: Boolean, 
+            default: false 
+        },
 });
 
 const User = module.exports = mongoose.model('User', UserSchema, 'user');
