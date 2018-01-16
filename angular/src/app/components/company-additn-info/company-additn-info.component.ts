@@ -52,21 +52,31 @@ export class CompanyAdditnInfoComponent implements OnInit {
 // Params        : 
 // Returns       : company details
 // Author        : Rinsha
-// Date          : 12-1-2018
-// Last Modified : 12-1-2018, Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this.companyService.getLoggedUSerDetails().subscribe(info =>{
   if(info.role == "admin"){
-    // this.routes.navigate(['/admin dashboard']);
+    this.routes.navigate(['/admin-dashboard']);
   }
   if(info.role == "user"){
     if(info.delete_status == true || info.block_status == true){
-      // this.routes.navigate(['/404]); 
+      this.routes.navigate(['/404']); 
     }
-    // this.routes.navigate(['/survey', info.surveyId]); 
+    this.routes.navigate(['/survey', info.surveyId]); 
+  }
+  if(info.role == "company"){
+    if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
+      this.routes.navigate(['/clogin']); 
+    }
+    if(info.cmp_status == "Expired"){
+      this.routes.navigate(['/expired']);
+    }
+    if(info.is_profile_completed == false){
+      this.routes.navigate(['/additnInfo', info._id]);
+    }
   }
 });
-
 // ---------------------------------End-------------------------------------------
 
 // ---------------------------------Start-------------------------------------------
@@ -87,7 +97,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
               if(data.cmp_status == "Expired"){
                 this.routes.navigate(['/expired']);
               }else{
-              // this.routes.navigate(['/creg']);
+              this.routes.navigate(['/dashboard']);
               }
             }
           });
@@ -181,13 +191,13 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
          }
       });
       setTimeout(() => {  
-        // this.routes.navigate(['/login']);
+        this.routes.navigate(['/dashboard']);
       }, 4000);
     
     } else {
       this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
       setTimeout(() => {  
-        // this.routes.navigate(['/404']);
+        this.routes.navigate(['/404']);
       }, 4000);
     }
    });

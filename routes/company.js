@@ -377,14 +377,11 @@ router.get('/getLoggedinCompany',(req,res,next)=>{
     if (req.headers && req.headers.authorization) {
         var authorization = req.headers.authorization.substring(4),
             decoded;
-            try {
+
                 decoded = jwt.verify(authorization, config.secret);
                 res.json(decoded);
-            } catch (e) {
-                return res.json({success:false, msg: 'Invalid User'});
-            }
     }else{
-        return res.json({success:false, msg: 'Invalid User'});
+        res.json('');
     }
 });
 

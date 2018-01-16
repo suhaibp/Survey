@@ -60,4 +60,18 @@ refresh(){
 
 }
 // -----------------------------------End------------------------------------------
+// ---------------------------------Start-------------------------------------------
+// Function      : Logout
+// Params        : 
+// Returns       : 
+// Author        : Rinsha
+// Date          : 03-1-2018
+// Last Modified : 03-1-2018, Rinsha
+// Desc          : 
+logout(){
+  this.adminService.logout();
+  this.router.navigate(['/admin-login']);
+  return false;
+}
+// -----------------------------------End------------------------------------------
 }

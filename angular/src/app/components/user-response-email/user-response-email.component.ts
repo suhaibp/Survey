@@ -67,13 +67,3 @@ export class UserResponseEmailComponent implements OnInit {
 
 }
 
-// ---------------------------------Start-------------------------------------------
-// Function      : Get user email 
-// Params        : company user id
-// Returns       : 
-// Author        : Rinsha
-// Date          : 29-12-2017
-// Last Modified : 29-12-2017, Rinsha
-// Desc          : 
-
-// -----------------------------------End------------------------------------------

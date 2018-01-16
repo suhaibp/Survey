@@ -539,4 +539,26 @@ router.get('/getUserEmailByID/:id', function(req, res){
 });
 
 // ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : Get logged user details
+// Params        : 
+// Returns       : get details of logged in entity
+// Author        : Rinsha
+// Date          : 16-01-2018
+// Last Modified : 16-01-2018, Rinsha
+// Desc          : 
+
+router.get('/getLoggedinUser',(req,res,next)=>{
+    if (req.headers && req.headers.authorization) {
+        var authorization = req.headers.authorization.substring(4),
+            decoded;
+                decoded = jwt.verify(authorization, config.secret);
+                res.json(decoded);
+    }else{
+        return res.json('');
+    }
+});
+
+// ----------------------------------End-------------------------------------------
 module.exports = router;

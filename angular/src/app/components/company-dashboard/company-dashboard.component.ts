@@ -16,12 +16,43 @@ export class CompanyDashboardComponent implements OnInit {
   private socket: any;
   locations = [];
   constructor(private _companyService: CompanyService,
-    private _router: Router,
+    private routes: Router,
     private config: Config) {
       this.socket = socketIo(config.socketURL);
    }
 
   ngOnInit() {
+// ---------------------------------Start-------------------------------------------
+// Function      : get logged company details
+// Params        : 
+// Returns       : company details
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          :
+this._companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info.role == "admin"){
+    this.routes.navigate(['/admin-dashboard']);
+  }
+  if(info.role == "user"){
+    if(info.delete_status == true || info.block_status == true){
+      this.routes.navigate(['/404']); 
+    }
+    this.routes.navigate(['/survey', info.surveyId]); 
+  }
+  if(info.role == "company"){
+    if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
+      this.routes.navigate(['/clogin']); 
+    }
+    if(info.cmp_status == "Expired"){
+      this.routes.navigate(['/expired']);
+    }
+    if(info.is_profile_completed == false){
+      this.routes.navigate(['/additnInfo', info._id]);
+    }
+  }
+});
+// ---------------------------------End-------------------------------------------
     this.getMapPositions();
     this.socket.on('closebid', (data) => {
       console.log(data);

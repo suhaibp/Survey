@@ -2631,6 +2631,9 @@ var AdminLoginComponent = /** @class */ (function () {
                 }
                 _this.routes.navigate(['/survey', info.surveyId]);
             }
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
             if (info.role == "company") {
                 if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
                     _this.routes.navigate(['/clogin']);
@@ -2663,7 +2666,7 @@ var AdminLoginComponent = /** @class */ (function () {
             if (data.success) {
                 _this.showError = false;
                 _this.adminService.storeUserData(data.token, data.admin);
-                // this.routes.navigate(['/home']);
+                _this.routes.navigate(['/admin-dashboard']);
             }
         });
     };
@@ -3411,10 +3414,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
-    function AdminManageSurveyAttenderTypeComponent(_adminService, _flashMessagesService, router, route) {
+    function AdminManageSurveyAttenderTypeComponent(_adminService, _flashMessagesService, routes, route) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
-        this.router = router;
+        this.routes = routes;
         this.route = route;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
@@ -3434,6 +3437,36 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
         return index;
     };
     AdminManageSurveyAttenderTypeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.loadData();
     };
     //  ---------------------------------Start-------------------------------------------
@@ -3722,10 +3755,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminManageSurveyCategoryComponent = /** @class */ (function () {
-    function AdminManageSurveyCategoryComponent(_adminService, _flashMessagesService, router, route) {
+    function AdminManageSurveyCategoryComponent(_adminService, _flashMessagesService, routes, route) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
-        this.router = router;
+        this.routes = routes;
         this.route = route;
         this.displayedColumns = ['id', 'name', 'action'];
         this.btnDisbled = false;
@@ -3745,6 +3778,36 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
         return index;
     };
     AdminManageSurveyCategoryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.loadData();
     };
     //  ---------------------------------Start-------------------------------------------
@@ -4034,9 +4097,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminNotVerifiedComponent = /** @class */ (function () {
-    function AdminNotVerifiedComponent(adminService, router) {
+    function AdminNotVerifiedComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -4085,6 +4148,36 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
         this.dataSource.sort = this.sort;
     };
     AdminNotVerifiedComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------    
         this.refresh();
     };
     // -----------------------------------End------------------------------------------  
@@ -4217,9 +4310,9 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var AdminRequestUsersComponent = /** @class */ (function () {
-    function AdminRequestUsersComponent(adminService, router, config) {
+    function AdminRequestUsersComponent(adminService, routes, config) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.config = config;
         this.displayedColumns = ['slno', 'username', 'email', 'requestedcompanies', 'status', 'action'];
         this.notExist = false;
@@ -4250,6 +4343,35 @@ var AdminRequestUsersComponent = /** @class */ (function () {
     };
     AdminRequestUsersComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------   
         this.refresh();
         this.socket.on('requestuser', function (data) {
             _this.refresh();
@@ -4420,9 +4542,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminSubscribedComponent = /** @class */ (function () {
-    function AdminSubscribedComponent(adminService, router) {
+    function AdminSubscribedComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -4472,6 +4594,36 @@ var AdminSubscribedComponent = /** @class */ (function () {
         this.dataSource.sort = this.sort;
     };
     AdminSubscribedComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     // -----------------------------------End------------------------------------------
@@ -4647,6 +4799,20 @@ var AdminTopBarComponent = /** @class */ (function () {
             }
         });
     };
+    // -----------------------------------End------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Logout
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 03-1-2018
+    // Last Modified : 03-1-2018, Rinsha
+    // Desc          : 
+    AdminTopBarComponent.prototype.logout = function () {
+        this.adminService.logout();
+        this.router.navigate(['/admin-login']);
+        return false;
+    };
     AdminTopBarComponent = __decorate([
         core_1.Component({
             selector: 'admin-top-bar',
@@ -4709,9 +4875,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminTrialComponent = /** @class */ (function () {
-    function AdminTrialComponent(adminService, router) {
+    function AdminTrialComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -4760,6 +4926,36 @@ var AdminTrialComponent = /** @class */ (function () {
         this.dataSource.sort = this.sort;
     };
     AdminTrialComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     // -----------------------------------End------------------------------------------
@@ -4886,11 +5082,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminUsersComponent = /** @class */ (function () {
-    function AdminUsersComponent() {
+    function AdminUsersComponent(adminService, routes) {
+        this.adminService = adminService;
+        this.routes = routes;
         this.viewComp = 'All';
     }
     AdminUsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         console.log(this.viewComp);
     };
     AdminUsersComponent.prototype.updateView = function (page) {
@@ -4903,7 +5133,7 @@ var AdminUsersComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-users/admin-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-users/admin-users.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router])
     ], AdminUsersComponent);
     return AdminUsersComponent;
 }());
@@ -4987,18 +5217,29 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
         // Params        : 
         // Returns       : company details
         // Author        : Rinsha
-        // Date          : 12-1-2018
-        // Last Modified : 12-1-2018, Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
             if (info.role == "admin") {
-                // this.routes.navigate(['/admin dashboard']);
+                _this.routes.navigate(['/admin-dashboard']);
             }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
-                    // this.routes.navigate(['/404]); 
+                    _this.routes.navigate(['/404']);
                 }
-                // this.routes.navigate(['/survey', info.surveyId]); 
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
             }
         });
         // ---------------------------------End-------------------------------------------
@@ -5021,7 +5262,7 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
                                 _this.routes.navigate(['/expired']);
                             }
                             else {
-                                // this.routes.navigate(['/creg']);
+                                _this.routes.navigate(['/dashboard']);
                             }
                         }
                     });
@@ -5110,13 +5351,13 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
                     }
                 });
                 setTimeout(function () {
-                    // this.routes.navigate(['/login']);
+                    _this.routes.navigate(['/dashboard']);
                 }, 4000);
             }
             else {
                 _this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
                 setTimeout(function () {
-                    // this.routes.navigate(['/404']);
+                    _this.routes.navigate(['/404']);
                 }, 4000);
             }
         });
@@ -5182,9 +5423,9 @@ var company_service_1 = __webpack_require__("../../../../../src/app/services/com
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var CompanyCreateThemeContainerComponent = /** @class */ (function () {
-    function CompanyCreateThemeContainerComponent(_companyService, _router) {
+    function CompanyCreateThemeContainerComponent(_companyService, routes) {
         this._companyService = _companyService;
-        this._router = _router;
+        this.routes = routes;
         this.newTheme = {
             title: "",
             h_font_color: "#ffffff",
@@ -5224,6 +5465,38 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
         this.submitBtnDisabled = false;
     }
     CompanyCreateThemeContainerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.getFontProperties();
     };
     CompanyCreateThemeContainerComponent.prototype.submitTheme = function () {
@@ -5318,11 +5591,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyCreateThemeComponent = /** @class */ (function () {
-    function CompanyCreateThemeComponent() {
+    function CompanyCreateThemeComponent(companyService, routes) {
+        this.companyService = companyService;
+        this.routes = routes;
         this.viewComp = "list";
     }
     CompanyCreateThemeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
     };
     // ---------------------------------Start-------------------------------------------
     // Function      : updateView()
@@ -5341,7 +5650,7 @@ var CompanyCreateThemeComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router])
     ], CompanyCreateThemeComponent);
     return CompanyCreateThemeComponent;
 }());
@@ -5397,9 +5706,9 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var CompanyDashboardComponent = /** @class */ (function () {
-    function CompanyDashboardComponent(_companyService, _router, config) {
+    function CompanyDashboardComponent(_companyService, routes, config) {
         this._companyService = _companyService;
-        this._router = _router;
+        this.routes = routes;
         this.config = config;
         this.lat = 51.678418;
         this.lng = 7.809007;
@@ -5408,6 +5717,37 @@ var CompanyDashboardComponent = /** @class */ (function () {
     }
     CompanyDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.getMapPositions();
         this.socket.on('closebid', function (data) {
             console.log(data);
@@ -5539,10 +5879,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyEditThemeContainerComponent = /** @class */ (function () {
-    function CompanyEditThemeContainerComponent() {
+    function CompanyEditThemeContainerComponent(_companyService, routes) {
+        this._companyService = _companyService;
+        this.routes = routes;
     }
     CompanyEditThemeContainerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         console.log(this.options);
         $(".rating ").css({ "background-color": "#ccc" });
         // $(".rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before").css({"color": "#F9DF4A"});
@@ -5560,7 +5936,7 @@ var CompanyEditThemeContainerComponent = /** @class */ (function () {
             inputs: ["options", 'classz'],
             template: "\n  <div class=\"container\">\n  \n      <!-- regular rating -->\n      <rating [(ngModel)]=\"starsCount\"></rating>\n      <br/><br/>\n  \n      <!-- rating with 10 stars -->\n      <rating [(ngModel)]=\"starsCount\"\n              [max]=\"10\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with custom icons -->\n      <rating [(ngModel)]=\"starsCount\"\n              fullIcon=\"\u25C6\"\n              emptyIcon=\"\u25C7\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating readonly -->\n      <rating [(ngModel)]=\"starsCount\"\n              [readonly]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating disabled -->\n      <rating [(ngModel)]=\"starsCount\"\n              [disabled]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating required -->\n      <rating [(ngModel)]=\"starsCount\"\n              [required]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with half stars -->\n      <rating [(ngModel)]=\"starsCount\"\n              [float]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with custom titles -->\n      <rating [(ngModel)]=\"starsCount\"\n              [titles]=\"['one', 'two', 'three', 'four', 'five']\">\n      </rating>\n      <br/><br/>\n  \n  </div>\n  ",
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router])
     ], CompanyEditThemeContainerComponent);
     return CompanyEditThemeContainerComponent;
 }());
@@ -5614,10 +5990,10 @@ var company_service_1 = __webpack_require__("../../../../../src/app/services/com
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var CompanyEditThemeComponent = /** @class */ (function () {
-    function CompanyEditThemeComponent(_activatedRoute, _companyService, _router) {
+    function CompanyEditThemeComponent(_activatedRoute, _companyService, routes) {
         this._activatedRoute = _activatedRoute;
         this._companyService = _companyService;
-        this._router = _router;
+        this.routes = routes;
         this.displatStat = false;
         this.titleFormControl = new forms_1.FormControl('', [
             forms_1.Validators.required,
@@ -5625,6 +6001,38 @@ var CompanyEditThemeComponent = /** @class */ (function () {
         this.submitBtnDisabled = false;
     }
     CompanyEditThemeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.getFontProperties();
         this.getTheme();
     };
@@ -5718,7 +6126,7 @@ var CompanyEditThemeComponent = /** @class */ (function () {
     // Last Modified : 2-1-2018, Manu Prasad 
     // Desc          : redirect to manage theme page
     CompanyEditThemeComponent.prototype.redirect = function () {
-        this._router.navigate(['./create-theme']);
+        this.routes.navigate(['./create-theme']);
     };
     CompanyEditThemeComponent = __decorate([
         core_1.Component({
@@ -5882,6 +6290,38 @@ var CompanyExpiredPageComponent = /** @class */ (function () {
         this._flashMessagesService = _flashMessagesService;
     }
     CompanyExpiredPageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
     };
     // ---------------------------------Start-------------------------------------------
     // Function      : Subscribe
@@ -5897,13 +6337,13 @@ var CompanyExpiredPageComponent = /** @class */ (function () {
             if (data.success) {
                 _this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
                 setTimeout(function () {
-                    // this.routes.navigate(['/clogin']);
+                    _this.routes.navigate(['/dashboard']);
                 }, 4000);
             }
             else {
                 _this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
                 setTimeout(function () {
-                    // this.routes.navigate(['/expired']);
+                    _this.routes.navigate(['/expired']);
                 }, 4000);
             }
         });
@@ -5991,6 +6431,39 @@ var CompanyLoginComponent = /** @class */ (function () {
         };
     }
     CompanyLoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
     };
     // ---------------------------------Start-------------------------------------------
     // Function      : Login
@@ -6087,14 +6560,46 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyManageThemesComponent = /** @class */ (function () {
-    function CompanyManageThemesComponent(_companyService, _router) {
+    function CompanyManageThemesComponent(_companyService, routes) {
         this._companyService = _companyService;
-        this._router = _router;
+        this.routes = routes;
         this.displayedColumns = ['id', 'name', 'status'];
         this.displatStat = false;
         this.showErr = false;
     }
     CompanyManageThemesComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.getThemes();
     };
     CompanyManageThemesComponent.prototype.applyFilter = function (filterValue) {
@@ -6230,10 +6735,12 @@ var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyManageUserGroupsComponent = /** @class */ (function () {
-    function CompanyManageUserGroupsComponent(companyService, _flashMessagesService) {
+    function CompanyManageUserGroupsComponent(companyService, _flashMessagesService, routes) {
         this.companyService = companyService;
         this._flashMessagesService = _flashMessagesService;
+        this.routes = routes;
         this.existStatus = false;
         this.displayedColumns = ['id', 'name', 'action'];
         this.newGroup = { group: '', email: [], id: '' };
@@ -6247,6 +6754,37 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
     }
     CompanyManageUserGroupsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.loadData();
         this.companyService.getMyUsers().subscribe(function (userDatas) {
             // console.log(userData);
@@ -6459,7 +6997,7 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router])
     ], CompanyManageUserGroupsComponent);
     return CompanyManageUserGroupsComponent;
 }());
@@ -6536,6 +7074,37 @@ var CompanyProfileComponent = /** @class */ (function () {
     }
     CompanyProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.ProfileFormGroup = this._formBuilder.group({
             orgValidation: ['', forms_1.Validators.required],
             organization_typeValidation: ['', forms_1.Validators.required],
@@ -6765,6 +7334,37 @@ var CompanyRegistrationComponent = /** @class */ (function () {
     }
     CompanyRegistrationComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.isLinear = true;
         this.firstFormGroup = this._formBuilder.group({
             orgValidation: ['', forms_1.Validators.required],
@@ -6839,13 +7439,13 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             if (data.success == true) {
                 _this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
                 setTimeout(function () {
-                    // this.routes.navigate(['/login']);
+                    _this.routes.navigate(['/clogin']);
                 }, 4000);
             }
             else {
                 _this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
                 setTimeout(function () {
-                    // this.routes.navigate(['/404']);
+                    _this.routes.navigate(['/clogin']);
                 }, 4000);
             }
         });
@@ -6997,11 +7597,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var CompanyTopBarComponent = /** @class */ (function () {
-    function CompanyTopBarComponent(companyService, config) {
+    function CompanyTopBarComponent(companyService, config, routes) {
         this.companyService = companyService;
         this.config = config;
+        this.routes = routes;
         this.dataArray = [];
         this.userData = {
             userEmail: '',
@@ -7055,13 +7657,26 @@ var CompanyTopBarComponent = /** @class */ (function () {
             //  console.log(data)
         });
     };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Logout
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 03-1-2018
+    // Last Modified : 03-1-2018, Rinsha
+    // Desc          : 
+    CompanyTopBarComponent.prototype.logout = function () {
+        this.companyService.logout();
+        this.routes.navigate(['/clogin']);
+        return false;
+    };
     CompanyTopBarComponent = __decorate([
         core_1.Component({
             selector: 'app-company-top-bar',
             template: __webpack_require__("../../../../../src/app/components/company-top-bar/company-top-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-top-bar/company-top-bar.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, config_1.Config])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, config_1.Config, router_1.Router])
     ], CompanyTopBarComponent);
     return CompanyTopBarComponent;
 }());
@@ -7115,11 +7730,13 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var xlsx_to_json_service_1 = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
 var CompanyUsersComponent = /** @class */ (function () {
-    function CompanyUsersComponent(companyService, _flashMessagesService) {
+    function CompanyUsersComponent(companyService, _flashMessagesService, routes) {
         this.companyService = companyService;
         this._flashMessagesService = _flashMessagesService;
+        this.routes = routes;
         this.newBlock = {
             id: String,
             email: String,
@@ -7151,6 +7768,37 @@ var CompanyUsersComponent = /** @class */ (function () {
     };
     CompanyUsersComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         // this.selGroups = ['Symptots'];
         this.loadData();
         this.companyService.getAllUserGroup().subscribe(function (data) {
@@ -7487,7 +8135,7 @@ var CompanyUsersComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-users/company-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-users/company-users.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router])
     ], CompanyUsersComponent);
     return CompanyUsersComponent;
 }());
@@ -8063,6 +8711,37 @@ var UserLoginComponent = /** @class */ (function () {
     }
     UserLoginComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.sub = this.route.params.subscribe(function (params) {
             _this.surveyId = params['id2'];
             _this.userId = params['id1'];
@@ -8099,7 +8778,7 @@ var UserLoginComponent = /** @class */ (function () {
             if (data.success) {
                 _this.showError = false;
                 _this.userService.storeUserData(data.token, data.user);
-                // this.routes.navigate(['/survey', this.surveyId]);
+                _this.routes.navigate(['/survey', _this.surveyId]);
             }
         });
     };
@@ -8211,6 +8890,37 @@ var UserRegistrationComponent = /** @class */ (function () {
     }
     UserRegistrationComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.regFormGroup = this._formBuilder.group({
             nameValidation: ['', forms_1.Validators.required],
             password: ['', forms_1.Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/)],
@@ -8251,15 +8961,15 @@ var UserRegistrationComponent = /** @class */ (function () {
                 _this.userService.storeUserData(data.token, data.user);
                 _this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
                 setTimeout(function () {
-                    //  this.routes.navigate(['/survey', this.surveyId]);
+                    _this.routes.navigate(['/survey', _this.surveyId]);
                 }, 4000);
             }
             else {
                 _this.msg = data.msg;
                 _this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
-                //  setTimeout(() => {  
-                //    // this.routes.navigate(['/404']);
-                //  }, 4000);
+                setTimeout(function () {
+                    _this.routes.navigate(['/404']);
+                }, 4000);
             }
         });
     };
@@ -8387,15 +9097,6 @@ var UserResponseEmailComponent = /** @class */ (function () {
     return UserResponseEmailComponent;
 }());
 exports.UserResponseEmailComponent = UserResponseEmailComponent;
-// ---------------------------------Start-------------------------------------------
-// Function      : Get user email 
-// Params        : company user id
-// Returns       : 
-// Author        : Rinsha
-// Date          : 29-12-2017
-// Last Modified : 29-12-2017, Rinsha
-// Desc          : 
-// -----------------------------------End------------------------------------------
 
 
 /***/ }),
@@ -8445,14 +9146,46 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var UserSurveyClosedComponent = /** @class */ (function () {
-    function UserSurveyClosedComponent(_activatedRoute, _userService, _companyService, _router) {
+    function UserSurveyClosedComponent(_activatedRoute, _userService, _companyService, routes) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
-        this._router = _router;
+        this.routes = routes;
         this.gotSurvey = false;
     }
     UserSurveyClosedComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.getSurvey();
     };
     //  ---------------------------------Start-------------------------------------------
@@ -8567,11 +9300,11 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var UserSurveyMultipleComponent = /** @class */ (function () {
-    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, _router) {
+    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, routes) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
-        this._router = _router;
+        this.routes = routes;
         this.cardNo = 0;
         this.incDisp = false;
         this.disp = false;
@@ -8582,6 +9315,38 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         this.progressBarWidthString = '';
     }
     UserSurveyMultipleComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.themeId = this.survey.theme;
         if (this.survey.display_type.skip == true) {
             this.skip = true;
@@ -8723,16 +9488,48 @@ var user_service_1 = __webpack_require__("../../../../../src/app/services/user.s
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 // import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
 var UserSurveySinglepageComponent = /** @class */ (function () {
-    function UserSurveySinglepageComponent(_activatedRoute, _userService, _companyService, _router) {
+    function UserSurveySinglepageComponent(_activatedRoute, _userService, _companyService, routes) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
-        this._router = _router;
+        this.routes = routes;
         this.disp = false;
         this.skip = false;
         this.blankAns = false;
     }
     UserSurveySinglepageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         // console.log(this.survey[0].theme.id);
         this.themeId = this.survey.theme;
         if (this.survey.display_type.skip == true) {
@@ -8877,14 +9674,46 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var UserSurveyUpcomingComponent = /** @class */ (function () {
-    function UserSurveyUpcomingComponent(_activatedRoute, _userService, _companyService, _router) {
+    function UserSurveyUpcomingComponent(_activatedRoute, _userService, _companyService, routes) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
-        this._router = _router;
+        this.routes = routes;
         this.disp = false;
     }
     UserSurveyUpcomingComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         console.log(this.survey.theme);
         this.themeId = this.survey.theme;
         this.getTheme();
@@ -8972,16 +9801,48 @@ var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var UserSurveyComponent = /** @class */ (function () {
-    function UserSurveyComponent(_activatedRoute, _userService, _router) {
+    function UserSurveyComponent(_activatedRoute, _userService, routes) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
-        this._router = _router;
+        this.routes = routes;
         this.closed = false;
         this.upcoming = false;
         this.run = false;
         this.mrun = false;
     }
     UserSurveyComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.getSurvey();
     };
     //  ---------------------------------Start-------------------------------------------
@@ -10027,6 +10888,20 @@ var AdminService = /** @class */ (function () {
         return this.http.get(this.serviceUrl + "getLoggedinUser", { headers: h })
             .map(function (res) { return res.json(); });
     };
+    // -----------------------------------End-----------------------------------------------
+    // ---------------------------------Start------------------------------------------------
+    // Function      : Logout
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 03-1-2018
+    // Last Modified : 03-1-2018, Rinsha
+    // Desc          : 
+    AdminService.prototype.logout = function () {
+        this.authToken = null;
+        this.admin = null;
+        localStorage.clear();
+    };
     AdminService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http, config_1.Config])
@@ -10757,8 +11632,8 @@ var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var http_1 = __webpack_require__("../../../http/esm5/http.js");
 __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var UserService = /** @class */ (function () {
-    function UserService(_http, config) {
-        this._http = _http;
+    function UserService(http, config) {
+        this.http = http;
         this.config = config;
         this.serviceUrl = config.siteUrl + '/user/';
     }
@@ -10786,7 +11661,7 @@ var UserService = /** @class */ (function () {
     // Desc          : get survey to be displayed for the user
     UserService.prototype.getSurvey = function (surveyId) {
         var headers = this.setHeader();
-        return this._http.get(this.serviceUrl + 'get-survey/' + surveyId, { headers: headers })
+        return this.http.get(this.serviceUrl + 'get-survey/' + surveyId, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     // ----------------------------------End-------------------------------------------
@@ -10800,7 +11675,7 @@ var UserService = /** @class */ (function () {
     // Desc          : get survey to be displayed for the user
     UserService.prototype.getNotRunningSurvey = function (surveyId) {
         var headers = this.setHeader();
-        return this._http.get(this.serviceUrl + 'get-not-run-survey/' + surveyId, { headers: headers })
+        return this.http.get(this.serviceUrl + 'get-not-run-survey/' + surveyId, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     // ----------------------------------End-------------------------------------------
@@ -10814,7 +11689,7 @@ var UserService = /** @class */ (function () {
     // Desc          : routing used to submit the survey
     UserService.prototype.submitSurvey = function (survey, surveyId) {
         var headers = this.setHeader();
-        return this._http.put(this.serviceUrl + 'submit-survey/' + surveyId, survey, { headers: headers })
+        return this.http.put(this.serviceUrl + 'submit-survey/' + surveyId, survey, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     // ----------------------------------End-------------------------------------------
@@ -10838,7 +11713,7 @@ var UserService = /** @class */ (function () {
     // Desc          : Check whether the company registered email id is registered globally
     UserService.prototype.checkEmail = function (email) {
         var h = this.setHeader();
-        return this._http.get(this.serviceUrl + "checkEmail/" + email, { headers: h })
+        return this.http.get(this.serviceUrl + "checkEmail/" + email, { headers: h })
             .map(function (res) { return res.json(); });
     };
     // ---------------------------------------End--------------------------------------------
@@ -10852,7 +11727,7 @@ var UserService = /** @class */ (function () {
     // Desc          : 
     UserService.prototype.registration = function (user, surveyId) {
         var h = this.setHeader();
-        return this._http.post(this.serviceUrl + "register/" + surveyId, JSON.stringify(user), { headers: h })
+        return this.http.post(this.serviceUrl + "register/" + surveyId, JSON.stringify(user), { headers: h })
             .map(function (res) { return res.json(); });
     };
     // ---------------------------------------End--------------------------------------------
@@ -10881,7 +11756,7 @@ var UserService = /** @class */ (function () {
     // Desc          : 
     UserService.prototype.userLogin = function (user, surveyId) {
         var h = this.setHeader();
-        return this._http.post(this.serviceUrl + "/login/" + surveyId, user, { headers: h })
+        return this.http.post(this.serviceUrl + "/login/" + surveyId, user, { headers: h })
             .map(function (res) { return res.json(); });
     };
     // -----------------------------------End-----------------------------------------------
@@ -10895,7 +11770,21 @@ var UserService = /** @class */ (function () {
     // Desc          : 
     UserService.prototype.getuserEmail = function (userId) {
         var headers = this.setHeader();
-        return this._http.get(this.serviceUrl + 'getUserEmailByID/' + userId, { headers: headers })
+        return this.http.get(this.serviceUrl + 'getUserEmailByID/' + userId, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start------------------------------------------------
+    // Function      : Get logged user details
+    // Params        : 
+    // Returns       : get details of logged in entity
+    // Author        : Rinsha
+    // Date          : 16-01-2018
+    // Last Modified : 16-01-2018, Rinsha
+    // Desc          : 
+    UserService.prototype.getLoggedUSerDetails = function () {
+        var h = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + 'getLoggedinUser', { headers: h })
             .map(function (res) { return res.json(); });
     };
     UserService = __decorate([

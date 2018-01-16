@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { CompanyService } from '../../services/company.service';
 import { Config } from './../../config/config';
+import { CanActivate, Router } from '@angular/router';
 import * as socketIo from 'socket.io-client';
 @Component({
   selector: 'app-company-top-bar',
@@ -21,7 +22,7 @@ userData ={
 userId: any;
 viewNotification :Boolean = false;
 private socket:any;
-  constructor(private companyService: CompanyService, private config: Config) { this.socket = socketIo(config.siteUrl); }
+  constructor(private companyService: CompanyService, private config: Config, private routes: Router) { this.socket = socketIo(config.siteUrl); }
 
   ngOnInit() {
   
@@ -71,5 +72,20 @@ private socket:any;
    });
    
   }
+
+// ---------------------------------Start-------------------------------------------
+// Function      : Logout
+// Params        : 
+// Returns       : 
+// Author        : Rinsha
+// Date          : 03-1-2018
+// Last Modified : 03-1-2018, Rinsha
+// Desc          : 
+logout(){
+  this.companyService.logout();
+  this.routes.navigate(['/clogin']);
+  return false;
+}
+// -----------------------------------End------------------------------------------
 
 }

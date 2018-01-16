@@ -28,6 +28,37 @@ export class UserRegistrationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _formBuilder: FormBuilder, private userService : UserService, private routes: Router, private _flashMessagesService: FlashMessagesService, private companyService : CompanyService) { }
 
   ngOnInit() {
+// ---------------------------------Start-------------------------------------------
+// Function      : get logged user details
+// Params        : 
+// Returns       : user details
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          :
+this.userService.getLoggedUSerDetails().subscribe(info =>{
+  if(info.role == "admin"){
+    this.routes.navigate(['/admin-dashboard']);
+  }
+  if(info.role == "user"){
+    if(info.delete_status == true || info.block_status == true){
+      this.routes.navigate(['/404']); 
+    }
+  }
+  if(info.role == "company"){
+    if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
+      this.routes.navigate(['/clogin']); 
+    }
+    if(info.cmp_status == "Expired"){
+      this.routes.navigate(['/expired']);
+    }
+    if(info.is_profile_completed == false){
+      this.routes.navigate(['/additnInfo', info._id]);
+    }
+    this.routes.navigate(['/dashboard']);
+  }
+});
+// ---------------------------------End-------------------------------------------
     this.regFormGroup = this._formBuilder.group({
       nameValidation: ['', Validators.required],
       password : ['', Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/)],
@@ -69,14 +100,14 @@ export class UserRegistrationComponent implements OnInit {
         this.userService.storeUserData(data.token, data.user);  
        this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
        setTimeout(() => {
-        //  this.routes.navigate(['/survey', this.surveyId]);
+         this.routes.navigate(['/survey', this.surveyId]);
        }, 4000);
      } else {
       this.msg = data.msg;
        this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
-      //  setTimeout(() => {  
-      //    // this.routes.navigate(['/404']);
-      //  }, 4000);
+       setTimeout(() => {  
+         this.routes.navigate(['/404']);
+       }, 4000);
      }
     });
   }

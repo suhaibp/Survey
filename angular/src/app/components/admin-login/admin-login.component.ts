@@ -32,6 +32,9 @@ export class AdminLoginComponent implements OnInit {
       }
       this.routes.navigate(['/survey', info.surveyId]); 
     }
+    if(info.role == "admin"){
+      this.routes.navigate(['/admin-dashboard']);
+    }
     if(info.role == "company"){
       if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
         this.routes.navigate(['/clogin']); 
@@ -65,7 +68,7 @@ export class AdminLoginComponent implements OnInit {
       if(data.success){
         this.showError = false;
         this.adminService.storeUserData(data.token, data.admin);
-        // this.routes.navigate(['/home']);
+        this.routes.navigate(['/admin-dashboard']);
       }
      });
   }

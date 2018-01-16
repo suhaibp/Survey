@@ -11,7 +11,7 @@ export class UserService {
   serviceUrl: string;  
   authToken: any;
   user: any;
-  constructor(private _http: Http,private config: Config) { 
+  constructor(private http: Http,private config: Config) { 
     this.serviceUrl = config.siteUrl + '/user/';
   }
 
@@ -44,7 +44,7 @@ export class UserService {
   // Desc          : get survey to be displayed for the user
   getSurvey(surveyId){
     let headers = this.setHeader();
-    return this._http.get(this.serviceUrl+'get-survey/'+surveyId,  {headers: headers})
+    return this.http.get(this.serviceUrl+'get-survey/'+surveyId,  {headers: headers})
       .map(res => res.json());
 } 
 // ----------------------------------End-------------------------------------------
@@ -61,7 +61,7 @@ export class UserService {
   // Desc          : get survey to be displayed for the user
   getNotRunningSurvey(surveyId){
     let headers = this.setHeader();
-    return this._http.get(this.serviceUrl+'get-not-run-survey/'+surveyId,  {headers: headers})
+    return this.http.get(this.serviceUrl+'get-not-run-survey/'+surveyId,  {headers: headers})
       .map(res => res.json());
 } 
 // ----------------------------------End-------------------------------------------
@@ -77,7 +77,7 @@ export class UserService {
   // Desc          : routing used to submit the survey
   submitSurvey(survey, surveyId){
     let headers = this.setHeader();
-    return this._http.put(this.serviceUrl+'submit-survey/'+surveyId, survey, {headers: headers})
+    return this.http.put(this.serviceUrl+'submit-survey/'+surveyId, survey, {headers: headers})
       .map(res => res.json());
   }
   // ----------------------------------End-------------------------------------------
@@ -103,7 +103,7 @@ export class UserService {
 // Desc          : Check whether the company registered email id is registered globally
 checkEmail(email){
   let h=this.setHeader();
-  return this._http.get(this.serviceUrl +"checkEmail/" + email,{headers: h})
+  return this.http.get(this.serviceUrl +"checkEmail/" + email,{headers: h})
   .map(res =>res.json());
 }
 // ---------------------------------------End--------------------------------------------
@@ -118,7 +118,7 @@ checkEmail(email){
 // Desc          : 
 registration(user, surveyId){
   let h=this.setHeader();
-  return this._http.post(this.serviceUrl +"register/" + surveyId, JSON.stringify(user), {headers: h})
+  return this.http.post(this.serviceUrl +"register/" + surveyId, JSON.stringify(user), {headers: h})
   .map(res =>res.json());
 }
 // ---------------------------------------End--------------------------------------------
@@ -150,7 +150,7 @@ storeUserData(token, user){
 // Desc          : 
 userLogin(user, surveyId){
   let h=this.setHeader();
-  return this._http.post(this.serviceUrl + "/login/" + surveyId, user,{headers: h})
+  return this.http.post(this.serviceUrl + "/login/" + surveyId, user,{headers: h})
     .map(res => res.json());
 }
 // -----------------------------------End-----------------------------------------------
@@ -166,8 +166,23 @@ userLogin(user, surveyId){
 
 getuserEmail(userId){
   let headers = this.setHeader();
-  return this._http.get(this.serviceUrl + 'getUserEmailByID/' + userId, {headers: headers})
+  return this.http.get(this.serviceUrl + 'getUserEmailByID/' + userId, {headers: headers})
     .map(res => res.json());
 }
 // ----------------------------------End-------------------------------------------
+
+// ---------------------------------Start------------------------------------------------
+// Function      : Get logged user details
+// Params        : 
+// Returns       : get details of logged in entity
+// Author        : Rinsha
+// Date          : 16-01-2018
+// Last Modified : 16-01-2018, Rinsha
+// Desc          : 
+getLoggedUSerDetails(){
+  let h = this.setHeaderWithAuthorization();
+  return this.http.get(this.serviceUrl + 'getLoggedinUser',{headers:h})
+  .map(res =>res.json());
+}
+// ---------------------------------------End--------------------------------------------
 }

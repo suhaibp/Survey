@@ -52,6 +52,37 @@ export class CompanyRegistrationComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService) { }
 
   ngOnInit() {
+// ---------------------------------Start-------------------------------------------
+// Function      : get logged company details
+// Params        : 
+// Returns       : company details
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          :
+this.companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info.role == "admin"){
+    this.routes.navigate(['/admin-dashboard']);
+  }
+  if(info.role == "user"){
+    if(info.delete_status == true || info.block_status == true){
+      this.routes.navigate(['/404']); 
+    }
+    this.routes.navigate(['/survey', info.surveyId]); 
+  }
+  if(info.role == "company"){
+    if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
+      this.routes.navigate(['/clogin']); 
+    }
+    if(info.cmp_status == "Expired"){
+      this.routes.navigate(['/expired']);
+    }
+    if(info.is_profile_completed == false){
+      this.routes.navigate(['/additnInfo', info._id]);
+    }
+  }
+});
+// ---------------------------------End-------------------------------------------
     this.isLinear = true;
     this.firstFormGroup = this._formBuilder.group({
       orgValidation: ['', Validators.required],
@@ -130,12 +161,12 @@ export class CompanyRegistrationComponent implements OnInit {
      if(data.success==true){
       this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
       setTimeout(() => {  
-        // this.routes.navigate(['/login']);
+        this.routes.navigate(['/clogin']);
       }, 4000);
     } else {
       this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
       setTimeout(() => {  
-        // this.routes.navigate(['/404']);
+        this.routes.navigate(['/clogin']);
       }, 4000);
     }
    });
