@@ -1,0 +1,61 @@
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+  
+  <div class="example-container mat-elevation-z8">
+    <div *ngIf="notExist"><h4>No Users Found!</h4></div>
+    <mat-table [dataSource]="dataSource" matSort>
+  <!-- Name Column -->
+  <ng-container matColumnDef="slno">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>
+      <mat-cell *matCellDef="let row;let i = index"> {{i+1}} </mat-cell>
+    </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+      </ng-container>
+  
+   <!-- Name Column -->
+   <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+  </ng-container>
+  
+      <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button *ngIf="row.delete_status==false" (click)="deleteUser(row.email)" mat-menu-item>
+                  <i class="material-icons">delete</i>
+                <span>Delete</span>
+              </button>
+              <button *ngIf="row.delete_status==true" mat-menu-item disabled>
+                <i class="material-icons">delete_forever</i>
+              <span>Deleted</span>
+            </button>
+              
+              <button *ngIf="row.block_status==true && row.delete_status==false"  (click)="unblockUser(row.email)" mat-menu-item>
+                  <i class="material-icons">block</i>
+                <span>Unblock</span>
+              </button>
+            </mat-menu>
+         
+        </mat-cell>
+    </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  
+  

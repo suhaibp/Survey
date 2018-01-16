@@ -1,0 +1,91 @@
+<mat-form-field class="filter" >
+    <mat-select  (change)="refresh()" [(value)]="selected">
+      <!-- <mat-option>None</mat-option> -->
+      <mat-option value="all">All</mat-option>
+      <mat-option value="Active">Active</mat-option>
+      <mat-option value="Block">Block</mat-option>
+      <mat-option value="Delete">Delete </mat-option>
+    </mat-select>
+  </mat-form-field>
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+  
+  <div class="example-container mat-elevation-z8">
+      <div *ngIf="notExist"><h4>No Company Found!</h4></div>
+    <mat-table [dataSource]="dataSource" matSort>
+      <!-- Name Column -->
+   <ng-container matColumnDef="slno">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>
+      <mat-cell *matCellDef="let row;let i = index"> {{i+1}} </mat-cell>
+    </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="companyname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.organization}} </mat-cell>
+      </ng-container>
+  
+   <!-- Name Column -->
+   <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.contact_email}} </mat-cell>
+  </ng-container>
+    <!-- Progress Column -->
+    <ng-container matColumnDef="contactperson">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.contact_first_name}}</mat-cell>
+    </ng-container>
+     <!-- Progress Column -->
+     <ng-container matColumnDef="contactnumber">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.contact_number}}</mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <div *ngIf="row.block_status==false && row.delete_status==false"> Active</div>
+          <div *ngIf="row.block_status==true && row.delete_status==false"> Blocked</div>
+          <div *ngIf=" row.delete_status==true"> Deleted</div>
+        </mat-cell>
+      </ng-container>
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button *ngIf="row.delete_status==false" (click)="deleteCompany(row._id)" mat-menu-item>
+                  <i class="material-icons">delete</i>
+                <span>Delete</span>
+              </button>
+              <button *ngIf="row.delete_status==true" mat-menu-item disabled>
+                <i class="material-icons">delete_forever</i>
+              <span>Deleted</span>
+            </button>
+              <button *ngIf="row.block_status==false && row.delete_status==false" (click)="blockCompany(row._id)" mat-menu-item>
+                  <i class="material-icons">block</i>
+                <span>Block</span>
+              </button>
+              <button *ngIf="row.block_status==true && row.delete_status==false" (click)="unblockCompany(row._id)" mat-menu-item>
+                  <i class="material-icons">block</i>
+                <span>Unblock</span>
+              </button>
+            </mat-menu>
+         
+        </mat-cell>
+    </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  
+  

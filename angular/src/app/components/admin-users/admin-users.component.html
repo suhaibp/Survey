@@ -1,0 +1,59 @@
+
+<body>
+  
+                <div id="wrapper">
+            
+                    <!-- Navigation -->
+                    <admin-top-bar></admin-top-bar>            
+        <admin-side-bar></admin-side-bar>
+            
+                    <div id="">
+                        <div class="container-fluid">
+                                
+                                            <!-- Page Heading -->
+                                          
+                                      
+                                            <!-- /.row -->
+                            
+                                        </div>
+                        <div class="col-md-2">
+                              <nav class="nav-sidebar">
+                                  <ul class="nav tabs">
+                                        <li [ngClass]="{'active1': viewComp == 'All'}"><a (click)="updateView('All')" href="#tab1" data-toggle="tab">All Users</a></li>
+                                        <li [ngClass]="{'active1': viewComp == 'Active'}"><a (click)="updateView('Active')" href="#tab4" data-toggle="tab">Active Users</a></li> 
+                                        <li [ngClass]="{'active1': viewComp == 'Blocked'}"><a (click)="updateView('Blocked')" href="#tab2" data-toggle="tab">Blocked Users</a></li>
+                                        <li [ngClass]="{'active1': viewComp == 'Delete'}"><a (click)="updateView('Delete')" href="#tab3" data-toggle="tab">Delete Users</a></li>  
+                                        <li [ngClass]="{'active1': viewComp == 'Request'}"><a (click)="updateView('Request')" href="#tab5" data-toggle="tab">Block Request</a></li>                               
+                                  </ul>
+                                </nav>
+                        </div>
+                        <div class="col-md-10">
+                            
+                          
+    
+                            <div *ngIf="viewComp == 'All'">
+                              <admin-all-users></admin-all-users>
+                            </div>
+                            <div *ngIf="viewComp == 'Active'">
+                                <admin-active-users></admin-active-users>
+                              </div>
+                            <div *ngIf="viewComp == 'Blocked'">
+                              <admin-blocked-users></admin-blocked-users>
+                            </div>
+                            <div *ngIf="viewComp == 'Delete'">
+                              <admin-deleted-users></admin-deleted-users>
+                            </div>
+                            <div *ngIf="viewComp == 'Request'">
+                              <admin-request-users></admin-request-users>
+                            </div>
+                        </div>
+                        
+                      </div>
+                      <!-- /#page-wrapper -->
+                      
+                                 
+                      </div>
+                      
+                      <footer></footer> 
+                        
+                      </body>

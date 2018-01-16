@@ -9,8 +9,15 @@ const server = http.Server(app);
 const io = socketIo(server);
 
 const path = require("path");
+<<<<<<< HEAD
 const users = require("./routes/user");
 //const products = require("./routes/products")(io);
+=======
+const admin = require("./routes/admin")(io);
+const company = require("./routes/company")(io);
+const user = require("./routes/user");
+
+>>>>>>> 866088ace859a38e338fbdbaa0cc0c4bf74fc6a6
 
 const bodyParser = require("body-parser");
 const passport = require('passport');
@@ -43,6 +50,7 @@ require('./config/passport')(passport);
 
 app.use(express.static(path.join(__dirname,"public")));
 
+<<<<<<< HEAD
 app.use('/user',users);
 app.use('/company',company);
 // app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'}));
@@ -56,6 +64,21 @@ app.use('/company',company);
 //  function(req, res) {
 //     return res.redirect("/socialmedia/" + req.user._id);
 //         });
+=======
+app.use('/admin',admin);
+app.use('/company',company);
+app.use('/user',user);
+app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'}));
+app.get('/auth/facebook/callback',passport.authenticate('facebook'),
+function(req, res) {
+    return res.redirect("/additnInfo/" + req.user._id);
+        });
+app.get('/auth/google',passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'profile', 'email'] }));
+app.get('/auth/google/callback', passport.authenticate('google'),
+ function(req, res) {
+    return res.redirect("/additnInfo/" + req.user._id);
+        });
+>>>>>>> 866088ace859a38e338fbdbaa0cc0c4bf74fc6a6
 
 app.use('*',(req, res)=>{
     res.sendFile(path.join(__dirname,'public/index.html'));

@@ -6,7 +6,7 @@ const JwtStrategy = require('passport-jwt').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const User = require('./../model/user');
+const Company = require('./../model/company');
 const config = require('./database');
 const passport = require('passport');
 var configAuth = require('./auth');
@@ -21,27 +21,27 @@ module.exports = function(passport){
   passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
     // console.log(jwt_payload);
     // console.log("here");
-    User.getUserById(jwt_payload._id, (err, user) => {
+    Company.getCompanyById(jwt_payload._id, (err, company) => {
       if(err){
         return done(err, false);
       }
 
-      if(user){
-        return done(null, user);
+      if(company){
+        return done(null, company);
       } else {
         return done(null, false);
       }
     });
   }));
 
-  passport.serializeUser(function(user, done) {
-    done(null, user.id);
+  passport.serializeUser(function(company, done) {
+    done(null, company.id);
 });
 
-// used to deserialize the user
+// used to deserialize the company
 passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
+    Company.findById(id, function(err, company) {
+        done(err, company);
     });
 });
 
@@ -54,70 +54,44 @@ passport.deserializeUser(function(id, done) {
   },
   function(req, token, refreshToken, profile, done) {
     process.nextTick(function() {
-        // if(!req.user){
-            // User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
-            User.findOne({ 'email' : profile.emails[0].value }, function(err, user) {
+        // if(!req.company){
+            // Company.findOne({ 'facebook.id' : profile.id }, function(err, company) {
+            Company.findOne({ 'contact_person_email' : profile.emails[0].value }, function(err, company) {
                 if (err)
                     return done(err);
-                if (user) {
-                    user.facebook.id    = profile.id;
-                    user.facebook.token = token;
-                    user.facebook.name  = profile.displayName;
-                    user.facebook.email = profile.emails[0].value;
-                    user.verified = "true";
-                    user.save(function(err) {
-                    if (err)
-                        throw err;
-                    return done(null, user);
-                    });
-                    // if (!user.facebook.token) {
-                    //     user.facebook.token = token;
-                    //     user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
-                    //     user.facebook.email = profile.emails[0].value;
-
-                    //     user.save(function(err) {
-                    //         if (err)
-                    //             throw err;
-                    //         return done(null, user);
-                    //     });
-                    // }
-                    // return done(null, user); 
+                if(company){
+                    if (company.block_status == false && company.delete_status ==false) {
+                        company.facebook.id    = profile.id;
+                        company.facebook.token = token;
+                        company.facebook.name  = profile.displayName;
+                        company.facebook.email = profile.emails[0].value;
+                        if(company.cmp_status == "Not Verified"){
+                            company.cmp_status = "Trail"; 
+                        }
+                        company.save(function(err) {
+                        if (err)
+                            throw err;
+                        return done(null, company);
+                        });
+                    }else if(company.block_status == true || company.delete_status ==true){
+                        return done(err);
+                    }
                 } else {
-                          
-                          var newUser            = new User();
-                          newUser.facebook.id    = profile.id; // set the users facebook id                   
-                          newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
-                          newUser.facebook.name  = profile.name.givenName; // look at the passport user profile to see how names are returned
-                          newUser.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
-                          newUser.name = profile.name.givenName;
-                          newUser.email = profile.emails[0].value;
-                          newUser.verified = "true";
-                          newUser.save(function(err) {
+                          var newCompany            = new Company();
+                          newCompany.facebook.id    = profile.id; // set the users facebook id                   
+                          newCompany.facebook.token = token; // we will save the token that facebook provides to the company                    
+                          newCompany.facebook.name  = profile.name.givenName; // look at the passport company profile to see how names are returned
+                          newCompany.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
+                          newCompany.contact_person_fname = profile.name.givenName;
+                          newCompany.contact_person_email = profile.emails[0].value;
+                          newCompany.cmp_status = "Trail";
+                          newCompany.save(function(err) {
                               if (err)
                                   throw err;
-                                   return done(null, newUser);
+                                   return done(null, newCompany);
                           });
                       }
-      
                   });
-        // }else {
-            // user already exists and is logged in, we have to link accounts
-            // var user            = req.user; // pull the user out of the session
-
-            // user.facebook.id    = profile.id;
-            // user.facebook.token = token;
-            // user.facebook.name  = profile.name.givenName;
-            // user.facebook.email = profile.emails[0].value;
-            // user.name = profile.name.givenName;
-            // user.email = profile.emails[0].value;
-            // user.verified = "true";
-            // user.save(function(err) {
-            //     if (err)
-            //         throw err;
-            //     return done(null, user);
-            // });
-
-        // }
     });
       
   }));
@@ -131,45 +105,49 @@ passport.deserializeUser(function(id, done) {
         callbackURL: configAuth.googleAuth.callbackURL,
     },
     function(req, token, refreshToken, profile, done) {
-        // console.log(profile);
         process.nextTick(function() {
-            // if(!req.user){
-                        // try to find the user based on their google id
-                        User.findOne({ 'email' : profile.emails[0].value }, function(err, user) {
+            // if(!req.company){
+                        // try to find the company based on their google id
+                        Company.findOne({ 'contact_person_email' : profile.emails[0].value }, function(err, company) {
                             if (err)
                                 return done(err);
-            
-                            if (user) {
-            
-                                // if a user is found, log them in
-                                user.google.id    = profile.id;
-                                user.google.token = token;
-                                user.google.name  = profile.displayName;
-                                user.google.email = profile.emails[0].value;
-                                user.verified = "true";
-                                user.save(function(err) {
-                                if (err)
-                                    throw err;
-                                return done(null, user);
-                                });
-                                // return done(null, user);
-                            } else {
-                                // if the user isnt in our database, create a new user
-                                var newUser          = new User();
-            
-                                // set all of the relevant information
-                                newUser.google.id    = profile.id;
-                                newUser.google.token = token;
-                                newUser.google.name  = profile.displayName;
-                                newUser.google.email = profile.emails[0].value; // pull the first email
-                                newUser.name = profile.displayName;;
-                                newUser.email = profile.emails[0].value;
-                                newUser.verified = "true";
-                                // save the user
-                                newUser.save(function(err) {
+                            if(company){
+                                if(company.block_status == false && company.delete_status ==false) {
+                                    // if a company is found, log them in
+                                    company.google.id    = profile.id;
+                                    company.google.token = token;
+                                    company.google.name  = profile.displayName;
+                                    company.google.email = profile.emails[0].value;
+                                    if(company.cmp_status == "Not Verified"){
+                                        company.cmp_status = "Trail"; 
+                                    }
+                                    company.save(function(err) {
                                     if (err)
                                         throw err;
-                                    return done(null, newUser);
+                                    return done(null, company);
+                                    });
+                                    // return done(null, company);
+                                }else if(company.block_status == true || company.delete_status ==true){
+                                    return done(err);
+                                }
+                            } else {
+                                // if the company isnt in our database, create a new company
+                                var newCompany          = new Company();
+            
+                                // set all of the relevant information
+                                newCompany.google.id    = profile.id;
+                                newCompany.google.token = token;
+                                newCompany.google.name  = profile.displayName;
+                                newCompany.google.email = profile.emails[0].value; // pull the first email
+                                newCompany.contact_person_fname = profile.name.givenName;
+                                newCompany.contact_person_lname = profile.name.familyName;
+                                newCompany.contact_person_email = profile.emails[0].value;
+                                newCompany.cmp_status = "Trail";
+                                // save the company
+                                newCompany.save(function(err) {
+                                    if (err)
+                                        throw err;
+                                    return done(null, newCompany);
                                 });
                             }
                         });

@@ -32,6 +32,7 @@
     "angular-material-source": "github:angular/material",
     "angular-star-rating": "^2.0.4",
     "angular2-datetimepicker": "^1.0.1",
+    "angular2-flash-messages": "^2.0.5",
     "angular2-fontawesome": "^0.9.3",
     "angular2-image-upload": "^1.0.0-rc.0",
     "angular2-jwt": "^0.2.3",
@@ -41,6 +42,7 @@
     "bootstrap-datepicker": "^1.7.1",
     "bootstrap-timepicker": "^0.5.2",
     "core-js": "^2.4.1",
+    "d3": "^4.12.2",
     "d3-ng2-service": "^1.23.3",
     "datatables.net": "^1.10.16",
     "datatables.net-dt": "^1.10.16",
@@ -63,6 +65,7 @@
     "rxjs": "^5.5.2",
     "socket.io": "^2.0.4",
     "socket.io-client": "^2.0.4",
+    "ts-xlsx": "0.0.11",
     "typescript": "^2.6.2",
     "zone.js": "^0.8.14"
   },
@@ -91,6 +94,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "~2.6.1"
+    "typescript": "^2.6.1"
   }
 }
