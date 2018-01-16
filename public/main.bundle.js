@@ -7514,7 +7514,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-sidebar/company-sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n    <!-- <li> -->\r\n        <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n    <!-- </li> -->\r\n    <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/dashboard\"> Survey</a>\r\n   \r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n            <a [routerLink]=\"['/dashboard']\"><i class=\"fa fa-users\"></i> Dashboard</a>\r\n       \r\n    </li>\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n            <!-- <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-product-hunt\"></i> Users</a>  -->\r\n            <a [routerLink]=\"['/company-users']\" ><i class=\"fa fa-product-hunt\"></i> Users</a> \r\n            \r\n        </li>\r\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n          <!-- <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-product-hunt\"></i> Users</a>  -->\r\n          <a [routerLink]=\"['/company-manage-user-groups']\" ><i class=\"fa fa-users\"></i> Manage user groups</a> \r\n          \r\n      </li>\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n        <a [routerLink]=\"['/create-theme']\"><i class=\"fa fa-fw fa-arrows-v\"></i> Themes </a>\r\n       \r\n    </li>\r\n\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n        <a ><i class=\"fa fa-fw fa-arrows-v\"></i> Survey </a>\r\n       \r\n    </li>\r\n</ul>\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n \r\n<!-- </ul> -->\r\n"
+module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n    <!-- <li> -->\r\n        <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n    <!-- </li> -->\r\n    <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/dashboard\"> Survey</a>\r\n   \r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n            <a [routerLink]=\"['/dashboard']\"><i class=\"fa fa-users\"></i> Dashboard</a>\r\n       \r\n    </li>\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n            <!-- <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-product-hunt\"></i> Users</a>  -->\r\n            <a [routerLink]=\"['/company-users']\" ><i class=\"fa fa-product-hunt\"></i> Users</a> \r\n            \r\n        </li>\r\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n          <!-- <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-product-hunt\"></i> Users</a>  -->\r\n          <a [routerLink]=\"['/company-manage-user-groups']\" ><i class=\"fa fa-users\"></i> User groups</a> \r\n          \r\n      </li>\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n        <a [routerLink]=\"['/create-theme']\"><i class=\"fa fa-fw fa-arrows-v\"></i> Themes </a>\r\n       \r\n    </li>\r\n\r\n    <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n        <a ><i class=\"fa fa-fw fa-arrows-v\"></i> Survey </a>\r\n       \r\n    </li>\r\n</ul>\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n \r\n<!-- </ul> -->\r\n"
 
 /***/ }),
 
@@ -8085,11 +8085,13 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.xlsxToJsonService.processFileToJson({}, file).subscribe(function (data) {
             // this.result = JSON.stringify(data['sheets'].Sheet1);
             _this.result = data['sheets'].Sheet1;
-            _this.result.forEach(function (element) {
-                _this.emailArr.push(element.Email);
-            });
-            if (typeof (_this.emailArr.email == "undefined")) {
-                _this.emailArr = [];
+            if (typeof (_this.result != "undefined")) {
+                _this.result.forEach(function (element) {
+                    _this.emailArr.push(element.Email);
+                });
+                if (typeof (_this.emailArr.email == "undefined")) {
+                    _this.emailArr = [];
+                }
             }
         });
     };
@@ -9915,8 +9917,7 @@ exports.UserSurveyComponent = UserSurveyComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var Config = /** @class */ (function () {
     function Config() {
-        // siteUrl = "http://192.168.1.99:3000";
-        this.socketURL = "http://192.168.1.99:3000";
+        this.socketURL = "http://localhost:3000";
         this.siteUrl = "http://localhost:3000";
     }
     return Config;

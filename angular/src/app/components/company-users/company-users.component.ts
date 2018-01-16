@@ -395,11 +395,13 @@ deleteUser(userId){
     this.xlsxToJsonService.processFileToJson({}, file).subscribe(data => {
       // this.result = JSON.stringify(data['sheets'].Sheet1);
       this.result = data['sheets'].Sheet1;
-      this.result.forEach(element => {
-        this.emailArr.push(element.Email);
-      });
-      if(typeof(this.emailArr.email == "undefined")){
-        this.emailArr = [];
+      if(typeof(this.result != "undefined")){
+        this.result.forEach(element => {
+          this.emailArr.push(element.Email);
+        });
+        if(typeof(this.emailArr.email == "undefined")){
+          this.emailArr = [];
+        }
       }
     })
   }
