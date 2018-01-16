@@ -1,25 +1,280 @@
-import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Injectable, Component, OnInit } from '@angular/core';
+import { Http, Headers, Response, Request, RequestMethod, URLSearchParams, RequestOptions } from "@angular/http";
+import {Observable} from 'rxjs/Rx';
+import {Config} from '../config/config';
 import 'rxjs/add/operator/map';
 import { tokenNotExpired } from 'angular2-jwt';
-import {Config} from '../config/config';
-
 @Injectable()
 export class CompanyService {
-  authToken: any;
-  company: any;
-  serviceUrl :string;
 
-  constructor(private http:Http, private config: Config) { 
-    this.serviceUrl = config.siteUrl + '/company/';
+    serviceUrl :string;
+    authToken: any;
+    company: any;
+    
+    constructor(private http: Http,private config: Config) { 
+        this.serviceUrl = config.siteUrl + '/company/';
+    }
+
+   
+    // ---------------------------------Start-------------------------------------------
+    // Function      : set Header
+    // Params        : 
+    // Returns       : header
+    // Author        : Manu Prasad
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Manu Prasad, Desc:
+    // Desc          : to set header to call an api
+
+    setHeader(){
+      let headers = new Headers();
+      headers.append('Content-Type','application/json');
+      return(headers);
+    }
+
+    // ----------------------------------End-------------------------------------------
+
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get themes
+    // Params        : 
+    // Returns       : list of themes with details
+    // Author        : Manu Prasad
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Manu Prasad, Desc:
+    // Desc          : routing used to get all the themes from database
+
+    getThemes(){
+        let headers = this.setHeader();
+        return this.http.get(this.serviceUrl + 'get-themes',  {headers: headers})
+          .map(res => res.json());
+    } 
+      
+    // ----------------------------------End-------------------------------------------
+
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get fonts
+    // Params        : 
+    // Returns       : list of fonts with details
+    // Author        : Manu Prasad
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Manu Prasad, Desc:
+    // Desc          : routing used to get all the fonts from database
+
+    getFonts(){
+      let headers = this.setHeader();
+      return this.http.get(this.serviceUrl + 'get-fonts',  {headers: headers})
+        .map(res => res.json());
+    }
+
+    // ----------------------------------End-------------------------------------------
+
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get fontsize
+    // Params        : 
+    // Returns       : list of fonts with details
+    // Author        : Manu Prasad
+    // Date          : 27-12-2017
+    // Last Modified : 27-12-2017, Manu Prasad, Desc:
+    // Desc          : routing used to get all the fontsize from database
+
+    getFontSize(){
+      let headers = this.setHeader();
+      return this.http.get(this.serviceUrl + 'get-font-sizes',  {headers: headers})
+        .map(res => res.json());
+    }
+
+    // ----------------------------------End-------------------------------------------
+
+      // ---------------------------------Start-------------------------------------------
+    // Function      : getMyUsers
+    // Params        : 
+    // Returns       : 
+    // Author        : Jooshifa
+    // Date          : 04-01-2018
+    // Last Modified : 04-01-2018, Jooshifa
+    // Desc          : to get users of a company which is not blocked and deleted 
+
+    getMyUsers(){
+      let headers = this.setHeader();
+      return this.http.get(this.serviceUrl + 'get-my-users',{headers: headers})
+        .map(res => res.json());
+    }
+    
+    // ----------------------------------End-------------------------------------------
+
+  // ---------------------------------Start-------------------------------------------
+    // Function      : deleteUser
+    // Params        : 
+    // Returns       : 
+    // Author        : Jooshifa
+    // Date          : 04-01-2018
+    // Last Modified : 04-01-2018, Jooshifa
+    // Desc          : Delete a user (change delete_status true)
+
+    deleteUser(data :any){
+      let h=this.setHeader();
+      return this.http.put(this.serviceUrl +"deleteuser/"+data,{headers: h})
+      .map(res =>res.json());
+    }
+
+    // ----------------------------------End-------------------------------------------
+
+      // ---------------------------------Start-------------------------------------------
+    // Function      : getSingleUSer
+    // Params        : 
+    // Returns       : 
+    // Author        : Jooshifa
+    // Date          : 05-01-2018
+    // Last Modified : 05-01-2018, Jooshifa
+    // Desc          :get single user data inside a company
+
+    getSingleUser(id){
+      let h=this.setHeader();
+      return this.http.get(this.serviceUrl +"/getsingleuser/"+id,{headers: h})
+      .map(res =>res.json());
+    }
+
+ 
+   // ----------------------------------End-------------------------------------------
+
+     //  ---------------------------------Start-------------------------------------------
+  // Function      : updatecategory
+  // Params        : id
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 29-12-2017
+  // Last Modified : 29-12-2017, Jooshifa 
+  // Desc          : Update a category name
+  sendBlockRequest(send :any){
+    
+    let h=this.setHeader();
+    return this.http.put(this.serviceUrl +"sendblockrequest/"+send.id,(send),{headers: h})
+    .map(res =>res.json());
+    
   }
+  // < ----------------------------------End------------------------------------------- 
+       //  ---------------------------------Start-------------------------------------------
+  // Function      : getAcceptedNotification
+  // Params        : 
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 08-01-2018
+  // Last Modified : 08-01-2018, Jooshifa 
+  // Desc          : get accepted notification when company block a user
+
+  getAcceptedNotification(){
+ 
+    let headers = this.setHeader();
+    return this.http.get(this.serviceUrl + "getacceptednotification",{headers: headers})
+    .map(res => res.json());
+  }
+    // < ----------------------------------End----------------------------------------
+
+
+  //  ---------------------------------Start-------------------------------------------
+  // Function      : getUserByGroup
+  // Params        : 
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 08-01-2018
+  // Last Modified : 08-01-2018, Jooshifa 
+  // Desc          : get users based on groups
+
+
+    getUserByGroup(group : any){
+      let headers = this.setHeader();
+      return this.http.get(this.serviceUrl + "getuserbygroup/"+group,{headers: headers})
+      .map(res => res.json());
+    }
+
+// < ----------------------------------End------------------------------------------- 
+
+  //  ---------------------------------Start-------------------------------------------
+  // Function      : updateNotifViewed
+  // Params        : 
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 09-01-2018
+  // Last Modified : 09-01-2018, Jooshifa 
+  // Desc          : gto update company is viewed to true when the notification is viewed by user
+
+  updateNotifViewed(view :any){
+    // console.log(view);
+        let h=this.setHeader();
+        return this.http.put(this.serviceUrl +"updateviewednotification",(view),{headers: h})
+        .map(res =>res.json());
+        }
+
+    // < ----------------------------------End------------------------------------------- 
+
+      //  ---------------------------------Start-------------------------------------------
+  // Function      : deleteUserGroup
+  // Params        : id
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 09-01-2018
+  // Last Modified : 09-01-2018, Jooshifa 
+  // Desc          : to delete a user group
+
+    deleteUserGroup(userGroupId :any){
+    console.log(userGroupId)
+    let h=this.setHeader();
+    return this.http.delete(this.serviceUrl +"deleteusergroups/"+userGroupId,{headers: h})
+    .map(res =>res.json())
+    }
+
+    // < ----------------------------------End------------------------------------------- 
+
+  //  ---------------------------------Start-------------------------------------------
+  // Function      : addUserGroups
+  // Params        : id
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 10-01-2018
+  // Last Modified : 10-01-2018, Jooshifa 
+  // Desc          : to delete a user group
+
+    addUserGroupsInCompany(data : any){
+      // console.log(data)
+      let headers = this.setHeader();
+      return this.http.post(this.serviceUrl + 'add-user-group',data, {headers: headers})
+        .map(res => res.json());
+    }
+  // < ----------------------------------End-------------------------------------------
+
+ //  ---------------------------------Start-------------------------------------------
+  // Function      : getSingleUserGroup
+  // Params        : id
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 10-01-2018
+  // Last Modified : 10-01-2018, Jooshifa 
+  // Desc          : to get single users groups for pass to edit modal
+
+  getSingleUserGroup(data :any){
+    let h=this.setHeader();
+    return this.http.get(this.serviceUrl +"getsingleGroupuser/"+data,{headers: h})
+    .map(res =>res.json());
+
+  }
+  // < ----------------------------------End------------------------------------------- 
   
+   //  ---------------------------------Start-------------------------------------------
+  // Function      : updateUserGroup
+  // Params        : new group (emails of users)
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 11-01-2018
+  // Last Modified : 11-01-2018, Jooshifa 
+  // Desc          : to update user groups from  company
 
-  setHeader(){
-    let headers = new Headers();
-    headers.append('Content-Type','application/json');
-    return(headers);
+  updateUserGroup(data : any){
+    // console.log(data)
+  let h=this.setHeader();
+  return this.http.put(this.serviceUrl +"updateUserGroups",(data),{headers: h})
+  .map(res =>res.json());
   }
+  // < ----------------------------------End------------------------------------------- 
+
 
   setHeaderWithAuthorization(){
     let headers = new Headers();

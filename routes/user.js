@@ -58,7 +58,7 @@ router.post('/register/:id', (req, res)=>{
         });
         User.findOne({ email: req.body.email} , function(err, doc){
             if(err){
-                console.log("Error " + err);
+                // console.log("Error " + err);
             }
             if(doc){
                 res.json({success: false, msg : "Failed"});
@@ -66,7 +66,7 @@ router.post('/register/:id', (req, res)=>{
             else{
                 User.addUser(newUser,(err, user)=>{
                     if(err){
-                        console.log("Error " + err);
+                        // console.log("Error " + err);
                     }else{
                         user= {
                             email: user.email,

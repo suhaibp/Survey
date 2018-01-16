@@ -1,0 +1,103 @@
+<nav class="navbar navbar-inverse" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    
+   
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="navbar-header">
+            
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </button>
+        
+        </div>
+   
+        <ul class="nav navbar-nav pull-right profilz">
+            
+                <li class="dropdown notification">
+                     
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          <span class="glyphicon glyphicon-bell alertNotificacao"></span>
+                          <span class='badgeAlert'>{{count}}</span>
+                          <span class=""></span></a>
+                         
+                        <ul class="list-notificacao dropdown-menu" >
+                              <h5>Accepted Users</h5>
+                          <li id='item_notification_1' *ngFor="let users of dataArray;" >
+                              <div class="media" >
+                            
+                                 <div class="media-body" (click)="notifViewed(users.email,users.id)">
+                                    <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs button_exclusao' id='1' (click)="notifViewed(users.email,users.id)">x</button>
+                                    </div>
+                                    <h4 class="media-heading"></h4>
+                                   
+                                    <h5>Admin has blocked the user {{users.email}}</h5>
+                                  </div>
+                           </div>
+                           </li>    
+                          
+                        </ul>
+                    
+                     </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Iasmani Pinazo <span class="glyphicon glyphicon-user pull-right"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Profile <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                
+                <li class="divider"></li>
+                <li>
+                    <a  (click)="logout()" ><span class="glyphicon glyphicon-log-out pull-right"></span> LogOut </a>
+                    
+                </li>
+              </ul>
+            </li>
+  
+            
+          </ul>
+       
+          
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  
+  <!-- Top Menu Items -->
+  <ul class="nav navbar-right top-nav">
+    <li class="dropdown" *ngFor= "let item of info">
+            
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"><div class="notify-count">2</div></i> <b class="caret"></b></a>
+        <ul class="dropdown-menu message-dropdown">
+            <li class="message-preview"  >
+                <a >
+                    <div class="media">
+                        <div class="row">
+                        <div class="col-md-4">
+                        <span class="pull-left">
+                            <img class="media-object"
+                            
+                             alt="">
+                        </span>
+                       </div>
+                       <div class="col-md-8">
+                        <div class="media-body">
+                            <h5 class="media-heading">
+                                <strong>Name</strong>
+                            </h5>
+                            
+                            <p>Item confirmed by bidder</p>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <!-- <li class="message-footer">
+                <a href="#">Read All New Messages</a>
+            </li> -->
+        </ul>
+    </li>
+    
+    
+  </ul>

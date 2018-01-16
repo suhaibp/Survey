@@ -70,6 +70,9 @@
         margin-top: 100px
     }
 }
+.cdk-overlay-container {
+    z-index: 1052 !important;
+}
 
 
 /******asif*******/
@@ -97,7 +100,7 @@ body{background-color:#f0f0ef !important;margin-top:0 !important; }
 }
 .tabs .active1
 {background-color: #fff !important;
-    color:#ea5a5a;}
+    color:#ea5a5a !important;}
 .profilz .glyphicon-user {
         color: #102663 !important;
         padding-left: 11px;
@@ -105,7 +108,20 @@ body{background-color:#f0f0ef !important;margin-top:0 !important; }
     .profilz>li>a{color: #102663 !important;}
     .navbar-inverse .navbar-nav>.open>a{background-color:#ea5a5a !important;color:#fff !important;}
 .side-nav .dropdown-menu{background-color:#0b060c;    min-width:auto !important;width:100% !important;position:relative !important;}
-
+/* barchart */
+.bar {
+    fill: steelblue;
+  }
+  
+  .bar:hover {
+    fill: brown;
+  }
+  
+  .axis-title {
+    fill: none;
+    stroke: black;
+    stroke-width: 0.5px;
+  }
 /* @font-face {
     font-family: "Roboto-Bold";
     src: url("./fonts/Roboto-Bold.ttf") format("truetype");

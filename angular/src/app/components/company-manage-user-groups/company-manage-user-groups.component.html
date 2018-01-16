@@ -1,0 +1,226 @@
+
+<body>
+  
+                <div id="wrapper">
+            
+                    <!-- Navigation -->
+        <app-company-top-bar></app-company-top-bar>            
+        <app-company-sidebar></app-company-sidebar>
+            
+                    <div id="">
+                        <div class="container-fluid">
+                                
+                                            <!-- Page Heading -->
+                                          
+                                      
+                                            <!-- /.row -->
+                            
+                                        </div>
+                                  
+<div class="col-md-6 col-md-offset-3">
+    <flash-messages></flash-messages>
+  
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-backdrop="static">+Add New</button>
+        <div class="example-header" >
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+        
+          <div class="noitem" *ngIf="!existStatus"><h4>No item Found!</h4></div>
+        
+        <br>
+  <div class="example-container mat-elevation-z8 ">
+      <mat-table [dataSource]="dataSource" matSort>
+           <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>
+      <mat-cell *matCellDef="let row; let i = index"> {{i+1}} </mat-cell>
+    </ng-container>
+              <ng-container matColumnDef="name">
+                 <mat-header-cell *matHeaderCellDef mat-sort-header> GROUP NAME</mat-header-cell>
+                   <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+               </ng-container>
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>
+                    <mat-cell *matCellDef="let row"><button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon> </button>
+                      <mat-menu #menu="matMenu">
+                          <button  mat-menu-item (click)="getEditId(row.id,row.name)" data-toggle="modal" data-target="#myModal2">
+                                <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
+                                <span>Edit</span>
+                                </button>
+                            <button mat-menu-item  (click)="getId(row.id)" data-toggle="modal" data-target="#deleteModal"> 
+                                <mat-icon><i class="material-icons">delete</i></mat-icon>
+                                <span>Delete</span>
+                            </button>
+                      </mat-menu> </mat-cell>
+            
+                   </ng-container>
+     
+  
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                 <mat-row *matRowDef="let row; columns: displayedColumns;">
+                 </mat-row>
+                </mat-table>
+  
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+    </div>
+
+    <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->
+    <div id="deleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <!-- <div class="modal-header"> -->
+              <!-- <h4 class="modal-title">Are you sure to delete?</h4> -->
+            <!-- </div> -->
+            <div class="modal-body">
+                <h4>Are you sure to delete?</h4>
+            
+            </div>
+          
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" (click)="deleteUserGroup(id)" class="btn btn-default" data-dismiss="modal">Delete</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+
+
+<!-- -------------------------------------------------------------add user group modal--------------------------------------------------------------------- -->
+
+<div id="myModal"  class="modal fade">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" #closeBtn>&times;</button>
+        <h4 class="modal-title">Add New Group</h4>
+      </div>
+      <div class="modal-body">
+        
+    <form  role="form"  #f="ngForm" (ngSubmit)="f.form.valid && addGroup(newGroup);" novalidate>
+    
+        <div class="form-group" >
+            <label> Group name </label>
+            <br>
+            <div *ngIf="isError" class="alert alert-danger">
+                {{errorMsg}}
+           </div>
+          
+           <div class="col-md-7">
+            <div>
+              <div class="inputitem">
+              <mat-form-field class="inputfileds">
+                <input matInput placeholder="Group name" name ="group" [(ngModel)]="newGroup.group"  required >
+                <!-- <input matInput placeholder="Email address" [formControl]="emailFormControl" name="emails_{{i}}" [(ngModel)]="newUser.email[i]"  required > -->
+              </mat-form-field>
+              </div>
+            </div>
+            <div style="clear: both;"></div>
+           
+            <div class="inputitem">
+                <mat-form-field class="inputfileds">
+          
+                  <mat-select placeholder="Users" name='selected'  #users="ngModel"  [(ngModel)]="newGroup.email" multiple>
+                    <mat-option [value]="users" *ngFor="let users of userData;"  >{{users.email}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+          </div>
+            <br>
+            <div style="clear: both;"></div>
+            <div *ngIf="showAddGroup">
+            <mat-form-field class="inputfileds" >
+                <input matInput placeholder="Group Name" [(ngModel)]="newGroup" name="newGroup" >
+              </mat-form-field>
+              <button  class="btn btn-danger ourbutton" (click)="addGroup()">Add</button>
+              </div>
+              
+        </div>
+        <br>
+        <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
+       
+    </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->
+<div id="myModal2"  class="modal fade">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" #closeBtn1>&times;</button>
+          <h4 class="modal-title">Add New Group</h4>
+        </div>
+        <div class="modal-body">
+          
+      <form  role="form"  #f="ngForm" (ngSubmit)="f.form.valid && updateUserGroup(newGroup,id);" novalidate>
+      
+          <div class="form-group" >
+              <label> Group name </label>
+              <br>
+              <div *ngIf="isError" class="alert alert-danger">
+                  {{errorMsg}}
+             </div>
+            
+             <div class="col-md-7">
+              <div>
+                <div class="inputitem">
+                   
+                <mat-form-field class="inputfileds">
+                  <input matInput placeholder="Group name" name ="group" [(ngModel)]="newGroup.group"  required >
+                  <!-- <input matInput placeholder="Email address" [formControl]="emailFormControl" name="emails_{{i}}" [(ngModel)]="newUser.email[i]"  required > -->
+                </mat-form-field>
+                </div>
+              </div>
+              <div style="clear: both;"></div>
+             
+              <div class="inputitem">
+                  <mat-form-field class="inputfileds">
+            
+                    <!-- <mat-select placeholder="Users" name='edituser'  [(ngModel)]="newGroup.email" multiple> -->
+                    <mat-select placeholder="Users" name='edituser'  [(ngModel)]="newGroup.email" multiple>
+                      <mat-option [value]="users.email" *ngFor="let users of userData;"   >{{users.email}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+              </div>
+            </div>
+              <br>
+              <div style="clear: both;"></div>
+              <div *ngIf="showAddGroup">
+              <mat-form-field class="inputfileds" >
+                  <input matInput placeholder="Group Name" [(ngModel)]="newGroup" name="newGroup" >
+                </mat-form-field>
+                <button  class="btn btn-danger ourbutton" (click)="addGroup()">Add</button>
+                </div>
+                
+          </div>
+          <br>
+          <button type= "submit"  class="btn btn-danger ourbutton" >Submit</button>
+         
+      </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+    </div>
+ </div>
+  </body>

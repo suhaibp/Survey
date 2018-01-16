@@ -9,10 +9,10 @@ const server = http.Server(app);
 const io = socketIo(server);
 
 const path = require("path");
-const admin = require("./routes/admin");
+const admin = require("./routes/admin")(io);
 const company = require("./routes/company")(io);
 const user = require("./routes/user");
-//const products = require("./routes/products")(io);
+
 
 const bodyParser = require("body-parser");
 const passport = require('passport');
