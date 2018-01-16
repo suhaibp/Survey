@@ -362,9 +362,9 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminActiveUsersComponent = /** @class */ (function () {
-    function AdminActiveUsersComponent(adminService, router) {
+    function AdminActiveUsersComponent(adminService, routes) {
         this.adminService = adminService;
-        this.router = router;
+        this.routes = routes;
         this.displayedColumns = ['slno', 'username', 'email', 'action'];
         this.notExist = false;
     }
@@ -390,6 +390,36 @@ var AdminActiveUsersComponent = /** @class */ (function () {
         });
     };
     AdminActiveUsersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged user details
+        // Params        : 
+        // Returns       : user details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+                _this.routes.navigate(['/dashboard']);
+            }
+        });
+        // ---------------------------------End-------------------------------------------
         this.refresh();
     };
     AdminActiveUsersComponent.prototype.applyFilter = function (filterValue) {
