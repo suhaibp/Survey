@@ -21,16 +21,17 @@ const passport = require("passport");
 async = require("async");
 const emailTemplate = require('../template/verification_email');
 'use strict';
+var returnRouter = function(io) {
 // ---------------------------------Start-------------------------------------------
-// Function      : sample
-// Params        : sample
-// Returns       : sample
+// Function      : expiredsocket
+// Params        : id
+// Returns       : a socket emit "expiredcompany"
 // Author        : Jooshifa
 // Date          : 02-01-2018
 
 // Last Modified : 02-01-2018, Jooshifa Desc
 // Desc          :  we get the id from scheduler app. Here we can emit the socket
-var returnRouter = function(io) {
+
 router.get('/expiredsocket/:id',(req,res)=>{
     // console.log("clo"+req.params.id);
     io.sockets.emit("expiredcompany", {
@@ -574,104 +575,6 @@ router.post('/add-user-group',(req,res,next)=>{
 // ----------------------------------End-------------------------------------------
 
 // ---------------------------------Start-------------------------------------------
-// Function      : add-users
-// Params        : users and assigned groups
-// Returns       : status and message
-// Author        : Yasir Poongadan
-// Date          : 01-01-2018
-// Last Modified : 01-01-2018, Yasir Poongadan
-// Desc          : add users
-router.post('/add-users',(req,res,next)=>{
-// if (req.headers && req.headers.authorization) {
-//     var authorization = req.headers.authorization.substring(4), decoded;
-//     try {
-//         decoded = jwt.verify(authorization, config.secret);
-
-        cmp_id = "5a4d183719a456bb14913bff";
-        // var cmp_id  = decoded._id;
-            var isErr = false;
-            var errMsg = '';
-
-            req.body.email.forEach(function(val,key) {
-                if(!isErr){
-                    val = myTrim(val.toString());
-                    if(!validateEmail(val) && !isErr){
-                        errMsg = val + " is not a valid email";
-                        isErr = true;
-                    }
-                }
-            });
-
-            if(isErr){
-                res.json({success: false, msg : errMsg});
-            }else{
-                async.eachOfSeries(req.body.email, function(email, key, callback) {
-
-                    Company.findOne({"users.email":email, _id : cmp_id}, function(err, respEmail) {
-                        if (respEmail  && !isErr) { // Insert If user not exist
-                            errMsg = email + " Already Exists";
-                            isErr = true;
-                        } 
-
-                        Users.findOne(
-                            {$and: [
-                            {email:email},
-                            { $or: [{ block_status : true}, { delete_status : true}] }
-                            ]}, 
-                            function(err, respemail) {
-                              
-                                if (respemail ) { // Insert If user not exist
-                                    errMsg = 'Failed, ' + email + " blocked by admin";
-                                    isErr = true;
-                                } 
-                                callback();
-                        });
-
-                    })
-                }, function(err) {
-
-                    if (err) console.error(err.message);
-                    if (isErr){
-                        res.json({success: false, msg : errMsg});
-                    }else{
-                       // console.log(req.body);
-                        var users = [];
-                        var groups = [];
-                        req.body.groups.forEach(function(val,key) {
-                            groups.push({g_id:val._id,group_name:val.name});
-                        });
-                        req.body.email.forEach(function(val,key) {
-                            users.push({email:val,group:groups});
-                        });
-                        
-                        Company.findOneAndUpdate({"_id" : cmp_id},
-                        {
-                            $pushAll:{"users": users}
-                        },
-                        { new : true },
-                        (err, company)=>{
-                            if(err){
-                                res.json({success: false, msg : "Failed, somthing went wrong "});
-                            }else{
-                                res.json({success: true, msg : "User saved successfully", company:company});
-                            }
-                        });
-                       
-                  
-                    }
-                });
-            }
-
-//     } catch (e) {
-//         return res.status(401).send('unauthorized 123');
-//     }
-// }else{
-//     return res.status(401).send('Invalid User');
-// }        
-});
-// ----------------------------------End-------------------------------------------
-
-// ---------------------------------Start-------------------------------------------
 // Function      : get function for get users based on id
 // Params        : id
 // Returns       : 
@@ -968,9 +871,6 @@ router.post('/save-theme',(req,res)=>{
 });
 // ----------------------------------End-------------------------------------------
 
-
-
-
 // ---------------------------------Start-------------------------------------------
 
 // Function      : Delete Theme
@@ -1015,7 +915,6 @@ router.delete('/delete-theme/:id',(req,res)=>{
 });
 // ----------------------------------End-------------------------------------------
 
-
 // ---------------------------------Start-------------------------------------------
 
 // Function      : Get Theme
@@ -1028,8 +927,6 @@ router.delete('/delete-theme/:id',(req,res)=>{
 
 router.get('/get-theme/:id',(req,res)=>{
     
-
-
     Theme.findOne({"_id" : req.params.id}, function(err,theme){
         
         if(theme){
@@ -1046,7 +943,6 @@ router.get('/get-theme/:id',(req,res)=>{
     
 });
 // ----------------------------------End-------------------------------------------
-
 
 // ---------------------------------Start-------------------------------------------
 
@@ -1128,9 +1024,7 @@ router.put('/update-theme/:id',(req,res)=>{
 });
 // ----------------------------------End-------------------------------------------
 
-
 // ---------------------------------Start-------------------------------------------
-
 // Function      : get Locations(longitude & latitude)
 // Params        : 
 // Returns       : locations of attended users in a comnpnay
@@ -1179,96 +1073,6 @@ router.get('/get-locations',(req,res)=>{
 // }
 });
 // ----------------------------------End-------------------------------------------
-
-
-
-
-// ---------------------------------Start-------------------------------------------
-// Function      : get-all-groups
-// Params        : 
-// Returns       : all user groups
-// Author        : Yasir Poongadan
-// Date          : 29-12-2017
-// Last Modified : 29-12-2017, Yasir Poongadan
-// Desc          : sample
-
-router.get('/get-all-groups',(req,res,next)=>{
-    // if (req.headers && req.headers.authorization) {
-//     var authorization = req.headers.authorization.substring(4), decoded;
-//     try {
-//         decoded = jwt.verify(authorization, config.secret);
-      //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-        cmp_id = "5a432162fcaf01ec6274ecc6";
-        UserGroup.find({cmp_id:cmp_id}, (err,userGroup)=>{
-            var users = {};
-            var ret = {group:userGroup,groupById : users};
-            //   console.log(user);
-            userGroup.forEach((grp, i) => {
-                   users[grp._id] = grp;
-               });
-
-            if(err) {
-                throw err;
-            }else{
-                return res.json(ret);
-            }
-        });
-  //     } catch (e) {
-//         return res.status(401).send('unauthorized 123');
-//     }
-// }else{
-//     return res.status(401).send('Invalid User');
-// } 
-});
-
-// ----------------------------------End-------------------------------------------
-
-// ---------------------------------Start-------------------------------------------
-// Function      : add-user-group
-// Params        : 
-// Returns       : all user groups
-// Author        : Yasir Poongadan
-// Date          : 29-12-2017
-// Last Modified : 29-12-2017, Yasir Poongadan
-// Desc          : sample
-
-router.post('/add-user-group',(req,res,next)=>{
-
-// if (req.headers && req.headers.authorization) {
-//     var authorization = req.headers.authorization.substring(4), decoded;
-//     try {
-//         decoded = jwt.verify(authorization, config.secret);
-      //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-        cmp_id = "5a432162fcaf01ec6274ecc6";
-        // var cmp_id  = decoded._id;
-        console.log(req.body.group);
-        UserGroup.find({name : req.body.group,cmp_id: cmp_id}, function (err, docs) {
-          //  console.log(docs);
-            if (docs.length){
-                res.json({success: false, msg : "Group Already Exists"});
-            }else{
-                var userGroup = new UserGroup();
-                userGroup.name = req.body.group;
-                userGroup.cmp_id = cmp_id;
-                userGroup.save(function(err,insertedGroup){
-                    res.json({success: true, msg : "Group created Successfully",data : insertedGroup});
-                });
-            }
-        });
-//     } catch (e) {
-//         return res.status(401).send('unauthorized 123');
-//     }
-// }else{
-//     return res.status(401).send('Invalid User');
-// }        
-
-
-});
-
-
-
-// ----------------------------------End-------------------------------------------
-
 
 // ---------------------------------Start-------------------------------------------
 // Function      : validateEmail
@@ -1573,15 +1377,15 @@ router.get('/get-my-users',(req,res,next)=>{
  // ----------------------------------End-------------------------------------------
 
 //  ---------------------------------Start-------------------------------------------
-  // Function      : get single survey user inside a company
+//  ---------------------------------Start-------------------------------------------
+  // Function      : sendblockrequest
   // Params        : id
   // Returns       : 
   // Author        : Jooshifa
   // Date          : 28-12-2017
   // Last Modified : 29-12-2017, Jooshifa 
-  // Desc          : get a single survey user inside a company
+  // Desc          : to send  request to admin to block a user  from a company
 
-var returnRouter = function(io) { 
 router.put('/sendblockrequest/:id',function(req,res){
  
         cmp_id = "5a4d183719a456bb14913bff";
@@ -1679,10 +1483,7 @@ router.put('/sendblockrequest/:id',function(req,res){
          }}
     });
 });
-module.exports = router;
-//module.exports = router;
-return router;
-}
+
 // ----------------------------------End-------------------------------------------
 
 // ---------------------------------Start-------------------------------------------
@@ -1693,148 +1494,6 @@ return router;
 // Date          : 01-01-2018
 // Last Modified : 01-01-2018, Yasir Poongadan
 // Desc          : add users
-
-router.post('/add-users',(req,res,next)=>{
-
-// if (req.headers && req.headers.authorization) {
-//     var authorization = req.headers.authorization.substring(4), decoded;
-//     try {
-//         decoded = jwt.verify(authorization, config.secret);
-        cmp_id = "5a432162fcaf01ec6274ecc6";
-        // var cmp_id  = decoded._id;
-            var isErr = false;
-            var errMsg = '';
-
-            req.body.email.forEach(function(val,key) {
-                if(!isErr){
-                    val = myTrim(val.toString());
-                    if(!validateEmail(val) && !isErr){
-                        errMsg = val + " is not a valid email";
-                        isErr = true;
-                    }
-                }
-                
-            });
-
-            if(isErr){
-                res.json({success: false, msg : errMsg});
-            }else{
-                async.eachOfSeries(req.body.email, function(email, key, callback) {
-
-                    Company.findOne({"users.email":email, _id : cmp_id}, function(err, respEmail) {
-                        if (respEmail  && !isErr) { // Insert If user not exist
-                            errMsg = email + " Already Exists";
-                            isErr = true;
-                        } 
-
-                        Users.findOne(
-                            {$and: [
-                            {email:email},
-                            { $or: [{ block_status : true}, { delete_status : true}] }
-                            ]}, 
-                            function(err, respemail) {
-                              
-                                if (respemail ) { // Insert If user not exist
-                                    errMsg = 'Failed, ' + email + " blocked by admin";
-                                    isErr = true;
-                                } 
-                                callback();
-                        });
-
-                    })
-                }, function(err) {
-
-                    if (err) console.error(err.message);
-                    if (isErr){
-                        res.json({success: false, msg : errMsg});
-                    }else{
-                       // console.log(req.body);
-                        var users = [];
-                        var groups = [];
-                        req.body.groups.forEach(function(val,key) {
-                            groups.push({g_id:val._id,group_name:val.name});
-                        });
-                        req.body.email.forEach(function(val,key) {
-                            users.push({email:val,group:groups});
-                        });
-                        
-                        Company.findOneAndUpdate({"_id" : cmp_id},
-                        {
-                            $pushAll:{"users": users}
-                        },
-                        { new : true },
-                        (err, company)=>{
-                            if(err){
-                                res.json({success: false, msg : "Failed, somthing went wrong "});
-                            }else{
-                                res.json({success: true, msg : "User saved successfully", company:company});
-                            }
-                        });
-                       
-                  
-                    }
-                });
-            }
-
-//     } catch (e) {
-//         return res.status(401).send('unauthorized 123');
-//     }
-// }else{
-//     return res.status(401).send('Invalid User');
-// }        
-
-
-});
-// ----------------------------------End-------------------------------------------
-
-
-
-// ---------------------------------Start-------------------------------------------
-// Function      : get-all-groups
-// Params        : 
-// Returns       : all user groups
-// Author        : Yasir Poongadan
-// Date          : 29-12-2017
-// Last Modified : 29-12-2017, Yasir Poongadan
-// Desc          : sample
-
-router.get('/get-all-groups',(req,res,next)=>{
-// if (req.headers && req.headers.authorization) {
-//     var authorization = req.headers.authorization.substring(4), decoded;
-//     try {
-//         decoded = jwt.verify(authorization, config.secret);
-  //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-    cmp_id = "5a432162fcaf01ec6274ecc6";
-    UserGroup.find({cmp_id:cmp_id}, (err,userGroup)=>{
-        if(err) {
-            throw err;
-        }else{
-            return res.json(userGroup);
-        }
-    });
-//     } catch (e) {
-//         return res.status(401).send('unauthorized 123');
-//     }
-// }else{
-//     return res.status(401).send('Invalid User');
-// } 
-});
-
-// ----------------------------------End-------------------------------------------
-
-// ---------------------------------Start-------------------------------------------
-// Function      : validateEmail
-// Params        : email
-// Returns       : boolean true or false
-// Author        : Yasir Poongadan
-// Date          : 01-01-2017
-// Last Modified : 01-01-2017, Yasir Poongadan
-// Desc          : for validate an email
-
-function validateEmail(email) {
-var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-return re.test(email.toLowerCase());
-}
 
 router.post('/add-users', passport.authenticate('jwt',{session:false}), (req,res,next)=>{
     
@@ -1998,113 +1657,6 @@ router.get('/get-my-company',(req,res,next)=>{
 
 // ----------------------------------End-------------------------------------------
 
-
-// ---------------------------------Start-------------------------------------------
-// Function      : update-users
-// Params        : user and assigned groups
-// Returns       : status and message
-// Author        : Yasir Poongadan
-// Date          : 03-01-2018
-// Last Modified : 03-01-2018, Yasir Poongadan
-// Desc          : update user and groups
-
-router.put('/update-users',(req,res,next)=>{
-
-// if (req.headers && req.headers.authorization) {
-//     var authorization = req.headers.authorization.substring(4), decoded;
-//     try {
-//         decoded = jwt.verify(authorization, config.secret);
-        cmp_id = "5a432162fcaf01ec6274ecc6";
-        // var cmp_id  = decoded._id;
-            var isErr = false;
-            var errMsg = '';
-            if(req.body.is_registered == false){
-                if(!validateEmail(req.body.newEmail) && !isErr){
-                    errMsg = val + " is not a valid email";
-                    isErr = true;
-                }
-            }
-
-            if(isErr){
-                res.json({success: false, msg : errMsg});
-            }else{
-
-                async.parallel([
-                    function(callback) {
-                            
-                        if(req.body.newEmail != req.body.email){
-                            console.log('email changed');
-                            Company.findOne({"users.email":req.body.newEmail, _id : cmp_id}, function(err, respEmail) {
-                               // console.log(respEmail);   
-                                if (respEmail  && !isErr) { // Insert If user not exist
-                                    console.log('in already exists if');
-                                    errMsg = req.body.newEmail + " Already Exists";
-                                    isErr = true;
-                                } 
-                                callback();
-                            });
-                        }else{
-                            callback();
-                        }
-                     },
-                    function(callback) { 
-                        console.log('functon to check admin block');      
-                        Users.findOne(
-                                {$and: [
-                                {email:req.body.newEmail},
-                                { $or: [{ block_status : true}, { delete_status : true}] }
-                                ]}, 
-                                function(err, respemail) {
-                                  //  console.log(respEmail);   
-                                    if (respemail ) { // Insert If user not exist
-                                        console.log('in admin block if');
-                                        errMsg = 'Failed, ' + req.body.newEmail + " blocked by admin";
-                                        isErr = true;
-                                    } 
-                                    callback();    
-
-                        });
-                    }    
-               // } 
-                ], function(err) { //This is the final callback
-                    if (isErr){
-                        res.json({success: false, msg : errMsg});
-                    }else{
-                        var groups = [];
-                        req.body.groups.forEach(function(val,key) {
-                            groups.push({g_id:val._id,group_name:val.name});
-                        });
-                        Company.findOneAndUpdate({"_id" : cmp_id, "users.email" : req.body.email},
-                        {
-                            $set:{"users.$.email" : req.body.newEmail,"users.$.group" :groups }
-                        },
-                        { new : true },
-                        (err, company)=>{
-                            if(err){
-                                res.json({success: false, msg : "Failed, somthing went wrong "});
-                            }else{
-                                res.json({success: true, msg : "User Updated successfully", company:company});
-                            }
-                        });
-                        
-                    
-                    }
-                });   
-
-                
-            }
-
-//     } catch (e) {
-//         return res.status(401).send('unauthorized 123');
-//     }
-// }else{
-//     return res.status(401).send('Invalid User');
-// }        
-
-
-});
-// ----------------------------------End-------------------------------------------
-
 // ---------------------------------Start-------------------------------------------
 // Function      : get-all-survey-type
 // Params        : 
@@ -2174,152 +1726,6 @@ AnswerType.find({}, (err,answerTypes)=>{
 
 // ----------------------------------End-------------------------------------------
 
-
-
-
-// ---------------------------------Start-------------------------------------------
-// Function      : get-my-users
-// Params        : 
-// Returns       : get a company's users
-// Author        : Jooshifa
-// Date          : 04-01-2018
-// Last Modified : 04-01-2018, Jooshifa
-// Desc          : to get users of a purticular company whoes not blocked by admin and deleted
-
-router.get('/get-my-users',(req,res,next)=>{
-    
-              cmp_id = "5a432162fcaf01ec6274ecc6";
-              // Company.find({ users: {$elemMatch : {delete_status: false, admin_block : false}}},(err,companyUsers )=>{
-              //     console.log(companyUsers)
-              // })
-              // Company.find({_id:cmp_id},{users:{$elemMatch : {delete_status:false}}},(err,companyUsers)=>{
-              Company.find({_id:cmp_id},(err,companyUsers)=>{
-                  // console.log(companyUsers)
-                  var users = [];
-                  companyUsers.forEach(element => {
-                      element.users.forEach((item, index) => {
-                          if(item.delete_status == false && item.admin_block == false){
-                              users.push({
-                                  email: item.email,
-                                  id :item._id,
-                                  block_req_status : item.block_req_status,
-                                  item : item
-                              });
-                          }
-                      });
-                  });
-  
-                  if(err) {
-                      throw err;
-         
-                  }else{
-                      return res.json(users);
-                  }
-              });
-     });
-      
-      
-  // ----------------------------------End-------------------------------------------
-
-
-  router.put('/sendblockrequest/:id',function(req,res){
-    
-           cmp_id = "5a432162fcaf01ec6274ecc6";
-           Users.findOne({email : req.body.email},(err,userExist) => {
-               if(!userExist){
-                   return res.send({success:false, msg: 'This user not registered, Cant Block'});
-               }
-               else{
-                   if(req.body.reason == '' || req.body.reason == null){
-                       return res.send({success:false, msg: 'Reason is required'});
-                   }
-               else{
-               Users.findOne({email : req.body.email,"block_request.action_status" : "Pending"},(err,user) => {
-               Company.findOne({_id :cmp_id },(err,companys) => {
-                       company = [{
-                           company_id : cmp_id ,
-                           organization :companys.organization ,            
-                           email : companys.contact_person_email,
-                           reason : req.body.reason,
-                           date : Date.now()
-                                               
-                       }]
-                                           // console.log(company)
-                       if(user){
-                                       
-                           Users.findOneAndUpdate({  $and: [{"block_request.action_status" : "Pending"},{email : req.body.email} ] },
-                           {
-                               $pushAll:{"block_request.$.companies" : company}
-                           },
-                           { new : true },
-                           (err, Block)=>{
-                               if(err){
-                                   // throw err;
-                                   res.json({success: false, msg : "Failed to Block user "});
-                               }else{
-                                  
-                                       Company.findOneAndUpdate({"users.email" : req.body.email},
-                                       {
-                                           $set:{"users.$.block_req_status" : true}
-                                       },
-                                       { new : true },
-                                       (err, changeBlockStatus)=>{
-                                           if(err){
-                                               // throw err;
-                                               res.json({success: false, msg : "Failed to Block user "});
-                                           }else{
-                                               io.sockets.emit("requestuser", {
-                                                   user_id : req.body.id
-                                               });
-                                               res.json({success: true, msg : "successfully blocked"});
-                                            
-                                           }
-                                       }); 
-                                
-                               }
-                           }); 
-                                               //  block_request.companies.push(company); where status pending
-                                       // console.log(Block);
-                                   
-                       }else{
-                           newBlock = { companies :company}
-                               Users.findOneAndUpdate({"email" : req.body.email},
-                           {
-                               $pushAll:{"block_request": newBlock}
-                           },
-                           { new : true },
-                           (err, Block)=>{
-                               if(err){
-                                   res.json({success: false, msg : "Failed to Block user "});
-                               }else{
-                                   Company.findOneAndUpdate({"users.email" : req.body.email},
-                                       {
-                                           $set:{"users.$.block_req_status" : true}
-                                       },
-                                       { new : true },
-                                       (err, changeBlockStatus)=>{
-                                           if(err){
-                                               // throw err;
-                                               res.json({success: false, msg : "Failed to Block user "});
-                                           }else{
-                                               io.sockets.emit("blockuser", {
-                                                   user_id : req.body.id
-                                               });
-                                               res.json({success: true, msg : "successfully blocked"});
-                                            
-                                           }
-                                       }); 
-                                   
-                               }
-                           }); 
-                       }
-                       
-                   })
-               });
-            }}
-       });
-   });
-
 // ---------------------------------Start-------------------------------------------
 // Function      : get function 
 // Params        : 
@@ -2369,6 +1775,14 @@ router.get('/getAllQuestions', (req, res)=>{
 });
 // ----------------------------------End-------------------------------------------
 
+// ---------------------------------Start-------------------------------------------
+// Function      : update-users
+// Params        : user and assigned groups
+// Returns       : status and message
+// Author        : Yasir Poongadan
+// Date          : 03-01-2018
+// Last Modified : 03-01-2018, Yasir Poongadan
+// Desc          : update user and groups
 router.put('/update-users', passport.authenticate('jwt',{session:false}), (req,res,next)=>{
     
     if (req.headers && req.headers.authorization) {
