@@ -250,6 +250,9 @@ export class CompanyCreateSurveyComponent implements OnInit {
    // console.log(this.quest);
    this.btnDisbled = true;
    this.isSuccess = true;
+   if(this.quest.answerType == 'star rating' && !this.quest.showStarLabel){
+    this.quest.starOpts = ['1','2','3','4','5']
+   }
    this.survey.questions.push(this.quest); 
    this.msg = "Question Added Successfully";
    this.quest = {question:'',opts:['',''], answerType:'', showStarLabel : false, starOpts:['','','','','']};

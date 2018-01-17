@@ -23,7 +23,7 @@ export class CompanySurveyPreviewComponent implements OnInit {
   constructor(private config: Config) { }
   ngOnInit() {
     this.theme = this.survey;
-   console.log(this.survey.header_title);
+   
   }
 
   backTosurvey(){

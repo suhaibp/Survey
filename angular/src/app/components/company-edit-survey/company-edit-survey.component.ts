@@ -147,6 +147,7 @@ export class CompanyEditSurveyComponent implements OnInit {
             });
                 this.themes = data;
           });
+          
           this.companyService.getAnswerType().subscribe(data=>{
                 this.answerType = data;
               //  console.log(this.answerType);
@@ -331,6 +332,9 @@ export class CompanyEditSurveyComponent implements OnInit {
    // console.log(this.quest);
    this.btnDisbled = true;
    this.isSuccess = true;
+   if(this.quest.answerType == 'star rating' && !this.quest.showStarLabel){
+    this.quest.starOpts = ['1','2','3','4','5']
+   }
    this.survey.questions.push(this.quest); 
    this.msg = "Question Added Successfully";
    this.quest = {question:'',opts:['',''], answerType:'', showStarLabel : false, starOpts:['','','','','']};

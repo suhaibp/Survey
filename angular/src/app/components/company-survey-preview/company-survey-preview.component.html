@@ -23,7 +23,7 @@
             <button type="submit"  class="btn btn-danger pull-right lg-out" >Logout</button>
             <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-right lg-out" >Back To Survey</button>
             <div class="col-md-12">
-                <app-count-down-timer  class="pull-right" [inputDate]="survey.end_datetime" [addClass]="'timer-survey'"></app-count-down-timer>             
+                <app-count-down-timer  class="pull-right" [inputDate]="survey.end_date" [addClass]="'timer-survey'"></app-count-down-timer>             
                 
             </div>
             <div class="col-md-12">
@@ -110,7 +110,7 @@
             <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-right lg-out" >Back To Survey</button>
             <button type="submit" (click)="logout()" class="btn btn-danger pull-right lg-out" >Logout</button>
             <div class="col-md-12">
-                <!-- <app-count-down-timer  class="pull-right" [inputDate]="survey.end_datetime" [addClass]="'timer-survey'"></app-count-down-timer>              -->
+                <app-count-down-timer  class="pull-right" [inputDate]="survey.end_date" [addClass]="'timer-survey'"></app-count-down-timer>             
                 
             </div>
             <div class="col-md-12">
