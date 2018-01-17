@@ -1,0 +1,106 @@
+    <app-company-sidebar></app-company-sidebar>
+    <app-company-top-bar></app-company-top-bar>
+<flash-messages></flash-messages>
+<br>
+<div class="container">
+  <div class="panel panel-default panel-primary">
+    <div class="panel-body">
+      
+      <div class="form-group example-container">
+          <div class="col-md-12 names">
+            <label class="col-xs-12">Email : {{company?.contact_person_email}}</label><br>
+            <label class="col-xs-12">Name : {{company?.contact_person_fname}} {{company?.contact_person_lname}}</label><br/>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Organization </label>
+              <mat-form-field [formGroup]="ProfileFormGroup">
+                  <input matInput [(ngModel)]="newReg.organization" name="organization"  required formControlName="orgValidation">
+              </mat-form-field>
+          </div>
+        
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Organization Type</label>
+              <mat-form-field [formGroup]="ProfileFormGroup">
+                  <mat-select [ngModel]="typeId" name="organization_type" required formControlName="organization_typeValidation">
+                      <mat-option *ngFor="let type of orgType" [value]="type._id" (click)="getOrgType(type)">
+                        {{ type.name }}
+                      </mat-option>
+                    </mat-select>
+              </mat-form-field>
+          </div>
+        
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Industry </label>
+              <mat-form-field [formGroup]="ProfileFormGroup"> 
+                        <mat-select [(ngModel)]="industryId" name="industry" required formControlName="industryValidation">
+                            <mat-option *ngFor="let item of industry" [value]="item._id" (click)="getIndustry(item)" >
+                              {{ item.name }}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+          </div>
+        
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Location </label>
+              <mat-form-field [formGroup]="ProfileFormGroup">
+                  <input matInput [(ngModel)]="newReg.location" name="location" required formControlName="locationValidation">
+                </mat-form-field>
+          </div>
+        
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Company Strength </label>
+              <mat-form-field [formGroup]="ProfileFormGroup">
+                  <input type="number" matInput [(ngModel)]="newReg.company_strength" name="company_strength" required formControlName="strengthValidation">
+                </mat-form-field>
+          </div>
+        
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Phone Number </label>
+              <mat-form-field [formGroup]="ProfileFormGroup">
+                  <input matInput [(ngModel)]="newReg.contact_no" name="contact_no" maxlength="10" minlength="10" required formControlName="number">
+                  <mat-error>Not a valid phone number</mat-error>
+                </mat-form-field> 
+          </div>
+        
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Job Role </label>
+              <mat-form-field [formGroup]="ProfileFormGroup">
+                  <input matInput [(ngModel)]="newReg.job_role" name="job_role" required formControlName="jobRoleValidation">
+                </mat-form-field>
+          </div>
+        
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Job Level </label>
+              <mat-form-field [formGroup]="ProfileFormGroup">
+                  <input matInput [(ngModel)]="newReg.job_level" name="job_level" required formControlName="jobLevelValidation">
+                </mat-form-field>
+          </div>
+        
+          <div class="col-md-6 col-sm-6 col-xs-12">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" >Survey Attenders </label>
+              <div class="col-md-6">
+                  <br>
+                  <div class="row">
+                  <section class="example-section" *ngFor="let data of surveyattenders; let i = index;">
+                  <mat-checkbox [checked]="modelArr && modelArr.includes(data._id)" class="example-margin" name="data_{{i}}" [(ngModel)]="surveyattenders[i].check" >{{data.name}}</mat-checkbox>
+                </section>
+                </div>
+              </div>
+          </div>
+         
+          <div class="clearfix"></div>
+          <br>
+          <br>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-1 col-sm-2 col-xs-6"> 
+            <button type="submit" class="btn btn-danger" (click)="updateProfile()">Update</button>
+            </div>
+            <div class="col-md-1 col-sm-2 col-xs-6"> 
+            <div *ngIf="showSubscribe">
+            <button type="button" (click)="subscribe()" class="btn btn-danger">Subscribe</button>
+            </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>

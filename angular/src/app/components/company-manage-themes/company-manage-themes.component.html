@@ -1,0 +1,117 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="example-header" *ngIf="displatStat">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    </div>
+    
+    <div class="example-container mat-elevation-z8">
+    
+    <mat-table #table [dataSource]="dataSource" matSort>
+    
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>
+        <mat-cell *matCellDef="let row; let i = index"> {{i+1}} </mat-cell>
+      </ng-container>
+  
+      <!-- Theme Name -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> THEME NAME </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+      </ng-container>
+    
+      <!-- Progress Column -->
+      <!-- <ng-container matColumnDef="mybid">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Your Bids </mat-header-cell>
+        <mat-cell *matCellDef="let row">  -->
+          
+          <!-- {{row.status}} -->
+          <!-- {{row.h_font_family }} -->
+          <!-- <p *ngFor="let bid of row.mybid">{{row.h_font_family }} : {{bid.date_time | date: 'dd-MM-yyyy h:mm a'}}</p> -->
+        <!-- </mat-cell>
+      </ng-container> -->
+    
+      <!-- ID Column -->
+      <!-- <ng-container matColumnDef="topbid">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Top Bid </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.progress_text_color }} </mat-cell>
+        </ng-container> -->
+    
+      <!-- ID Column -->
+      <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+          <mat-cell *matCellDef="let row"> <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item  (click)="getThemeId(row._id)" data-toggle="modal" data-target="#myModal3"> 
+              <mat-icon><i class="material-icons">delete</i></mat-icon>
+              <span>Delete</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/edit-theme/',row._id]">
+              <mat-icon>mode_edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            
+          </mat-menu>
+           </mat-cell>
+        </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+    
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+
+</div>
+  
+<div id="myModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Error</h4>
+      </div>
+      <div class="modal-body">
+          <h4></h4>
+      
+      </div>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete</h4>
+        </div>
+        <div class="modal-body">
+            <h4>Are you sure to delete?</h4>
+        
+        </div>
+      
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" (click)="deleteTheme(themeId)" class="btn btn-default" data-dismiss="modal">Delete</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+    
+
+  
+

@@ -9,9 +9,9 @@ const server = http.Server(app);
 const io = socketIo(server);
 
 const path = require("path");
-const admin = require("./routes/admin");
-const company = require("./routes/company");
-//const products = require("./routes/products")(io);
+const admin = require("./routes/admin")(io);
+const company = require("./routes/company")(io);
+const user = require("./routes/user");
 
 const bodyParser = require("body-parser");
 const passport = require('passport');
@@ -19,7 +19,6 @@ var session = require('express-session');
 const cors = require('cors');
 const mongoose = require("mongoose");
 const config = require("./config/database");
-
 
 mongoose.connect(config.database);
 mongoose.Promise = global.Promise;
@@ -30,9 +29,6 @@ mongoose.connection.on('error',(err)=>{
     console.log("database Error" + err);
 });
 
-
-
-//[mfIsServerPagination]="true"
 
 app.use(cors());
 app.use(bodyParser.json({limit: '50mb'}));
@@ -47,17 +43,17 @@ app.use(express.static(path.join(__dirname,"public")));
 
 app.use('/admin',admin);
 app.use('/company',company);
-// app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'}));
-// app.get('/auth/facebook/callback',passport.authenticate('facebook'),
-// // function(req, res) {
-//     return res.redirect("/socialmedia/" + req.user._id);
-//         });
-// app.get('/auth/google',passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'profile', 'email'] }));
-// {successRedirect: '/registration', failureRedirect: '/login' } in login
-// app.get('/auth/google/callback', passport.authenticate('google'),
-//  function(req, res) {
-//     return res.redirect("/socialmedia/" + req.user._id);
-//         });
+app.use('/user',user);
+app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'}));
+app.get('/auth/facebook/callback',passport.authenticate('facebook'),
+function(req, res) {
+    return res.redirect("/additnInfo/" + req.user._id);
+        });
+app.get('/auth/google',passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'profile', 'email'] }));
+app.get('/auth/google/callback', passport.authenticate('google'),
+ function(req, res) {
+    return res.redirect("/additnInfo/" + req.user._id);
+        });
 
 app.use('*',(req, res)=>{
     res.sendFile(path.join(__dirname,'public/index.html'));

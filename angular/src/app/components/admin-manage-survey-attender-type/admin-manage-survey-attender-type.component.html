@@ -1,0 +1,178 @@
+<body>
+    
+    <div id="wrapper">
+              
+       <!-- Navigation -->
+          <admin-top-bar></admin-top-bar>            
+          <admin-side-bar></admin-side-bar>
+          <h3 class="heading">Manage Survey Attender type</h3>
+          <br>
+         <div id="">
+            <div id="myModal"  class="modal fade">
+                <div class="modal-dialog"> 
+                   
+        <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Add Survey attender Type </h4>
+                     </div>
+                     <br>
+                     <div *ngIf="atleastOneitem" class="alert alert-danger">
+                        Atleast one item required!
+                      </div>
+                      <div *ngIf="isError" class="alert alert-danger">
+                        {{errorMsg}}
+                     </div>
+                     <div *ngIf="isSuccess" class="alert alert-danger">
+                         {{errorMsg}}
+                      </div>
+                   <div class="modal-body">
+                         <form  role="form"  #f="ngForm" (ngSubmit)="insertAttenderType();">
+                              <p>
+                                Survey attender type</p>
+                               <div class="form-group" *ngFor="let item of newAttender; let i = index; trackBy:trackByIndex" >
+                                   
+                                          <mat-form-field class="example-form-field">
+                                          <input matInput type="text" placeholder="Name" name="attender{{i}}" required  [(ngModel)]="newAttender[i].name" (keypress)="_keyPress($event)"/>
+                                          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                            <mat-icon>close</mat-icon>
+                                          </button>
+                                          </mat-form-field>
+                                          <input type="button" class="btn-danger" value="X"  (click)="closeMoreattenderType(i)">
+                                   
+                                  
+                               </div>
+                                    <input type="button" class="btn btn-danger" value="Add new survey attender type"  (click)="addMoreAttendertype()">
+                                    <input type="submit" class="btn btn-danger" value="Save">
+                        
+                         </form>
+                  </div>
+                
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal" #closeBtn>Close</button>
+                  </div>
+               </div>
+            </div>
+      </div>
+  
+   
+      <div id="myModal2"  class="modal fade">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                         <h4 class="modal-title">Edit Survey attender type </h4>
+                  </div>
+                  <br>
+                  <div *ngIf="UpdatealreadyExist" class="alert alert-danger">
+                    Name Already Exist!
+                  </div>
+                  <div *ngIf="Updaterequired" class="alert alert-danger">
+                    Name is required!
+                  </div>
+                <div class="modal-body">
+                     <form  role="form"  #f1="ngForm" (ngSubmit)="updateattenderType(attender);">
+                          <p>survey attender type </p>
+                                <div class="form-group"  >
+                                  <div class="col-md-11">
+                                      <mat-form-field class="example-form-field">
+                                          <input matInput type="text" placeholder="Type name" name="name" required   [(ngModel)]="attender.name" />
+                                          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                            <mat-icon>close</mat-icon>
+                                          </button>
+                                        </mat-form-field>
+                                        
+                                  </div>
+                                  
+                                </div>
+               
+                           <input type="submit" class="btn btn-danger" value="Update">
+      
+                  </form>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" #closeBtn1>Close</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  
+    <div id="myModal3" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <!-- <div class="modal-header"> -->
+            <!-- <h4 class="modal-title">Are you sure to delete?</h4> -->
+          <!-- </div> -->
+          <div class="modal-body">
+              <h4>Are you sure to delete?</h4>
+          
+          </div>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" (click)="deleteattenderType(attenderId)" class="btn btn-default" data-dismiss="modal">Delete</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  
+  
+  
+  
+  <div class="col-md-6 col-md-offset-3">
+      <flash-messages></flash-messages>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-backdrop="static">+Add New</button>
+            <div class="example-header" >
+                <mat-form-field>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+            </div>
+            <div class="noitem" *ngIf="!existStatus"><h4>No item Found!</h4></div>
+            
+            <br>
+      <div class="example-container mat-elevation-z8 ">
+          <mat-table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>
+                  <mat-cell *matCellDef="let row; let i = index"> {{i+1}} </mat-cell>
+                </ng-container>
+                  <ng-container matColumnDef="name">
+                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>
+                       <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+                   </ng-container>
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>
+                        <mat-cell *matCellDef="let row"><button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon> </button>
+                          <mat-menu #menu="matMenu">
+                              <button  mat-menu-item (click)="getAttenderTypeId(row.id)" data-toggle="modal" data-target="#myModal2">
+                                    <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
+                                    <span>Edit</span>
+                                    </button>
+                                <button mat-menu-item  (click)="getAttenderTypeId(row.id)" data-toggle="modal" data-target="#myModal3"> 
+                                    <mat-icon><i class="material-icons">delete</i></mat-icon>
+                                    <span>Delete</span>
+                                </button>
+                          </mat-menu> </mat-cell>
+                
+                       </ng-container>
+         
+      
+  
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                     <mat-row *matRowDef="let row; columns: displayedColumns;">
+                     </mat-row>
+                    </mat-table>
+      
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+                            
+                                       
+                            

@@ -1,0 +1,93 @@
+<div class="padd-top"></div>
+<div class="container">
+
+<flash-messages></flash-messages>
+<mat-horizontal-stepper [linear]="isLinear">
+
+  <mat-step [stepControl]="firstFormGroup">
+      <div class="col-md-6 col-md-offset-3">
+    <form (ngSubmit)="appendForm1()" >
+      <ng-template matStepLabel>Step 1</ng-template>
+      <h5>Email : {{contact_person_email}}</h5>
+      <h5>Contact Name : {{contact_person_fname}} {{contact_person_lname}}</h5>
+      <h4>Tell us about your job to get a sense of how many responses to expect</h4>
+      <br/>
+      <mat-form-field [formGroup]="firstFormGroup">
+        <input matInput [(ngModel)]="newReg.organization" name="organization" placeholder="Your Organization" required formControlName="orgValidation">
+      </mat-form-field>
+      <br/>
+      <mat-form-field [formGroup]="firstFormGroup">
+          <mat-select placeholder="Organization Type" [(ngModel)]="newReg.organization_type" name="organization_type" required formControlName="organization_typeValidation">
+              <mat-option *ngFor="let type of orgType" [value]="type" > 
+                {{ type.name }}
+              </mat-option>
+            </mat-select>
+      </mat-form-field>
+      <br/>
+      <mat-form-field [formGroup]="firstFormGroup">
+	  
+          <mat-select placeholder="Industry" [(ngModel)]="newReg.industry" name="industry" required formControlName="industryValidation">
+              <mat-option *ngFor="let item of industry" [value]="item">
+                {{ item.name }}
+              </mat-option>
+            </mat-select>
+      </mat-form-field>
+      <br/>
+      <mat-form-field [formGroup]="firstFormGroup">
+        <input matInput [(ngModel)]="newReg.location" name="location" placeholder="Location" required formControlName="locationValidation">
+      </mat-form-field>
+      <br/>
+      <mat-form-field [formGroup]="firstFormGroup">
+          <input type="number" matInput [(ngModel)]="newReg.company_strength" name="company_strength" placeholder="Company Strength"  required formControlName="strengthValidation">
+        </mat-form-field>
+        <br/>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+      </div>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+      <div class="col-md-6 col-md-offset-3">
+    <form (ngSubmit)="appendForm2()" >
+      <ng-template matStepLabel>Step 2</ng-template>
+      <h4>Tell us about yourself</h4>
+       <mat-form-field [formGroup]="secondFormGroup">
+        <input matInput [(ngModel)]="newReg.contact_no" name="contact_no" placeholder="Phone Number" maxlength="10" minlength="10" required formControlName="number">
+        <mat-error>Not a valid phone number</mat-error>
+      </mat-form-field> 
+      <br/> 
+     <mat-form-field [formGroup]="secondFormGroup">
+        <input matInput [(ngModel)]="newReg.job_role" name="job_role" placeholder="Job Role" required formControlName="jobRoleValidation">
+      </mat-form-field>
+      <br/>
+   <mat-form-field [formGroup]="secondFormGroup">
+        <input matInput [(ngModel)]="newReg.job_level" name="job_level" placeholder="Job Level" required formControlName="jobLevelValidation">
+      </mat-form-field>
+      <br/>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+      <div class="col-md-6 col-md-offset-3">
+    <form (ngSubmit)="register()">
+    <ng-template matStepLabel>Step 3</ng-template>
+    <h4>Tell us who you are looking to get answers from</h4>
+    <section class="example-section" *ngFor="let data of surveyattenders; let i = index;">
+        <mat-checkbox class="example-margin" name="data_{{i}}" [(ngModel)]="surveyattenders[i].check" >{{data.name}}</mat-checkbox>
+      
+    </section>
+   
+    <div>
+      <button type="submit" mat-button >Finish</button>
+    </div>
+    </form>
+      </div>
+  </mat-step>
+</mat-horizontal-stepper>
+

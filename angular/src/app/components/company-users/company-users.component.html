@@ -3,7 +3,7 @@
                 <div id="wrapper">
             
                     <!-- Navigation -->
-                    <app-company-top-bar></app-company-top-bar>            
+        <app-company-top-bar></app-company-top-bar>            
         <app-company-sidebar></app-company-sidebar>
             
                     <div id="">
@@ -19,11 +19,14 @@
                               <nav class="nav-sidebar">
                                   <ul class="nav tabs buttonleft">
                                         <li >
-                                          <button  class="btn btn-danger ourbutton2" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal">Add New</button>
+                                          <button  class="btn btn-danger ourbutton2" (click)="openModal()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal">Add New</button>
                                         </li>
                                         <li >
-                                          <button  class="btn btn-danger ourbutton2"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#editModal" >Edit User</button>
+                                          <button  class="btn btn-danger ourbutton2" (click)="openModal()"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#editModal" >Edit User</button>
                                           <!-- <button  class="btn btn-danger ourbutton2" (click)="getEditUser(user);" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#editModal" >Edit User</button> -->
+                                        </li>
+                                        <li >
+                                          <button  class="btn btn-danger ourbutton2" (click)="openModal()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#importModal" >Import from Excel</button>
                                         </li>
                                         <!-- <li [ngClass]="{'active1': viewComp == 'Active'}"><a (click)="updateView('Active')" href="#tab4" data-toggle="tab">Active Users</a></li> 
                                         <li [ngClass]="{'active1': viewComp == 'Blocked'}"><a (click)="updateView('Blocked')" href="#tab2" data-toggle="tab">Blocked Users</a></li>
@@ -53,10 +56,140 @@
                       
                                  
                       </div>
+
+              <div id="deleteModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <!-- <div class="modal-header"> -->
+                        <!-- <h4 class="modal-title">Are you sure to delete?</h4> -->
+                      <!-- </div> -->
+                      <div class="modal-body">
+                          <h4>Are you sure to delete?</h4>
+                      
+                      </div>
+                    
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" (click)="deleteUser(userId)" class="btn btn-default" data-dismiss="modal">Delete</button>
+                      </div>
+                    </div>
+                
+                  </div>
+                </div>
+
+                <div id="myModal2"  class="modal fade">
+                    <div class="modal-dialog"> 
+            <!-- Modal content-->
+                      <div class="modal-content">
+                         <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">User Block Request </h4>
+                         </div>
+                         <br>
+                         <div *ngIf="isError" class="alert alert-danger">
+                          {{errorMsg}}
+                       </div>
+                       <div *ngIf="isSuccess" class="alert alert-danger">
+                           {{errorMsg}}
+                        </div>
+                       
+                          
+                        <div class="modal-body">
+                             <form  role="form"  #f1="ngForm" (ngSubmit)="sendBlockRequest(newBlock)">
+                                  <p>Category Name</p>
+                                  
+                                      {{newBlock.email}}
+                            <br>
+                                   <div class="form-group" >
+                                     <textarea class="form-control" rows="5" name = "reason" id="comment" placeholder="Reason" [(ngModel)]="newBlock.reason"></textarea>
+                                 </div>
+                                        <input type="submit" class="btn btn-danger" value="Send"  [disabled]="btnDisbled">
+                                 </form>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal" #closeBtn>Close</button>
+                      </div>
+                   </div>
+                </div>
+          </div>
+      
+                <flash-messages></flash-messages>
+                <!-- group filter -->
+            <div class="col-md-2 dropdown">
+            
+              <mat-form-field class="inputfileds">
+                  <mat-select placeholder="Groups" name='selected' #group="ngModel" [(ngModel)]="newBlock.groups" (click)="filterGroup(newBlock.groups)">
+                    <mat-option [value]="grp.name" *ngFor="let grp of groups;" >{{grp.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                
+            </div>
+                  <br>
+                      <div class="col-md-7">
+                      <div class="example-header" >
+                          <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                          </mat-form-field>
+                      </div>
+                      
+                        <div class="noitem" *ngIf="existStatus"><h4>No item Found!</h4></div>
+                      
+                      <br>
+                      <div class="example-container mat-elevation-z8 ">
+                          <mat-table [dataSource]="dataSource" matSort>
+                               <ng-container matColumnDef="id">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>
+                          <mat-cell *matCellDef="let row; let i = index"> {{i+1}} </mat-cell>
+                        </ng-container>
+                                  <ng-container matColumnDef="email">
+                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>
+                                       <mat-cell *matCellDef="let row"> {{row.email}}</mat-cell>
+                                   </ng-container>
+                                    <ng-container  matColumnDef="action">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>
+                                        <mat-cell *matCellDef="let row"><button mat-icon-button [matMenuTriggerFor]="menu" ><mat-icon>more_vert</mat-icon> </button>
+                                          <mat-menu #menu="matMenu">
+                                            <div>
+                                             
+                                              <button *ngIf="row.block_req_status==false"  mat-menu-item (click)="getUserEmail(row.id,row.email)" data-toggle="modal" data-target="#myModal2">
+                                                  <mat-icon><i class="material-icons">block</i></mat-icon>
+                                                  <span>Sent Block Request</span>
+                                                  </button>
+                                                  <button *ngIf="row.block_req_status==true"  mat-menu-item >
+                                                      <mat-icon><i class="material-icons">block</i></mat-icon>
+                                                      <span>Already sent Block request</span>
+                                                      </button>
+                                                  </div>
+                                              <button  mat-menu-item (click)="getUserId(row.id)" data-toggle="modal" data-target="#editModal">
+                                                    <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
+                                                    <span>Edit</span>
+                                                    </button>
+                                                <button mat-menu-item  (click)="getUserId(row.id)" data-toggle="modal" data-target="#deleteModal"> 
+                                                    <mat-icon><i class="material-icons">delete</i></mat-icon>
+                                                    <span>Delete</span>
+                                                </button>
+                                          </mat-menu> </mat-cell>
+                                
+                                       </ng-container>
+                         
+                      
+                  
+                                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                     <mat-row *matRowDef="let row; columns: displayedColumns;">
+                                     </mat-row>
+                                    </mat-table>
+                      
+                                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                          </div>
+                        </div>
+                        
+                      <div id="editModal"  class="modal fade"></div>
                       
 
-
-                      <div id="editModal"  class="modal fade">
+<!-- -------------------------------------------------------------------------------------------edit------------------------- -->
+                      <div id="editModal"  class="modal fade" >
                         <div class="modal-dialog">
                         
                           <!-- Modal content-->
@@ -118,7 +251,70 @@
                         </div>
                       </div>
 
+<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->
+<div id="importModal"  class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" #closeBtn2>&times;</button>
+          <h4 class="modal-title">Import From Excel</h4>
+        </div>
+        <div class="modal-body">
+          <form  role="form"  #f2="ngForm" (ngSubmit)="f2.form.valid && import();" novalidate>
+           <div class="form-group" >
+             <div class="row">
+             <div class="col-md-6">
+                <label > File </label>
+                <!-- <br> -->
+                <input #myInput type="file" (change)="handleFile($event)" accept=".xlsx"/>
+            </div>
+            <div class="col-md-6">
+              <br>
+              Sample Excel :   <a href="/assets/sampleFile/sample.xlsx" target="_self" download>
+                <i class="fa fa-download"></i>
+              </a>
+            </div>
+            </div>
+              <br>
+              <div *ngIf="isError" class="text-danger text-left">
+                {{msg}}
+           </div>
+           <div *ngIf="isSuccess" class="text-success text-left">
+              {{msg}}
+        </div>
+              <div class="inputitem">
+                <mat-form-field class="inputfileds">
+                  <mat-select placeholder="Groups" name='selected' #group="ngModel" [(ngModel)]="newUser.groups" multiple>
+                    <mat-option [value]="grp" *ngFor="let grp of groups;"  >{{grp.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div style="float: left;">
+                <button  class="btn btn-danger ourbutton" (click)="showGroupAddOption()">Add Group</button>
+              </div>
+              <br>
+              <div style="clear: both;"></div>
+              <div *ngIf="showAddGroup">
+              <mat-form-field class="inputfileds" >
+                <input matInput placeholder="Group Name" [(ngModel)]="newGroup" name="newGroup" >
+              </mat-form-field>
+              <button  class="btn btn-danger ourbutton" (click)="addGroup()">Add</button>
+              </div>
+            </div>
+         
+          <button type= "submit" [disabled]="updateBtnDisbled" class="btn btn-danger ourbutton" >Update</button>
+         
+      </form>
+      </div>
 
+       
+        
+        <div class="modal-footer">
+          </div>
+          </div>
+        </div>
+      </div>
+<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->
                       
                       <div id="myModal"  class="modal fade">
                           <div class="modal-dialog">

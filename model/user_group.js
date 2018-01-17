@@ -8,8 +8,13 @@ const GroupSchema = mongoose.Schema({
         require : true,
     },
     cmp_id : {
-        type :String
-   }
+        type :Schema.ObjectId,
+   },
+    survey_assigned : {
+        type : Boolean,
+        default : false,
+    }
+
 });
 
 const Group = module.exports = mongoose.model('Group', GroupSchema, 'user_group');

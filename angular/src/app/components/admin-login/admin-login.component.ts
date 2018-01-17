@@ -17,6 +17,38 @@ export class AdminLoginComponent implements OnInit {
   constructor(private adminService : AdminService, private routes: Router) { }
 
   ngOnInit() {
+// ---------------------------------Start-------------------------------------------
+// Function      : get logged user details
+// Params        : 
+// Returns       : user details
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          :
+  this.adminService.getLoggedUSerDetails().subscribe(info =>{
+    if(info.role == "user"){
+      if(info.delete_status == true || info.block_status == true){
+        this.routes.navigate(['/404']); 
+      }
+      this.routes.navigate(['/survey', info.surveyId]); 
+    }
+    if(info.role == "admin"){
+      this.routes.navigate(['/admin-dashboard']);
+    }
+    if(info.role == "company"){
+      if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
+        this.routes.navigate(['/clogin']); 
+      }
+      if(info.cmp_status == "Expired"){
+        this.routes.navigate(['/expired']);
+      }
+      if(info.is_profile_completed == false){
+        this.routes.navigate(['/additnInfo', info._id]);
+      }
+      this.routes.navigate(['/dashboard']);
+    }
+  });
+// ---------------------------------End-------------------------------------------
   }
 
 // ---------------------------------Start-------------------------------------------
@@ -30,14 +62,13 @@ export class AdminLoginComponent implements OnInit {
 
   login(){
      this.adminService.adminLogin(this.newLogin).subscribe(data => {
-      console.log(data);
       if(data.success==false){
         this.showError = true;
       }
       if(data.success){
         this.showError = false;
         this.adminService.storeUserData(data.token, data.admin);
-        // this.routes.navigate(['/home']);
+        this.routes.navigate(['/admin-dashboard']);
       }
      });
   }

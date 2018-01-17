@@ -1,3 +1,4 @@
 export class Config {
-    siteUrl = "http://192.168.1.17:3000";
+    socketURL = "http://localhost:3000";
+    siteUrl = "http://localhost:3000";
 }
