@@ -721,9 +721,9 @@ router.get('/logo/:id', function (req, res, next) {
 // Desc          : for decoding base64encoded image
 
 function decodeBase64Image(dataString) {
-    console.log(dataString);
+   // console.log(dataString);
      var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
-     console.log(matches);
+   //   console.log(dataString);
      var response = {};
 
      if (matches.length !== 3) 
@@ -1285,4 +1285,5 @@ router.post('/update-survey',(req,res,next)=>{
     
    
 });
-// ----------------------------------End-------------
+// ----------------------------------End-------------------------------------------
+module.exports = router;
