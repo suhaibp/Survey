@@ -77,7 +77,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
          var key = "status";
          delete json[key];
          this.companyService.storeUserData(data.token, data.company);
-         this.routes.navigate(['/creg']);
+         this.routes.navigate(['/dashboard']);
       }
     } else {
       this.btnDisbled = false;
