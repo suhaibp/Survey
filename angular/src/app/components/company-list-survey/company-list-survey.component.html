@@ -1,0 +1,155 @@
+<body>
+    
+                  <div id="wrapper">
+              
+                      <!-- Navigation -->
+                      <app-company-top-bar></app-company-top-bar>            
+          <app-company-sidebar></app-company-sidebar>
+              
+                      <div id="">
+                          <div class="container-fluid">
+                                  
+                                              <!-- Page Heading -->
+                                            
+                                        
+                                              <!-- /.row -->
+                              
+                                          </div>
+               
+                          <div class="col-md-2"></div>
+                          <div class="col-md-10">
+                                <!-- <p>You selected: {{selected}} </p> -->
+<div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <a class="btn btn-danger ourbutton filter"  [routerLink]="['/company-create-survey']" >Create Survey</a>
+  </div>
+    
+    <div class="example-container mat-elevation-z8">
+      <!-- <div ><h4>No Company Found!</h4></div> -->
+      <mat-table [dataSource]="dataSource" matSort>
+     <!-- Name Column -->
+     <ng-container matColumnDef="slno">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>
+        <mat-cell *matCellDef="let row;let i = index"> {{i+1}} </mat-cell>
+      </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+        </ng-container>
+    
+     <!-- Name Column -->
+     <ng-container matColumnDef="start_datetime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.start_datetime| date: 'dd-MM-yyyy h:mm a'}} </mat-cell>
+    </ng-container>
+      <!-- Progress Column -->
+      <ng-container matColumnDef="end_datetime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>End Date</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.end_datetime| date: 'dd-MM-yyyy h:mm a'}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            {{row.status}}
+          </mat-cell>
+        </ng-container>
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button *ngIf="row.status=='Upcoming'" (click)="setEditId(row._id)" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal3" mat-menu-item>
+                <!-- <button *ngIf="row.status=='Upcoming'" (click)="setEditId(row._id)" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal3" mat-menu-item> -->
+                    <i class="material-icons">delete</i>
+                  <span>Delete</span>
+                </button>
+                <a *ngIf="row.status=='Upcoming'" href="/company-edit-survey/{{row._id}}" mat-menu-item>
+                    <i class="material-icons">edit</i>
+                  <span>Edit</span>
+                </a>
+                <a *ngIf="row.status != 'Upcoming'" href="/company-dashboad/{{row._id}}" mat-menu-item>
+                    <i class="material-icons">dashboard</i>
+                  <span>Report</span>
+                </a>
+                <!-- <button *ngIf="row.block_status==true && row.delete_status==false" (click)="unblockCompany(row._id)" mat-menu-item>
+                    <i class="material-icons">block</i>
+                  <span>Unblock</span>
+                </button> -->
+              </mat-menu>
+           
+          </mat-cell>
+      </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+                            
+                          </div>
+                          
+                        </div>
+                        <!-- /#page-wrapper -->
+                        
+                        <div id="myModal3" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                          
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Delete</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>Are you sure to delete?</h4>
+                                
+                                </div>
+                              
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="button" (click)="deleteSurvey()" class="btn btn-default" data-dismiss="modal">Delete</button>
+                                </div>
+                              </div>
+                          
+                            </div>
+                          </div>  
+                          
+                        
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                          
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Alert</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <h4></h4>
+                                
+                                </div>
+                              
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                          
+                            </div>
+                          </div>  
+                          
+                          
+                        </div>
+                        
+  
+  
+                        
+  
+                        <footer></footer> 
+                          
+                        </body>

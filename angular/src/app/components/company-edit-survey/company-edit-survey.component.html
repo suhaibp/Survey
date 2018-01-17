@@ -1,0 +1,560 @@
+<body *ngIf="!preview">
+    
+                  <div id="wrapper">
+              
+                      <!-- Navigation -->
+                      <app-company-top-bar></app-company-top-bar>            
+          <app-company-sidebar></app-company-sidebar>
+              
+                      <div id="">
+                          <div class="container-fluid">
+                                  
+                                              <!-- Page Heading -->
+                                            
+                                        
+                                              <!-- /.row -->
+                              
+                                          </div>
+                          <div class="row">
+                            <div class="col-md-2"> </div>    
+                            <form  role="form"  #fs="ngForm" (ngSubmit)="fs.form.valid && saveBtnClick(fs);" novalidate>        
+                            <div class="col-md-10">
+                              
+                                <div class="col-md-4">
+                                    <div style="background-color: #fff;padding: 10px">
+                                      <h3>Edit Survey</h3>
+
+
+                                      <mat-form-field  class="inputfileds">
+                                          <input matInput placeholder="Survey Name" required name="surName" [(ngModel)]="survey.name"  >
+                                        </mat-form-field>
+                                        <br>
+                                        <mat-form-field class="inputfileds">
+                                            <mat-select placeholder="Survey Category" required name="surCategory" [(ngModel)]="survey.category"  >
+                                              <mat-option [value]="grp" *ngFor="let grp of surveyCategory;" >{{grp.name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                          <br>
+                                          <mat-form-field>
+                                            <input matInput [matDatepicker]="picker" required name="start_date" [(ngModel)]="survey.start_date" placeholder="Start Date" >
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker disabled="false"></mat-datepicker>
+                                          </mat-form-field>
+                                          <br>
+                                          <mat-form-field>
+                                            <input matInput [matDatepicker]="picker1" required name="end_date" [(ngModel)]="survey.end_date" placeholder="End Date" >
+                                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1 disabled="false"></mat-datepicker>
+                                          </mat-form-field>
+                                          <br>
+                                        <mat-form-field class="inputfileds">
+                                            <mat-select placeholder="Theme" required name="theme" [(ngModel)]="survey.selectedTheme" >
+                                              <mat-option [value]="grp" *ngFor="let grp of themes;" >{{grp.title}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                          <br>
+                                        <mat-form-field class="inputfileds">
+                                            <mat-select placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
+                                              <mat-option [value]="grp.value" *ngFor="let grp of displayType;" >{{grp.label}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                          <br>
+                                          <div  *ngIf="survey.display_type.ui == 'Multiple'">
+                                          <section class="example-section">
+                                             Dispaly Page Number
+                                              <mat-slide-toggle class="example-margin" name="pageno" [(ngModel)]="survey.display_type.pageno" [checked]="survey.display_type.pageno">
+                                                 
+                                                </mat-slide-toggle>
+                                                
+                                              </section>
+                                              <br>
+                                             </div> 
+                                                
+                                          <section class="example-section">
+                                              Random Question  
+                                              <mat-slide-toggle class="example-margin" name="randomization" [(ngModel)]="survey.display_type.randomization" [checked]="survey.display_type.randomization">
+                                                 
+                                                </mat-slide-toggle>
+                                              </section>
+
+                                              <br>
+                                              <section class="example-section">
+                                                  Skip Question  
+                                                  <mat-slide-toggle class="example-margin" name="skip" [(ngModel)]="survey.display_type.skip" [checked]="survey.display_type.skip">
+                                                     
+                                                    </mat-slide-toggle>
+                                                  </section>
+                                         <br>
+                                          <section class="example-section">
+                                            Header  
+                                            <mat-slide-toggle class="example-margin" [checked]="survey.showHeader" name="showheader" [(ngModel)]="survey.showHeader" >
+                                               
+                                              </mat-slide-toggle>
+                                            </section>
+                                          <br>
+                                          
+                                          <section class="example-section">
+                                            Footer  
+                                            <mat-slide-toggle class="example-margin" [checked]="survey.showFooter" name="showfooter" [(ngModel)]="survey.showFooter">
+                                               
+                                              </mat-slide-toggle>
+                                            </section>
+                                           
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div style="background-color: #fff">
+                                        <div class="col-md-10 col-md-offset-1 relaive">
+                                            <div class="overlayz"></div>
+                                            <a href="javascript:void(0)" class="btn btn-danger ourbutton"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#addQuestion">Add Question</a>
+                                            <a href="javascript:void(0)" class="btn btn-danger ourbutton"  #invitePopUp data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#inviteUser">Invite Users</a>
+                                            <div class="col-md-12 shdw">
+                                              <div class="row">
+                                                <div class="col-md-12 hdr" *ngIf="survey.showHeader" [ngStyle]="{'background-color': survey.selectedTheme.h_bg_color || '#000'}">
+                                                  <div class="col-md-2">
+                                                  <div class="image-upload">
+
+                                                      <label for="file-input">
+                                                          <h6 *ngIf="!survey.logoSrc && !tmplogoSrc"  [ngStyle]="{'color': survey.selectedTheme.h_font_color || '#fff'}">Click here to set logo</h6>
+                                                          <img *ngIf="survey.logoSrc" height="100" [src]="survey.logoSrc" title="Click here to change logo">
+                                                          <img *ngIf="!survey.logoSrc && tmplogoSrc " height="100" [src]="tmplogoSrc" title="Click here to change logo">
+                                                      </label>
+                                                  
+                                                      <input style="display: none;" (change)="displayPhoto($event)" accept=".png,.jpeg,.jpg,.bmp,.gif" id="file-input" type="file"/>
+                                                  </div>
+                                                </div>
+                                                  <div class="col-md-10">
+                                                  <a href="javascript:void(0)"  *ngIf="!survey.showTitleInput" (click)="showTitleInput()" title="Click here to set a header">
+                                                    <h5   [ngClass]="{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}" [ngStyle]="{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}" >
+                                                    <span *ngIf="survey.header">{{survey.header}}</span>
+                                                    <span  *ngIf="!survey.header" >Click here to set a header</span>
+                                                  </h5></a>
+                                                  <input type="text" (focusout)="updateHeaderText()" name="headertitle" *ngIf="survey.showTitleInput" [(ngModel)]="survey.header" >
+                                                </div>
+                                                </div>
+                                                <div class="col-md-12 bdy" [ngStyle]="{'background-color': survey.selectedTheme.b_bg_color || '#fff'}" >
+                                                  <div class="row">
+                                                        <div [dragula]='"third-bag"' [dragulaModel]='survey.questions' >
+                                                          <div class="quest" [ngStyle]="{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}" *ngFor="let item of survey.questions; let j = index;" >
+                                                                <h4 [ngClass]="{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}" [ngStyle]="{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}">
+                                                                  {{item.question}}
+                                                                </h4>
+                                                                <div class="edit-iconz">
+                                                                <a href="javascript:void(0)"  (click)="editQuestion(j)" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#editQuestion" ><i class="fa fa-pencil"></i></a>
+                                                                <a href="javascript:void(0)" (click)="deleteQuestionConfirm(j)" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o"></i></a>
+                                                                </div>
+                                                          </div>
+                                                        </div>
+                                                  </div>
+                                                  
+                                                  <div>
+                                                    <div *ngIf="survey.display_type.ui == 'Multiple Page'" class="col-md-6 progrs">
+                                                        <h5 *ngIf="survey.display_type.pageno" [ngStyle]="{'color': survey.selectedTheme.progress_text_color || '#000'}">Page No. 4 of 10</h5>
+                                                        <div class="progress" >
+                                                            <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                                                            aria-valuemin="0" aria-valuemax="100" style="width:40%" [ngStyle]="{'background-color': survey.selectedTheme.progress_color || ''}">
+                                                              <span class="sr-only">70% Complete</span>
+                                                            </div>
+                                                          </div> 
+                                                    </div>
+                                                                
+                                                  </div> 
+                                                </div>
+                                                <div class="col-md-12 ftr" *ngIf="survey.showFooter" [ngStyle]="{'background-color': survey.selectedTheme.f_bg_color || '#000'}" >
+                                                    <a href="javascript:void(0)"  *ngIf="!survey.showFooterInput" (click)="showFooterInput()" title="Click here to set a footer">
+                                                    <h6  [ngStyle]="{'color': '#fff'}">
+                                                    <span *ngIf="survey.footer" [ngClass]="{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}" [ngStyle]="{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}" >{{survey.footer}}</span>
+                                                    <span  *ngIf="!survey.footer" [ngClass]="{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}" [ngStyle]="{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}" >Click here to set a footer</span>
+                                                  </h6>
+                                                  </a>
+                                                <input type="text" (focusout)="updateFooterText()" name="footertitle" *ngIf="survey.showFooterInput" [(ngModel)]="survey.footer" >
+                                              </div>
+                                                <a class="btn btn-danger ourbutton"  [routerLink]="['/company-list-survey']" >Back</a>
+                                                <button  class="btn btn-danger ourbutton" type= "submit" (click)="showPreview();" >Preview</button>
+                                                <button  class="btn btn-danger ourbutton" type= "submit" [disabled]="saveBtnDisbled"  >Update</button>
+                                                <div *ngIf="isError2" class="text-danger text-left">
+                                                    {{msg2}}
+                                               </div>
+                                                <div *ngIf="isSuccess2" class="text-success text-left">
+                                                    {{msg2}}
+                                              </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </form> 
+                          </div>
+                          
+                        </div>
+                        <!-- /#page-wrapper -->
+                        
+                                   
+                        </div>
+                    
+                        
+
+                      <!-- User Invite Popup start   -->
+
+                        <div id="inviteUser"  class="modal fade">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" #closeBtn1>&times;</button>
+                                  <h4 class="modal-title">Email Invitation</h4>
+                                </div>
+                                <div class="modal-body">
+                                  
+                              <!-- <form  role="form"  #finvite="ngForm" (ngSubmit)="finvite.form.valid && updateQuestion(finvite);" novalidate> -->
+                              
+                                  <div class="form-group" >
+                                      
+                                  
+                                  <mat-form-field class="filter">
+                                      
+                                        <mat-select  (change)="updateUserList()" name="xyz" [(ngModel)]="selectedUserGroup"  >
+                                          <mat-option value="all">All</mat-option>
+                                          <mat-option value="{{grp._id}}" *ngFor="let grp of userGroups">{{grp.name}}</mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                      
+                                      <!-- <p>You selected: {{selected}} </p> -->
+                                    <div class="example-header">
+                                      <mat-form-field>
+                                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                                      </mat-form-field>
+                                    </div>
+                                      
+                                      <div class="example-container mat-elevation-z8">
+
+                                          <div class="example-container mat-elevation-z8">
+                                              <mat-table #table [dataSource]="dataSource">
+                                            
+                                                <!-- Checkbox Column -->
+                                                <ng-container matColumnDef="select">
+                                                  <mat-header-cell *matHeaderCellDef>
+                                                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                                                                  [checked]="selection.hasValue() && isAllSelected()"
+                                                                  [indeterminate]="selection.hasValue() && !isAllSelected()">
+                                                    </mat-checkbox>
+                                                  </mat-header-cell>
+                                                  <mat-cell *matCellDef="let row">
+                                                    <mat-checkbox (click)="$event.stopPropagation()"
+                                                                  (change)="$event ? selection.toggle(row) : null"
+                                                                  [disabled]="row.invited"
+                                                                  [checked]="row.invited || selection.isSelected(row)">
+                                                    </mat-checkbox>
+                                                  </mat-cell>
+                                                </ng-container>
+                                            
+                                                    <ng-container matColumnDef="email">
+                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>
+                                                        <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+                                                      </ng-container>
+                                            
+                                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                                <mat-row *matRowDef="let row; columns: displayedColumns;"
+                                                         (click)="!row.invited && selection.toggle(row)">
+                                                </mat-row>
+                                              </mat-table>
+                                              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                                            </div>
+                                        
+                                      </div>
+                                      <br>
+                                      {{selection.selected.length}} User Selected
+                                      <br>
+
+                                      <div >
+                                          <mat-form-field class="inputfileds" >
+                                              <input matInput placeholder="Email" [(ngModel)]="newUser" name="newUser" >
+                                            </mat-form-field>
+                                            <button  [disabled]="addUserBtnDisbled"  class="btn btn-danger ourbutton" (click)="addUser()">Add New User</button>
+                                      </div>
+                                  </div>
+
+                                  <div style="clear: both;"></div>
+                                  <div *ngIf="isError3" class="text-danger text-left">
+                                      {{msg3}}
+                                 </div>
+                                 <div *ngIf="isSuccess3" class="text-success text-left">
+                                    {{msg3}}
+                              </div>
+                                  <button  [disabled]="inviteBtnDisbled" class="btn btn-danger ourbutton" (click)="inviteUser()" >Send Invitation</button>
+                                  
+                                 
+                              <!-- </form> -->
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+
+                          <!-- user ivite Popup End   -->
+
+
+
+
+                      <!-- Edit Popup start   -->
+
+                        <div id="editQuestion"  class="modal fade">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" #closeBtn1>&times;</button>
+                                  <h4 class="modal-title">Update Question</h4>
+                                </div>
+                                <div class="modal-body">
+                                  
+                              <form  role="form"  #f1="ngForm" (ngSubmit)="f1.form.valid && updateQuestion(f1);" novalidate>
+                              
+                                  <div class="form-group" >
+                                      <label > Question </label>
+                                      <br>
+                                      <div *ngIf="isError1" class="text-danger text-left">
+                                          {{msg1}}
+                                     </div>
+                                     <div *ngIf="isSuccess1" class="text-success text-left">
+                                        {{msg1}}
+                                  </div>
+
+                                      <div class="inputitem">
+                                          <mat-form-field class="inputfileds">
+                                            <input matInput placeholder="Question here" required   #question="ngModel" name="question" [(ngModel)]="editQuest.question" >
+                                          </mat-form-field>
+                                        
+                                        </div>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                 
+                                      <div class="inputitem">
+                                          <mat-form-field class="inputfileds">
+                                            <mat-select placeholder="Question Type" required name='edittype' #questionType="ngModel" [(ngModel)]="editQuest.answerType" >
+                                              <mat-option [value]="val.name" *ngFor="let val of answerType;"  >{{val.name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                      </div>
+                                     
+                                      <div style="clear: both;"></div>
+
+                                      <!-- multiple choice Start -->
+                                      <div *ngIf="editQuest.answerType=='Multiple choice'">
+                                          <div   *ngFor="let item of editQuest.opts; let i = index; trackBy:trackByIndex" >
+                                              <div class="inputitem">
+                                                  <div class="row">
+                                                      <div class="col-md-7">
+                                                        <mat-form-field class="inputfileds">
+                                                          <input matInput placeholder="Option" [value]="editQuest.opts[i]" required #opt{{i}}="ngModel" name="opt_{{i}}" [(ngModel)]="editQuest.opts[i]" >
+                                                        </mat-form-field>
+                                                      </div>  
+                                                      <div class="col-md-5" style="padding-top: 25px;">
+                                                          <button class="btn-danger" (click)="removeOptionEdit(i)" style="float: left;" >X</button>
+                                                      </div>  
+                                              </div>
+                                              <!-- <div style="float: left;padding-top: 14px;width:220px;">
+                                                 
+                                              </div> -->
+                                            </div>
+                                      </div>
+                                      <div style="clear: both;"></div>
+                                      <button  class="btn btn-danger ourbutton" (click)="addMoreOptionEdit()" >Add More</button>
+                                      </div>
+                                       <!-- multiple choice  End -->
+
+                                      <!-- Start Rating Start -->
+                                      <div *ngIf="editQuest.answerType=='star rating'"  >
+                                          <br>
+                                          <section class="example-section">
+                                            Show Label  
+                                            <mat-slide-toggle class="example-margin" name="showStartlabel" [checked]="editQuest.showStarLabel" [(ngModel)]="editQuest.showStarLabel" >
+                                               
+                                              </mat-slide-toggle>
+                                            </section>
+                                            <div *ngIf="editQuest.showStarLabel">
+                                              <div class="inputitem" *ngFor="let item of counter(5); let i = index; trackBy:trackByIndex" >
+                                                <div class="row">
+                                                    <div class="col-md-7">
+                                                        <mat-form-field class="inputfileds">
+                                                          <input matInput placeholder="Label For {{i+1}} Star" [value]="editQuest.starOpts[i]" required #opt{{i}}="ngModel" name="opt_{{i}}" [(ngModel)]="editQuest.starOpts[i]" >
+                                                        </mat-form-field>
+                                                      </div>  
+                                                  <div class="col-md-5" style="padding-top: 25px;">
+                                                    <mat-icon class="example-icon" *ngFor="let item of counter(i+1);let j = index;" >star</mat-icon>
+                                                  </div>
+                                                  
+                                                </div>
+                                              </div>
+                                            </div>
+                                      </div>
+                                       <!-- Star Rating  End -->
+
+                                  </div>
+                                  <div style="clear: both;"></div>
+                                  <button type= "submit" [disabled]="updateBtnDisbled" class="btn btn-danger ourbutton" >Update</button>
+                                 
+                              </form>
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+
+                          <!-- Edit Popup End   -->
+
+
+                        <!-- Add Popup Start   -->
+
+                        <div id="addQuestion"  class="modal fade">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" #closeBtn>&times;</button>
+                                  <h4 class="modal-title">Create Question</h4>
+                                </div>
+                                <div class="modal-body">
+                                  
+                              <form  role="form"  #f="ngForm" (ngSubmit)="f.form.valid && addQuestion(f);" novalidate>
+                              
+                                  <div class="form-group" >
+                                      <label > Question </label>
+                                      <br>
+                                      <div *ngIf="isError" class="text-danger text-left">
+                                          {{msg}}
+                                     </div>
+                                     <div *ngIf="isSuccess" class="text-success text-left">
+                                        {{msg}}
+                                  </div>
+
+                                      <div class="inputitem">
+                                          <mat-form-field class="inputfileds">
+                                            <input matInput placeholder="Question here" required   #question="ngModel" name="question" [(ngModel)]="quest.question" >
+                                          </mat-form-field>
+                                        
+                                        </div>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                 
+                                      <div class="inputitem">
+                                          <mat-form-field class="inputfileds">
+                                            <mat-select placeholder="Question Type" required name='type' #questionType="ngModel" [(ngModel)]="quest.answerType" >
+                                              <mat-option [value]="val.name" *ngFor="let val of answerType;"  >{{val.name}}</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                      </div>
+                                     
+                                      <div style="clear: both;"></div>
+
+                                      <!-- multiple choice Start -->
+                                      <div *ngIf="quest.answerType=='Multiple choice'">
+                                          <div   *ngFor="let item of quest.opts; let i = index; trackBy:trackByIndex" >
+                                              <div class="inputitem">
+                                                  <div class="row">
+                                                      <div class="col-md-7">
+                                                        <mat-form-field class="inputfileds">
+                                                          <input matInput placeholder="Option" required #opt{{i}}="ngModel" name="opt_{{i}}" [(ngModel)]="quest.opts[i]" >
+                                                        </mat-form-field>
+                                                      </div>  
+                                                      <div class="col-md-5" style="padding-top: 25px;">
+                                                          <button class="btn-danger" (click)="removeOption(i)" style="float: left;" >X</button>
+                                                      </div>  
+                                              </div>
+                                              <!-- <div style="float: left;padding-top: 14px;width:220px;">
+                                                 
+                                              </div> -->
+                                            </div>
+                                      </div>
+                                      <div style="clear: both;"></div>
+                                      <button  class="btn btn-danger ourbutton" (click)="addMoreOption()" >Add More</button>
+                                      </div>
+                                       <!-- multiple choice  End -->
+
+                                      <!-- Start Rating Start -->
+                                      <div *ngIf="quest.answerType=='star rating'"  >
+                                          <br>
+                                          <section class="example-section">
+                                            Show Label  
+                                            <mat-slide-toggle class="example-margin" name="showStartlabel" [checked]="quest.showStarLabel" [(ngModel)]="quest.showStarLabel" >
+                                               
+                                              </mat-slide-toggle>
+                                            </section>
+                                            <div *ngIf="quest.showStarLabel">
+                                              <div class="inputitem" *ngFor="let item of counter(5); let i = index; trackBy:trackByIndex" >
+                                                <div class="row">
+                                                    <div class="col-md-7">
+                                                        <mat-form-field class="inputfileds">
+                                                          <input matInput placeholder="Label For {{i+1}} Star" required #opt{{i}}="ngModel" name="opt_{{i}}" [(ngModel)]="quest.starOpts[i]" >
+                                                        </mat-form-field>
+                                                      </div>  
+                                                  <div class="col-md-5" style="padding-top: 25px;">
+                                                    <mat-icon class="example-icon" *ngFor="let item of counter(i+1);let j = index;" >star</mat-icon>
+                                                  </div>
+                                                  
+                                                </div>
+                                              </div>
+                                            </div>
+                                      </div>
+                                       <!-- Star Rating  End -->
+
+                                  </div>
+                                  <div style="clear: both;"></div>
+                                  <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
+                                 
+                              </form>
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+
+                            <!-- Add Popup End   -->
+
+
+                          <!-- Delete Popup Start -->
+
+                          <div id="deleteModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                          
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <!-- <div class="modal-header"> -->
+                                  <!-- <h4 class="modal-title">Are you sure to delete?</h4> -->
+                                <!-- </div> -->
+                                <div class="modal-body">
+                                    <h4>Are you sure ?</h4>
+                                
+                                </div>
+                              
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  <button type="button" (click)="deleteQuestion()" class="btn btn-default" data-dismiss="modal">Delete</button>
+                                </div>
+                              </div>
+                          
+                            </div>
+                          </div>
+
+                          <!-- Delete Popup End -->
+                
+                        <footer></footer> 
+                          
+                        </body>
+<div *ngIf="preview">
+                        <app-company-survey-preview (onBackBtnClick)="onBackToSurevyClick()"  [survey]="survey"></app-company-survey-preview>    
+</div>                    
