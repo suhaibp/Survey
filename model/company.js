@@ -4,130 +4,130 @@ const bcrypt = require("bcryptjs");
 var Schema = mongoose.Schema;
 async = require("async");
 const CompanySchema = mongoose.Schema({
-    organization : {
-        type : String,
-        require : true,
+    organization: {
+        type: String,
+        require: true,
     },
-    organization_type : {
-        id : Schema.ObjectId ,
-        name : {
-            type : String,
-            require : true,
+    organization_type: {
+        id: Schema.ObjectId,
+        name: {
+            type: String,
+            require: true,
         }
     },
-    industry : {
-        id : Schema.ObjectId ,
-        name : {
-            type : String,
-            require : true,
+    industry: {
+        id: Schema.ObjectId,
+        name: {
+            type: String,
+            require: true,
         }
     },
-    location : {
-        type : String,
-        require : true,
+    location: {
+        type: String,
+        require: true,
     },
-    contact_person_email : {
-        type : String,
-        require : true,
-        unique : true,
+    contact_person_email: {
+        type: String,
+        require: true,
+        unique: true,
     },
-    contact_person_fname : {
-        type : String,
-        require : true,
+    contact_person_fname: {
+        type: String,
+        require: true,
     },
-    contact_person_lname : {
-        type : String,
-        require : true,
+    contact_person_lname: {
+        type: String,
+        require: true,
     },
-    contact_no : {
-        type : Number,
-        require : true,
+    contact_no: {
+        type: Number,
+        require: true,
     },
-    job_role : {
-        type : String,
-        require : true,
+    job_role: {
+        type: String,
+        require: true,
     },
-    job_level : {
-        type : String,
-        require : true,
+    job_level: {
+        type: String,
+        require: true,
     },
-    survey_attenders : [{
-        id : Schema.ObjectId ,
-        name : {
-            type : String,
-            require : true,
+    survey_attenders: [{
+        id: Schema.ObjectId,
+        name: {
+            type: String,
+            require: true,
         }
     }],
-    company_strength : {
-        type : String,
-        require : true,
+    company_strength: {
+        type: String,
+        require: true,
     },
-    facebook         : {
-        id           : String,
-        token        : String,
-        name         : String,
-        email        : String
+    facebook: {
+        id: String,
+        token: String,
+        name: String,
+        email: String
     },
-    google         : {
-        id           : String,
-        token        : String,
-        name         : String,
-        email        : String
+    google: {
+        id: String,
+        token: String,
+        name: String,
+        email: String
     },
-    verification_code : {
-        type : String,
+    verification_code: {
+        type: String,
     },
-    delete_status : { 
-        type: Boolean, 
-        default: false 
+    delete_status: {
+        type: Boolean,
+        default: false
     },
-    block_status : { 
-        type: Boolean, 
-        default: false 
+    block_status: {
+        type: Boolean,
+        default: false
     },
-    cmp_status : { 
-        type: String, 
-        default: "Not Verified", 
+    cmp_status: {
+        type: String,
+        default: "Not Verified",
         // Trail, Subscribed, Expired
     },
-    reg_datetime : { 
-        type: Date, 
-        default: Date.now 
+    reg_datetime: {
+        type: Date,
+        default: Date.now
     },
-    is_profile_completed : { 
-        type: Boolean, 
-        default: false 
+    is_profile_completed: {
+        type: Boolean,
+        default: false
     },
-    password : {
-        type : String,
+    password: {
+        type: String,
     },
-    role : {
-        type : String,
-        default : "company",
+    role: {
+        type: String,
+        default: "company",
     },
-    users : [{
-        email : {
-            type : String
+    users: [{
+        email: {
+            type: String
         },
-        group : [{
-            g_id : Schema.ObjectId,
-            group_name : String
+        group: [{
+            g_id: Schema.ObjectId,
+            group_name: String
         }],
-        is_registered : {
-            type : Boolean,
-            default : false,
+        is_registered: {
+            type: Boolean,
+            default: false,
         },
-        delete_status : {
-            type : Boolean,
-            default : false,
+        delete_status: {
+            type: Boolean,
+            default: false,
         },
-        admin_block : {
-            type : Boolean,
-            default : false,
+        admin_block: {
+            type: Boolean,
+            default: false,
         },
-        block_req_status : {
-            type : Boolean,
-            default : false,
+        block_req_status: {
+            type: Boolean,
+            default: false,
         },
     }]
 });
@@ -144,9 +144,9 @@ const Company = module.exports = mongoose.model('Company', CompanySchema, 'compa
 // Desc          : all companies 
 
 
-module.exports.getAllcompanies = function(callback){
-    Company.find({},callback);
-   
+module.exports.getAllcompanies = function (callback) {
+    Company.find({}, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -159,9 +159,9 @@ module.exports.getAllcompanies = function(callback){
 // Desc          : all subscribedcompanies 
 
 
-module.exports.getAllsubcompanies = function(callback){
-    Company.find({cmp_status:'Subscribed'},callback);
-   
+module.exports.getAllsubcompanies = function (callback) {
+    Company.find({ cmp_status: 'Subscribed' }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -174,9 +174,9 @@ module.exports.getAllsubcompanies = function(callback){
 // Desc          : all subscribed activecompanies 
 
 
-module.exports.getAllsubactivecompanies = function(callback){
-    Company.find({cmp_status:'Subscribed',block_status:false,delete_status:false},callback);
-   
+module.exports.getAllsubactivecompanies = function (callback) {
+    Company.find({ cmp_status: 'Subscribed', block_status: false, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -189,9 +189,9 @@ module.exports.getAllsubactivecompanies = function(callback){
 // Desc          : all subscribed blockcompanies 
 
 
-module.exports.getAllsubblockcompanies = function(callback){
-    Company.find({cmp_status:'Subscribed',block_status:true,delete_status:false},callback);
-   
+module.exports.getAllsubblockcompanies = function (callback) {
+    Company.find({ cmp_status: 'Subscribed', block_status: true, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -204,9 +204,9 @@ module.exports.getAllsubblockcompanies = function(callback){
 // Desc          : all subscribed deletecompanies 
 
 
-module.exports.getAllsubdeletecompanies = function(callback){
-    Company.find({cmp_status:'Subscribed',delete_status:true},callback);
-   
+module.exports.getAllsubdeletecompanies = function (callback) {
+    Company.find({ cmp_status: 'Subscribed', delete_status: true }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -219,9 +219,9 @@ module.exports.getAllsubdeletecompanies = function(callback){
 // Desc          : all trailcompanies
 
 
-module.exports.getAlltrialcompanies = function(callback){
-    Company.find({cmp_status:'Trail'},callback);
-   
+module.exports.getAlltrialcompanies = function (callback) {
+    Company.find({ cmp_status: 'Trail' }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -234,9 +234,9 @@ module.exports.getAlltrialcompanies = function(callback){
 // Desc          : all trial activecompanies 
 
 
-module.exports.getAlltrialactivecompanies = function(callback){
-    Company.find({cmp_status:'Trail',block_status:false,delete_status:false},callback);
-   
+module.exports.getAlltrialactivecompanies = function (callback) {
+    Company.find({ cmp_status: 'Trail', block_status: false, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -249,9 +249,9 @@ module.exports.getAlltrialactivecompanies = function(callback){
 // Desc          : all trial blockcompanies 
 
 
-module.exports.getAlltrialblockcompanies = function(callback){
-    Company.find({cmp_status:'Trail',block_status:true,delete_status:false},callback);
-   
+module.exports.getAlltrialblockcompanies = function (callback) {
+    Company.find({ cmp_status: 'Trail', block_status: true, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -264,9 +264,9 @@ module.exports.getAlltrialblockcompanies = function(callback){
 // Desc          : all trial deletecompanies 
 
 
-module.exports.getAlltrialdeletecompanies = function(callback){
-    Company.find({cmp_status:'Trail',delete_status:true},callback);
-   
+module.exports.getAlltrialdeletecompanies = function (callback) {
+    Company.find({ cmp_status: 'Trail', delete_status: true }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -279,9 +279,9 @@ module.exports.getAlltrialdeletecompanies = function(callback){
 // Desc          :all Expiredcompanies
 
 
-module.exports.getAllexpiredcompanies = function(callback){
-    Company.find({cmp_status:'Expired'},callback);
-   
+module.exports.getAllexpiredcompanies = function (callback) {
+    Company.find({ cmp_status: 'Expired' }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -294,9 +294,9 @@ module.exports.getAllexpiredcompanies = function(callback){
 // Desc          : all expired activecompanies 
 
 
-module.exports.getAllexpiredactivecompanies = function(callback){
-    Company.find({cmp_status:'Expired',block_status:false,delete_status:false},callback);
-   
+module.exports.getAllexpiredactivecompanies = function (callback) {
+    Company.find({ cmp_status: 'Expired', block_status: false, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -309,9 +309,9 @@ module.exports.getAllexpiredactivecompanies = function(callback){
 // Desc          : all expired blockcompanies 
 
 
-module.exports.getAllexpiredblockcompanies = function(callback){
-    Company.find({cmp_status:'Expired',block_status:true,delete_status:false},callback);
-   
+module.exports.getAllexpiredblockcompanies = function (callback) {
+    Company.find({ cmp_status: 'Expired', block_status: true, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -324,9 +324,9 @@ module.exports.getAllexpiredblockcompanies = function(callback){
 // Desc          : all expired deletecompanies 
 
 
-module.exports.getAllexpireddeletecompanies = function(callback){
-    Company.find({cmp_status:'Expired',delete_status:true},callback);
-   
+module.exports.getAllexpireddeletecompanies = function (callback) {
+    Company.find({ cmp_status: 'Expired', delete_status: true }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -338,9 +338,9 @@ module.exports.getAllexpireddeletecompanies = function(callback){
 // Last Modified : 
 // Desc          :all Not Verifiedcompanies
 //
-module.exports.getAllnotverficompanies = function(callback){
-    Company.find({cmp_status:'Not Verified'},callback);
-   
+module.exports.getAllnotverficompanies = function (callback) {
+    Company.find({ cmp_status: 'Not Verified' }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -353,9 +353,9 @@ module.exports.getAllnotverficompanies = function(callback){
 // Desc          : all notverfied activecompanies 
 
 
-module.exports.getAllnotverfiactivecompanies = function(callback){
-    Company.find({cmp_status:'Not Verified',block_status:false,delete_status:false},callback);
-   
+module.exports.getAllnotverfiactivecompanies = function (callback) {
+    Company.find({ cmp_status: 'Not Verified', block_status: false, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -368,9 +368,9 @@ module.exports.getAllnotverfiactivecompanies = function(callback){
 // Desc          : all notverfied blockcompanies 
 
 
-module.exports.getAllnotverfiblockcompanies = function(callback){
-    Company.find({cmp_status:'Not Verified',block_status:true,delete_status:false},callback);
-   
+module.exports.getAllnotverfiblockcompanies = function (callback) {
+    Company.find({ cmp_status: 'Not Verified', block_status: true, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -383,9 +383,9 @@ module.exports.getAllnotverfiblockcompanies = function(callback){
 // Desc          : all notverfied deletecompanies 
 
 
-module.exports.getAllnotverfideletecompanies = function(callback){
-    Company.find({cmp_status:'Not Verified',delete_status:true},callback);
-   
+module.exports.getAllnotverfideletecompanies = function (callback) {
+    Company.find({ cmp_status: 'Not Verified', delete_status: true }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -397,9 +397,9 @@ module.exports.getAllnotverfideletecompanies = function(callback){
 // Last Modified : 
 // Desc          : all active companies
 
-module.exports.getAllactivecompanies = function(callback){
-    Company.find({block_status:false,delete_status:false},callback);
-   
+module.exports.getAllactivecompanies = function (callback) {
+    Company.find({ block_status: false, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -411,9 +411,9 @@ module.exports.getAllactivecompanies = function(callback){
 // Last Modified : 
 // Desc          : all blocked companies
 
-module.exports.getAllblockedcompanies = function(callback){
-    Company.find({block_status:true,delete_status:false},callback);
-   
+module.exports.getAllblockedcompanies = function (callback) {
+    Company.find({ block_status: true, delete_status: false }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -425,9 +425,9 @@ module.exports.getAllblockedcompanies = function(callback){
 // Last Modified : 
 // Desc          : all deleted companies
 
-module.exports.getAlldeletedcompanies = function(callback){
-    Company.find({delete_status:true},callback);
-   
+module.exports.getAlldeletedcompanies = function (callback) {
+    Company.find({ delete_status: true }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -439,8 +439,8 @@ module.exports.getAlldeletedcompanies = function(callback){
 // Last Modified : 
 // Desc          : delete company
 
-module.exports.deleteCompany = function(id,callback){
-    Company.findByIdAndUpdate(id,{delete_status:true},callback);
+module.exports.deleteCompany = function (id, callback) {
+    Company.findByIdAndUpdate(id, { delete_status: true }, callback);
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -452,8 +452,8 @@ module.exports.deleteCompany = function(id,callback){
 // Last Modified : 
 // Desc          : block company
 
-module.exports.blockCompany = function(id,callback){
-    Company.findByIdAndUpdate(id,{block_status:true},callback);
+module.exports.blockCompany = function (id, callback) {
+    Company.findByIdAndUpdate(id, { block_status: true }, callback);
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------
@@ -465,11 +465,11 @@ module.exports.blockCompany = function(id,callback){
 // Last Modified : 
 // Desc          : unblock company
 
-module.exports.unblockCompany = function(id,callback){
-    Company.findByIdAndUpdate(id,{block_status:false},callback);
+module.exports.unblockCompany = function (id, callback) {
+    Company.findByIdAndUpdate(id, { block_status: false }, callback);
 }
 // -----------------------------------End------------------------------------------
- // ---------------------------------Start-------------------------------------------
+// ---------------------------------Start-------------------------------------------
 // Function      : admindashboard
 // Params        : 
 // Returns       : 
@@ -479,44 +479,44 @@ module.exports.unblockCompany = function(id,callback){
 // Desc          : admindashboardchart1
 //
 
-module.exports.getAdminchart1notverified = function(callback){
-    Company.count({cmp_status:"Not Verified"},callback);
- 
+module.exports.getAdminchart1notverified = function (callback) {
+    Company.count({ cmp_status: "Not Verified" }, callback);
+
 }
-module.exports.getAdminchart1Trail = function(callback){
-    Company.count({cmp_status:"Trail"},callback);
- 
+module.exports.getAdminchart1Trail = function (callback) {
+    Company.count({ cmp_status: "Trail" }, callback);
+
 }
-module.exports.getAdminchart1Subscribed = function(callback){
-    Company.count({cmp_status:"Subscribed"},callback);
- 
+module.exports.getAdminchart1Subscribed = function (callback) {
+    Company.count({ cmp_status: "Subscribed" }, callback);
+
 }
 
-module.exports.getAdminchart1Expired = function(callback){
-    Company.count({cmp_status:"Expired"},callback);
- 
+module.exports.getAdminchart1Expired = function (callback) {
+    Company.count({ cmp_status: "Expired" }, callback);
+
 }
 // -----------------------------------End------------------------------------------
 
 
-module.exports.addCompany = function(newCompany,callback){
-    bcrypt.genSalt(10,(err, salt)=>{
-        bcrypt.hash(newCompany.password,salt,(err, hash) =>{
-            if(err) throw err;
+module.exports.addCompany = function (newCompany, callback) {
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newCompany.password, salt, (err, hash) => {
+            if (err) throw err;
             newCompany.password = hash;
             newCompany.save(callback);
         })
     })
 }
 
-module.exports.getCompanyById = function(id,callback){
-    Company.findById(id,callback);
+module.exports.getCompanyById = function (id, callback) {
+    Company.findById(id, callback);
 }
 
-module.exports.comparePassword = function(candPass,hash,callback){
-    bcrypt.compare(candPass,hash, (err, isMatch)=>{
-        if(err) throw err;
-        callback(null,isMatch);
+module.exports.comparePassword = function (candPass, hash, callback) {
+    bcrypt.compare(candPass, hash, (err, isMatch) => {
+        if (err) throw err;
+        callback(null, isMatch);
     })
 }
 
