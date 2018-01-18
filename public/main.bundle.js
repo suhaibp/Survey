@@ -5452,7 +5452,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-chart2/company-chart2.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>{{title}}</h1>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n\r\n    <svg  width=\"600\" height=\"300\"></svg>\r\n\r\n\r\n<svg id=\"sd\" width=\"960\" height=\"500\" ></svg>\r\n\r\n\r\n<div id=\"answeredUsers\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">Answered Users</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n     \r\n\r\n          <div class=\"example-header\">\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n          </div>\r\n            \r\n            <div class=\"example-container mat-elevation-z8\">\r\n\r\n                <div class=\"example-container mat-elevation-z8\">\r\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\r\n                  \r\n                      <ng-container matColumnDef=\"slno\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n                      </ng-container>\r\n                        <!-- Name Column -->\r\n                        <ng-container matColumnDef=\"email\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n                        </ng-container>\r\n                    \r\n                     <!-- Name Column -->\r\n                     <ng-container matColumnDef=\"date_time\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\r\n                    </ng-container>\r\n                  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                      </mat-row>\r\n                    </mat-table>\r\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                  </div>\r\n              \r\n            </div>\r\n            <br>\r\n          \r\n     \r\n\r\n  \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<h2>{{title}}</h2>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n\r\n    <svg  id=\"br-1\"width=\"600\" height=\"300\"></svg>\r\n\r\n\r\n<svg id=\"sd\" width=\"960\" height=\"500\" ></svg>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"answeredUsers\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">Answered Users</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n     \r\n\r\n          <div class=\"example-header\">\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n          </div>\r\n            \r\n            <div class=\"example-container mat-elevation-z8\">\r\n\r\n                <div class=\"example-container mat-elevation-z8\">\r\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\r\n                  \r\n                      <ng-container matColumnDef=\"slno\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n                      </ng-container>\r\n                        <!-- Name Column -->\r\n                        <ng-container matColumnDef=\"email\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n                        </ng-container>\r\n                    \r\n                     <!-- Name Column -->\r\n                     <ng-container matColumnDef=\"date_time\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\r\n                    </ng-container>\r\n                  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                      </mat-row>\r\n                    </mat-table>\r\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                  </div>\r\n              \r\n            </div>\r\n            <br>\r\n          \r\n     \r\n\r\n  \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -5499,11 +5499,14 @@ var CompanyChart2Component = /** @class */ (function () {
     }
     CompanyChart2Component.prototype.refresh = function () {
         var _this = this;
+        // d3.select("#br-1").remove();
+        console.log("yasir");
+        // this.svg1.remove()
         this.getAllsurvey();
         this.companyService.getSurveyQuestions(this.surveyid).subscribe(function (data) {
             // this.surveyQuestion = data;
             _this.quest = data;
-            // console.log(data + " data");
+            console.log(data + " data");
             _this.barchart = [];
             data.forEach(function (element) {
                 _this.barchart.push({ company: element.question, count: element.totalCount, id: element.id, surveyid: _this.sId });
@@ -5531,17 +5534,25 @@ var CompanyChart2Component = /** @class */ (function () {
             _this.drawPie();
         });
     };
-    CompanyChart2Component.prototype.ngOnInit = function () {
+    CompanyChart2Component.prototype.ngOnChanges = function () {
         var _this = this;
-        //  console.log(this.surveyid);
-        //if(this.surveyid != 'all'){
-        this.refresh();
-        this.pierefresh();
-        //}
-        this.socket.on('new survey created', function (data) {
-            _this.refresh();
-        });
-        //piechat
+        if (this.surveyid != undefined) {
+            console.log("______" + this.surveyid);
+            d3.selectAll("svg > *").remove();
+            // this.svg.remove();
+            console.log("xxxxxx");
+            //if(this.surveyid != 'all'){
+            this.refresh();
+            this.pierefresh();
+            //}
+            this.socket.on('new survey created', function (data) {
+                _this.refresh();
+            });
+            //piechat
+            // this.initSvg();
+            // this.drawPie();
+            // this.svg.remove();
+        }
     };
     CompanyChart2Component.prototype.applyFilter = function (filterValue) {
         filterValue = filterValue.trim(); // Remove whitespace
@@ -5549,7 +5560,7 @@ var CompanyChart2Component = /** @class */ (function () {
         this.dataSource.filter = filterValue;
     };
     CompanyChart2Component.prototype.initSvg1 = function () {
-        this.svg1 = d3.select("svg");
+        this.svg1 = d3.select("#br-1");
         this.widthb = +this.svg1.attr("width") - this.marginb.left - this.marginb.right;
         this.heightb = +this.svg1.attr("height") - this.marginb.top - this.marginb.bottom;
         this.g = this.svg1.append("g")
@@ -6411,7 +6422,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-dashboard/company-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"wrapper\">\r\n  <!-- Navigation -->\r\n  <app-company-top-bar></app-company-top-bar>\r\n  <app-company-sidebar></app-company-sidebar>\r\n  <div id=\"\">\r\n    <div class=\"container-fluid\">\r\n      <!-- Page Heading -->\r\n\r\n      <!-- <div *ngFor=\"let item of locations\" >{{item.lat}} {{item.long}}</div> -->\r\n\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12 bg-white\">\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12 \">\r\n                <div class=\"row\">\r\n                  <div class=\"map-fltr\">\r\n                    <mat-form-field>\r\n                      <mat-select placeholder=\"Select Survey\" [(ngModel)]=\"surveyId\" name=\"survey\" (change)=\"getMapPositionsforId();refreshDia();\">\r\n\r\n                        <mat-option [value]=\"all\">All</mat-option>\r\n                        <mat-option [value]=\"item._id\" *ngFor=\"let item of allSurveys\">\r\n                          <!-- <ng-container > -->\r\n\r\n                          {{ item.name }}\r\n                          <!-- </ng-container > -->\r\n\r\n                        </mat-option>\r\n\r\n                      </mat-select>\r\n\r\n                    </mat-form-field>\r\n                  </div>\r\n                  <h4>Survey Attenders</h4>\r\n                  \r\n                  <agm-map [latitude]=\"13.026017\" [longitude]=\"75.354847\" [zoom]=\"6\">\r\n\r\n                    <ng-container *ngFor=\"let item of locations; let i=index\">\r\n\r\n                      <ng-container *ngFor=\"let elem of item.questions\">\r\n                        <ng-container *ngFor=\"let elemx of elem.answers\">\r\n                          <!-- {{elemx.latitude}} -->\r\n                          <agm-marker [latitude]=\"ConvertString(elemx.latitude)\" [longitude]=\"ConvertString(elemx.longitude)\"></agm-marker>\r\n\r\n                        </ng-container>\r\n\r\n                      </ng-container>\r\n                    </ng-container>\r\n                    <!-- <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"27.56\" [longitude]=\"-82.68\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"42.05\" [longitude]=\"-119.47\"></agm-marker> -->\r\n\r\n                  </agm-map>\r\n\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n\r\n\r\n\r\n            </div>\r\n            <!-- <div class=\"modal-footer\"></div> -->\r\n            <h4>Survey Response</h4>\r\n            \r\n            <div class=\"col-md-8 col-md-offset-2 svg-div\">\r\n<!-- pie diagram start -->\r\n  <svg id=\"piedia\" width=\"960\" height=\"500\"></svg>\r\n<!-- pie diagram end -->\r\n            </div>\r\n            <!-- <div class=\"col-md-12\"></div> -->\r\n\r\n            <div class=\"col-md-12\" *ngIf=\"surveyId != 'all'\">\r\n              <company-chart2  [surveyid]=\"surveyId\"></company-chart2>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n<!-- \r\n</div>\r\n<div class=\"col-md-12\">\r\n\r\n</div>\r\n</div>\r\n\r\n</div>\r\n\r\n</div> -->\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Error</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <h4></h4>\r\n\r\n      </div>\r\n\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"redirect()\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<footer></footer>"
+module.exports = "<div id=\"wrapper\">\r\n  <!-- Navigation -->\r\n  <app-company-top-bar></app-company-top-bar>\r\n  <app-company-sidebar></app-company-sidebar>\r\n  <div id=\"\">\r\n    <div class=\"container-fluid\">\r\n      <!-- Page Heading -->\r\n\r\n      <!-- <div *ngFor=\"let item of locations\" >{{item.lat}} {{item.long}}</div> -->\r\n\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12 bg-white\">\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12 \">\r\n                <div class=\"row\">\r\n                  <div class=\"map-fltr\">\r\n                    <mat-form-field>\r\n                      <mat-select placeholder=\"Select Survey\" [(ngModel)]=\"surveyId\" name=\"survey\" (change)=\"getMapPositionsforId();refreshDia();\">\r\n\r\n                        <mat-option [value]=\"all\">All</mat-option>\r\n                        <mat-option [value]=\"item._id\" *ngFor=\"let item of allSurveys\">\r\n                          <!-- <ng-container > -->\r\n\r\n                          {{ item.name }}\r\n                          <!-- </ng-container > -->\r\n\r\n                        </mat-option>\r\n\r\n                      </mat-select>\r\n\r\n                    </mat-form-field>\r\n                  </div>\r\n                  <h2>Survey Attenders</h2>\r\n                  \r\n                  <agm-map [latitude]=\"13.026017\" [longitude]=\"75.354847\" [zoom]=\"6\">\r\n\r\n                    <ng-container *ngFor=\"let item of locations; let i=index\">\r\n\r\n                      <ng-container *ngFor=\"let elem of item.questions\">\r\n                        <ng-container *ngFor=\"let elemx of elem.answers\">\r\n                          <!-- {{elemx.latitude}} -->\r\n                          <agm-marker [latitude]=\"ConvertString(elemx.latitude)\" [longitude]=\"ConvertString(elemx.longitude)\"></agm-marker>\r\n\r\n                        </ng-container>\r\n\r\n                      </ng-container>\r\n                    </ng-container>\r\n                    <!-- <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"27.56\" [longitude]=\"-82.68\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"42.05\" [longitude]=\"-119.47\"></agm-marker> -->\r\n\r\n                  </agm-map>\r\n\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n\r\n\r\n\r\n            </div>\r\n            <!-- <div class=\"modal-footer\"></div> -->\r\n            <h2>Survey Response</h2>\r\n            \r\n            <div class=\"col-md-8 col-md-offset-2 svg-div\">\r\n<!-- pie diagram start -->\r\n  <svg id=\"piedia\" width=\"960\" height=\"500\"></svg>\r\n<!-- pie diagram end -->\r\n            </div>\r\n            <!-- <div class=\"col-md-12\"></div> -->\r\n\r\n            <div class=\"col-md-12\" *ngIf=\"surveyId != 'all'\">\r\n              <company-chart2  [surveyid]=\"surveyId\"></company-chart2>\r\n            </div>\r\n\r\n            \r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n<!-- \r\n</div>\r\n<div class=\"col-md-12\">\r\n\r\n</div>\r\n</div>\r\n\r\n</div>\r\n\r\n</div> -->\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Error</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <h4></h4>\r\n\r\n      </div>\r\n\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"redirect()\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<footer></footer>"
 
 /***/ }),
 
@@ -6603,11 +6614,13 @@ var CompanyDashboardComponent = /** @class */ (function () {
         var _this = this;
         // this.locations.push({lat:27.56,long:-82.68});
         // this.locations.push({lat:37.56,long:-72.68});
-        // console.log(this.surveyId)
-        if (this.surveyId == 'all') {
+        console.log("reee" + this.surveyId);
+        if (this.surveyId == 'all' || typeof (this.surveyId) == undefined || this.surveyId == null || this.surveyId == '') {
             this.getMapPositions();
+            console.log("ff");
         }
         else {
+            console.log("poooooo");
             this._companyService.getSurveyforDash(this.surveyId).subscribe(function (survey) {
                 // console.log(theme);
                 _this.locations = survey;

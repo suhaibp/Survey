@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild, OnChanges} from '@angular/core';
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
@@ -25,7 +25,7 @@ declare var $:any;
 // Date          : 09-01-2018 
 // Last Modified : 11-01-2018
 // Desc          : company vs survey
-export class CompanyChart2Component implements OnInit {
+export class CompanyChart2Component implements OnChanges {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -68,12 +68,15 @@ export class CompanyChart2Component implements OnInit {
     this.radius = Math.min(this.width, this.height) / 2;
   }
   refresh() {
-
+    // d3.select("#br-1").remove();
+    console.log("yasir");
+    // this.svg1.remove()
+    
     this.getAllsurvey();
     this.companyService.getSurveyQuestions(this.surveyid).subscribe(data => {
       // this.surveyQuestion = data;
       this.quest = data;
-      // console.log(data + " data");
+      console.log(data + " data");
       this.barchart = [];
 
       data.forEach(element => {
@@ -110,13 +113,18 @@ export class CompanyChart2Component implements OnInit {
 
   }
 
-  ngOnInit() {
-  //  console.log(this.surveyid);
+
+  
+  ngOnChanges() {
+    if(this.surveyid!= undefined){
+      console.log("______"+this.surveyid)
+    d3.selectAll("svg > *").remove();
+    // this.svg.remove();
+   console.log("xxxxxx");
     //if(this.surveyid != 'all'){
       this.refresh();
       this.pierefresh();
     //}
-   
 
 
     this.socket.on('new survey created', (data) => {
@@ -126,8 +134,11 @@ export class CompanyChart2Component implements OnInit {
     });
     //piechat
     
+    // this.initSvg();
+    // this.drawPie();
 
-
+    // this.svg.remove();
+  }
 
   }
  
@@ -139,7 +150,7 @@ export class CompanyChart2Component implements OnInit {
   }
 
   initSvg1() {
-    this.svg1 = d3.select("svg");
+    this.svg1 = d3.select("#br-1");
     this.widthb = +this.svg1.attr("width") - this.marginb.left - this.marginb.right;
     this.heightb = +this.svg1.attr("height") - this.marginb.top - this.marginb.bottom;
     this.g = this.svg1.append("g")

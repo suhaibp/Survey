@@ -31,7 +31,7 @@
 
                     </mat-form-field>
                   </div>
-                  <h4>Survey Attenders</h4>
+                  <h2>Survey Attenders</h2>
                   
                   <agm-map [latitude]="13.026017" [longitude]="75.354847" [zoom]="6">
 
@@ -62,7 +62,7 @@
 
             </div>
             <!-- <div class="modal-footer"></div> -->
-            <h4>Survey Response</h4>
+            <h2>Survey Response</h2>
             
             <div class="col-md-8 col-md-offset-2 svg-div">
 <!-- pie diagram start -->
@@ -74,6 +74,8 @@
             <div class="col-md-12" *ngIf="surveyId != 'all'">
               <company-chart2  [surveyid]="surveyId"></company-chart2>
             </div>
+
+            
           </div>
 
         </div>

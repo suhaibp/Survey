@@ -247,12 +247,14 @@ export class CompanyDashboardComponent implements OnInit {
   getMapPositionsforId() {
     // this.locations.push({lat:27.56,long:-82.68});
     // this.locations.push({lat:37.56,long:-72.68});
-    // console.log(this.surveyId)
-    if (this.surveyId == 'all') {
+    console.log("reee"+this.surveyId)
+    if (this.surveyId == 'all' || typeof(this.surveyId)  == undefined || this.surveyId == null || this.surveyId == '') {
       this.getMapPositions();
-
+      console.log("ff");
     }
     else {
+      console.log("poooooo"); 
+      
       this._companyService.getSurveyforDash(this.surveyId).subscribe(survey => {
         // console.log(theme);
         this.locations = survey;
