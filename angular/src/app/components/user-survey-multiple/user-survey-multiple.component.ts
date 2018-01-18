@@ -5,6 +5,7 @@ import { CompanyService } from './../../services/company.service';
 import {ReversePipe } from './../../pipe/reverse.pipe'
 declare var $:any;
 import {RatingModule} from "ngx-rating";
+import {Config} from '../../config/config';
 
 @Component({
   selector: 'app-user-survey-multiple',
@@ -26,10 +27,15 @@ export class UserSurveyMultipleComponent implements OnInit {
   questionCount = 0;
   progressBarWidth = 0;
   progressBarWidthString = '';
+  serviceUrl :string;
+  userIdx:any;
+  
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,private config: Config,private route: ActivatedRoute) {
+      this.serviceUrl = config.siteUrl + '/company/';
+     }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -41,6 +47,7 @@ export class UserSurveyMultipleComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  this.userIdx = info._id;
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -146,10 +153,46 @@ back(){
 }
 skipQuestion(){
   this.cardNo = this.cardNo+1
+  this.blankAns = false;
   
 }
 closed(){
   window.location.reload();
   
 }
+timeOver(){
+  console.log("h");
+  if(this.skip == false){
+  $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+  $('#myModalx').modal('show'); 
+  }
+  else{
+    
+    $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+    $('#myModaly').modal('show');
+  }
+}
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : Logout
+// Params        : 
+// Returns       : 
+// Author        : Rinsha
+// Date          : 03-1-2018
+// Last Modified : 03-1-2018, Rinsha
+// Desc          : 
+logout(){
+  let surveyIdx:any
+  this.route.params.subscribe(params => {
+    surveyIdx = params['id'];
+ });
+ 
+ 
+  this._userService.logout();
+  this.routes.navigate(['/user-login', this.userIdx,surveyIdx]);
+  
+  return false;
+}
+// -----------------------------------End------------------------------------------
 }

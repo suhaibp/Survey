@@ -18,14 +18,25 @@ userData ={
   userEmail : '',
   userId : ''
 }
-  ;
+company_name : any;
 userId: any;
 viewNotification :Boolean = false;
 private socket:any;
   constructor(private companyService: CompanyService, private config: Config, private routes: Router) { this.socket = socketIo(config.siteUrl); }
 
   ngOnInit() {
-  
+  // ---------------------------------Start-------------------------------------------
+// Function      : get logged company details
+// Params        : 
+// Returns       : company details
+// Author        : Rinsha
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Rinsha
+// Desc          :
+this.companyService.getLoggedUSerDetails().subscribe(info =>{
+  this.company_name = info.organization;
+});
+// ---------------------------------End-------------------------------------------
     this.loadData();
     this.socket.on('acceptuser', (data) => {
       this.loadData();

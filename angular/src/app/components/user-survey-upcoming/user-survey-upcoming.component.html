@@ -3,8 +3,9 @@
   <nav class="navbar navbar-toggleable-md fixed-top x-new" [ngStyle]="{'background-color':theme.h_bg_color }">
     <div class="container">
         <div class="col-md-8 col-md-offset-2">
-            <div class="col-md-4">
-                <a class="navbar-brand" href="#"><h2 [ngStyle]="{'font-size':theme.h_font_size, 'font-family':theme.h_font_family}">logo</h2></a>
+            <div class="col-md-4  txt-right">
+                <img class="logo-img" src="{{serviceUrl+survey.logo}}" alt="logo">                            
+                
             </div>
             <div class="col-md-8">
                 <h1 class="srvey-hd" [ngStyle]="{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}" [ngClass]="{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}">{{survey.header}}</h1>
@@ -13,9 +14,13 @@
           </div>
     </div>
   </nav>
-  <div class="col-md-12 survey-close">
-    <h3><app-count-down-timer   [inputDate]="countTime"></app-count-down-timer></h3>
-  </div>        
+  <div class="container">
+        <button type="submit" (click)="logout()" class="btn btn-danger pull-right lg-out" >Logout</button>
+        <div class="col-md-12 survey-close">
+                <h3><app-count-down-timer   [inputDate]="countTime" (onTimeOver)="timeOver()"></app-count-down-timer></h3>
+              </div>
+  </div>
+          
   <footer [ngStyle]="{'background-color':theme.f_bg_color}">
       <p [ngStyle]="{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}">{{survey.footer}}</p>
     </footer>

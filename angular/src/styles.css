@@ -197,3 +197,9 @@ agm-map {
     z-index: 1052 !important;
 }
 .col-md-offset-3 .mat-form-field{width: 100%;}
+.txt-right{
+    text-align: right
+}
+.logo-img{
+    margin: 10px;
+}

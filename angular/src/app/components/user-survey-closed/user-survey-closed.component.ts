@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router,ActivatedRoute, Params} from '@angular/router';
 import { UserService } from './../../services/user.service';
 import { CompanyService } from './../../services/company.service';
+import {Config} from '../../config/config';
+
 @Component({
   selector: 'app-user-survey-closed',
   templateUrl: './user-survey-closed.component.html',
@@ -15,10 +17,15 @@ export class UserSurveyClosedComponent implements OnInit {
   surveyId: any;
   disp:any;
   gotSurvey= false;
+  serviceUrl :string;
+  userIdx:any;
+  
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,private config: Config,private route: ActivatedRoute) {
+      this.serviceUrl = config.siteUrl + '/company/';
+     }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -30,6 +37,7 @@ export class UserSurveyClosedComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  this.userIdx = info._id;
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -117,4 +125,29 @@ getTheme(){
     }
   //  ---------------------------------end-----------------------------------------------
   
+
+
+  // ---------------------------------Start-------------------------------------------
+// Function      : Logout
+// Params        : 
+// Returns       : 
+// Author        : Rinsha
+// Date          : 03-1-2018
+// Last Modified : 03-1-2018, Rinsha
+// Desc          : 
+logout(){
+  let surveyIdx:any
+  this.route.params.subscribe(params => {
+    surveyIdx = params['id'];
+ });
+ 
+ 
+  this._userService.logout();
+  console.log(this.userIdx);
+  console.log(surveyIdx);
+  this.routes.navigate(['/user-login',this.userIdx,surveyIdx]);
+  
+  return false;
+}
+// -----------------------------------End------------------------------------------
 }

@@ -4,12 +4,13 @@ import { UserService } from './../../services/user.service';
 import { CompanyService } from './../../services/company.service';
 declare var $:any;
 import {RatingModule} from "ngx-rating";
+import {Config} from '../../config/config';
 
 // import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
 @Component({
   selector: 'app-user-survey-singlepage',
   templateUrl: './user-survey-singlepage.component.html',
-  styleUrls: ['./user-survey-singlepage.component.css','./user-survey-singlepage.scss'],
+  styleUrls: ['./user-survey-singlepage.component.css'],
   inputs: ['survey'],
   
 })
@@ -43,10 +44,14 @@ export class UserSurveySinglepageComponent implements OnInit {
   ans:any;
   skip = false;
   blankAns = false;
+  serviceUrl :string;
+  userIdx:any;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,private config: Config,private route: ActivatedRoute) { 
+      this.serviceUrl = config.siteUrl + '/company/';
+    }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
 // Function      : get logged user details
@@ -57,6 +62,7 @@ export class UserSurveySinglepageComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  this.userIdx = info._id;
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -151,4 +157,41 @@ hel(event){
   console.log(this.survey);
   console.log("h")
 }
+
+
+timeOver(){
+  console.log("h");
+  if(this.skip == false){
+  $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+  $('#myModalx').modal('show'); 
+  }
+  else{
+    
+    $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+    $('#myModaly').modal('show');
+  }
+}
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : Logout
+// Params        : 
+// Returns       : 
+// Author        : Rinsha
+// Date          : 03-1-2018
+// Last Modified : 03-1-2018, Rinsha
+// Desc          : 
+logout(){
+  let surveyIdx:any
+  this.route.params.subscribe(params => {
+    surveyIdx = params['id'];
+ });
+ 
+ 
+  this._userService.logout();
+  this.routes.navigate(['/user-login', this.userIdx,surveyIdx]);
+  
+  return false;
+}
+// -----------------------------------End------------------------------------------
 }

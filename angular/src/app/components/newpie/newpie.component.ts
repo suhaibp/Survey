@@ -30,21 +30,21 @@ export class NewpieComponent implements OnInit {
   title: string = '';
   subtitle: string = 'Pie Chart of Survey Response';
 
-  private margin = {top: 20, right: 20, bottom: 30, left: 50};
-  private width: number;
-  private height: number;
-  private radius: number;
+  private margin1 = {top: 20, right: 20, bottom: 30, left: 50};
+  private width1: number;
+  private height1: number;
+  private radius1: number;
 
-  private arc: any;
-  private labelArc: any;
-  private pie: any;
-  private color: any;
-  private svg: any;
+  private arc1: any;
+  private labelArc1: any;
+  private pie1: any;
+  private color1: any;
+  private svg2: any;
 
   constructor(private companyService : CompanyService, private route: ActivatedRoute, private config: Config) {
-    this.width = 900 - this.margin.left - this.margin.right;
-    this.height = 500 - this.margin.top - this.margin.bottom;
-    this.radius = Math.min(this.width, this.height) / 2;
+    this.width1 = 900 - this.margin1.left - this.margin1.right;
+    this.height1 = 500 - this.margin1.top - this.margin1.bottom;
+    this.radius1 = Math.min(this.width1, this.height1) / 2;
     this.socket = socketIo(config.siteUrl);
    }
 
@@ -108,46 +108,46 @@ if(this.list.survey != ''){
                 if(this.survey_completed_count != 0){
                   this.Stats.push({case: "Survey Completed", count: this.survey_completed_count});
                 }
-                    this.initSvg();
-                    this.drawPie();
+                    this.initSvgDia();
+                    this.drawPieDia();
               });
           });
       });
   });
   }
 // ---------------------------------End-------------------------------------------
-  private initSvg() {
-    this.color = d3Scale.scaleOrdinal()
+  private initSvgDia() {
+    this.color1 = d3Scale.scaleOrdinal()
                         .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
-    this.arc = d3Shape.arc()
-                      .outerRadius(this.radius - 10)
+    this.arc1 = d3Shape.arc()
+                      .outerRadius(this.radius1 - 10)
                       .innerRadius(0);
-    this.labelArc = d3Shape.arc()
-                           .outerRadius(this.radius - 40)
-                           .innerRadius(this.radius - 40);
-    this.pie = d3Shape.pie()
+    this.labelArc1 = d3Shape.arc()
+                           .outerRadius(this.radius1 - 40)
+                           .innerRadius(this.radius1 - 40);
+    this.pie1 = d3Shape.pie()
                       .sort(null)
                       .value((d: any) => d.count);
-    this.svg = d3.select("svg")
+    this.svg2 = d3.select("svg")
                  .append("g")
-                 .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
+                 .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
   }
 
-  private drawPie() {
-    let g = this.svg.selectAll(".arc")
-                    .data(this.pie(this.Stats))
+  private drawPieDia() {
+    let g = this.svg2.selectAll("#piedia")
+                    .data(this.pie1(this.Stats))
                     .enter().append("g")
                     .attr("class", "arc");
-    g.append("path").attr("d", this.arc)
-                    .style("fill", (d: any) => this.color(d.data.case) );
-    g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
+    g.append("path").attr("d", this.arc1)
+                    .style("fill", (d: any) => this.color1(d.data.case) );
+    g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc1.centroid(d) + ")")
                     .attr("dy", ".35em")
                     .text((d: any) => d.data.case);                  
   }
 
-  refresh(){
+  refreshDia(){
     d3.select("svg").remove(); 
-    var svg = d3.select("body").append("svg").attr("width","960").attr("height", "500"),
+    var svg = d3.select("body").append("svg").attr("width1","960").attr("height1", "500"),
     inner = svg.append("g");
     this.loadData();
   }
