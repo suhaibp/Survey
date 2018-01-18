@@ -34,33 +34,32 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Yasir Poongadan
     // Desc          : sample
 
-    router.get('/get-all-groups', (req, res, next) => {
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //         decoded = jwt.verify(authorization, config.secret);
-        //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        UserGroup.find({ cmp_id: cmp_id }, (err, userGroup) => {
-            var users = {};
-            var ret = { group: userGroup, groupById: users };
-            //   console.log(user);
-            userGroup.forEach((grp, i) => {
-                users[grp._id] = grp;
-            });
+    router.get('/get-all-groups', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            UserGroup.find({ cmp_id: cmp_id }, (err, userGroup) => {
+                var users = {};
+                var ret = { group: userGroup, groupById: users };
+                //   console.log(user);
+                userGroup.forEach((grp, i) => {
+                    users[grp._id] = grp;
+                });
 
-            if (err) {
-                throw err;
-            } else {
-                return res.json(ret);
-            }
-        });
-        //     } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // } 
+                if (err) {
+                    throw err;
+                } else {
+                    return res.json(ret);
+                }
+            });
+            //     } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
 
     // ----------------------------------End-------------------------------------------
@@ -74,39 +73,37 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Yasir Poongadan
     // Desc          : sample
 
-    router.post('/add-user-group', (req, res, next) => {
+    router.post('/add-user-group', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //         decoded = jwt.verify(authorization, config.secret);
-        //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        // var cmp_id  = decoded._id;
-        console.log(req.body.group);
-        UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
-            //  console.log(docs);
-            if (docs.length) {
-                res.json({ success: false, msg: "Group Already Exists" });
-            } else {
-                var userGroup = new UserGroup();
-                userGroup.name = req.body.group;
-                userGroup.cmp_id = cmp_id;
-                userGroup.save(function (err, insertedGroup) {
-                    if (!req.body.emails) {
-                        res.json({ success: true, msg: "Group created Successfully", data: insertedGroup });
-                    } else {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            var cmp_id = decoded._id;
+            console.log(req.body.group);
+            UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
+                //  console.log(docs);
+                if (docs.length) {
+                    res.json({ success: false, msg: "Group Already Exists" });
+                } else {
+                    var userGroup = new UserGroup();
+                    userGroup.name = req.body.group;
+                    userGroup.cmp_id = cmp_id;
+                    userGroup.save(function (err, insertedGroup) {
+                        if (!req.body.emails) {
+                            res.json({ success: true, msg: "Group created Successfully", data: insertedGroup });
+                        } else {
 
-                    }
-                });
-            }
-        });
-        //     } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // }        
+                        }
+                    });
+                }
+            });
+            //     } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
 
 
     });
@@ -185,28 +182,28 @@ var returnRouter = function (io) {
     // Last Modified : 04-01-2017, Yasir Poongadan
     // Desc          : all user Survey Themes
 
-    router.get('/get-all-themes', (req, res, next) => {
+    router.get('/get-all-themes', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //         decoded = jwt.verify(authorization, config.secret);
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        // var cmp_id  = decoded._id;
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
 
-        Theme.find({ cmp_id: cmp_id }, (err, themes) => {
-            if (err) {
-                throw err;
-            } else {
-                return res.json(themes);
-            }
-        });
-        //     } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // }         
+            var cmp_id = decoded._id;
+
+            Theme.find({ cmp_id: cmp_id }, (err, themes) => {
+                if (err) {
+                    throw err;
+                } else {
+                    return res.json(themes);
+                }
+            });
+            //     } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
 
     });
 
@@ -269,141 +266,140 @@ var returnRouter = function (io) {
     // Last Modified : 02-01-2018, Yasir Poongadan
     // Desc          : To create new survey
 
-    router.post('/create-survey', (req, res, next) => {
+    router.post('/create-survey', passport.authenticate('jwt', { session: false }), (req, res, next) => {
         // console.log(req.body);
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //          decoded = jwt.verify(authorization, config.secret);
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        organization = "symptots";
-        // var cmp_id  = decoded._id;
-        // var organization  = decoded.organization;
-        isErr = false;
-        start = '';
-        end = '';
-        errMsg = '';
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
 
-        if (req.body.start_date == '') {
-            errMsg = "Failed, Please Select Start Date";
-            isErr = true;
-        } else {
-            var start = new Date(req.body.start_date);
-            start.setHours(00, 00, 00, 000);
-        }
+            var cmp_id = decoded._id;
+            var organization = decoded.organization;
+            isErr = false;
+            start = '';
+            end = '';
+            errMsg = '';
 
-        if (req.body.end_date == '') {
-            errMsg = "Failed, Please Select End Date";
-            isErr = true;
-        } else {
-            var end = new Date(req.body.end_date);
-            end.setHours(23, 59, 59, 999);
-        }
+            if (req.body.start_date == '') {
+                errMsg = "Failed, Please Select Start Date";
+                isErr = true;
+            } else {
+                var start = new Date(req.body.start_date);
+                start.setHours(00, 00, 00, 000);
+            }
 
-        if (!isErr && end <= start) {
-            errMsg = "Failed, End Date shold be greater than start date";
-            isErr = true;
-        }
+            if (req.body.end_date == '') {
+                errMsg = "Failed, Please Select End Date";
+                isErr = true;
+            } else {
+                var end = new Date(req.body.end_date);
+                end.setHours(23, 59, 59, 999);
+            }
 
-
-        if (!isErr && myTrim(req.body.name) == '') {
-            errMsg = "Failed, Please Enter Survay Name";
-            isErr = true;
-        }
-        if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
-            errMsg = "Failed, Please Select Category";
-            isErr = true;
-        }
-        if (!isErr && !req.body.selectedTheme) {
-            errMsg = "Failed, Please Select Any Theme";
-            isErr = true;
-        }
-        if (!isErr && !req.body.display_type) {
-            errMsg = "Failed, Please Select Display Type";
-            isErr = true;
-        }
-        if (!isErr && !req.body.display_type) {
-            errMsg = "Failed, Please Select Display Type";
-            isErr = true;
-        }
-        if (!isErr && req.body.questions.length == 0) {
-            errMsg = "Failed, Please Add Atleast OneQuestion";
-            isErr = true;
-        }
-
-
-        var logoName = '';
-        if (req.body.logoSrc != '') {
-            ext = ['gif', 'png', 'jpg', 'jpeg']
-            var base64 = decodeBase64Image(req.body.logoSrc);
-
-            if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
-                errMsg = "Failed, Invalid Logo";
+            if (!isErr && end <= start) {
+                errMsg = "Failed, End Date shold be greater than start date";
                 isErr = true;
             }
-            if (!isErr) {
-                console.log(base64.type);
-                console.log(base64.ext);
-                logoName = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000) + '.' + base64.ext);
-                var images = new Images();
-                var buf = new Buffer(base64.data, 'base64');
-                images.file_name = logoName;
-                images.logo.data = buf;
-                images.logo.contentType = base64.type;
-                images.save(function (err) {
-                });
+
+
+            if (!isErr && myTrim(req.body.name) == '') {
+                errMsg = "Failed, Please Enter Survay Name";
+                isErr = true;
             }
-        }
+            if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
+                errMsg = "Failed, Please Select Category";
+                isErr = true;
+            }
+            if (!isErr && !req.body.selectedTheme) {
+                errMsg = "Failed, Please Select Any Theme";
+                isErr = true;
+            }
+            if (!isErr && !req.body.display_type) {
+                errMsg = "Failed, Please Select Display Type";
+                isErr = true;
+            }
+            if (!isErr && !req.body.display_type) {
+                errMsg = "Failed, Please Select Display Type";
+                isErr = true;
+            }
+            if (!isErr && req.body.questions.length == 0) {
+                errMsg = "Failed, Please Add Atleast OneQuestion";
+                isErr = true;
+            }
 
-        if (!isErr) {
-            var survey = new Survey();
-            survey.name = req.body.name;
-            survey.category = { id: req.body.category._id, name: req.body.category.name };
-            survey.company_id = cmp_id;
-            survey.organization = organization;
-            survey.theme = req.body.selectedTheme._id;
-            survey.display_type = req.body.display_type;
 
-            survey.start_datetime = start;
-            survey.end_datetime = end;
-            survey.logo = logoName;
+            var logoName = '';
+            if (req.body.logoSrc != '') {
+                ext = ['gif', 'png', 'jpg', 'jpeg']
+                var base64 = decodeBase64Image(req.body.logoSrc);
 
-            survey.is_header = req.body.showHeader;
-            survey.is_footer = req.body.showFooter;
-            survey.header_title = req.body.header;
-            survey.footer_title = req.body.footer;
-
-            survey.header_title = req.body.header;
-            survey.header_title = req.body.header;
-
-            req.body.questions.forEach((qtn, i) => {
-                let question = {
-                    question: qtn.question,
-                    ans_type: qtn.answerType,
+                if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
+                    errMsg = "Failed, Invalid Logo";
+                    isErr = true;
                 }
-                if (qtn.answerType == 'Multiple choice') {
-                    question.options = qtn.opts
+                if (!isErr) {
+                    console.log(base64.type);
+                    console.log(base64.ext);
+                    logoName = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000) + '.' + base64.ext);
+                    var images = new Images();
+                    var buf = new Buffer(base64.data, 'base64');
+                    images.file_name = logoName;
+                    images.logo.data = buf;
+                    images.logo.contentType = base64.type;
+                    images.save(function (err) {
+                    });
                 }
-                if (qtn.answerType == 'star rating' && qtn.showStarLabel == true) {
-                    question.options = qtn.starOpts
-                }
-                survey.questions.push(question);
-            });
+            }
 
-            survey.save(function (err, newSurvey) {
-                if (err) throw new Error(err);
-                res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey });
-            });
+            if (!isErr) {
+                var survey = new Survey();
+                survey.name = req.body.name;
+                survey.category = { id: req.body.category._id, name: req.body.category.name };
+                survey.company_id = cmp_id;
+                survey.organization = organization;
+                survey.theme = req.body.selectedTheme._id;
+                survey.display_type = req.body.display_type;
 
+                survey.start_datetime = start;
+                survey.end_datetime = end;
+                survey.logo = logoName;
+
+                survey.is_header = req.body.showHeader;
+                survey.is_footer = req.body.showFooter;
+                survey.header_title = req.body.header;
+                survey.footer_title = req.body.footer;
+
+                survey.header_title = req.body.header;
+                survey.header_title = req.body.header;
+
+                req.body.questions.forEach((qtn, i) => {
+                    let question = {
+                        question: qtn.question,
+                        ans_type: qtn.answerType,
+                    }
+                    if (qtn.answerType == 'Multiple choice') {
+                        question.options = qtn.opts
+                    }
+                    if (qtn.answerType == 'star rating' && qtn.showStarLabel == true) {
+                        question.options = qtn.starOpts
+                    }
+                    survey.questions.push(question);
+                });
+
+                survey.save(function (err, newSurvey) {
+                    if (err) throw new Error(err);
+                    res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey });
+                });
+
+            } else {
+                res.json({ success: false, msg: errMsg });
+            }
+            //      } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
         } else {
-            res.json({ success: false, msg: errMsg });
+            return res.status(401).send('Invalid User');
         }
-        //      } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // }        
 
 
     });
@@ -469,46 +465,45 @@ var returnRouter = function (io) {
     // Last Modified : 04-01-2018, Jooshifa, 12-01-2018 Yasir Poongadan
     // Desc          : to get users of a purticular company whoes not blocked by admin and deleted
 
-    router.get('/get-my-users', (req, res, next) => {
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //          decoded = jwt.verify(authorization, config.secret);
-        //          var cmp_id  = decoded._id;
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        // Company.find({ users: {$elemMatch : {delete_status: false, admin_block : false}}},(err,companyUsers )=>{
-        //     console.log(companyUsers)
-        // })
-        // Company.find({_id:cmp_id},{users:{$elemMatch : {delete_status:false}}},(err,companyUsers)=>{
-        Company.find({ _id: cmp_id }, (err, companyUsers) => {
-            // console.log(companyUsers)
-            var users = [];
-            companyUsers.forEach(element => {
-                element.users.forEach((item, index) => {
-                    if (item.delete_status == false && item.admin_block == false) {
-                        users.push({
-                            email: item.email,
-                            id: item._id,
-                            block_req_status: item.block_req_status,
-                            item: item
-                        });
-                    }
+    router.get('/get-my-users', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            var cmp_id = decoded._id;
+            // Company.find({ users: {$elemMatch : {delete_status: false, admin_block : false}}},(err,companyUsers )=>{
+            //     console.log(companyUsers)
+            // })
+            // Company.find({_id:cmp_id},{users:{$elemMatch : {delete_status:false}}},(err,companyUsers)=>{
+            Company.find({ _id: cmp_id }, (err, companyUsers) => {
+                // console.log(companyUsers)
+                var users = [];
+                companyUsers.forEach(element => {
+                    element.users.forEach((item, index) => {
+                        if (item.delete_status == false && item.admin_block == false) {
+                            users.push({
+                                email: item.email,
+                                id: item._id,
+                                block_req_status: item.block_req_status,
+                                item: item
+                            });
+                        }
+                    });
                 });
+
+                if (err) {
+                    throw err;
+
+                } else {
+                    return res.json(users);
+                }
             });
-
-            if (err) {
-                throw err;
-
-            } else {
-                return res.json(users);
-            }
-        });
-        //      } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // }        
+            //      } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
 
     });
     // ----------------------------------End-----------------------------------
@@ -524,31 +519,36 @@ var returnRouter = function (io) {
     // Last Modified : 15-01-2018 Yasir Poongadan
     // Desc          : to get users of a purticular Group of a company whoes not blocked by admin and deleted
 
-    router.get('/getUsersInAGroups/:id', (req, res, next) => {
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        array = [];
-        Company.findOne({ _id: cmp_id }, (err, company) => {
-            company.users.forEach(companyUsers => {
-                if (companyUsers.delete_status == false && companyUsers.admin_block == false) {
-                    companyUsers.group.forEach(userGroup => {
-                        if (userGroup.g_id == req.params.id) {
-                            companyUsers.id = companyUsers._id;
-                            array.push(companyUsers);
-                        }
+    router.get('/getUsersInAGroups/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            decoded = jwt.verify(authorization, config.secret);
+            var cmp_id = decoded._id;
+            array = [];
+            Company.findOne({ _id: cmp_id }, (err, company) => {
+                company.users.forEach(companyUsers => {
+                    if (companyUsers.delete_status == false && companyUsers.admin_block == false) {
+                        companyUsers.group.forEach(userGroup => {
+                            if (userGroup.g_id == req.params.id) {
+                                companyUsers.id = companyUsers._id;
+                                array.push(companyUsers);
+                            }
 
-                    })
+                        })
+                    }
+                })
+                if (err) {
+                    res.json({ success: false, msg: "Failed, somthing went wrong " });
                 }
-            })
-            if (err) {
-                res.json({ success: false, msg: "Failed, somthing went wrong " });
-            }
-            else {
-                return res.json(array);
-            }
-            // console.log(array);
-            // console.log(company);
-        }).lean();
-
+                else {
+                    return res.json(array);
+                }
+                // console.log(array);
+                // console.log(company);
+            }).lean();
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
 
 
@@ -563,86 +563,85 @@ var returnRouter = function (io) {
     // Last Modified : 15-01-2018 Yasir Poongadan
     // Desc          : to get users of a purticular Group of a company whoes not blocked by admin and deleted
 
-    router.post('/invite-users', (req, res, next) => {
+    router.post('/invite-users', passport.authenticate('jwt', { session: false }), (req, res, next) => {
         console.log(req.body)
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //          decoded = jwt.verify(authorization, config.secret);
-        //          var cmp_id  = decoded._id;
-        //companyName = decoded.organization
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        companyName = "Symptots"
-        //console.log(req.body);
-        isErr = false;
-        errMsg = '';
-        if (!req.body.survey || !req.body.survey._id) {
-            errMsg = "Failed, Please Save survey before invite";
-            isErr = true;
-        }
-        if (!isErr && !req.body.users) {
-            errMsg = "Failed, please select atleast One Email";
-            isErr = true;
-        }
-        if (!isErr && req.body.users.length == 0) {
-            errMsg = "Failed, please select atleast One Email";
-            isErr = true;
-        }
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            var cmp_id = decoded._id;
+            companyName = decoded.organization
 
-        if (!isErr) {
+            //console.log(req.body);
+            isErr = false;
+            errMsg = '';
+            if (!req.body.survey || !req.body.survey._id) {
+                errMsg = "Failed, Please Save survey before invite";
+                isErr = true;
+            }
+            if (!isErr && !req.body.users) {
+                errMsg = "Failed, please select atleast One Email";
+                isErr = true;
+            }
+            if (!isErr && req.body.users.length == 0) {
+                errMsg = "Failed, please select atleast One Email";
+                isErr = true;
+            }
 
-            let invUser = [];
+            if (!isErr) {
 
-            req.body.users.forEach((user, index) => {
+                let invUser = [];
 
-                imgCode = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000));
-                info = {
-                    cmp_user_id: user.id,
-                    email: user.email,
-                    img_read_code: imgCode
-                }
-                invUser.push(info);
+                req.body.users.forEach((user, index) => {
 
-            });
-
-            Survey.findOneAndUpdate({ "_id": req.body.survey._id },
-                {
-                    $pushAll: { "inv_users": invUser }
-                },
-                { new: true },
-                (err, survey) => {
-                    if (err) {
-                        res.json({ success: false, msg: "Failed, somthing went wrong " });
-                    } else {
-                        // res.json({success: true, msg : "User Updated successfully", company:company});
-                        invUser.forEach(user => {
-                            data = {
-                                email: user.email,
-                                company_name: companyName,
-                                survey_name: survey.name,
-                                start_date: survey.start_datetime,
-                                end_date: survey.end_datetime,
-                                link: config.siteUrl + 'user-response-email/' + survey._id + '/' + user.cmp_user_id,
-                                imgeLink: config.siteUrl + 'company/show-mail-image/' + user.img_read_code
-                            }
-                            emailTemplate.sendInvitationMail(data);
-                        });
-                        res.json({ success: true, msg: "User Invited successfully" });
-
+                    imgCode = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000));
+                    info = {
+                        cmp_user_id: user.id,
+                        email: user.email,
+                        img_read_code: imgCode
                     }
+                    invUser.push(info);
+
                 });
 
-            console.log(invUser);
+                Survey.findOneAndUpdate({ "_id": req.body.survey._id },
+                    {
+                        $pushAll: { "inv_users": invUser }
+                    },
+                    { new: true },
+                    (err, survey) => {
+                        if (err) {
+                            res.json({ success: false, msg: "Failed, somthing went wrong " });
+                        } else {
+                            // res.json({success: true, msg : "User Updated successfully", company:company});
+                            invUser.forEach(user => {
+                                data = {
+                                    email: user.email,
+                                    company_name: companyName,
+                                    survey_name: survey.name,
+                                    start_date: survey.start_datetime,
+                                    end_date: survey.end_datetime,
+                                    link: config.siteUrl + 'user-response-email/' + survey._id + '/' + user.cmp_user_id,
+                                    imgeLink: config.siteUrl + 'company/show-mail-image/' + user.img_read_code
+                                }
+                                emailTemplate.sendInvitationMail(data);
+                            });
+                            res.json({ success: true, msg: "User Invited successfully" });
 
+                        }
+                    });
+
+                console.log(invUser);
+
+            } else {
+                res.json({ success: false, msg: errMsg });
+            }
+            //      } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
         } else {
-            res.json({ success: false, msg: errMsg });
+            return res.status(401).send('Invalid User');
         }
-        //      } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // }   
     });
     // ----------------------------------End-------------------------------------------  
 
@@ -681,7 +680,6 @@ var returnRouter = function (io) {
 
     // ----------------------------------End-------------------------------------------
 
-
     // ---------------------------------Start-------------------------------------------
     // Function      : Invite Users
     // Params        : users list and survey id
@@ -691,80 +689,79 @@ var returnRouter = function (io) {
     // Last Modified : 15-01-2018 Yasir Poongadan
     // Desc          : to get users of a purticular Group of a company whoes not blocked by admin and deleted
 
-    router.get('/get-company-survey', (req, res, next) => {
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //         decoded = jwt.verify(authorization, config.secret);
-        //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        Survey.find({ company_id: cmp_id }, (err, survey) => {
-            if (err) {
-                throw err;
-            } else {
-                survey.forEach((val, i) => {
-                    dateNow = new Date();
-                    if (val.start_datetime < dateNow && val.end_datetime < dateNow) {
-                        survey[i].status = 'Closed';
-                    }
-                    if (val.start_datetime < dateNow && val.end_datetime > dateNow) {
-                        survey[i].status = 'Running';
-                    }
-                    if (val.start_datetime > dateNow && val.end_datetime > dateNow) {
-                        survey[i].status = 'Upcoming';
-                    }
-                });
-                //  console.log(survey);
-                return res.json(survey);
-            }
-        }).lean();
-        //     } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // } 
-
-    });
-
-    // ----------------------------------End-------------------------------------------
-
-
-    // ---------------------------------Start-------------------------------------------
-    // Function      : delete-survey
-    // Params        : survey id
-    // Returns       : boolen success or not
-    // Author        : Yasir Poongadan
-    // Date          : 16-01-2018
-    // Last Modified : 16-01-2018 Yasir Poongadan
-    // Desc          : for deleting a upcoming survey
-
-    router.delete('/delete-survey/:id', (req, res, next) => {
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //         decoded = jwt.verify(authorization, config.secret);
-        //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-
-        Survey.remove({ _id: req.params.id, "start_datetime": { "$gt": new Date() } }, function (err, removeResult) {
-            if (err) {
-                res.json({ success: false, msg: "Failed, Somthing went wrong" });
-            } else {
-                if (removeResult.result.n == 0) {
-                    res.json({ success: true, msg: "Failed, Survey already started" });
+    router.get('/get-company-survey', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            Survey.find({ company_id: cmp_id }, (err, survey) => {
+                if (err) {
+                    throw err;
                 } else {
-                    res.json({ success: true, msg: "Survey deleted successfully" });
+                    survey.forEach((val, i) => {
+                        dateNow = new Date();
+                        if (val.start_datetime < dateNow && val.end_datetime < dateNow) {
+                            survey[i].status = 'Closed';
+                        }
+                        if (val.start_datetime < dateNow && val.end_datetime > dateNow) {
+                            survey[i].status = 'Running';
+                        }
+                        if (val.start_datetime > dateNow && val.end_datetime > dateNow) {
+                            survey[i].status = 'Upcoming';
+                        }
+                    });
+                    //  console.log(survey);
+                    return res.json(survey);
                 }
-            }
-        });
+            }).lean();
+            //     } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
 
-        //     } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // } 
+    });
+
+    // ----------------------------------End-------------------------------------------
+
+
+    // ---------------------------------Start-------------------------------------------
+    // Function      : delete-survey
+    // Params        : survey id
+    // Returns       : boolen success or not
+    // Author        : Yasir Poongadan
+    // Date          : 16-01-2018
+    // Last Modified : 16-01-2018 Yasir Poongadan
+    // Desc          : for deleting a upcoming survey
+
+    router.delete('/delete-survey/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+
+
+            Survey.remove({ _id: req.params.id, "start_datetime": { "$gt": new Date() } }, function (err, removeResult) {
+                if (err) {
+                    res.json({ success: false, msg: "Failed, Somthing went wrong" });
+                } else {
+                    if (removeResult.result.n == 0) {
+                        res.json({ success: true, msg: "Failed, Survey already started" });
+                    } else {
+                        res.json({ success: true, msg: "Survey deleted successfully" });
+                    }
+                }
+            });
+
+            //     } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
 
     });
 
@@ -779,27 +776,26 @@ var returnRouter = function (io) {
     // Last Modified : 16-01-2018 Yasir Poongadan
     // Desc          : for deleting a upcoming survey
 
-    router.get('/get-survey/:id', (req, res, next) => {
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //         decoded = jwt.verify(authorization, config.secret);
-        //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        Survey.findOne({ _id: req.params.id, company_id: cmp_id }, (err, survey) => {
-            if (err) {
-                throw err;
-            } else {
-                return res.json(survey);
-            }
-        });
+    router.get('/get-survey/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            Survey.findOne({ _id: req.params.id, company_id: cmp_id }, (err, survey) => {
+                if (err) {
+                    throw err;
+                } else {
+                    return res.json(survey);
+                }
+            });
 
-        //     } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // } 
+            //     } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
 
     });
 
@@ -807,7 +803,7 @@ var returnRouter = function (io) {
 
 
     // ---------------------------------Start-------------------------------------------
-    
+
     // Function      : get Survey based on id
     // Params        : 
     // Returns       : survey
@@ -815,36 +811,35 @@ var returnRouter = function (io) {
     // Date          : 16-1-2018
     // Last Modified : 16-1-2018, Manu Prasad, Desc:
     // Desc          : get Survey based on id
-    
-    router.get('/get-survey-for-map/:id',(req,res)=>{
-        
-    // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //         decoded = jwt.verify(authorization, config.secret);
-              //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-            //   user_id = mongoose.Types.ObjectId("5a432162fcaf01ec6274ecc0");
-              cmp_id = mongoose.Types.ObjectId("5a432162fcaf01ec6274ecc6");
-              
-              // var cmp_id  = decoded._id;
-        // console.log(Date());
+
+    router.get('/get-survey-for-map/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = mongoose.Types.ObjectId(decoded._id);
+
+            // console.log(Date());
             //   Survey.find({"inv_users.cmp_user_id" : user_id,"_id":req.params.id}, function(err,theme){
-                Survey.find({"company_id" : cmp_id,"_id":req.params.id}, function(err,survey){
-                    
-                    if(err){
-                        res.json({status:0})
-                    }else{
-                        // console.log("SSSSSS\n"+survey);
-                        res.json(survey)
-                    }
-                });
-                
-    // }
+            Survey.find({ "company_id": cmp_id, "_id": req.params.id }, function (err, survey) {
+
+                if (err) {
+                    res.json({ status: 0 })
+                } else {
+                    // console.log("SSSSSS\n"+survey);
+                    res.json(survey)
+                }
+            });
+
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
     // ----------------------------------End------------------------------------------- 
 
     // ---------------------------------Start-------------------------------------------
-    // Function      : create-survey
+    // Function      : update-survey
     // Params        : survey details
     // Returns       : status and message
     // Author        : Yasir Poongadan
@@ -852,166 +847,164 @@ var returnRouter = function (io) {
     // Last Modified : 02-01-2018, Yasir Poongadan
     // Desc          : To create new survey
 
-    router.post('/update-survey', (req, res, next) => {
+    router.post('/update-survey', passport.authenticate('jwt', { session: false }), (req, res, next) => {
         // console.log(req.body);
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //          decoded = jwt.verify(authorization, config.secret);
-        cmp_id = "5a4b61e2a2f0028c1a46274a";
-        organization = "symptots";
-        // var cmp_id  = decoded._id;
-        // var organization  = decoded.organization;
-        isErr = false;
-        start = '';
-        end = '';
-        errMsg = '';
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //     try {
+            decoded = jwt.verify(authorization, config.secret);
+            var cmp_id = decoded._id;
+            var organization = decoded.organization;
+            isErr = false;
+            start = '';
+            end = '';
+            errMsg = '';
 
-        if (req.body.start_date == '') {
-            errMsg = "Failed, Please Select Start Date";
-            isErr = true;
-        } else {
-            var start = new Date(req.body.start_date);
-            start.setHours(00, 00, 00, 000);
-        }
+            if (req.body.start_date == '') {
+                errMsg = "Failed, Please Select Start Date";
+                isErr = true;
+            } else {
+                var start = new Date(req.body.start_date);
+                start.setHours(00, 00, 00, 000);
+            }
 
-        if (req.body.end_date == '') {
-            errMsg = "Failed, Please Select End Date";
-            isErr = true;
-        } else {
-            var end = new Date(req.body.end_date);
-            end.setHours(23, 59, 59, 999);
-        }
+            if (req.body.end_date == '') {
+                errMsg = "Failed, Please Select End Date";
+                isErr = true;
+            } else {
+                var end = new Date(req.body.end_date);
+                end.setHours(23, 59, 59, 999);
+            }
 
-        if (!isErr && end <= start) {
-            errMsg = "Failed, End Date shold be greater than start date";
-            isErr = true;
-        }
-
-
-        if (!isErr && myTrim(req.body.name) == '') {
-            errMsg = "Failed, Please Enter Survay Name";
-            isErr = true;
-        }
-        if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
-            errMsg = "Failed, Please Select Category";
-            isErr = true;
-        }
-        if (!isErr && !req.body.selectedTheme) {
-            errMsg = "Failed, Please Select Any Theme";
-            isErr = true;
-        }
-        if (!isErr && !req.body.display_type) {
-            errMsg = "Failed, Please Select Display Type";
-            isErr = true;
-        }
-        if (!isErr && !req.body.display_type) {
-            errMsg = "Failed, Please Select Display Type";
-            isErr = true;
-        }
-        if (!isErr && req.body.questions.length == 0) {
-            errMsg = "Failed, Please Add Atleast OneQuestion";
-            isErr = true;
-        }
-
-
-        var logoName = '';
-        if (req.body.logoSrc != '') {
-            ext = ['gif', 'png', 'jpg', 'jpeg']
-            var base64 = decodeBase64Image(req.body.logoSrc);
-
-            if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
-                errMsg = "Failed, Invalid Logo";
+            if (!isErr && end <= start) {
+                errMsg = "Failed, End Date shold be greater than start date";
                 isErr = true;
             }
-            if (!isErr) {
-                if (req.body.logo == '') {
-                    console.log(base64.type);
-                    console.log(base64.ext);
-                    logoName = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000) + '.' + base64.ext);
-                    var images = new Images();
-                    var buf = new Buffer(base64.data, 'base64');
-                    images.file_name = logoName;
-                    images.logo.data = buf;
-                    images.logo.contentType = base64.type;
-                    images.save(function (err) {
-                    });
-                } else {
-                    var buf = new Buffer(base64.data, 'base64');
-                    images = {};
-                    images.file_name = req.body.logo;
-                    images.logo = {};
-                    images.logo.data = buf;
-                    images.logo.contentType = base64.type;
-                    Images.findOneAndUpdate({ file_name: req.body.logo },
-                        {
-                            $set: images
-                        },
-                        { new: true },
-                        (err, survey) => { });
-                }
+
+
+            if (!isErr && myTrim(req.body.name) == '') {
+                errMsg = "Failed, Please Enter Survay Name";
+                isErr = true;
             }
-        }
-
-        if (!isErr) {
-            var survey = {};
-            survey.name = req.body.name;
-            survey.category = { id: req.body.category._id, name: req.body.category.name };
-            survey.company_id = cmp_id;
-            survey.organization = organization;
-            survey.theme = req.body.selectedTheme._id;
-            survey.display_type = req.body.display_type;
-
-            survey.start_datetime = start;
-            survey.end_datetime = end;
-            if (logoName != '') {
-                survey.logo = logoName;
+            if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
+                errMsg = "Failed, Please Select Category";
+                isErr = true;
+            }
+            if (!isErr && !req.body.selectedTheme) {
+                errMsg = "Failed, Please Select Any Theme";
+                isErr = true;
+            }
+            if (!isErr && !req.body.display_type) {
+                errMsg = "Failed, Please Select Display Type";
+                isErr = true;
+            }
+            if (!isErr && !req.body.display_type) {
+                errMsg = "Failed, Please Select Display Type";
+                isErr = true;
+            }
+            if (!isErr && req.body.questions.length == 0) {
+                errMsg = "Failed, Please Add Atleast OneQuestion";
+                isErr = true;
             }
 
-            survey.is_header = req.body.showHeader;
-            survey.is_footer = req.body.showFooter;
-            survey.header_title = req.body.header;
-            survey.footer_title = req.body.footer;
 
-            survey.header_title = req.body.header;
-            survey.header_title = req.body.header;
-            survey.questions = [];
-            req.body.questions.forEach((qtn, i) => {
-                let question = {
-                    question: qtn.question,
-                    ans_type: qtn.answerType,
-                }
-                if (qtn.answerType == 'Multiple choice') {
-                    question.options = qtn.opts
-                }
-                if (qtn.answerType == 'star rating' && qtn.showStarLabel == true) {
-                    question.options = qtn.starOpts
-                }
-                survey.questions.push(question);
-            });
+            var logoName = '';
+            if (req.body.logoSrc != '') {
+                ext = ['gif', 'png', 'jpg', 'jpeg']
+                var base64 = decodeBase64Image(req.body.logoSrc);
 
-            Survey.findOneAndUpdate({ _id: req.body.id },
-                {
-                    $set: survey
-                },
-                { new: true },
-                (err, survey) => {
-                    if (err) {
-                        res.json({ success: false, msg: "Failed, Somthing went wrong" });
+                if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
+                    errMsg = "Failed, Invalid Logo";
+                    isErr = true;
+                }
+                if (!isErr) {
+                    if (req.body.logo == '') {
+                        console.log(base64.type);
+                        console.log(base64.ext);
+                        logoName = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000) + '.' + base64.ext);
+                        var images = new Images();
+                        var buf = new Buffer(base64.data, 'base64');
+                        images.file_name = logoName;
+                        images.logo.data = buf;
+                        images.logo.contentType = base64.type;
+                        images.save(function (err) {
+                        });
                     } else {
-                        res.json({ success: true, msg: "Survey Updated Successfully" });
+                        var buf = new Buffer(base64.data, 'base64');
+                        images = {};
+                        images.file_name = req.body.logo;
+                        images.logo = {};
+                        images.logo.data = buf;
+                        images.logo.contentType = base64.type;
+                        Images.findOneAndUpdate({ file_name: req.body.logo },
+                            {
+                                $set: images
+                            },
+                            { new: true },
+                            (err, survey) => { });
                     }
+                }
+            }
+
+            if (!isErr) {
+                var survey = {};
+                survey.name = req.body.name;
+                survey.category = { id: req.body.category._id, name: req.body.category.name };
+                survey.company_id = cmp_id;
+                survey.organization = organization;
+                survey.theme = req.body.selectedTheme._id;
+                survey.display_type = req.body.display_type;
+
+                survey.start_datetime = start;
+                survey.end_datetime = end;
+                if (logoName != '') {
+                    survey.logo = logoName;
+                }
+
+                survey.is_header = req.body.showHeader;
+                survey.is_footer = req.body.showFooter;
+                survey.header_title = req.body.header;
+                survey.footer_title = req.body.footer;
+
+                survey.header_title = req.body.header;
+                survey.header_title = req.body.header;
+                survey.questions = [];
+                req.body.questions.forEach((qtn, i) => {
+                    let question = {
+                        question: qtn.question,
+                        ans_type: qtn.answerType,
+                    }
+                    if (qtn.answerType == 'Multiple choice') {
+                        question.options = qtn.opts
+                    }
+                    if (qtn.answerType == 'star rating' && qtn.showStarLabel == true) {
+                        question.options = qtn.starOpts
+                    }
+                    survey.questions.push(question);
                 });
 
+                Survey.findOneAndUpdate({ _id: req.body.id },
+                    {
+                        $set: survey
+                    },
+                    { new: true },
+                    (err, survey) => {
+                        if (err) {
+                            res.json({ success: false, msg: "Failed, Somthing went wrong" });
+                        } else {
+                            res.json({ success: true, msg: "Survey Updated Successfully" });
+                        }
+                    });
+
+            } else {
+                res.json({ success: false, msg: errMsg });
+            }
+            //      } catch (e) {
+            //         return res.status(401).send('unauthorized 123');
+            //     }
         } else {
-            res.json({ success: false, msg: errMsg });
+            return res.status(401).send('Invalid User');
         }
-        //      } catch (e) {
-        //         return res.status(401).send('unauthorized 123');
-        //     }
-        // }else{
-        //     return res.status(401).send('Invalid User');
-        // }        
 
 
     });
@@ -1472,29 +1465,37 @@ var returnRouter = function (io) {
     // Date          : 10-01-2018
     // Last Modified : 10-01-2018, Jooshifa
     // Desc          : to get a single user group based on id
-    router.get('/getsingleGroupuser/:id', (req, res, next) => {
-        cmp_id = "5a4d183719a456bb14913bff";
-        array = [];
-        Company.findOne({ _id: cmp_id }, (err, company) => {
-            company.users.forEach(companyUsers => {
-                if (companyUsers.delete_status == false && companyUsers.admin_block == false) {
-                    companyUsers.group.forEach(userGroup => {
-                        if (userGroup.g_id == req.params.id) {
-                            array.push(companyUsers.email);
-                        }
+    router.get('/getsingleGroupuser/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4),
+                decoded;
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            array = [];
+            Company.findOne({ _id: cmp_id }, (err, company) => {
+                company.users.forEach(companyUsers => {
+                    if (companyUsers.delete_status == false && companyUsers.admin_block == false) {
+                        companyUsers.group.forEach(userGroup => {
+                            if (userGroup.g_id == req.params.id) {
+                                array.push(companyUsers.email);
+                            }
 
-                    })
+                        })
+                    }
+                })
+                if (err) {
+                    res.json({ success: false, msg: "Failed, somthing went wrong " });
                 }
-            })
-            if (err) {
-                res.json({ success: false, msg: "Failed, somthing went wrong " });
-            }
-            else {
-                return res.json(array);
-            }
-            // console.log(array);
-            // console.log(company);
-        });
+                else {
+                    return res.json(array);
+                }
+                // console.log(array);
+                // console.log(company);
+            });
+
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
     // ----------------------------------End-------------------------------------------
 
@@ -1506,97 +1507,105 @@ var returnRouter = function (io) {
     // Date          : 11-01-2018
     // Last Modified : 11-01-2018, Jooshifa
     // Desc          : to update user groups
-    router.put('/updateUserGroups', (req, res) => {
+    router.put('/updateUserGroups', passport.authenticate('jwt', { session: false }), (req, res) => {
         // console.log(req.body.group)
-        if (req.body.group == '' || req.body.group == null) {
-            res.send({ success: false, msg: "group name is required" });
-        } else {
-            UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
-                if (docs.length) {
-                    res.json({ success: false, msg: "Group Already Exists" });
-                } else {
-                    UserGroup.findOneAndUpdate({ _id: req.body.id },
-                        {
-                            $set: { name: req.body.group }
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4),
+                decoded;
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            if (req.body.group == '' || req.body.group == null) {
+                res.send({ success: false, msg: "group name is required" });
+            } else {
+                UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
+                    if (docs.length) {
+                        res.json({ success: false, msg: "Group Already Exists" });
+                    } else {
+                        UserGroup.findOneAndUpdate({ _id: req.body.id },
+                            {
+                                $set: { name: req.body.group }
 
-                        },
-                        {
-                            new: true
-                        },
-                        function (err, updateUsergroup) {
-                            if (err) {
-                                res.send({ success: false, msg: "Failed, somthing went wrong " });
-                            } else {
+                            },
+                            {
+                                new: true
+                            },
+                            function (err, updateUsergroup) {
+                                if (err) {
+                                    res.send({ success: false, msg: "Failed, somthing went wrong " });
+                                } else {
 
 
-                                Company.findOne({ _id: cmp_id }, (err, allCompany) => {
-                                    // var old = allCompany;
-                                    //   console.log(allCompany);
-                                    allCompany.users.forEach((allUsers, i) => {
-                                        allUsers.group.forEach((allGroups, index) => {
-                                            if (allGroups.g_id == req.body.id) {
-                                                //   console.log(allCompany.users[i].group[index]);
-                                                allCompany.users[i].group.splice(index, 1);
-                                            }
+                                    Company.findOne({ _id: cmp_id }, (err, allCompany) => {
+                                        // var old = allCompany;
+                                        //   console.log(allCompany);
+                                        allCompany.users.forEach((allUsers, i) => {
+                                            allUsers.group.forEach((allGroups, index) => {
+                                                if (allGroups.g_id == req.body.id) {
+                                                    //   console.log(allCompany.users[i].group[index]);
+                                                    allCompany.users[i].group.splice(index, 1);
+                                                }
 
+                                            })
+                                            // console.log(allUsers);
                                         })
-                                        // console.log(allUsers);
-                                    })
 
-                                    Company.findOneAndUpdate({ _id: cmp_id },
-                                        {
-                                            $set: { users: allCompany.users }
-                                        },
-                                        { new: true },
-                                        (err, update) => {
-                                            if (err) {
-                                                res.send({ success: false, msg: 'Something went wrong' });
-                                            }
-                                            else {
+                                        Company.findOneAndUpdate({ _id: cmp_id },
+                                            {
+                                                $set: { users: allCompany.users }
+                                            },
+                                            { new: true },
+                                            (err, update) => {
+                                                if (err) {
+                                                    res.send({ success: false, msg: 'Something went wrong' });
+                                                }
+                                                else {
 
-                                                UserGroup.findOne({ name: req.body.group, cmp_id: cmp_id }, (err, userId) => {
+                                                    UserGroup.findOne({ name: req.body.group, cmp_id: cmp_id }, (err, userId) => {
 
-                                                    async.eachOfSeries(req.body.email, function (element, key, callback) {
-                                                        var email = element;
-                                                        // console.log(email);
-                                                        Company.findOneAndUpdate({ $and: [{ "_id": cmp_id }, { "users.email": email }] },
-                                                            {
-                                                                $push: { "users.$.group": { g_id: userId._id, group_name: req.body.group } }
-                                                            },
-                                                            { new: true },
-                                                            (err, userGroup) => {
-                                                                // console.log(userGroup)
-                                                                if (err) {
-                                                                    isSuccess = false;
-                                                                    msg = 'Something went wrong';
-                                                                } else {
-                                                                    isSuccess = true;
-                                                                    msg = 'Add User group Successfully';
-                                                                }
+                                                        async.eachOfSeries(req.body.email, function (element, key, callback) {
+                                                            var email = element;
+                                                            // console.log(email);
+                                                            Company.findOneAndUpdate({ $and: [{ "_id": cmp_id }, { "users.email": email }] },
+                                                                {
+                                                                    $push: { "users.$.group": { g_id: userId._id, group_name: req.body.group } }
+                                                                },
+                                                                { new: true },
+                                                                (err, userGroup) => {
+                                                                    // console.log(userGroup)
+                                                                    if (err) {
+                                                                        isSuccess = false;
+                                                                        msg = 'Something went wrong';
+                                                                    } else {
+                                                                        isSuccess = true;
+                                                                        msg = 'Add User group Successfully';
+                                                                    }
 
-                                                                callback();
-                                                            });
-                                                    }, function (err) {
+                                                                    callback();
+                                                                });
+                                                        }, function (err) {
 
-                                                        if (err) console.error(err.message);
-                                                        if (!isSuccess) {
-                                                            res.json({ success: isSuccess, msg: msg });
-                                                        } else {
-                                                            res.json({ success: isSuccess, msg: msg });
-                                                        }
+                                                            if (err) console.error(err.message);
+                                                            if (!isSuccess) {
+                                                                res.json({ success: isSuccess, msg: msg });
+                                                            } else {
+                                                                res.json({ success: isSuccess, msg: msg });
+                                                            }
+
+                                                        });
 
                                                     });
+                                                }
 
-                                                });
-                                            }
-
-                                            //   return res.send({success:true, msg: 'Updated'});
-                                        });
-                                }).lean();
-                            }
-                        })
-                }
-            });
+                                                //   return res.send({success:true, msg: 'Updated'});
+                                            });
+                                    }).lean();
+                                }
+                            })
+                    }
+                });
+            }
+        } else {
+            return res.status(401).send('Invalid User');
         }
     });
     // ----------------------------------End-------------------------------------------
@@ -1694,69 +1703,69 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Manu Prasad, Desc:
     // Desc          : routing used to save a theme
 
-    router.post('/save-theme', (req, res) => {
+    router.post('/save-theme', passport.authenticate('jwt', { session: false }), (req, res) => {
         var newTheme = new Theme();
         if (req.body.title != '') {
-            // if (req.headers && req.headers.authorization) {
-            //     var authorization = req.headers.authorization.substring(4), decoded;
-            //     try {
-            //         decoded = jwt.verify(authorization, config.secret);
-            //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-            cmp_id = "5a44dcbefdb3ea09ec91ff8f";
-            // var cmp_id  = decoded._id;
+            if (req.headers && req.headers.authorization) {
+                var authorization = req.headers.authorization.substring(4), decoded;
+                // try {
+                decoded = jwt.verify(authorization, config.secret);
+                var cmp_id = decoded._id;
 
-            Theme.findOne({ "cmp_id": cmp_id, title: req.body.title }, function (err, surveyTheme) {
-                console.log(req.params.id);
+                Theme.findOne({ "cmp_id": cmp_id, title: req.body.title }, function (err, surveyTheme) {
+                    console.log(req.params.id);
 
-                if (surveyTheme) {
-                    res.json({
-                        status: 0
-                    });
-                }
-                else if (!surveyTheme) {
-                    newTheme.title = req.body.title;
-                    newTheme.h_font_color = req.body.h_font_color;
-                    newTheme.h_font_bold = req.body.h_font_bold;
-                    newTheme.h_font_italic = req.body.h_font_italic;
-                    newTheme.h_font_family = req.body.h_font_family;
-                    newTheme.h_font_size = req.body.h_font_size;
-                    newTheme.h_bg_color = req.body.h_bg_color;
-                    newTheme.f_font_color = req.body.f_font_color;
-                    newTheme.f_font_bold = req.body.f_font_bold;
-                    newTheme.f_font_italic = req.body.f_font_italic;
-                    newTheme.f_font_family = req.body.f_font_family;
-                    newTheme.f_font_size = req.body.f_font_size;
-                    newTheme.f_bg_color = req.body.f_bg_color;
-                    newTheme.q_font_color = req.body.q_font_color;
-                    newTheme.q_font_bold = req.body.q_font_bold;
-                    newTheme.q_font_italic = req.body.q_font_italic;
-                    newTheme.q_font_family = req.body.q_font_family;
-                    newTheme.q_font_size = req.body.q_font_size;
-                    newTheme.q_bg_color = req.body.q_bg_color;
-                    newTheme.b_bg_color = req.body.body_bg_color;
-                    newTheme.progress_text_color = req.body.progress_text_color;
-                    newTheme.progress_color = req.body.progress_bar_color;
-                    newTheme.cmp_id = cmp_id;
+                    if (surveyTheme) {
+                        res.json({
+                            status: 0
+                        });
+                    }
+                    else if (!surveyTheme) {
+                        newTheme.title = req.body.title;
+                        newTheme.h_font_color = req.body.h_font_color;
+                        newTheme.h_font_bold = req.body.h_font_bold;
+                        newTheme.h_font_italic = req.body.h_font_italic;
+                        newTheme.h_font_family = req.body.h_font_family;
+                        newTheme.h_font_size = req.body.h_font_size;
+                        newTheme.h_bg_color = req.body.h_bg_color;
+                        newTheme.f_font_color = req.body.f_font_color;
+                        newTheme.f_font_bold = req.body.f_font_bold;
+                        newTheme.f_font_italic = req.body.f_font_italic;
+                        newTheme.f_font_family = req.body.f_font_family;
+                        newTheme.f_font_size = req.body.f_font_size;
+                        newTheme.f_bg_color = req.body.f_bg_color;
+                        newTheme.q_font_color = req.body.q_font_color;
+                        newTheme.q_font_bold = req.body.q_font_bold;
+                        newTheme.q_font_italic = req.body.q_font_italic;
+                        newTheme.q_font_family = req.body.q_font_family;
+                        newTheme.q_font_size = req.body.q_font_size;
+                        newTheme.q_bg_color = req.body.q_bg_color;
+                        newTheme.b_bg_color = req.body.body_bg_color;
+                        newTheme.progress_text_color = req.body.progress_text_color;
+                        newTheme.progress_color = req.body.progress_bar_color;
+                        newTheme.cmp_id = cmp_id;
 
-                    // console.log(newTheme);
-                    newTheme.save(function (err, insertedTheme) {
-                        if (err) {
-                            res.json({ status: 1 })
-                        } else {
-                            // res.json(insertedTheme);
-                            res.json({ status: 2 });
-                        }
-                    });
+                        // console.log(newTheme);
+                        newTheme.save(function (err, insertedTheme) {
+                            if (err) {
+                                res.json({ status: 1 })
+                            } else {
+                                // res.json(insertedTheme);
+                                res.json({ status: 2 });
+                            }
+                        });
 
-                }
-            });
+                    }
+                });
 
 
 
 
-            // }
+                // }
+            }
+        } else {
+            return res.status(401).send('Invalid User');
         }
-
     });
     // ----------------------------------End-------------------------------------------
 
@@ -1843,71 +1852,71 @@ var returnRouter = function (io) {
     // Last Modified : 1-1-2018, Manu Prasad, Desc:
     // Desc          : routing used to updated details of a theme
 
-    router.put('/update-theme/:id', (req, res) => {
+    router.put('/update-theme/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
 
         if (req.body.title != '') {
-            // if (req.headers && req.headers.authorization) {
-            //     var authorization = req.headers.authorization.substring(4), decoded;
-            //     try {
-            //         decoded = jwt.verify(authorization, config.secret);
-            //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-            cmp_id = "5a44dcbefdb3ea09ec91ff8f";
-            // var cmp_id  = decoded._id;
-            Theme.findByIdAndUpdate(req.body._id,
-                {
-                    $set: {
-                        "title": req.body.title,
-                        "h_font_color": req.body.h_font_color,
-                        "h_font_bold": req.body.h_font_bold,
-                        "h_font_italic": req.body.h_font_italic,
-                        "h_font_family": req.body.h_font_family,
-                        "h_font_size": req.body.h_font_size,
-                        "h_bg_color": req.body.h_bg_color,
-                        "f_font_color": req.body.f_font_color,
-                        "f_font_bold": req.body.f_font_bold,
-                        "f_font_italic": req.body.f_font_italic,
-                        "f_font_family": req.body.f_font_family,
-                        "f_font_size": req.body.f_font_size,
-                        "f_bg_color": req.body.f_bg_color,
-                        "q_font_color": req.body.q_font_color,
-                        "q_font_bold": req.body.q_font_bold,
-                        "q_font_italic": req.body.q_font_italic,
-                        "q_font_family": req.body.q_font_family,
-                        "q_font_size": req.body.q_font_size,
-                        "q_bg_color": req.body.q_bg_color,
-                        "progress_text_color": req.body.progress_text_color,
-                        "progress_color": req.body.progress_color,
-                        "b_bg_color": req.body.b_bg_color,
-                        "cmp_id": cmp_id
-                        // "b_bg_color": true,
-                        // "b_bg_color": true,
-                        // "b_bg_color": true,
-                        // "b_bg_color": true,
+            if (req.headers && req.headers.authorization) {
+                var authorization = req.headers.authorization.substring(4), decoded;
+                // try {
+                decoded = jwt.verify(authorization, config.secret);
+                var cmp_id = decoded._id;
+                Theme.findByIdAndUpdate(req.body._id,
+                    {
+                        $set: {
+                            "title": req.body.title,
+                            "h_font_color": req.body.h_font_color,
+                            "h_font_bold": req.body.h_font_bold,
+                            "h_font_italic": req.body.h_font_italic,
+                            "h_font_family": req.body.h_font_family,
+                            "h_font_size": req.body.h_font_size,
+                            "h_bg_color": req.body.h_bg_color,
+                            "f_font_color": req.body.f_font_color,
+                            "f_font_bold": req.body.f_font_bold,
+                            "f_font_italic": req.body.f_font_italic,
+                            "f_font_family": req.body.f_font_family,
+                            "f_font_size": req.body.f_font_size,
+                            "f_bg_color": req.body.f_bg_color,
+                            "q_font_color": req.body.q_font_color,
+                            "q_font_bold": req.body.q_font_bold,
+                            "q_font_italic": req.body.q_font_italic,
+                            "q_font_family": req.body.q_font_family,
+                            "q_font_size": req.body.q_font_size,
+                            "q_bg_color": req.body.q_bg_color,
+                            "progress_text_color": req.body.progress_text_color,
+                            "progress_color": req.body.progress_color,
+                            "b_bg_color": req.body.b_bg_color,
+                            "cmp_id": cmp_id
+                            // "b_bg_color": true,
+                            // "b_bg_color": true,
+                            // "b_bg_color": true,
+                            // "b_bg_color": true,
 
-                    }
-                }, function (err, theme) {
+                        }
+                    }, function (err, theme) {
 
-                    if (err) {
-                        res.json({
-                            status: 0,
-                            message: "Error in updating! Try again."
-                        });
-                    }
-                    else {
+                        if (err) {
+                            res.json({
+                                status: 0,
+                                message: "Error in updating! Try again."
+                            });
+                        }
+                        else {
 
-                        res.json({
-                            status: 2,
-                            message: "Success!"
-                        })
-                    }
-                });
+                            res.json({
+                                status: 2,
+                                message: "Success!"
+                            })
+                        }
+                    });
+            } else {
+                res.json({
+                    status: 1,
+                    message: "Title is empty!"
+                })
+            }
         } else {
-            res.json({
-                status: 1,
-                message: "Title is empty!"
-            })
+            return res.status(401).send('Invalid User');
         }
-
         // }
     });
     // ----------------------------------End-------------------------------------------
@@ -1921,44 +1930,30 @@ var returnRouter = function (io) {
     // Last Modified : 3-1-2018, Manu Prasad, Desc:
     // Desc          : routing used to get locations of attended users in a comnpnay
 
-    router.get('/get-locations', (req, res) => {
+    router.get('/get-locations', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     try {
-        //         decoded = jwt.verify(authorization, config.secret);
-        //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
-        cmp_id = mongoose.Types.ObjectId("5a432162fcaf01ec6274ecc6");
-        // var cmp_id  = decoded._id;
-        Survey.find({ "company_id": cmp_id })
-            .exec(function (err, res1) {
-                if (err) {
-                    console.log("Error retrieving polls");
-                    res.json({
-                        "status": 0
-                    })
-                } else {
-                    res.json(res1);
-                }
-            });
-        // Survey.aggregate([
-        //     {
-        //         "$unwind": "$answers"
-        //      },
-        //      { "$match" : { "company_id" : cmp_id } },
-        //      {
-        //         "$group": {
-        //             "_id": '$answers',
-        //             "count": {"$sum": 1}
-        //         }
-        //      },
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            // try {
+            decoded = jwt.verify(authorization, config.secret);
+            //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
+            cmp_id = mongoose.Types.ObjectId(decoded._id);
+            // var cmp_id  = ;
+            Survey.find({ "company_id": cmp_id })
+                .exec(function (err, res1) {
+                    if (err) {
+                        console.log("Error retrieving polls");
+                        res.json({
+                            "status": 0
+                        })
+                    } else {
+                        res.json(res1);
+                    }
+                });
 
-        // ],
-        // function(err,result){
-
-        //     res.json(result)
-        // })
-        // }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
     // ----------------------------------End-------------------------------------------
 
@@ -2010,36 +2005,44 @@ var returnRouter = function (io) {
     // Last Modified : 08-01-2018, Jooshifa 
     // Desc          : get user by selected group
 
-    cmp_id = "5a4d183719a456bb14913bff";
-    router.get('/getuserbygroup/:group', (req, res, next) => {
+
+    router.get('/getuserbygroup/:group', passport.authenticate('jwt', { session: false }), (req, res, next) => {
         //   console.log(req.params.group)
-        Company.findOne({ $and: [{ "users.group.group_name": req.params.group }, { _id: cmp_id }] }, (err, userByGroup) => {
-            if (userByGroup) {
-                // console.log(userByGroup)
-                var users = [];
-                userByGroup.users.forEach((element, index) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            // try {
+            decoded = jwt.verify(authorization, config.secret);
 
-                    users.push({
-                        email: element.email,
-                        id: element._id,
-                        block_req_status: element.block_req_status
+            cmp_id = mongoose.Types.ObjectId(decoded._id);
+            Company.findOne({ $and: [{ "users.group.group_name": req.params.group }, { _id: cmp_id }] }, (err, userByGroup) => {
+                if (userByGroup) {
+                    // console.log(userByGroup)
+                    var users = [];
+                    userByGroup.users.forEach((element, index) => {
+
+                        users.push({
+                            email: element.email,
+                            id: element._id,
+                            block_req_status: element.block_req_status
+                        });
+
+
                     });
+                    // console.log(users)
+                    if (err) {
+                        throw err;
 
-
-                });
-                // console.log(users)
-                if (err) {
-                    throw err;
-
+                    } else {
+                        return res.json(users);
+                    }
                 } else {
-                    return res.json(users);
+                    return res.send({ success: false });
                 }
-            } else {
-                return res.send({ success: false });
-            }
 
-        });
-
+            });
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
     //  ---------------------------------End-------------------------------------------
 
@@ -2051,24 +2054,32 @@ var returnRouter = function (io) {
     // Date          : 28-12-2017
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
-    cmp_id = "5a4d183719a456bb14913bff";
-    router.get('/getsingleuser/:id', (req, res, next) => {
-        Company.findOne({ _id: cmp_id, "users._id": req.params.id }, (err, singleuser) => {
-            // console.log(singleuser)
-            singleuser.users.forEach(function (element) {
-                console.log(req.params.id)
+    router.get('/getsingleuser/:id', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            // try {
+            decoded = jwt.verify(authorization, config.secret);
 
-            })
-            // console.log(singleuser)
+            cmp_id = mongoose.Types.ObjectId(decoded._id);
+            Company.findOne({ _id: cmp_id, "users._id": req.params.id }, (err, singleuser) => {
+                // console.log(singleuser)
+                singleuser.users.forEach(function (element) {
+                    console.log(req.params.id)
+
+                })
+                // console.log(singleuser)
 
 
-            if (err) {
-                throw err;
+                if (err) {
+                    throw err;
 
-            } else {
-                return res.json(singleuser);
-            }
-        });
+                } else {
+                    return res.json(singleuser);
+                }
+            });
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
 
     // ----------------------------------End-------------------------------------------
@@ -2082,41 +2093,47 @@ var returnRouter = function (io) {
     // Date          : 28-12-2017
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
-    cmp_id = "5a4d183719a456bb14913bff";
-
-    router.put('/updateviewednotification', (req, res) => {
+    router.put('/updateviewednotification', passport.authenticate('jwt', { session: false }), (req, res) => {
         // console.log(req.body)
-        Users.findOne({ _id: req.body.userId }, function (err, user) {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            // try {
+            decoded = jwt.verify(authorization, config.secret);
 
-            user.block_request.forEach((elm, i) => {
-                if (elm.action_status == 'Accepted') {
-                    elm.companies.forEach((cmp, j) => {
-                        if (cmp.company_id == cmp_id) {
-                            user.block_request[i].companies[j].comp_is_viewed = true;
-                        }
-                    });
-                }
+            cmp_id = decoded._id;
+            Users.findOne({ _id: req.body.userId }, function (err, user) {
 
-            });
-
-            Users.findOneAndUpdate({ _id: req.body.userId },
-                {
-                    $set: { block_request: user.block_request }
-                }, { multi: true },
-                (err, getdata) => {
-
-                    if (err) {
-                        throw err;
-                        return res.json({ success: false, msg: 'Faild to fet accept notification ' });
-                    } else {
-
-                        return res.json({ success: true, msg: 'change company status  successfully' });
-
+                user.block_request.forEach((elm, i) => {
+                    if (elm.action_status == 'Accepted') {
+                        elm.companies.forEach((cmp, j) => {
+                            if (cmp.company_id == cmp_id) {
+                                user.block_request[i].companies[j].comp_is_viewed = true;
+                            }
+                        });
                     }
+
                 });
 
-        }).lean();
+                Users.findOneAndUpdate({ _id: req.body.userId },
+                    {
+                        $set: { block_request: user.block_request }
+                    }, { multi: true },
+                    (err, getdata) => {
 
+                        if (err) {
+                            throw err;
+                            return res.json({ success: false, msg: 'Faild to fet accept notification ' });
+                        } else {
+
+                            return res.json({ success: true, msg: 'change company status  successfully' });
+
+                        }
+                    });
+
+            }).lean();
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
 
     // ----------------------------------End-------------------------------------------
@@ -2131,30 +2148,38 @@ var returnRouter = function (io) {
     // Date          : 28-12-2017
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
-    cmp_id = "5a4d183719a456bb14913bff";
 
-    router.get('/getacceptednotification', (req, res, next) => {
-        arr1 = [];
-        arr2 = [];
-        var count = 0;
-        Users.find({ "block_request.action_status": "Accepted" }, (err, globalUser) => {
-            globalUser.forEach(eachUsers => {
-                eachUsers.block_request.forEach(blockRequest => {
-                    blockRequest.companies.forEach(blkCompany => {
-                        if (blkCompany.company_id == cmp_id) {
-                            if (blkCompany.comp_is_viewed == false) {
-                                count++;
-                                arr1.push({ "email": eachUsers.email, "id": eachUsers._id, "notifCount": count })
-                                // console.log(arr1);
+    router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            // try {
+            decoded = jwt.verify(authorization, config.secret);
+
+            cmp_id = decoded._id;
+            arr1 = [];
+            arr2 = [];
+            var count = 0;
+            Users.find({ "block_request.action_status": "Accepted" }, (err, globalUser) => {
+                globalUser.forEach(eachUsers => {
+                    eachUsers.block_request.forEach(blockRequest => {
+                        blockRequest.companies.forEach(blkCompany => {
+                            if (blkCompany.company_id == cmp_id) {
+                                if (blkCompany.comp_is_viewed == false) {
+                                    count++;
+                                    arr1.push({ "email": eachUsers.email, "id": eachUsers._id, "notifCount": count })
+                                    // console.log(arr1);
+                                }
                             }
-                        }
-                    })
+                        })
+                    });
+                    // console.log(eachUsers);
                 });
-                // console.log(eachUsers);
+                //    console.log(arr1);
+                res.json({ arr1 });
             });
-            //    console.log(arr1);
-            res.json({ arr1 });
-        });
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
 
 
@@ -2170,42 +2195,48 @@ var returnRouter = function (io) {
     // Date          : 09-01-2018
     // Last Modified : 09-01-2018, Jooshifa 
     // Desc          : to delet a user group
-    cmp_id = "5a4d183719a456bb14913bff";
-    router.delete('/deleteusergroups/:id', (req, res) => {
+    router.delete('/deleteusergroups/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            // try {
+            decoded = jwt.verify(authorization, config.secret);
 
-        UserGroup.findOneAndRemove({ $and: [{ cmp_id: cmp_id }, { _id: req.params.id }] }, (err, removeUserGroup) => {
-            if (err) throw err;
-            if (!removeUserGroup) {
-                return res.json({ success: false, msg: 'Faild to delete ' });
-            } else {
+            cmp_id = decoded._id;
+            UserGroup.findOneAndRemove({ $and: [{ cmp_id: cmp_id }, { _id: req.params.id }] }, (err, removeUserGroup) => {
+                if (err) throw err;
+                if (!removeUserGroup) {
+                    return res.json({ success: false, msg: 'Faild to delete ' });
+                } else {
 
-                Company.findOne({ _id: cmp_id }, (err, allCompany) => {
-                    var old = allCompany;
-                    //   console.log(allCompany);
-                    allCompany.users.forEach((allUsers, i) => {
-                        allUsers.group.forEach((allGroups, index) => {
-                            if (allGroups.g_id == req.params.id) {
-                                //   console.log(allCompany.users[i].group[index]);
-                                allCompany.users[i].group.splice(index, 1);
-                            }
+                    Company.findOne({ _id: cmp_id }, (err, allCompany) => {
+                        var old = allCompany;
+                        //   console.log(allCompany);
+                        allCompany.users.forEach((allUsers, i) => {
+                            allUsers.group.forEach((allGroups, index) => {
+                                if (allGroups.g_id == req.params.id) {
+                                    //   console.log(allCompany.users[i].group[index]);
+                                    allCompany.users[i].group.splice(index, 1);
+                                }
 
+                            })
+                            // console.log(allUsers);
                         })
-                        // console.log(allUsers);
-                    })
 
-                    Company.findOneAndUpdate({ _id: cmp_id },
-                        {
-                            $set: { users: allCompany.users }
-                        },
-                        { new: true },
-                        (err, Block) => {
+                        Company.findOneAndUpdate({ _id: cmp_id },
+                            {
+                                $set: { users: allCompany.users }
+                            },
+                            { new: true },
+                            (err, Block) => {
 
-                            return res.send({ success: true, msg: 'Updated' });
-                        });
-                }).lean();
-            };
-        });
-
+                                return res.send({ success: true, msg: 'Updated' });
+                            });
+                    }).lean();
+                };
+            });
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
     // ----------------------------------End-------------------------------------------
 
@@ -2218,103 +2249,111 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : to send  request to admin to block a user  from a company
 
-    router.put('/sendblockrequest/:id', function (req, res) {
+    router.put('/sendblockrequest/:id', passport.authenticate('jwt', { session: false }), function (req, res) {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            // try {
+            decoded = jwt.verify(authorization, config.secret);
 
-        cmp_id = "5a4d183719a456bb14913bff";
-        Users.findOne({ email: req.body.email }, (err, userExist) => {
-            if (!userExist) {
-                return res.send({ success: false, msg: 'This user not registered, Cant Block' });
-            }
-            else {
-                if (req.body.reason == '' || req.body.reason == null) {
-                    return res.send({ success: false, msg: 'Reason is required' });
+            cmp_id = decoded._id;
+            // cmp_id = "5a4d183719a456bb14913bff";
+            Users.findOne({ email: req.body.email }, (err, userExist) => {
+                if (!userExist) {
+                    return res.send({ success: false, msg: 'This user not registered, Cant Block' });
                 }
                 else {
-                    Users.findOne({ email: req.body.email, "block_request.action_status": "Pending" }, (err, user) => {
-                        Company.findOne({ _id: cmp_id }, (err, companys) => {
-                            company = [{
-                                company_id: cmp_id,
-                                organization: companys.organization,
-                                email: companys.contact_person_email,
-                                reason: req.body.reason,
-                                date: Date.now()
+                    if (req.body.reason == '' || req.body.reason == null) {
+                        return res.send({ success: false, msg: 'Reason is required' });
+                    }
+                    else {
+                        Users.findOne({ email: req.body.email, "block_request.action_status": "Pending" }, (err, user) => {
+                            Company.findOne({ _id: cmp_id }, (err, companys) => {
+                                company = [{
+                                    company_id: cmp_id,
+                                    organization: companys.organization,
+                                    email: companys.contact_person_email,
+                                    reason: req.body.reason,
+                                    date: Date.now()
 
-                            }]
-                            // console.log(company)
-                            if (user) {
+                                }]
+                                // console.log(company)
+                                if (user) {
 
-                                Users.findOneAndUpdate({ $and: [{ "block_request.action_status": "Pending" }, { email: req.body.email }] },
-                                    {
-                                        $pushAll: { "block_request.$.companies": company }
-                                    },
-                                    { new: true },
-                                    (err, Block) => {
-                                        if (err) {
-                                            // throw err;
-                                            res.json({ success: false, msg: "Failed to Block user " });
-                                        } else {
+                                    Users.findOneAndUpdate({ $and: [{ "block_request.action_status": "Pending" }, { email: req.body.email }] },
+                                        {
+                                            $pushAll: { "block_request.$.companies": company }
+                                        },
+                                        { new: true },
+                                        (err, Block) => {
+                                            if (err) {
+                                                // throw err;
+                                                res.json({ success: false, msg: "Failed to Block user " });
+                                            } else {
 
-                                            Company.findOneAndUpdate({ "users.email": req.body.email },
-                                                {
-                                                    $set: { "users.$.block_req_status": true }
-                                                },
-                                                { new: true },
-                                                (err, changeBlockStatus) => {
-                                                    if (err) {
-                                                        // throw err;
-                                                        res.json({ success: false, msg: "Failed to Block user " });
-                                                    } else {
-                                                        io.sockets.emit("requestuser", {
-                                                            user_id: req.body.id
-                                                        });
-                                                        res.json({ success: true, msg: "successfully blocked" });
+                                                Company.findOneAndUpdate({ "users.email": req.body.email },
+                                                    {
+                                                        $set: { "users.$.block_req_status": true }
+                                                    },
+                                                    { new: true },
+                                                    (err, changeBlockStatus) => {
+                                                        if (err) {
+                                                            // throw err;
+                                                            res.json({ success: false, msg: "Failed to Block user " });
+                                                        } else {
+                                                            io.sockets.emit("requestuser", {
+                                                                user_id: req.body.id
+                                                            });
+                                                            res.json({ success: true, msg: "successfully blocked" });
 
-                                                    }
-                                                });
+                                                        }
+                                                    });
 
-                                        }
-                                    });
-                                //  block_request.companies.push(company); where status pending
-                                // console.log(Block);
+                                            }
+                                        });
+                                    //  block_request.companies.push(company); where status pending
+                                    // console.log(Block);
 
-                            } else {
-                                newBlock = { companies: company }
-                                Users.findOneAndUpdate({ "email": req.body.email },
-                                    {
-                                        $pushAll: { "block_request": newBlock }
-                                    },
-                                    { new: true },
-                                    (err, Block) => {
-                                        if (err) {
-                                            res.json({ success: false, msg: "Failed to Block user " });
-                                        } else {
-                                            Company.findOneAndUpdate({ "users.email": req.body.email },
-                                                {
-                                                    $set: { "users.$.block_req_status": true }
-                                                },
-                                                { new: true },
-                                                (err, changeBlockStatus) => {
-                                                    if (err) {
-                                                        // throw err;
-                                                        res.json({ success: false, msg: "Failed to Block user " });
-                                                    } else {
-                                                        io.sockets.emit("blockuser", {
-                                                            user_id: req.body.id
-                                                        });
-                                                        res.json({ success: true, msg: "successfully blocked" });
+                                } else {
+                                    newBlock = { companies: company }
+                                    Users.findOneAndUpdate({ "email": req.body.email },
+                                        {
+                                            $pushAll: { "block_request": newBlock }
+                                        },
+                                        { new: true },
+                                        (err, Block) => {
+                                            if (err) {
+                                                res.json({ success: false, msg: "Failed to Block user " });
+                                            } else {
+                                                Company.findOneAndUpdate({ "users.email": req.body.email },
+                                                    {
+                                                        $set: { "users.$.block_req_status": true }
+                                                    },
+                                                    { new: true },
+                                                    (err, changeBlockStatus) => {
+                                                        if (err) {
+                                                            // throw err;
+                                                            res.json({ success: false, msg: "Failed to Block user " });
+                                                        } else {
+                                                            io.sockets.emit("blockuser", {
+                                                                user_id: req.body.id
+                                                            });
+                                                            res.json({ success: true, msg: "successfully blocked" });
 
-                                                    }
-                                                });
+                                                        }
+                                                    });
 
-                                        }
-                                    });
-                            }
+                                            }
+                                        });
+                                }
 
-                        })
-                    });
+                            })
+                        });
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
 
     // ----------------------------------End-------------------------------------------
@@ -2461,54 +2500,7 @@ var returnRouter = function (io) {
 
 
 
-    // ---------------------------------Start-------------------------------------------
-    // Function      : get function 
-    // Params        : 
-    // Returns       : 
-    // Author        : Jooshifa
-    // Date          : 15-01-2018
-    // Last Modified : 15-01-2018, Jooshifa
-    // Desc          : to get all questions in each survey,no of choices,answers of users for each questions and no of responses for each questions
 
-    router.get('/getAllQuestions', (req, res) => {
-        mainArray = [];
-        options: [];
-        // req.params.id = "5a432d81ac62130f16bbf2e6";
-        req.params.id = "5a431d73fcaf01ec6274ecbc";
-        // cmp_id = "5a4d183719a456bb14913bff";
-        cmp_id = "5a432162fcaf01ec6274ecc6";
-        Survey.find({ company_id: cmp_id }, function (err, survey) {
-
-            survey.forEach(eachSurvey => {
-                if (eachSurvey._id == req.params.id) {
-                    eachSurvey.questions.forEach((eachQuestions, i) => {
-                        mainArray.push({ question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
-                        ans = '';
-                        eachQuestions.options.forEach((eachoption, j) => {
-                            // if(eachAnswers.answer == eachQuestions.options){
-                            count = 0;
-
-                            eachQuestions.answers.forEach(eachanswer => {
-                                if (eachoption == eachanswer.answer || eachanswer.answer == j) {
-                                    count++;
-
-                                }
-                            })
-
-                            // }
-                            mainArray[i].ans.push({ value: eachoption, "count": count });
-                            // console.log(eachAnswers);
-                        });
-                    });
-                }
-            });
-
-            // console.log(mainArray);
-            return res.json(mainArray);
-
-        });
-    });
-    // ----------------------------------End-------------------------------------------
 
     // ---------------------------------Start-------------------------------------------
     // Function      : update-users
@@ -2912,7 +2904,7 @@ var returnRouter = function (io) {
     // ----------------------------------End-------------------------------------------
 
 
-    
+
 
     module.exports = router;
 
