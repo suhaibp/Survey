@@ -1934,6 +1934,7 @@ var returnRouter = function (io) {
 
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4), decoded;
+            // console.log("eeeeeeeeeeeee");
             // try {
             decoded = jwt.verify(authorization, config.secret);
             //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
@@ -2951,24 +2952,36 @@ console.log(cmp_id)
         cmp_id = decoded._id;
 console.log(cmp_id);
         SurveyId = req.params.id;
-
+        console.log("sudha:"+SurveyId);
+        
         Survey.findOne({ _id: req.params.id, company_id: cmp_id }, function (err, eachSurvey) {
+            console.log(eachSurvey);
             eachSurvey.questions.forEach((eachQuestions, i) => {
                 mainArray.push({ id: eachQuestions._id, question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
-                totalCount = 0;
-                eachQuestions.options.forEach((eachoption, j) => {
-                    count = 0;
-                    answeredUser = [];
+                count = 0;
+                answeredUser = [];
+                if(eachQuestions.ans_type != 'Descriptive'){
+                    eachQuestions.options.forEach((eachoption, j) => {
+                        count = 0;
+                        answeredUser = [];
+                        eachQuestions.answers.forEach(eachanswer => {
+                            if (eachoption == eachanswer.answer || eachanswer.answer == j + 1) {
+                                count++;
+                                answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
+                            }
+                        })
+                        mainArray[i].ans.push({ value: eachoption, "count": count, answeredUser: answeredUser });
+                    });
+                }else{
                     eachQuestions.answers.forEach(eachanswer => {
-                        if (eachoption == eachanswer.answer || eachanswer.answer == j + 1) {
-                            count++;
-                            answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
-                        }
+                        count++;
+                        answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
+                        mainArray[i].ans.push({ value: eachanswer.answer, "count": 1, answeredUser: answeredUser });
                     })
-                    totalCount += count;
-                    mainArray[i].ans.push({ value: eachoption, "count": count, answeredUser: answeredUser });
-                });
-                mainArray[i].totalCount = totalCount;
+                    
+                }
+
+                mainArray[i].totalCount = eachQuestions.answers.length;
             });
 
             mainArray.surveyId = SurveyId;
