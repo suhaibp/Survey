@@ -41,7 +41,7 @@
                                     
                                     <input type="button" class="btn-danger" value="X"  (click)="closeMoreOrganizationType(i)">
                                </div>
-                                    <input type="button" class="btn btn-danger" value="Add new Organization type"  (click)="addMoreOrganizationtype()">
+                                    <input type="button" class="btn btn-danger" value="Add More"  (click)="addMoreOrganizationtype()">
                                     <input type="submit" class="btn btn-danger" value="Save">
                         
                          </form>
@@ -68,13 +68,16 @@
                   <div *ngIf="Updaterequired" class="alert alert-danger">
                     Name is required!
                   </div>
+                  <div *ngIf="Updatechange" class="alert alert-danger">
+                      No changes to upate!
+                     </div>
                 <div class="modal-body">
                      <form  role="form"  #f1="ngForm" (ngSubmit)="updateOrganizationType(organization);">
                           <p>Organization type Name</p>
                                 <div class="form-group"  >
                                   <div class="col-md-11">
                                       <mat-form-field class="example-form-field">
-                                          <input matInput type="text" placeholder="Name" name="name" required   [(ngModel)]="organization.reason" />
+                                          <input matInput type="text" placeholder="Name" name="name" required   [(ngModel)]="organization.name" />
                                           <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                                             <mat-icon>close</mat-icon>
                                           </button>

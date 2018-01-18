@@ -19,6 +19,7 @@ export class AdminManageOrganizationTypeComponent implements OnInit {
   errorMsg :'';
   existStatus : boolean= false
   Updaterequired :boolean = false;
+  Updatechange:boolean = false;
   UpdatealreadyExist :boolean = false;
   organizationId :any;
   private sub: any;
@@ -281,13 +282,21 @@ updateOrganizationType(organization){
                     }, 2000);
               
               }
+              else{
+                if(data4.success==false && data4.msg == 'nochange'){
+                    this.Updatechange = true
+                    setTimeout(()=>{ 
+                      this.Updatechange = false;
+                      }, 2000);
+                
+                }
                 else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
                     this._flashMessagesService.show('Update Organization type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
                  }
           }
-      
+        }
       });
 }
   //  ---------------------------------end-----------------------------------------------

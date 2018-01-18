@@ -21,10 +21,7 @@
                                         <li >
                                           <button  class="btn btn-danger ourbutton2" (click)="openModal()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal">Add New</button>
                                         </li>
-                                        <li >
-                                          <button  class="btn btn-danger ourbutton2" (click)="openModal()"  data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#editModal" >Edit User</button>
-                                          <!-- <button  class="btn btn-danger ourbutton2" (click)="getEditUser(user);" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#editModal" >Edit User</button> -->
-                                        </li>
+                                  
                                         <li >
                                           <button  class="btn btn-danger ourbutton2" (click)="openModal()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#importModal" >Import from Excel</button>
                                         </li>
@@ -162,7 +159,7 @@
                                                       <span>Already sent Block request</span>
                                                       </button>
                                                   </div>
-                                              <button  mat-menu-item (click)="getUserId(row.id)" data-toggle="modal" data-target="#editModal">
+                                              <button  mat-menu-item (click)="bindEditUser(row.item)" data-toggle="modal" data-target="#editModal">
                                                     <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
                                                     <span>Edit</span>
                                                     </button>
@@ -185,7 +182,7 @@
                           </div>
                         </div>
                         
-                      <div id="editModal"  class="modal fade"></div>
+              
                       
 
 <!-- -------------------------------------------------------------------------------------------edit------------------------- -->
@@ -230,7 +227,7 @@
                                   <br/>
                                   <div class="inputitem">
                                       <mat-form-field class="inputfileds">
-                                        <mat-select placeholder="Groups" name='editgrup'[(ngModel)]="selUserGroups" multiple>
+                                        <mat-select placeholder="Groups" name='editgrup' [(ngModel)]="selUserGroups" multiple>
                                           <mat-option [value]="grp._id" *ngFor="let grp of groups;" >{{grp.name}}</mat-option>
                                         </mat-select>
                                       </mat-form-field>

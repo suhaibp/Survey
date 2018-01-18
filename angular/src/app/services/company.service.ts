@@ -757,7 +757,8 @@ logout(){
 // Last Modified : 04-1-2018, Rinsha
 // Desc          : 
 getMyCompany(){
-  let h = this.setHeaderWithAuthorization();
+  let h = this.setHeader();
+  // let h = this.setHeaderWithAuthorization();
   return this.http.get(this.serviceUrl + 'getCompanyDetails',{headers:h})
   .map(res =>res.json());
 }

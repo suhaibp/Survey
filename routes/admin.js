@@ -1484,12 +1484,12 @@ router.put('/updatesurveycategory/:id',function(req,res){
   }
   else {
       Category.findOne({name:req.body.name}, (err,singlecat)=>{
-          if(singlecat && singlecat){
+          if(singlecat && singlecat._id !=req.params.id){
               return res.json({success:false, msg: 'alreadyexist'});
-          
-          }
-      
-  
+         }
+         if(singlecat && singlecat._id ==req.params.id){
+            return res.json({success:false, msg: 'nochange'});
+       }
       else{
       Survey.findOne({"category.id" : req.params.id}, function(err,surveyCatg){
           if(!surveyCatg){
@@ -1576,11 +1576,13 @@ router.put('/updatesurveycategory/:id',function(req,res){
     }
     else {
         Industry.findOne({name:req.body.name}, (err,singleindustr)=>{
-            if(singleindustr){
+            if(singleindustr && singleindustr._id !=req.params.id){
                 return res.json({success:false, msg: 'alreadyexist'});
             
             }
-        
+            if(singleindustr && singleindustr._id == req.params.id){
+                return res.json({success:false, msg: 'nochange'});
+           }
     
         else{
     Company.findOne({"industry.id" : req.params.id}, function(err,companyIndustry){
@@ -1668,11 +1670,13 @@ router.put('/updateorganizationtype/:id',function(req,res){
     }
     else {
         Organization.findOne({name:req.body.name}, (err,singleOrgnz)=>{
-            if(singleOrgnz){
+            if(singleOrgnz && singleOrgnz._id !=req.params.id){
                 return res.json({success:false, msg: 'alreadyexist'});
             
             }
-        
+            if(singleOrgnz && singleOrgnz._id == req.params.id){
+                return res.json({success:false, msg: 'nochange'});
+           }
     
         else{
     
@@ -1761,11 +1765,13 @@ router.put('/updateorganizationtype/:id',function(req,res){
     }
     else {
         Attender.findOne({name:req.body.name}, (err,singleattnder)=>{
-            if(singleattnder){
+            if(singleattnder && singleattnder._id !=req.params.id){
                 return res.json({success:false, msg: 'alreadyexist'});
             
             }
-        
+            if(singleattnder && singleattnder._id == req.params.id){
+                return res.json({success:false, msg: 'nochange'});
+           }
     
         else{
     
