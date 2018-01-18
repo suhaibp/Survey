@@ -74,6 +74,10 @@ const SurveySchema = mongoose.Schema({
         options : [{
             type : String,
         }],
+        show_star_label:{ 
+            type : Boolean,
+            default : false
+        },   
         answers : [{
             answer : {
                 type : String,

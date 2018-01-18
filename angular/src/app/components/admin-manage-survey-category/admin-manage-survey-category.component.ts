@@ -19,6 +19,7 @@ export class AdminManageSurveyCategoryComponent implements OnInit {
       isError : Boolean = false;
       errorMsg :'';
       existStatus :Boolean =false;
+      Updatechange:Boolean =false;
       Updaterequired :boolean = false;
       UpdatealreadyExist :boolean = false;
       private sub: any;
@@ -282,12 +283,21 @@ updateCategory(category){
                 
                 }
                 else{
+                  if(data4.success==false && data4.msg == 'nochange'){
+                      this.Updatechange = true
+                      setTimeout(()=>{ 
+                        this.Updatechange = false;
+                        }, 2000);
+                  
+                  }
+                else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
                     this._flashMessagesService.show('Update Category Successfully!', { cssClass: 'alert-success', timeout: 1000 });
                   
               }
           }
+        }
         
       });
 }

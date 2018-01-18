@@ -40,7 +40,7 @@
                       
                                   <input type="button" class="btn-danger" value="X"  (click)="closeMoreIndustry(i)">
                              </div>
-                                  <input type="button" class="btn btn-danger" value="Add new Industry"  (click)="addMoreIndustry()">
+                                  <input type="button" class="btn btn-danger" value="Add More"  (click)="addMoreIndustry()">
                                   <input type="submit" class="btn btn-danger" value="Save">
                       
                        </form>
@@ -68,6 +68,9 @@
                 <div *ngIf="Updaterequired" class="alert alert-danger">
                   Name is required!
                 </div>
+                <div *ngIf="Updatechange" class="alert alert-danger">
+                    No changes to upate!
+                   </div>
               <div class="modal-body">
                    <form  role="form"  #f1="ngForm" (ngSubmit)="updateIndustry(industry);">
                         <p>Industry Name</p>

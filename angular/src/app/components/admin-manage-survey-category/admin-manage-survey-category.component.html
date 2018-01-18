@@ -69,6 +69,9 @@
                 <div *ngIf="Updaterequired" class="alert alert-danger">
                   Name is required!
                 </div>
+                <div *ngIf="Updatechange" class="alert alert-danger">
+                   No changes to upate!
+                  </div>
               <div class="modal-body">
                    <form  role="form"  #f1="ngForm" (ngSubmit)="updateCategory(category);">
                         <p>Category Name</p>

@@ -415,6 +415,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
         this.msg2 = "Survey Updated Successfully";
        // this.invitePopUp.nativeElement.click();
         setTimeout(()=>{ 
+          this.saveBtnDisbled = false;
           this.isSuccess2 = false;
           this.msg2 = '';
         }, 2000);

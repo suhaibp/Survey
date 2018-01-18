@@ -112,10 +112,6 @@ var returnRouter = function (io) {
 
     // ----------------------------------End-------------------------------------------
 
-
-
-
-
     // ---------------------------------Start-------------------------------------------
     // Function      : validateEmail
     // Params        : email
@@ -146,7 +142,6 @@ var returnRouter = function (io) {
     }
 
     // ----------------------------------End-------------------------------------------
-
 
 
 
@@ -376,6 +371,7 @@ var returnRouter = function (io) {
                     let question = {
                         question: qtn.question,
                         ans_type: qtn.answerType,
+                        show_star_label: qtn.showStarLabel,
                     }
                     if (qtn.answerType == 'Multiple choice') {
                         question.options = qtn.opts
@@ -619,8 +615,8 @@ var returnRouter = function (io) {
                                     email: user.email,
                                     company_name: companyName,
                                     survey_name: survey.name,
-                                    start_date: survey.start_datetime,
-                                    end_date: survey.end_datetime,
+                                start_date: formatDate(survey.start_datetime),
+                                end_date: formatDate(survey.end_datetime),
                                     link: config.siteUrl + 'user-response-email/' + survey._id + '/' + user.cmp_user_id,
                                     imgeLink: config.siteUrl + 'company/show-mail-image/' + user.img_read_code
                                 }
@@ -830,11 +826,26 @@ var returnRouter = function (io) {
                     // console.log("SSSSSS\n"+survey);
                     res.json(survey)
                 }
+                if (qtn.answerType == 'Multiple choice') {
+                    question.options = qtn.opts
+                }
+                if (qtn.answerType == 'star rating') {
+                    question.options = qtn.starOpts
+                }
+                survey.questions.push(question);
             });
 
         } else {
             return res.status(401).send('Invalid User');
         }
+        //      } catch (e) {
+        //         return res.status(401).send('unauthorized 123');
+        //     }
+        // }else{
+        //     return res.status(401).send('Invalid User');
+        // }        
+
+
     });
     // ----------------------------------End------------------------------------------- 
 
@@ -973,11 +984,12 @@ var returnRouter = function (io) {
                     let question = {
                         question: qtn.question,
                         ans_type: qtn.answerType,
+                    show_star_label: qtn.showStarLabel,
                     }
                     if (qtn.answerType == 'Multiple choice') {
                         question.options = qtn.opts
                     }
-                    if (qtn.answerType == 'star rating' && qtn.showStarLabel == true) {
+                if (qtn.answerType == 'star rating') {
                         question.options = qtn.starOpts
                     }
                     survey.questions.push(question);
@@ -1518,7 +1530,7 @@ var returnRouter = function (io) {
                 res.send({ success: false, msg: "group name is required" });
             } else {
                 UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
-                    if (docs.length) {
+                if (docs.length && docs._id != req.body.id) {
                         res.json({ success: false, msg: "Group Already Exists" });
                     } else {
                         UserGroup.findOneAndUpdate({ _id: req.body.id },
@@ -2501,7 +2513,54 @@ var returnRouter = function (io) {
 
 
 
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get function 
+    // Params        : 
+    // Returns       : 
+    // Author        : Jooshifa
+    // Date          : 15-01-2018
+    // Last Modified : 15-01-2018, Jooshifa
+    // Desc          : to get all questions in each survey,no of choices,answers of users for each questions and no of responses for each questions
 
+    router.get('/getAllQuestions', (req, res) => {
+        mainArray = [];
+        options: [];
+        // req.params.id = "5a432d81ac62130f16bbf2e6";
+        req.params.id = "5a431d73fcaf01ec6274ecbc";
+        // cmp_id = "5a4d183719a456bb14913bff";
+        cmp_id = "5a432162fcaf01ec6274ecc6";
+        Survey.find({ company_id: cmp_id }, function (err, survey) {
+
+            survey.forEach(eachSurvey => {
+                if (eachSurvey._id == req.params.id) {
+                    eachSurvey.questions.forEach((eachQuestions, i) => {
+                        mainArray.push({ question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
+                        ans = '';
+                        eachQuestions.options.forEach((eachoption, j) => {
+                            // if(eachAnswers.answer == eachQuestions.options){
+                            count = 0;
+
+                            eachQuestions.answers.forEach(eachanswer => {
+                                if (eachoption == eachanswer.answer || eachanswer.answer == j) {
+                                    count++;
+
+                                }
+                            })
+
+                            // }
+                            mainArray[i].ans.push({ value: eachoption, "count": count });
+                            // console.log(eachAnswers);
+                        });
+                    });
+                }
+            });
+
+            // console.log(mainArray);
+            return res.json(mainArray);
+
+        });
+    });
+    // ----------------------------------End-------------------------------------------
 
     // ---------------------------------Start-------------------------------------------
     // Function      : update-users
@@ -2904,6 +2963,7 @@ var returnRouter = function (io) {
     });
     // ----------------------------------End-------------------------------------------
 
+
     // ---------------------------------Start-------------------------------------------
     // Function      : get function 
     // Params        : 
@@ -2995,6 +3055,28 @@ console.log(cmp_id);
     });
     // ----------------------------------End-------------------------------------------
 
+// ---------------------------------Start-------------------------------------------
+    // Function      : formatDate
+    // Params        : date time with time zone
+    // Returns       : date in d-m-y format
+    // Author        : Yasir Poongadan
+    // Date          : 18-01-2018
+    // Last Modified : 18-01-2018, Yasir Poongadan
+    // Desc          : 
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+    
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+    
+        return [ day, month , year].join('-');
+    }
+
+    // ----------------------------------End-------------------------------------------
 
 
 

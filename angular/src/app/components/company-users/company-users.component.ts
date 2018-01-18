@@ -101,17 +101,16 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.groupsObject = data.groupById;
     });
 
-    this.companyService.getMyCompany().subscribe(data=>{
-      // var index = 5;
-      // this.selUser.email = data.users[index].email;
-      // this.selUser.newEmail = data.users[index].email;
-      // this.selUser.is_registered = data.users[index].is_registered;
-      // data.users[index].group.forEach(val => {
-      //   this.selUserGroups.push(val.g_id);
-      // });
-      
-      // console.log(this.selUser.groups);
-    });
+    // this.companyService.getMyCompany().subscribe(data=>{
+    //   var index = 1;
+    //   this.selUser.email = data.users[index].email;
+    //   this.selUser.newEmail = data.users[index].email;
+    //   this.selUser.is_registered = data.users[index].is_registered;
+    //   this.selUserGroups =[];
+    //   data.users[index].group.forEach(val => {
+    //     this.selUserGroups.push(val.g_id);
+    //   });
+    // });
 
 }
 //  ---------------------------------Start-------------------------------------------
@@ -125,6 +124,8 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 loadData(){
     const users: any[] = [];
     this.companyService.getMyUsers().subscribe(data1=>{
+      // console.log('list users');
+      // console.log(data1);
       this.userData = data1;
       this.comp_id1 = this.userData._id 
   
@@ -157,6 +158,27 @@ loadData(){
 }
 //  ---------------------------------end-----------------------------------------------
    
+ //  ---------------------------------Start-------------------------------------------
+  // Function      : getCategoryId
+  // Params        : 
+  // Returns       : 
+  // Author        : Jooshifa
+  // Date          : 29-12-2017
+  // Last Modified : 29-12-2017, Jooshifa 
+  // Desc          : pass id from modal and get it for the purpuse edit
+  bindEditUser(data){
+   
+       this.selUser.email = data.email;
+       this.selUser.newEmail = data.email;
+      this.selUser.is_registered = data.is_registered;
+      this.selUserGroups = [];
+    //  console.log(data.group);
+      data.group.forEach(val => {
+        this.selUserGroups.push(val.g_id);
+      });
+      //console.log(this.selUserGroups);
+  }
+//  ---------------------------------end----------------------------------------------
  //  ---------------------------------Start-------------------------------------------
   // Function      : getCategoryId
   // Params        : 

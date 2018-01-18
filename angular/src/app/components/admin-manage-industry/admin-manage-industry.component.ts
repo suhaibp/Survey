@@ -18,6 +18,7 @@ export class AdminManageIndustryComponent implements OnInit {
   isError : Boolean = false;
   errorMsg :'';
   existStatus :Boolean =false;
+  Updatechange:Boolean =false;
   Updaterequired :boolean = false;
   UpdatealreadyExist :boolean = false;
   industryId :any;
@@ -283,11 +284,20 @@ getIndustryId(id){
                     }, 2000);
                 }
                 else{
+                    if(data4.success==false && data4.msg == 'nochange'){
+                        this.Updatechange = true
+                        setTimeout(()=>{ 
+                          this.Updatechange = false;
+                          }, 2000);
+                    
+                    }
+                else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
                     this._flashMessagesService.show('Update industry Successfully!', { cssClass: 'alert-success', timeout: 1000 });
                 }
             }
+        }
       });
 }
   //  ---------------------------------end------------------------------
