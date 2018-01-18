@@ -947,5 +947,20 @@ getInvitedUserCount(data){
 }
 // ----------------------------------End-------------------------------------------
 
+//  ---------------------------------Start-------------------------------------------
+// Function      : getSurveyfordash
+// Params        : id
+// Returns       : single survey details
+// Author        : Yasir Poongadan
+// Date          : 16-01-2018
+// Last Modified : 16-01-2018, Yasir Poongadan 
+// Desc          : to get a specific servey details
+getSurveyforDash(id){
+  let headers = this.setHeader();
+  return this.http.get(this.serviceUrl + 'get-survey-for-map/'+id,{headers: headers})
+    .map(res => res.json());
+
+}
+// < ----------------------------------End------------------------------------------- 
     
 }

@@ -96,6 +96,9 @@ const SurveySchema = mongoose.Schema({
             },
             longitude : {
                 type : Number,
+            },
+            email: {
+                type: String,
             }
         }]
     }],

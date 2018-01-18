@@ -60,7 +60,8 @@ router.get('/get-survey/:id',(req,res)=>{
                                     status : 0,
                                     header : survey.header_title,
                                     footer : survey.footer_title,
-                                    theme  : survey.theme
+                                    theme  : survey.theme,
+                                    logo : survey.logo
                                 });
                             }
                             else{
@@ -93,7 +94,9 @@ router.get('/get-survey/:id',(req,res)=>{
                                 start_time : survey.start_datetime,
                                 header : survey.header_title,
                                 footer : survey.footer_title,    
-                                theme  : survey.theme
+                                theme  : survey.theme,
+                                logo : survey.logo
+                                
                                 
                             });
                         }
@@ -225,7 +228,7 @@ router.put('/submit-survey/:id',(req,res)=>{
 
                                     cmp_user_id = cmp.users[0]._id;
                                     async.eachOfSeries(req.body.questions, function(element, key, callback) {
-                                        var email =element.email;
+                                        // var email =element.email;
                                         // console.log("c"+element.ans);
                                         console.log(element._id);
                                         // console.log({ "answer":element.ans, "cmp_user_id":cmp_user_id});
@@ -239,7 +242,8 @@ router.put('/submit-survey/:id',(req,res)=>{
                                                         "global_user_id":user_id,
                                                         "ip":ip,
                                                         "latitude":geo.ll[0],
-                                                        "longitude":geo.ll[1]
+                                                        "longitude":geo.ll[1],
+                                                        "email": email
         
                                                     }}
                                                 },{ new : true}, function(err,surveyx){
@@ -271,6 +275,9 @@ router.put('/submit-survey/:id',(req,res)=>{
                                                 
                                             }else{
                                                 res.json({status:4, msg: msg}); //success
+                                                io.sockets.emit("surveySubmit", {
+                                                   
+                                                });
                                             }
                                         });
                                             
@@ -295,16 +302,16 @@ router.put('/submit-survey/:id',(req,res)=>{
                     }
                 }
                 else{
-                    console.log("SKIP");
+                    // console.log("SKIP");
                     User.findOne({"_id":user_id},(err, user) => {
                         email = user.email;
-                        console.log(email);
+                        // console.log(email);
                         Company.findOne({"_id":cmp_id, }, {users:{$elemMatch : {  "email":email}}, _id:1}, (err, cmp) => {
                             if(!err){
                                 cmp_user_id = cmp.users[0]._id;
                                 async.eachOfSeries(req.body.questions, function(element, key, callback) {
-                                    var email =element.email;
-                                    // console.log("c"+element.ans);
+                                    // var email =element.email;
+                                    console.log("c"+email);
                                     // console.log({ "answer":element.ans, "cmp_user_id":cmp_user_id});
 
 
@@ -316,8 +323,9 @@ router.put('/submit-survey/:id',(req,res)=>{
                                                     "global_user_id":user_id,
                                                     "ip":ip,
                                                     "latitude":geo.ll[0],
-                                                    "longitude":geo.ll[1]
-    
+                                                    "longitude":geo.ll[1],
+                                                    "email": email
+                                                    
                                                 }}
                                             },{ new : true}, function(err,surveyx){
                                         
@@ -373,6 +381,8 @@ router.put('/submit-survey/:id',(req,res)=>{
     
 // }
 });
+
+
 
 // ---------------------------------Start-------------------------------------------
 // Function      : Get user email from user collection

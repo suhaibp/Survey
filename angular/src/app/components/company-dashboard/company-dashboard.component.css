@@ -340,3 +340,6 @@
     stroke: black;
     stroke-width: 1.5px;
   }
+  .map-fltr{
+    margin: 2px 0px 0px 10px;
+  }

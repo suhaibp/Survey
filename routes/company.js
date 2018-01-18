@@ -807,6 +807,43 @@ var returnRouter = function (io) {
 
 
     // ---------------------------------Start-------------------------------------------
+    
+    // Function      : get Survey based on id
+    // Params        : 
+    // Returns       : survey
+    // Author        : Manu Prasad
+    // Date          : 16-1-2018
+    // Last Modified : 16-1-2018, Manu Prasad, Desc:
+    // Desc          : get Survey based on id
+    
+    router.get('/get-survey-for-map/:id',(req,res)=>{
+        
+    // if (req.headers && req.headers.authorization) {
+        //     var authorization = req.headers.authorization.substring(4), decoded;
+        //     try {
+        //         decoded = jwt.verify(authorization, config.secret);
+              //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
+            //   user_id = mongoose.Types.ObjectId("5a432162fcaf01ec6274ecc0");
+              cmp_id = mongoose.Types.ObjectId("5a432162fcaf01ec6274ecc6");
+              
+              // var cmp_id  = decoded._id;
+        // console.log(Date());
+            //   Survey.find({"inv_users.cmp_user_id" : user_id,"_id":req.params.id}, function(err,theme){
+                Survey.find({"company_id" : cmp_id,"_id":req.params.id}, function(err,survey){
+                    
+                    if(err){
+                        res.json({status:0})
+                    }else{
+                        // console.log("SSSSSS\n"+survey);
+                        res.json(survey)
+                    }
+                });
+                
+    // }
+    });
+    // ----------------------------------End------------------------------------------- 
+
+    // ---------------------------------Start-------------------------------------------
     // Function      : create-survey
     // Params        : survey details
     // Returns       : status and message
@@ -2874,6 +2911,8 @@ var returnRouter = function (io) {
     });
     // ----------------------------------End-------------------------------------------
 
+
+    
 
     module.exports = router;
 

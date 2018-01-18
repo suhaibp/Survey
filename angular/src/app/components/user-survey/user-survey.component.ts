@@ -22,7 +22,7 @@ export class UserSurveyComponent implements OnInit {
     private routes: Router) { }
 
   ngOnInit() {
-// ---------------------------------Start-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
 // Function      : get logged user details
 // Params        : 
 // Returns       : user details
@@ -86,21 +86,25 @@ getSurvey(){
     }
     else if(survey.status == 2){
       //show error
+      // this._router.navigate(['/404'])
+      this.closed = true;
+      
     }
     else if(survey.status == 3){
       //survey not exist 
+      this.routes.navigate(['/404'])
     }
     else if(survey.status == 4){
       this.closed = true;
       
     }
-    else if(!survey.status && survey.display_type.ui == 'single'){
+    else if(!survey.status && survey.display_type.ui.toLowerCase() == 'single'){
       // if(){
 
       // }
       this.run = true;
     }
-    else if(!survey.status && survey.display_type.ui == 'multiple'){
+    else if(!survey.status && survey.display_type.ui.toLowerCase() == 'multiple choice'){
       // if(){
 
       // }
