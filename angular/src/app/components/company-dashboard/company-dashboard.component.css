@@ -343,3 +343,140 @@
   .map-fltr{
     margin: 2px 0px 0px 10px;
   }
+  path {  stroke: #fff; }
+path:hover {  opacity:0.9; }
+rect:hover {  fill:blue; }
+.axis {  font: 10px sans-serif; }
+.legend tr{    border-bottom:1px solid grey; }
+.legend tr:first-child{    border-top:1px solid grey; }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {  display: none; }
+.legend{
+    margin-bottom:76px;
+    display:inline-block;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.legend td{
+    padding:4px 5px;
+    vertical-align:bottom;
+}
+.legendFreq, .legendPerc{
+    align:right;
+    width:50px;
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  .example-tooltip-host {
+    display: inline-flex;
+    align-items: center;
+    margin: 50px;
+  }
+  
+  .example-select {
+    margin: 0 10px;
+  }
+  .filter{
+    width: 5%;
+    float: right;
+    clear: left;
+  }
+  /* chart2 */
+  path {  stroke: #fff; }
+  path:hover {  opacity:0.9; }
+  rect:hover {  fill:blue; }
+  .axis {  font: 10px sans-serif; }
+  .legend tr{    border-bottom:1px solid grey; }
+  .legend tr:first-child{    border-top:1px solid grey; }
+  
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+  
+  .x.axis path {  display: none; }
+  .legend{
+      margin-bottom:76px;
+      display:inline-block;
+      border-collapse: collapse;
+      border-spacing: 0px;
+  }
+  .legend td{
+      padding:4px 5px;
+      vertical-align:bottom;
+  }
+  .legendFreq, .legendPerc{
+      align:right;
+      width:50px;
+  }
+  .example-container {
+      display: flex;
+      flex-direction: column;
+      min-width: 300px;
+    }
+    
+    .example-header {
+      min-height: 64px;
+      padding: 8px 24px 0;
+    }
+    
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+    
+    .mat-table {
+      overflow: auto;
+      max-height: 500px;
+    }
+    .example-tooltip-host {
+      display: inline-flex;
+      align-items: center;
+      margin: 50px;
+    }
+    
+    .example-select {
+      margin: 0 10px;
+    }
+    .filter{
+      width: 5%;
+      float: right;
+      clear: left;
+    }
+    /* newpie */
+    .arc text {
+        font: 10px sans-serif;
+        text-anchor: middle;
+      }
+      
+      .arc path {
+        stroke: #fff;
+      }
+      

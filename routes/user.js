@@ -26,7 +26,7 @@ const passport = require("passport");
 // Last Modified : 4-1-2018, Manu Prasad, Desc:
 // Desc          : checks whether survey is assigned for the current user and  check start time and end time. if ok return survey else return a messsage
 
-router.get('/get-survey/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/get-survey/:id', (req, res) => {
 
     if (req.headers && req.headers.authorization) {
         var authorization = req.headers.authorization.substring(4), decoded;
@@ -34,6 +34,8 @@ router.get('/get-survey/:id', passport.authenticate('jwt', { session: false }), 
         decoded = jwt.verify(authorization, config.secret);
         user_id = mongoose.Types.ObjectId(decoded._id);
         Survey.findOne({ "_id": req.params.id }, { "inv_users": { $elemMatch: { "cmp_user_id": user_id, "survey_completed": false } }, name: 1 }, function (err, survey1) {
+            // console.log("_______________________________________\n");
+            // console.log(survey1);
             if (survey1.inv_users == '' || survey1.questions == []) {
                 res.json({
                     status: 4
@@ -45,7 +47,7 @@ router.get('/get-survey/:id', passport.authenticate('jwt', { session: false }), 
                     // {"start_datetime": {"$lte":  Date()}}, function(err,theme){
                     { "_id": req.params.id }, { inv_users: { $elemMatch: { cmp_user_id: user_id } }, name: 1, company_id: 1, theme: 1, display_type: 1, start_datetime: 1, end_datetime: 1, logo: 1, is_header: 1, is_footer: 1, header_title: 1, footer_title: 1, questions: 1, answers: 1, }, function (err, survey) {
                         // "start_datetime": {"$lte": new Date()},"end_datetime": {"$gt": new Date()}
-                        console.log(survey);
+                        // console.log(survey);
                         // console.log(new Date())
                         if (survey) {
 
@@ -158,7 +160,7 @@ router.get('/get-not-run-survey/:id', (req, res) => {
 // Last Modified : 9-1-2018, Manu Prasad, Desc:
 // Desc          : routing used to update survey withn answers
 
-router.put('/submit-survey/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.put('/submit-survey/:id',  (req, res) => {
 
     // console.log(req);
     // if(req.body.title != '')
@@ -268,12 +270,6 @@ router.put('/submit-survey/:id', passport.authenticate('jwt', { session: false }
                                         }
 
                                     });
-
-
-
-
-
-
 
 
 

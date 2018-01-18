@@ -183,4 +183,20 @@ export class UserService {
       .map(res => res.json());
   }
   // ---------------------------------------End--------------------------------------------
+
+
+  // ---------------------------------Start------------------------------------------------
+// Function      : Logout
+// Params        : 
+// Returns       : 
+// Author        : Rinsha
+// Date          : 03-1-2018
+// Last Modified : 03-1-2018, Rinsha
+// Desc          : 
+logout(){
+  this.authToken = null;
+  this.user = null;
+  localStorage.clear();
+}
+// ---------------------------------------End--------------------------------------------
 }

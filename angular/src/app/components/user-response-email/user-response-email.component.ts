@@ -52,11 +52,12 @@ export class UserResponseEmailComponent implements OnInit {
 // Last Modified : 05-01-2018, Rinsha
 // Desc          : Check whether the company registered email id is registered globally
       this.userService.checkEmail(this.userEmail).subscribe(data =>{
+        console.log(data);
         if(data.success){
           this.routes.navigate(['/user-login', data.user_id, this.surveyId]);
         }
         else{
-          this.routes.navigate(['user-register', this.userId, this.surveyId]);
+          this.routes.navigate(['/user-register', this.userId, this.surveyId]);
         }
       });
 // -----------------------------------End------------------------------------------

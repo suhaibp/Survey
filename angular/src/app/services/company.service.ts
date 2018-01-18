@@ -963,4 +963,39 @@ export class CompanyService {
   }
   // < ----------------------------------End------------------------------------------- 
 
+  
+// ---------------------------------Start-------------------------------------------
+  // Function      : Get survey question
+  // Params        : 
+  // Returns       : 
+  // Author        : sudha
+  // Date          : 17-01-2018
+  // Last Modified : 
+  // Desc          : survey question
+
+  getSurveyQuestions(surveyId){
+    console.log(surveyId);
+    let headers = this.setHeaderWithAuthorization();
+    return this.http.get(this.serviceUrl + 'getAllQuestions/' + surveyId,  {headers: headers})
+      .map(res => res.json());
+  }
+
+// ----------------------------------End-------------------------------------------
+// ---------------------------------Start-------------------------------------------
+  // Function      : Get all survey
+  // Params        : 
+  // Returns       : 
+  // Author        : sudha
+  // Date          : 17-01-2018
+  // Last Modified : 
+  // Desc          : all survey
+
+  getAllsurveyDashboard(){
+    let headers = this.setHeaderWithAuthorization();
+    return this.http.get(this.serviceUrl + 'getAllSurveys',  {headers: headers})
+      .map(res => res.json());
+  }
+
+// ----------------------------------End-------------------------------------------
+
 }

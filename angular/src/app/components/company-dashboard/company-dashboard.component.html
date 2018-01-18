@@ -1,102 +1,123 @@
+<div id="wrapper">
+  <!-- Navigation -->
+  <app-company-top-bar></app-company-top-bar>
+  <app-company-sidebar></app-company-sidebar>
+  <div id="">
+    <div class="container-fluid">
+      <!-- Page Heading -->
 
-  <div id="wrapper">
-    <!-- Navigation -->
-    <app-company-top-bar></app-company-top-bar>            
-    <app-company-sidebar></app-company-sidebar>
-    <div id="">
-      <div class="container-fluid">
-          <!-- Page Heading -->
-        
-          <!-- <div *ngFor="let item of locations" >{{item.lat}} {{item.long}}</div> -->
-      
-        <div class="col-md-12" >
-         <div class="row">
-            <div class="col-md-12 bg-white">
+      <!-- <div *ngFor="let item of locations" >{{item.lat}} {{item.long}}</div> -->
+
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12 bg-white">
+            <div class="row">
+              <div class="col-md-12 ">
                 <div class="row">
-                    <div class="col-md-12 ">
-                        <div class="row">
-                            <div class="map-fltr">
-                                <mat-form-field >
-                                    <mat-select placeholder="Select Survey" [(ngModel)]="surveyId" name="survey" (change)="getMapPositionsforId()" >
-                                   
-                                          <mat-option  [value]="all" >All</mat-option>
-                                            <mat-option  [value]="item._id" *ngFor="let item of allSurveys">
-                                      <!-- <ng-container > -->
-                                              
-                                                {{ item.name }}
-                                      <!-- </ng-container > -->
-                                                
-                                              </mat-option>
-                                   
-                                    </mat-select>
-                                    
-                                </mat-form-field>
-                            </div>
-                            
-                            <agm-map [latitude]="13.026017" [longitude]="75.354847" [zoom]="6">
-                                
-                                <ng-container *ngFor="let item of locations; let i=index">
-                                    
-                                    <ng-container *ngFor="let elem of item.questions">
-                                      <ng-container *ngFor="let elemx of elem.answers">
-                                          <!-- {{elemx.latitude}} -->
-                                        <agm-marker  [latitude]="ConvertString(elemx.latitude)" [longitude]="ConvertString(elemx.longitude)"></agm-marker>
-                                          
-                                      </ng-container>
-                                        
-                                    </ng-container>
-                                  </ng-container>
-                                    <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                  <div class="map-fltr">
+                    <mat-form-field>
+                      <mat-select placeholder="Select Survey" [(ngModel)]="surveyId" name="survey" (change)="getMapPositionsforId();refreshDia();">
+
+                        <mat-option [value]="all">All</mat-option>
+                        <mat-option [value]="item._id" *ngFor="let item of allSurveys">
+                          <!-- <ng-container > -->
+
+                          {{ item.name }}
+                          <!-- </ng-container > -->
+
+                        </mat-option>
+
+                      </mat-select>
+
+                    </mat-form-field>
+                  </div>
+                  <h4>Survey Attenders</h4>
+                  
+                  <agm-map [latitude]="13.026017" [longitude]="75.354847" [zoom]="6">
+
+                    <ng-container *ngFor="let item of locations; let i=index">
+
+                      <ng-container *ngFor="let elem of item.questions">
+                        <ng-container *ngFor="let elemx of elem.answers">
+                          <!-- {{elemx.latitude}} -->
+                          <agm-marker [latitude]="ConvertString(elemx.latitude)" [longitude]="ConvertString(elemx.longitude)"></agm-marker>
+
+                        </ng-container>
+
+                      </ng-container>
+                    </ng-container>
+                    <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
                                     <agm-marker [latitude]="27.56" [longitude]="-82.68"></agm-marker>
                                     <agm-marker [latitude]="42.05" [longitude]="-119.47"></agm-marker> -->
-                                    
-                              </agm-map>
-                              
-                              
-                        </div>
-                        
-                    </div>
+
+                  </agm-map>
+
+
                 </div>
-                
+
               </div>
-         </div>
-          
-          
-        </div>
-        <div class="col-md-12">
-          
-        </div>
-      </div>
-    <!-- /#page-wrapper -->
-  </div>
-  
-  </div>
 
 
 
 
+            </div>
+            <!-- <div class="modal-footer"></div> -->
+            <h4>Survey Response</h4>
+            
+            <div class="col-md-8 col-md-offset-2 svg-div">
+<!-- pie diagram start -->
+  <svg id="piedia" width="960" height="500"></svg>
+<!-- pie diagram end -->
+            </div>
+            <!-- <div class="col-md-12"></div> -->
 
-  <div id="myModal" class="modal fade" role="dialog" >
-    <div class="modal-dialog">
-  
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Error</h4>
-        </div>
-        <div class="modal-body">
-            <h4></h4>
-        
-        </div>
-      
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="redirect()">Close</button>
+            <div class="col-md-12" *ngIf="surveyId != 'all'">
+              <company-chart2  [surveyid]="surveyId"></company-chart2>
+            </div>
+          </div>
+
         </div>
       </div>
-  
     </div>
+
   </div>
+</div>
+
+<!-- 
+</div>
+<div class="col-md-12">
+
+</div>
+</div>
+
+</div>
+
+</div> -->
 
 
-  <footer></footer> 
-  
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Error</h4>
+      </div>
+      <div class="modal-body">
+        <h4></h4>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="redirect()">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<footer></footer>

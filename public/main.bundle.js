@@ -170,6 +170,7 @@ var core_2 = __webpack_require__("../../../../@agm/core/index.js");
 var reverse_pipe_1 = __webpack_require__("../../../../../src/app/pipe/reverse.pipe.ts");
 var angular_star_rating_1 = __webpack_require__("../../../../angular-star-rating/dist/index.js");
 var ngx_rating_1 = __webpack_require__("../../../../ngx-rating/index.js");
+var company_chart2_component_1 = __webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.ts");
 var appRoutes = [
     { path: '', component: reference_component_component_1.ReferenceComponentComponent },
     { path: '', redirectTo: '/reference', pathMatch: 'full' },
@@ -266,6 +267,7 @@ var DemoMaterialModule = /** @class */ (function () {
                 material_1.MatToolbarModule,
                 material_1.MatTooltipModule,
             ],
+            declarations: [],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -338,7 +340,8 @@ var AppModule = /** @class */ (function () {
                 user_login_component_1.UserLoginComponent,
                 user_registration_component_1.UserRegistrationComponent,
                 newpie_component_1.NewpieComponent,
-                page_not_found_component_1.PageNotFoundComponent
+                page_not_found_component_1.PageNotFoundComponent,
+                company_chart2_component_1.CompanyChart2Component
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -5392,6 +5395,249 @@ exports.CompanyAdditnInfoComponent = CompanyAdditnInfoComponent;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/company-chart2/company-chart2.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "path {  stroke: #fff; }\r\npath:hover {  opacity:0.9; }\r\nrect:hover {  fill:blue; }\r\n.axis {  font: 10px sans-serif; }\r\n.legend tr{    border-bottom:1px solid grey; }\r\n.legend tr:first-child{    border-top:1px solid grey; }\r\n.axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n.x.axis path {  display: none; }\r\n.legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n.legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n.legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n.example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n.mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n.example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n.example-select {\r\n    margin: 0 10px;\r\n  }\r\n.filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-chart2/company-chart2.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1>{{title}}</h1>\n<!-- <h2>{{subtitle}}</h2> -->\n\n    <svg  width=\"600\" height=\"300\"></svg>\n\n\n<svg id=\"sd\" width=\"960\" height=\"500\" ></svg>\n\n\n<div id=\"answeredUsers\"  class=\"modal fade\">\n  <div class=\"modal-dialog\">\n  \n    <!-- Modal content-->\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\n        <h4 class=\"modal-title\">Answered Users</h4>\n      </div>\n      <div class=\"modal-body\">\n        \n     \n\n          <div class=\"example-header\">\n            <mat-form-field>\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n            </mat-form-field>\n          </div>\n            \n            <div class=\"example-container mat-elevation-z8\">\n\n                <div class=\"example-container mat-elevation-z8\">\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\n                  \n                      <ng-container matColumnDef=\"slno\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\n                      </ng-container>\n                        <!-- Name Column -->\n                        <ng-container matColumnDef=\"email\">\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\n                        </ng-container>\n                    \n                     <!-- Name Column -->\n                     <ng-container matColumnDef=\"date_time\">\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\n                    </ng-container>\n                  \n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n                      </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n                  </div>\n              \n            </div>\n            <br>\n          \n     \n\n  \n      </div>\n      <div class=\"modal-footer\">\n      </div>\n    </div>\n    \n  </div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-chart2/company-chart2.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var d3 = __webpack_require__("../../../../d3-selection/index.js");
+var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
+var d3Array = __webpack_require__("../../../../d3-array/index.js");
+var d3Axis = __webpack_require__("../../../../d3-axis/index.js");
+var d3Shape = __webpack_require__("../../../../d3-shape/index.js");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+var CompanyChart2Component = /** @class */ (function () {
+    function CompanyChart2Component(companyService, router, config) {
+        this.companyService = companyService;
+        this.displayedColumns = ['slno', 'email', 'date_time'];
+        this.title = 'Questions Vs Answers';
+        // subtitle = 'Bar Chart';
+        this.barchart = [];
+        this.marginb = { top: 20, right: 20, bottom: 30, left: 40 };
+        this.margin = { top: 80, right: 20, bottom: 30, left: 50 };
+        this.piechart = [];
+        this.socket = socketIo(config.siteUrl);
+        this.width = 900 - this.margin.left - this.margin.right;
+        this.height = 500 - this.margin.top - this.margin.bottom;
+        this.radius = Math.min(this.width, this.height) / 2;
+    }
+    CompanyChart2Component.prototype.refresh = function () {
+        var _this = this;
+        this.getAllsurvey();
+        this.companyService.getSurveyQuestions(this.surveyid).subscribe(function (data) {
+            // this.surveyQuestion = data;
+            _this.quest = data;
+            // console.log(data + " data");
+            _this.barchart = [];
+            data.forEach(function (element) {
+                _this.barchart.push({ company: element.question, count: element.totalCount, id: element.id, surveyid: _this.sId });
+            });
+            _this.initSvg1();
+            _this.initAxis();
+            _this.drawAxis();
+            _this.drawBars();
+            // console.log(data);
+        });
+    };
+    CompanyChart2Component.prototype.getAllsurvey = function () {
+        var _this = this;
+        this.companyService.getAllsurveyDashboard().subscribe(function (data) {
+            _this.survey = data;
+            // console.log(this.survey);
+            _this.sId = data[0]._id;
+            // console.log(this.sId);
+        });
+    };
+    CompanyChart2Component.prototype.pierefresh = function () {
+        var _this = this;
+        this.companyService.getSurveyQuestions(this.surveyid).subscribe(function (data) {
+            _this.initSvg();
+            _this.drawPie();
+        });
+    };
+    CompanyChart2Component.prototype.ngOnInit = function () {
+        var _this = this;
+        //  console.log(this.surveyid);
+        //if(this.surveyid != 'all'){
+        this.refresh();
+        this.pierefresh();
+        //}
+        this.socket.on('new survey created', function (data) {
+            _this.refresh();
+        });
+        //piechat
+    };
+    CompanyChart2Component.prototype.applyFilter = function (filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    };
+    CompanyChart2Component.prototype.initSvg1 = function () {
+        this.svg1 = d3.select("svg");
+        this.widthb = +this.svg1.attr("width") - this.marginb.left - this.marginb.right;
+        this.heightb = +this.svg1.attr("height") - this.marginb.top - this.marginb.bottom;
+        this.g = this.svg1.append("g")
+            .attr("transform", "translate(" + this.marginb.left + "," + this.marginb.top + ")");
+    };
+    CompanyChart2Component.prototype.initAxis = function () {
+        this.x = d3Scale.scaleBand().rangeRound([0, this.widthb]).padding(0.1);
+        this.y = d3Scale.scaleLinear().rangeRound([this.heightb, 0]);
+        this.x.domain(this.barchart.map(function (d) { return d.company; }));
+        this.y.domain([0, d3Array.max(this.barchart, function (d) { return d.count; })]);
+    };
+    CompanyChart2Component.prototype.drawAxis = function () {
+        this.g.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + this.heightb + ")")
+            .call(d3Axis.axisBottom(this.x));
+        this.g.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3Axis.axisLeft(this.y))
+            .append("text")
+            .attr("class", "axis-title")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "end")
+            .text("count");
+    };
+    CompanyChart2Component.prototype.drawBars = function () {
+        var _this = this;
+        this.g.selectAll(".bar")
+            .data(this.barchart)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function (d) { return _this.x(d.company); })
+            .attr("y", function (d) { return _this.y(d.count); })
+            .attr("data-id", function (d) { return _this.y(d.id); })
+            .attr("width", this.x.bandwidth())
+            .attr("height", function (d) { return _this.heightb - _this.y(d.count); })
+            .on('click', function (d, i) {
+            _this.svg.remove();
+            _this.piechart = [];
+            _this.quest[i].ans.forEach(function (val) {
+                if (val.count != 0) {
+                    _this.piechart.push({ status: val.value, count: val.count, answeredUser: val.answeredUser });
+                }
+            });
+            _this.initSvg();
+            _this.drawPie();
+            console.log(i);
+            // this.companyService.getSingleQA(d).subscribe(data1=>{
+            //   console.log(data1);
+            // });
+        });
+    };
+    //piechart
+    CompanyChart2Component.prototype.initSvg = function () {
+        this.color = d3Scale.scaleOrdinal()
+            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+        this.arc = d3Shape.arc()
+            .outerRadius(this.radius - 10)
+            .innerRadius(0);
+        this.labelArc = d3Shape.arc()
+            .outerRadius(this.radius - 40)
+            .innerRadius(this.radius - 40);
+        this.pie = d3Shape.pie()
+            .sort(null)
+            .value(function (d) { return d.count; });
+        this.svg = d3.select("#sd")
+            .append("g")
+            .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
+    };
+    CompanyChart2Component.prototype.drawPie = function () {
+        var _this = this;
+        var g = this.svg.selectAll(".arc")
+            .data(this.pie(this.piechart))
+            .enter().append("g")
+            .attr("class", "arc");
+        g.append("path").attr("d", this.arc)
+            .style("fill", function (d) { return _this.color(d.data.status); })
+            .on('click', function (d, i) {
+            _this.dataSource = new material_1.MatTableDataSource(d.data.answeredUser);
+            _this.dataSource.paginator = _this.paginator;
+            _this.dataSource.sort = _this.sort;
+            $('#answeredUsers').modal('show');
+        });
+        g.append("text").attr("transform", function (d) { return "translate(" + _this.labelArc.centroid(d) + ")"; })
+            .attr("dy", ".35em")
+            .text(function (d) { return d.data.status; });
+    };
+    __decorate([
+        core_1.ViewChild(material_1.MatPaginator),
+        __metadata("design:type", material_1.MatPaginator)
+    ], CompanyChart2Component.prototype, "paginator", void 0);
+    __decorate([
+        core_1.ViewChild(material_1.MatSort),
+        __metadata("design:type", material_1.MatSort)
+    ], CompanyChart2Component.prototype, "sort", void 0);
+    CompanyChart2Component = __decorate([
+        core_1.Component({
+            selector: 'company-chart2',
+            template: __webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.css")],
+            inputs: ['surveyid']
+        })
+        // ---------------------------------Start-------------------------------------------
+        // Function      : Admin dashboard
+        // Params        : 
+        // Returns       : 
+        // Author        : sudha
+        // Date          : 09-01-2018 
+        // Last Modified : 11-01-2018
+        // Desc          : company vs survey
+        ,
+        __metadata("design:paramtypes", [company_service_1.CompanyService,
+            router_1.Router, config_1.Config])
+    ], CompanyChart2Component);
+    return CompanyChart2Component;
+}());
+exports.CompanyChart2Component = CompanyChart2Component;
+// -----------------------------------End------------------------------------------
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/company-create-survey/company-create-survey.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6116,7 +6362,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n    margin-top: 20px;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n  \r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  \r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n  \r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  \r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  \r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  \r\n  .ftr h4{\r\n    font-size: 16px;\r\n}\r\n  \r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  \r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px ;\r\n  }\r\n  \r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  \r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  \r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  \r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  \r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n  \r\n  .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n  \r\n  .test:after {\r\n      content: '\\2807';\r\n      font-size:25px;\r\n      }\r\n  \r\n  body {\r\n      margin-top: 100px;\r\n      background-color: #222;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      body {\r\n          margin-top: 50px;\r\n      }\r\n  }\r\n  \r\n  #wrapper {\r\n      padding-left: 0;\r\n  }\r\n  \r\n  #page-wrapper {\r\n      width: 100%;\r\n      padding: 0;\r\n      background-color: #fff;\r\n  }\r\n  \r\n  .huge {\r\n      font-size: 50px;\r\n      line-height: normal;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      #wrapper {\r\n          padding-left: 225px;\r\n      }\r\n  \r\n      #page-wrapper {\r\n          padding: 10px;\r\n      }\r\n  }\r\n  \r\n  /* Top Navigation */\r\n  \r\n  .top-nav {\r\n      padding: 0 15px;\r\n  }\r\n  \r\n  .top-nav>li {\r\n      display: inline-block;\r\n      float: left;\r\n  }\r\n  \r\n  .top-nav>li>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n      line-height: 20px;\r\n      color: #999;\r\n  }\r\n  \r\n  .top-nav>li>a:hover,\r\n  .top-nav>li>a:focus,\r\n  .top-nav>.open>a,\r\n  .top-nav>.open>a:hover,\r\n  .top-nav>.open>a:focus {\r\n      color: #fff;\r\n      background-color: #000;\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu {\r\n      float: left;\r\n      position: absolute;\r\n      margin-top: 0;\r\n      border: 1px solid rgba(0,0,0,.15);\r\n      border-top-left-radius: 0;\r\n      border-top-right-radius: 0;\r\n      background-color: #fff;\r\n      -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n      box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu>li>a {\r\n      white-space: normal;\r\n  }\r\n  \r\n  ul.message-dropdown {\r\n      padding: 0;\r\n      max-height: 250px;\r\n      overflow-x: hidden;\r\n      overflow-y: auto;\r\n  }\r\n  \r\n  li.message-preview {\r\n      width: 275px;\r\n      border-bottom: 1px solid rgba(0,0,0,.15);\r\n  }\r\n  \r\n  li.message-preview>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  li.message-footer {\r\n      margin: 5px 0;\r\n  }\r\n  \r\n  ul.alert-dropdown {\r\n      width: 200px;\r\n  }\r\n  \r\n  /* Side Navigation */\r\n  \r\n  @media(min-width:768px) {\r\n      .side-nav {\r\n          position: fixed;\r\n          top: 51px;\r\n          left: 225px;\r\n          width: 225px;\r\n          margin-left: -225px;\r\n          border: none;\r\n          border-radius: 0;\r\n          overflow-y: auto;\r\n          background-color: #222;\r\n          bottom: 0;\r\n          overflow-x: hidden;\r\n          padding-bottom: 40px;\r\n      }\r\n  \r\n      .side-nav>li>a {\r\n          width: 225px;\r\n      }\r\n  \r\n      .side-nav li a:hover,\r\n      .side-nav li a:focus {\r\n          outline: none;\r\n          background-color: #000 !important;\r\n      }\r\n  }\r\n  \r\n  .side-nav>li>ul {\r\n      padding: 0;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a {\r\n      display: block;\r\n      padding: 10px 15px 10px 38px;\r\n      text-decoration: none;\r\n      color: #999;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a:hover {\r\n      color: #fff;\r\n  }\r\n  \r\n  /* Flot Chart Containers */\r\n  \r\n  .flot-chart {\r\n      display: block;\r\n      height: 400px;\r\n  }\r\n  \r\n  .flot-chart-content {\r\n      width: 100%;\r\n      height: 100%;\r\n  }\r\n  \r\n  /* Custom Colored Panels */\r\n  \r\n  .huge {\r\n      font-size: 40px;\r\n  }\r\n  \r\n  .panel-green {\r\n      border-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > .panel-heading {\r\n      border-color: #5cb85c;\r\n      color: #fff;\r\n      background-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a {\r\n      color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a:hover {\r\n      color: #3d8b3d;\r\n  }\r\n  \r\n  .panel-red {\r\n      border-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > .panel-heading {\r\n      border-color: #d9534f;\r\n      color: #fff;\r\n      background-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a {\r\n      color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a:hover {\r\n      color: #b52b27;\r\n  }\r\n  \r\n  .panel-yellow {\r\n      border-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > .panel-heading {\r\n      border-color: #f0ad4e;\r\n      color: #fff;\r\n      background-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a {\r\n      color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a:hover {\r\n      color: #df8a13;\r\n  }\r\n  \r\n  .active1{\r\n      background-color: #eee;\r\n  }\r\n  \r\n  .control-label{\r\n      font-size: 14px;\r\n      font-weight: 400\r\n  }\r\n  \r\n  .quest{\r\n    margin: 40px 20px;\r\n  }\r\n  \r\n  .progrs{\r\n    margin: 10px 20px;\r\n  }\r\n  \r\n  #map {\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n  \r\n  .stations, .stations svg {\r\n    position: absolute;\r\n  }\r\n  \r\n  .stations svg {\r\n    width: 60px;\r\n    height: 20px;\r\n    padding-right: 100px;\r\n    font: 10px sans-serif;\r\n  }\r\n  \r\n  .stations circle {\r\n    fill: brown;\r\n    stroke: black;\r\n    stroke-width: 1.5px;\r\n  }\r\n  \r\n  .map-fltr{\r\n    margin: 2px 0px 0px 10px;\r\n  }", ""]);
+exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n    margin-top: 20px;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n  \r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  \r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n  \r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  \r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  \r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  \r\n  .ftr h4{\r\n    font-size: 16px;\r\n}\r\n  \r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  \r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px ;\r\n  }\r\n  \r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  \r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  \r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  \r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  \r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n  \r\n  .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n  \r\n  .test:after {\r\n      content: '\\2807';\r\n      font-size:25px;\r\n      }\r\n  \r\n  body {\r\n      margin-top: 100px;\r\n      background-color: #222;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      body {\r\n          margin-top: 50px;\r\n      }\r\n  }\r\n  \r\n  #wrapper {\r\n      padding-left: 0;\r\n  }\r\n  \r\n  #page-wrapper {\r\n      width: 100%;\r\n      padding: 0;\r\n      background-color: #fff;\r\n  }\r\n  \r\n  .huge {\r\n      font-size: 50px;\r\n      line-height: normal;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      #wrapper {\r\n          padding-left: 225px;\r\n      }\r\n  \r\n      #page-wrapper {\r\n          padding: 10px;\r\n      }\r\n  }\r\n  \r\n  /* Top Navigation */\r\n  \r\n  .top-nav {\r\n      padding: 0 15px;\r\n  }\r\n  \r\n  .top-nav>li {\r\n      display: inline-block;\r\n      float: left;\r\n  }\r\n  \r\n  .top-nav>li>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n      line-height: 20px;\r\n      color: #999;\r\n  }\r\n  \r\n  .top-nav>li>a:hover,\r\n  .top-nav>li>a:focus,\r\n  .top-nav>.open>a,\r\n  .top-nav>.open>a:hover,\r\n  .top-nav>.open>a:focus {\r\n      color: #fff;\r\n      background-color: #000;\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu {\r\n      float: left;\r\n      position: absolute;\r\n      margin-top: 0;\r\n      border: 1px solid rgba(0,0,0,.15);\r\n      border-top-left-radius: 0;\r\n      border-top-right-radius: 0;\r\n      background-color: #fff;\r\n      -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n      box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu>li>a {\r\n      white-space: normal;\r\n  }\r\n  \r\n  ul.message-dropdown {\r\n      padding: 0;\r\n      max-height: 250px;\r\n      overflow-x: hidden;\r\n      overflow-y: auto;\r\n  }\r\n  \r\n  li.message-preview {\r\n      width: 275px;\r\n      border-bottom: 1px solid rgba(0,0,0,.15);\r\n  }\r\n  \r\n  li.message-preview>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  li.message-footer {\r\n      margin: 5px 0;\r\n  }\r\n  \r\n  ul.alert-dropdown {\r\n      width: 200px;\r\n  }\r\n  \r\n  /* Side Navigation */\r\n  \r\n  @media(min-width:768px) {\r\n      .side-nav {\r\n          position: fixed;\r\n          top: 51px;\r\n          left: 225px;\r\n          width: 225px;\r\n          margin-left: -225px;\r\n          border: none;\r\n          border-radius: 0;\r\n          overflow-y: auto;\r\n          background-color: #222;\r\n          bottom: 0;\r\n          overflow-x: hidden;\r\n          padding-bottom: 40px;\r\n      }\r\n  \r\n      .side-nav>li>a {\r\n          width: 225px;\r\n      }\r\n  \r\n      .side-nav li a:hover,\r\n      .side-nav li a:focus {\r\n          outline: none;\r\n          background-color: #000 !important;\r\n      }\r\n  }\r\n  \r\n  .side-nav>li>ul {\r\n      padding: 0;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a {\r\n      display: block;\r\n      padding: 10px 15px 10px 38px;\r\n      text-decoration: none;\r\n      color: #999;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a:hover {\r\n      color: #fff;\r\n  }\r\n  \r\n  /* Flot Chart Containers */\r\n  \r\n  .flot-chart {\r\n      display: block;\r\n      height: 400px;\r\n  }\r\n  \r\n  .flot-chart-content {\r\n      width: 100%;\r\n      height: 100%;\r\n  }\r\n  \r\n  /* Custom Colored Panels */\r\n  \r\n  .huge {\r\n      font-size: 40px;\r\n  }\r\n  \r\n  .panel-green {\r\n      border-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > .panel-heading {\r\n      border-color: #5cb85c;\r\n      color: #fff;\r\n      background-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a {\r\n      color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a:hover {\r\n      color: #3d8b3d;\r\n  }\r\n  \r\n  .panel-red {\r\n      border-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > .panel-heading {\r\n      border-color: #d9534f;\r\n      color: #fff;\r\n      background-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a {\r\n      color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a:hover {\r\n      color: #b52b27;\r\n  }\r\n  \r\n  .panel-yellow {\r\n      border-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > .panel-heading {\r\n      border-color: #f0ad4e;\r\n      color: #fff;\r\n      background-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a {\r\n      color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a:hover {\r\n      color: #df8a13;\r\n  }\r\n  \r\n  .active1{\r\n      background-color: #eee;\r\n  }\r\n  \r\n  .control-label{\r\n      font-size: 14px;\r\n      font-weight: 400\r\n  }\r\n  \r\n  .quest{\r\n    margin: 40px 20px;\r\n  }\r\n  \r\n  .progrs{\r\n    margin: 10px 20px;\r\n  }\r\n  \r\n  #map {\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n  \r\n  .stations, .stations svg {\r\n    position: absolute;\r\n  }\r\n  \r\n  .stations svg {\r\n    width: 60px;\r\n    height: 20px;\r\n    padding-right: 100px;\r\n    font: 10px sans-serif;\r\n  }\r\n  \r\n  .stations circle {\r\n    fill: brown;\r\n    stroke: black;\r\n    stroke-width: 1.5px;\r\n  }\r\n  \r\n  .map-fltr{\r\n    margin: 2px 0px 0px 10px;\r\n  }\r\n  \r\n  path {  stroke: #fff; }\r\n  \r\n  path:hover {  opacity:0.9; }\r\n  \r\n  rect:hover {  fill:blue; }\r\n  \r\n  .axis {  font: 10px sans-serif; }\r\n  \r\n  .legend tr{    border-bottom:1px solid grey; }\r\n  \r\n  .legend tr:first-child{    border-top:1px solid grey; }\r\n  \r\n  .axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n  \r\n  .x.axis path {  display: none; }\r\n  \r\n  .legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n  \r\n  .legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n  \r\n  .legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n  \r\n  .example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  /* chart2 */\r\n  \r\n  path {  stroke: #fff; }\r\n  \r\n  path:hover {  opacity:0.9; }\r\n  \r\n  rect:hover {  fill:blue; }\r\n  \r\n  .axis {  font: 10px sans-serif; }\r\n  \r\n  .legend tr{    border-bottom:1px solid grey; }\r\n  \r\n  .legend tr:first-child{    border-top:1px solid grey; }\r\n  \r\n  .axis path,\r\n  .axis line {\r\n    fill: none;\r\n    stroke: #000;\r\n    shape-rendering: crispEdges;\r\n  }\r\n  \r\n  .x.axis path {  display: none; }\r\n  \r\n  .legend{\r\n      margin-bottom:76px;\r\n      display:inline-block;\r\n      border-collapse: collapse;\r\n      border-spacing: 0px;\r\n  }\r\n  \r\n  .legend td{\r\n      padding:4px 5px;\r\n      vertical-align:bottom;\r\n  }\r\n  \r\n  .legendFreq, .legendPerc{\r\n      align:right;\r\n      width:50px;\r\n  }\r\n  \r\n  .example-container {\r\n      display: -webkit-box;\r\n      display: -ms-flexbox;\r\n      display: flex;\r\n      -webkit-box-orient: vertical;\r\n      -webkit-box-direction: normal;\r\n          -ms-flex-direction: column;\r\n              flex-direction: column;\r\n      min-width: 300px;\r\n    }\r\n  \r\n  .example-header {\r\n      min-height: 64px;\r\n      padding: 8px 24px 0;\r\n    }\r\n  \r\n  .mat-form-field {\r\n      font-size: 14px;\r\n      width: 100%;\r\n    }\r\n  \r\n  .mat-table {\r\n      overflow: auto;\r\n      max-height: 500px;\r\n    }\r\n  \r\n  .example-tooltip-host {\r\n      display: -webkit-inline-box;\r\n      display: -ms-inline-flexbox;\r\n      display: inline-flex;\r\n      -webkit-box-align: center;\r\n          -ms-flex-align: center;\r\n              align-items: center;\r\n      margin: 50px;\r\n    }\r\n  \r\n  .example-select {\r\n      margin: 0 10px;\r\n    }\r\n  \r\n  .filter{\r\n      width: 5%;\r\n      float: right;\r\n      clear: left;\r\n    }\r\n  \r\n  /* newpie */\r\n  \r\n  .arc text {\r\n        font: 10px sans-serif;\r\n        text-anchor: middle;\r\n      }\r\n  \r\n  .arc path {\r\n        stroke: #fff;\r\n      }\r\n      ", ""]);
 
 // exports
 
@@ -6129,7 +6375,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-dashboard/company-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  <div id=\"wrapper\">\r\n    <!-- Navigation -->\r\n    <app-company-top-bar></app-company-top-bar>            \r\n    <app-company-sidebar></app-company-sidebar>\r\n    <div id=\"\">\r\n      <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n          <!-- <div *ngFor=\"let item of locations\" >{{item.lat}} {{item.long}}</div> -->\r\n      \r\n        <div class=\"col-md-12\" >\r\n         <div class=\"row\">\r\n            <div class=\"col-md-12 bg-white\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12 \">\r\n                        <div class=\"row\">\r\n                            <div class=\"map-fltr\">\r\n                                <mat-form-field >\r\n                                    <mat-select placeholder=\"Select Survey\" [(ngModel)]=\"surveyId\" name=\"survey\" (change)=\"getMapPositionsforId()\" >\r\n                                   \r\n                                          <mat-option  [value]=\"all\" >All</mat-option>\r\n                                            <mat-option  [value]=\"item._id\" *ngFor=\"let item of allSurveys\">\r\n                                      <!-- <ng-container > -->\r\n                                              \r\n                                                {{ item.name }}\r\n                                      <!-- </ng-container > -->\r\n                                                \r\n                                              </mat-option>\r\n                                   \r\n                                    </mat-select>\r\n                                    \r\n                                </mat-form-field>\r\n                            </div>\r\n                            \r\n                            <agm-map [latitude]=\"13.026017\" [longitude]=\"75.354847\" [zoom]=\"6\">\r\n                                \r\n                                <ng-container *ngFor=\"let item of locations; let i=index\">\r\n                                    \r\n                                    <ng-container *ngFor=\"let elem of item.questions\">\r\n                                      <ng-container *ngFor=\"let elemx of elem.answers\">\r\n                                          <!-- {{elemx.latitude}} -->\r\n                                        <agm-marker  [latitude]=\"ConvertString(elemx.latitude)\" [longitude]=\"ConvertString(elemx.longitude)\"></agm-marker>\r\n                                          \r\n                                      </ng-container>\r\n                                        \r\n                                    </ng-container>\r\n                                  </ng-container>\r\n                                    <!-- <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"27.56\" [longitude]=\"-82.68\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"42.05\" [longitude]=\"-119.47\"></agm-marker> -->\r\n                                    \r\n                              </agm-map>\r\n                              \r\n                              \r\n                        </div>\r\n                        \r\n                    </div>\r\n                </div>\r\n                \r\n              </div>\r\n         </div>\r\n          \r\n          \r\n        </div>\r\n        <div class=\"col-md-12\">\r\n          \r\n        </div>\r\n      </div>\r\n    <!-- /#page-wrapper -->\r\n  </div>\r\n  \r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\" >\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Error</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4></h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"redirect()\">Close</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n  <footer></footer> \r\n  \r\n"
+module.exports = "<div id=\"wrapper\">\r\n  <!-- Navigation -->\r\n  <app-company-top-bar></app-company-top-bar>\r\n  <app-company-sidebar></app-company-sidebar>\r\n  <div id=\"\">\r\n    <div class=\"container-fluid\">\r\n      <!-- Page Heading -->\r\n\r\n      <!-- <div *ngFor=\"let item of locations\" >{{item.lat}} {{item.long}}</div> -->\r\n\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12 bg-white\">\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12 \">\r\n                <div class=\"row\">\r\n                  <div class=\"map-fltr\">\r\n                    <mat-form-field>\r\n                      <mat-select placeholder=\"Select Survey\" [(ngModel)]=\"surveyId\" name=\"survey\" (change)=\"getMapPositionsforId();refreshDia();\">\r\n\r\n                        <mat-option [value]=\"all\">All</mat-option>\r\n                        <mat-option [value]=\"item._id\" *ngFor=\"let item of allSurveys\">\r\n                          <!-- <ng-container > -->\r\n\r\n                          {{ item.name }}\r\n                          <!-- </ng-container > -->\r\n\r\n                        </mat-option>\r\n\r\n                      </mat-select>\r\n\r\n                    </mat-form-field>\r\n                  </div>\r\n                  <h4>Survey Attenders</h4>\r\n                  \r\n                  <agm-map [latitude]=\"13.026017\" [longitude]=\"75.354847\" [zoom]=\"6\">\r\n\r\n                    <ng-container *ngFor=\"let item of locations; let i=index\">\r\n\r\n                      <ng-container *ngFor=\"let elem of item.questions\">\r\n                        <ng-container *ngFor=\"let elemx of elem.answers\">\r\n                          <!-- {{elemx.latitude}} -->\r\n                          <agm-marker [latitude]=\"ConvertString(elemx.latitude)\" [longitude]=\"ConvertString(elemx.longitude)\"></agm-marker>\r\n\r\n                        </ng-container>\r\n\r\n                      </ng-container>\r\n                    </ng-container>\r\n                    <!-- <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"27.56\" [longitude]=\"-82.68\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"42.05\" [longitude]=\"-119.47\"></agm-marker> -->\r\n\r\n                  </agm-map>\r\n\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n\r\n\r\n\r\n            </div>\r\n            <!-- <div class=\"modal-footer\"></div> -->\r\n            <h4>Survey Response</h4>\r\n            \r\n            <div class=\"col-md-8 col-md-offset-2 svg-div\">\r\n<!-- pie diagram start -->\r\n  <svg id=\"piedia\" width=\"960\" height=\"500\"></svg>\r\n<!-- pie diagram end -->\r\n            </div>\r\n            <!-- <div class=\"col-md-12\"></div> -->\r\n\r\n            <div class=\"col-md-12\" *ngIf=\"surveyId != 'all'\">\r\n              <company-chart2  [surveyid]=\"surveyId\"></company-chart2>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n<!-- \r\n</div>\r\n<div class=\"col-md-12\">\r\n\r\n</div>\r\n</div>\r\n\r\n</div>\r\n\r\n</div> -->\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Error</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <h4></h4>\r\n\r\n      </div>\r\n\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"redirect()\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<footer></footer>"
 
 /***/ }),
 
@@ -6154,18 +6400,79 @@ var company_service_1 = __webpack_require__("../../../../../src/app/services/com
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var d3 = __webpack_require__("../../../../d3-selection/index.js");
+var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
+var d3Shape = __webpack_require__("../../../../d3-shape/index.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var CompanyDashboardComponent = /** @class */ (function () {
-    function CompanyDashboardComponent(_companyService, routes, config) {
+    function CompanyDashboardComponent(_companyService, routes, config, route) {
         this._companyService = _companyService;
         this.routes = routes;
         this.config = config;
+        this.route = route;
         this.lat = 51.678418;
         this.lng = 7.809007;
         this.locations = [];
+        this.surveyId = 'all';
+        this.displayedColumns = ['slno', 'email', 'date_time'];
+        this.title = 'Questions Vs Answers';
+        this.barchart = [];
+        this.marginb = { top: 20, right: 20, bottom: 30, left: 40 };
+        this.margin = { top: 80, right: 20, bottom: 30, left: 50 };
+        this.piechart = [];
+        //chart2 end
+        this.margin1 = { top: 20, right: 20, bottom: 30, left: 50 };
+        this.list = {
+            survey: ''
+        };
+        this.Stats = [];
+        this.mail_response_count = 0;
+        this.mail_viewed_count = 0;
+        this.survey_completed_count = 0;
+        this.invited_user_count = 0;
+        this.mail_not_readed_count = 0;
         this.socket = socketIo(config.socketURL);
+        // this.socket = socketIo(config.siteUrl);
+        this.width = 900 - this.margin.left - this.margin.right;
+        this.height = 500 - this.margin.top - this.margin.bottom;
+        this.radius = Math.min(this.width, this.height) / 2;
+        this.width1 = 900 - this.margin1.left - this.margin1.right;
+        this.height1 = 500 - this.margin1.top - this.margin1.bottom;
+        this.radius1 = Math.min(this.width1, this.height1) / 2;
     }
+    // refresh() {
+    //   // this.getAllsurvey();
+    //   console.log(this.surveyId)
+    //   if(this.surveyId){
+    //     this._companyService.getSurveyQuestions(this.surveyId).subscribe(data => {
+    //       this.quest = data;
+    //       this.barchart = [];
+    //       data.forEach(element => {
+    //         this.barchart.push({ company: element.question, count: element.totalCount});
+    //       });
+    //       this.initSvg1();
+    //       this.initAxis();
+    //       this.drawAxis();
+    //       this.drawBars();
+    //     });
+    //   }
+    // }
+    // getAllsurvey() {
+    //   this._companyService.getAllsurveyDashboard().subscribe(data => {
+    //     this.survey = data;
+    //     this.sId = data[0]._id;
+    //   });
+    // }
+    // pierefresh() {
+    //   // this._companyService.getSurveyQuestions(this.surveyId).subscribe(data => {
+    //   //   this.initSvg();
+    //   //   this.drawPie();
+    //   // });
+    // }
     CompanyDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log('surveyId');
+        console.log(this.surveyId);
         // ---------------------------------Start-------------------------------------------
         // Function      : get logged company details
         // Params        : 
@@ -6197,11 +6504,23 @@ var CompanyDashboardComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        // -----------------Pie Start-------------------
+        this.loadData();
+        this.socket.on('Mail Responsed', function (data) {
+            _this.loadData();
+        });
+        // -----------------Pie End-------------------
         this.getMapPositions();
         this.socket.on('closebid', function (data) {
-            console.log(data);
+            // console.log(data);
             _this.getMapPositions();
         });
+        //chart2
+        // this.refresh();
+        // this.socket.on('new survey created', (data) => {
+        //   this.refresh();
+        // });
+        // this.pierefresh();
     };
     //  ---------------------------------Start-------------------------------------------
     // Function      : getTheme
@@ -6216,7 +6535,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
         // this.locations.push({lat:37.56,long:-72.68});
         var _this = this;
         this._companyService.getPositions().subscribe(function (survey) {
-            // console.log(theme);
+            // console.log(survey);
             _this.locations = survey;
             _this.allSurveys = survey;
             // console.log(this.locations);
@@ -6229,7 +6548,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
             //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
             //   })
             // });
-            console.log(_this.locations);
+            // console.log(this.locations);
             // this.locations.push({lat:27.56,long:-82.68});
             // this.locations.push({lat:37.56,long:-72.68});
             // console.log(this.locations);
@@ -6248,8 +6567,8 @@ var CompanyDashboardComponent = /** @class */ (function () {
         var _this = this;
         // this.locations.push({lat:27.56,long:-82.68});
         // this.locations.push({lat:37.56,long:-72.68});
-        console.log(this.surveyId);
-        if (this.surveyId == undefined || this.surveyId == null || this.surveyId == '') {
+        // console.log(this.surveyId)
+        if (this.surveyId == 'all') {
             this.getMapPositions();
         }
         else {
@@ -6266,7 +6585,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
                 //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
                 //   })
                 // });
-                console.log(_this.locations);
+                // console.log(this.locations);
                 // this.locations.push({lat:27.56,long:-82.68});
                 // this.locations.push({lat:37.56,long:-72.68});
                 // console.log(this.locations);
@@ -6277,6 +6596,199 @@ var CompanyDashboardComponent = /** @class */ (function () {
     CompanyDashboardComponent.prototype.ConvertString = function (value) {
         return parseFloat(value);
     };
+    // //chart2
+    // applyFilter(filterValue: string) {
+    //   filterValue = filterValue.trim(); // Remove whitespace
+    //   filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    //   this.dataSource.filter = filterValue;
+    // }
+    // initSvg1() {
+    //   this.svg1 = d3.select("#bar1");
+    //   this.widthb = +this.svg1.attr("width") - this.marginb.left - this.marginb.right;
+    //   this.heightb = +this.svg1.attr("height") - this.marginb.top - this.marginb.bottom;
+    //   this.g = this.svg1.append("g")
+    //     .attr("transform", "translate(" + this.marginb.left + "," + this.marginb.top + ")");
+    // }
+    // initAxis() {
+    //   this.x = d3Scale.scaleBand().rangeRound([0, this.widthb]).padding(0.1);
+    //   this.y = d3Scale.scaleLinear().rangeRound([this.heightb, 0]);
+    //   this.x.domain(this.barchart.map((d) => d.company));
+    //   this.y.domain([0, d3Array.max(this.barchart, (d) => d.count)]);
+    // }
+    // drawAxis() {
+    //   this.g.append("g")
+    //     .attr("class", "axis axis--x")
+    //     .attr("transform", "translate(0," + this.heightb + ")")
+    //     .call(d3Axis.axisBottom(this.x));
+    //   this.g.append("g")
+    //     .attr("class", "axis axis--y")
+    //     .call(d3Axis.axisLeft(this.y))
+    //     .append("text")
+    //     .attr("class", "axis-title")
+    //     .attr("transform", "rotate(-90)")
+    //     .attr("y", 6)
+    //     .attr("dy", "0.71em")
+    //     .attr("text-anchor", "end")
+    //     .text("count");
+    // }
+    // drawBars() {
+    //   this.g.selectAll(".bar")
+    //     .data(this.barchart)
+    //     .enter().append("rect")
+    //     .attr("class", "bar")
+    //     .attr("x", (d) => this.x(d.company))
+    //     .attr("y", (d) => this.y(d.count))
+    //     .attr("data-id", (d) => this.y(d.id))
+    //     .attr("width", this.x.bandwidth())
+    //     .attr("height", (d) => this.heightb - this.y(d.count))
+    //     // .on("click", this.mouseclick)  
+    //     .on('click', (d, i) => {
+    //       this.svg.remove();
+    //       this.piechart = []
+    //       this.quest[i].ans.forEach((val) => {
+    //         if (val.count != 0) {
+    //           this.piechart.push({ status: val.value, count: val.count, answeredUser: val.answeredUser });
+    //         }
+    //       });
+    //       this.initSvg();
+    //       this.drawPie();
+    //       console.log(i);
+    //       // this.companyService.getSingleQA(d).subscribe(data1=>{
+    //       //   console.log(data1);
+    //       // });
+    //     })
+    // }
+    //piechart
+    // initSvg() {
+    //   this.color = d3Scale.scaleOrdinal()
+    //     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    //   this.arc = d3Shape.arc()
+    //     .outerRadius(this.radius - 10)
+    //     .innerRadius(0);
+    //   this.labelArc = d3Shape.arc()
+    //     .outerRadius(this.radius - 40)
+    //     .innerRadius(this.radius - 40);
+    //   this.pie = d3Shape.pie()
+    //     .sort(null)
+    //     .value((d: any) => d.count);
+    //   this.svg = d3.select("#sd")
+    //     .append("g")
+    //     .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
+    // }
+    // drawPie() {
+    //   let g = this.svg.selectAll(".arc")
+    //     .data(this.pie(this.piechart))
+    //     .enter().append("g")
+    //     .attr("class", "arc");
+    //   g.append("path").attr("d", this.arc)
+    //     .style("fill", (d: any) => this.color(d.data.status))
+    //     .on('click', (d, i) => {
+    //       this.dataSource = new MatTableDataSource(d.data.answeredUser);
+    //       this.dataSource.paginator = this.paginator;
+    //       this.dataSource.sort = this.sort;
+    //       $('#answeredUsers').modal('show');
+    //     });
+    //   g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
+    //     .attr("dy", ".35em")
+    //     .text((d: any) => d.data.status)
+    // }
+    // -------------------Pie Start------------------
+    CompanyDashboardComponent.prototype.initSvgDia = function () {
+        this.color1 = d3Scale.scaleOrdinal()
+            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
+        this.arc1 = d3Shape.arc()
+            .outerRadius(this.radius1 - 10)
+            .innerRadius(0);
+        this.labelArc1 = d3Shape.arc()
+            .outerRadius(this.radius1 - 40)
+            .innerRadius(this.radius1 - 40);
+        this.pie1 = d3Shape.pie()
+            .sort(null)
+            .value(function (d) { return d.count; });
+        this.svg2 = d3.select("svg")
+            .append("g")
+            .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
+    };
+    CompanyDashboardComponent.prototype.drawPieDia = function () {
+        var _this = this;
+        var g = this.svg2.selectAll("#piedia")
+            .data(this.pie1(this.Stats))
+            .enter().append("g")
+            .attr("class", "arc");
+        g.append("path").attr("d", this.arc1)
+            .style("fill", function (d) { return _this.color1(d.data.case); });
+        g.append("text").attr("transform", function (d) { return "translate(" + _this.labelArc1.centroid(d) + ")"; })
+            .attr("dy", ".35em")
+            .text(function (d) { return d.data.case; });
+    };
+    CompanyDashboardComponent.prototype.refreshDia = function () {
+        // console.log("------------------------");
+        // console.log(this.surveyId);
+        // console.log("------------------------");
+        d3.select("svg").remove();
+        var svg = d3.select(".svg-div").append("svg").attr("width", "960").attr("height", "500"), inner = svg.append("g");
+        this.loadData();
+    };
+    CompanyDashboardComponent.prototype.loadData = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get all Mail responsed users, mail viewed users, survey completed users
+        // Params        : 
+        // Returns       : count of mail responsed users, mail viewed users
+        // Author        : Rinsha
+        // Date          : 10-1-2018
+        // Last Modified : 11-1-2018, Rinsha
+        // Desc          : 
+        var data = {};
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.survey_id = params.id;
+        });
+        if (this.survey_id) {
+            data = { id: this.survey_id };
+        }
+        if (this.surveyId != '') {
+            data = { id: this.surveyId };
+        }
+        if (this.surveyId == "all") {
+            data = {};
+        }
+        this._companyService.getMailResponseCount(data).subscribe(function (res) {
+            _this.mail_response_count = res;
+            _this._companyService.getMailViewedCount(data).subscribe(function (res1) {
+                _this.mail_viewed_count = res1;
+                _this._companyService.getSurveyCompletedCount(data).subscribe(function (res2) {
+                    _this.survey_completed_count = res2;
+                    _this._companyService.getInvitedUserCount(data).subscribe(function (res3) {
+                        _this.invited_user_count = res3;
+                        _this.mail_not_readed_count = _this.invited_user_count - _this.mail_viewed_count - _this.mail_response_count - _this.survey_completed_count;
+                        _this.Stats = [];
+                        if (_this.mail_viewed_count != 0) {
+                            _this.Stats.push({ case: "Mail Readed", count: _this.mail_viewed_count });
+                        }
+                        if (_this.mail_not_readed_count != 0) {
+                            _this.Stats.push({ case: "Mail Not Readed", count: _this.mail_not_readed_count });
+                        }
+                        if (_this.mail_response_count != 0) {
+                            _this.Stats.push({ case: "Mail Responsed", count: _this.mail_response_count });
+                        }
+                        if (_this.survey_completed_count != 0) {
+                            _this.Stats.push({ case: "Survey Completed", count: _this.survey_completed_count });
+                        }
+                        _this.initSvgDia();
+                        _this.drawPieDia();
+                    });
+                });
+            });
+        });
+    };
+    __decorate([
+        core_1.ViewChild(material_1.MatPaginator),
+        __metadata("design:type", material_1.MatPaginator)
+    ], CompanyDashboardComponent.prototype, "paginator", void 0);
+    __decorate([
+        core_1.ViewChild(material_1.MatSort),
+        __metadata("design:type", material_1.MatSort)
+    ], CompanyDashboardComponent.prototype, "sort", void 0);
     CompanyDashboardComponent = __decorate([
         core_1.Component({
             selector: 'app-company-dashboard',
@@ -6285,7 +6797,8 @@ var CompanyDashboardComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [company_service_1.CompanyService,
             router_1.Router,
-            config_1.Config])
+            config_1.Config,
+            router_1.ActivatedRoute])
     ], CompanyDashboardComponent);
     return CompanyDashboardComponent;
 }());
@@ -9542,10 +10055,10 @@ var NewpieComponent = /** @class */ (function () {
         this.mail_not_readed_count = 0;
         this.title = '';
         this.subtitle = 'Pie Chart of Survey Response';
-        this.margin = { top: 20, right: 20, bottom: 30, left: 50 };
-        this.width = 900 - this.margin.left - this.margin.right;
-        this.height = 500 - this.margin.top - this.margin.bottom;
-        this.radius = Math.min(this.width, this.height) / 2;
+        this.margin1 = { top: 20, right: 20, bottom: 30, left: 50 };
+        this.width1 = 900 - this.margin1.left - this.margin1.right;
+        this.height1 = 500 - this.margin1.top - this.margin1.bottom;
+        this.radius1 = Math.min(this.width1, this.height1) / 2;
         this.socket = socketIo(config.siteUrl);
     }
     NewpieComponent.prototype.ngOnInit = function () {
@@ -9609,45 +10122,45 @@ var NewpieComponent = /** @class */ (function () {
                         if (_this.survey_completed_count != 0) {
                             _this.Stats.push({ case: "Survey Completed", count: _this.survey_completed_count });
                         }
-                        _this.initSvg();
-                        _this.drawPie();
+                        _this.initSvgDia();
+                        _this.drawPieDia();
                     });
                 });
             });
         });
     };
     // ---------------------------------End-------------------------------------------
-    NewpieComponent.prototype.initSvg = function () {
-        this.color = d3Scale.scaleOrdinal()
+    NewpieComponent.prototype.initSvgDia = function () {
+        this.color1 = d3Scale.scaleOrdinal()
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
-        this.arc = d3Shape.arc()
-            .outerRadius(this.radius - 10)
+        this.arc1 = d3Shape.arc()
+            .outerRadius(this.radius1 - 10)
             .innerRadius(0);
-        this.labelArc = d3Shape.arc()
-            .outerRadius(this.radius - 40)
-            .innerRadius(this.radius - 40);
-        this.pie = d3Shape.pie()
+        this.labelArc1 = d3Shape.arc()
+            .outerRadius(this.radius1 - 40)
+            .innerRadius(this.radius1 - 40);
+        this.pie1 = d3Shape.pie()
             .sort(null)
             .value(function (d) { return d.count; });
-        this.svg = d3.select("svg")
+        this.svg2 = d3.select("svg")
             .append("g")
-            .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
+            .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
     };
-    NewpieComponent.prototype.drawPie = function () {
+    NewpieComponent.prototype.drawPieDia = function () {
         var _this = this;
-        var g = this.svg.selectAll(".arc")
-            .data(this.pie(this.Stats))
+        var g = this.svg2.selectAll("#piedia")
+            .data(this.pie1(this.Stats))
             .enter().append("g")
             .attr("class", "arc");
-        g.append("path").attr("d", this.arc)
-            .style("fill", function (d) { return _this.color(d.data.case); });
-        g.append("text").attr("transform", function (d) { return "translate(" + _this.labelArc.centroid(d) + ")"; })
+        g.append("path").attr("d", this.arc1)
+            .style("fill", function (d) { return _this.color1(d.data.case); });
+        g.append("text").attr("transform", function (d) { return "translate(" + _this.labelArc1.centroid(d) + ")"; })
             .attr("dy", ".35em")
             .text(function (d) { return d.data.case; });
     };
-    NewpieComponent.prototype.refresh = function () {
+    NewpieComponent.prototype.refreshDia = function () {
         d3.select("svg").remove();
-        var svg = d3.select("body").append("svg").attr("width", "960").attr("height", "500"), inner = svg.append("g");
+        var svg = d3.select("body").append("svg").attr("width1", "960").attr("height1", "500"), inner = svg.append("g");
         this.loadData();
     };
     NewpieComponent = __decorate([
@@ -10263,7 +10776,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-response-email/user-response-email.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  user-response-email works!\r\n</p>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -10329,11 +10842,12 @@ var UserResponseEmailComponent = /** @class */ (function () {
             // Last Modified : 05-01-2018, Rinsha
             // Desc          : Check whether the company registered email id is registered globally
             _this.userService.checkEmail(_this.userEmail).subscribe(function (data) {
+                console.log(data);
                 if (data.success) {
                     _this.routes.navigate(['/user-login', data.user_id, _this.surveyId]);
                 }
                 else {
-                    _this.routes.navigate(['user-register', _this.userId, _this.surveyId]);
+                    _this.routes.navigate(['/user-register', _this.userId, _this.surveyId]);
                 }
             });
             // -----------------------------------End------------------------------------------
@@ -10376,7 +10890,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey-closed/user-survey-closed.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md  bg-inverse fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n        <div class=\"container\">\r\n            <div class=\"col-md-8 col-md-offset-2\">\r\n              <div class=\"col-md-4 txt-right\">\r\n                <img class=\"logo-img\" src=\"{{serviceUrl+survey.logo}}\" alt=\"logo\">                            \r\n              </div>\r\n              <div class=\"col-md-8\">\r\n                  <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n                  \r\n              </div>\r\n            </div>\r\n          </div>\r\n        </nav>\r\n    \r\n      <div class=\"container\">\r\n          <div class=\"col-md-12 survey-close\">\r\n              <i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>\r\n              <h2>Sorry! Survey Closed</h2>\r\n            </div>\r\n        \r\n      </div>\r\n      <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n          <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n        </footer>\r\n    \r\n</div>\r\n"
+module.exports = "<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md  bg-inverse fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n        <div class=\"container\">\r\n            <div class=\"col-md-8 col-md-offset-2\">\r\n              <div class=\"col-md-4 txt-right\">\r\n                <img class=\"logo-img\" src=\"{{serviceUrl+survey.logo}}\" alt=\"logo\">                         \r\n              </div>\r\n              <div class=\"col-md-8\">\r\n                  <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n                  \r\n              </div>\r\n            </div>\r\n          </div>\r\n        </nav>\r\n    \r\n      <div class=\"container\">\r\n          <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n          <div class=\"col-md-12 survey-close\">\r\n              <i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>\r\n              <h2>Sorry! Survey Closed</h2>\r\n            </div>\r\n        \r\n      </div>\r\n      <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n          <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n        </footer>\r\n    \r\n</div>\r\n"
 
 /***/ }),
 
@@ -10401,12 +10915,13 @@ var user_service_1 = __webpack_require__("../../../../../src/app/services/user.s
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var UserSurveyClosedComponent = /** @class */ (function () {
-    function UserSurveyClosedComponent(_activatedRoute, _userService, _companyService, routes, config) {
+    function UserSurveyClosedComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
         this.routes = routes;
         this.config = config;
+        this.route = route;
         this.gotSurvey = false;
         this.serviceUrl = config.siteUrl + '/company/';
     }
@@ -10421,6 +10936,7 @@ var UserSurveyClosedComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            _this.userIdx = info._id;
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -10493,6 +11009,26 @@ var UserSurveyClosedComponent = /** @class */ (function () {
             }
         });
     };
+    //  ---------------------------------end-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Logout
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 03-1-2018
+    // Last Modified : 03-1-2018, Rinsha
+    // Desc          : 
+    UserSurveyClosedComponent.prototype.logout = function () {
+        var surveyIdx;
+        this.route.params.subscribe(function (params) {
+            surveyIdx = params['id'];
+        });
+        this._userService.logout();
+        console.log(this.userIdx);
+        console.log(surveyIdx);
+        this.routes.navigate(['/user-login', this.userIdx, surveyIdx]);
+        return false;
+    };
     UserSurveyClosedComponent = __decorate([
         core_1.Component({
             selector: 'app-user-survey-closed',
@@ -10503,7 +11039,7 @@ var UserSurveyClosedComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             user_service_1.UserService,
             company_service_1.CompanyService,
-            router_1.Router, config_1.Config])
+            router_1.Router, config_1.Config, router_1.ActivatedRoute])
     ], UserSurveyClosedComponent);
     return UserSurveyClosedComponent;
 }());
@@ -10558,12 +11094,13 @@ var user_service_1 = __webpack_require__("../../../../../src/app/services/user.s
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var UserSurveyMultipleComponent = /** @class */ (function () {
-    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, routes, config) {
+    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
         this.routes = routes;
         this.config = config;
+        this.route = route;
         this.cardNo = 0;
         this.incDisp = false;
         this.disp = false;
@@ -10585,6 +11122,7 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            _this.userIdx = info._id;
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -10695,6 +11233,23 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
             $('#myModaly').modal('show');
         }
     };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Logout
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 03-1-2018
+    // Last Modified : 03-1-2018, Rinsha
+    // Desc          : 
+    UserSurveyMultipleComponent.prototype.logout = function () {
+        var surveyIdx;
+        this.route.params.subscribe(function (params) {
+            surveyIdx = params['id'];
+        });
+        this._userService.logout();
+        this.routes.navigate(['/user-login', this.userIdx, surveyIdx]);
+        return false;
+    };
     UserSurveyMultipleComponent = __decorate([
         core_1.Component({
             selector: 'app-user-survey-multiple',
@@ -10705,7 +11260,7 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             user_service_1.UserService,
             company_service_1.CompanyService,
-            router_1.Router, config_1.Config])
+            router_1.Router, config_1.Config, router_1.ActivatedRoute])
     ], UserSurveyMultipleComponent);
     return UserSurveyMultipleComponent;
 }());
@@ -10761,12 +11316,13 @@ var company_service_1 = __webpack_require__("../../../../../src/app/services/com
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 // import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
 var UserSurveySinglepageComponent = /** @class */ (function () {
-    function UserSurveySinglepageComponent(_activatedRoute, _userService, _companyService, routes, config) {
+    function UserSurveySinglepageComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
         this.routes = routes;
         this.config = config;
+        this.route = route;
         this.disp = false;
         this.skip = false;
         this.blankAns = false;
@@ -10783,6 +11339,7 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            _this.userIdx = info._id;
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -10878,6 +11435,23 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
             $('#myModaly').modal('show');
         }
     };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Logout
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 03-1-2018
+    // Last Modified : 03-1-2018, Rinsha
+    // Desc          : 
+    UserSurveySinglepageComponent.prototype.logout = function () {
+        var surveyIdx;
+        this.route.params.subscribe(function (params) {
+            surveyIdx = params['id'];
+        });
+        this._userService.logout();
+        this.routes.navigate(['/user-login', this.userIdx, surveyIdx]);
+        return false;
+    };
     UserSurveySinglepageComponent = __decorate([
         core_1.Component({
             selector: 'app-user-survey-singlepage',
@@ -10888,7 +11462,7 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             user_service_1.UserService,
             company_service_1.CompanyService,
-            router_1.Router, config_1.Config])
+            router_1.Router, config_1.Config, router_1.ActivatedRoute])
     ], UserSurveySinglepageComponent);
     return UserSurveySinglepageComponent;
 }());
@@ -10918,7 +11492,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n  <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            <div class=\"col-md-4  txt-right\">\r\n                <img class=\"logo-img\" src=\"{{serviceUrl+survey.logo}}\" alt=\"logo\">                            \r\n                \r\n            </div>\r\n            <div class=\"col-md-8\">\r\n                <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header}}</h1>\r\n                \r\n            </div>\r\n          </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"col-md-12 survey-close\">\r\n    <h3><app-count-down-timer   [inputDate]=\"countTime\" (onTimeOver)=\"timeOver()\"></app-count-down-timer></h3>\r\n  </div>        \r\n  <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer}}</p>\r\n    </footer>\r\n            \r\n</div>"
+module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n  <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            <div class=\"col-md-4  txt-right\">\r\n                <img class=\"logo-img\" src=\"{{serviceUrl+survey.logo}}\" alt=\"logo\">                            \r\n                \r\n            </div>\r\n            <div class=\"col-md-8\">\r\n                <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header}}</h1>\r\n                \r\n            </div>\r\n          </div>\r\n    </div>\r\n  </nav>\r\n  <div class=\"container\">\r\n        <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n        <div class=\"col-md-12 survey-close\">\r\n                <h3><app-count-down-timer   [inputDate]=\"countTime\" (onTimeOver)=\"timeOver()\"></app-count-down-timer></h3>\r\n              </div>\r\n  </div>\r\n          \r\n  <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer}}</p>\r\n    </footer>\r\n            \r\n</div>"
 
 /***/ }),
 
@@ -10943,12 +11517,13 @@ var user_service_1 = __webpack_require__("../../../../../src/app/services/user.s
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var UserSurveyUpcomingComponent = /** @class */ (function () {
-    function UserSurveyUpcomingComponent(_activatedRoute, _userService, _companyService, routes, config) {
+    function UserSurveyUpcomingComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
         this.routes = routes;
         this.config = config;
+        this.route = route;
         this.disp = false;
         this.serviceUrl = config.siteUrl + '/company/';
     }
@@ -10963,6 +11538,7 @@ var UserSurveyUpcomingComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            _this.userIdx = info._id;
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -11013,6 +11589,23 @@ var UserSurveyUpcomingComponent = /** @class */ (function () {
     UserSurveyUpcomingComponent.prototype.timeOver = function () {
         window.location.reload();
     };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Logout
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 03-1-2018
+    // Last Modified : 03-1-2018, Rinsha
+    // Desc          : 
+    UserSurveyUpcomingComponent.prototype.logout = function () {
+        var surveyIdx;
+        this.route.params.subscribe(function (params) {
+            surveyIdx = params['id'];
+        });
+        this._userService.logout();
+        this.routes.navigate(['/user-login', this.userIdx, surveyIdx]);
+        return false;
+    };
     UserSurveyUpcomingComponent = __decorate([
         core_1.Component({
             selector: 'app-user-survey-upcoming',
@@ -11023,7 +11616,7 @@ var UserSurveyUpcomingComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             user_service_1.UserService,
             company_service_1.CompanyService,
-            router_1.Router, config_1.Config])
+            router_1.Router, config_1.Config, router_1.ActivatedRoute])
     ], UserSurveyUpcomingComponent);
     return UserSurveyUpcomingComponent;
 }());
@@ -13018,6 +13611,35 @@ var CompanyService = /** @class */ (function () {
         return this.http.get(this.serviceUrl + 'get-survey-for-map/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    // < ----------------------------------End------------------------------------------- 
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Get survey question
+    // Params        : 
+    // Returns       : 
+    // Author        : sudha
+    // Date          : 17-01-2018
+    // Last Modified : 
+    // Desc          : survey question
+    CompanyService.prototype.getSurveyQuestions = function (surveyId) {
+        console.log(surveyId);
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + 'getAllQuestions/' + surveyId, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Get all survey
+    // Params        : 
+    // Returns       : 
+    // Author        : sudha
+    // Date          : 17-01-2018
+    // Last Modified : 
+    // Desc          : all survey
+    CompanyService.prototype.getAllsurveyDashboard = function () {
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + 'getAllSurveys', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     CompanyService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http, config_1.Config])
@@ -13203,6 +13825,20 @@ var UserService = /** @class */ (function () {
         var h = this.setHeaderWithAuthorization();
         return this.http.get(this.serviceUrl + 'getLoggedinUser', { headers: h })
             .map(function (res) { return res.json(); });
+    };
+    // ---------------------------------------End--------------------------------------------
+    // ---------------------------------Start------------------------------------------------
+    // Function      : Logout
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 03-1-2018
+    // Last Modified : 03-1-2018, Rinsha
+    // Desc          : 
+    UserService.prototype.logout = function () {
+        this.authToken = null;
+        this.user = null;
+        localStorage.clear();
     };
     UserService = __decorate([
         core_1.Injectable(),

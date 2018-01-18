@@ -125,6 +125,7 @@ import { ReversePipe } from './pipe/reverse.pipe';
 import { StarRatingModule } from 'angular-star-rating';
 import {Component} from "@angular/core";
 import {RatingModule} from "ngx-rating";
+import { CompanyChart2Component } from './components/company-chart2/company-chart2.component';
 
 const appRoutes: Routes = [
   { path: '', component: ReferenceComponentComponent },
@@ -218,6 +219,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatTooltipModule,
   ],
+  declarations: [],
 })
 export class DemoMaterialModule {}
 @NgModule({
@@ -283,7 +285,8 @@ export class DemoMaterialModule {}
     UserLoginComponent, 
     UserRegistrationComponent,
     NewpieComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CompanyChart2Component
   ],
   imports: [
     BrowserModule,

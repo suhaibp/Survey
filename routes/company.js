@@ -2903,6 +2903,85 @@ var returnRouter = function (io) {
     });
     // ----------------------------------End-------------------------------------------
 
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get function 
+    // Params        : 
+    // Returns       : 
+    // Author        : Jooshifa
+    // Date          : 15-01-2018
+    // Last Modified : 15-01-2018, Jooshifa
+    // Desc          : to get all surveys for displays in company dashboard
+
+    router.get('/getAllSurveys', (req, res) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4),
+                decoded;
+                decoded = jwt.verify(authorization, config.secret);
+        cmp_id = decoded._id;
+console.log(cmp_id)
+        Survey.find({ start_datetime: { $lte: new Date() }, company_id: cmp_id }, function (err, survey) {
+
+            return res.json(survey);
+
+        });
+    } else {
+        return res.status(401).send('Invalid User');
+    }
+    });
+
+    // ----------------------------------End-------------------------------------------
+
+
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get function 
+    // Params        : 
+    // Returns       : 
+    // Author        : Jooshifa
+    // Date          : 15-01-2018
+    // Last Modified : 18-01-2018, Jooshifa
+    // Desc          : to get all questions in each survey,no of choices,answers of users for each questions and no of responses for each questions
+
+    router.get('/getAllQuestions/:id', (req, res) => {
+        mainArray = [];
+        options: [];
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4),
+                decoded;
+                decoded = jwt.verify(authorization, config.secret);
+        cmp_id = decoded._id;
+console.log(cmp_id);
+        SurveyId = req.params.id;
+
+        Survey.findOne({ _id: req.params.id, company_id: cmp_id }, function (err, eachSurvey) {
+            eachSurvey.questions.forEach((eachQuestions, i) => {
+                mainArray.push({ id: eachQuestions._id, question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
+                totalCount = 0;
+                eachQuestions.options.forEach((eachoption, j) => {
+                    count = 0;
+                    answeredUser = [];
+                    eachQuestions.answers.forEach(eachanswer => {
+                        if (eachoption == eachanswer.answer || eachanswer.answer == j + 1) {
+                            count++;
+                            answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
+                        }
+                    })
+                    totalCount += count;
+                    mainArray[i].ans.push({ value: eachoption, "count": count, answeredUser: answeredUser });
+                });
+                mainArray[i].totalCount = totalCount;
+            });
+
+            mainArray.surveyId = SurveyId;
+
+            return res.json(mainArray);
+
+        }).lean();
+    } else {
+        return res.status(401).send('Invalid User');
+    }
+    });
+    // ----------------------------------End-------------------------------------------
+
 
 
 

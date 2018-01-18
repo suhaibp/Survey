@@ -3,7 +3,7 @@
         <div class="container">
             <div class="col-md-8 col-md-offset-2">
               <div class="col-md-4 txt-right">
-                <img class="logo-img" src="{{serviceUrl+survey.logo}}" alt="logo">                            
+                <img class="logo-img" src="{{serviceUrl+survey.logo}}" alt="logo">                         
               </div>
               <div class="col-md-8">
                   <h1 class="srvey-hd" [ngStyle]="{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}" [ngClass]="{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}">{{survey.header_title}}</h1>
@@ -14,6 +14,7 @@
         </nav>
     
       <div class="container">
+          <button type="submit" (click)="logout()" class="btn btn-danger pull-right lg-out" >Logout</button>
           <div class="col-md-12 survey-close">
               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
               <h2>Sorry! Survey Closed</h2>

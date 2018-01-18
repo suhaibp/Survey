@@ -1,0 +1,70 @@
+<h1>{{title}}</h1>
+<!-- <h2>{{subtitle}}</h2> -->
+
+    <svg  width="600" height="300"></svg>
+
+
+<svg id="sd" width="960" height="500" ></svg>
+
+
+<div id="answeredUsers"  class="modal fade">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" #closeBtn1>&times;</button>
+        <h4 class="modal-title">Answered Users</h4>
+      </div>
+      <div class="modal-body">
+        
+     
+
+          <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+            
+            <div class="example-container mat-elevation-z8">
+
+                <div class="example-container mat-elevation-z8">
+                    <mat-table  [dataSource]="dataSource" matSort>
+                  
+                      <ng-container matColumnDef="slno">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>
+                        <mat-cell *matCellDef="let row;let i = index"> {{i+1}} </mat-cell>
+                      </ng-container>
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="email">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>
+                          <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+                        </ng-container>
+                    
+                     <!-- Name Column -->
+                     <ng-container matColumnDef="date_time">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>
+                      <mat-cell *matCellDef="let row"> {{row.date_time| date:'medium'}} </mat-cell>
+                    </ng-container>
+                  
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                      </mat-row>
+                    </mat-table>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                  </div>
+              
+            </div>
+            <br>
+          
+     
+
+  
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+    
+  </div>
+</div>
+
