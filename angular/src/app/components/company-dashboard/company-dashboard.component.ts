@@ -15,6 +15,9 @@ export class CompanyDashboardComponent implements OnInit {
   lng: number = 7.809007;
   private socket: any;
   locations = [];
+  allSurveys:any;
+  surveyId:any;
+  
   constructor(private _companyService: CompanyService,
     private routes: Router,
     private config: Config) {
@@ -71,53 +74,15 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
   // Desc          : Get Theme details using id from parameter in router from database
 
 
-getMapPositions(){
-  // this.locations.push({lat:27.56,long:-82.68});
-  // this.locations.push({lat:37.56,long:-72.68});
-  
-  this._companyService.getPositions().subscribe(survey =>{
-    // console.log(theme);
-    this.locations = survey;
-    // console.log(this.locations);
-    // survey.questions.forEach((element,i) => {
-    //   // this.locations[i].question = element.question;
-    //   // this.locations[i].answer = element.question;
-    //   // this.locations[i].question = element.question;
-
-    //   element.forEach((ele,j) => {
-    //     console.log(element._id.longitude);
-    //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
-    //   })
-      
-    // });
-    console.log(this.locations);
-    // this.locations.push({lat:27.56,long:-82.68});
-    // this.locations.push({lat:37.56,long:-72.68});
-    // console.log(this.locations);
-  });
-
-
-  }
-//  ---------------------------------end-----------------------------------------------
-
-
-//  ---------------------------------Start-------------------------------------------
-  // Function      : getTheme
-  // Params        : 
-  // Returns       : 
-  // Author        : Manu Prasad
-  // Date          : 1-1-2018
-  // Last Modified : 1-1-2018, Manu Prasad 
-  // Desc          : Get Theme details using id from parameter in router from database
-
-
-  getMapPositionsforId(){
+  getMapPositions(){
     // this.locations.push({lat:27.56,long:-82.68});
     // this.locations.push({lat:37.56,long:-72.68});
     
     this._companyService.getPositions().subscribe(survey =>{
       // console.log(theme);
       this.locations = survey;
+      this.allSurveys = survey;
+      
       // console.log(this.locations);
       // survey.questions.forEach((element,i) => {
       //   // this.locations[i].question = element.question;
@@ -135,6 +100,53 @@ getMapPositions(){
       // this.locations.push({lat:37.56,long:-72.68});
       // console.log(this.locations);
     });
+  
+  
+    }
+//  ---------------------------------end-----------------------------------------------
+
+
+//  ---------------------------------Start-------------------------------------------
+  // Function      : getTheme
+  // Params        : 
+  // Returns       : 
+  // Author        : Manu Prasad
+  // Date          : 1-1-2018
+  // Last Modified : 1-1-2018, Manu Prasad 
+  // Desc          : Get Theme details using id from parameter in router from database
+
+
+  getMapPositionsforId(){
+    // this.locations.push({lat:27.56,long:-82.68});
+    // this.locations.push({lat:37.56,long:-72.68});
+  console.log(this.surveyId)
+    if(this.surveyId == undefined || this.surveyId == null || this.surveyId == ''){
+      this.getMapPositions();
+    
+    }
+    else{
+      this._companyService.getSurveyforDash(this.surveyId).subscribe(survey =>{
+        // console.log(theme);
+        this.locations = survey;
+        // console.log(this.locations);
+        // survey.questions.forEach((element,i) => {
+        //   // this.locations[i].question = element.question;
+        //   // this.locations[i].answer = element.question;
+        //   // this.locations[i].question = element.question;
+    
+        //   element.forEach((ele,j) => {
+        //     console.log(element._id.longitude);
+        //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
+        //   })
+          
+        // });
+        console.log(this.locations);
+        // this.locations.push({lat:27.56,long:-82.68});
+        // this.locations.push({lat:37.56,long:-72.68});
+        // console.log(this.locations);
+      });
+    }
+    
   
   
     }

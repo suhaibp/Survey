@@ -1,5 +1,5 @@
-/* @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
-@import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 .prev-img {
      /* background-color: #dd3;  */
     border-radius: 5px;
@@ -197,3 +197,9 @@ agm-map {
     z-index: 1052 !important;
 }
 .col-md-offset-3 .mat-form-field{width: 100%;}
+.txt-right{
+    text-align: right
+}
+.logo-img{
+    margin: 10px;
+}

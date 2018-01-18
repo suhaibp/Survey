@@ -4,12 +4,13 @@ import { UserService } from './../../services/user.service';
 import { CompanyService } from './../../services/company.service';
 declare var $:any;
 import {RatingModule} from "ngx-rating";
+import {Config} from '../../config/config';
 
 // import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
 @Component({
   selector: 'app-user-survey-singlepage',
   templateUrl: './user-survey-singlepage.component.html',
-  styleUrls: ['./user-survey-singlepage.component.css','./user-survey-singlepage.scss'],
+  styleUrls: ['./user-survey-singlepage.component.css'],
   inputs: ['survey'],
   
 })
@@ -43,10 +44,14 @@ export class UserSurveySinglepageComponent implements OnInit {
   ans:any;
   skip = false;
   blankAns = false;
+  serviceUrl :string;
+  
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,private config: Config) { 
+      this.serviceUrl = config.siteUrl + '/company/';
+    }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
 // Function      : get logged user details
@@ -150,5 +155,19 @@ closed(){
 hel(event){
   console.log(this.survey);
   console.log("h")
+}
+
+
+timeOver(){
+  console.log("h");
+  if(this.skip == false){
+  $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+  $('#myModalx').modal('show'); 
+  }
+  else{
+    
+    $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+    $('#myModaly').modal('show');
+  }
 }
 }

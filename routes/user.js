@@ -60,7 +60,8 @@ router.get('/get-survey/:id',(req,res)=>{
                                     status : 0,
                                     header : survey.header_title,
                                     footer : survey.footer_title,
-                                    theme  : survey.theme
+                                    theme  : survey.theme,
+                                    logo : survey.logo
                                 });
                             }
                             else{
@@ -93,7 +94,9 @@ router.get('/get-survey/:id',(req,res)=>{
                                 start_time : survey.start_datetime,
                                 header : survey.header_title,
                                 footer : survey.footer_title,    
-                                theme  : survey.theme
+                                theme  : survey.theme,
+                                logo : survey.logo
+                                
                                 
                             });
                         }
@@ -271,6 +274,9 @@ router.put('/submit-survey/:id',(req,res)=>{
                                                 
                                             }else{
                                                 res.json({status:4, msg: msg}); //success
+                                                io.sockets.emit("surveySubmit", {
+                                                   
+                                                });
                                             }
                                         });
                                             
@@ -373,6 +379,8 @@ router.put('/submit-survey/:id',(req,res)=>{
     
 // }
 });
+
+
 
 // ---------------------------------Start-------------------------------------------
 // Function      : Get user email from user collection

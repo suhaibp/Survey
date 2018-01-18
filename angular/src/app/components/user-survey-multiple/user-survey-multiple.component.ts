@@ -5,6 +5,7 @@ import { CompanyService } from './../../services/company.service';
 import {ReversePipe } from './../../pipe/reverse.pipe'
 declare var $:any;
 import {RatingModule} from "ngx-rating";
+import {Config} from '../../config/config';
 
 @Component({
   selector: 'app-user-survey-multiple',
@@ -26,10 +27,14 @@ export class UserSurveyMultipleComponent implements OnInit {
   questionCount = 0;
   progressBarWidth = 0;
   progressBarWidthString = '';
+  serviceUrl :string;
+  
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,private config: Config) {
+      this.serviceUrl = config.siteUrl + '/company/';
+     }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -146,10 +151,23 @@ back(){
 }
 skipQuestion(){
   this.cardNo = this.cardNo+1
+  this.blankAns = false;
   
 }
 closed(){
   window.location.reload();
   
+}
+timeOver(){
+  console.log("h");
+  if(this.skip == false){
+  $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+  $('#myModalx').modal('show'); 
+  }
+  else{
+    
+    $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+    $('#myModaly').modal('show');
+  }
 }
 }

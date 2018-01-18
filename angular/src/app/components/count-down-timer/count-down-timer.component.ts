@@ -35,7 +35,7 @@ export class CountDownTimerComponent implements OnInit {
     minutes = Math.floor(t / 60) % 60;
     t -= minutes * 60;
     seconds = t % 60;
-    if(hours < 0){
+    if(days < 0){
         this.subscription.unsubscribe();
         this.onTimeOver.emit();
         return "0:00:00";
