@@ -19,7 +19,7 @@ export class UserSurveyClosedComponent implements OnInit {
   gotSurvey= false;
   serviceUrl :string;
   userIdx:any;
-  attented:any;
+  attended:any;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
@@ -60,9 +60,9 @@ this._userService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
-if(this.attented == true){
-  $('#attd').text("Survey already attended!");
-}
+console.log("asx");
+
+
     this.getSurvey();
   }
 

@@ -1610,7 +1610,7 @@ var returnRouter = function (io) {
                                             { new: true },
                                             (err, update) => {
                                                 if (err) {
-                                                    res.send({ success: false, msg: 'Something went wrong' });
+                                                    res.send({ success: false, msg: 'Something went wrong1' });
                                                 }
                                                 else {
 
@@ -1628,7 +1628,7 @@ var returnRouter = function (io) {
                                                                     // console.log(userGroup)
                                                                     if (err) {
                                                                         isSuccess = false;
-                                                                        msg = 'Something went wrong';
+                                                                        msg = 'Something went wrong2';
                                                                     } else {
                                                                         isSuccess = true;
                                                                         msg = 'Add User group Successfully';
