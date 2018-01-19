@@ -16,7 +16,6 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 'use strict';
 var returnRouter = function (io) {
-    
 // ---------------------------------Start-------------------------------------------
 
 // Function      : get Survey
@@ -263,7 +262,7 @@ router.put('/submit-survey/:id',  (req, res) => {
 
                                                     } else {
                                                         res.json({ status: 4, msg: msg }); //success
-                                                        io.sockets.emit("surveySubmit", {
+                                                        io.sockets.emit("Survey Completed", {
 
                                                         });
                                                     }
@@ -341,6 +340,9 @@ router.put('/submit-survey/:id',  (req, res) => {
 
                                                 } else {
                                                     res.json({ status: 4, msg: msg }); //success
+                                                    io.sockets.emit("Survey Completed", {
+                                                        
+                                                    });
                                                 }
                                             });
                                     }
@@ -557,7 +559,6 @@ router.get('/getLoggedinUser', (req, res, next) => {
 });
 
 // ----------------------------------End-------------------------------------------
-
 module.exports = router;
 
     return router;

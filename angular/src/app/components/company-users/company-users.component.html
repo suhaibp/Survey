@@ -113,18 +113,17 @@
           </div>
       
                 <flash-messages></flash-messages>
-                <!-- group filter -->
-            <div class="col-md-2 dropdown">
-            
-              <mat-form-field class="inputfileds">
-                  <mat-select placeholder="Groups" name='selected' #group="ngModel" [(ngModel)]="newBlock.groups" (click)="filterGroup(newBlock.groups)">
-                    <mat-option [value]="grp.name" *ngFor="let grp of groups;" >{{grp.name}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                
-            </div>
+           
                   <br>
                       <div class="col-md-7">
+                          <div class="col-md-4 pull-right">
+                              <mat-form-field class="filter">
+                                  <mat-select   (change)="updateUserList()" name="xyz" [(ngModel)]="selectedUserGroup"  >
+                                    <mat-option value="all">All</mat-option>
+                                    <mat-option value="{{grp._id}}" *ngFor="let grp of userGroups">{{grp.name}}</mat-option>
+                                  </mat-select>
+                          </mat-form-field>
+                          </div>
                       <div class="example-header" >
                           <mat-form-field>
                             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">

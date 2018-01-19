@@ -661,6 +661,9 @@ var returnRouter = function (io) {
                                 }
                                 emailTemplate.sendInvitationMail(data);
                             });
+                            io.sockets.emit("Invite Users", {
+
+                            });
                             res.json({ success: true, msg: "User Invited successfully" });
 
                         }
@@ -2378,11 +2381,12 @@ var returnRouter = function (io) {
                                     newBlock = { companies: company }
                                     Users.findOneAndUpdate({ "email": req.body.email },
                                         {
-                                            $pushAll: { "block_request": newBlock }
+                                            $push: { "block_request": newBlock }
                                         },
                                         { new: true },
                                         (err, Block) => {
                                             if (err) {
+                                            //    throw err;
                                                 res.json({ success: false, msg: "Failed to Block user " });
                                             } else {
                                                 Company.findOneAndUpdate({ "users.email": req.body.email },
