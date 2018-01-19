@@ -95,9 +95,9 @@
                           
                         <div class="modal-body">
                              <form  role="form"  #f1="ngForm" (ngSubmit)="sendBlockRequest(newBlock)">
-                                  <p>Category Name</p>
+                                  <p>User Name :  {{newBlock.email}}</p>
                                   
-                                      {{newBlock.email}}
+                                     
                             <br>
                                    <div class="form-group" >
                                      <textarea class="form-control" rows="5" name = "reason" id="comment" placeholder="Reason" [(ngModel)]="newBlock.reason"></textarea>
@@ -257,7 +257,7 @@
           <h4 class="modal-title">Import From Excel</h4>
         </div>
         <div class="modal-body">
-          <form  role="form"  #f2="ngForm" (ngSubmit)="f2.form.valid && import();" novalidate>
+          <form  role="form"  #f2="ngForm" (ngSubmit)="f2.form.valid && import(f2);" novalidate>
            <div class="form-group" >
              <div class="row">
              <div class="col-md-6">
@@ -319,7 +319,7 @@
                             <!-- Modal content-->
                             <div class="modal-content">
                               <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" #closeBtn>&times;</button>
+                                <button type="button" class="close" data-dismiss="modal" #closeBtnAdd>&times;</button>
                                 <h4 class="modal-title">Add User</h4>
                               </div>
                               <div class="modal-body">

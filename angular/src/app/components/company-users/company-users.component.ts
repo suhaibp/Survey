@@ -34,6 +34,7 @@ newBlock ={
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('f') f: any;
   @ViewChild('closeBtn') closeBtn: ElementRef;
+  @ViewChild('closeBtnAdd') closeBtnAdd: ElementRef;
   @ViewChild('closeBtn1') closeBtn1: ElementRef;
   @ViewChild('closeBtn2') closeBtn2: ElementRef;
   @ViewChild('myInput')myInputVariable: any;
@@ -301,6 +302,7 @@ deleteUser(userId){
         this.msg1 = data.msg;
         form.resetForm();
         //update company = data.company
+        this.loadData();
         setTimeout(()=>{ 
           this.closeBtn1.nativeElement.click();
           this.isSuccess1 = false;
@@ -328,9 +330,11 @@ deleteUser(userId){
           this.isSuccess = true;
           this.msg = data.msg;
           form.resetForm();
+          this.loadData();
           //update company = data.company
           setTimeout(()=>{ 
-            this.closeBtn.nativeElement.click();
+            this.closeBtnAdd.nativeElement.click();
+            this.closeBtn2.nativeElement.click();
             this.isSuccess = false;
             this.msg = '';
             this.btnDisbled = false;
@@ -421,16 +425,18 @@ deleteUser(userId){
         this.result.forEach(element => {
           this.emailArr.push(element.Email);
         });
-        if(typeof(this.emailArr.email == "undefined")){
-          this.emailArr = [];
-        }
+        // console.log((this.emailArr));
+        // if(typeof(this.emailArr == undefined)){
+        //   this.emailArr = [];
+        // }
       }
     })
   }
 
-  import(){
+  import(form){
     this.newUser.email = this.emailArr;
-    this.addUsers('');
+    console.log(this.newUser)
+    this.addUsers(form);
 }
 
   openModal(){

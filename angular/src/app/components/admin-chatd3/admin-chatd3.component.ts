@@ -36,7 +36,6 @@ export class AdminChatd3Component implements OnInit {
   private y: any;
   private svg: any;
   private g: any;
-
   constructor( private adminService : AdminService,
     private routes: Router,private config: Config ) {
       this.socket = socketIo(config.siteUrl);
@@ -52,12 +51,14 @@ export class AdminChatd3Component implements OnInit {
       console.log(elm);
       if (elm.count != 0){
         this.barchart.push({company: elm._id, count:(elm.count)});
+        this.initSvg();
+        this.initAxis();
+        this.drawAxis();
+        this.drawBars();
       }
     });
-    this.initSvg();
-    this.initAxis();
-    this.drawAxis();
-    this.drawBars();
+    
+  
    //  console.log(data);
    });
        

@@ -106,6 +106,11 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
           if(data.cmp_status == "Expired"){
             this.routes.navigate(['/expired']);
           }else{
+            this.companyService.generateToken(params.id).subscribe(data3 => {
+              if(data3.success){
+                this.companyService.storeUserData(data3.token, data3.company);
+               }
+            });
             this.contact_person_email = data.contact_person_email;
             this.contact_person_fname = data.contact_person_fname;
             this.contact_person_lname = data.contact_person_lname;
@@ -185,11 +190,11 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
    this.companyService.registerAdditnInfo(this.id,this.result).subscribe(info => {
      if(info.success==true){
       this._flashMessagesService.show('Redirecting..', { cssClass: 'alert-success', timeout: 4000 });
-      this.companyService.generateToken(this.id).subscribe(data2 => {
-        if(data2.success){
-          this.companyService.storeUserData(data2.token, data2.company);
-         }
-      });
+      // this.companyService.generateToken(this.id).subscribe(data2 => {
+      //   if(data2.success){
+      //     this.companyService.storeUserData(data2.token, data2.company);
+      //    }
+      // });
       setTimeout(() => {  
         this.routes.navigate(['/dashboard']);
       }, 4000);
