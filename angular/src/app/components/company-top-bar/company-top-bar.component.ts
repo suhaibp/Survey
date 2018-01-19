@@ -30,6 +30,9 @@ private socket:any;
     this.socket.on('acceptuser', (data) => {
       this.loadData();
      });
+     this.socket.on('rejectuser', (data) => {
+      this.loadData();
+     });
      this.socket.on('expiredcompany', (data) => {
       this.logChecking();
     });

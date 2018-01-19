@@ -74,6 +74,7 @@ var returnRouter = function (io) {
     // Desc          : sample
 
     router.post('/add-user-group', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        console.log(req.body);
 
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4), decoded;
@@ -2223,9 +2224,11 @@ var returnRouter = function (io) {
             arr1 = [];
             arr2 = [];
             var count = 0;
-            Users.find({ "block_request.action_status": "Accepted" }, (err, globalUser) => {
-                globalUser.forEach(eachUsers => {
-                    eachUsers.block_request.forEach(blockRequest => {
+          //  Users.find({ "block_request.action_status": "Accepted" }, (err, globalUser) => {
+            Users.findOne({},{ block_request: { $elemMatch: { action_status: "Accepted"} } }, function (err, eachUsers) {
+                // console.log(globalUser);
+                // globalUser.forEach(eachUsers => {
+                     eachUsers.block_request.forEach(blockRequest => {
                         blockRequest.companies.forEach(blkCompany => {
                             if (blkCompany.company_id == cmp_id) {
                                 if (blkCompany.comp_is_viewed == false) {
@@ -2235,16 +2238,18 @@ var returnRouter = function (io) {
                                 }
                             }
                         })
-                    });
+                     });
                     // console.log(eachUsers);
+                    // console.log(arr1);
+                    res.json({ arr1 });
                 });
-                //    console.log(arr1);
-                res.json({ arr1 });
-            });
+                   
+            // });
         } else {
             return res.status(401).send('Invalid User');
         }
     });
+    
 
 
 
@@ -2365,7 +2370,7 @@ var returnRouter = function (io) {
                                                             res.json({ success: false, msg: "Failed to Block user " });
                                                         } else {
                                                             io.sockets.emit("requestuser", {
-                                                                user_id: req.body.id
+                                                             //   user_id: req.body.id
                                                             });
                                                             res.json({ success: true, msg: "successfully blocked" });
 
@@ -2402,6 +2407,9 @@ var returnRouter = function (io) {
                                                             io.sockets.emit("blockuser", {
                                                                 user_id: req.body.id
                                                             });
+                                                            io.sockets.emit("requestuser", {
+                                                                //   user_id: req.body.id
+                                                               });
                                                             res.json({ success: true, msg: "successfully blocked" });
 
                                                         }

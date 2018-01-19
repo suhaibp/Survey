@@ -9467,6 +9467,9 @@ var CompanyTopBarComponent = /** @class */ (function () {
         this.socket.on('acceptuser', function (data) {
             _this.loadData();
         });
+        this.socket.on('rejectuser', function (data) {
+            _this.loadData();
+        });
         this.socket.on('expiredcompany', function (data) {
             _this.logChecking();
         });
