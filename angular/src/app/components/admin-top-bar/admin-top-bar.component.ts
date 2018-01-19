@@ -43,6 +43,16 @@ refresh(){
         this.refresh();
       
      });
+     this.socket.on('acceptuser', (data) => {
+      
+        this.refresh();
+      
+     });
+     this.socket.on('rejectuser', (data) => {
+      
+        this.refresh();
+      
+     });
   }
 
   // viewstatus user

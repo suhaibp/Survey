@@ -4838,6 +4838,12 @@ var AdminTopBarComponent = /** @class */ (function () {
         this.socket.on('requestuser', function (data) {
             _this.refresh();
         });
+        this.socket.on('acceptuser', function (data) {
+            _this.refresh();
+        });
+        this.socket.on('rejectuser', function (data) {
+            _this.refresh();
+        });
     };
     // viewstatus user
     AdminTopBarComponent.prototype.viewstatusUser = function (id, cmpid) {

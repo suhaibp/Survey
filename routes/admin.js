@@ -683,7 +683,9 @@ var returnRouter = function (io) {
             if (!user) {
                 return res.json({ success: false, msg: 'Faild to reject user' });
             } else {
-
+                io.sockets.emit("rejectuser", {
+                     //user_id : req.params.id
+                     });
                 return res.json({ success: true, msg: 'rejected successfully' });
             }
         })
