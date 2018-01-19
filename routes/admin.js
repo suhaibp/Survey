@@ -683,10 +683,25 @@ var returnRouter = function (io) {
             if (!user) {
                 return res.json({ success: false, msg: 'Faild to reject user' });
             } else {
-                io.sockets.emit("rejectuser", {
-                     //user_id : req.params.id
-                     });
-                return res.json({ success: true, msg: 'rejected successfully' });
+                Company.update({ "users.email": req.params.id },
+                {
+                    $set: { "users.$.block_req_status": false }
+                }, { multi: true },
+                (err, getdata) => {
+
+                    if (err) {
+                        throw err;
+                        res.json({ success: false, msg: "Failed to reject request" });
+                    } else {
+                        io.sockets.emit("rejectuser", {
+                            //user_id : req.params.id
+                            });
+                        res.json({ success: true, msg: "successfully reject request " });
+
+                    }
+                });
+              
+               // return res.json({ success: true, msg: 'rejected successfully' });
             }
         })
     });

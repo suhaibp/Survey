@@ -11079,7 +11079,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey-closed/user-survey-closed.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md  bg-inverse fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n        <div class=\"container\">\r\n            <div class=\"col-md-8 col-md-offset-2\">\r\n              <div class=\"col-md-4 txt-right\">\r\n                <img class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n              </div>\r\n              <div class=\"col-md-8 \">\r\n                  <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n                  \r\n              </div>\r\n            </div>\r\n          </div>\r\n        </nav>\r\n        <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" class=\"questn-container\" style=\"padding-top:20px\">\r\n      <div class=\"container\">\r\n          <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n          <div class=\"col-md-12 survey-close\">\r\n              <i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>\r\n              <h2>Sorry! Survey Closed</h2>\r\n            </div>\r\n        \r\n      </div>\r\n      </div>\r\n      <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n          <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n        </footer>\r\n    \r\n</div>\r\n"
+module.exports = "<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md  bg-inverse fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n        <div class=\"container\">\r\n            <div class=\"col-md-8 col-md-offset-2\">\r\n              <div class=\"col-md-4 txt-right\">\r\n                <img class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n              </div>\r\n              <div class=\"col-md-8 \">\r\n                  <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n                  \r\n              </div>\r\n            </div>\r\n          </div>\r\n        </nav>\r\n        <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" class=\"questn-container\" style=\"padding-top:20px\">\r\n      <div class=\"container\">\r\n          <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n          <div class=\"col-md-12 survey-close\">\r\n              <i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>\r\n              <h2 id=\"attd\">Sorry! Survey Closed</h2>\r\n            </div>\r\n        \r\n      </div>\r\n      </div>\r\n      <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n          <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n        </footer>\r\n    \r\n</div>\r\n"
 
 /***/ }),
 
@@ -11148,6 +11148,9 @@ var UserSurveyClosedComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        if (this.attented == true) {
+            $('#attd').text("Survey already attended!");
+        }
         this.getSurvey();
     };
     //  ---------------------------------Start-------------------------------------------
@@ -11223,7 +11226,7 @@ var UserSurveyClosedComponent = /** @class */ (function () {
             selector: 'app-user-survey-closed',
             template: __webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.css")],
-            inputs: ['survey']
+            inputs: ['survey', 'attended']
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             user_service_1.UserService,
@@ -11839,7 +11842,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey/user-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n      <div *ngIf=\"closed\" >\r\n          <app-user-survey-closed [survey]=\"survey\"></app-user-survey-closed>    \r\n      </div>\r\n      <div *ngIf=\"upcoming\" >\r\n          <app-user-survey-upcoming [countTime]=\"countTime\" [survey]=\"survey\"></app-user-survey-upcoming>    \r\n      </div>\r\n      <div *ngIf=\"run\" >\r\n          <app-user-survey-singlepage [survey]=\"survey\" ></app-user-survey-singlepage>    \r\n      </div>\r\n\r\n      <div *ngIf=\"mrun\" >\r\n          <app-user-survey-multiple [survey]=\"survey\" ></app-user-survey-multiple>    \r\n      </div>"
+module.exports = "\r\n\r\n      <div *ngIf=\"closed\" >\r\n          <app-user-survey-closed [survey]=\"survey\"></app-user-survey-closed>    \r\n      </div>\r\n      <div *ngIf=\"upcoming\" >\r\n          <app-user-survey-upcoming [countTime]=\"countTime\" [survey]=\"survey\"></app-user-survey-upcoming>    \r\n      </div>\r\n      <div *ngIf=\"run\" >\r\n          <app-user-survey-singlepage [survey]=\"survey\" ></app-user-survey-singlepage>    \r\n      </div>\r\n\r\n      <div *ngIf=\"mrun\" >\r\n          <app-user-survey-multiple [survey]=\"survey\" ></app-user-survey-multiple>    \r\n      </div>\r\n    \r\n        <div *ngIf=\"attented\" >\r\n                <app-user-survey-closed [survey]=\"survey\"  [attended]=true></app-user-survey-closed>    \r\n            </div>"
 
 /***/ }),
 
@@ -11870,6 +11873,7 @@ var UserSurveyComponent = /** @class */ (function () {
         this.upcoming = false;
         this.run = false;
         this.mrun = false;
+        this.attented = false;
     }
     UserSurveyComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -11939,7 +11943,7 @@ var UserSurveyComponent = /** @class */ (function () {
                 _this.routes.navigate(['/404']);
             }
             else if (survey.status == 4) {
-                _this.closed = true;
+                _this.attented = true;
             }
             else if (!survey.status && survey.display_type.ui.toLowerCase() == 'single') {
                 // if(){
