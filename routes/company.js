@@ -1571,7 +1571,7 @@ var returnRouter = function (io) {
             if (req.body.group == '' || req.body.group == null) {
                 res.send({ success: false, msg: "group name is required" });
             } else {
-                UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
+                UserGroup.findOne({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
                     if (docs.length && docs._id != req.body.id) {
                         res.json({ success: false, msg: "Group Already Exists" });
                     } else {

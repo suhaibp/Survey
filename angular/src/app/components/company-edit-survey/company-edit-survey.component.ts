@@ -473,8 +473,10 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.companyService.inviteUsers(data).subscribe(data=>{
       if(data.success){
         let val = {};
-        this.selection.selected.forEach(val=>{
-        //  this.invitedEmailds.push(val.email);
+        console.log('yasir');
+        console.log(this.selection.selected);
+        this.selection.selected.forEach(val1=>{
+          this.invitedEmailds.push(val1.email);
         });
         this.updateUserList();
         this.isSuccess3 = true;
