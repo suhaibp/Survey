@@ -25,6 +25,7 @@ export class UserSurveyMultipleComponent implements OnInit {
   skip = false;
   blankAns = false;
   questionCount = 0;
+  progNo = 1;
   progressBarWidth = 0;
   progressBarWidthString = '';
   serviceUrl :string;
@@ -77,6 +78,8 @@ this._userService.getLoggedUSerDetails().subscribe(info =>{
     this.getTheme();
     this.questionCount = this.survey.questions.length;
     console.log(this.questionCount);
+  this.progressBarWidth = (this.progNo/this.questionCount)*100;
+  
   }
 
 
@@ -144,7 +147,8 @@ next(i){
   }else{
   this.cardNo = this.cardNo+1
   this.blankAns = false;
-  this.progressBarWidth = (this.cardNo/this.questionCount)*100;
+  this.progNo = this.progNo+1;
+  this.progressBarWidth = (this.progNo/this.questionCount)*100;
   console.log(this.cardNo);
   }
 }

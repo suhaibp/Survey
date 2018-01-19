@@ -4,7 +4,7 @@
     <div class="container">
       <div class="col-md-8 col-md-offset-2">
         <div class="col-md-4 txt-right">
-            <img class="logo-img" src="{{serviceUrl+survey.logo}}" alt="logo">
+          <img class="logo-img" src="{{serviceUrl+'logo/'+survey.logo}}" height="100" alt="logo">   
             
         </div>
         <div class="col-md-8">
@@ -36,6 +36,8 @@
                         </div>
                         <div class="col-md-12">
                             <div class="col-md-6 progrs ">
+                                <h5 *ngIf="!survey.display_type.pageno">&nbsp;</h5>
+                                
                                 <h5 *ngIf="survey.display_type.pageno == true" [ngStyle]="{'color': theme.progress_text_color}">Page No. {{cardNo+1}} of {{questionCount}}</h5>
                                 <div class="progress" >
                                     <div class="progress-bar" role="progressbar" aria-valuenow="70"

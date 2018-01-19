@@ -40,7 +40,7 @@ module.exports.sendInvitationMail = function(data){
                 to: data.email, // list of receivers
                 subject: 'Online Survey Invitation', // Subject line
                 text: '', 
-                html: '<b><h3>Dear User, </h3><br/>We’re excited to inform you that ' + data.company_name+ ' is conducting an online survey on'+ data.survey_name + '. The Survey starts on '+ data.start_date + ' and end on '+ data.end_date + '.<br><br>  You can attend the survey by clicking the link below.<br><br> <a href="'+ data.link + '">Click here </a><img width="1" height="1" border="0" src="'+ data.imgeLink +'" />'
+                html: '<b><h3>Dear User, </h3><br/>We’re excited to inform you that <b>' + data.company_name+ '</b> is conducting an online survey on <b>'+ data.survey_name + '</b>. The Survey starts on '+ data.start_date + ' and end on '+ data.end_date + '.<br><br>  You can attend the survey by clicking the link below.<br><br> <a href="'+ data.link + '">Click here </a><img width="1" height="1" border="0" src="'+ data.imgeLink +'" />'
                 // html: '<b><h3>Dear User, </h3><br/>We’re excited to get you started using Survey! You’re on your way to being fully set up, but first, you must finish your account verification by clicking the below link:<br/>Username:'+email+' <br/>Password:'+password+' <br/>Verification Link:</a> http://localhost:3000/email-verification/'+verification_link+'</a><br/> Thank You!</b>' // html body
             };
         

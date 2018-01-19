@@ -215,7 +215,7 @@ export class CompanyService {
   // Last Modified : 27-12-2017, Manu Prasad, Desc:
   // Desc          : routing used to get all the themes from database
   getThemes() {
-    let headers = this.setHeader();
+    let headers = this.setHeaderWithAuthorization();
     return this.http.get(this.serviceUrl + 'get-themes', { headers: headers })
       .map(res => res.json());
   }

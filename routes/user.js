@@ -32,8 +32,9 @@ router.get('/get-survey/:id', (req, res) => {
         var authorization = req.headers.authorization.substring(4), decoded;
         // try {
         decoded = jwt.verify(authorization, config.secret);
+        console.log(decoded);
         user_id = mongoose.Types.ObjectId(decoded._id);
-        Survey.findOne({ "_id": req.params.id }, { "inv_users": { $elemMatch: { "cmp_user_id": user_id, "survey_completed": false } }, name: 1 }, function (err, survey1) {
+        Survey.findOne({ "_id": req.params.id }, { "inv_users": { $elemMatch: { "email": decoded.email, "survey_completed": false } }, name: 1 }, function (err, survey1) {
             // console.log("_______________________________________\n");
             // console.log(survey1);
             if (survey1.inv_users == '' || survey1.questions == []) {

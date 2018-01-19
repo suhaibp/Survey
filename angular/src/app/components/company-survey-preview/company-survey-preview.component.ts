@@ -17,6 +17,7 @@ export class CompanySurveyPreviewComponent implements OnInit {
   private survey: any;
   private theme: object;
   private cardNo = 0;
+  progNo = 1;
   public onBackBtnClick = new EventEmitter();
   progressBarWidth:any;
   blankAns:any;
@@ -54,7 +55,8 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 });
 // ---------------------------------End-------------------------------------------
     this.theme = this.survey;
-   
+    this.progressBarWidth = (this.progNo/this.survey.questions.length)*100;
+    
   }
 
   backTosurvey(){
@@ -70,7 +72,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     }else{
       this.cardNo = this.cardNo+1
       this.blankAns = false;
-      this.progressBarWidth = (this.cardNo/this.survey.questions.length)*100;
+      this.progNo = this.progNo+1;
+      
+      this.progressBarWidth = (this.progNo/this.survey.questions.length)*100;
       console.log(this.cardNo);
     }
   }

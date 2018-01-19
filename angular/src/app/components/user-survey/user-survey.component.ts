@@ -104,7 +104,7 @@ getSurvey(){
       // }
       this.run = true;
     }
-    else if(!survey.status && survey.display_type.ui.toLowerCase() == 'multiple choice'){
+    else if(!survey.status && survey.display_type.ui.toLowerCase() == 'multiple'){
       // if(){
 
       // }

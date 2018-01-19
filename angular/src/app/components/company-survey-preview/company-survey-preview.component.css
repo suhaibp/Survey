@@ -105,6 +105,7 @@
     background-color: #5d3c3c;
     border: none;
     min-height: 80px;
+    margin-bottom: 0px;
 }
 
 .user-layout footer {
@@ -157,7 +158,12 @@ p {
 
 .progress {
     position: relative;
-    height: 25px;
+    height: 5px;
+    border-radius: 0;
+}
+
+.btn-mrgn{
+    margin: 14px 0 0 0;
 }
 
 .progress > .progress-type {
@@ -412,4 +418,9 @@ lg-out{
 }
 .questn-container{
     min-height: 800px;
+}
+
+.qtnContainer{
+    margin-bottom: 10px;
+    padding: 10px;
 }

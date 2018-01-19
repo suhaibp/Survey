@@ -388,6 +388,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   updateQuestion(form){
     this.updateBtnDisbled = true;
     this.isSuccess1 = true;
+    if(this.editQuest.answerType == 'star rating' && !this.editQuest.showStarLabel){
+      this.editQuest.starOpts = ['1','2','3','4','5']
+     }
     this.survey.questions[this.editIndex] = this.editQuest;
     this.editIndex = 0;
     this.msg1 = "Question Updated Successfully";

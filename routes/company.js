@@ -376,7 +376,7 @@ var returnRouter = function (io) {
                     if (qtn.answerType == 'Multiple choice') {
                         question.options = qtn.opts
                     }
-                    if (qtn.answerType == 'star rating' && qtn.showStarLabel == true) {
+                    if (qtn.answerType == 'star rating') {
                         question.options = qtn.starOpts
                     }
                     survey.questions.push(question);
@@ -826,13 +826,13 @@ var returnRouter = function (io) {
                     // console.log("SSSSSS\n"+survey);
                     res.json(survey)
                 }
-                if (qtn.answerType == 'Multiple choice') {
-                    question.options = qtn.opts
-                }
-                if (qtn.answerType == 'star rating') {
-                    question.options = qtn.starOpts
-                }
-                survey.questions.push(question);
+                // if (qtn.answerType == 'Multiple') {
+                //     question.options = qtn.opts
+                // }
+                // if (qtn.answerType == 'star rating') {
+                //     question.options = qtn.starOpts
+                // }
+                // survey.questions.push(question);
             });
 
         } else {
@@ -1633,21 +1633,29 @@ var returnRouter = function (io) {
     // Desc          : routing used to get all the themes from database
 
     router.get('/get-themes', (req, res) => {
-        // console.log('yes');
-        Theme.find({}).lean()
-            .exec(function (err, res1) {
-                if (err) {
-                    console.log("Error retrieving polls");
-                    res.json({
-                        "status": false
-                    })
-                } else {
-                    res1.forEach((element, index) => {
-                        res1[index].indexno = index + 1;
-                    });
-                    res.json(res1);
-                }
-            });
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            // try {
+            decoded = jwt.verify(authorization, config.secret);
+            var cmp_id = decoded._id;
+            // console.log('yes');
+            Theme.find({cmp_id:cmp_id}).lean()
+                .exec(function (err, res1) {
+                    if (err) {
+                        console.log("Error retrieving polls");
+                        res.json({
+                            "status": false
+                        })
+                    } else {
+                        res1.forEach((element, index) => {
+                            res1[index].indexno = index + 1;
+                        });
+                        res.json(res1);
+                    }
+                });
+        } else {
+            return res.status(401).send('Invalid User');
+        }        
     });
 
 

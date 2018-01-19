@@ -18,6 +18,7 @@
       </div>
     </nav>
    
+    <div style="padding-top:20px;"  [ngStyle]="{'background-color':survey.selectedTheme.b_bg_color }">
     <div class="container">
         <div class="col-md-12 questn-container">
             <button type="submit"  class="btn btn-danger pull-right lg-out" >Logout</button>
@@ -27,12 +28,14 @@
                 
             </div>
             <div class="col-md-12">
-                    <div class="col-md-12" *ngFor="let item of survey.questions; let i=index">
-                        <p [ngStyle]="{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}" [ngClass]="{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}">{{i+1}}. {{item.question}}</p>
+                    <div class="col-md-12"  *ngFor="let item of survey.questions; let i=index">
+                     
+                      <div class="qtnContainer" [ngStyle]="{'background-color':survey.selectedTheme.q_bg_color }"> 
+                      <p [ngStyle]="{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}" [ngClass]="{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}">{{i+1}}. {{item.question}}</p>
                         <div *ngIf="item.answerType == 'Multiple choice'; else star">
                             <mat-radio-group class="example-radio-group" [(ngModel)]="survey.questions[i].ans" name="{{item._id}}">
                                 <mat-radio-button class="example-radio-button" *ngFor="let choice of item.opts" [value]="choice" [required]="survey.display_type.skip == false" >
-                                  <span [ngStyle]="{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}" [ngClass]="{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}">{{choice}}</span>
+                                  <span [ngStyle]="{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}" [ngClass]="{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}">{{choice}}</span>
                                 </mat-radio-button>
                               </mat-radio-group>
                         </div>
@@ -63,6 +66,7 @@
                                 <textarea matInput placeholder="Answer" [(ngModel)]="survey.questions[i].ans" name="txt" [required]="survey.display_type.skip == false"></textarea>
                               </mat-form-field>
                         </ng-template>
+                        </div>
                       </div>
                       <button type="submit" (click)="submitAns()" class="btn btn-danger ourbutton" >Submit</button> 
                       
@@ -71,6 +75,8 @@
             
           </div>   
     </div>
+    </div>
+
          
     <footer *ngIf="survey.showFooter"  [ngStyle]="{'background-color':survey.selectedTheme.f_bg_color}">
       <p [ngStyle]="{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}">{{survey.footer}}</p>
@@ -105,6 +111,7 @@
           </div>
         </div>
       </nav>
+      <div style="padding-top:20px;"  [ngStyle]="{'background-color':survey.selectedTheme.b_bg_color }">
     <div class="container">
         <div class="col-md-12 questn-container">
             <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-right lg-out" >Back To Survey</button>
@@ -116,33 +123,39 @@
             <div class="col-md-12">
                 <h4 *ngIf="blankAns" [ngStyle]="{'color':'#d9534f'}">Fill all answers</h4>
                     <div class="col-md-12" *ngFor="let item of survey.questions; let i=index;">
+                      
                       <div *ngIf="cardNo == i">
-                          <p [ngStyle]="{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}" [ngClass]="{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}">{{i+1}}. {{item.question}}</p>
+                          <div class="qtnContainer" [ngStyle]="{'background-color':survey.selectedTheme.q_bg_color }"> 
+                          <p [ngStyle]="{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}" [ngClass]="{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}">{{i+1}}. {{item.question}}</p>
                           <div *ngIf="item.answerType == 'Multiple choice'; else star">
                               <mat-radio-group class="example-radio-group" [(ngModel)]="survey.questions[i].ans" name="{{item._id}}">
                                   <mat-radio-button class="example-radio-button" *ngFor="let choice of item.opts" [value]="choice" [required]="survey.display_type.skip == false" >
-                                    <span [ngStyle]="{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}" [ngClass]="{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}">{{choice}}</span>
+                                    <span [ngStyle]="{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}" [ngClass]="{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}">{{choice}}</span>
                                   </mat-radio-button>
                                 </mat-radio-group>
                           </div>
-                          <div class="col-md-12">
-                              <div class="col-md-6 progrs ">
-                                  <h5 *ngIf="survey.display_type.pageno == true" [ngStyle]="{'color': theme.progress_text_color}">Page No. {{cardNo+1}} of {{survey.questions.length}}</h5>
-                                  <div class="progress" >
-                                      <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                      aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressBarWidth" [ngStyle]="{'background-color': theme.progress_bar_color}">
-                                      </div>
-                                    </div> 
-                              </div>
-                              <div class="col-md-6 progrs">
-                                  <button *ngIf="cardNo > 0" type="submit" (click)="back(cardNo)" class="btn btn-danger ourbutton btn-mrgn" >Back</button> 
-                                  
-                                  <button *ngIf="cardNo < survey.questions.length-1" type="button" (click)="next(cardNo)" class="btn btn-danger ourbutton btn-mrgn" >Next</button> 
-                                  <button type="button" *ngIf="survey.display_type.skip&&cardNo < survey.questions.length-1" (click)="skipQuestion()" class="btn btn-danger ourbutton btn-mrgn" >Skip</button> </div>
-                              </div>
+                          
+                              
                             
-                        
-                        
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6 progrs ">
+                              <h5 *ngIf="!survey.display_type.pageno">&nbsp;</h5>
+                                <h5 *ngIf="survey.display_type.pageno == true" [ngStyle]="{'color': survey.selectedTheme.progress_text_color}">
+                                  Page No. {{cardNo+1}} of {{survey.questions.length}}
+                                </h5>
+                                <div class="progress" >
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                                    aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressBarWidth" [ngStyle]="{'background-color': survey.selectedTheme.progress_bar_color}">
+                                    </div>
+                                  </div> 
+                            </div>
+                        <div class="col-md-6 progrs">
+                            <button *ngIf="cardNo > 0" type="submit" (click)="back(cardNo)" class="btn btn-danger ourbutton btn-mrgn" >Back</button> 
+                            
+                            <button *ngIf="cardNo < survey.questions.length-1" type="button" (click)="next(cardNo)" class="btn btn-danger ourbutton btn-mrgn" >Next</button> 
+                            <button type="button" *ngIf="survey.display_type.skip&&cardNo < survey.questions.length-1" (click)="skipQuestion()" class="btn btn-danger ourbutton btn-mrgn" >Skip</button> </div>
+                        </div>
                       </div>
                        
                       
@@ -187,6 +200,7 @@
             
             
           </div>   
+    </div>
     </div>
          
     <footer *ngIf="survey.showFooter"  [ngStyle]="{'background-color':survey.selectedTheme.f_bg_color}">
