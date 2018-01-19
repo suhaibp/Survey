@@ -17,6 +17,7 @@ export class UserSurveyComponent implements OnInit {
   mrun = false;
   countTime: any;
   single:false;
+  attented = false;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private routes: Router) { }
@@ -95,7 +96,7 @@ getSurvey(){
       this.routes.navigate(['/404'])
     }
     else if(survey.status == 4){
-      this.closed = true;
+      this.attented = true;
       
     }
     else if(!survey.status && survey.display_type.ui.toLowerCase() == 'single'){

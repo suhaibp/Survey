@@ -3,12 +3,12 @@ import {Router,ActivatedRoute, Params} from '@angular/router';
 import { UserService } from './../../services/user.service';
 import { CompanyService } from './../../services/company.service';
 import {Config} from '../../config/config';
-
+declare var $:any;
 @Component({
   selector: 'app-user-survey-closed',
   templateUrl: './user-survey-closed.component.html',
   styleUrls: ['./user-survey-closed.component.css'],
-  inputs: ['survey']
+  inputs: ['survey', 'attended']
 })
 export class UserSurveyClosedComponent implements OnInit {
   survey: any;
@@ -19,7 +19,7 @@ export class UserSurveyClosedComponent implements OnInit {
   gotSurvey= false;
   serviceUrl :string;
   userIdx:any;
-  
+  attented:any;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
@@ -60,6 +60,9 @@ this._userService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
+if(this.attented == true){
+  $('#attd').text("Survey already attended!");
+}
     this.getSurvey();
   }
 
