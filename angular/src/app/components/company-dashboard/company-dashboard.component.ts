@@ -93,6 +93,13 @@ export class CompanyDashboardComponent implements OnInit {
     this.width1 = 900 - this.margin1.left - this.margin1.right;
     this.height1 = 500 - this.margin1.top - this.margin1.bottom;
     this.radius1 = Math.min(this.width1, this.height1) / 2;
+
+    this.route.params.subscribe(params => {
+      if(params['id'] != ''){
+        this.surveyId= params['id'];
+      }
+    });
+    
   }
 
   // refresh() {
@@ -168,7 +175,7 @@ export class CompanyDashboardComponent implements OnInit {
       }
     });
     // ---------------------------------End-------------------------------------------
-
+   
     // -----------------Pie Start-------------------
     this.loadData();
     this.socket.on('Mail Responsed', (data) => {

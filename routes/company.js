@@ -1999,7 +1999,8 @@ var returnRouter = function (io) {
             //   cmp_id = ObjectId("5a44dc30fdb3ea09ec91ff82");
             cmp_id = mongoose.Types.ObjectId(decoded._id);
             // var cmp_id  = ;
-            Survey.find({ "company_id": cmp_id })
+            Survey.find({ start_datetime: { $lte: new Date() }, company_id: cmp_id })
+            // Survey.find({ "company_id": cmp_id })
                 .exec(function (err, res1) {
                     if (err) {
                         console.log("Error retrieving polls");
@@ -2572,44 +2573,44 @@ var returnRouter = function (io) {
     // Last Modified : 15-01-2018, Jooshifa
     // Desc          : to get all questions in each survey,no of choices,answers of users for each questions and no of responses for each questions
 
-    router.get('/getAllQuestions', (req, res) => {
-        mainArray = [];
-        options: [];
-        // req.params.id = "5a432d81ac62130f16bbf2e6";
-        req.params.id = "5a431d73fcaf01ec6274ecbc";
-        // cmp_id = "5a4d183719a456bb14913bff";
-        cmp_id = "5a432162fcaf01ec6274ecc6";
-        Survey.find({ company_id: cmp_id }, function (err, survey) {
+    // router.get('/getAllQuestions', (req, res) => {
+    //     mainArray = [];
+    //     options: [];
+    //     // req.params.id = "5a432d81ac62130f16bbf2e6";
+    //     req.params.id = "5a431d73fcaf01ec6274ecbc";
+    //     // cmp_id = "5a4d183719a456bb14913bff";
+    //     cmp_id = "5a432162fcaf01ec6274ecc6";
+    //     Survey.find({ company_id: cmp_id }, function (err, survey) {
 
-            survey.forEach(eachSurvey => {
-                if (eachSurvey._id == req.params.id) {
-                    eachSurvey.questions.forEach((eachQuestions, i) => {
-                        mainArray.push({ question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
-                        ans = '';
-                        eachQuestions.options.forEach((eachoption, j) => {
-                            // if(eachAnswers.answer == eachQuestions.options){
-                            count = 0;
+    //         survey.forEach(eachSurvey => {
+    //             if (eachSurvey._id == req.params.id) {
+    //                 eachSurvey.questions.forEach((eachQuestions, i) => {
+    //                     mainArray.push({ question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
+    //                     ans = '';
+    //                     eachQuestions.options.forEach((eachoption, j) => {
+    //                         // if(eachAnswers.answer == eachQuestions.options){
+    //                         count = 0;
 
-                            eachQuestions.answers.forEach(eachanswer => {
-                                if (eachoption == eachanswer.answer || eachanswer.answer == j) {
-                                    count++;
+    //                         eachQuestions.answers.forEach(eachanswer => {
+    //                             if (eachoption == eachanswer.answer || eachanswer.answer == j) {
+    //                                 count++;
 
-                                }
-                            })
+    //                             }
+    //                         })
 
-                            // }
-                            mainArray[i].ans.push({ value: eachoption, "count": count });
-                            // console.log(eachAnswers);
-                        });
-                    });
-                }
-            });
+    //                         // }
+    //                         mainArray[i].ans.push({ value: eachoption, "count": count });
+    //                         // console.log(eachAnswers);
+    //                     });
+    //                 });
+    //             }
+    //         });
 
-            // console.log(mainArray);
-            return res.json(mainArray);
+    //         // console.log(mainArray);
+    //         return res.json(mainArray);
 
-        });
-    });
+    //     });
+    // });
     // ----------------------------------End-------------------------------------------
 
     // ---------------------------------Start-------------------------------------------
@@ -3069,7 +3070,7 @@ var returnRouter = function (io) {
                 eachSurvey.questions.forEach((eachQuestions, i) => {
                     mainArray.push({ id: eachQuestions._id, question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
                     count = 0;
-                    answeredUser = [];
+                    
                     if (eachQuestions.ans_type != 'Descriptive') {
                         eachQuestions.options.forEach((eachoption, j) => {
                             count = 0;
@@ -3085,6 +3086,7 @@ var returnRouter = function (io) {
                     } else {
                         eachQuestions.answers.forEach(eachanswer => {
                             count++;
+                            answeredUser = [];
                             answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
                             mainArray[i].ans.push({ value: eachanswer.answer, "count": 1, answeredUser: answeredUser });
                         })

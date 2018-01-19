@@ -11,7 +11,7 @@ const io = socketIo(server);
 const path = require("path");
 const admin = require("./routes/admin")(io);
 const company = require("./routes/company")(io);
-const user = require("./routes/user");
+const user = require("./routes/user")(io);
 
 const bodyParser = require("body-parser");
 const passport = require('passport');

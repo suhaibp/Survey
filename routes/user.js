@@ -15,7 +15,8 @@ var http = require('http');
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 'use strict';
-
+var returnRouter = function (io) {
+    
 // ---------------------------------Start-------------------------------------------
 
 // Function      : get Survey
@@ -556,4 +557,9 @@ router.get('/getLoggedinUser', (req, res, next) => {
 });
 
 // ----------------------------------End-------------------------------------------
+
 module.exports = router;
+
+    return router;
+}
+module.exports = returnRouter;

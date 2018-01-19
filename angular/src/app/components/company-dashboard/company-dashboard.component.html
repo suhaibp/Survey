@@ -7,7 +7,6 @@
       <!-- Page Heading -->
 
       <!-- <div *ngFor="let item of locations" >{{item.lat}} {{item.long}}</div> -->
-
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-12 bg-white">
@@ -18,8 +17,8 @@
                     <mat-form-field>
                       <mat-select placeholder="Select Survey" [(ngModel)]="surveyId" name="survey" (change)="getMapPositionsforId();refreshDia();">
 
-                        <mat-option [value]="all">All</mat-option>
-                        <mat-option [value]="item._id" *ngFor="let item of allSurveys">
+                        <mat-option value="all">All</mat-option>
+                        <mat-option value="{{item._id}}" *ngFor="let item of allSurveys">
                           <!-- <ng-container > -->
 
                           {{ item.name }}

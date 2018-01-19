@@ -13,6 +13,7 @@
         </div>
       </div>
     </nav>
+    <div [ngStyle]="{'background-color':theme.b_bg_color}" style="padding-top:20px">
     <div class="container">
         <div class="col-md-12 questn-container">
             <button type="submit" (click)="logout()" class="btn btn-danger pull-right lg-out" >Logout</button>
@@ -23,7 +24,7 @@
             <div class="col-md-12">
               <h4 *ngIf="blankAns" [ngStyle]="{'color':'#d9534f'}">Fill all answers</h4>
                 <form action="">
-                    <div class="col-md-12" *ngFor="let item of survey.questions; let i=index">
+                    <div class="col-md-12" *ngFor="let item of survey.questions; let i=index" [ngStyle]="{'background-color':theme.q_bg_color}" style="margin-bottom:10px;padding:10px;">
                         <p [ngStyle]="{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}" [ngClass]="{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}">{{i+1}}. {{item.question}}</p>
                         <div *ngIf="item.ans_type == 'Multiple choice'; else star">
                             <mat-radio-group class="example-radio-group" [(ngModel)]="survey.questions[i].ans" name="{{item._id}}">
@@ -68,7 +69,7 @@
             
           </div>   
     </div>
-         
+       </div>  
     <footer [ngStyle]="{'background-color':theme.f_bg_color}">
       <p [ngStyle]="{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}">{{survey.footer_title}}</p>
     </footer>
