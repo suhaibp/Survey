@@ -7350,11 +7350,8 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         var data = { users: this.selection.selected, survey: { _id: this.survey.id } };
         this.companyService.inviteUsers(data).subscribe(function (data) {
             if (data.success) {
-                var val = {};
-                console.log('yasir');
-                console.log(_this.selection.selected);
-                _this.selection.selected.forEach(function (val1) {
-                    _this.invitedEmailds.push(val1.email);
+                _this.selection.selected.forEach(function (val) {
+                    _this.invitedEmailds.push(val.email);
                 });
                 _this.updateUserList();
                 _this.isSuccess3 = true;
@@ -9465,6 +9462,17 @@ var CompanyTopBarComponent = /** @class */ (function () {
     }
     CompanyTopBarComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.logChecking();
+        this.loadData();
+        this.socket.on('acceptuser', function (data) {
+            _this.loadData();
+        });
+        this.socket.on('expiredcompany', function (data) {
+            _this.logChecking();
+        });
+    };
+    CompanyTopBarComponent.prototype.logChecking = function () {
+        var _this = this;
         // ---------------------------------Start-------------------------------------------
         // Function      : get logged company details
         // Params        : 
@@ -9498,10 +9506,6 @@ var CompanyTopBarComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
-        this.loadData();
-        this.socket.on('acceptuser', function (data) {
-            _this.loadData();
-        });
     };
     CompanyTopBarComponent.prototype.loadData = function () {
         var _this = this;

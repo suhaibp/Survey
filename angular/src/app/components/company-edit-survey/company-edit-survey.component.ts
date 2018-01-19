@@ -80,7 +80,7 @@ export class CompanyEditSurveyComponent implements OnInit {
   // displayedColumns = ['select', 'position', 'name', 'weight', 'symbol'];
   // dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
   dataSource: MatTableDataSource<any>;
-  selection = new SelectionModel<Element>(true, []);
+  selection = new SelectionModel<any>(true, []);
   invitedEmailds = [];
 
   constructor(private companyService: CompanyService,private dragulaService: DragulaService, private routes: Router, private route: ActivatedRoute,private config: Config) { }
@@ -472,11 +472,8 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     let data = {users:this.selection.selected,survey:{_id: this.survey.id}}
     this.companyService.inviteUsers(data).subscribe(data=>{
       if(data.success){
-        let val = {};
-        console.log('yasir');
-        console.log(this.selection.selected);
-        this.selection.selected.forEach(val1=>{
-          this.invitedEmailds.push(val1.email);
+        this.selection.selected.forEach(val=>{
+           this.invitedEmailds.push(val.email);
         });
         this.updateUserList();
         this.isSuccess3 = true;
