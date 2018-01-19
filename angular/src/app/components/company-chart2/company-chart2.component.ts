@@ -63,7 +63,7 @@ export class CompanyChart2Component implements OnChanges {
   constructor(public companyService: CompanyService,
     router: Router, config: Config) {
     this.socket = socketIo(config.siteUrl);
-    this.width = 900 - this.margin.left - this.margin.right;
+    this.width = 400 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
     this.radius = Math.min(this.width, this.height) / 2;
   }

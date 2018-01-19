@@ -125,6 +125,8 @@ getTheme(){
 submitAns(){
   console.log(this.survey);
   if(this.skip == false){
+    this.blankAns = false;
+    
     this.survey.questions.forEach(element => {
       if(element.ans == '' || !element.ans){
         this.blankAns = true;

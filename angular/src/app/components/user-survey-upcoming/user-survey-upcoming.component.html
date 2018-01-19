@@ -14,13 +14,15 @@
           </div>
     </div>
   </nav>
-  <div class="container">
-        <button type="submit" (click)="logout()" class="btn btn-danger pull-right lg-out" >Logout</button>
-        <div class="col-md-12 survey-close">
-                <h3><app-count-down-timer   [inputDate]="countTime" (onTimeOver)="timeOver()"></app-count-down-timer></h3>
-              </div>
-  </div>
-          
+  <div [ngStyle]="{'background-color':theme.b_bg_color}" class="questn-container" style="padding-top:20px">
+        
+    <div class="container">
+            <button type="submit" (click)="logout()" class="btn btn-danger pull-right lg-out" >Logout</button>
+            <div class="col-md-12 survey-close">
+                    <h3><app-count-down-timer   [inputDate]="countTime" (onTimeOver)="timeOver()"></app-count-down-timer></h3>
+                </div>
+    </div>
+       </div>   
   <footer [ngStyle]="{'background-color':theme.f_bg_color}">
       <p [ngStyle]="{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}">{{survey.footer}}</p>
     </footer>

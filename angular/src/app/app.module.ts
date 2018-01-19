@@ -146,6 +146,7 @@ const appRoutes: Routes = [
   {path:'create-theme', component:CompanyCreateThemeComponent},
   {path:'edit-theme/:id', component:CompanyEditThemeComponent},
   {path:'dashboard', component:CompanyDashboardComponent},
+  {path:'dashboard/:id', component:CompanyDashboardComponent},
   {path:'survey/:id', component:UserSurveyComponent},
   {path:'testing', component:CompanyEditThemeContainerComponent},
   {path:'admin-login', component:AdminLoginComponent},

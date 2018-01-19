@@ -105,6 +105,8 @@
     background-color: #5d3c3c;
     border: none;
     min-height: 80px;
+    margin-bottom: 0;
+    padding-top: 20px;
 }
 
 .user-layout footer {

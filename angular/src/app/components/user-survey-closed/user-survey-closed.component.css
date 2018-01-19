@@ -99,11 +99,15 @@
     margin: 0 !important;
     font-size: 40px !important;
 }
-
+.questn-container{
+    min-height: 800px;
+}
 .x-new {
     background-color: #5d3c3c;
     border: none;
     min-height: 80px;
+    margin-bottom: 0;
+    padding-top: 20px;
 }
 
 .user-layout footer {
@@ -111,7 +115,7 @@
     text-align: center;
     color: #fff;
     padding: 20px 0;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     width: 100%;
 }
