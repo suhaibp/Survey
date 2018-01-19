@@ -174,6 +174,15 @@ export class CompanyDashboardComponent implements OnInit {
     this.socket.on('Mail Responsed', (data) => {
       this.loadData();
     });
+    this.socket.on('Mail Viewed', (data) => {
+      this.loadData();
+    });
+    this.socket.on('Survey Completed', (data) => {
+      this.loadData();
+    });
+    this.socket.on('Invite Users', (data) => {
+      this.loadData();
+    });
     // -----------------Pie End-------------------
 
     this.getMapPositions();

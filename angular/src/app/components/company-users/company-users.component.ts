@@ -6,7 +6,7 @@ import {MatPaginator, MatSort} from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
 import { XlsxToJsonService} from './../../services/xlsx-to-json.service';
-
+import {SelectionModel} from '@angular/cdk/collections';
 @Component({
   selector: 'company-users',
   templateUrl: './company-users.component.html',
@@ -21,8 +21,12 @@ newBlock ={
 }
   displayedColumns = ['id','email','action'];
   dataSource: MatTableDataSource<any>;
+  selection = new SelectionModel<Element>(true, []);
   userData:any;
   userId :any;
+  selectedUserGroup = 'all';
+  userGroups :any;
+  users :any;
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
@@ -112,6 +116,10 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     //     this.selUserGroups.push(val.g_id);
     //   });
     // });
+    this.companyService.getAllUserGroup().subscribe(data=>{
+      this.userGroups = data.group;;
+       //  console.log(this.answerType);
+    });
 
 }
 //  ---------------------------------Start-------------------------------------------
@@ -392,7 +400,8 @@ deleteUser(userId){
       console.log(data4);
       this.isError = true;
       this.errorMsg = data4.msg;
-      this.btnDisbled = false
+      this.btnDisbled = false;
+      this.newBlock.reason= '';
       setTimeout(()=>{ 
             this.isError = false;
             this.errorMsg = '';
@@ -409,7 +418,9 @@ deleteUser(userId){
               this.errorMsg = '';
               this.btnDisbled = false
       }, 2000);
+      this.newBlock.reason= '';
       this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+      
     // this.closeBtn.nativeElement.click();
    }
   });
@@ -443,6 +454,26 @@ deleteUser(userId){
     this.newUser.email =  [''];
     this.myInputVariable.nativeElement.value = "";
   }
+  updateUserList() {
+    console.log(this.selectedUserGroup);
+    if(this.selectedUserGroup == 'all'){
+         this.companyService.getMyUsers().subscribe(data=>{
+           console.log(data);
+           this.users = data;
+             this.dataSource = new MatTableDataSource(data);
+             this.dataSource.paginator = this.paginator;
+             this.selection.clear();
+       });
+    }else{
+       this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(data=>{
+         this.users = data;
+         this.dataSource = new MatTableDataSource(this.users);
+         this.dataSource.paginator = this.paginator;
+         this.selection.clear();
+       });
+   }
+    
+   }
 
 }
 
