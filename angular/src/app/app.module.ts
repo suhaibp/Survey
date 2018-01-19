@@ -128,8 +128,8 @@ import {RatingModule} from "ngx-rating";
 import { CompanyChart2Component } from './components/company-chart2/company-chart2.component';
 
 const appRoutes: Routes = [
-  { path: '', component: PageNotFoundComponent },
-  {path:'', redirectTo:'/404', pathMatch:'full'},
+  { path: '', component: CompanyLoginComponent },
+  {path:'', redirectTo:'/clogin', pathMatch:'full'},
   {path:'top-bar', component:TopBarComponent},
   {path:'side-bar', component:SideBarComponent},
   {path:'admin-side-bar', component:AdminSideBarComponent},

@@ -135,8 +135,8 @@ export class CompanyDashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log('surveyId');
-    console.log(this.surveyId);
+    // console.log('surveyId');
+    // console.log(this.surveyId);
     // ---------------------------------Start-------------------------------------------
     // Function      : get logged company details
     // Params        : 
