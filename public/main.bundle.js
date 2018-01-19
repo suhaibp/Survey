@@ -9493,6 +9493,8 @@ var CompanyTopBarComponent = /** @class */ (function () {
         this.socket.on('acceptuser', function (data) {
             _this.loadData();
         });
+        this.socket.on('expiredcompany', function (data) {
+        });
     };
     CompanyTopBarComponent.prototype.loadData = function () {
         var _this = this;

@@ -62,7 +62,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.socket.on('acceptuser', (data) => {
       this.loadData();
      });
+     this.socket.on('expiredcompany', (data) => {
     
+    });
   }
   loadData(){
     this.companyService.getAcceptedNotification().subscribe(data => {
