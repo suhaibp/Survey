@@ -95,9 +95,9 @@
                           
                         <div class="modal-body">
                              <form  role="form"  #f1="ngForm" (ngSubmit)="sendBlockRequest(newBlock)">
-                                  <p>Category Name</p>
+                                  <p>User Name :  {{newBlock.email}}</p>
                                   
-                                      {{newBlock.email}}
+                                     
                             <br>
                                    <div class="form-group" >
                                      <textarea class="form-control" rows="5" name = "reason" id="comment" placeholder="Reason" [(ngModel)]="newBlock.reason"></textarea>

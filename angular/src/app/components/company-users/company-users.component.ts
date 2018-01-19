@@ -421,16 +421,18 @@ deleteUser(userId){
         this.result.forEach(element => {
           this.emailArr.push(element.Email);
         });
-        if(typeof(this.emailArr.email == "undefined")){
-          this.emailArr = [];
-        }
+        // console.log((this.emailArr));
+        // if(typeof(this.emailArr == undefined)){
+        //   this.emailArr = [];
+        // }
       }
     })
   }
 
   import(){
     this.newUser.email = this.emailArr;
-    this.addUsers('');
+    console.log(this.newUser)
+    this.addUsers(this.newUser);
 }
 
   openModal(){

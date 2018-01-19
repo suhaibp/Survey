@@ -68,9 +68,9 @@ var returnRouter = function (io) {
     // Function      : add-user-group
     // Params        : 
     // Returns       : all user groups
-    // Author        : Yasir Poongadan
+    // Author        : Yasir Poongadan, 
     // Date          : 29-12-2017
-    // Last Modified : 29-12-2017, Yasir Poongadan
+    // Last Modified : 29-12-2017, Jooshifa
     // Desc          : sample
 
     router.post('/add-user-group', passport.authenticate('jwt', { session: false }), (req, res, next) => {
@@ -80,32 +80,71 @@ var returnRouter = function (io) {
             //     try {
             decoded = jwt.verify(authorization, config.secret);
             var cmp_id = decoded._id;
-            console.log(req.body.group);
+            var isSuccess = false;
+            msg = '';
             UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
                 //  console.log(docs);
                 if (docs.length) {
                     res.json({ success: false, msg: "Group Already Exists" });
                 } else {
+
                     var userGroup = new UserGroup();
                     userGroup.name = req.body.group;
                     userGroup.cmp_id = cmp_id;
                     userGroup.save(function (err, insertedGroup) {
-                        if (!req.body.emails) {
-                            res.json({ success: true, msg: "Group created Successfully", data: insertedGroup });
+                        if (err) {
+                            res.json({ success: false, msg: "Failed, somthing went wrong " });
                         } else {
 
+                            if (req.body.email=='' || req.body.email== null || !req.body.email) {
+                                res.json({ success: true, msg: "Group created Successfully", data: insertedGroup });
+
+                            } else {
+                                UserGroup.findOne({ name: req.body.group, cmp_id: cmp_id }, (err, userId) => {
+
+                                    async.eachOfSeries(req.body.email, function (element, key, callback) {
+                                        var email = element.email;
+                                        Company.findOneAndUpdate({ $and: [{ "_id": cmp_id }, { "users.email": email }] },
+                                            {
+                                                $push: { "users.$.group": { g_id: userId._id, group_name: req.body.group } }
+                                            },
+                                            { new: true },
+                                            (err, userGroup) => {
+                                                // console.log(userGroup)
+                                                if (err) {
+                                                    isSuccess = false;
+                                                    msg = 'Something went wrong';
+                                                } else {
+                                                    isSuccess = true;
+                                                    msg = 'Add User group Successfully';
+                                                }
+
+                                                callback();
+                                            });
+                                    }, function (err) {
+
+                                        if (err) console.error(err.message);
+                                        if (!isSuccess) {
+                                            res.json({ success: isSuccess, msg: msg });
+                                        } else {
+                                            res.json({ success: isSuccess, msg: msg });
+                                        }
+
+                                    });
+
+
+
+                                    // res.json({success: isSuccess, msg : msg });
+
+                                });
+                            }
                         }
                     });
                 }
             });
-            //     } catch (e) {
-            //         return res.status(401).send('unauthorized 123');
-            //     }
         } else {
             return res.status(401).send('Invalid User');
         }
-
-
     });
 
 
@@ -615,8 +654,8 @@ var returnRouter = function (io) {
                                     email: user.email,
                                     company_name: companyName,
                                     survey_name: survey.name,
-                                start_date: formatDate(survey.start_datetime),
-                                end_date: formatDate(survey.end_datetime),
+                                    start_date: formatDate(survey.start_datetime),
+                                    end_date: formatDate(survey.end_datetime),
                                     link: config.siteUrl + 'user-response-email/' + survey._id + '/' + user.cmp_user_id,
                                     imgeLink: config.siteUrl + 'company/show-mail-image/' + user.img_read_code
                                 }
@@ -984,12 +1023,12 @@ var returnRouter = function (io) {
                     let question = {
                         question: qtn.question,
                         ans_type: qtn.answerType,
-                    show_star_label: qtn.showStarLabel,
+                        show_star_label: qtn.showStarLabel,
                     }
                     if (qtn.answerType == 'Multiple choice') {
                         question.options = qtn.opts
                     }
-                if (qtn.answerType == 'star rating') {
+                    if (qtn.answerType == 'star rating') {
                         question.options = qtn.starOpts
                     }
                     survey.questions.push(question);
@@ -1530,7 +1569,7 @@ var returnRouter = function (io) {
                 res.send({ success: false, msg: "group name is required" });
             } else {
                 UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
-                if (docs.length && docs._id != req.body.id) {
+                    if (docs.length && docs._id != req.body.id) {
                         res.json({ success: false, msg: "Group Already Exists" });
                     } else {
                         UserGroup.findOneAndUpdate({ _id: req.body.id },
@@ -2977,17 +3016,17 @@ var returnRouter = function (io) {
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4),
                 decoded;
-                decoded = jwt.verify(authorization, config.secret);
-        cmp_id = decoded._id;
-console.log(cmp_id)
-        Survey.find({ start_datetime: { $lte: new Date() }, company_id: cmp_id }, function (err, survey) {
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            console.log(cmp_id)
+            Survey.find({ start_datetime: { $lte: new Date() }, company_id: cmp_id }, function (err, survey) {
 
-            return res.json(survey);
+                return res.json(survey);
 
-        });
-    } else {
-        return res.status(401).send('Invalid User');
-    }
+            });
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
 
     // ----------------------------------End-------------------------------------------
@@ -3008,54 +3047,54 @@ console.log(cmp_id)
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4),
                 decoded;
-                decoded = jwt.verify(authorization, config.secret);
-        cmp_id = decoded._id;
-console.log(cmp_id);
-        SurveyId = req.params.id;
-        console.log("sudha:"+SurveyId);
-        
-        Survey.findOne({ _id: req.params.id, company_id: cmp_id }, function (err, eachSurvey) {
-            console.log(eachSurvey);
-            eachSurvey.questions.forEach((eachQuestions, i) => {
-                mainArray.push({ id: eachQuestions._id, question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
-                count = 0;
-                answeredUser = [];
-                if(eachQuestions.ans_type != 'Descriptive'){
-                    eachQuestions.options.forEach((eachoption, j) => {
-                        count = 0;
-                        answeredUser = [];
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            console.log(cmp_id);
+            SurveyId = req.params.id;
+            console.log("sudha:" + SurveyId);
+
+            Survey.findOne({ _id: req.params.id, company_id: cmp_id }, function (err, eachSurvey) {
+                console.log(eachSurvey);
+                eachSurvey.questions.forEach((eachQuestions, i) => {
+                    mainArray.push({ id: eachQuestions._id, question: eachQuestions.question, ans_type: eachQuestions.ans_type, options: eachQuestions.options, ans: [] });
+                    count = 0;
+                    answeredUser = [];
+                    if (eachQuestions.ans_type != 'Descriptive') {
+                        eachQuestions.options.forEach((eachoption, j) => {
+                            count = 0;
+                            answeredUser = [];
+                            eachQuestions.answers.forEach(eachanswer => {
+                                if (eachoption == eachanswer.answer || eachanswer.answer == j + 1) {
+                                    count++;
+                                    answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
+                                }
+                            })
+                            mainArray[i].ans.push({ value: eachoption, "count": count, answeredUser: answeredUser });
+                        });
+                    } else {
                         eachQuestions.answers.forEach(eachanswer => {
-                            if (eachoption == eachanswer.answer || eachanswer.answer == j + 1) {
-                                count++;
-                                answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
-                            }
+                            count++;
+                            answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
+                            mainArray[i].ans.push({ value: eachanswer.answer, "count": 1, answeredUser: answeredUser });
                         })
-                        mainArray[i].ans.push({ value: eachoption, "count": count, answeredUser: answeredUser });
-                    });
-                }else{
-                    eachQuestions.answers.forEach(eachanswer => {
-                        count++;
-                        answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
-                        mainArray[i].ans.push({ value: eachanswer.answer, "count": 1, answeredUser: answeredUser });
-                    })
-                    
-                }
 
-                mainArray[i].totalCount = eachQuestions.answers.length;
-            });
+                    }
 
-            mainArray.surveyId = SurveyId;
+                    mainArray[i].totalCount = eachQuestions.answers.length;
+                });
 
-            return res.json(mainArray);
+                mainArray.surveyId = SurveyId;
 
-        }).lean();
-    } else {
-        return res.status(401).send('Invalid User');
-    }
+                return res.json(mainArray);
+
+            }).lean();
+        } else {
+            return res.status(401).send('Invalid User');
+        }
     });
     // ----------------------------------End-------------------------------------------
 
-// ---------------------------------Start-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
     // Function      : formatDate
     // Params        : date time with time zone
     // Returns       : date in d-m-y format
@@ -3069,11 +3108,11 @@ console.log(cmp_id);
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = d.getFullYear();
-    
+
         if (month.length < 2) month = '0' + month;
         if (day.length < 2) day = '0' + day;
-    
-        return [ day, month , year].join('-');
+
+        return [day, month, year].join('-');
     }
 
     // ----------------------------------End-------------------------------------------

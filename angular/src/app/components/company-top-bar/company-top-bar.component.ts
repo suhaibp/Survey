@@ -35,6 +35,7 @@ private socket:any;
 // Desc          :
 this.companyService.getLoggedUSerDetails().subscribe(info =>{
   this.company_name = info.organization;
+  console.log(this.company_name);
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }

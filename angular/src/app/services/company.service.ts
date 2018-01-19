@@ -498,7 +498,7 @@ export class CompanyService {
 
   addUserGroupsInCompany(data: any) {
     // console.log(data)
-    let headers = this.setHeader();
+    let headers = this.setHeaderWithAuthorization();
     return this.http.post(this.serviceUrl + 'add-user-group', data, { headers: headers })
       .map(res => res.json());
   }
