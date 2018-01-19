@@ -269,7 +269,7 @@ var returnRouter = function (io) {
 
 
     // ---------------------------------Start-------------------------------------------
-    // Function      : add-users
+    // Function      : logo
     // Params        : users and assigned groups
     // Returns       : status and message
     // Author        : Yasir Poongadan
@@ -2447,9 +2447,10 @@ var returnRouter = function (io) {
                     res.json({ success: false, msg: errMsg });
                 } else {
                     async.eachOfSeries(req.body.email, function (email, key, callback) {
-
-                        Company.findOne({ "users.email": email, _id: cmp_id }, function (err, respEmail) {
-                            if (respEmail && !isErr) { // Insert If user not exist
+                        Company.findOne({ _id: cmp_id}, { users: { $elemMatch: { email: email,delete_status: false} } }, function (err, respEmail) {
+                            console.log(respEmail);
+                        // Company.findOne({ "users.email": email, _id: cmp_id, "users.delete_status" : false }, function (err, respEmail) {
+                            if (respEmail.users.length != 0 && !isErr) { // Insert If user not exist
                                 errMsg = email + " Already Exists";
                                 isErr = true;
                             }
@@ -2482,9 +2483,11 @@ var returnRouter = function (io) {
                             // console.log(req.body);
                             var users = [];
                             var groups = [];
-                            req.body.groups.forEach(function (val, key) {
-                                groups.push({ g_id: val._id, group_name: val.name });
-                            });
+                            if(req.body.groups){
+                                req.body.groups.forEach(function (val, key) {
+                                    groups.push({ g_id: val._id, group_name: val.name });
+                                });
+                            }
                             req.body.email.forEach(function (val, key) {
                                 users.push({ email: val, group: groups });
                             });
