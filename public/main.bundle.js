@@ -9463,6 +9463,17 @@ var CompanyTopBarComponent = /** @class */ (function () {
     }
     CompanyTopBarComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.logChecking();
+        this.loadData();
+        this.socket.on('acceptuser', function (data) {
+            _this.loadData();
+        });
+        this.socket.on('expiredcompany', function (data) {
+            _this.logChecking();
+        });
+    };
+    CompanyTopBarComponent.prototype.logChecking = function () {
+        var _this = this;
         // ---------------------------------Start-------------------------------------------
         // Function      : get logged company details
         // Params        : 
@@ -9496,12 +9507,6 @@ var CompanyTopBarComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
-        this.loadData();
-        this.socket.on('acceptuser', function (data) {
-            _this.loadData();
-        });
-        this.socket.on('expiredcompany', function (data) {
-        });
     };
     CompanyTopBarComponent.prototype.loadData = function () {
         var _this = this;

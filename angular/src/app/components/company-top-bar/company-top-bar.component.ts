@@ -25,7 +25,18 @@ private socket:any;
   constructor(private companyService: CompanyService, private config: Config, private routes: Router) { this.socket = socketIo(config.siteUrl); }
 
   ngOnInit() {
-  // ---------------------------------Start-------------------------------------------
+  this.logChecking();
+    this.loadData();
+    this.socket.on('acceptuser', (data) => {
+      this.loadData();
+     });
+     this.socket.on('expiredcompany', (data) => {
+      this.logChecking();
+    });
+  }
+
+  logChecking(){
+    // ---------------------------------Start-------------------------------------------
 // Function      : get logged company details
 // Params        : 
 // Returns       : company details
@@ -58,13 +69,6 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
-    this.loadData();
-    this.socket.on('acceptuser', (data) => {
-      this.loadData();
-     });
-     this.socket.on('expiredcompany', (data) => {
-    
-    });
   }
   loadData(){
     this.companyService.getAcceptedNotification().subscribe(data => {
