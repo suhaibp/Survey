@@ -2228,41 +2228,52 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
 
-    router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-        // if (req.headers && req.headers.authorization) {
-        //     var authorization = req.headers.authorization.substring(4), decoded;
-        //     // try {
-        //     decoded = jwt.verify(authorization, config.secret);
+    // router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+    //     if (req.headers && req.headers.authorization) {
+    //         var authorization = req.headers.authorization.substring(4), decoded;
+    //         decoded = jwt.verify(authorization, config.secret);
+    //         cmp_id = decoded._id;
+    //         arr1 = [];
+    //         arr2=[];
+    //         Users.find({},{ block_request: { $elemMatch: { action_status: "Accepted"}} }, (err, eachUsers) => {
+    //             if(eachUsers){
+    //                 eachUsers.forEach(eachElement => {
+    //                         eachElement.block_request.forEach(blockRequest => {
+    //                             //if(blockRequest){
+    //                                 // async.eachOfSeries(blockRequest.companies, function(blkCompany, key, callback) {
+                                        
+    //                                     blockRequest.companies.forEach(blkCompany => {
+    //                                         if (blkCompany.company_id == cmp_id && blkCompany.comp_is_viewed == false ) {
+    //                                             arr2.push(eachElement._id);
+                                                    
+    //                                                 //  console.log(arr1);
+    //                                         }
+    //                                      });
 
-        //     cmp_id = decoded._id;
-        //     arr1 = [];
-        //     arr2 = [];
-        //     var count = 0;
-        //   //  Users.find({ "block_request.action_status": "Accepted" }, (err, globalUser) => {
-        //     Users.findOne({},{ block_request: { $elemMatch: { action_status: "Accepted"} } }, function (err, eachUsers) {
-        //         // console.log(globalUser);
-        //         // globalUser.forEach(eachUsers => {
-        //              eachUsers.block_request.forEach(blockRequest => {
-        //                 blockRequest.companies.forEach(blkCompany => {
-        //                     if (blkCompany.company_id == cmp_id) {
-        //                         if (blkCompany.comp_is_viewed == false) {
-        //                             count++;
-        //                             arr1.push({ "email": eachUsers.email, "id": eachUsers._id, "notifCount": count })
-        //                             // console.log(arr1);
-        //                         }
-        //                     }
-        //                 })
-        //              });
-        //             // console.log(eachUsers);
-        //             // console.log(arr1);
-        //             res.json({ arr1 });
-        //         });
+    //                                 // },
+    //                                 // function (err, respemail) {
+
+    //                                 //     console.log(arr1);
+    //                                 // });
+
+    //                            // }
+    //                         });
+
+    //                 });
+    //                 // Users.findById(eachElement._id, (err, doc)=> {
+    //                 //     // console.log(doc)
+    //                 //     arr1.push({ "email": doc.email, "id": doc._id});
+    //                 //     callback();
+    //                 // });
                    
-        //     // });
-        // } else {
-        //     return res.status(401).send('Invalid User');
-        // }
-    });
+    //                 // res.json( arr1 );
+    //             }
+    //         });
+    //     }
+    //      else {
+    //     return res.status(401).send('Invalid User');
+    //     }
+    // });
     
 
 

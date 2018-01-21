@@ -120,11 +120,15 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     //     this.selUserGroups.push(val.g_id);
     //   });
     // });
-    this.companyService.getAllUserGroup().subscribe(data=>{
-      this.userGroups = data.group;;
-       //  console.log(this.answerType);
-    });
+    this.loadGroup();
 
+}
+
+loadGroup(){
+  this.companyService.getAllUserGroup().subscribe(data=>{
+    this.userGroups = data.group;;
+     //  console.log(this.answerType);
+  });
 }
 //  ---------------------------------Start-------------------------------------------
   // Function      : loadData
@@ -376,6 +380,7 @@ deleteUser(userId){
             this.newGroup = '';
             this.isSuccess = true;
             this.msg = "Group Created Successfully";
+            this.loadGroup();
             setTimeout(()=>{ 
                 this.isSuccess = false;
                 this.msg = '';
