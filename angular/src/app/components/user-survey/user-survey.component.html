@@ -15,5 +15,8 @@
       </div>
     
         <div *ngIf="attented" >
-                <app-user-survey-closed [survey]="survey"  [attended]="true"></app-user-survey-closed>    
-            </div>
+            <app-user-survey-closed [survey]="survey"  [attended]="true"></app-user-survey-closed>    
+        </div>
+        <div *ngIf="exp" >
+            <app-user-survey-closed [survey]="survey"  [exp]="true"></app-user-survey-closed>    
+        </div>

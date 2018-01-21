@@ -30,7 +30,7 @@ export class CompanyChart2Component implements OnChanges {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns = ['slno','email','date_time'];
+  displayedColumns = ['slno','email','date_time', 'answer'];
   dataSource: MatTableDataSource<any>;
   surveyQuestion: any;
   title = 'Questions Vs Answers';
@@ -52,6 +52,7 @@ export class CompanyChart2Component implements OnChanges {
   radius: number;
 
   arc: any;
+  answer_type : any;
   labelArc: any;
   pie: any;
   color: any;
@@ -69,14 +70,14 @@ export class CompanyChart2Component implements OnChanges {
   }
   refresh() {
     // d3.select("#br-1").remove();
-    console.log("yasir");
+    // console.log("yasir");
     // this.svg1.remove()
     
     this.getAllsurvey();
     this.companyService.getSurveyQuestions(this.surveyid).subscribe(data => {
       // this.surveyQuestion = data;
       this.quest = data;
-      console.log(data + " data");
+      // console.log(data + " data");
       this.barchart = [];
 
       data.forEach(element => {
@@ -117,10 +118,10 @@ export class CompanyChart2Component implements OnChanges {
   
   ngOnChanges() {
     if(this.surveyid!= undefined){
-      console.log("______"+this.surveyid)
+      // console.log("______"+this.surveyid)
     d3.selectAll("svg > *").remove();
     // this.svg.remove();
-   console.log("xxxxxx");
+  //  console.log("xxxxxx");
     //if(this.surveyid != 'all'){
       this.refresh();
       this.pierefresh();
@@ -196,8 +197,9 @@ export class CompanyChart2Component implements OnChanges {
             this.svg.remove();
             this.piechart = []
             this.quest[i].ans.forEach((val) => {
+              // console.log(this.quest[i]);
             if (val.count != 0) {
-                this.piechart.push({ status: val.value, count: val.count,answeredUser:val.answeredUser });
+                this.piechart.push({ status: val.value, count: val.count,answeredUser:val.answeredUser, ans_type : this.quest[i].ans_type });
             }
         });
         this.initSvg();
@@ -236,6 +238,14 @@ export class CompanyChart2Component implements OnChanges {
     g.append("path").attr("d", this.arc)
       .style("fill", (d: any) => this.color(d.data.status))
       .on('click', (d,i) => {
+        // console.log(d.data.ans_type);
+        this.answer_type = d.data.ans_type;
+        if(this.answer_type == "Descriptive"){
+          this.displayedColumns = ['slno','email','date_time', 'answer'];
+        }
+        if(this.answer_type != "Descriptive"){
+          this.displayedColumns = ['slno','email','date_time'];
+        }
         this.dataSource = new MatTableDataSource(d.data.answeredUser);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

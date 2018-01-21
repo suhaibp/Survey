@@ -18,6 +18,7 @@ export class UserSurveyComponent implements OnInit {
   countTime: any;
   single:false;
   attented = false;
+  exp = false;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private routes: Router) { }
@@ -59,6 +60,7 @@ this._userService.getLoggedUSerDetails().subscribe(info =>{
 });
 // ---------------------------------End-------------------------------------------
     this.getSurvey();
+    console.log(this.exp)
   }
 
 
@@ -102,6 +104,9 @@ getSurvey(){
     else if(survey.status == 4){
       this.attented = true;
       
+    }
+    else if(survey.status == 5){
+      this.exp = true;  
     }
     else if(!survey.status && survey.display_type.ui.toLowerCase() == 'single'){
       // if(){

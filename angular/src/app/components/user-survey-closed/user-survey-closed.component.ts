@@ -8,7 +8,7 @@ declare var $:any;
   selector: 'app-user-survey-closed',
   templateUrl: './user-survey-closed.component.html',
   styleUrls: ['./user-survey-closed.component.css'],
-  inputs: ['survey', 'attended']
+  inputs: ['survey', 'attended', 'exp']
 })
 export class UserSurveyClosedComponent implements OnInit {
   survey: any;
