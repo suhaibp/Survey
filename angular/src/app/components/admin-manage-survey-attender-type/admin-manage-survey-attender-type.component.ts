@@ -54,6 +54,9 @@ export class AdminManageSurveyAttenderTypeComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._adminService.getLoggedUSerDetails().subscribe(info =>{
+    if(info == null || info == ''){
+      this.routes.navigate(['/admin-login']); 
+    }
     if(info.role == "user"){
       if(info.delete_status == true || info.block_status == true){
         this.routes.navigate(['/404']); 
@@ -192,7 +195,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                 this.errorMsg = '';
                 this.btnDisbled = false
           }, 2000);
-            this._flashMessagesService.show('Add Survey attender type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+            this._flashMessagesService.show('Add Survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
           // this.closeBtn.nativeElement.click();
             this.newAttender =  [{name: ''}];
       }
@@ -215,6 +218,11 @@ applyFilter(filterValue: string) {
 }
 
 //  ---------------------------------end-----------------------------------------------
+addNew(){
+  this.newAttender =  [{name: ''}];
+
+
+ }
 
 //  ---------------------------------Start-------------------------------------------
  // Function      : deleteattenderType
@@ -233,7 +241,7 @@ applyFilter(filterValue: string) {
         }
         else{
             this.loadData();
-            this._flashMessagesService.show('Delete survey attender type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+            this._flashMessagesService.show('Delete survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
         }
    });
 }
@@ -297,7 +305,7 @@ getAttenderTypeId(id){
           else{
                 this.loadData();
                 this.closeBtn1.nativeElement.click();
-                this._flashMessagesService.show('Update survey attender type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                this._flashMessagesService.show('Update survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
         }
       }
     }

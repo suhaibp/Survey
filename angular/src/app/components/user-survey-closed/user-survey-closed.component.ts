@@ -8,7 +8,7 @@ declare var $:any;
   selector: 'app-user-survey-closed',
   templateUrl: './user-survey-closed.component.html',
   styleUrls: ['./user-survey-closed.component.css'],
-  inputs: ['survey', 'attended']
+  inputs: ['survey', 'attended', 'exp']
 })
 export class UserSurveyClosedComponent implements OnInit {
   survey: any;
@@ -37,6 +37,9 @@ export class UserSurveyClosedComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/404']); 
+  }
   this.userIdx = info._id;
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);

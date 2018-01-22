@@ -95,6 +95,9 @@ export class CompanyEditSurveyComponent implements OnInit {
 // Last Modified : 16-1-2018, Yasir Poongadan
 // Desc          :
 this.companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/clogin']); 
+  }
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }

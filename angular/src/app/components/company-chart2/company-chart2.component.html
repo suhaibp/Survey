@@ -11,7 +11,7 @@
 
 
 <div id="answeredUsers"  class="modal fade">
-  <div class="modal-dialog">
+  <div class="modal-dialog wdth">
   
     <!-- Modal content-->
     <div class="modal-content">
@@ -44,6 +44,14 @@
                           <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
                         </ng-container>
                     
+                     <!-- Answer Column -->
+                     <div >
+                      <ng-container  matColumnDef="answer">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Answer </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.answer}} </mat-cell>
+                      </ng-container>
+                    </div>
+
                      <!-- Name Column -->
                      <ng-container matColumnDef="date_time">
                       <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>

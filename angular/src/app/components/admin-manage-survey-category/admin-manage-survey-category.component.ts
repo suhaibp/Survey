@@ -52,6 +52,9 @@ export class AdminManageSurveyCategoryComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._adminService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/admin-login']); 
+  }
   if(info.role == "user"){
     if(info.delete_status == true || info.block_status == true){
       this.routes.navigate(['/404']); 
@@ -74,6 +77,11 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
 // ---------------------------------End-------------------------------------------
     this.loadData();
   }
+  addNew(){
+    this.newCategory =  [{name: ''}];
+
+
+   }
 //  ---------------------------------Start-------------------------------------------
   // Function      : keypress
   // Params        : 
@@ -151,7 +159,7 @@ _keyPress(event: any) {
               this.atleastOneitem = true;
               setTimeout(()=>{ 
                       this.atleastOneitem = false;
-              }, 2000);
+              }, 3000);
                 // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 1000 });
               return false;
         }
@@ -189,7 +197,7 @@ insertCategory(){
                         this.errorMsg = '';
                         this.btnDisbled = false
                 }, 2000);
-                this._flashMessagesService.show('Add Category Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                this._flashMessagesService.show('Add Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
               // this.closeBtn.nativeElement.click();
                 this.newCategory =  [{name: ''}];
             }
@@ -228,7 +236,7 @@ applyFilter(filterValue: string) {
                 }
                 else{
                     this.loadData();
-                    this._flashMessagesService.show('Delete Category Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                    this._flashMessagesService.show('Delete Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
                 }
           });
     }
@@ -272,14 +280,14 @@ updateCategory(category){
                 this.Updaterequired = true
                 setTimeout(()=>{ 
                     this.Updaterequired = false;
-                  }, 2000);
+                  }, 3000);
             }
             else{
                 if(data4.success==false && data4.msg == 'alreadyexist'){
                     this.UpdatealreadyExist = true
                     setTimeout(()=>{ 
                       this.UpdatealreadyExist = false;
-                      }, 2000);
+                      }, 3000);
                 
                 }
                 else{
@@ -287,13 +295,13 @@ updateCategory(category){
                       this.Updatechange = true
                       setTimeout(()=>{ 
                         this.Updatechange = false;
-                        }, 2000);
+                        }, 3000);
                   
                   }
                 else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
-                    this._flashMessagesService.show('Update Category Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                    this._flashMessagesService.show('Update Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
                   
               }
           }
@@ -302,4 +310,5 @@ updateCategory(category){
       });
 }
    //  ---------------------------------end-----------------------------------------------
+  
 }

@@ -48,6 +48,9 @@ export class UserSurveyMultipleComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/404']); 
+  }
   this.userIdx = info._id;
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
@@ -112,6 +115,15 @@ getTheme(){
   }
 //  ---------------------------------end-----------------------------------------------
 
+
+// ---------------------------------Start-------------------------------------------
+// Function      : submitAns()
+// Params        : name of the view to be shown
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : Submit survey answrs
 submitAns(){
   console.log(this.survey);
   if(this.skip == false){
@@ -140,7 +152,17 @@ submitAns(){
       });
   }
 }
+//  ---------------------------------end-----------------------------------------------
 
+
+// ---------------------------------Start-------------------------------------------
+// Function      : next()
+// Params        : number of question
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : go to next questions
 next(i){
   if(this.survey.questions[i].ans == '' || !this.survey.questions[i].ans){
     this.blankAns = true;
@@ -152,18 +174,62 @@ next(i){
   console.log(this.cardNo);
   }
 }
+// -----------------------------------End------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : back()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : back to previous question
 back(){
   this.cardNo = this.cardNo-1
 }
+// -----------------------------------End------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : skipQuestion()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : Skip question
 skipQuestion(){
   this.cardNo = this.cardNo+1
   this.blankAns = false;
   
 }
+// -----------------------------------End------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : closed()
+// Params        : name of the view to be shown
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : reload survey after submission
 closed(){
   window.location.reload();
   
 }
+// -----------------------------------End------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : timeOver()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : check for timeout of survey
 timeOver(){
   console.log("h");
   if(this.skip == false){
@@ -176,6 +242,7 @@ timeOver(){
     $('#myModaly').modal('show');
   }
 }
+// -----------------------------------End------------------------------------------
 
 
 // ---------------------------------Start-------------------------------------------

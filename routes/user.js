@@ -27,93 +27,87 @@ var returnRouter = function (io) {
 // Desc          : checks whether survey is assigned for the current user and  check start time and end time. if ok return survey else return a messsage
 
 router.get('/get-survey/:id', (req, res) => {
-
+    var comp_id;
+    
     if (req.headers && req.headers.authorization) {
         var authorization = req.headers.authorization.substring(4), decoded;
         // try {
         decoded = jwt.verify(authorization, config.secret);
-        console.log(decoded);
+        // console.log(decoded);
         user_id = mongoose.Types.ObjectId(decoded._id);
-        Survey.findOne({ "_id": req.params.id }, { "inv_users": { $elemMatch: { "email": decoded.email, "survey_completed": false } }, name: 1 }, function (err, survey1) {
+        // Company.findOne({ "_id": cmp_id, "users.email": email }, { users: { $elemMatch: { "email": email } }, _id: 1 }, (err, cmp) => {});
+        Survey.findOne({ "_id": req.params.id }, { "inv_users": { $elemMatch: { "email": decoded.email, "survey_completed": false } },company_id:1, name: 1 }, function (err, survey1) {
             // console.log("_______________________________________\n");
-            // console.log(survey1);
+            // console.log(survey1.company_id);
+            comp_id = survey1.company_id;
             if (survey1.inv_users == '' || survey1.questions == []) {
                 res.json({
                     status: 4
                 })
             }
             else {
-
-                Survey.findOne(
-                    // {"start_datetime": {"$lte":  Date()}}, function(err,theme){
-                    { "_id": req.params.id }, { inv_users: { $elemMatch: { cmp_user_id: user_id } }, name: 1, company_id: 1, theme: 1, display_type: 1, start_datetime: 1, end_datetime: 1, logo: 1, is_header: 1, is_footer: 1, header_title: 1, footer_title: 1, questions: 1, answers: 1, }, function (err, survey) {
-                        // "start_datetime": {"$lte": new Date()},"end_datetime": {"$gt": new Date()}
-                        // console.log(survey);
-                        // console.log(new Date())
-                        if (survey) {
-
-                            if (survey.start_datetime <= new Date()) {
-                                if (survey.end_datetime < new Date()) {
-                                    //closed survey   
+            Company.findOne({ "_id": comp_id}, (err, cmp) => {
+                if(cmp.cmp_status.toLowerCase() == "expired" || cmp.block_status == true || cmp.delete_status == true){
+                    res.json({
+                        status: 5 //company subscription expired
+                    })
+                }else{
+                    Survey.findOne(
+                        // {"start_datetime": {"$lte":  Date()}}, function(err,theme){
+                        { "_id": req.params.id }, { inv_users: { $elemMatch: { cmp_user_id: user_id } }, name: 1, company_id: 1, theme: 1, display_type: 1, start_datetime: 1, end_datetime: 1, logo: 1, is_header: 1, is_footer: 1, header_title: 1, footer_title: 1, questions: 1, answers: 1, }, function (err, survey) {
+                            // "start_datetime": {"$lte": new Date()},"end_datetime": {"$gt": new Date()}
+                            // console.log(survey);
+                            // console.log(new Date())
+                            if (survey) {
+    
+                                if (survey.start_datetime <= new Date()) {
+                                    if (survey.end_datetime < new Date()) {
+                                        //closed survey   
+                                        res.json({
+                                            status: 0,
+                                            header: survey.header_title,
+                                            footer: survey.footer_title,
+                                            theme: survey.theme,
+                                            logo: survey.logo
+                                        });
+                                    }
+                                    else {
+                                        survey.questions.sort(function (a, b) { return Math.random() - 0.5; });
+                                        res.json(survey);
+                                    }
+                                }
+                                else if (survey.start_datetime > new Date()) {
+                                    //upcoming 
                                     res.json({
-                                        status: 0,
+                                        status: 1,
+                                        start_time: survey.start_datetime,
                                         header: survey.header_title,
                                         footer: survey.footer_title,
                                         theme: survey.theme,
                                         logo: survey.logo
+    
+    
                                     });
                                 }
                                 else {
-                                    // console.log(survey);
-                                    survey.questions.sort(function (a, b) { return Math.random() - 0.5; });
-                                    // survey.questions.forEach((element, index) => {
-                                    //    // survey.questions[index].push({"answer":""});
-                                    //     survey.questions[index].answer = '';
-                                    // });
-                                    res.json(survey);
+                                    res.json(
+                                        { status: 2 } //error
+                                    );
+    
                                 }
-                                // console.log("x")
-
-                                // newres.status = 2; //for upcoming survey                    
-                                // newres.start_time = start_datetime
-                                // if(is_header == true){
-                                //     newres.;
-                                //     newres.logo = logo;
-                                // }
-                                // if(is_header == true){
-                                //     newres.footer = footer_title;
-
-                                // }
-                                // res.json(newres);
                             }
-                            else if (survey.start_datetime > new Date()) {
-                                //upcoming 
+                            else if (!survey) {
+    
                                 res.json({
-                                    status: 1,
-                                    start_time: survey.start_datetime,
-                                    header: survey.header_title,
-                                    footer: survey.footer_title,
-                                    theme: survey.theme,
-                                    logo: survey.logo
-
-
-                                });
+                                    status: 3,
+                                    message: "Survey doesn't exist!"
+                                })
                             }
-                            else {
-                                res.json(
-                                    { status: 2 } //error
-                                );
+                        }).lean();
+                }
+            });
 
-                            }
-                        }
-                        else if (!survey) {
-
-                            res.json({
-                                status: 3,
-                                message: "Survey doesn't exist!"
-                            })
-                        }
-                    }).lean();
+                
             }
         });
 

@@ -51,6 +51,9 @@ constructor(private _adminService : AdminService,private _flashMessagesService: 
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._adminService.getLoggedUSerDetails().subscribe(info =>{
+    if(info == null || info == ''){
+        this.routes.navigate(['/admin-login']); 
+      }
     if(info.role == "user"){
       if(info.delete_status == true || info.block_status == true){
         this.routes.navigate(['/404']); 
@@ -153,7 +156,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
           setTimeout(()=>{ 
                 this.atleastOneitem = false;
           }, 2000);
-            // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 1000 });
+            // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 3000 });
             return false;
       }
   }
@@ -190,7 +193,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                   this.errorMsg = '';
                   this.btnDisbled = false
               }, 2000);
-              this._flashMessagesService.show('Add Industry Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+              this._flashMessagesService.show('Add Industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
             // this.closeBtn.nativeElement.click();
               this.newIndustry =  [{name: ''}];
           }
@@ -214,6 +217,9 @@ applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue;
 }
 //  ---------------------------------end-----------------------------------------------
+addNew(){
+    this.newIndustry =  [{name: ''}];
+}
 
 //  ---------------------------------Start-------------------------------------------
  // Function      : deleteIndustry
@@ -231,7 +237,7 @@ applyFilter(filterValue: string) {
          }
         else{
             this.loadData();
-            this._flashMessagesService.show('Delete Industry Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+            this._flashMessagesService.show('Delete Industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
         }
    });
 }
@@ -294,7 +300,7 @@ getIndustryId(id){
                 else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
-                    this._flashMessagesService.show('Update industry Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                    this._flashMessagesService.show('Update industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
                 }
             }
         }

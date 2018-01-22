@@ -50,6 +50,7 @@ fontSize: any;
 // public color8x : string = "#0e88ff";
 // public color9x : string = "#ffffff";
 submitBtnDisabled = false;
+themeSaved = false;
   constructor(
     private _companyService: CompanyService,
     private routes: Router) { }
@@ -64,6 +65,9 @@ submitBtnDisabled = false;
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/clogin']); 
+  }
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -106,7 +110,11 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
         
         }
         else{
-          window.location.reload();
+          // window.location.reload();
+          // this.routes.navigate(['/create-theme']);
+          this.themeSaved =true;
+          $('#myModal .modal-body h4').text("Theme saved!");
+          $('#myModal').modal('show'); 
         }
         
       });
@@ -117,7 +125,14 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
     }
     
   }
-  
+// ---------------------------------Start-------------------------------------------
+// Function      : getFontProperties()
+// Params        : name of the view to be shown
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : get font properties like size and font family
   getFontProperties(){
     this._companyService.getFonts().subscribe(fonts =>{
       // console.log(fonts);
@@ -129,5 +144,15 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
       this.fontSize = fontSize;
       
     });
+  }
+// ----------------------------------End-------------------------------------------
+
+
+  thmSaved(){
+          window.location.reload();
+    
+          // this.routes.navigate(['/create-theme']);   
+          // this.routes.navigate(["/create-theme?refresh=1"]); 
+          // this.routes.navigate(['/create-theme'], { queryParams: { 'refresh': 1 } });
   }
 }

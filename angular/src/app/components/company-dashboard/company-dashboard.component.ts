@@ -25,7 +25,7 @@ export class CompanyDashboardComponent implements OnInit {
   private socket: any;
   locations = [];
   allSurveys: any;
-  surveyId = 'all';
+  surveyId:any;
   //chart2 start
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -85,6 +85,8 @@ export class CompanyDashboardComponent implements OnInit {
     private routes: Router,
     private config: Config,
     private route: ActivatedRoute) {
+    this.surveyId = 'all';
+      
     this.socket = socketIo(config.socketURL);
     // this.socket = socketIo(config.siteUrl);
     this.width = 900 - this.margin.left - this.margin.right;
@@ -153,6 +155,9 @@ export class CompanyDashboardComponent implements OnInit {
     // Last Modified : 16-1-2018, Rinsha
     // Desc          :
     this._companyService.getLoggedUSerDetails().subscribe(info => {
+      if(info == null || info == ''){
+        this.routes.navigate(['/clogin']); 
+      }
       if (info.role == "admin") {
         this.routes.navigate(['/admin-dashboard']);
       }
@@ -269,7 +274,7 @@ export class CompanyDashboardComponent implements OnInit {
       console.log("ff");
     }
     else {
-      console.log("poooooo"); 
+      // console.log("poooooo"); 
       
       this._companyService.getSurveyforDash(this.surveyId).subscribe(survey => {
         // console.log(theme);

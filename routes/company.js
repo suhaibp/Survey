@@ -1183,6 +1183,7 @@ var returnRouter = function (io) {
             job_level: req.body.job_level,
             password: req.body.password,
             survey_attenders: req.body.survey_attenders,
+            is_profile_completed: true ,
         });
         Company.find({ contact_person_email: req.body.contact_person_email }, function (err, doc) {
             if (doc.length != 0) {
@@ -1216,7 +1217,7 @@ var returnRouter = function (io) {
 
     router.get('/companyVerification/:id', function (req, res) {
         Company.findOneAndUpdate({ verification_code: req.params.id, cmp_status: "Not Verified" },
-            { $set: { cmp_status: "Trail", is_profile_completed: true } },
+            { $set: { cmp_status: "Trail"} },
             { new: true },
             function (err, doc) {
                 if (doc == null) {
@@ -1356,7 +1357,7 @@ var returnRouter = function (io) {
                     if (company.delete_status == true) {
                         return res.json({ success: false, msg: 'Account deleted' });
                     }
-                    if (company.is_profile_completed == false) {
+                    if (company.cmp_status == "Not Verified") {
                         return res.json({ success: false, msg: 'Company not verified' });
                     }
                     else if (company.block_status == false && company.delete_status == false && company.is_profile_completed == true) {
@@ -1688,7 +1689,6 @@ var returnRouter = function (io) {
             Theme.find({cmp_id:cmp_id}).lean()
                 .exec(function (err, res1) {
                     if (err) {
-                        console.log("Error retrieving polls");
                         res.json({
                             "status": false
                         })
@@ -1720,7 +1720,6 @@ var returnRouter = function (io) {
         Font.find({})
             .exec(function (err, res1) {
                 if (err) {
-                    console.log("Error retrieving polls");
                     res.json({
                         "status": false
                     })
@@ -1747,7 +1746,6 @@ var returnRouter = function (io) {
         FontSizes.find({})
             .exec(function (err, res1) {
                 if (err) {
-                    console.log("Error retrieving polls");
                     res.json({
                         "status": false
                     })
@@ -1926,54 +1924,67 @@ var returnRouter = function (io) {
                 // try {
                 decoded = jwt.verify(authorization, config.secret);
                 var cmp_id = decoded._id;
-                Theme.findByIdAndUpdate(req.body._id,
-                    {
-                        $set: {
-                            "title": req.body.title,
-                            "h_font_color": req.body.h_font_color,
-                            "h_font_bold": req.body.h_font_bold,
-                            "h_font_italic": req.body.h_font_italic,
-                            "h_font_family": req.body.h_font_family,
-                            "h_font_size": req.body.h_font_size,
-                            "h_bg_color": req.body.h_bg_color,
-                            "f_font_color": req.body.f_font_color,
-                            "f_font_bold": req.body.f_font_bold,
-                            "f_font_italic": req.body.f_font_italic,
-                            "f_font_family": req.body.f_font_family,
-                            "f_font_size": req.body.f_font_size,
-                            "f_bg_color": req.body.f_bg_color,
-                            "q_font_color": req.body.q_font_color,
-                            "q_font_bold": req.body.q_font_bold,
-                            "q_font_italic": req.body.q_font_italic,
-                            "q_font_family": req.body.q_font_family,
-                            "q_font_size": req.body.q_font_size,
-                            "q_bg_color": req.body.q_bg_color,
-                            "progress_text_color": req.body.progress_text_color,
-                            "progress_color": req.body.progress_color,
-                            "b_bg_color": req.body.b_bg_color,
-                            "cmp_id": cmp_id
-                            // "b_bg_color": true,
-                            // "b_bg_color": true,
-                            // "b_bg_color": true,
-                            // "b_bg_color": true,
-
-                        }
-                    }, function (err, theme) {
-
-                        if (err) {
-                            res.json({
-                                status: 0,
-                                message: "Error in updating! Try again."
+                Theme.findOne({ "cmp_id": cmp_id, title: req.body.title }, function (err, surveyTheme) {
+                    console.log(surveyTheme);
+                    
+                    if (surveyTheme) {
+                        res.json({
+                            status: 4
+                        });
+                    }
+                    else if (!surveyTheme) {
+                        Theme.findByIdAndUpdate(req.body._id,
+                            {
+                                $set: {
+                                    "title": req.body.title,
+                                    "h_font_color": req.body.h_font_color,
+                                    "h_font_bold": req.body.h_font_bold,
+                                    "h_font_italic": req.body.h_font_italic,
+                                    "h_font_family": req.body.h_font_family,
+                                    "h_font_size": req.body.h_font_size,
+                                    "h_bg_color": req.body.h_bg_color,
+                                    "f_font_color": req.body.f_font_color,
+                                    "f_font_bold": req.body.f_font_bold,
+                                    "f_font_italic": req.body.f_font_italic,
+                                    "f_font_family": req.body.f_font_family,
+                                    "f_font_size": req.body.f_font_size,
+                                    "f_bg_color": req.body.f_bg_color,
+                                    "q_font_color": req.body.q_font_color,
+                                    "q_font_bold": req.body.q_font_bold,
+                                    "q_font_italic": req.body.q_font_italic,
+                                    "q_font_family": req.body.q_font_family,
+                                    "q_font_size": req.body.q_font_size,
+                                    "q_bg_color": req.body.q_bg_color,
+                                    "progress_text_color": req.body.progress_text_color,
+                                    "progress_color": req.body.progress_color,
+                                    "b_bg_color": req.body.b_bg_color,
+                                    "cmp_id": cmp_id
+                                    // "b_bg_color": true,
+                                    // "b_bg_color": true,
+                                    // "b_bg_color": true,
+                                    // "b_bg_color": true,
+        
+                                }
+                            }, function (err, theme) {
+        
+                                if (err) {
+                                    res.json({
+                                        status: 0,
+                                        message: "Error in updating! Try again."
+                                    });
+                                }
+                                else {
+        
+                                    res.json({
+                                        status: 2,
+                                        message: "Success!"
+                                    })
+                                }
                             });
-                        }
-                        else {
 
-                            res.json({
-                                status: 2,
-                                message: "Success!"
-                            })
-                        }
-                    });
+                    }
+                });
+                
             } else {
                 res.json({
                     status: 1,
@@ -2010,7 +2021,6 @@ var returnRouter = function (io) {
             // Survey.find({ "company_id": cmp_id })
                 .exec(function (err, res1) {
                     if (err) {
-                        console.log("Error retrieving polls");
                         res.json({
                             "status": 0
                         })
@@ -2217,41 +2227,52 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
 
-    router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-        if (req.headers && req.headers.authorization) {
-            var authorization = req.headers.authorization.substring(4), decoded;
-            // try {
-            decoded = jwt.verify(authorization, config.secret);
+    // router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+    //     if (req.headers && req.headers.authorization) {
+    //         var authorization = req.headers.authorization.substring(4), decoded;
+    //         decoded = jwt.verify(authorization, config.secret);
+    //         cmp_id = decoded._id;
+    //         arr1 = [];
+    //         arr2=[];
+    //         Users.find({},{ block_request: { $elemMatch: { action_status: "Accepted"}} }, (err, eachUsers) => {
+    //             if(eachUsers){
+    //                 eachUsers.forEach(eachElement => {
+    //                         eachElement.block_request.forEach(blockRequest => {
+    //                             //if(blockRequest){
+    //                                 // async.eachOfSeries(blockRequest.companies, function(blkCompany, key, callback) {
+                                        
+    //                                     blockRequest.companies.forEach(blkCompany => {
+    //                                         if (blkCompany.company_id == cmp_id && blkCompany.comp_is_viewed == false ) {
+    //                                             arr2.push(eachElement._id);
+                                                    
+    //                                                 //  console.log(arr1);
+    //                                         }
+    //                                      });
 
-            cmp_id = decoded._id;
-            arr1 = [];
-            arr2 = [];
-            var count = 0;
-          //  Users.find({ "block_request.action_status": "Accepted" }, (err, globalUser) => {
-            Users.findOne({},{ block_request: { $elemMatch: { action_status: "Accepted"} } }, function (err, eachUsers) {
-                // console.log(globalUser);
-                // globalUser.forEach(eachUsers => {
-                     eachUsers.block_request.forEach(blockRequest => {
-                        blockRequest.companies.forEach(blkCompany => {
-                            if (blkCompany.company_id == cmp_id) {
-                                if (blkCompany.comp_is_viewed == false) {
-                                    count++;
-                                    arr1.push({ "email": eachUsers.email, "id": eachUsers._id, "notifCount": count })
-                                    // console.log(arr1);
-                                }
-                            }
-                        })
-                     });
-                    // console.log(eachUsers);
-                    // console.log(arr1);
-                    res.json({ arr1 });
-                });
+    //                                 // },
+    //                                 // function (err, respemail) {
+
+    //                                 //     console.log(arr1);
+    //                                 // });
+
+    //                            // }
+    //                         });
+
+    //                 });
+    //                 // Users.findById(eachElement._id, (err, doc)=> {
+    //                 //     // console.log(doc)
+    //                 //     arr1.push({ "email": doc.email, "id": doc._id});
+    //                 //     callback();
+    //                 // });
                    
-            // });
-        } else {
-            return res.status(401).send('Invalid User');
-        }
-    });
+    //                 // res.json( arr1 );
+    //             }
+    //         });
+    //     }
+    //      else {
+    //     return res.status(401).send('Invalid User');
+    //     }
+    // });
     
 
 
@@ -2648,7 +2669,7 @@ var returnRouter = function (io) {
 
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4), decoded;
-            try {
+            //try {
                 decoded = jwt.verify(authorization, config.secret);
                 // cmp_id = "5a4b61e2a2f0028c1a46274a";
                 var cmp_id = decoded._id;
@@ -2727,17 +2748,15 @@ var returnRouter = function (io) {
                                         res.json({ success: true, msg: "User Updated successfully", company: company });
                                     }
                                 });
-
-
                         }
                     });
 
 
                 }
 
-            } catch (e) {
-                return res.status(401).send('unauthorized 123');
-            }
+            // } catch (e) {
+            //     return res.status(401).send('unauthorized 123');
+            // }
         } else {
             return res.status(401).send('Invalid User');
         }
@@ -3110,12 +3129,14 @@ var returnRouter = function (io) {
                             mainArray[i].ans.push({ value: eachoption, "count": count, answeredUser: answeredUser });
                         });
                     } else {
+                        answeredUser = [];
                         eachQuestions.answers.forEach(eachanswer => {
                             count++;
-                            answeredUser = [];
-                            answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
-                            mainArray[i].ans.push({ value: eachanswer.answer, "count": 1, answeredUser: answeredUser });
+                            
+                            answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time,answer :eachanswer.answer });
+                           
                         })
+                        mainArray[i].ans.push({ value: 'Click Here ', "count": 1, answeredUser: answeredUser });
 
                     }
 

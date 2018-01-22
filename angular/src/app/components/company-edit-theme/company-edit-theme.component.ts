@@ -20,6 +20,7 @@ export class CompanyEditThemeComponent implements OnInit {
   fontSize: any;
   submitBtnDisabled = false;
   themeId;
+  stat4 =false;
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _companyService: CompanyService,
@@ -35,6 +36,9 @@ export class CompanyEditThemeComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/clogin']); 
+  }
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -131,7 +135,7 @@ getTheme(){
     this.submitBtnDisabled = true;
     if(this.Theme.title != ""){
       this._companyService.updateTheme(this.themeId, this.Theme).subscribe(res =>{
-        console.log(res);
+        console.log(res.status);
        if(res.status == 0){
         $('#myModal .modal-body h4').text('Error in updating!');
         $('#myModal').modal('show');  
@@ -144,6 +148,13 @@ getTheme(){
           $('#myModal .modal-body h4').text('Successfully updated!');
           $('#myModal .modal-title').text('Message');
           $('#myModal').modal('show');
+        }
+        else if(res.status == 4){
+          this.stat4 = true;
+          $('#myModal .modal-body h4').text('Theme name already exist!');
+          $('#myModal .modal-title').text('Message');
+          $('#myModal').modal('show');
+          $('#upbtn').prop('disabled', false);
         }
         else{
           $('#myModal .modal-body h4').text('Error in updating!');

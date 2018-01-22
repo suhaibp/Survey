@@ -54,6 +54,22 @@ var returnRouter = function (io) {
     });
 
     // ----------------------------------End-------------------------------------------
+    
+    // ---------------------------------Start-------------------------------------------
+    // Function      : myTrim
+    // Params        : string
+    // Returns       : string
+    // Author        :Jooshifa
+    // Date          : 21-01-2017
+    // Last Modified : 21-01-2017, Jooshifa
+    // Desc          : For removing unwanted space from left and right
+
+    function myTrim(x) {
+        return x.replace(/^\s+|\s+$/gm, '');
+    }
+
+    // ----------------------------------End-------------------------------------------
+
 
     // ---------------------------------Start-------------------------------------------
     // Function      : Allcompanies
@@ -957,18 +973,30 @@ var returnRouter = function (io) {
     router.post('/addsurveycategory', function (req, res) {
         var isSuccess = true;
         var errMsg = '';
+        catgArray=[];
+       
         req.body.forEach((element) => {
+            element.name= myTrim(element.name);
 
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
                 errMsg = 'All field required';
+            }else{
+                if (catgArray.indexOf(element.name) > -1) {
+                    isSuccess = false;
+                    errMsg = 'Failed,  category name ' + element.name + " Repeating" ;
+                } 
+                catgArray.push(element.name);
             }
         });
+        
+
         if (!isSuccess) {
             res.json({ success: isSuccess, msg: errMsg });
         } else {
+           
             async.eachOfSeries(req.body, function (element, key, callback) {
-                Category.findOne({ name: element.name }, (err, singlecat) => {
+                Category.findOne({ name: myTrim(element.name) }, (err, singlecat) => {
                     if (singlecat) {
                         isSuccess = false;
 
@@ -976,6 +1004,7 @@ var returnRouter = function (io) {
                     }
                     callback();
                 })
+
             }, function (err) {
                 if (err) console.error(err.message);
                 if (!isSuccess) {
@@ -984,7 +1013,7 @@ var returnRouter = function (io) {
 
                     async.eachOfSeries(req.body, function (element, key, callback) {
                         var newCategory = new Category();
-                        newCategory.name = element.name;
+                        newCategory.name = myTrim(element.name);
                         newCategory.save(function (err, insertedCatg) {
                             if (err) {
                                 console.log("Error " + err);
@@ -1025,21 +1054,29 @@ var returnRouter = function (io) {
     // Desc          : post function for add Industry
 
     router.post('/addindustry', function (req, res) {
+        industryArray=[];
         var isSuccess = true;
         var errMsg = '';
         req.body.forEach((element) => {
-
+        element.name =myTrim(element.name);
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
                 errMsg = 'All field required';
 
+            }
+            else{
+                if (industryArray.indexOf(element.name) > -1) {
+                    isSuccess = false;
+                    errMsg = 'Failed,  Industry name ' + element.name + " Repeating" ;
+                } 
+                industryArray.push(element.name);
             }
         });
         if (!isSuccess) {
             res.json({ success: isSuccess, msg: errMsg });
         } else {
             async.eachOfSeries(req.body, function (element, key, callback) {
-                Industry.findOne({ name: element.name }, (err, single) => {
+                Industry.findOne({ name: myTrim(element.name) }, (err, single) => {
                     if (single) {
                         isSuccess = false;
 
@@ -1055,7 +1092,7 @@ var returnRouter = function (io) {
 
                     async.eachOfSeries(req.body, function (element, key, callback) {
                         var newIndustry = new Industry();
-                        newIndustry.name = element.name;
+                        newIndustry.name = myTrim(element.name);
                         newIndustry.save(function (err, insertedIndus) {
                             if (err) {
                                 console.log("Error " + err);
@@ -1098,19 +1135,27 @@ var returnRouter = function (io) {
     router.post('/addorganizationtype', function (req, res) {
         var isSuccess = true;
         var errMsg = '';
+        orgArray=[];
         req.body.forEach((element) => {
-
+        element.name = myTrim(element.name)
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
                 errMsg = 'All field required';
 
+            }
+            else{
+                if (orgArray.indexOf(element.name) > -1) {
+                    isSuccess = false;
+                    errMsg = 'Failed,  Organization type ' + element.name + " Repeating" ;
+                } 
+                orgArray.push(element.name);
             }
         });
         if (!isSuccess) {
             res.json({ success: isSuccess, msg: errMsg });
         } else {
             async.eachOfSeries(req.body, function (element, key, callback) {
-                Organization.findOne({ name: element.name }, (err, single) => {
+                Organization.findOne({ name: myTrim(element.name) }, (err, single) => {
                     if (single) {
                         isSuccess = false;
 
@@ -1126,7 +1171,7 @@ var returnRouter = function (io) {
 
                     async.eachOfSeries(req.body, function (element, key, callback) {
                         var newOrganizationType = new Organization();
-                        newOrganizationType.name = element.name;
+                        newOrganizationType.name = myTrim(element.name);
                         newOrganizationType.save(function (err, insertedOrg) {
                             if (err) {
                                 console.log("Error " + err);
@@ -1166,19 +1211,27 @@ var returnRouter = function (io) {
     router.post('/addattendertype', function (req, res) {
         var isSuccess = true;
         var errMsg = '';
+        attenderArray=[];
         req.body.forEach((element) => {
-
+            element.name = myTrim(element.name);
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
                 errMsg = 'All field required';
 
+            }
+            else{
+                if (attenderArray.indexOf(element.name) > -1) {
+                    isSuccess = false;
+                    errMsg = 'Failed,  attender type ' + element.name + " Repeating" ;
+                } 
+                attenderArray.push(element.name);
             }
         });
         if (!isSuccess) {
             res.json({ success: isSuccess, msg: errMsg });
         } else {
             async.eachOfSeries(req.body, function (element, key, callback) {
-                Attender.findOne({ name: element.name }, (err, single) => {
+                Attender.findOne({ name: myTrim(element.name) }, (err, single) => {
                     if (single) {
                         isSuccess = false;
 
@@ -1194,7 +1247,7 @@ var returnRouter = function (io) {
 
                     async.eachOfSeries(req.body, function (element, key, callback) {
                         var newAttender = new Attender();
-                        newAttender.name = element.name;
+                        newAttender.name = myTrim(element.name);
                         newAttender.save(function (err, insertedattender) {
                             if (err) {
                                 console.log("Error " + err);

@@ -62,6 +62,9 @@ export class UserSurveySinglepageComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/404']); 
+  }
   this.userIdx = info._id;
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
@@ -122,6 +125,16 @@ getTheme(){
   }
 //  ---------------------------------end-----------------------------------------------
 
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : submitAns()
+// Params        : name of the view to be shown
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : Submit survey answrs
 submitAns(){
   console.log(this.survey);
   if(this.skip == false){
@@ -151,16 +164,34 @@ submitAns(){
   }
   
 }
+
+//  ---------------------------------end-----------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : closed()
+// Params        : name of the view to be shown
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : reload survey after submission
 closed(){
   window.location.reload();  
   
 }
-hel(event){
-  console.log(this.survey);
-  console.log("h")
-}
+//  ---------------------------------end-----------------------------------------------
 
 
+
+// ---------------------------------Start-------------------------------------------
+// Function      : timeOver()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : check for timeout of survey
 timeOver(){
   console.log("h");
   if(this.skip == false){
@@ -173,6 +204,7 @@ timeOver(){
     $('#myModaly').modal('show');
   }
 }
+// -----------------------------------End------------------------------------------
 
 
 // ---------------------------------Start-------------------------------------------

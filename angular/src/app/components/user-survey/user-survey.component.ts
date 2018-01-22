@@ -18,6 +18,7 @@ export class UserSurveyComponent implements OnInit {
   countTime: any;
   single:false;
   attented = false;
+  exp = false;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private routes: Router) { }
@@ -32,6 +33,10 @@ export class UserSurveyComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/404']); 
+  }
+  // this.routes.navigate(['/user-login', data.user_id, this.surveyId]);
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -55,6 +60,7 @@ this._userService.getLoggedUSerDetails().subscribe(info =>{
 });
 // ---------------------------------End-------------------------------------------
     this.getSurvey();
+    console.log(this.exp)
   }
 
 
@@ -78,7 +84,8 @@ getSurvey(){
     this.survey = survey;
     console.log(survey);
     if(survey.status == 0){ // closed
-      this.closed = true;
+      this.routes.navigate(['/404'])
+      // this.closed = true;
     }
     else if(survey.status == 1){ // upcoming
       this.countTime = survey.start_time;
@@ -98,6 +105,9 @@ getSurvey(){
     else if(survey.status == 4){
       this.attented = true;
       
+    }
+    else if(survey.status == 5){
+      this.exp = true;  
     }
     else if(!survey.status && survey.display_type.ui.toLowerCase() == 'single'){
       // if(){

@@ -53,6 +53,9 @@ constructor(private _adminService : AdminService,private _flashMessagesService: 
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._adminService.getLoggedUSerDetails().subscribe(info =>{
+    if(info == null || info == ''){
+        this.routes.navigate(['/admin-login']); 
+    }
     if(info.role == "user"){
       if(info.delete_status == true || info.block_status == true){
         this.routes.navigate(['/404']); 
@@ -93,6 +96,9 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
       }
   }
    //  ---------------------------------end-------------------------------------------
+   addNew(){
+    this.newOrganization =  [{name: ''}];
+   }
 
    //  ---------------------------------Start-------------------------------------------
   // Function      : loadData
@@ -188,7 +194,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                   this.errorMsg = '';
                   this.btnDisbled = false
               }, 2000);
-              this._flashMessagesService.show('Add Organization type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+              this._flashMessagesService.show('Add Organization type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
             // this.closeBtn.nativeElement.click();
               this.newOrganization =  [{name: ''}];
             }
@@ -230,7 +236,7 @@ applyFilter(filterValue: string) {
             }
             else{
                 this.loadData();
-                this._flashMessagesService.show('Delete Organisation type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                this._flashMessagesService.show('Delete Organisation type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
              }
         });
 }
@@ -293,7 +299,7 @@ updateOrganizationType(organization){
                 else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
-                    this._flashMessagesService.show('Update Organization type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                    this._flashMessagesService.show('Update Organization type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
                  }
           }
         }

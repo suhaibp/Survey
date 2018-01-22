@@ -144,6 +144,8 @@ p {
     font-family: sans-serif;
     text-align: center;
     font-size: 50px;
+    color: #696969
+    
 }
 
 .survey-close h3 {
@@ -369,5 +371,5 @@ p {
     opacity: 0.6;
 }
 .srvey-hd{
-    margin-top: 40px;
+    margin-top: 12px;
 }

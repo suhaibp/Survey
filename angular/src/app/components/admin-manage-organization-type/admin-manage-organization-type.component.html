@@ -4,7 +4,7 @@
               
        <!-- Navigation -->
           <admin-top-bar></admin-top-bar>            
-          <admin-side-bar></admin-side-bar>
+          <admin-side-bar [open]=true></admin-side-bar>
           <h3 class="heading">Manage Survey Organization type</h3>
           <br> 
          <div id="">
@@ -125,7 +125,7 @@
   
   <div class="col-md-6 col-md-offset-3">
       <flash-messages></flash-messages>
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-backdrop="static">+Add New</button>
+      <button type="button" (click)="addNew()" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-backdrop="static">+Add New</button>
             <div class="example-header" >
                 <mat-form-field>
                   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">

@@ -48,6 +48,9 @@ private socket:any;
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this.companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/clogin']); 
+  }
   this.company_name = info.organization;
   console.log(this.company_name);
   if(info.role == "admin"){
@@ -74,29 +77,15 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 // ---------------------------------End-------------------------------------------
   }
   loadData(){
-    this.companyService.getAcceptedNotification().subscribe(data => {
-      // console.log(data);
-      if(data.arr1 == '' || data.arr1 ==null){
-        this.count = 0;
-      }
-      else{
-      // console.log(data);
-    //  this.count = data.arr1.notifCount
- 
-      // data.arra1.
-      this.dataArray= [];
-      data.arr1.forEach(element => {
-        this.count = element.notifCount;
-        // console.log( element);
-        this.dataArray.push(element);
-        // console.log(this.dataArray);
-        // this.dataEmail = element
-        
-      
-    });
-  }
-   });
-  }
+      this.companyService.getAcceptedNotification().subscribe(data => {
+          this.count = data.arr1.length;
+          console.log(this.count);
+          this.dataArray= [];
+          data.arr1.forEach(element => {
+              this.dataArray.push(element);
+         });
+     });
+   }
   notifViewed(email,id){
     // console.log(id);
     // console.log(email);
@@ -107,7 +96,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.companyService.updateNotifViewed(this.userData).subscribe(data => {
       if(data.success){
         this.loadData();
-        window.location.reload();
+        // window.location.reload();
       }
     //  console.log(data)
    });
