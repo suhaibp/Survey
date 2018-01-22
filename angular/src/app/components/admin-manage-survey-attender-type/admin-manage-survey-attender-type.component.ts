@@ -195,7 +195,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                 this.errorMsg = '';
                 this.btnDisbled = false
           }, 2000);
-            this._flashMessagesService.show('Add Survey attender type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+            this._flashMessagesService.show('Add Survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
           // this.closeBtn.nativeElement.click();
             this.newAttender =  [{name: ''}];
       }
@@ -218,6 +218,11 @@ applyFilter(filterValue: string) {
 }
 
 //  ---------------------------------end-----------------------------------------------
+addNew(){
+  this.newAttender =  [{name: ''}];
+
+
+ }
 
 //  ---------------------------------Start-------------------------------------------
  // Function      : deleteattenderType
@@ -236,7 +241,7 @@ applyFilter(filterValue: string) {
         }
         else{
             this.loadData();
-            this._flashMessagesService.show('Delete survey attender type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+            this._flashMessagesService.show('Delete survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
         }
    });
 }
@@ -300,7 +305,7 @@ getAttenderTypeId(id){
           else{
                 this.loadData();
                 this.closeBtn1.nativeElement.click();
-                this._flashMessagesService.show('Update survey attender type Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                this._flashMessagesService.show('Update survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
         }
       }
     }
