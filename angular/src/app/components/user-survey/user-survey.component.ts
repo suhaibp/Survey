@@ -32,6 +32,10 @@ export class UserSurveyComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/404']); 
+  }
+  // this.routes.navigate(['/user-login', data.user_id, this.surveyId]);
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }

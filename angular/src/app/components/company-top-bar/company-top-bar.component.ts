@@ -48,6 +48,9 @@ private socket:any;
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this.companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/clogin']); 
+  }
   this.company_name = info.organization;
   console.log(this.company_name);
   if(info.role == "admin"){

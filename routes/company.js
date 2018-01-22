@@ -1181,6 +1181,7 @@ var returnRouter = function (io) {
             job_level: req.body.job_level,
             password: req.body.password,
             survey_attenders: req.body.survey_attenders,
+            is_profile_completed: true ,
         });
         Company.find({ contact_person_email: req.body.contact_person_email }, function (err, doc) {
             if (doc.length != 0) {
@@ -1214,7 +1215,7 @@ var returnRouter = function (io) {
 
     router.get('/companyVerification/:id', function (req, res) {
         Company.findOneAndUpdate({ verification_code: req.params.id, cmp_status: "Not Verified" },
-            { $set: { cmp_status: "Trail", is_profile_completed: true } },
+            { $set: { cmp_status: "Trail"} },
             { new: true },
             function (err, doc) {
                 if (doc == null) {
@@ -1354,7 +1355,7 @@ var returnRouter = function (io) {
                     if (company.delete_status == true) {
                         return res.json({ success: false, msg: 'Account deleted' });
                     }
-                    if (company.is_profile_completed == false) {
+                    if (company.cmp_status == "Not Verified") {
                         return res.json({ success: false, msg: 'Company not verified' });
                     }
                     else if (company.block_status == false && company.delete_status == false && company.is_profile_completed == true) {
@@ -2228,20 +2229,24 @@ var returnRouter = function (io) {
             Users.findOne({},{ block_request: { $elemMatch: { action_status: "Accepted"} } }, function (err, eachUsers) {
                 // console.log(globalUser);
                 // globalUser.forEach(eachUsers => {
-                     eachUsers.block_request.forEach(blockRequest => {
-                        blockRequest.companies.forEach(blkCompany => {
-                            if (blkCompany.company_id == cmp_id) {
-                                if (blkCompany.comp_is_viewed == false) {
-                                    count++;
-                                    arr1.push({ "email": eachUsers.email, "id": eachUsers._id, "notifCount": count })
-                                    // console.log(arr1);
-                                }
-                            }
-                        })
-                     });
-                    // console.log(eachUsers);
-                    // console.log(arr1);
-                    res.json({ arr1 });
+                   // if(eachUsers){
+                        // eachUsers.block_request.forEach(blockRequest => {
+                        //     blockRequest.companies.forEach(blkCompany => {
+                        //         if (blkCompany.company_id == cmp_id) {
+                        //             if (blkCompany.comp_is_viewed == false) {
+                        //                 count++;
+                        //                 arr1.push({ "email": eachUsers.email, "id": eachUsers._id, "notifCount": count })
+                        //                 // console.log(arr1);
+                        //             }
+                        //         }
+                        //     })
+                        // });
+                        // console.log(eachUsers);
+                        // console.log(arr1);
+                        res.json({ arr1 });
+                    // }else{
+                    //     res.json({ arr1 });
+                    // }
                 });
                    
             // });
@@ -2637,7 +2642,7 @@ var returnRouter = function (io) {
 
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4), decoded;
-            try {
+            //try {
                 decoded = jwt.verify(authorization, config.secret);
                 // cmp_id = "5a4b61e2a2f0028c1a46274a";
                 var cmp_id = decoded._id;
@@ -2713,17 +2718,15 @@ var returnRouter = function (io) {
                                         res.json({ success: true, msg: "User Updated successfully", company: company });
                                     }
                                 });
-
-
                         }
                     });
 
 
                 }
 
-            } catch (e) {
-                return res.status(401).send('unauthorized 123');
-            }
+            // } catch (e) {
+            //     return res.status(401).send('unauthorized 123');
+            // }
         } else {
             return res.status(401).send('Invalid User');
         }

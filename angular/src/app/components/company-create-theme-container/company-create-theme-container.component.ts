@@ -64,6 +64,9 @@ submitBtnDisabled = false;
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/clogin']); 
+  }
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }

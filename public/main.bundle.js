@@ -460,6 +460,9 @@ var AdminActiveUsersComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -653,6 +656,9 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -824,6 +830,9 @@ var AdminAllUsersComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -995,6 +1004,9 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -1158,6 +1170,9 @@ var AdminChatd3Component = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -1341,6 +1356,9 @@ var AdminChatd3pieComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -1543,6 +1561,9 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -1730,6 +1751,9 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -1907,6 +1931,9 @@ var AdminCompanyDeletedComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -2029,6 +2056,9 @@ var AdminCompanyComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -2129,6 +2159,9 @@ var AdminDashboardComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -2249,6 +2282,9 @@ var AdminDeletedUsersComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -2402,6 +2438,9 @@ var AdminExpiredComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -2643,6 +2682,9 @@ var AdminLoginComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -2783,6 +2825,9 @@ var AdminManageIndustryComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -3134,6 +3179,9 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -3484,6 +3532,9 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -3834,6 +3885,9 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -4212,6 +4266,9 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -4406,6 +4463,9 @@ var AdminRequestUsersComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -4658,6 +4718,9 @@ var AdminSubscribedComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -4996,6 +5059,9 @@ var AdminTrialComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -5161,6 +5227,9 @@ var AdminUsersComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.adminService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/admin-login']);
+            }
             if (info.role == "user") {
                 if (info.delete_status == true || info.block_status == true) {
                     _this.routes.navigate(['/404']);
@@ -5281,6 +5350,9 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -5806,6 +5878,9 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         // Last Modified : 17-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -6232,6 +6307,9 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -6367,6 +6445,9 @@ var CompanyCreateThemeComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -6550,6 +6631,9 @@ var CompanyDashboardComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -7000,6 +7084,9 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         // Last Modified : 17-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -7468,6 +7555,9 @@ var CompanyEditThemeContainerComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -7582,6 +7672,9 @@ var CompanyEditThemeComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -7871,6 +7964,9 @@ var CompanyExpiredPageComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -8011,6 +8107,9 @@ var CompanyListSurveyComponent = /** @class */ (function () {
         // Last Modified : 17-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -8154,6 +8253,9 @@ var CompanyLoginComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            // if(info == null || info == ''){
+            //   this.routes.navigate(['/clogin']); 
+            // }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -8291,6 +8393,9 @@ var CompanyManageThemesComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -8476,6 +8581,9 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -8796,6 +8904,9 @@ var CompanyProfileComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -9334,6 +9445,9 @@ var CompanySurveyPreviewComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -9485,6 +9599,9 @@ var CompanyTopBarComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             _this.company_name = info.organization;
             console.log(_this.company_name);
             if (info.role == "admin") {
@@ -9597,7 +9714,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-users/company-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                        <div class=\"col-md-2\">\r\n                              <nav class=\"nav-sidebar\">\r\n                                  <ul class=\"nav tabs buttonleft\">\r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New</button>\r\n                                        </li>\r\n                                  \r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#importModal\" >Import from Excel</button>\r\n                                        </li>\r\n                                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                                     \r\n                                  </ul>\r\n                                </nav>\r\n                        </div>\r\n                        <div class=\"col-md-10\">\r\n\r\n                            <div *ngIf=\"viewComp == 'All'\">\r\n                              <!-- <all-users></all-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Active'\">\r\n                                <!-- <active-users></active-users> -->\r\n                              </div>\r\n                            <div *ngIf=\"viewComp == 'Blocked'\">\r\n                              <!-- <disabled-users></disabled-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Delete'\">\r\n                              <!-- <deleted-users></deleted-users> -->\r\n                            </div>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n\r\n              <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                  <div class=\"modal-dialog\">\r\n                \r\n                    <!-- Modal content-->\r\n                    <div class=\"modal-content\">\r\n                      <!-- <div class=\"modal-header\"> -->\r\n                        <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                      <!-- </div> -->\r\n                      <div class=\"modal-body\">\r\n                          <h4>Are you sure to delete?</h4>\r\n                      \r\n                      </div>\r\n                    \r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                        <button type=\"button\" (click)=\"deleteUser(userId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                      </div>\r\n                    </div>\r\n                \r\n                  </div>\r\n                </div>\r\n\r\n                <div id=\"myModal2\"  class=\"modal fade\">\r\n                    <div class=\"modal-dialog\"> \r\n            <!-- Modal content-->\r\n                      <div class=\"modal-content\">\r\n                         <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                              <h4 class=\"modal-title\">User Block Request </h4>\r\n                         </div>\r\n                         <br>\r\n                         <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                          {{errorMsg}}\r\n                       </div>\r\n                       <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                           {{errorMsg}}\r\n                        </div>\r\n                       \r\n                          \r\n                        <div class=\"modal-body\">\r\n                             <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"sendBlockRequest(newBlock)\">\r\n                                  <p>User Name :  {{newBlock.email}}</p>\r\n                                  \r\n                                     \r\n                            <br>\r\n                                   <div class=\"form-group\" >\r\n                                     <textarea class=\"form-control\" rows=\"5\" name = \"reason\" id=\"comment\" placeholder=\"Reason\" [(ngModel)]=\"newBlock.reason\"></textarea>\r\n                                 </div>\r\n                                        <input type=\"submit\" class=\"btn btn-danger\" value=\"Send\"  [disabled]=\"btnDisbled\">\r\n                                 </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                      </div>\r\n                   </div>\r\n                </div>\r\n          </div>\r\n      \r\n                <flash-messages></flash-messages>\r\n           \r\n                  <br>\r\n                      <div class=\"col-md-7\">\r\n                          <div class=\"col-md-4 pull-right\">\r\n                              <mat-form-field class=\"filter\">\r\n                                  <mat-select   (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                    <mat-option value=\"all\">All</mat-option>\r\n                                    <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                  </mat-select>\r\n                          </mat-form-field>\r\n                          </div>\r\n                      <div class=\"example-header\" >\r\n                          <mat-form-field>\r\n                            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                          </mat-form-field>\r\n                      </div>\r\n                      \r\n                        <div class=\"noitem\" *ngIf=\"existStatus\"><h4>No item Found!</h4></div>\r\n                      \r\n                      <br>\r\n                      <div class=\"example-container mat-elevation-z8 \">\r\n                          <mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <ng-container matColumnDef=\"id\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                        </ng-container>\r\n                                  <ng-container matColumnDef=\"email\">\r\n                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                                       <mat-cell *matCellDef=\"let row\"> {{row.email}}</mat-cell>\r\n                                   </ng-container>\r\n                                    <ng-container  matColumnDef=\"action\">\r\n                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                          <mat-menu #menu=\"matMenu\">\r\n                                            <div>\r\n                                             \r\n                                              <button *ngIf=\"row.block_req_status==false\"  mat-menu-item (click)=\"getUserEmail(row.id,row.email)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                  <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                  <span>Sent Block Request</span>\r\n                                                  </button>\r\n                                                  <button *ngIf=\"row.block_req_status==true\"  mat-menu-item >\r\n                                                      <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                      <span>Already sent Block request</span>\r\n                                                      </button>\r\n                                                  </div>\r\n                                              <button  mat-menu-item (click)=\"bindEditUser(row.item)\" data-toggle=\"modal\" data-target=\"#editModal\">\r\n                                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                    <span>Edit</span>\r\n                                                    </button>\r\n                                                <button mat-menu-item  (click)=\"getUserId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                    <span>Delete</span>\r\n                                                </button>\r\n                                          </mat-menu> </mat-cell>\r\n                                \r\n                                       </ng-container>\r\n                         \r\n                      \r\n                  \r\n                                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                     </mat-row>\r\n                                    </mat-table>\r\n                      \r\n                                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                          </div>\r\n                        </div>\r\n                        \r\n              \r\n                      \r\n\r\n<!-- -------------------------------------------------------------------------------------------edit------------------------- -->\r\n                      <div id=\"editModal\"  class=\"modal fade\" >\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                              <h4 class=\"modal-title\">Edit User</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateUsers(f1);\" novalidate>\r\n                               \r\n                              <div class=\"form-group\" >\r\n                                  <label > Email </label>\r\n                                  <br>\r\n                                  <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                      {{msg1}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                    {{msg1}}\r\n                              </div>\r\n                                 \r\n                                  <div  >\r\n                                    <div class=\"inputitem\">\r\n                                    <mat-form-field *ngIf=\"!selUser.is_registered\" class=\"inputfileds\">\r\n                                      <input matInput  [value]=\"selUser.email\" placeholder=\"Email address\" required email  #email=\"ngModel\" name=\"email\" [(ngModel)]=\"selUser.newEmail\"  >\r\n                                      <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                    \r\n                                    </mat-form-field>\r\n                                    <div *ngIf=\"selUser.is_registered\">\r\n                                    <label >{{selUser.email}}</label>\r\n                                    </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <br/>\r\n                           \r\n                                  <br/>\r\n                                  <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <mat-select placeholder=\"Groups\" name='editgrup' [(ngModel)]=\"selUserGroups\" multiple>\r\n                                          <mat-option [value]=\"grp._id\" *ngFor=\"let grp of groups;\" >{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                  </div>\r\n                              \r\n                                  <br>\r\n                                  <div style=\"clear: both;\"></div>\r\n                              </div>\r\n                              <br>\r\n                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->\r\n<div id=\"importModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn2>&times;</button>\r\n          <h4 class=\"modal-title\">Import From Excel</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form  role=\"form\"  #f2=\"ngForm\" (ngSubmit)=\"f2.form.valid && import(f2);\" novalidate>\r\n           <div class=\"form-group\" >\r\n             <div class=\"row\">\r\n             <div class=\"col-md-6\">\r\n                <label > File </label>\r\n                <!-- <br> -->\r\n                <input #myInput type=\"file\" (change)=\"handleFile($event)\" accept=\".xlsx\"/>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <br>\r\n              Sample Excel :   <a href=\"/assets/sampleFile/sample.xlsx\" target=\"_self\" download>\r\n                <i class=\"fa fa-download\"></i>\r\n              </a>\r\n            </div>\r\n            </div>\r\n              <br>\r\n              <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                {{msg}}\r\n           </div>\r\n           <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n              {{msg}}\r\n        </div>\r\n              <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                    <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div style=\"float: left;\">\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n              </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n            </div>\r\n         \r\n          <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n         \r\n      </form>\r\n      </div>\r\n\r\n       \r\n        \r\n        <div class=\"modal-footer\">\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->\r\n                      \r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                          <div class=\"modal-dialog\">\r\n                          \r\n                            <!-- Modal content-->\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtnAdd>&times;</button>\r\n                                <h4 class=\"modal-title\">Add User</h4>\r\n                              </div>\r\n                              <div class=\"modal-body\">\r\n                                \r\n                            <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addUsers(f);\" novalidate>\r\n                            \r\n                                <div class=\"form-group\" >\r\n                                    <label > Email </label>\r\n                                    <br>\r\n                                    <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                        {{msg}}\r\n                                   </div>\r\n                                   <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                      {{msg}}\r\n                                </div>\r\n                                   \r\n                                    <div  *ngFor=\"let item of newUser.email; let i = index; trackBy:trackByIndex\" >\r\n                                      <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <input matInput placeholder=\"Email address\" required email  #email{{i}}=\"ngModel\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\" >\r\n                                        <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                      \r\n                                      </mat-form-field>\r\n                                      \r\n                                      </div>\r\n                                      <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                      </div>\r\n                                    </div>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <br/>\r\n                                    <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                    <br/>\r\n                                    <br/>\r\n                                    <div class=\"inputitem\">\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                          <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                                            <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                                          </mat-select>\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    <div style=\"float: left;\">\r\n                                        <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n                                    </div>\r\n                                    <br>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <div *ngIf=\"showAddGroup\">\r\n                                    <mat-form-field class=\"inputfileds\" >\r\n                                        <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                                      </mat-form-field>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                                      </div>\r\n                                      \r\n                                </div>\r\n                                <br>\r\n                                <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                               \r\n                            </form>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                              </div>\r\n                            </div>\r\n                            \r\n                          </div>\r\n                        </div>\r\n\r\n\r\n                        \r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
+module.exports = "<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                        <div class=\"col-md-2\">\r\n                              <nav class=\"nav-sidebar\">\r\n                                  <ul class=\"nav tabs buttonleft\">\r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New</button>\r\n                                        </li>\r\n                                  \r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#importModal\" >Import from Excel</button>\r\n                                        </li>\r\n                                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                                     \r\n                                  </ul>\r\n                                </nav>\r\n                        </div>\r\n                        <div class=\"col-md-10\">\r\n\r\n                            <div *ngIf=\"viewComp == 'All'\">\r\n                              <!-- <all-users></all-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Active'\">\r\n                                <!-- <active-users></active-users> -->\r\n                              </div>\r\n                            <div *ngIf=\"viewComp == 'Blocked'\">\r\n                              <!-- <disabled-users></disabled-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Delete'\">\r\n                              <!-- <deleted-users></deleted-users> -->\r\n                            </div>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n\r\n              <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                  <div class=\"modal-dialog\">\r\n                \r\n                    <!-- Modal content-->\r\n                    <div class=\"modal-content\">\r\n                      <!-- <div class=\"modal-header\"> -->\r\n                        <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                      <!-- </div> -->\r\n                      <div class=\"modal-body\">\r\n                          <h4>Are you sure to delete?</h4>\r\n                      \r\n                      </div>\r\n                    \r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                        <button type=\"button\" (click)=\"deleteUser(userId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                      </div>\r\n                    </div>\r\n                \r\n                  </div>\r\n                </div>\r\n\r\n                <div id=\"myModal2\"  class=\"modal fade\">\r\n                    <div class=\"modal-dialog\"> \r\n            <!-- Modal content-->\r\n                      <div class=\"modal-content\">\r\n                         <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                              <h4 class=\"modal-title\">User Block Request </h4>\r\n                         </div>\r\n                         <br>\r\n                         <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                          {{errorMsg}}\r\n                       </div>\r\n                       <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                           {{errorMsg}}\r\n                        </div>\r\n                       \r\n                          \r\n                        <div class=\"modal-body\">\r\n                             <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"sendBlockRequest(newBlock)\">\r\n                                  <p>User Name :  {{newBlock.email}}</p>\r\n                                  \r\n                                     \r\n                            <br>\r\n                                   <div class=\"form-group\" >\r\n                                     <textarea class=\"form-control\" rows=\"5\" name = \"reason\" id=\"comment\" placeholder=\"Reason\" [(ngModel)]=\"newBlock.reason\"></textarea>\r\n                                 </div>\r\n                                        <input type=\"submit\" class=\"btn btn-danger\" value=\"Send\"  [disabled]=\"btnDisbled\">\r\n                                 </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                      </div>\r\n                   </div>\r\n                </div>\r\n          </div>\r\n      \r\n                <flash-messages></flash-messages>\r\n           \r\n                  <br>\r\n                      <div class=\"col-md-7\">\r\n                          <div class=\"col-md-4 pull-right\">\r\n                              <mat-form-field class=\"filter\">\r\n                                  <mat-select   (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                    <mat-option value=\"all\">All</mat-option>\r\n                                    <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                  </mat-select>\r\n                          </mat-form-field>\r\n                          </div>\r\n                      <div class=\"example-header\" >\r\n                          <mat-form-field>\r\n                            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                          </mat-form-field>\r\n                      </div>\r\n                      \r\n                        <div class=\"noitem\" *ngIf=\"existStatus\"><h4>No item Found!</h4></div>\r\n                      \r\n                      <br>\r\n                      <div class=\"example-container mat-elevation-z8 \">\r\n                          <mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <ng-container matColumnDef=\"id\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                        </ng-container>\r\n                                  <ng-container matColumnDef=\"email\">\r\n                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                                       <mat-cell *matCellDef=\"let row\"> {{row.email}}</mat-cell>\r\n                                   </ng-container>\r\n                                    <ng-container  matColumnDef=\"action\">\r\n                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                          <mat-menu #menu=\"matMenu\">\r\n                                            <div>\r\n                                             \r\n                                              <button *ngIf=\"row.block_req_status==false\"  mat-menu-item (click)=\"getUserEmail(row.id,row.email)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                  <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                  <span>Sent Block Request</span>\r\n                                                  </button>\r\n                                                  <button *ngIf=\"row.block_req_status==true\"  mat-menu-item >\r\n                                                      <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                      <span>Already sent Block request</span>\r\n                                                      </button>\r\n                                                  </div>\r\n                                              <button  mat-menu-item (click)=\"bindEditUser(row.item)\" data-toggle=\"modal\" data-target=\"#editModal\">\r\n                                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                    <span>Edit</span>\r\n                                                    </button>\r\n                                                <button mat-menu-item  (click)=\"getUserId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                    <span>Delete</span>\r\n                                                </button>\r\n                                          </mat-menu> </mat-cell>\r\n                                \r\n                                       </ng-container>\r\n                         \r\n                      \r\n                  \r\n                                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                     </mat-row>\r\n                                    </mat-table>\r\n                      \r\n                                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                          </div>\r\n                        </div>\r\n                        \r\n              \r\n                      \r\n\r\n<!-- -------------------------------------------------------------------------------------------edit------------------------- -->\r\n                      <div id=\"editModal\"  class=\"modal fade\" >\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                              <h4 class=\"modal-title\">Edit User</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateUsers(f1);\" novalidate>\r\n                               \r\n                              <div class=\"form-group\" >\r\n                                  <label > Email </label>\r\n                                  <br>\r\n                                  <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                      {{msg1}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                    {{msg1}}\r\n                              </div>\r\n                                 \r\n                                  <div  >\r\n                                    <div class=\"inputitem\">\r\n                                    <mat-form-field *ngIf=\"!selUser.is_registered\" class=\"inputfileds\">\r\n                                      <input matInput  [value]=\"selUser.email\" placeholder=\"Email address\" required email  #email=\"ngModel\" name=\"email\" [(ngModel)]=\"selUser.newEmail\"  >\r\n                                      <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                    \r\n                                    </mat-form-field>\r\n                                    <div *ngIf=\"selUser.is_registered\">\r\n                                    <label >{{selUser.email}}</label>\r\n                                    </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <br/>\r\n                           \r\n                                  <br/>\r\n                                  <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <mat-select placeholder=\"Groups\" name='editgrup' [(ngModel)]=\"selUserGroups\" multiple>\r\n                                          <mat-option [value]=\"grp._id\" *ngFor=\"let grp of groups;\" >{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                  </div>\r\n                              \r\n                                  <br>\r\n                                  <div style=\"clear: both;\"></div>\r\n                              </div>\r\n                              <br>\r\n                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->\r\n<div id=\"importModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn2>&times;</button>\r\n          <h4 class=\"modal-title\">Import From Excel</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form  role=\"form\"  #f2=\"ngForm\" (ngSubmit)=\"f2.form.valid && import(f2);\" novalidate>\r\n           <div class=\"form-group\" >\r\n             <div class=\"row\">\r\n             <div class=\"col-md-6\">\r\n                <label > File </label>\r\n                <!-- <br> -->\r\n                <input #myInput type=\"file\" (change)=\"handleFile($event)\" accept=\".xlsx\"/>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <br>\r\n              Sample Excel :   <a href=\"/assets/sampleFile/sample.xlsx\" target=\"_self\" download>\r\n                <i class=\"fa fa-download\"></i>\r\n              </a>\r\n            </div>\r\n            </div>\r\n              <br>\r\n              <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                {{msg}}\r\n           </div>\r\n           <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n              {{msg}}\r\n        </div>\r\n              <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                    <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div style=\"float: left;\">\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n              </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n            </div>\r\n         \r\n          <button type= \"submit\" [disabled]=\"updateBtnDisbled1\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n         \r\n      </form>\r\n      </div>\r\n\r\n       \r\n        \r\n        <div class=\"modal-footer\">\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->\r\n                      \r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                          <div class=\"modal-dialog\">\r\n                          \r\n                            <!-- Modal content-->\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtnAdd>&times;</button>\r\n                                <h4 class=\"modal-title\">Add User</h4>\r\n                              </div>\r\n                              <div class=\"modal-body\">\r\n                                \r\n                            <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addUsers(f);\" novalidate>\r\n                            \r\n                                <div class=\"form-group\" >\r\n                                    <label > Email </label>\r\n                                    <br>\r\n                                    <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                        {{msg}}\r\n                                   </div>\r\n                                   <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                      {{msg}}\r\n                                </div>\r\n                                   \r\n                                    <div  *ngFor=\"let item of newUser.email; let i = index; trackBy:trackByIndex\" >\r\n                                      <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <input matInput placeholder=\"Email address\" required email  #email{{i}}=\"ngModel\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\" >\r\n                                        <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                      \r\n                                      </mat-form-field>\r\n                                      \r\n                                      </div>\r\n                                      <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                      </div>\r\n                                    </div>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <br/>\r\n                                    <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                    <br/>\r\n                                    <br/>\r\n                                    <div class=\"inputitem\">\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                          <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                                            <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                                          </mat-select>\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    <div style=\"float: left;\">\r\n                                        <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n                                    </div>\r\n                                    <br>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <div *ngIf=\"showAddGroup\">\r\n                                    <mat-form-field class=\"inputfileds\" >\r\n                                        <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                                      </mat-form-field>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                                      </div>\r\n                                      \r\n                                </div>\r\n                                <br>\r\n                                <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                               \r\n                            </form>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                              </div>\r\n                            </div>\r\n                            \r\n                          </div>\r\n                        </div>\r\n\r\n\r\n                        \r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
 
 /***/ }),
 
@@ -9652,6 +9769,7 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.xlsxToJsonService = new xlsx_to_json_service_1.XlsxToJsonService();
         this.btnDisbled = false;
         this.updateBtnDisbled = false;
+        this.updateBtnDisbled1 = false;
         this.selUser = { email: '', groups: [], newEmail: '', is_registered: false };
         this.selUserGroups = [];
     }
@@ -9671,6 +9789,9 @@ var CompanyUsersComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -9928,6 +10049,7 @@ var CompanyUsersComponent = /** @class */ (function () {
                     _this.isSuccess = false;
                     _this.msg = '';
                     _this.btnDisbled = false;
+                    _this.updateBtnDisbled1 = false;
                 }, 2000);
             }
             else {
@@ -9936,6 +10058,7 @@ var CompanyUsersComponent = /** @class */ (function () {
                 _this.btnDisbled = false;
                 setTimeout(function () {
                     _this.isError = false;
+                    _this.updateBtnDisbled1 = false;
                     _this.msg = '';
                 }, 3000);
             }
@@ -10026,8 +10149,9 @@ var CompanyUsersComponent = /** @class */ (function () {
         });
     };
     CompanyUsersComponent.prototype.import = function (form) {
+        this.updateBtnDisbled1 = true;
         this.newUser.email = this.emailArr;
-        console.log(this.newUser);
+        // console.log(this.newUser)
         this.addUsers(form);
     };
     CompanyUsersComponent.prototype.openModal = function () {
@@ -11127,6 +11251,9 @@ var UserSurveyClosedComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/404']);
+            }
             _this.userIdx = info._id;
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
@@ -11315,6 +11442,9 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/404']);
+            }
             _this.userIdx = info._id;
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
@@ -11534,6 +11664,9 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/404']);
+            }
             _this.userIdx = info._id;
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
@@ -11734,6 +11867,9 @@ var UserSurveyUpcomingComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/404']);
+            }
             _this.userIdx = info._id;
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
@@ -11886,6 +12022,10 @@ var UserSurveyComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this._userService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/404']);
+            }
+            // this.routes.navigate(['/user-login', data.user_id, this.surveyId]);
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
