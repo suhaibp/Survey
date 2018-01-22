@@ -90,69 +90,6 @@
                         </td>
                       </tr>
             
-                      <tr>
-                        <td>
-                          <h4>Footer</h4>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label  class="col-sm-12 control-label">Font Color</label>
-                        </td>
-                        <td>
-                          <input readonly [(colorPicker)]="Theme.f_font_color"  [cpCancelButton]="true" [value]="Theme.f_font_color" [(ngModel)]="Theme.f_font_color" (colorPickerChange)="Theme.f_font_color=Theme.f_font_color" name="f-f-color"/>
-                        </td>
-                      </tr>
-                  
-                      <tr>
-                        <td>
-                          <label  class="col-sm-12 control-label">Background Color</label>
-                        </td>
-                        <td>
-                            <input readonly [(colorPicker)]="Theme.f_bg_color"  [cpCancelButton]="true" [value]="Theme.f_bg_color" [(ngModel)]="Theme.f_bg_color" (colorPickerChange)="Theme.f_bg_color=Theme.f_bg_color" name="f-bg-color"/>
-                        </td>
-                      </tr>
-                  
-                      <tr>
-                        <td>
-                          <label  class="col-sm-12 control-label">Font Family</label>
-                        </td>
-                        <td>
-                          <mat-form-field>
-                            <mat-select placeholder="Select Font Family" [(ngModel)]="Theme.f_font_family" name="f-f-f">
-                              <mat-option *ngFor="let font of fonts" [value]="font.name">
-                                {{ font.name }}
-                              </mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                        </td>
-                      </tr>
-                                        
-                      <tr>
-                        <td>
-                          <label  class="col-sm-12 control-label">Font Size</label>
-                        </td>
-                        <td>
-                          <mat-form-field>
-                            <mat-select placeholder="Select Font Size" [(ngModel)]="Theme.f_font_size" name="f-f-s">
-                              <mat-option *ngFor="let fontsize of fontSize" [value]="fontsize.name">
-                                {{ fontsize.name }}
-                              </mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <label  class="col-sm-12 control-label">Font Style</label>
-                        </td>
-                        <td>
-                          <section class="example-section">
-                            <mat-checkbox class="example-margin" [(ngModel)]="Theme.f_font_bold" name="bold2">Bold</mat-checkbox>
-                            <mat-checkbox class="example-margin" [(ngModel)]="Theme.f_font_italic" name="italic2"><i>italic</i></mat-checkbox>
-                          </section>
-                        </td>
-                      </tr>
             
                       <tr>
                         <td>
@@ -218,6 +155,69 @@
                           </td>
                         </tr>
             
+                        <tr>
+                          <td>
+                            <h4>Footer</h4>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label  class="col-sm-12 control-label">Font Color</label>
+                          </td>
+                          <td>
+                            <input readonly [(colorPicker)]="Theme.f_font_color"  [cpCancelButton]="true" [value]="Theme.f_font_color" [(ngModel)]="Theme.f_font_color" (colorPickerChange)="Theme.f_font_color=Theme.f_font_color" name="f-f-color"/>
+                          </td>
+                        </tr>
+                    
+                        <tr>
+                          <td>
+                            <label  class="col-sm-12 control-label">Background Color</label>
+                          </td>
+                          <td>
+                              <input readonly [(colorPicker)]="Theme.f_bg_color"  [cpCancelButton]="true" [value]="Theme.f_bg_color" [(ngModel)]="Theme.f_bg_color" (colorPickerChange)="Theme.f_bg_color=Theme.f_bg_color" name="f-bg-color"/>
+                          </td>
+                        </tr>
+                    
+                        <tr>
+                          <td>
+                            <label  class="col-sm-12 control-label">Font Family</label>
+                          </td>
+                          <td>
+                            <mat-form-field>
+                              <mat-select placeholder="Select Font Family" [(ngModel)]="Theme.f_font_family" name="f-f-f">
+                                <mat-option *ngFor="let font of fonts" [value]="font.name">
+                                  {{ font.name }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </td>
+                        </tr>
+                                          
+                        <tr>
+                          <td>
+                            <label  class="col-sm-12 control-label">Font Size</label>
+                          </td>
+                          <td>
+                            <mat-form-field>
+                              <mat-select placeholder="Select Font Size" [(ngModel)]="Theme.f_font_size" name="f-f-s">
+                                <mat-option *ngFor="let fontsize of fontSize" [value]="fontsize.name">
+                                  {{ fontsize.name }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label  class="col-sm-12 control-label">Font Style</label>
+                          </td>
+                          <td>
+                            <section class="example-section">
+                              <mat-checkbox class="example-margin" [(ngModel)]="Theme.f_font_bold" name="bold2">Bold</mat-checkbox>
+                              <mat-checkbox class="example-margin" [(ngModel)]="Theme.f_font_italic" name="italic2"><i>italic</i></mat-checkbox>
+                            </section>
+                          </td>
+                        </tr>
                       <tr>
                         <td>
                           <h4>Progress Bar Text</h4>
@@ -250,7 +250,7 @@
                       </tr>
                     <tr>
                       <td>
-                        <button type="submit" (click)="updateTheme()" class="btn btn-danger ourbutton" [disabled]="submitBtnDisabled">Update</button> 
+                        <button type="submit" (click)="updateTheme()" class="btn btn-danger ourbutton" [disabled]="submitBtnDisabled" id="upbtn">Update</button> 
                       </td>
                     </tr>
                   </table>
@@ -327,7 +327,7 @@
 
 
 
-  <div id="myModal" class="modal fade" role="dialog" >
+  <div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" >
     <div class="modal-dialog">
   
       <!-- Modal content-->
@@ -341,7 +341,8 @@
         </div>
       
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="redirect()">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" *ngIf="stat4" >Close</button>          
+          <button type="button" class="btn btn-default" data-dismiss="modal" *ngIf="!stat4" (click)="redirect()">Close</button>
         </div>
       </div>
   

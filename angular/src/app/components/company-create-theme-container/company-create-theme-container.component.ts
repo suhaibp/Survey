@@ -50,6 +50,7 @@ fontSize: any;
 // public color8x : string = "#0e88ff";
 // public color9x : string = "#ffffff";
 submitBtnDisabled = false;
+themeSaved = false;
   constructor(
     private _companyService: CompanyService,
     private routes: Router) { }
@@ -109,7 +110,11 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
         
         }
         else{
-          window.location.reload();
+          // window.location.reload();
+          // this.routes.navigate(['/create-theme']);
+          this.themeSaved =true;
+          $('#myModal .modal-body h4').text("Theme saved!");
+          $('#myModal').modal('show'); 
         }
         
       });
@@ -132,5 +137,14 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
       this.fontSize = fontSize;
       
     });
+  }
+
+
+  thmSaved(){
+          window.location.reload();
+    
+          // this.routes.navigate(['/create-theme']);   
+          // this.routes.navigate(["/create-theme?refresh=1"]); 
+          // this.routes.navigate(['/create-theme'], { queryParams: { 'refresh': 1 } });
   }
 }
