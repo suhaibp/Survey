@@ -3104,12 +3104,14 @@ var returnRouter = function (io) {
                             mainArray[i].ans.push({ value: eachoption, "count": count, answeredUser: answeredUser });
                         });
                     } else {
+                        answeredUser = [];
                         eachQuestions.answers.forEach(eachanswer => {
                             count++;
-                            answeredUser = [];
-                            answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time });
-                            mainArray[i].ans.push({ value: eachanswer.answer, "count": 1, answeredUser: answeredUser });
+                            
+                            answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time,answer :eachanswer.answer });
+                           
                         })
+                        mainArray[i].ans.push({ value: 'Click Here ', "count": 1, answeredUser: answeredUser });
 
                     }
 

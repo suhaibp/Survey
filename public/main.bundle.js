@@ -5523,7 +5523,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "path {  stroke: #fff; }\r\npath:hover {  opacity:0.9; }\r\nrect:hover {  fill:blue; }\r\n.axis {  font: 10px sans-serif; }\r\n.legend tr{    border-bottom:1px solid grey; }\r\n.legend tr:first-child{    border-top:1px solid grey; }\r\n.axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n.x.axis path {  display: none; }\r\n.legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n.legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n.legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n.example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n.mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n.example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n.example-select {\r\n    margin: 0 10px;\r\n  }\r\n.filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+exports.push([module.i, "path {  stroke: #fff; }\r\npath:hover {  opacity:0.9; }\r\nrect:hover {  fill:blue; }\r\n.axis {  font: 10px sans-serif; }\r\n.legend tr{    border-bottom:1px solid grey; }\r\n.legend tr:first-child{    border-top:1px solid grey; }\r\n.axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n.x.axis path {  display: none; }\r\n.legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n.legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n.legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n.example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n.mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n.example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n.example-select {\r\n    margin: 0 10px;\r\n  }\r\n.filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n.wdth{\r\n    width: 804px;\r\n  }", ""]);
 
 // exports
 
@@ -5536,7 +5536,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-chart2/company-chart2.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>{{title}}</h2>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n\r\n    <svg  id=\"br-1\"width=\"600\" height=\"300\"></svg>\r\n\r\n\r\n<svg id=\"sd\" width=\"400\" height=\"390\" ></svg>\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"answeredUsers\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">Answered Users</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n     \r\n\r\n          <div class=\"example-header\">\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n          </div>\r\n            \r\n            <div class=\"example-container mat-elevation-z8\">\r\n\r\n                <div class=\"example-container mat-elevation-z8\">\r\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\r\n                  \r\n                      <ng-container matColumnDef=\"slno\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n                      </ng-container>\r\n                        <!-- Name Column -->\r\n                        <ng-container matColumnDef=\"email\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n                        </ng-container>\r\n                    \r\n                     <!-- Name Column -->\r\n                     <ng-container matColumnDef=\"date_time\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\r\n                    </ng-container>\r\n                  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                      </mat-row>\r\n                    </mat-table>\r\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                  </div>\r\n              \r\n            </div>\r\n            <br>\r\n          \r\n     \r\n\r\n  \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<h2>{{title}}</h2>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n\r\n    <svg  id=\"br-1\"width=\"600\" height=\"300\"></svg>\r\n\r\n\r\n<svg id=\"sd\" width=\"400\" height=\"390\" ></svg>\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"answeredUsers\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog wdth\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">Answered Users</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n     \r\n\r\n          <div class=\"example-header\">\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n          </div>\r\n            \r\n            <div class=\"example-container mat-elevation-z8\">\r\n\r\n                <div class=\"example-container mat-elevation-z8\">\r\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\r\n                  \r\n                      <ng-container matColumnDef=\"slno\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n                      </ng-container>\r\n                        <!-- Name Column -->\r\n                        <ng-container matColumnDef=\"email\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n                        </ng-container>\r\n                    \r\n                     <!-- Answer Column -->\r\n                     <div >\r\n                      <ng-container  matColumnDef=\"answer\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Answer </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"> {{row.answer}} </mat-cell>\r\n                      </ng-container>\r\n                    </div>\r\n\r\n                     <!-- Name Column -->\r\n                     <ng-container matColumnDef=\"date_time\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\r\n                    </ng-container>\r\n                  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                      </mat-row>\r\n                    </mat-table>\r\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                  </div>\r\n              \r\n            </div>\r\n            <br>\r\n          \r\n     \r\n\r\n  \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -5569,7 +5569,7 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var CompanyChart2Component = /** @class */ (function () {
     function CompanyChart2Component(companyService, router, config) {
         this.companyService = companyService;
-        this.displayedColumns = ['slno', 'email', 'date_time'];
+        this.displayedColumns = ['slno', 'email', 'date_time', 'answer'];
         this.title = 'Questions Vs Answers';
         // subtitle = 'Bar Chart';
         this.barchart = [];
@@ -5582,15 +5582,15 @@ var CompanyChart2Component = /** @class */ (function () {
         this.radius = Math.min(this.width, this.height) / 2;
     }
     CompanyChart2Component.prototype.refresh = function () {
-        var _this = this;
         // d3.select("#br-1").remove();
-        console.log("yasir");
+        // console.log("yasir");
         // this.svg1.remove()
+        var _this = this;
         this.getAllsurvey();
         this.companyService.getSurveyQuestions(this.surveyid).subscribe(function (data) {
             // this.surveyQuestion = data;
             _this.quest = data;
-            console.log(data + " data");
+            // console.log(data + " data");
             _this.barchart = [];
             data.forEach(function (element) {
                 _this.barchart.push({ company: element.question, count: element.totalCount, id: element.id, surveyid: _this.sId });
@@ -5621,10 +5621,10 @@ var CompanyChart2Component = /** @class */ (function () {
     CompanyChart2Component.prototype.ngOnChanges = function () {
         var _this = this;
         if (this.surveyid != undefined) {
-            console.log("______" + this.surveyid);
+            // console.log("______"+this.surveyid)
             d3.selectAll("svg > *").remove();
             // this.svg.remove();
-            console.log("xxxxxx");
+            //  console.log("xxxxxx");
             //if(this.surveyid != 'all'){
             this.refresh();
             this.pierefresh();
@@ -5687,8 +5687,9 @@ var CompanyChart2Component = /** @class */ (function () {
             _this.svg.remove();
             _this.piechart = [];
             _this.quest[i].ans.forEach(function (val) {
+                // console.log(this.quest[i]);
                 if (val.count != 0) {
-                    _this.piechart.push({ status: val.value, count: val.count, answeredUser: val.answeredUser });
+                    _this.piechart.push({ status: val.value, count: val.count, answeredUser: val.answeredUser, ans_type: _this.quest[i].ans_type });
                 }
             });
             _this.initSvg();
@@ -5725,6 +5726,14 @@ var CompanyChart2Component = /** @class */ (function () {
         g.append("path").attr("d", this.arc)
             .style("fill", function (d) { return _this.color(d.data.status); })
             .on('click', function (d, i) {
+            // console.log(d.data.ans_type);
+            _this.answer_type = d.data.ans_type;
+            if (_this.answer_type == "Descriptive") {
+                _this.displayedColumns = ['slno', 'email', 'date_time', 'answer'];
+            }
+            if (_this.answer_type != "Descriptive") {
+                _this.displayedColumns = ['slno', 'email', 'date_time'];
+            }
             _this.dataSource = new material_1.MatTableDataSource(d.data.answeredUser);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
@@ -6745,7 +6754,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
             console.log("ff");
         }
         else {
-            console.log("poooooo");
+            // console.log("poooooo"); 
             this._companyService.getSurveyforDash(this.surveyId).subscribe(function (survey) {
                 // console.log(theme);
                 _this.locations = survey;
