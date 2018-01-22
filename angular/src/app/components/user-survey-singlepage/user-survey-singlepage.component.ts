@@ -62,6 +62,9 @@ export class UserSurveySinglepageComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this._userService.getLoggedUSerDetails().subscribe(info =>{
+  console.log("-------------------------");
+  console.log(info);
+  console.log("-------------------------");
   this.userIdx = info._id;
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);

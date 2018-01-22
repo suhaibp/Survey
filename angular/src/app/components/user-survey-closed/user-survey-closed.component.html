@@ -17,8 +17,9 @@
           <button type="submit" (click)="logout()" class="btn btn-danger pull-right lg-out" >Logout</button>
           <div class="col-md-12 survey-close">
               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-              <h2 *ngIf="!attended">Sorry! Survey Closed</h2>
+              <h2 *ngIf="!attended && !exp">Sorry! Survey Closed</h2>
               <h2 *ngIf="attended">Already attended!</h2>
+              <h2 *ngIf="exp">Survey temporarily unavailable!</h2>
               
             </div>
         

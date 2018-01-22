@@ -1685,7 +1685,6 @@ var returnRouter = function (io) {
             Theme.find({cmp_id:cmp_id}).lean()
                 .exec(function (err, res1) {
                     if (err) {
-                        console.log("Error retrieving polls");
                         res.json({
                             "status": false
                         })
@@ -1717,7 +1716,6 @@ var returnRouter = function (io) {
         Font.find({})
             .exec(function (err, res1) {
                 if (err) {
-                    console.log("Error retrieving polls");
                     res.json({
                         "status": false
                     })
@@ -1744,7 +1742,6 @@ var returnRouter = function (io) {
         FontSizes.find({})
             .exec(function (err, res1) {
                 if (err) {
-                    console.log("Error retrieving polls");
                     res.json({
                         "status": false
                     })
@@ -2020,7 +2017,6 @@ var returnRouter = function (io) {
             // Survey.find({ "company_id": cmp_id })
                 .exec(function (err, res1) {
                     if (err) {
-                        console.log("Error retrieving polls");
                         res.json({
                             "status": 0
                         })
