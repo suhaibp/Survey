@@ -87,12 +87,12 @@ export class CompanyEditSurveyComponent implements OnInit {
   
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
-// Function      : get logged company details
+// Function      :For edit survey details
 // Params        : 
-// Returns       : company details
-// Author        : Rinsha
-// Date          : 17-1-2018
-// Last Modified : 17-1-2018, Rinsha
+// Returns       : 
+// Author        : Yasir Poongadan  
+// Date          : 16-1-2018
+// Last Modified : 16-1-2018, Yasir Poongadan
 // Desc          :
 this.companyService.getLoggedUSerDetails().subscribe(info =>{
   if(info.role == "admin"){
@@ -117,6 +117,16 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : create survey
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 15-1-2018
+// Last Modified : 15-1-2018, Yasir Poongadan
+// Desc  
     this.route.params.subscribe(params => {
       this.survey.id= params['id'];
       this.companyService.getSurvey(this.survey.id).subscribe(data=>{
@@ -500,5 +510,5 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   onBackToSurevyClick(){
     this.preview = false;
   }
-
+// ---------------------------------End-------------------------------------------
 }

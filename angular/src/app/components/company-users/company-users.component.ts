@@ -266,11 +266,30 @@ deleteUser(userId){
 }
 // -----------------------------------end----------------------------------------------------
 
+//  ---------------------------------Start-------------------------------------------
+// Function      : addMoreOption
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For adding more emails in add user popup
+
   addMoreOption(){
     this.newUser.email.push('');
     return false;
   }
 
+ // -----------------------------------end---------------------------------------------------- 
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : removeOption
+// Params        : option index
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For remove emails in add user popup 
   removeOption(index){
 
       if(this.newUser.email.length > 1){
@@ -288,16 +307,45 @@ deleteUser(userId){
       return false;
 
   }
+// -----------------------------------end---------------------------------------------------- 
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : trackByIndex
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For multiple oprion email 
 
   trackByIndex(index: number, value: number) {
     return index;
   }
 
+// -----------------------------------end---------------------------------------------------- 
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : showGroupAddOption
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For adding groups in  add user popup
   showGroupAddOption(){
     this.showAddGroup = true;
     return false;
   }
+// -----------------------------------end---------------------------------------------------- 
 
+//  ---------------------------------Start-------------------------------------------
+// Function      : updateUsers
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For update user details and assigned groups
   updateUsers(form){
     this.updateBtnDisbled= true;
     console.log(this.selUser.groups);
@@ -330,6 +378,16 @@ deleteUser(userId){
       }
     });
   }
+// -----------------------------------end---------------------------------------------------- 
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : addUsers
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For add new user emails and assigned groups
 
   addUsers(form){
     this.btnDisbled = true;
@@ -362,7 +420,16 @@ deleteUser(userId){
     });
     
   }
+// -----------------------------------end---------------------------------------------------- 
 
+//  ---------------------------------Start-------------------------------------------
+// Function      : addGroup
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For add new user group to db
   addGroup(){
       this.companyService.addUserGroup(this.newGroup).subscribe(data=>{
         console.log(data);
@@ -387,6 +454,7 @@ deleteUser(userId){
       });
       return false;
   }
+  // -----------------------------------end---------------------------------------------------- 
 
  //  ---------------------------------Start-------------------------------------------
   // Function      : sendBlockRequest

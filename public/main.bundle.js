@@ -5828,6 +5828,14 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        // ---------------------------------Start-------------------------------------------
+        // Function      : create survey
+        // Params        : 
+        // Returns       : 
+        // Author        : Yasir Poongadan
+        // Date          : 15-1-2018
+        // Last Modified : 15-1-2018, Yasir Poongadan
+        // Desc  
         this.companyService.getAllSurveyCategory().subscribe(function (data) {
             _this.surveyCategory = data;
         });
@@ -6992,12 +7000,12 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
     CompanyEditSurveyComponent.prototype.ngOnInit = function () {
         var _this = this;
         // ---------------------------------Start-------------------------------------------
-        // Function      : get logged company details
+        // Function      :For edit survey details
         // Params        : 
-        // Returns       : company details
-        // Author        : Rinsha
-        // Date          : 17-1-2018
-        // Last Modified : 17-1-2018, Rinsha
+        // Returns       : 
+        // Author        : Yasir Poongadan  
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Yasir Poongadan
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
             if (info.role == "admin") {
@@ -7022,6 +7030,14 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        // ---------------------------------Start-------------------------------------------
+        // Function      : create survey
+        // Params        : 
+        // Returns       : 
+        // Author        : Yasir Poongadan
+        // Date          : 15-1-2018
+        // Last Modified : 15-1-2018, Yasir Poongadan
+        // Desc  
         this.route.params.subscribe(function (params) {
             _this.survey.id = params['id'];
             _this.companyService.getSurvey(_this.survey.id).subscribe(function (data) {
@@ -8033,6 +8049,14 @@ var CompanyListSurveyComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        //  ---------------------------------Start-------------------------------------------
+        // Function      : to list all survey of a logedin company
+        // Params        : 
+        // Returns       : 
+        // Author        : Yasir Poongadan
+        // Date          : 18-01-2018
+        // Last Modified : 18-01-2018, Yasir Poongadan
+        // Desc          : to list all survey of a logedin company
         this.loadSurvey();
     };
     CompanyListSurveyComponent.prototype.loadSurvey = function () {
@@ -9356,6 +9380,14 @@ var CompanySurveyPreviewComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        //  ---------------------------------Start-------------------------------------------
+        // Function      : to show survey preview
+        // Params        : 
+        // Returns       : 
+        // Author        : Yasir Poongadan
+        // Date          : 18-01-2018
+        // Last Modified : 18-01-2018, Yasir Poongadan
+        // Desc          : copied from manu frontend ui
         this.theme = this.survey;
         this.progressBarWidth = (this.progNo / this.survey.questions.length) * 100;
     };
@@ -9852,10 +9884,27 @@ var CompanyUsersComponent = /** @class */ (function () {
         });
     };
     // -----------------------------------end----------------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : addMoreOption
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For adding more emails in add user popup
     CompanyUsersComponent.prototype.addMoreOption = function () {
         this.newUser.email.push('');
         return false;
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : removeOption
+    // Params        : option index
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For remove emails in add user popup 
     CompanyUsersComponent.prototype.removeOption = function (index) {
         var _this = this;
         if (this.newUser.email.length > 1) {
@@ -9871,13 +9920,40 @@ var CompanyUsersComponent = /** @class */ (function () {
         }
         return false;
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : trackByIndex
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For multiple oprion email 
     CompanyUsersComponent.prototype.trackByIndex = function (index, value) {
         return index;
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : showGroupAddOption
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For adding groups in  add user popup
     CompanyUsersComponent.prototype.showGroupAddOption = function () {
         this.showAddGroup = true;
         return false;
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : updateUsers
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For update user details and assigned groups
     CompanyUsersComponent.prototype.updateUsers = function (form) {
         var _this = this;
         this.updateBtnDisbled = true;
@@ -9912,6 +9988,15 @@ var CompanyUsersComponent = /** @class */ (function () {
             }
         });
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : addUsers
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For add new user emails and assigned groups
     CompanyUsersComponent.prototype.addUsers = function (form) {
         var _this = this;
         this.btnDisbled = true;
@@ -9943,6 +10028,15 @@ var CompanyUsersComponent = /** @class */ (function () {
             }
         });
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : addGroup
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For add new user group to db
     CompanyUsersComponent.prototype.addGroup = function () {
         var _this = this;
         this.companyService.addUserGroup(this.newGroup).subscribe(function (data) {
@@ -9969,6 +10063,7 @@ var CompanyUsersComponent = /** @class */ (function () {
         });
         return false;
     };
+    // -----------------------------------end---------------------------------------------------- 
     //  ---------------------------------Start-------------------------------------------
     // Function      : sendBlockRequest
     // Params        : request

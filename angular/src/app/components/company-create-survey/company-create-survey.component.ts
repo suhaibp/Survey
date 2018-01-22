@@ -116,6 +116,15 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+// Function      : create survey
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 15-1-2018
+// Last Modified : 15-1-2018, Yasir Poongadan
+// Desc  
     this.companyService.getAllSurveyCategory().subscribe(data=>{
          this.surveyCategory = data;
     });
@@ -413,5 +422,5 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   onBackToSurevyClick(){
     this.preview = false;
   }
- 
+ // ---------------------------------End-------------------------------------------
 }
