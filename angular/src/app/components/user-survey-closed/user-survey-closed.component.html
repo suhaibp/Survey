@@ -1,15 +1,22 @@
 <div class="user-layout" *ngIf="disp">
     <nav class="navbar navbar-toggleable-md  bg-inverse fixed-top x-new" [ngStyle]="{'background-color':theme.h_bg_color }">
         <div class="container">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2" *ngIf="survey.logo != '' else newhd">
               <div class="col-md-4 txt-right">
-                <img class="logo-img" src="{{serviceUrl+'logo/'+survey.logo}}" height="100" alt="logo">                   
+                <img  class="logo-img" src="{{serviceUrl+'logo/'+survey.logo}}" height="100" alt="logo">                   
               </div>
               <div class="col-md-8 ">
                   <h1 class="srvey-hd" [ngStyle]="{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}" [ngClass]="{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}">{{survey.header_title}}</h1>
                   
               </div>
             </div>
+            <ng-template #newhd>
+              <div class="col-md-12">
+                <h1 class="srvey-hd" style="text-align:center" [ngStyle]="{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}" [ngClass]="{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}">{{survey.header_title}}</h1>
+                
+              </div>
+            </ng-template>
+
           </div>
         </nav>
         <div [ngStyle]="{'background-color':theme.b_bg_color}" class="questn-container" style="padding-top:20px">
