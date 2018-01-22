@@ -125,6 +125,16 @@ getTheme(){
   }
 //  ---------------------------------end-----------------------------------------------
 
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : submitAns()
+// Params        : name of the view to be shown
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : Submit survey answrs
 submitAns(){
   console.log(this.survey);
   if(this.skip == false){
@@ -154,16 +164,34 @@ submitAns(){
   }
   
 }
+
+//  ---------------------------------end-----------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : closed()
+// Params        : name of the view to be shown
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : reload survey after submission
 closed(){
   window.location.reload();  
   
 }
-hel(event){
-  console.log(this.survey);
-  console.log("h")
-}
+//  ---------------------------------end-----------------------------------------------
 
 
+
+// ---------------------------------Start-------------------------------------------
+// Function      : timeOver()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : check for timeout of survey
 timeOver(){
   console.log("h");
   if(this.skip == false){
@@ -176,6 +204,7 @@ timeOver(){
     $('#myModaly').modal('show');
   }
 }
+// -----------------------------------End------------------------------------------
 
 
 // ---------------------------------Start-------------------------------------------

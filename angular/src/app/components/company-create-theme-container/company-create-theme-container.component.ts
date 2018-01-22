@@ -125,7 +125,14 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
     }
     
   }
-  
+// ---------------------------------Start-------------------------------------------
+// Function      : getFontProperties()
+// Params        : name of the view to be shown
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : get font properties like size and font family
   getFontProperties(){
     this._companyService.getFonts().subscribe(fonts =>{
       // console.log(fonts);
@@ -138,6 +145,7 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
       
     });
   }
+// ----------------------------------End-------------------------------------------
 
 
   thmSaved(){

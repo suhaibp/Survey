@@ -61,9 +61,7 @@ this._userService.getLoggedUSerDetails().subscribe(info =>{
     }
     this.routes.navigate(['/dashboard']);
   }
-  console.log("_________________________________");
-  console.log(this.survey);
-  console.log("_________________________________");
+
 });
 // ---------------------------------End-------------------------------------------
     console.log(this.survey.theme);
@@ -99,6 +97,16 @@ getTheme(){
 
   }
 //  ---------------------------------end-----------------------------------------------
+
+
+// ---------------------------------Start-------------------------------------------
+// Function      : timeOver()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 28-12-2017
+// Last Modified : 28-12-2017, Manu Prasad, Desc:
+// Desc          : reload page when when survey time starts
 timeOver(){
   window.location.reload();
 }
