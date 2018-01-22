@@ -12103,7 +12103,8 @@ var UserSurveyComponent = /** @class */ (function () {
             _this.survey = survey;
             console.log(survey);
             if (survey.status == 0) {
-                _this.closed = true;
+                _this.routes.navigate(['/404']);
+                // this.closed = true;
             }
             else if (survey.status == 1) {
                 _this.countTime = survey.start_time;
