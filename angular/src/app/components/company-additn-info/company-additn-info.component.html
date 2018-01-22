@@ -17,11 +17,11 @@
       </mat-form-field>
       <br/>
       <mat-form-field [formGroup]="firstFormGroup">
-          <mat-select placeholder="Organization Type" [(ngModel)]="newReg.organization_type" name="organization_type" required formControlName="organization_typeValidation">
-              <mat-option *ngFor="let type of orgType" [value]="type" > 
-                {{ type.name }}
-              </mat-option>
-            </mat-select>
+        <mat-select placeholder="Organization Type" [(ngModel)]="newReg.organization_type" name="organization_type" required formControlName="organization_typeValidation">
+          <mat-option *ngFor="let type of orgType" [value]="type" > 
+            {{ type.name }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <br/>
       <mat-form-field [formGroup]="firstFormGroup">

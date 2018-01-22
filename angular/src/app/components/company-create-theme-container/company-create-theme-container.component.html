@@ -76,69 +76,6 @@
               </td>
             </tr>
   
-            <tr>
-              <td>
-                <h4>Footer</h4>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label  class="col-sm-12 control-label">Font Color</label>
-              </td>
-              <td>
-                <input readonly [(colorPicker)]="newTheme.f_font_color"  [cpCancelButton]="true" [value]="newTheme.f_font_color" [(ngModel)]="newTheme.f_font_color" (colorPickerChange)="newTheme.f_font_color=newTheme.f_font_color" name="f-f-color"/>
-              </td>
-            </tr>
-        
-            <tr>
-              <td>
-                <label  class="col-sm-12 control-label">Background Color</label>
-              </td>
-              <td>
-                  <input readonly [(colorPicker)]="newTheme.f_bg_color"  [cpCancelButton]="true" [value]="newTheme.f_bg_color" [(ngModel)]="newTheme.f_bg_color" (colorPickerChange)="newTheme.f_bg_color=newTheme.f_bg_color" name="f-bg-color"/>
-              </td>
-            </tr>
-        
-            <tr>
-              <td>
-                <label  class="col-sm-12 control-label">Font Family</label>
-              </td>
-              <td>
-                <mat-form-field>
-                  <mat-select placeholder="Select Font Family" [(ngModel)]="newTheme.f_font_family" name="f-f-f">
-                    <mat-option *ngFor="let font of fonts" [value]="font.name">
-                      {{ font.name }}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </td>
-            </tr>
-                              
-            <tr>
-              <td>
-                <label  class="col-sm-12 control-label">Font Size</label>
-              </td>
-              <td>
-                <mat-form-field>
-                  <mat-select placeholder="Select Font Size" [(ngModel)]="newTheme.f_font_size" name="f-f-s">
-                    <mat-option *ngFor="let fontsize of fontSize" [value]="fontsize.name">
-                      {{ fontsize.name }}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label  class="col-sm-12 control-label">Font Style</label>
-              </td>
-              <td>
-                <section class="example-section">
-                  <mat-checkbox class="example-margin" [(ngModel)]="newTheme.f_font_bold" name="bold">Bold</mat-checkbox>
-                  <mat-checkbox class="example-margin" [(ngModel)]="newTheme.f_font_italic" name="italic"><i>italic</i></mat-checkbox>
-                </section>
-              </td>
-            </tr>
   
             <tr>
               <td>
@@ -204,6 +141,69 @@
                 </td>
               </tr>
   
+              <tr>
+                <td>
+                  <h4>Footer</h4>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label  class="col-sm-12 control-label">Font Color</label>
+                </td>
+                <td>
+                  <input readonly [(colorPicker)]="newTheme.f_font_color"  [cpCancelButton]="true" [value]="newTheme.f_font_color" [(ngModel)]="newTheme.f_font_color" (colorPickerChange)="newTheme.f_font_color=newTheme.f_font_color" name="f-f-color"/>
+                </td>
+              </tr>
+          
+              <tr>
+                <td>
+                  <label  class="col-sm-12 control-label">Background Color</label>
+                </td>
+                <td>
+                    <input readonly [(colorPicker)]="newTheme.f_bg_color"  [cpCancelButton]="true" [value]="newTheme.f_bg_color" [(ngModel)]="newTheme.f_bg_color" (colorPickerChange)="newTheme.f_bg_color=newTheme.f_bg_color" name="f-bg-color"/>
+                </td>
+              </tr>
+          
+              <tr>
+                <td>
+                  <label  class="col-sm-12 control-label">Font Family</label>
+                </td>
+                <td>
+                  <mat-form-field>
+                    <mat-select placeholder="Select Font Family" [(ngModel)]="newTheme.f_font_family" name="f-f-f">
+                      <mat-option *ngFor="let font of fonts" [value]="font.name">
+                        {{ font.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+              </tr>
+                                
+              <tr>
+                <td>
+                  <label  class="col-sm-12 control-label">Font Size</label>
+                </td>
+                <td>
+                  <mat-form-field>
+                    <mat-select placeholder="Select Font Size" [(ngModel)]="newTheme.f_font_size" name="f-f-s">
+                      <mat-option *ngFor="let fontsize of fontSize" [value]="fontsize.name">
+                        {{ fontsize.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label  class="col-sm-12 control-label">Font Style</label>
+                </td>
+                <td>
+                  <section class="example-section">
+                    <mat-checkbox class="example-margin" [(ngModel)]="newTheme.f_font_bold" name="bold">Bold</mat-checkbox>
+                    <mat-checkbox class="example-margin" [(ngModel)]="newTheme.f_font_italic" name="italic"><i>italic</i></mat-checkbox>
+                  </section>
+                </td>
+              </tr>
             <tr>
               <td>
                 <h4>Progress Bar Text</h4>

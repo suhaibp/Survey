@@ -313,3 +313,21 @@
   .progrs{
     margin: 10px 20px;
   }
+
+  .modal-header {
+    padding: 7px 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #da524f;
+}
+.modal-body{
+    padding:30px;
+}
+.modal-footer button{
+    margin: 0 0 0 0;
+}
+.modal-content{
+    border-radius: 0px;
+}
+.modal-title{
+    color: #fff
+};

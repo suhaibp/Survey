@@ -25,7 +25,7 @@ export class CompanyDashboardComponent implements OnInit {
   private socket: any;
   locations = [];
   allSurveys: any;
-  surveyId = 'all';
+  surveyId:any;
   //chart2 start
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -85,6 +85,8 @@ export class CompanyDashboardComponent implements OnInit {
     private routes: Router,
     private config: Config,
     private route: ActivatedRoute) {
+    this.surveyId = 'all';
+      
     this.socket = socketIo(config.socketURL);
     // this.socket = socketIo(config.siteUrl);
     this.width = 900 - this.margin.left - this.margin.right;
