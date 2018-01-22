@@ -61,6 +61,9 @@ this._userService.getLoggedUSerDetails().subscribe(info =>{
     }
     this.routes.navigate(['/dashboard']);
   }
+  console.log("_________________________________");
+  console.log(this.survey);
+  console.log("_________________________________");
 });
 // ---------------------------------End-------------------------------------------
     console.log(this.survey.theme);
