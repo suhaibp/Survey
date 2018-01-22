@@ -77,6 +77,9 @@ ngOnInit() {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this.adminService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/admin-login']); 
+  }
   if(info.role == "user"){
     if(info.delete_status == true || info.block_status == true){
       this.routes.navigate(['/404']); 

@@ -59,6 +59,7 @@ newBlock ={
   private xlsxToJsonService: XlsxToJsonService = new XlsxToJsonService();
   btnDisbled:boolean = false;
   updateBtnDisbled:boolean = false;
+  updateBtnDisbled1:boolean = false;
   selUser = {email: '', groups:[],newEmail:'',is_registered:false};
   selUserGroups= [];
   //selGroups = [];
@@ -77,6 +78,9 @@ newBlock ={
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this.companyService.getLoggedUSerDetails().subscribe(info =>{
+  if(info == null || info == ''){
+    this.routes.navigate(['/clogin']); 
+  }
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -346,6 +350,7 @@ deleteUser(userId){
             this.isSuccess = false;
             this.msg = '';
             this.btnDisbled = false;
+            this.updateBtnDisbled1 = false;
           }, 2000);
         }else{
           this.isError = true;
@@ -353,6 +358,7 @@ deleteUser(userId){
           this.btnDisbled = false;
           setTimeout(()=>{ 
             this.isError = false;
+            this.updateBtnDisbled1 = false;
             this.msg = '';
           }, 3000);
         }
@@ -445,8 +451,9 @@ deleteUser(userId){
   }
 
   import(form){
+    this. updateBtnDisbled1  =true;
     this.newUser.email = this.emailArr;
-    console.log(this.newUser)
+    // console.log(this.newUser)
     this.addUsers(form);
 }
 

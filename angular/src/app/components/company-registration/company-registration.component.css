@@ -1,1 +1,6 @@
 .padd-top{padding-top:4em;}
+.btn{padding:0;}
+.mat-step-header .mat-step-icon {
+    background-color: #d9534f;
+    color: rgba(255,255,255,.87);
+}
