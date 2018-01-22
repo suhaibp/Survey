@@ -274,7 +274,7 @@ export class CompanyDashboardComponent implements OnInit {
       console.log("ff");
     }
     else {
-      console.log("poooooo"); 
+      // console.log("poooooo"); 
       
       this._companyService.getSurveyforDash(this.surveyId).subscribe(survey => {
         // console.log(theme);

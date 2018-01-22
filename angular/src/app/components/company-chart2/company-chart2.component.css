@@ -61,3 +61,7 @@ rect:hover {  fill:blue; }
     float: right;
     clear: left;
   }
+
+  .wdth{
+    width: 804px;
+  }
