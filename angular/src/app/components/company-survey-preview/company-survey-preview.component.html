@@ -19,10 +19,12 @@
     </nav>
    
     <div style="padding-top:20px;"  [ngStyle]="{'background-color':survey.selectedTheme.b_bg_color }">
+        <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-left lg-out" >Back To Survey</button>
     <div class="container">
+        
         <div class="col-md-12 questn-container">
             <button type="submit"  class="btn btn-danger pull-right lg-out" >Logout</button>
-            <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-right lg-out" >Back To Survey</button>
+            <!-- <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-right lg-out" >Back To Survey</button> -->
             <div class="col-md-12">
                 <app-count-down-timer  class="pull-right" [inputDate]="survey.end_date" [addClass]="'timer-survey'"></app-count-down-timer>             
                 
@@ -101,7 +103,6 @@
             <div class="col-md-4">
                
                 <img *ngIf="survey.logo || survey.logoSrc" height="100" [src]="survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)" >
-                 <a *ngIf="!survey.logo" class="navbar-brand" href="#"><h2 [ngStyle]="{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family}">logo</h2></a>
             </div>
             <div class="col-md-8">
                 <h1 class="srvey-hd" [ngStyle]="{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}" [ngClass]="{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}">{{survey.header}}</h1>
@@ -112,9 +113,10 @@
         </div>
       </nav>
       <div style="padding-top:20px;"  [ngStyle]="{'background-color':survey.selectedTheme.b_bg_color }">
+          <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-left lg-out" >Back To Survey</button>
     <div class="container">
         <div class="col-md-12 questn-container">
-            <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-right lg-out" >Back To Survey</button>
+           
             <button type="submit" (click)="logout()" class="btn btn-danger pull-right lg-out" >Logout</button>
             <div class="col-md-12">
                 <app-count-down-timer  class="pull-right" [inputDate]="survey.end_date" [addClass]="'timer-survey'"></app-count-down-timer>             

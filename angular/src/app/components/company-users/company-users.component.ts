@@ -102,6 +102,8 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
    // this.selGroups = ['Symptots'];
    this.loadData();
    this.companyService.getAllUserGroup().subscribe(data=>{
+     console.log('getting all groups');
+     console.log(data);
     this.groups = data.group;
     this.groupsObject = data.groupById;
     });

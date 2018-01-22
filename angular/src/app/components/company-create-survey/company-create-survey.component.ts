@@ -4,6 +4,7 @@ import { DragulaService } from 'ng2-dragula/ng2-dragula';
 import {MatTableDataSource,MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import { CanActivate,ActivatedRoute, Router } from '@angular/router';
+declare var $:any
 
 @Component({
   selector: 'app-company-create-survey',
@@ -83,6 +84,7 @@ export class CompanyCreateSurveyComponent implements OnInit {
   constructor(private companyService: CompanyService,private dragulaService: DragulaService, private routes: Router) { }
   
   ngOnInit() {
+
 // ---------------------------------Start-------------------------------------------
 // Function      : get logged company details
 // Params        : 
