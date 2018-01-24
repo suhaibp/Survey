@@ -21,7 +21,7 @@ export class CompanyCreateSurveyComponent implements OnInit {
   surveyCategory : any;
   themes : any;
   answerType : any;
-
+  existStatus :boolean = false;
   isError = false;
   isSuccess = false;
   msg = '';
@@ -117,6 +117,16 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
+this.companyService.getMyUsers().subscribe(data=>{
+    console.log(data);
+    console.log("get my users");
+    this.users = data;
+    this.dataSource = new MatTableDataSource(data);
+    this.dataSource.paginator = this.paginator;
+    this.selection.clear();
+   
+});
+
     this.companyService.getAllSurveyCategory().subscribe(data=>{
          this.surveyCategory = data;
     });
@@ -137,6 +147,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
          this.dataSource = new MatTableDataSource(data);
          this.dataSource.paginator = this.paginator;
     });
+    this.updateUserList();
 
   }
   /** Whether the number of selected elements matches the total number of rows. */
@@ -162,14 +173,26 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
    console.log(this.selectedUserGroup);
    if(this.selectedUserGroup == 'all'){
         this.companyService.getMyUsers().subscribe(data=>{
-          console.log(data);
+          if(data.length <= 0 || data ==''){
+            this.existStatus = true;
+          }
+          else{
+            this.existStatus = false;
+          }
           this.users = data;
             this.dataSource = new MatTableDataSource(data);
             this.dataSource.paginator = this.paginator;
             this.selection.clear();
+           
       });
    }else{
       this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(data=>{
+        if(data.length <= 0 || data ==''){
+          this.existStatus = true;
+        }
+        else{
+          this.existStatus = false;
+        }
         this.users = data;
         this.dataSource = new MatTableDataSource(this.users);
         this.dataSource.paginator = this.paginator;

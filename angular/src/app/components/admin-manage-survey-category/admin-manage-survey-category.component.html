@@ -133,12 +133,11 @@
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
               </mat-form-field>
           </div>
-          
-            <div class="noitem" *ngIf="!existStatus"><h4>No item Found!</h4></div>
-          
-          <br>
+     
     <div class="example-container mat-elevation-z8 ">
+        
         <mat-table [dataSource]="dataSource" matSort>
+           
              <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>
         <mat-cell *matCellDef="let row; let i = index"> {{i+1}} </mat-cell>
@@ -169,7 +168,13 @@
                    <mat-row *matRowDef="let row; columns: displayedColumns;">
                    </mat-row>
                   </mat-table>
-    
+      
+              <div class="col-md-12 noItemFound" *ngIf="!existStatus">
+                <div class="col-md-4 col-md-offset-4">
+                    <mat-toolbar   class="back-color">No item found!</mat-toolbar>
+                </div>
+                </div>
+             
               <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
         </div>
       </div>

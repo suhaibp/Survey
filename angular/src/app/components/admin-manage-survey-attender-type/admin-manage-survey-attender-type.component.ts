@@ -112,7 +112,11 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   loadData(){
     const users: any[] = [];
     this._adminService.getAttenderType().subscribe(data1=>{
-        if(data1 != '')
+      if(data1 == '')
+      {
+        this.existStatus = false;
+      }
+        else if(data1 != '')
         {
           this.existStatus = true;
         }

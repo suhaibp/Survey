@@ -286,3 +286,13 @@ a{outline:none; }
 h4{
     text-align: center;
  }
+ .noItemFound{
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid lightgray;
+
+ }
+ .back-color{
+    color: #757575;
+    background-color: #ffffff;
+}

@@ -14,6 +14,7 @@ export class CompanyManageThemesComponent implements OnInit {
   displatStat = false;
   themeId: string;
   showErr = false;
+  existStatus: boolean = false;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(
@@ -79,14 +80,25 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
 
 getThemes(){
   this._companyService.getThemes().subscribe(themes =>{
-    console.log(themes);
-    if(themes){
+   
+      // console.log(themes);
+    if(themes.length <= 0 ){
+      // console.log("theme is empty");
+      this.existStatus = true;
+    }
+    else{
+      this.existStatus = false;
+    }
+    //  else {
+    // console.log(themes);
+    // console.log("theme is not empty");
+    //  console.log(this.existStatus);
       this.displatStat = true;
       this.dataSource = new MatTableDataSource(themes);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    }
     
+  // }  
   });
 
   }

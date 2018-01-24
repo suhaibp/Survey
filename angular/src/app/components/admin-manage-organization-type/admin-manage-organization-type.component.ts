@@ -112,6 +112,10 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   loadData(){
     const users: any[] = [];
     this._adminService.getOrganizationType().subscribe(data1=>{
+        if(data1 == '')
+        {
+            this.existStatus = false;
+        }
         if(data1 != '')
         {
             this.existStatus = true;

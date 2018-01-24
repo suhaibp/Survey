@@ -2044,6 +2044,9 @@ var returnRouter = function (io) {
     // Desc          : delete a User
 
     router.put('/deleteuser/:id', (req, res) => {
+        // console.log(req.params.id +" params");
+        // console.log(req.body +" body");
+
 
         var compUserId = mongoose.Types.ObjectId(req.params.id);
         Survey.findOne({ $and: [{ "inv_users.cmp_user_id": compUserId }, { "inv_users.survey_complete": false }] }, function (err, userExist) {
@@ -2169,7 +2172,7 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
     router.put('/updateviewednotification', passport.authenticate('jwt', { session: false }), (req, res) => {
-        // console.log(req.body)
+        // console.log(req.body);
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4), decoded;
             // try {
@@ -2214,6 +2217,7 @@ var returnRouter = function (io) {
     // ----------------------------------End-------------------------------------------
 
 
+  
     //  ---------------------------------Start-------------------------------------------
     // Function      : get notification to all companies that one company 
 
@@ -2224,58 +2228,54 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
 
-    // router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-    //     if (req.headers && req.headers.authorization) {
-    //         var authorization = req.headers.authorization.substring(4), decoded;
-    //         decoded = jwt.verify(authorization, config.secret);
-    //         cmp_id = decoded._id;
-    //         arr1 = [];
-    //         arr2=[];
-    //         Users.find({},{ block_request: { $elemMatch: { action_status: "Accepted"}} }, (err, eachUsers) => {
-    //             if(eachUsers){
-    //                 eachUsers.forEach(eachElement => {
-    //                         eachElement.block_request.forEach(blockRequest => {
-    //                             //if(blockRequest){
-    //                                 // async.eachOfSeries(blockRequest.companies, function(blkCompany, key, callback) {
-                                        
-    //                                     blockRequest.companies.forEach(blkCompany => {
-    //                                         if (blkCompany.company_id == cmp_id && blkCompany.comp_is_viewed == false ) {
-    //                                             arr2.push(eachElement._id);
-                                                    
-    //                                                 //  console.log(arr1);
-    //                                         }
-    //                                      });
 
-    //                                 // },
-    //                                 // function (err, respemail) {
+    router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            arr1 = [];
+            arr2=[];
+            Users.find({},{ block_request: { $elemMatch: { action_status: "Accepted"}} }, (err, eachUsers) => {
+                if(eachUsers){
+                    eachUsers.forEach(eachElement => {
+                            eachElement.block_request.forEach(blockRequest => {
+                              
+                                        blockRequest.companies.forEach(blkCompany => {
+                                            if (blkCompany.company_id == cmp_id && blkCompany.comp_is_viewed == false ) {
+                                                arr2.push(eachElement._id);
+                                              
+                                            }
+                                         });
+        
+                            });
 
-    //                                 //     console.log(arr1);
-    //                                 // });
+                    });
 
-    //                            // }
-    //                         });
-
-    //                 });
-    //                 // Users.findById(eachElement._id, (err, doc)=> {
-    //                 //     // console.log(doc)
-    //                 //     arr1.push({ "email": doc.email, "id": doc._id});
-    //                 //     callback();
-    //                 // });
-                   
-    //                 // res.json( arr1 );
-    //             }
-    //         });
-    //     }
-    //      else {
-    //     return res.status(401).send('Invalid User');
-    //     }
-    // });
+                    Users.find({
+                        '_id': { $in: arr2}
+                    }, function(err, docs){
+                    docs.forEach(allEmail=>{
+                        arr1.push({email :allEmail.email, id : allEmail.id});
+                        
+                        
+                    })
+                    res.json(arr1); 
+                      
+                    });
+            
+                }
+            });
+        }
+         else {
+        return res.status(401).send('Invalid User');
+        }
+    });
     
 
 
 
     // ----------------------------------End-------------------------------------------
-
     //  ---------------------------------Start-------------------------------------------
     // Function      : delete function 
 

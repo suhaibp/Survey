@@ -27,6 +27,7 @@ newBlock ={
   selectedUserGroup = 'all';
   userGroups :any;
   users :any;
+  existStatus : boolean= false
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
@@ -50,7 +51,7 @@ newBlock ={
   isError1 = false;
   isSuccess1 = false;
   msg1 = '';
-  existStatus :boolean = false;
+ 
   showAddGroup = false;
   newGroup = '';
   groups: any;
@@ -141,6 +142,14 @@ loadGroup(){
 loadData(){
     const users: any[] = [];
     this.companyService.getMyUsers().subscribe(data1=>{
+      if(data1 == '')
+      {
+        this.existStatus = false;
+      }
+        else if(data1 != '')
+        {
+          this.existStatus = true;
+        }
       // console.log('list users');
       // console.log(data1);
       this.userData = data1;
@@ -470,7 +479,16 @@ deleteUser(userId){
     console.log(this.selectedUserGroup);
     if(this.selectedUserGroup == 'all'){
          this.companyService.getMyUsers().subscribe(data=>{
-           console.log(data);
+          if(data == '')
+          {
+            this.existStatus = false;
+          }
+            else if(data != '')
+            {
+              this.existStatus = true;
+            }
+
+          //  console.log(data);
            this.users = data;
              this.dataSource = new MatTableDataSource(data);
              this.dataSource.paginator = this.paginator;
@@ -478,6 +496,14 @@ deleteUser(userId){
        });
     }else{
        this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(data=>{
+        if(data == '')
+        {
+          this.existStatus = false;
+        }
+          else if(data != '')
+          {
+            this.existStatus = true;
+          }
          this.users = data;
          this.dataSource = new MatTableDataSource(this.users);
          this.dataSource.paginator = this.paginator;

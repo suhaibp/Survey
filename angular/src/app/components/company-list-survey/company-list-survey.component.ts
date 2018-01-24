@@ -16,7 +16,7 @@ export class CompanyListSurveyComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   dateNow = new Date();
   editId = '';
-
+  existStatus: boolean = false;
   constructor(private companyService: CompanyService, private routes: Router) { }
 
   ngOnInit() {
@@ -59,10 +59,18 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 
   loadSurvey(){
     this.companyService.getAllSurvey().subscribe(data=>{
-      console.log(data);
+      if(data.length <= 0 ){
+        // console.log("theme is empty");
+        this.existStatus = true;
+      }
+      else{
+        this.existStatus = false;
+      }
+      // console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+       
     });
   }
 

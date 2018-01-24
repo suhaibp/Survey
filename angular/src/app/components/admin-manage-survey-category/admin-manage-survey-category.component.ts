@@ -92,7 +92,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   // Desc          : to avoid space and special characters in name field
 
 _keyPress(event: any) {
-      const pattern = /[a-z A-Z1-9]/;
+      const pattern = /[a-z A-Z]/;
       let inputChar = String.fromCharCode(event.charCode);
       if (!pattern.test(inputChar) && event.charCode != 0) {
             // invalid character, prevent input
@@ -113,7 +113,12 @@ _keyPress(event: any) {
   loadData(){
      const users: any[] = [];
      this._adminService.getCategory().subscribe(data1=>{
-          if(data1 != '')
+       
+         if(data1 == '')
+          {
+              this.existStatus = false;
+          }
+         else if(data1 != '')
           {
               this.existStatus = true;
           }
