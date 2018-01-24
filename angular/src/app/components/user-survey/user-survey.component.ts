@@ -84,7 +84,8 @@ getSurvey(){
     this.survey = survey;
     console.log(survey);
     if(survey.status == 0){ // closed
-      this.closed = true;
+      this.routes.navigate(['/404'])
+      // this.closed = true;
     }
     else if(survey.status == 1){ // upcoming
       this.countTime = survey.start_time;

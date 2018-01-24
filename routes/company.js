@@ -83,6 +83,7 @@ var returnRouter = function (io) {
             var cmp_id = decoded._id;
             var isSuccess = false;
             msg = '';
+            req.body.group = myTrim(req.body.group); 
             UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
                 //  console.log(docs);
                 if (docs.length) {
@@ -697,8 +698,9 @@ var returnRouter = function (io) {
     router.get('/show-mail-image/:id', (req, res, next) => {
 
         // var ip = req.header['x-forwarded-for'] || req.connection.remoteAddress;
-        var ip = "59.92.233.134";
-        // console.log("ip:"+ip);
+        //var ip = "59.92.233.134";
+        var ip =  req.connection.remoteAddress;
+         console.log("ip:"+ip);
         var geo = geoip.lookup(ip);
         lat = geo.ll[0];
         long = geo.ll[1];
@@ -1573,6 +1575,7 @@ var returnRouter = function (io) {
             if (req.body.group == '' || req.body.group == null) {
                 res.send({ success: false, msg: "group name is required" });
             } else {
+                req.body.group = myTrim(req.body.group); 
                 UserGroup.findOne({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
                     if (docs.length && docs._id != req.body.id) {
                         res.json({ success: false, msg: "Group Already Exists" });
@@ -2474,21 +2477,28 @@ var returnRouter = function (io) {
             if (req.body.email.length == 0) {
                 res.json({ success: false, msg: "No item to insert" });
             } else {
+                emailArray = [];
                 req.body.email.forEach(function (val, key) {
                     if (!isErr) {
                         val = myTrim(val.toString());
                         if (!validateEmail(val) && !isErr) {
                             errMsg = val + " is not a valid email";
                             isErr = true;
+                        }else{
+                            if (emailArray.indexOf(val) > -1) {
+                                isErr = true;
+                                errMsg = 'Failed,  email ' + val + " Repeating" ;
+                            } 
+                            emailArray.push(val);
                         }
                     }
 
                 });
-
                 if (isErr) {
                     res.json({ success: false, msg: errMsg });
                 } else {
                     async.eachOfSeries(req.body.email, function (email, key, callback) {
+                        email = myTrim(email.toString());
                         Company.findOne({ _id: cmp_id}, { users: { $elemMatch: { email: email,delete_status: false} } }, function (err, respEmail) {
                             console.log(respEmail);
                         // Company.findOne({ "users.email": email, _id: cmp_id, "users.delete_status" : false }, function (err, respEmail) {
@@ -2531,6 +2541,7 @@ var returnRouter = function (io) {
                                 });
                             }
                             req.body.email.forEach(function (val, key) {
+                                val = myTrim(val.toString());
                                 users.push({ email: val, group: groups });
                             });
 
@@ -2677,9 +2688,10 @@ var returnRouter = function (io) {
 
                     async.parallel([
                         function (callback) {
-
+                            req.body.newEmail = myTrim(req.body.newEmail); 
                             if (req.body.newEmail != req.body.email) {
                                 // console.log('email changed');
+                                
                                 Company.findOne({ "users.email": req.body.newEmail, _id: cmp_id }, function (err, respEmail) {
                                     // console.log(respEmail);   
                                     if (respEmail && !isErr) { // Insert If user not exist
@@ -2694,7 +2706,8 @@ var returnRouter = function (io) {
                             }
                         },
                         function (callback) {
-                            // console.log('functon to check admin block');      
+                            // console.log('functon to check admin block'); 
+                            req.body.newEmail = myTrim(req.body.newEmail); 
                             Users.findOne(
                                 {
                                     $and: [
@@ -2719,6 +2732,7 @@ var returnRouter = function (io) {
                             res.json({ success: false, msg: errMsg });
                         } else {
                             var groups = [];
+                            req.body.newEmail = myTrim(req.body.newEmail); 
                             req.body.groups.forEach(function (val, key) {
                                 groups.push({ g_id: val._id, group_name: val.name });
                             });

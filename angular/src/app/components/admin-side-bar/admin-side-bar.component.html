@@ -24,13 +24,13 @@
       <a routerLink="/admin-users"><i class="fa fa-users"></i> Users</a>
  
 </li>
-<li [routerLinkActive]="['open']" [routerLinkActiveOptions] = "{exact:true}" [ngClass]="{'open': open}">
+<li>
   <a  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs"></i> Master Settings <span class="caret"></span></a> 
   <ul class="dropdown-menu" role="menu">
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/manage-survey-category">Manage Survey Category</a></li>
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/admin-manage-organization-type">Manage Organization Type</a></li>
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/admin-manage-industry">Manage Industry</a></li>
-      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/admin-manage-survey-attender-type">Manage Survey attender type</a></li>
+      <li><a routerLink="/manage-survey-category">Manage Survey Category</a></li>
+      <li><a routerLink="/admin-manage-organization-type">Manage Organization Type</a></li>
+      <li><a routerLink="/admin-manage-industry">Manage Industry</a></li>
+      <li><a routerLink="/admin-manage-survey-attender-type">Manage Survey attender type</a></li>
 
 
  </ul>

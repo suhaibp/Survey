@@ -54,6 +54,15 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : to list all survey of a logedin company
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 18-01-2018
+// Last Modified : 18-01-2018, Yasir Poongadan
+// Desc          : to list all survey of a logedin company
     this.loadSurvey();
   }
 
@@ -95,5 +104,5 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   setEditId(id){
     this.editId = id;
   }
-
+// ---------------------------------End-------------------------------------------
 }

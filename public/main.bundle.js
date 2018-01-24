@@ -4582,7 +4582,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 0px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #282c37;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n        padding-top: 20px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #ea5a5a !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 15px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {\r\n    background-color: #ea5a5a;\r\n    border-color: #337ab7;\r\n}\r\n\r\n.dropdown-menu>li>a.active2{background-color: #a71b1c;\r\n    color: #fff !important;}\r\n", ""]);
+exports.push([module.i, "body {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 0px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #282c37;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n        padding-top: 20px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #ea5a5a !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 15px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {\r\n    background-color: #ea5a5a;\r\n    border-color: #337ab7;\r\n}\r\n\r\n.dropdown-menu>li>a.active2{background-color: #a71b1c;\r\n    color: #fff !important;}\r\n\r\n.sd-block{\r\n    display: block;\r\n}\r\n\r\nul li{\r\n    cursor: pointer\r\n}\r\n\r\n.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {\r\n    \r\n    background-color: #d9534f;\r\n    color: #ffffff !important;\r\n    \r\n}\r\n\r\n.side-nav .dropdown-menu {\r\n    background-color: #6f2f38;\r\n}", ""]);
 
 // exports
 
@@ -4595,7 +4595,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-side-bar/admin-side-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a>\r\n   <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-tachometer\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li [routerLinkActive]=\"['open']\" [routerLinkActiveOptions] = \"{exact:true}\" [ngClass]=\"{'open': open}\">\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\">\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!-- ----------------------------------End------------------------------------------- -->\r\n"
+module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a>\r\n   <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-tachometer\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li>\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\">\r\n      <li><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n      <li><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!-- ----------------------------------End------------------------------------------- -->\r\n"
 
 /***/ }),
 
@@ -5939,14 +5939,14 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
-        this.companyService.getMyUsers().subscribe(function (data) {
-            console.log(data);
-            console.log("get my users");
-            _this.users = data;
-            _this.dataSource = new material_1.MatTableDataSource(data);
-            _this.dataSource.paginator = _this.paginator;
-            _this.selection.clear();
-        });
+        // ---------------------------------Start-------------------------------------------
+        // Function      : create survey
+        // Params        : 
+        // Returns       : 
+        // Author        : Yasir Poongadan
+        // Date          : 15-1-2018
+        // Last Modified : 15-1-2018, Yasir Poongadan
+        // Desc  
         this.companyService.getAllSurveyCategory().subscribe(function (data) {
             _this.surveyCategory = data;
         });
@@ -6419,6 +6419,14 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
             this.submitBtnDisabled = false;
         }
     };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : getFontProperties()
+    // Params        : name of the view to be shown
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : get font properties like size and font family
     CompanyCreateThemeContainerComponent.prototype.getFontProperties = function () {
         var _this = this;
         this._companyService.getFonts().subscribe(function (fonts) {
@@ -6430,6 +6438,7 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
             _this.fontSize = fontSize;
         });
     };
+    // ----------------------------------End-------------------------------------------
     CompanyCreateThemeContainerComponent.prototype.thmSaved = function () {
         window.location.reload();
         // this.routes.navigate(['/create-theme']);   
@@ -7143,12 +7152,12 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
     CompanyEditSurveyComponent.prototype.ngOnInit = function () {
         var _this = this;
         // ---------------------------------Start-------------------------------------------
-        // Function      : get logged company details
+        // Function      :For edit survey details
         // Params        : 
-        // Returns       : company details
-        // Author        : Rinsha
-        // Date          : 17-1-2018
-        // Last Modified : 17-1-2018, Rinsha
+        // Returns       : 
+        // Author        : Yasir Poongadan  
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Yasir Poongadan
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
             if (info == null || info == '') {
@@ -7176,6 +7185,14 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        // ---------------------------------Start-------------------------------------------
+        // Function      : create survey
+        // Params        : 
+        // Returns       : 
+        // Author        : Yasir Poongadan
+        // Date          : 15-1-2018
+        // Last Modified : 15-1-2018, Yasir Poongadan
+        // Desc  
         this.route.params.subscribe(function (params) {
             _this.survey.id = params['id'];
             _this.companyService.getSurvey(_this.survey.id).subscribe(function (data) {
@@ -8209,6 +8226,14 @@ var CompanyListSurveyComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        //  ---------------------------------Start-------------------------------------------
+        // Function      : to list all survey of a logedin company
+        // Params        : 
+        // Returns       : 
+        // Author        : Yasir Poongadan
+        // Date          : 18-01-2018
+        // Last Modified : 18-01-2018, Yasir Poongadan
+        // Desc          : to list all survey of a logedin company
         this.loadSurvey();
     };
     CompanyListSurveyComponent.prototype.loadSurvey = function () {
@@ -9492,7 +9517,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-survey-preview/company-survey-preview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-layout\" *ngIf=\"survey.display_type.ui != 'Multiple'\">\r\n    \r\n    <nav *ngIf=\"survey.showHeader\"  class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':survey.selectedTheme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            \r\n          <div class=\"col-md-4\">\r\n             \r\n              <img *ngIf=\"survey.logo || survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)\" >\r\n               <!-- <a *ngIf=\"!survey.logo\" class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family}\">logo</h2></a> -->\r\n          </div>\r\n          <div class=\"col-md-8\">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\">{{survey.header}}</h1>\r\n             \r\n              \r\n          </div>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n   \r\n    <div style=\"padding-top:20px;\"  [ngStyle]=\"{'background-color':survey.selectedTheme.b_bg_color }\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\"  class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-right lg-out\" >Back To Survey</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_date\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                    <div class=\"col-md-12\"  *ngFor=\"let item of survey.questions; let i=index\">\r\n                     \r\n                      <div class=\"qtnContainer\" [ngStyle]=\"{'background-color':survey.selectedTheme.q_bg_color }\"> \r\n                      <p [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.answerType == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.opts\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.answerType === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.starOpts\" name=\"answer\" [max]=\"item.starOpts.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                        </div>\r\n                      </div>\r\n                      <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                      \r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n    </div>\r\n\r\n         \r\n    <footer *ngIf=\"survey.showFooter\"  [ngStyle]=\"{'background-color':survey.selectedTheme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}\">{{survey.footer}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n  <!-- multiple page preview -->\r\n\r\n\r\n\r\n\r\n<div class=\"user-layout\" *ngIf=\"survey.display_type.ui == 'Multiple'\"  >\r\n    <nav *ngIf=\"survey.showHeader\"  class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':survey.selectedTheme.h_bg_color }\">\r\n        <div class=\"container\">\r\n          <div class=\"col-md-8 col-md-offset-2\">\r\n              \r\n            <div class=\"col-md-4\">\r\n               \r\n                <img *ngIf=\"survey.logo || survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)\" >\r\n                 <a *ngIf=\"!survey.logo\" class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family}\">logo</h2></a>\r\n            </div>\r\n            <div class=\"col-md-8\">\r\n                <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\">{{survey.header}}</h1>\r\n               \r\n                \r\n            </div>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n      <div style=\"padding-top:20px;\"  [ngStyle]=\"{'background-color':survey.selectedTheme.b_bg_color }\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-right lg-out\" >Back To Survey</button>\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_date\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\">\r\n                      \r\n                      <div *ngIf=\"cardNo == i\">\r\n                          <div class=\"qtnContainer\" [ngStyle]=\"{'background-color':survey.selectedTheme.q_bg_color }\"> \r\n                          <p [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                          <div *ngIf=\"item.answerType == 'Multiple choice'; else star\">\r\n                              <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                  <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.opts\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                    <span [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{choice}}</span>\r\n                                  </mat-radio-button>\r\n                                </mat-radio-group>\r\n                          </div>\r\n                          \r\n                              \r\n                            \r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"col-md-6 progrs \">\r\n                              <h5 *ngIf=\"!survey.display_type.pageno\">&nbsp;</h5>\r\n                                <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color}\">\r\n                                  Page No. {{cardNo+1}} of {{survey.questions.length}}\r\n                                </h5>\r\n                                <div class=\"progress\" >\r\n                                    <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                    aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_bar_color}\">\r\n                                    </div>\r\n                                  </div> \r\n                            </div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Back</button> \r\n                            \r\n                            <button *ngIf=\"cardNo < survey.questions.length-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Next</button> \r\n                            <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < survey.questions.length-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Skip</button> </div>\r\n                        </div>\r\n                      </div>\r\n                       \r\n                      \r\n\r\n                        <ng-template #star >\r\n                            <div *ngIf=\"cardNo == i\">\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.answerType === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                                      <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                                      <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.starOpts\" name=\"answer\" [max]=\"item.starOpts.length\" ></rating>\r\n                                      \r\n                                    <!-- </ng-container> -->\r\n                        \r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                        \r\n                              </div>\r\n                              \r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        \r\n                        </ng-template>\r\n                        \r\n                      </div>\r\n                      \r\n                      <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\" >Submit</button> \r\n                      \r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n    </div>\r\n         \r\n    <footer *ngIf=\"survey.showFooter\"  [ngStyle]=\"{'background-color':survey.selectedTheme.f_bg_color}\">\r\n        <p [ngStyle]=\"{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}\">{{survey.footer}}</p>\r\n      </footer>\r\n              \r\n  </div>\r\n\r\n\r\n\r\n  "
+module.exports = "<div class=\"user-layout\" *ngIf=\"survey.display_type.ui != 'Multiple'\">\r\n    \r\n    <nav *ngIf=\"survey.showHeader\"  class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':survey.selectedTheme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            \r\n          <div class=\"col-md-4\">\r\n             \r\n              <img *ngIf=\"survey.logo || survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)\" >\r\n               <!-- <a *ngIf=\"!survey.logo\" class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family}\">logo</h2></a> -->\r\n          </div>\r\n          <div class=\"col-md-8\">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\">{{survey.header}}</h1>\r\n             \r\n              \r\n          </div>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n   \r\n    <div style=\"padding-top:20px;\"  [ngStyle]=\"{'background-color':survey.selectedTheme.b_bg_color }\">\r\n        <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-left lg-out\" >Back To Survey</button>\r\n    <div class=\"container\">\r\n        \r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\"  class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <!-- <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-right lg-out\" >Back To Survey</button> -->\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_date\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                    <div class=\"col-md-12\"  *ngFor=\"let item of survey.questions; let i=index\">\r\n                     \r\n                      <div class=\"qtnContainer\" [ngStyle]=\"{'background-color':survey.selectedTheme.q_bg_color }\"> \r\n                      <p [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.answerType == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.opts\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.answerType === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.starOpts\" name=\"answer\" [max]=\"item.starOpts.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                        </div>\r\n                      </div>\r\n                      <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                      \r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n    </div>\r\n\r\n         \r\n    <footer *ngIf=\"survey.showFooter\"  [ngStyle]=\"{'background-color':survey.selectedTheme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}\">{{survey.footer}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n  <!-- multiple page preview -->\r\n\r\n\r\n\r\n\r\n<div class=\"user-layout\" *ngIf=\"survey.display_type.ui == 'Multiple'\"  >\r\n    <nav *ngIf=\"survey.showHeader\"  class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':survey.selectedTheme.h_bg_color }\">\r\n        <div class=\"container\">\r\n          <div class=\"col-md-8 col-md-offset-2\">\r\n              \r\n            <div class=\"col-md-4\">\r\n               \r\n                <img *ngIf=\"survey.logo || survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)\" >\r\n            </div>\r\n            <div class=\"col-md-8\">\r\n                <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\">{{survey.header}}</h1>\r\n               \r\n                \r\n            </div>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n      <div style=\"padding-top:20px;\"  [ngStyle]=\"{'background-color':survey.selectedTheme.b_bg_color }\">\r\n          <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-left lg-out\" >Back To Survey</button>\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n           \r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_date\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\">\r\n                      \r\n                      <div *ngIf=\"cardNo == i\">\r\n                          <div class=\"qtnContainer\" [ngStyle]=\"{'background-color':survey.selectedTheme.q_bg_color }\"> \r\n                          <p [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                          <div *ngIf=\"item.answerType == 'Multiple choice'; else star\">\r\n                              <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                  <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.opts\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                    <span [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{choice}}</span>\r\n                                  </mat-radio-button>\r\n                                </mat-radio-group>\r\n                          </div>\r\n                          \r\n                              \r\n                            \r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"col-md-6 progrs \">\r\n                              <h5 *ngIf=\"!survey.display_type.pageno\">&nbsp;</h5>\r\n                                <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color}\">\r\n                                  Page No. {{cardNo+1}} of {{survey.questions.length}}\r\n                                </h5>\r\n                                <div class=\"progress\" >\r\n                                    <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                    aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_bar_color}\">\r\n                                    </div>\r\n                                  </div> \r\n                            </div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Back</button> \r\n                            \r\n                            <button *ngIf=\"cardNo < survey.questions.length-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Next</button> \r\n                            <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < survey.questions.length-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Skip</button> </div>\r\n                        </div>\r\n                      </div>\r\n                       \r\n                      \r\n\r\n                        <ng-template #star >\r\n                            <div *ngIf=\"cardNo == i\">\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.answerType === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                                      <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                                      <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.starOpts\" name=\"answer\" [max]=\"item.starOpts.length\" ></rating>\r\n                                      \r\n                                    <!-- </ng-container> -->\r\n                        \r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                        \r\n                              </div>\r\n                              \r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        \r\n                        </ng-template>\r\n                        \r\n                      </div>\r\n                      \r\n                      <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\" >Submit</button> \r\n                      \r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n    </div>\r\n         \r\n    <footer *ngIf=\"survey.showFooter\"  [ngStyle]=\"{'background-color':survey.selectedTheme.f_bg_color}\">\r\n        <p [ngStyle]=\"{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}\">{{survey.footer}}</p>\r\n      </footer>\r\n              \r\n  </div>\r\n\r\n\r\n\r\n  "
 
 /***/ }),
 
@@ -9563,6 +9588,14 @@ var CompanySurveyPreviewComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        //  ---------------------------------Start-------------------------------------------
+        // Function      : to show survey preview
+        // Params        : 
+        // Returns       : 
+        // Author        : Yasir Poongadan
+        // Date          : 18-01-2018
+        // Last Modified : 18-01-2018, Yasir Poongadan
+        // Desc          : copied from manu frontend ui
         this.theme = this.survey;
         this.progressBarWidth = (this.progNo / this.survey.questions.length) * 100;
     };
@@ -9900,6 +9933,8 @@ var CompanyUsersComponent = /** @class */ (function () {
         // this.selGroups = ['Symptots'];
         this.loadData();
         this.companyService.getAllUserGroup().subscribe(function (data) {
+            console.log('getting all groups');
+            console.log(data);
             _this.groups = data.group;
             _this.groupsObject = data.groupById;
         });
@@ -10064,10 +10099,27 @@ var CompanyUsersComponent = /** @class */ (function () {
         });
     };
     // -----------------------------------end----------------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : addMoreOption
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For adding more emails in add user popup
     CompanyUsersComponent.prototype.addMoreOption = function () {
         this.newUser.email.push('');
         return false;
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : removeOption
+    // Params        : option index
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For remove emails in add user popup 
     CompanyUsersComponent.prototype.removeOption = function (index) {
         var _this = this;
         if (this.newUser.email.length > 1) {
@@ -10083,13 +10135,40 @@ var CompanyUsersComponent = /** @class */ (function () {
         }
         return false;
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : trackByIndex
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For multiple oprion email 
     CompanyUsersComponent.prototype.trackByIndex = function (index, value) {
         return index;
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : showGroupAddOption
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For adding groups in  add user popup
     CompanyUsersComponent.prototype.showGroupAddOption = function () {
         this.showAddGroup = true;
         return false;
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : updateUsers
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For update user details and assigned groups
     CompanyUsersComponent.prototype.updateUsers = function (form) {
         var _this = this;
         this.updateBtnDisbled = true;
@@ -10124,6 +10203,15 @@ var CompanyUsersComponent = /** @class */ (function () {
             }
         });
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : addUsers
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For add new user emails and assigned groups
     CompanyUsersComponent.prototype.addUsers = function (form) {
         var _this = this;
         this.btnDisbled = true;
@@ -10157,6 +10245,15 @@ var CompanyUsersComponent = /** @class */ (function () {
             }
         });
     };
+    // -----------------------------------end---------------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : addGroup
+    // Params        : 
+    // Returns       : 
+    // Author        : Yasir Poongadan
+    // Date          : 01-01-2018
+    // Last Modified : 01-01-2018, Yasir Poongadan
+    // Desc          : For add new user group to db
     CompanyUsersComponent.prototype.addGroup = function () {
         var _this = this;
         this.companyService.addUserGroup(this.newGroup).subscribe(function (data) {
@@ -10184,6 +10281,7 @@ var CompanyUsersComponent = /** @class */ (function () {
         });
         return false;
     };
+    // -----------------------------------end---------------------------------------------------- 
     //  ---------------------------------Start-------------------------------------------
     // Function      : sendBlockRequest
     // Params        : request
@@ -11604,6 +11702,14 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         });
     };
     //  ---------------------------------end-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : submitAns()
+    // Params        : name of the view to be shown
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : Submit survey answrs
     UserSurveyMultipleComponent.prototype.submitAns = function () {
         var _this = this;
         console.log(this.survey);
@@ -11631,6 +11737,15 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
             });
         }
     };
+    //  ---------------------------------end-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : next()
+    // Params        : number of question
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : go to next questions
     UserSurveyMultipleComponent.prototype.next = function (i) {
         if (this.survey.questions[i].ans == '' || !this.survey.questions[i].ans) {
             this.blankAns = true;
@@ -11643,16 +11758,52 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
             console.log(this.cardNo);
         }
     };
+    // -----------------------------------End------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : back()
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : back to previous question
     UserSurveyMultipleComponent.prototype.back = function () {
         this.cardNo = this.cardNo - 1;
     };
+    // -----------------------------------End------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : skipQuestion()
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : Skip question
     UserSurveyMultipleComponent.prototype.skipQuestion = function () {
         this.cardNo = this.cardNo + 1;
         this.blankAns = false;
     };
+    // -----------------------------------End------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : closed()
+    // Params        : name of the view to be shown
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : reload survey after submission
     UserSurveyMultipleComponent.prototype.closed = function () {
         window.location.reload();
     };
+    // -----------------------------------End------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : timeOver()
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : check for timeout of survey
     UserSurveyMultipleComponent.prototype.timeOver = function () {
         console.log("h");
         if (this.skip == false) {
@@ -11664,6 +11815,7 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
             $('#myModaly').modal('show');
         }
     };
+    // -----------------------------------End------------------------------------------
     // ---------------------------------Start-------------------------------------------
     // Function      : Logout
     // Params        : 
@@ -11825,6 +11977,14 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
         });
     };
     //  ---------------------------------end-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : submitAns()
+    // Params        : name of the view to be shown
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : Submit survey answrs
     UserSurveySinglepageComponent.prototype.submitAns = function () {
         var _this = this;
         console.log(this.survey);
@@ -11852,13 +12012,27 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
             });
         }
     };
+    //  ---------------------------------end-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : closed()
+    // Params        : name of the view to be shown
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : reload survey after submission
     UserSurveySinglepageComponent.prototype.closed = function () {
         window.location.reload();
     };
-    UserSurveySinglepageComponent.prototype.hel = function (event) {
-        console.log(this.survey);
-        console.log("h");
-    };
+    //  ---------------------------------end-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : timeOver()
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : check for timeout of survey
     UserSurveySinglepageComponent.prototype.timeOver = function () {
         console.log("h");
         if (this.skip == false) {
@@ -11870,6 +12044,7 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
             $('#myModaly').modal('show');
         }
     };
+    // -----------------------------------End------------------------------------------
     // ---------------------------------Start-------------------------------------------
     // Function      : Logout
     // Params        : 
@@ -11997,9 +12172,6 @@ var UserSurveyUpcomingComponent = /** @class */ (function () {
                 }
                 _this.routes.navigate(['/dashboard']);
             }
-            console.log("_________________________________");
-            console.log(_this.survey);
-            console.log("_________________________________");
         });
         // ---------------------------------End-------------------------------------------
         console.log(this.survey.theme);
@@ -12027,6 +12199,14 @@ var UserSurveyUpcomingComponent = /** @class */ (function () {
         });
     };
     //  ---------------------------------end-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : timeOver()
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Manu Prasad, Desc:
+    // Desc          : reload page when when survey time starts
     UserSurveyUpcomingComponent.prototype.timeOver = function () {
         window.location.reload();
     };
@@ -12178,7 +12358,8 @@ var UserSurveyComponent = /** @class */ (function () {
             _this.survey = survey;
             console.log(survey);
             if (survey.status == 0) {
-                _this.closed = true;
+                _this.routes.navigate(['/404']);
+                // this.closed = true;
             }
             else if (survey.status == 1) {
                 _this.countTime = survey.start_time;

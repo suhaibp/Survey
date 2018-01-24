@@ -4,6 +4,7 @@ import { DragulaService } from 'ng2-dragula/ng2-dragula';
 import {MatTableDataSource,MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import { CanActivate,ActivatedRoute, Router } from '@angular/router';
+declare var $:any
 
 @Component({
   selector: 'app-company-create-survey',
@@ -83,6 +84,7 @@ export class CompanyCreateSurveyComponent implements OnInit {
   constructor(private companyService: CompanyService,private dragulaService: DragulaService, private routes: Router) { }
   
   ngOnInit() {
+
 // ---------------------------------Start-------------------------------------------
 // Function      : get logged company details
 // Params        : 
@@ -117,16 +119,15 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
-this.companyService.getMyUsers().subscribe(data=>{
-    console.log(data);
-    console.log("get my users");
-    this.users = data;
-    this.dataSource = new MatTableDataSource(data);
-    this.dataSource.paginator = this.paginator;
-    this.selection.clear();
-   
-});
 
+// ---------------------------------Start-------------------------------------------
+// Function      : create survey
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 15-1-2018
+// Last Modified : 15-1-2018, Yasir Poongadan
+// Desc  
     this.companyService.getAllSurveyCategory().subscribe(data=>{
          this.surveyCategory = data;
     });
@@ -437,5 +438,5 @@ this.companyService.getMyUsers().subscribe(data=>{
   onBackToSurevyClick(){
     this.preview = false;
   }
- 
+ // ---------------------------------End-------------------------------------------
 }
