@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef ,ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import { CompanyService } from '../../services/company.service';
 import {Validators, FormControl} from '@angular/forms';
-import {MatPaginator, MatSort} from '@angular/material';
+import { MatPaginator, MatSort, MatSnackBar } from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
 import { XlsxToJsonService} from './../../services/xlsx-to-json.service';
@@ -67,7 +67,7 @@ newBlock ={
   groupsObject : any;
   getSingleData : any;
   email :any;
-  constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router ) { 
+  constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router,public snackBar: MatSnackBar ) { 
   }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -271,12 +271,18 @@ deleteUser(userId){
   this.companyService.deleteUser(userId).subscribe(deleteData=>{
     console.log(deleteData)
     if(deleteData.success==false){
-        this._flashMessagesService.show(' Survey invitation is  already sent, cant delete! ', { cssClass: 'alert-danger', timeout: 3000 });
+        // this._flashMessagesService.show(' Survey invitation is  already sent, cant delete! ', { cssClass: 'alert-danger', timeout: 3000 });
+        let snackBarRef =  this.snackBar.open('* Survey invitation is  already sent, cant delete!', '', {
+          duration: 2000
+        });
         // console.log("error")
     }
     else{
         this.loadData();
-        this._flashMessagesService.show('Delete User Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        // this._flashMessagesService.show('Delete User Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        let snackBarRef =  this.snackBar.open(' Delete User Successfully', '', {
+          duration: 2000
+        });
         // console.log("success")
     }
 });
@@ -313,7 +319,9 @@ deleteUser(userId){
           this.newUser.email.splice(index, 1);
       }else{
           this.isError = true;
-          this.msg = "Atleast one item required";
+          let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
+            duration: 2000
+          });
           setTimeout(()=>{ 
 
               this.isError = false;
@@ -373,24 +381,30 @@ deleteUser(userId){
     this.companyService.updateUser(this.selUser).subscribe(data=>{
       if(data.success){
         this.selUser = {email: '', groups:[],newEmail:'',is_registered:false};
-        this.isSuccess1 = true;
+        // this.isSuccess1 = true;
         this.msg1 = data.msg;
+        let snackBarRef =  this.snackBar.open(this.msg1, '', {
+          duration: 2000
+        });
         form.resetForm();
         //update company = data.company
         this.loadData();
         setTimeout(()=>{ 
           this.closeBtn1.nativeElement.click();
-          this.isSuccess1 = false;
-          this.msg1 = '';
+          // this.isSuccess1 = false;
+          // this.msg1 = '';
           this.updateBtnDisbled = false;
         }, 2000);
       }else{
-        this.isError1 = true;
+        // this.isError1 = true;
         this.msg1 = data.msg;
+        let snackBarRef =  this.snackBar.open(this.msg1, '', {
+          duration: 2000
+        });
         this.updateBtnDisbled = false;
         setTimeout(()=>{ 
-          this.isError1 = false;
-          this.msg1 = '';
+          // this.isError1 = false;
+          // this.msg1 = '';
         }, 3000);
       }
     });
@@ -412,25 +426,31 @@ deleteUser(userId){
     this.companyService.addUsers(this.newUser).subscribe(data=>{
         if(data.success){
           this.newUser =  {email: [''], groups:[]};
-          this.isSuccess = true;
+          // this.isSuccess = true;
           this.msg = data.msg;
+          let snackBarRef =  this.snackBar.open(this.msg, '', {
+            duration: 2000
+          });
           form.resetForm();
           this.loadData();
           //update company = data.company
           setTimeout(()=>{ 
             this.closeBtnAdd.nativeElement.click();
             this.closeBtn2.nativeElement.click();
-            this.isSuccess = false;
-            this.msg = '';
+            // this.isSuccess = false;
+            // this.msg = '';
             this.btnDisbled = false;
             this.updateBtnDisbled1 = false;
           }, 2000);
         }else{
-          this.isError = true;
+          // this.isError = true;
           this.msg = data.msg;
+          let snackBarRef =  this.snackBar.open(this.msg, '', {
+            duration: 2000
+          });
           this.btnDisbled = false;
           setTimeout(()=>{ 
-            this.isError = false;
+            // this.isError = false;
             this.updateBtnDisbled1 = false;
             this.msg = '';
           }, 3000);
@@ -456,19 +476,26 @@ deleteUser(userId){
             this.showAddGroup = false;
             this.groups.push(data.data);
             this.newGroup = '';
-            this.isSuccess = true;
+            // this.isSuccess = true;
             this.msg = "Group Created Successfully";
+            let snackBarRef =  this.snackBar.open(this.msg, '', {
+              duration: 2000
+            });
             this.loadGroup();
             setTimeout(()=>{ 
                 this.isSuccess = false;
                 this.msg = '';
             }, 3000);
         }else{
-          this.isError = true;
-          this.msg = "Faild, Group Already Exists";
+          // this.isError = true;
+        
+          this.msg = "* Faild, Group Already Exists!";
+          let snackBarRef =  this.snackBar.open(this.msg, '', {
+            duration: 2000
+          });
           setTimeout(()=>{ 
-              this.isError = false;
-              this.msg = '';
+              // this.isError = false;
+              // this.msg = '';
           }, 3000);
         }
       });
@@ -488,13 +515,16 @@ deleteUser(userId){
    this.companyService.sendBlockRequest(request).subscribe(data4 => {
   if(!data4.success){
       console.log(data4);
-      this.isError = true;
+      // this.isError = true;
       this.errorMsg = data4.msg;
+      let snackBarRef =  this.snackBar.open(this.errorMsg, '', {
+        duration: 2000
+      });
       this.btnDisbled = false;
       this.newBlock.reason= '';
       setTimeout(()=>{ 
-            this.isError = false;
-            this.errorMsg = '';
+            // this.isError = false;
+            // this.errorMsg = '';
       }, 2000);
   }
   else if(data4.success){
@@ -503,13 +533,17 @@ deleteUser(userId){
       this.closeBtn.nativeElement.click();
       // this.isSuccess = true;
       this.errorMsg = data4.msg;
+    
       setTimeout(()=>{ 
-              this.isSuccess = false;
-              this.errorMsg = '';
+              // this.isSuccess = false;
+              // this.errorMsg = '';
               this.btnDisbled = false
       }, 2000);
       this.newBlock.reason= '';
-      this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+      // this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+      let snackBarRef =  this.snackBar.open('Sent Block request successfully!', '', {
+        duration: 2000
+      });
       
     // this.closeBtn.nativeElement.click();
    }

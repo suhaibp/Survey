@@ -291,3 +291,10 @@ a{outline:none; }
     color: #757575;
     background-color: #ffffff;
 }
+::ng-deep snack-bar-container.custom-class {
+    background: yellow;
+  }
+  
+  ::ng-deep .custom-class .mat-simple-snackbar {
+    color: green;
+  }

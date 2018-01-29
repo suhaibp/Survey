@@ -1,5 +1,5 @@
 import {Component, ViewChild, OnInit, ElementRef} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../services/company.service';
 import {Router} from '@angular/router';
 declare var $:any;
@@ -19,7 +19,8 @@ export class CompanyManageThemesComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   constructor(
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -139,15 +140,24 @@ getThemeId(id){
     this._companyService.deleteTheme(id).subscribe(res =>{
       console.log(res);
       if(res.status == 2){
+        let snackBarRef =  this.snackBar.open('Deleted Successfully', '', {
+          duration: 2000
+       });
         this.getThemes();
       }
       else if(res.status == 0){
-        $('#myModal .modal-body h4').text('Theme is currently used for a survey!')
-        $('#myModal').modal('show')    
+        let snackBarRef =  this.snackBar.open('Cant delete, This theme is currently used for in a survey!', '', {
+          duration: 2000
+       });
+        // $('#myModal .modal-body h4').text('Theme is currently used for a survey!')
+        // $('#myModal').modal('show')    
       }
       else{
-        $('#myModal .modal-body h4').text('Error in deleting theme!')
-        $('#myModal').modal('show')    
+        let snackBarRef =  this.snackBar.open('* Error in deleting theme!', '', {
+          duration: 2000
+       });
+        // $('#myModal .modal-body h4').text('Error in deleting theme!')
+        // $('#myModal').modal('show')    
       }
     });
   

@@ -4,6 +4,7 @@ import { AdminService } from '../../services/admin.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'admin-manage-organization-type',
@@ -41,7 +42,7 @@ export class AdminManageOrganizationTypeComponent implements OnInit {
    return index;
 }
 
-constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute) { }
+constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -159,7 +160,9 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
       if(this.newOrganization.length > 1){
           this.newOrganization.splice(index, 1);
       }else{
-          this.atleastOneitem = true;
+        let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
+            duration: 2000
+        });
           setTimeout(()=>{ 
               this.atleastOneitem = false;
           }, 2000);
@@ -176,11 +179,14 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
  // Date          : 29-12-2017
  // Last Modified : 29-12-2017, Jooshifa 
  // Desc          : close a Organization type
- insertOrganizationType(){
+ insertOrganizationType(message: string){
    this._adminService.addOrganizationType(this.newOrganization).subscribe(data => {
         if(!data.success){
-            this.isError = true;
-            this.errorMsg = data.msg;
+            // this.isError = true;
+            // this.errorMsg = data.msg;
+            let snackBarRef =  this.snackBar.open(data.msg, '', {
+                duration: 2000
+              });
             this.btnDisbled = false
             setTimeout(()=>{ 
                   this.isError = false;
@@ -198,12 +204,15 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                   this.errorMsg = '';
                   this.btnDisbled = false
               }, 2000);
-              this._flashMessagesService.show('Add Organization type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+              let snackBarRef =  this.snackBar.open('Create  Organization type Successfully', '', {
+                duration: 2000
+              });
             // this.closeBtn.nativeElement.click();
               this.newOrganization =  [{name: ''}];
             }
         })
 }
+
 //  ---------------------------------end-----------------------------------------------
 
 //  ---------------------------------Start-------------------------------------------
@@ -240,7 +249,9 @@ applyFilter(filterValue: string) {
             }
             else{
                 this.loadData();
-                this._flashMessagesService.show('Delete Organisation type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                let snackBarRef =  this.snackBar.open('Delete  Organization type Successfully', '', {
+                    duration: 2000
+                });
              }
         });
 }
@@ -279,31 +290,28 @@ getOrganizationTypeId(id){
 updateOrganizationType(organization){ 
       this._adminService.updateOrganizationType(organization).subscribe(data4 => {
           if(data4.success==false && data4.msg == 'required'){
-              this.Updaterequired = true
-              setTimeout(()=>{ 
-                    this.Updaterequired = false;
-                }, 2000);
+                let snackBarRef =  this.snackBar.open('* It is a required field!', '', {
+                    duration: 2000
+                });
             }
             else{
                 if(data4.success==false && data4.msg == 'alreadyexist'){
-                    this.UpdatealreadyExist = true
-                    setTimeout(()=>{ 
-                        this.UpdatealreadyExist = false;
-                    }, 2000);
-              
+                    let snackBarRef =  this.snackBar.open('* This type is already exist!', '', {
+                        duration: 2000
+                    });
               }
               else{
                 if(data4.success==false && data4.msg == 'nochange'){
-                    this.Updatechange = true
-                    setTimeout(()=>{ 
-                      this.Updatechange = false;
-                      }, 2000);
-                
+                    let snackBarRef =  this.snackBar.open('* No changes to update!', '', {
+                        duration: 2000
+                    });
                 }
                 else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
-                    this._flashMessagesService.show('Update Organization type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                    let snackBarRef =  this.snackBar.open('Update  Organization type Successfully', '', {
+                        duration: 2000
+                    });
                  }
           }
         }

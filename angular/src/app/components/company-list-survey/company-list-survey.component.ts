@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef ,ViewChild  } from '@angular/core';
 import { CompanyService } from '../../services/company.service';
-import {MatTableDataSource,MatPaginator, MatSort} from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatSnackBar } from '@angular/material';
 import { CanActivate, Router } from '@angular/router';
 declare var $:any;
 @Component({
@@ -17,7 +17,7 @@ export class CompanyListSurveyComponent implements OnInit {
   dateNow = new Date();
   editId = '';
   existStatus: boolean = false;
-  constructor(private companyService: CompanyService, private routes: Router) { }
+  constructor(private companyService: CompanyService, private routes: Router,  public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -93,11 +93,17 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       console.log(data);
       if(data.success){
         this.loadSurvey();
-        $('#myModal .modal-body h4').text(data.msg)
-        $('#myModal').modal('show');
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
+        // $('#myModal .modal-body h4').text(data.msg)
+        // $('#myModal').modal('show');
       }else{
-        $('#myModal .modal-body h4').text(data.msg)
-        $('#myModal').modal('show'); 
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
+        // $('#myModal .modal-body h4').text(data.msg)
+        // $('#myModal').modal('show'); 
       }
     });
   }

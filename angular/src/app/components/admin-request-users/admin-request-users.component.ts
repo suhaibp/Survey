@@ -1,5 +1,5 @@
 import { Component,ViewChild, OnInit } from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { AdminService} from './../../services/admin.service';
 import {Router} from '@angular/router';
 import { Config } from './../../config/config';
@@ -23,7 +23,8 @@ export class AdminRequestUsersComponent implements OnInit {
   constructor(
     private adminService : AdminService,
     private routes: Router,
-    private config: Config
+    private config: Config,
+    public snackBar: MatSnackBar
   ) {  this.socket = socketIo(config.siteUrl); }
 // ---------------------------------Start-------------------------------------------
 // Function      : Admin user management
@@ -104,9 +105,15 @@ acceptUser(id){
     this.adminService.acceptUser(id).subscribe(data=>{
       console.log(data);
       if(data.success){
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
         this.refresh();
            }
            else{
+            let snackBarRef =  this.snackBar.open(data.msg, '', {
+              duration: 2000
+            });
           }
           
     });
@@ -117,11 +124,18 @@ acceptUser(id){
 rejectUser(id){  
   console.log(id);
   this.adminService.rejectUser(id).subscribe(data=>{
+    
     console.log(data);
     if(data.success){
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
       this.refresh();
     
     }else{
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
      
     }
   });

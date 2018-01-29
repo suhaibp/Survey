@@ -268,7 +268,6 @@ var DemoMaterialModule = /** @class */ (function () {
                 material_1.MatToolbarModule,
                 material_1.MatTooltipModule,
             ],
-            declarations: [],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -342,7 +341,7 @@ var AppModule = /** @class */ (function () {
                 user_registration_component_1.UserRegistrationComponent,
                 newpie_component_1.NewpieComponent,
                 page_not_found_component_1.PageNotFoundComponent,
-                company_chart2_component_1.CompanyChart2Component
+                company_chart2_component_1.CompanyChart2Component,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -422,9 +421,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminActiveUsersComponent = /** @class */ (function () {
-    function AdminActiveUsersComponent(adminService, routes) {
+    function AdminActiveUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email', 'action'];
         this.notExist = false;
     }
@@ -496,9 +496,15 @@ var AdminActiveUsersComponent = /** @class */ (function () {
         this.adminService.deleteUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -508,9 +514,15 @@ var AdminActiveUsersComponent = /** @class */ (function () {
         this.adminService.blockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -520,9 +532,15 @@ var AdminActiveUsersComponent = /** @class */ (function () {
         this.adminService.unblockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -541,7 +559,8 @@ var AdminActiveUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-active-users/admin-active-users.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminActiveUsersComponent);
     return AdminActiveUsersComponent;
 }());
@@ -603,9 +622,10 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     // Date          : 29-12-2017 
     // Last Modified : 03-01-2018
     // Desc          : All users
-    function AdminAllCompaniesComponent(adminService, routes) {
+    function AdminAllCompaniesComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -690,11 +710,17 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     AdminAllCompaniesComponent.prototype.deleteCompany = function (id) {
         var _this = this;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -702,11 +728,17 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     AdminAllCompaniesComponent.prototype.blockCompany = function (id) {
         var _this = this;
         this.adminService.blockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -714,11 +746,17 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     AdminAllCompaniesComponent.prototype.unblockCompany = function (id) {
         var _this = this;
         this.adminService.unblockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -737,7 +775,7 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-all-companies/admin-all-companies.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router, material_1.MatSnackBar])
     ], AdminAllCompaniesComponent);
     return AdminAllCompaniesComponent;
 }());
@@ -791,9 +829,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminAllUsersComponent = /** @class */ (function () {
-    function AdminAllUsersComponent(adminService, routes) {
+    function AdminAllUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email', 'status', 'action'];
         this.notExist = false;
         this.position = 'before';
@@ -866,9 +905,15 @@ var AdminAllUsersComponent = /** @class */ (function () {
         this.adminService.deleteUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -878,9 +923,15 @@ var AdminAllUsersComponent = /** @class */ (function () {
         this.adminService.blockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -890,9 +941,15 @@ var AdminAllUsersComponent = /** @class */ (function () {
         this.adminService.unblockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -911,7 +968,8 @@ var AdminAllUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-all-users/admin-all-users.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminAllUsersComponent);
     return AdminAllUsersComponent;
 }());
@@ -965,9 +1023,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminBlockedUsersComponent = /** @class */ (function () {
-    function AdminBlockedUsersComponent(adminService, routes) {
+    function AdminBlockedUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email', 'action'];
         this.notExist = false;
     }
@@ -1040,9 +1099,15 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
         this.adminService.deleteUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -1052,9 +1117,15 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
         this.adminService.unblockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -1073,7 +1144,8 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminBlockedUsersComponent);
     return AdminBlockedUsersComponent;
 }());
@@ -1494,9 +1566,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyActiveComponent = /** @class */ (function () {
-    function AdminCompanyActiveComponent(adminService, routes) {
+    function AdminCompanyActiveComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -1597,9 +1670,15 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
         this.adminService.deleteCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -1609,9 +1688,15 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
         this.adminService.blockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -1630,7 +1715,8 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-active/admin-company-active.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminCompanyActiveComponent);
     return AdminCompanyActiveComponent;
 }());
@@ -1684,9 +1770,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyBlockedComponent = /** @class */ (function () {
-    function AdminCompanyBlockedComponent(adminService, routes) {
+    function AdminCompanyBlockedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -1805,10 +1892,16 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         this.adminService.deleteCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef_1 = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
             }
+            var snackBarRef = _this.snackBar.open(data.msg, '', {
+                duration: 2000
+            });
         });
     };
     //unblock company
@@ -1817,9 +1910,15 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         this.adminService.unblockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -1838,7 +1937,8 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminCompanyBlockedComponent);
     return AdminCompanyBlockedComponent;
 }());
@@ -1892,9 +1992,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyDeletedComponent = /** @class */ (function () {
-    function AdminCompanyDeletedComponent(adminService, routes) {
+    function AdminCompanyDeletedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus'];
         this.notExist = false;
     }
@@ -1985,7 +2086,8 @@ var AdminCompanyDeletedComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminCompanyDeletedComponent);
     return AdminCompanyDeletedComponent;
 }());
@@ -2243,9 +2345,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminDeletedUsersComponent = /** @class */ (function () {
-    function AdminDeletedUsersComponent(adminService, routes) {
+    function AdminDeletedUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email'];
         this.notExist = false;
     }
@@ -2322,7 +2425,8 @@ var AdminDeletedUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminDeletedUsersComponent);
     return AdminDeletedUsersComponent;
 }());
@@ -2376,9 +2480,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminExpiredComponent = /** @class */ (function () {
-    function AdminExpiredComponent(adminService, routes) {
+    function AdminExpiredComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -2490,11 +2595,17 @@ var AdminExpiredComponent = /** @class */ (function () {
     AdminExpiredComponent.prototype.deleteCompany = function (id) {
         var _this = this;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -2504,9 +2615,15 @@ var AdminExpiredComponent = /** @class */ (function () {
         this.adminService.blockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -2516,9 +2633,15 @@ var AdminExpiredComponent = /** @class */ (function () {
         this.adminService.unblockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -2537,7 +2660,8 @@ var AdminExpiredComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-expired/admin-expired.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminExpiredComponent);
     return AdminExpiredComponent;
 }());
@@ -2791,11 +2915,12 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminManageIndustryComponent = /** @class */ (function () {
-    function AdminManageIndustryComponent(_adminService, _flashMessagesService, routes, route) {
+    function AdminManageIndustryComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.route = route;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
         this.btnDisbled = false;
@@ -2918,15 +3043,13 @@ var AdminManageIndustryComponent = /** @class */ (function () {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : close industry
     AdminManageIndustryComponent.prototype.closeMoreIndustry = function (index) {
-        var _this = this;
         if (this.newIndustry.length > 1) {
             this.newIndustry.splice(index, 1);
         }
         else {
-            this.atleastOneitem = true;
-            setTimeout(function () {
-                _this.atleastOneitem = false;
-            }, 2000);
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
             // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 3000 });
             return false;
         }
@@ -2944,13 +3067,10 @@ var AdminManageIndustryComponent = /** @class */ (function () {
         var _this = this;
         this._adminService.addIndustry(this.newIndustry).subscribe(function (data) {
             if (!data.success) {
-                _this.isError = true;
-                _this.errorMsg = data.msg;
                 _this.btnDisbled = false;
-                setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
-                }, 2000);
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
             else if (data.success) {
                 _this.btnDisbled = true;
@@ -2963,7 +3083,9 @@ var AdminManageIndustryComponent = /** @class */ (function () {
                     _this.errorMsg = '';
                     _this.btnDisbled = false;
                 }, 2000);
-                _this._flashMessagesService.show('Add Industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Create  Industry Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newIndustry = [{ name: '' }];
             }
@@ -3003,7 +3125,9 @@ var AdminManageIndustryComponent = /** @class */ (function () {
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete Industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Delete Industry successfully', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -3039,28 +3163,28 @@ var AdminManageIndustryComponent = /** @class */ (function () {
         this._adminService.updateIndustry(industry).subscribe(function (data4) {
             if (data4.success == false && data4.msg == 'required') {
                 _this.Updaterequired = true;
-                setTimeout(function () {
-                    _this.Updaterequired = false;
-                }, 2000);
+                var snackBarRef = _this.snackBar.open('* It is a required Field!', '', {
+                    duration: 2000
+                });
             }
             else {
                 if (data4.success == false && data4.msg == 'alreadyexist') {
-                    _this.UpdatealreadyExist = true;
-                    setTimeout(function () {
-                        _this.UpdatealreadyExist = false;
-                    }, 2000);
+                    var snackBarRef = _this.snackBar.open('* This Industry is already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else {
                     if (data4.success == false && data4.msg == 'nochange') {
-                        _this.Updatechange = true;
-                        setTimeout(function () {
-                            _this.Updatechange = false;
-                        }, 2000);
+                        var snackBarRef = _this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     }
                     else {
                         _this.loadData();
                         _this.closeBtn1.nativeElement.click();
-                        _this._flashMessagesService.show('Update industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                        var snackBarRef = _this.snackBar.open('Update Industry Successfully', '', {
+                            duration: 2000
+                        });
                     }
                 }
             }
@@ -3096,7 +3220,7 @@ var AdminManageIndustryComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_1.MatSnackBar])
     ], AdminManageIndustryComponent);
     return AdminManageIndustryComponent;
 }());
@@ -3150,12 +3274,14 @@ var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
 var AdminManageOrganizationTypeComponent = /** @class */ (function () {
-    function AdminManageOrganizationTypeComponent(_adminService, _flashMessagesService, routes, route) {
+    function AdminManageOrganizationTypeComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.route = route;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
         this.btnDisbled = false;
@@ -3286,7 +3412,9 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
             this.newOrganization.splice(index, 1);
         }
         else {
-            this.atleastOneitem = true;
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
             setTimeout(function () {
                 _this.atleastOneitem = false;
             }, 2000);
@@ -3302,12 +3430,15 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
     // Date          : 29-12-2017
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : close a Organization type
-    AdminManageOrganizationTypeComponent.prototype.insertOrganizationType = function () {
+    AdminManageOrganizationTypeComponent.prototype.insertOrganizationType = function (message) {
         var _this = this;
         this._adminService.addOrganizationType(this.newOrganization).subscribe(function (data) {
             if (!data.success) {
-                _this.isError = true;
-                _this.errorMsg = data.msg;
+                // this.isError = true;
+                // this.errorMsg = data.msg;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.btnDisbled = false;
                 setTimeout(function () {
                     _this.isError = false;
@@ -3325,7 +3456,9 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
                     _this.errorMsg = '';
                     _this.btnDisbled = false;
                 }, 2000);
-                _this._flashMessagesService.show('Add Organization type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Create  Organization type Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newOrganization = [{ name: '' }];
             }
@@ -3362,7 +3495,9 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete Organisation type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Delete  Organization type Successfully', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -3397,29 +3532,28 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
         var _this = this;
         this._adminService.updateOrganizationType(organization).subscribe(function (data4) {
             if (data4.success == false && data4.msg == 'required') {
-                _this.Updaterequired = true;
-                setTimeout(function () {
-                    _this.Updaterequired = false;
-                }, 2000);
+                var snackBarRef = _this.snackBar.open('* It is a required field!', '', {
+                    duration: 2000
+                });
             }
             else {
                 if (data4.success == false && data4.msg == 'alreadyexist') {
-                    _this.UpdatealreadyExist = true;
-                    setTimeout(function () {
-                        _this.UpdatealreadyExist = false;
-                    }, 2000);
+                    var snackBarRef = _this.snackBar.open('* This type is already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else {
                     if (data4.success == false && data4.msg == 'nochange') {
-                        _this.Updatechange = true;
-                        setTimeout(function () {
-                            _this.Updatechange = false;
-                        }, 2000);
+                        var snackBarRef = _this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     }
                     else {
                         _this.loadData();
                         _this.closeBtn1.nativeElement.click();
-                        _this._flashMessagesService.show('Update Organization type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                        var snackBarRef = _this.snackBar.open('Update  Organization type Successfully', '', {
+                            duration: 2000
+                        });
                     }
                 }
             }
@@ -3455,7 +3589,7 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
     ], AdminManageOrganizationTypeComponent);
     return AdminManageOrganizationTypeComponent;
 }());
@@ -3509,12 +3643,14 @@ var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
 var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
-    function AdminManageSurveyAttenderTypeComponent(_adminService, _flashMessagesService, routes, route) {
+    function AdminManageSurveyAttenderTypeComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.route = route;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
         this.btnDisbled = false;
@@ -3637,16 +3773,13 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : close survey attender type
     AdminManageSurveyAttenderTypeComponent.prototype.closeMoreattenderType = function (index) {
-        var _this = this;
         if (this.newAttender.length > 1) {
             this.newAttender.splice(index, 1);
         }
         else {
-            this.atleastOneitem = true;
-            setTimeout(function () {
-                _this.atleastOneitem = false;
-            }, 2000);
-            return false;
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
         }
     };
     //  ---------------------------------end-----------------------------------------------
@@ -3662,13 +3795,10 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
         var _this = this;
         this._adminService.addAttenderType(this.newAttender).subscribe(function (data) {
             if (!data.success) {
-                _this.isError = true;
-                _this.errorMsg = data.msg;
                 _this.btnDisbled = false;
-                setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
-                }, 2000);
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
             else if (data.success) {
                 _this.btnDisbled = true;
@@ -3681,7 +3811,9 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
                     _this.errorMsg = '';
                     _this.btnDisbled = false;
                 }, 2000);
-                _this._flashMessagesService.show('Add Survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Create  Category Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newAttender = [{ name: '' }];
             }
@@ -3721,7 +3853,9 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Delete Survey attender type Successfully', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -3756,29 +3890,28 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
         var _this = this;
         this._adminService.updateAttenderType(attender).subscribe(function (data4) {
             if (data4.success == false && data4.msg == 'required') {
-                _this.Updaterequired = true;
-                setTimeout(function () {
-                    _this.Updaterequired = false;
-                }, 2000);
+                var snackBarRef = _this.snackBar.open('* It is a required field!', '', {
+                    duration: 2000
+                });
             }
             else {
                 if (data4.success == false && data4.msg == 'alreadyexist') {
-                    _this.UpdatealreadyExist = true;
-                    setTimeout(function () {
-                        _this.UpdatealreadyExist = false;
-                    }, 2000);
+                    var snackBarRef = _this.snackBar.open('* This type is already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else {
                     if (data4.success == false && data4.msg == 'nochange') {
-                        _this.Updatechange = true;
-                        setTimeout(function () {
-                            _this.Updatechange = false;
-                        }, 2000);
+                        var snackBarRef = _this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     }
                     else {
                         _this.loadData();
                         _this.closeBtn1.nativeElement.click();
-                        _this._flashMessagesService.show('Update survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                        var snackBarRef = _this.snackBar.open('Update Survey attender type Successfully', '', {
+                            duration: 2000
+                        });
                     }
                 }
             }
@@ -3814,7 +3947,7 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
     ], AdminManageSurveyAttenderTypeComponent);
     return AdminManageSurveyAttenderTypeComponent;
 }());
@@ -3831,7 +3964,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\n\r\na{outline:none; }\r\n\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n\r\n.example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n\r\n.mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n\r\n.example-form-field {\r\n    width: 500px;\r\n  }\r\n\r\n.heading{\r\n     color :#d9534f;\r\n     text-align: center\r\n }\r\n\r\n.noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n\r\n.back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\n\r\na{outline:none; }\r\n\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n\r\n.example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n\r\n.mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n\r\n.example-form-field {\r\n    width: 500px;\r\n  }\r\n\r\n.heading{\r\n     color :#d9534f;\r\n     text-align: center\r\n }\r\n\r\n.noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n\r\n.back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n\r\n::ng-deep snack-bar-container.custom-class {\r\n    background: yellow;\r\n  }\r\n\r\n::ng-deep .custom-class .mat-simple-snackbar {\r\n    color: green;\r\n  }", ""]);
 
 // exports
 
@@ -3844,7 +3977,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=true></admin-side-bar>\r\n            <h3 class=\"heading\">Manage Survey Category</h3>\r\n            <br>\r\n       <div id=\"\">\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add Survey Category </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                    Atleast one item required!\r\n                  </div>\r\n                   <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                    <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                  \r\n                    \r\n                 <div class=\"modal-body\">\r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertCategory();\">\r\n                            <p>Category Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newCategory; let i = index; trackBy:trackByIndex\" >\r\n                                \r\n                              <mat-form-field class=\"example-form-field\">\r\n                                  <input matInput type=\"text\" placeholder=\"Name\" name=\"category{{i}}\" required  [(ngModel)]=\"newCategory[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                  <mat-icon>close</mat-icon>\r\n                                </button>\r\n                              </mat-form-field>\r\n                        \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreCategory(i)\">\r\n                             </div>\r\n                                  <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreCategory()\">\r\n                                  <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\"  [disabled]=\"btnDisbled\"> \r\n                      \r\n                       </form>\r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Category </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                   No changes to upate!\r\n                  </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateCategory(category);\">\r\n                        <p>Category Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"category.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n             \r\n                         <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteCategory(catgId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n    <flash-messages></flash-messages>\r\n    \r\n    <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n     \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n        \r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n           \r\n             <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n      \r\n              <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                <div class=\"col-md-4 col-md-offset-4\">\r\n                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                </div>\r\n                </div>\r\n             \r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</body>\r\n                          \r\n                                     \r\n                          "
+module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=true></admin-side-bar>\r\n            <h3 class=\"heading\">Manage Survey Category</h3>\r\n            <br>\r\n       <div id=\"\">\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add Survey Category </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                    Atleast one item required!\r\n                  </div>\r\n                   <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                    <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                  \r\n                    \r\n                 <div class=\"modal-body\">\r\n                    \r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertCategory();\">\r\n                            <p>Category Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newCategory; let i = index; trackBy:trackByIndex\" >\r\n                                \r\n                              <mat-form-field class=\"example-form-field\">\r\n                                  <input matInput type=\"text\" placeholder=\"Name\" name=\"category{{i}}\" required  [(ngModel)]=\"newCategory[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                  <mat-icon>close</mat-icon>\r\n                                </button>\r\n                              </mat-form-field>\r\n                        \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreCategory(i)\">\r\n                             </div>\r\n                             <div *ngIf=\"showSpinner\">\r\n                             <mat-spinner></mat-spinner>\r\n                            </div>\r\n                                  <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreCategory()\">\r\n                                  <input type=\"submit\" (click)=\"insertCategory()\" class=\"btn btn-danger\" value=\"Save\" > \r\n                      \r\n                       </form>\r\n                       \r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Category </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                   No changes to upate!\r\n                  </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateCategory(category);\">\r\n                        <p>Category Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"category.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n             \r\n                         <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteCategory(catgId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n    <flash-messages></flash-messages>\r\n  \r\n    \r\n    <button type=\"button\" (click)=\"addNew();\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n     \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n        \r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n           \r\n             <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n      \r\n              <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                <div class=\"col-md-4 col-md-offset-4\">\r\n                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                </div>\r\n                </div>\r\n             \r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</body>\r\n                          \r\n                                     \r\n                          "
 
 /***/ }),
 
@@ -3868,14 +4001,15 @@ var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
 var AdminManageSurveyCategoryComponent = /** @class */ (function () {
-    function AdminManageSurveyCategoryComponent(_adminService, _flashMessagesService, routes, route) {
+    function AdminManageSurveyCategoryComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.route = route;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'action'];
-        this.btnDisbled = false;
         this.atleastOneitem = false;
         this.isSuccess = false;
         this.isError = false;
@@ -3883,6 +4017,7 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
         this.Updatechange = false;
         this.Updaterequired = false;
         this.UpdatealreadyExist = false;
+        this.showSpinner = false;
         this.newCategory = [{ name: '' }];
         this.category = {
             name: String
@@ -4004,11 +4139,13 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
             this.newCategory.splice(index, 1);
         }
         else {
-            this.atleastOneitem = true;
+            // this.atleastOneitem = true;
             setTimeout(function () {
                 _this.atleastOneitem = false;
             }, 3000);
-            // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 1000 });
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
             return false;
         }
     };
@@ -4025,26 +4162,20 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
         var _this = this;
         this._adminService.addCategory(this.newCategory).subscribe(function (data) {
             if (!data.success) {
-                _this.isError = true;
-                _this.errorMsg = data.msg;
-                _this.btnDisbled = false;
-                setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
-                }, 2000);
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
             else if (data.success) {
-                _this.btnDisbled = true;
                 _this.loadData();
                 _this.closeBtn.nativeElement.click();
-                // this.isSuccess = true;
-                _this.errorMsg = data.msg;
+                _this.showSpinner = true;
                 setTimeout(function () {
-                    _this.isSuccess = false;
-                    _this.errorMsg = '';
-                    _this.btnDisbled = false;
+                    _this.showSpinner = false;
                 }, 2000);
-                _this._flashMessagesService.show('Add Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Create Survey Category Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newCategory = [{ name: '' }];
             }
@@ -4081,7 +4212,9 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Delete Survey category Successfully', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4117,29 +4250,28 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
         var _this = this;
         this._adminService.updateCategory(category).subscribe(function (data4) {
             if (data4.success == false && data4.msg == 'required') {
-                _this.Updaterequired = true;
-                setTimeout(function () {
-                    _this.Updaterequired = false;
-                }, 3000);
+                var snackBarRef = _this.snackBar.open('* It is a required field!', '', {
+                    duration: 2000
+                });
             }
             else {
                 if (data4.success == false && data4.msg == 'alreadyexist') {
-                    _this.UpdatealreadyExist = true;
-                    setTimeout(function () {
-                        _this.UpdatealreadyExist = false;
-                    }, 3000);
+                    var snackBarRef = _this.snackBar.open('* This category already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else {
                     if (data4.success == false && data4.msg == 'nochange') {
-                        _this.Updatechange = true;
-                        setTimeout(function () {
-                            _this.Updatechange = false;
-                        }, 3000);
+                        var snackBarRef = _this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     }
                     else {
                         _this.loadData();
                         _this.closeBtn1.nativeElement.click();
-                        _this._flashMessagesService.show('Update Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                        var snackBarRef = _this.snackBar.open('Update Survey category successfully', '', {
+                            duration: 2000
+                        });
                     }
                 }
             }
@@ -4175,7 +4307,7 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
     ], AdminManageSurveyCategoryComponent);
     return AdminManageSurveyCategoryComponent;
 }());
@@ -4229,9 +4361,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminNotVerifiedComponent = /** @class */ (function () {
-    function AdminNotVerifiedComponent(adminService, routes) {
+    function AdminNotVerifiedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -4342,11 +4475,17 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
     AdminNotVerifiedComponent.prototype.deleteCompany = function (id) {
         var _this = this;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4354,11 +4493,17 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
     AdminNotVerifiedComponent.prototype.blockCompany = function (id) {
         var _this = this;
         this.adminService.blockCompany(id).subscribe(function (data) {
-            console.log(data);
+            var snackBarRef = _this.snackBar.open(data.msg, '', {
+                duration: 2000
+            });
+            // console.log(data);
             if (data.success) {
                 _this.refresh();
             }
             else {
+                var snackBarRef_1 = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4366,11 +4511,17 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
     AdminNotVerifiedComponent.prototype.unblockCompany = function (id) {
         var _this = this;
         this.adminService.unblockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4389,7 +4540,8 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-not-verified/admin-not-verified.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminNotVerifiedComponent);
     return AdminNotVerifiedComponent;
 }());
@@ -4445,10 +4597,11 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var AdminRequestUsersComponent = /** @class */ (function () {
-    function AdminRequestUsersComponent(adminService, routes, config) {
+    function AdminRequestUsersComponent(adminService, routes, config, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
         this.config = config;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email', 'requestedcompanies', 'status', 'action'];
         this.notExist = false;
         this.involvedCompany = [];
@@ -4526,9 +4679,15 @@ var AdminRequestUsersComponent = /** @class */ (function () {
         this.adminService.acceptUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4539,9 +4698,15 @@ var AdminRequestUsersComponent = /** @class */ (function () {
         this.adminService.rejectUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4565,7 +4730,8 @@ var AdminRequestUsersComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
             router_1.Router,
-            config_1.Config])
+            config_1.Config,
+            material_1.MatSnackBar])
     ], AdminRequestUsersComponent);
     return AdminRequestUsersComponent;
 }());
@@ -4595,7 +4761,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-side-bar/admin-side-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a>\r\n   <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-tachometer\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li>\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\">\r\n      <li><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n      <li><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!-- ----------------------------------End------------------------------------------- -->\r\n"
+module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a>\r\n   <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-tachometer\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li>\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\">\r\n\r\n      <li><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n      <li><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!-- ----------------------------------End------------------------------------------- -->\r\n"
 
 /***/ }),
 
@@ -4682,9 +4848,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminSubscribedComponent = /** @class */ (function () {
-    function AdminSubscribedComponent(adminService, routes) {
+    function AdminSubscribedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -4798,9 +4965,15 @@ var AdminSubscribedComponent = /** @class */ (function () {
         this.adminService.deleteCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4810,9 +4983,15 @@ var AdminSubscribedComponent = /** @class */ (function () {
         this.adminService.blockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4822,9 +5001,15 @@ var AdminSubscribedComponent = /** @class */ (function () {
         this.adminService.unblockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4843,7 +5028,7 @@ var AdminSubscribedComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-subscribed/admin-subscribed.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router, material_1.MatSnackBar])
     ], AdminSubscribedComponent);
     return AdminSubscribedComponent;
 }());
@@ -5024,9 +5209,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminTrialComponent = /** @class */ (function () {
-    function AdminTrialComponent(adminService, routes) {
+    function AdminTrialComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
@@ -5137,11 +5323,17 @@ var AdminTrialComponent = /** @class */ (function () {
     AdminTrialComponent.prototype.deleteCompany = function (id) {
         var _this = this;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -5149,11 +5341,17 @@ var AdminTrialComponent = /** @class */ (function () {
     AdminTrialComponent.prototype.blockCompany = function (id) {
         var _this = this;
         this.adminService.blockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -5161,11 +5359,17 @@ var AdminTrialComponent = /** @class */ (function () {
     AdminTrialComponent.prototype.unblockCompany = function (id) {
         var _this = this;
         this.adminService.unblockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -5184,7 +5388,8 @@ var AdminTrialComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-trial/admin-trial.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminTrialComponent);
     return AdminTrialComponent;
 }());
@@ -5341,14 +5546,16 @@ var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var CompanyAdditnInfoComponent = /** @class */ (function () {
-    function CompanyAdditnInfoComponent(_formBuilder, companyService, routes, _flashMessagesService, route) {
+    function CompanyAdditnInfoComponent(_formBuilder, companyService, routes, _flashMessagesService, route, snackBar) {
         this._formBuilder = _formBuilder;
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
         this.route = route;
+        this.snackBar = snackBar;
         this.isLinear = true;
         this.timestamp = new Date().getTime().toString();
         this.newReg = {
@@ -5507,7 +5714,10 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
         // Desc          : Save additional information for company who sign in with google or facebook
         this.companyService.registerAdditnInfo(this.id, this.result).subscribe(function (info) {
             if (info.success == true) {
-                _this._flashMessagesService.show('Redirecting..', { cssClass: 'alert-success', timeout: 4000 });
+                // this._flashMessagesService.show('Redirecting..', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Redirecting into your account.', '', {
+                    duration: 2000
+                });
                 // this.companyService.generateToken(this.id).subscribe(data2 => {
                 //   if(data2.success){
                 //     this.companyService.storeUserData(data2.token, data2.company);
@@ -5518,7 +5728,10 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
                 }, 4000);
             }
             else {
-                _this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
+                // this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Error', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/404']);
                 }, 4000);
@@ -5532,7 +5745,7 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute, material_1.MatSnackBar])
     ], CompanyAdditnInfoComponent);
     return CompanyAdditnInfoComponent;
 }());
@@ -5825,7 +6038,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-create-survey/company-create-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Create Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\" style=\"display: none;\"></a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n                                                <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button>\r\n                                                <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div>\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <!-- <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button> -->\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      \r\n                                  \r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                      \r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [checked]=\"selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n\r\n                                              <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                                                <div class=\"col-md-4 col-md-offset-4\">\r\n                                                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                                </div>\r\n                                            </div>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div>\r\n                                  <!-- <button [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" >Send Later</button> -->\r\n                                  <a class=\"btn btn-danger ourbutton\"  href=\"/company-list-survey\" >Send Later</a>\r\n                                  <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div>\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div>\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <!-- <div class=\"modal-header\"> -->\r\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                <!-- </div> -->\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure ?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n  <div *ngIf=\"preview\">\r\n                            <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n    </div>                          "
+module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Create Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\" style=\"display: none;\"></a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n                                                <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button>\r\n                                                <!-- <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div> -->\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <!-- <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button> -->\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      \r\n                                  \r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                      \r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [checked]=\"selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n\r\n                                              <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                                                <div class=\"col-md-4 col-md-offset-4\">\r\n                                                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                                </div>\r\n                                            </div>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div> -->\r\n                                  <!-- <button [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" >Send Later</button> -->\r\n                                  <a class=\"btn btn-danger ourbutton\"  href=\"/company-list-survey\" >Send Later</a>\r\n                                  <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <!-- <div class=\"modal-header\"> -->\r\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                <!-- </div> -->\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure ?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n  <div *ngIf=\"preview\">\r\n                            <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n    </div>                          "
 
 /***/ }),
 
@@ -5851,10 +6064,11 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyCreateSurveyComponent = /** @class */ (function () {
-    function CompanyCreateSurveyComponent(companyService, dragulaService, routes) {
+    function CompanyCreateSurveyComponent(companyService, dragulaService, routes, snackBar) {
         this.companyService = companyService;
         this.dragulaService = dragulaService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.preview = false;
         this.displayType = [{ value: 'Single', label: 'Single Page' }, { value: 'Multiple', label: 'Multiple Page' }];
         this.existStatus = false;
@@ -6060,8 +6274,11 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             this.quest.opts.splice(index, 1);
         }
         else {
-            this.isError = true;
-            this.msg = "Atleast two options required";
+            // this.isError = true;
+            // this.msg = "Atleast two options required";
+            var snackBarRef = this.snackBar.open('* Atleast two options required!', '', {
+                duration: 2000
+            });
             setTimeout(function () {
                 _this.isError = false;
                 _this.msg = '';
@@ -6070,16 +6287,18 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         return false;
     };
     CompanyCreateSurveyComponent.prototype.removeOptionEdit = function (index) {
-        var _this = this;
         if (this.editQuest.opts.length > 2) {
             this.editQuest.opts.splice(index, 1);
         }
         else {
-            this.isError1 = true;
+            // this.isError1 = true;
             this.msg1 = "Atleast two options required";
+            var snackBarRef = this.snackBar.open(this.msg1, '', {
+                duration: 2000
+            });
             setTimeout(function () {
-                _this.isError1 = false;
-                _this.msg1 = '';
+                // this.isError1 = false;
+                // this.msg1 = '';
             }, 3000);
         }
         return false;
@@ -6104,21 +6323,23 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         return index;
     };
     CompanyCreateSurveyComponent.prototype.addQuestion = function (form) {
-        var _this = this;
         // console.log(this.quest);
         this.btnDisbled = true;
-        this.isSuccess = true;
+        //  this.isSuccess = true;
         if (this.quest.answerType == 'star rating' && !this.quest.showStarLabel) {
             this.quest.starOpts = ['1', '2', '3', '4', '5'];
         }
         this.survey.questions.push(this.quest);
         this.msg = "Question Added Successfully";
+        var snackBarRef = this.snackBar.open(this.msg, '', {
+            duration: 2000
+        });
         this.quest = { question: '', opts: ['', ''], answerType: '', showStarLabel: false, starOpts: ['', '', '', '', ''] };
         this.btnDisbled = false;
         form.resetForm();
         setTimeout(function () {
-            _this.isSuccess = false;
-            _this.msg = '';
+            //  this.isSuccess = false;
+            //  this.msg = '';
         }, 2000);
     };
     CompanyCreateSurveyComponent.prototype.editQuestion = function (index) {
@@ -6129,19 +6350,22 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
     CompanyCreateSurveyComponent.prototype.updateQuestion = function (form) {
         var _this = this;
         this.updateBtnDisbled = true;
-        this.isSuccess1 = true;
+        // this.isSuccess1 = true;
         if (this.editQuest.answerType == 'star rating' && !this.editQuest.showStarLabel) {
             this.editQuest.starOpts = ['1', '2', '3', '4', '5'];
         }
         this.survey.questions[this.editIndex] = this.editQuest;
         this.editIndex = 0;
         this.msg1 = "Question Updated Successfully";
+        var snackBarRef = this.snackBar.open(this.msg1, '', {
+            duration: 2000
+        });
         setTimeout(function () {
             _this.closeBtn1.nativeElement.click();
             _this.editQuest = { question: '', opts: ['', ''], answerType: '', showStarLabel: false, starOpts: ['', '', '', '', ''] };
             form.resetForm();
-            _this.isSuccess1 = false;
-            _this.msg1 = '';
+            // this.isSuccess1 = false;
+            // this.msg1 = '';
             _this.updateBtnDisbled = false;
         }, 2000);
     };
@@ -6153,23 +6377,29 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             console.log(data);
             if (data.success) {
                 _this.selectedSurvey = data.survey;
-                _this.isSuccess2 = true;
+                // this.isSuccess2 = true;
                 _this.msg2 = "Survey Created Successfully";
+                var snackBarRef = _this.snackBar.open(_this.msg2, '', {
+                    duration: 2000
+                });
                 _this.invitePopUp.nativeElement.click();
                 setTimeout(function () {
-                    _this.isSuccess2 = false;
-                    _this.msg2 = '';
+                    // this.isSuccess2 = false;
+                    // this.msg2 = '';
                 }, 2000);
             }
             else {
                 _this.saveBtnDisbled = false;
-                _this.isError2 = true;
+                // this.isError2 = true;
                 _this.msg2 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg2, '', {
+                    duration: 3000
+                });
                 setTimeout(function () {
                     //this.closeBtn1.nativeElement.click();
                     //  form.resetForm();
-                    _this.isError2 = false;
-                    _this.msg2 = '';
+                    // this.isError2 = false;
+                    // this.msg2 = '';
                     // this.saveBtnDisbled = ;
                 }, 2000);
             }
@@ -6183,22 +6413,28 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             if (data.success) {
                 _this.updateUserList();
                 _this.newUser = '';
-                _this.isSuccess3 = true;
+                // this.isSuccess3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 //update company = data.company
                 setTimeout(function () {
-                    _this.isSuccess3 = false;
-                    _this.msg3 = '';
+                    // this.isSuccess3 = false;
+                    // this.msg3 = '';
                     _this.addUserBtnDisbled = false;
                 }, 2000);
             }
             else {
-                _this.isError3 = true;
+                // this.isError3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 3000
+                });
                 _this.addUserBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError3 = false;
-                    _this.msg3 = '';
+                    // this.isError3 = false;
+                    // this.msg3 = '';
                 }, 3000);
             }
         });
@@ -6210,21 +6446,27 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         var data = { users: this.selection.selected, survey: this.selectedSurvey };
         this.companyService.inviteUsers(data).subscribe(function (data) {
             if (data.success) {
-                _this.isSuccess3 = true;
+                // this.isSuccess3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
-                    _this.isSuccess3 = false;
-                    _this.msg3 = '';
+                    // this.isSuccess3 = false;
+                    // this.msg3 = '';
                     window.location.href = "/company-list-survey";
                 }, 2000);
             }
             else {
-                _this.isError3 = true;
+                // this.isError3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 3000
+                });
                 _this.inviteBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError3 = false;
-                    _this.msg3 = '';
+                    // this.isError3 = false;
+                    // this.msg3 = '';
                 }, 3000);
             }
         });
@@ -6257,7 +6499,7 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-create-survey/company-create-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-create-survey/company-create-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router, material_1.MatSnackBar])
     ], CompanyCreateSurveyComponent);
     return CompanyCreateSurveyComponent;
 }());
@@ -6307,13 +6549,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var CompanyCreateThemeContainerComponent = /** @class */ (function () {
-    function CompanyCreateThemeContainerComponent(_companyService, routes) {
+    function CompanyCreateThemeContainerComponent(_companyService, routes, snackBar) {
         this._companyService = _companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.newTheme = {
             title: "",
             h_font_color: "#ffffff",
@@ -6398,20 +6642,30 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
             this._companyService.saveTheme(this.newTheme).subscribe(function (theme) {
                 if (theme.status == 0) {
                     _this.submitBtnDisabled = false;
-                    $('#myModal .modal-body h4').text("Theme name already exist!");
-                    $('#myModal').modal('show');
+                    // $('#myModal .modal-body h4').text("Theme name already exist!");
+                    var snackBarRef = _this.snackBar.open('* Theme name already exist!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal').modal('show'); 
                 }
                 else if (theme.status == 1) {
-                    $('#myModal .modal-body h4').text("Error occured!");
-                    $('#myModal').modal('show');
+                    // $('#myModal .modal-body h4').text("Error occured!");
+                    // $('#myModal').modal('show'); 
+                    var snackBarRef = _this.snackBar.open('* Error occured!', '', {
+                        duration: 2000
+                    });
                     _this.submitBtnDisabled = false;
                 }
                 else {
+                    window.location.reload();
                     // window.location.reload();
                     // this.routes.navigate(['/create-theme']);
                     _this.themeSaved = true;
-                    $('#myModal .modal-body h4').text("Theme saved!");
-                    $('#myModal').modal('show');
+                    var snackBarRef = _this.snackBar.open('Theme Saved Successfully', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text("Theme saved!");
+                    // $('#myModal').modal('show'); 
                 }
             });
         }
@@ -6452,7 +6706,8 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.css")]
         }),
         __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], CompanyCreateThemeContainerComponent);
     return CompanyCreateThemeContainerComponent;
 }());
@@ -7067,7 +7322,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-edit-survey/company-edit-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Edit Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\">Invite Users</a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc && !tmplogoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                          <img *ngIf=\"!survey.logoSrc && tmplogoSrc \" height=\"100\" [src]=\"tmplogoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n                                                <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Update</button>\r\n                                                <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div>\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      \r\n                                  \r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                      \r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [disabled]=\"row.invited\"\r\n                                                                  [checked]=\"row.invited || selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"!row.invited && selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div>\r\n                                  <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div>\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div>\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <!-- <div class=\"modal-header\"> -->\r\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                <!-- </div> -->\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure ?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n<div *ngIf=\"preview\">\r\n                        <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n</div>                    "
+module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Edit Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\">Invite Users</a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc && !tmplogoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                          <img *ngIf=\"!survey.logoSrc && tmplogoSrc \" height=\"100\" [src]=\"tmplogoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n                                                <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Update</button>\r\n                                                <!-- <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div> -->\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      \r\n                                  \r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                      \r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [disabled]=\"row.invited\"\r\n                                                                  [checked]=\"row.invited || selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"!row.invited && selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div> -->\r\n                                  <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <!-- <div class=\"modal-header\"> -->\r\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                <!-- </div> -->\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure ?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n<div *ngIf=\"preview\">\r\n                        <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n</div>                    "
 
 /***/ }),
 
@@ -7094,12 +7349,13 @@ var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var CompanyEditSurveyComponent = /** @class */ (function () {
-    function CompanyEditSurveyComponent(companyService, dragulaService, routes, route, config) {
+    function CompanyEditSurveyComponent(companyService, dragulaService, routes, route, config, snackBar) {
         this.companyService = companyService;
         this.dragulaService = dragulaService;
         this.routes = routes;
         this.route = route;
         this.config = config;
+        this.snackBar = snackBar;
         this.preview = false;
         this.displayType = [{ value: 'Single', label: 'Single Page' }, { value: 'Multiple', label: 'Multiple Page' }];
         this.isError = false;
@@ -7364,31 +7620,35 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         return new Array(length);
     };
     CompanyEditSurveyComponent.prototype.removeOption = function (index) {
-        var _this = this;
         if (this.quest.opts.length > 2) {
             this.quest.opts.splice(index, 1);
         }
         else {
-            this.isError = true;
+            // this.isError = true;
             this.msg = "Atleast two options required";
+            var snackBarRef = this.snackBar.open(this.msg, '', {
+                duration: 2000
+            });
             setTimeout(function () {
-                _this.isError = false;
-                _this.msg = '';
+                // this.isError = false;
+                // this.msg = '';
             }, 3000);
         }
         return false;
     };
     CompanyEditSurveyComponent.prototype.removeOptionEdit = function (index) {
-        var _this = this;
         if (this.editQuest.opts.length > 2) {
             this.editQuest.opts.splice(index, 1);
         }
         else {
-            this.isError1 = true;
+            // this.isError1 = true;
             this.msg1 = "Atleast two options required";
+            var snackBarRef = this.snackBar.open(this.msg1, '', {
+                duration: 2000
+            });
             setTimeout(function () {
-                _this.isError1 = false;
-                _this.msg1 = '';
+                // this.isError1 = false;
+                // this.msg1 = '';
             }, 3000);
         }
         return false;
@@ -7413,21 +7673,23 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         return index;
     };
     CompanyEditSurveyComponent.prototype.addQuestion = function (form) {
-        var _this = this;
         // console.log(this.quest);
         this.btnDisbled = true;
-        this.isSuccess = true;
+        //  this.isSuccess = true;
         if (this.quest.answerType == 'star rating' && !this.quest.showStarLabel) {
             this.quest.starOpts = ['1', '2', '3', '4', '5'];
         }
         this.survey.questions.push(this.quest);
         this.msg = "Question Added Successfully";
+        var snackBarRef = this.snackBar.open(this.msg, '', {
+            duration: 2000
+        });
         this.quest = { question: '', opts: ['', ''], answerType: '', showStarLabel: false, starOpts: ['', '', '', '', ''] };
         this.btnDisbled = false;
         form.resetForm();
         setTimeout(function () {
-            _this.isSuccess = false;
-            _this.msg = '';
+            //  this.isSuccess = false;
+            //  this.msg = '';
         }, 2000);
     };
     CompanyEditSurveyComponent.prototype.editQuestion = function (index) {
@@ -7438,19 +7700,22 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
     CompanyEditSurveyComponent.prototype.updateQuestion = function (form) {
         var _this = this;
         this.updateBtnDisbled = true;
-        this.isSuccess1 = true;
+        // this.isSuccess1 = true;
         if (this.editQuest.answerType == 'star rating' && !this.editQuest.showStarLabel) {
             this.editQuest.starOpts = ['1', '2', '3', '4', '5'];
         }
         this.survey.questions[this.editIndex] = this.editQuest;
         this.editIndex = 0;
         this.msg1 = "Question Updated Successfully";
+        var snackBarRef = this.snackBar.open(this.msg1, '', {
+            duration: 2000
+        });
         setTimeout(function () {
             _this.closeBtn1.nativeElement.click();
             _this.editQuest = { question: '', opts: ['', ''], answerType: '', showStarLabel: false, starOpts: ['', '', '', '', ''] };
             form.resetForm();
-            _this.isSuccess1 = false;
-            _this.msg1 = '';
+            // this.isSuccess1 = false;
+            // this.msg1 = '';
             _this.updateBtnDisbled = false;
         }, 2000);
     };
@@ -7460,27 +7725,33 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         this.saveBtnDisbled = true;
         console.log(this.survey);
         this.companyService.updateSurvey(this.survey).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
                 _this.selectedSurvey = data.survey;
-                _this.isSuccess2 = true;
+                // this.isSuccess2 = true;
                 _this.msg2 = "Survey Updated Successfully";
+                var snackBarRef = _this.snackBar.open(_this.msg2, '', {
+                    duration: 2000
+                });
                 // this.invitePopUp.nativeElement.click();
                 setTimeout(function () {
                     _this.saveBtnDisbled = false;
-                    _this.isSuccess2 = false;
-                    _this.msg2 = '';
+                    // this.isSuccess2 = false;
+                    // this.msg2 = '';
                 }, 2000);
             }
             else {
                 _this.saveBtnDisbled = false;
-                _this.isError2 = true;
+                // this.isError2 = true;
                 _this.msg2 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg2, '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     //this.closeBtn1.nativeElement.click();
                     //  form.resetForm();
-                    _this.isError2 = false;
-                    _this.msg2 = '';
+                    // this.isError2 = false;
+                    // this.msg2 = '';
                     // this.saveBtnDisbled = ;
                 }, 2000);
             }
@@ -7494,22 +7765,28 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
             if (data.success) {
                 _this.updateUserList();
                 _this.newUser = '';
-                _this.isSuccess3 = true;
+                // this.isSuccess3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 //update company = data.company
                 setTimeout(function () {
-                    _this.isSuccess3 = false;
-                    _this.msg3 = '';
+                    // this.isSuccess3 = false;
+                    // this.msg3 = '';
                     _this.addUserBtnDisbled = false;
                 }, 2000);
             }
             else {
-                _this.isError3 = true;
+                // this.isError3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 _this.addUserBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError3 = false;
-                    _this.msg3 = '';
+                    // this.isError3 = false;
+                    // this.msg3 = '';
                 }, 3000);
             }
         });
@@ -7525,20 +7802,26 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
                     _this.invitedEmailds.push(val.email);
                 });
                 _this.updateUserList();
-                _this.isSuccess3 = true;
+                // this.isSuccess3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
-                    _this.isSuccess3 = false;
-                    _this.msg3 = '';
+                    // this.isSuccess3 = false;
+                    // this.msg3 = '';
                 }, 2000);
             }
             else {
-                _this.isError3 = true;
+                // this.isError3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 _this.inviteBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError3 = false;
-                    _this.msg3 = '';
+                    // this.isError3 = false;
+                    // this.msg3 = '';
                 }, 3000);
             }
         });
@@ -7571,7 +7854,7 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-edit-survey/company-edit-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-edit-survey/company-edit-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router, router_1.ActivatedRoute, config_1.Config])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router, router_1.ActivatedRoute, config_1.Config, material_1.MatSnackBar])
     ], CompanyEditSurveyComponent);
     return CompanyEditSurveyComponent;
 }());
@@ -7731,14 +8014,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var CompanyEditThemeComponent = /** @class */ (function () {
-    function CompanyEditThemeComponent(_activatedRoute, _companyService, routes) {
+    function CompanyEditThemeComponent(_activatedRoute, _companyService, routes, snackBar) {
         this._activatedRoute = _activatedRoute;
         this._companyService = _companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displatStat = false;
         this.titleFormControl = new forms_1.FormControl('', [
             forms_1.Validators.required,
@@ -7844,28 +8129,44 @@ var CompanyEditThemeComponent = /** @class */ (function () {
             this._companyService.updateTheme(this.themeId, this.Theme).subscribe(function (res) {
                 console.log(res.status);
                 if (res.status == 0) {
-                    $('#myModal .modal-body h4').text('Error in updating!');
-                    $('#myModal').modal('show');
+                    var snackBarRef = _this.snackBar.open('* Error in updation!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Error in updating!');
+                    // $('#myModal').modal('show');  
                 }
                 else if (res.status == 1) {
-                    $('#myModal .modal-body h4').text('Title is empty!');
-                    $('#myModal').modal('show');
+                    var snackBarRef = _this.snackBar.open('* Title is empty!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Title is empty!');
+                    // $('#myModal').modal('show');  
                 }
                 else if (res.status == 2) {
-                    $('#myModal .modal-body h4').text('Successfully updated!');
-                    $('#myModal .modal-title').text('Message');
-                    $('#myModal').modal('show');
+                    _this.routes.navigate(['./create-theme']);
+                    var snackBarRef = _this.snackBar.open('Successfully updated!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Successfully updated!');
+                    // $('#myModal .modal-title').text('Message');
+                    // $('#myModal').modal('show');
                 }
                 else if (res.status == 4) {
                     _this.stat4 = true;
-                    $('#myModal .modal-body h4').text('Theme name already exist!');
-                    $('#myModal .modal-title').text('Message');
-                    $('#myModal').modal('show');
-                    $('#upbtn').prop('disabled', false);
+                    var snackBarRef = _this.snackBar.open('Theme name already exist', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Theme name already exist!');
+                    // $('#myModal .modal-title').text('Message');
+                    // $('#myModal').modal('show');
+                    // $('#upbtn').prop('disabled', false);
                 }
                 else {
-                    $('#myModal .modal-body h4').text('Error in updating!');
-                    $('#myModal').modal('show');
+                    var snackBarRef = _this.snackBar.open('Error in updation', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Error in updating!');
+                    // $('#myModal').modal('show');  
                 }
             });
         }
@@ -7893,7 +8194,8 @@ var CompanyEditThemeComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             company_service_1.CompanyService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], CompanyEditThemeComponent);
     return CompanyEditThemeComponent;
 }());
@@ -7946,12 +8248,14 @@ var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var CompanyEmailVerificationComponent = /** @class */ (function () {
-    function CompanyEmailVerificationComponent(companyService, routes, _flashMessagesService, route) {
+    function CompanyEmailVerificationComponent(companyService, routes, _flashMessagesService, route, snackBar) {
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
         this.route = route;
+        this.snackBar = snackBar;
     }
     CompanyEmailVerificationComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -7966,13 +8270,19 @@ var CompanyEmailVerificationComponent = /** @class */ (function () {
         this.sub = this.route.params.subscribe(function (params) {
             _this.companyService.verifyCompany(params.id).subscribe(function (data) {
                 if (data.success) {
-                    _this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                    // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                    var snackBarRef = _this.snackBar.open('Successfully verified...', '', {
+                        duration: 2000
+                    });
                     setTimeout(function () {
                         _this.routes.navigate(['/clogin']);
                     }, 4000);
                 }
                 else {
-                    _this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+                    // this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+                    var snackBarRef = _this.snackBar.open('Error...', '', {
+                        duration: 2000
+                    });
                     setTimeout(function () {
                         _this.routes.navigate(['/clogin']);
                     }, 4000);
@@ -7987,7 +8297,7 @@ var CompanyEmailVerificationComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute, material_1.MatSnackBar])
     ], CompanyEmailVerificationComponent);
     return CompanyEmailVerificationComponent;
 }());
@@ -8182,9 +8492,10 @@ var company_service_1 = __webpack_require__("../../../../../src/app/services/com
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyListSurveyComponent = /** @class */ (function () {
-    function CompanyListSurveyComponent(companyService, routes) {
+    function CompanyListSurveyComponent(companyService, routes, snackBar) {
         this.companyService = companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'name', 'start_datetime', 'end_datetime', 'status', 'action'];
         this.dateNow = new Date();
         this.editId = '';
@@ -8263,12 +8574,18 @@ var CompanyListSurveyComponent = /** @class */ (function () {
             console.log(data);
             if (data.success) {
                 _this.loadSurvey();
-                $('#myModal .modal-body h4').text(data.msg);
-                $('#myModal').modal('show');
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
+                // $('#myModal .modal-body h4').text(data.msg)
+                // $('#myModal').modal('show');
             }
             else {
-                $('#myModal .modal-body h4').text(data.msg);
-                $('#myModal').modal('show');
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
+                // $('#myModal .modal-body h4').text(data.msg)
+                // $('#myModal').modal('show'); 
             }
         });
     };
@@ -8289,7 +8606,7 @@ var CompanyListSurveyComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-list-survey/company-list-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-list-survey/company-list-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, material_1.MatSnackBar])
     ], CompanyListSurveyComponent);
     return CompanyListSurveyComponent;
 }());
@@ -8484,9 +8801,10 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyManageThemesComponent = /** @class */ (function () {
-    function CompanyManageThemesComponent(_companyService, routes) {
+    function CompanyManageThemesComponent(_companyService, routes, snackBar) {
         this._companyService = _companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'status'];
         this.displatStat = false;
         this.showErr = false;
@@ -8593,15 +8911,24 @@ var CompanyManageThemesComponent = /** @class */ (function () {
         this._companyService.deleteTheme(id).subscribe(function (res) {
             console.log(res);
             if (res.status == 2) {
+                var snackBarRef = _this.snackBar.open('Deleted Successfully', '', {
+                    duration: 2000
+                });
                 _this.getThemes();
             }
             else if (res.status == 0) {
-                $('#myModal .modal-body h4').text('Theme is currently used for a survey!');
-                $('#myModal').modal('show');
+                var snackBarRef = _this.snackBar.open('Cant delete, This theme is currently used for in a survey!', '', {
+                    duration: 2000
+                });
+                // $('#myModal .modal-body h4').text('Theme is currently used for a survey!')
+                // $('#myModal').modal('show')    
             }
             else {
-                $('#myModal .modal-body h4').text('Error in deleting theme!');
-                $('#myModal').modal('show');
+                var snackBarRef = _this.snackBar.open('* Error in deleting theme!', '', {
+                    duration: 2000
+                });
+                // $('#myModal .modal-body h4').text('Error in deleting theme!')
+                // $('#myModal').modal('show')    
             }
         });
     };
@@ -8620,7 +8947,8 @@ var CompanyManageThemesComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.css")]
         }),
         __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], CompanyManageThemesComponent);
     return CompanyManageThemesComponent;
 }());
@@ -8650,7 +8978,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                                  \r\n<div class=\"col-md-6 col-md-offset-3\">\r\n    <flash-messages></flash-messages>\r\n  \r\n  <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n        <div class=\"example-header\" >\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n        </div>\r\n        \r\n  <div class=\"example-container mat-elevation-z8 \">\r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n           <ng-container matColumnDef=\"id\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n              <ng-container matColumnDef=\"name\">\r\n                 <mat-header-cell *matHeaderCellDef mat-sort-header> GROUP NAME</mat-header-cell>\r\n                   <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n               </ng-container>\r\n                <ng-container matColumnDef=\"action\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                      <mat-menu #menu=\"matMenu\">\r\n                          <button  mat-menu-item (click)=\"getEditId(row.id,row.name)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                <span>Edit</span>\r\n                                </button>\r\n                            <button mat-menu-item  (click)=\"getId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                <span>Delete</span>\r\n                            </button>\r\n                      </mat-menu> </mat-cell>\r\n            \r\n                   </ng-container>\r\n     \r\n  \r\n\r\n                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                 <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                 </mat-row>\r\n                </mat-table>\r\n                <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                    <div class=\"col-md-4 col-md-offset-4\">\r\n                        <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                    </div>\r\n                </div>\r\n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n    <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n      \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <!-- <div class=\"modal-header\"> -->\r\n              <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n            <!-- </div> -->\r\n            <div class=\"modal-body\">\r\n                <h4>Are you sure to delete?</h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n              <button type=\"button\" (click)=\"deleteUserGroup(id)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n            </div>\r\n          </div>\r\n      \r\n        </div>\r\n      </div>\r\n\r\n\r\n<!-- -------------------------------------------------------------add user group modal--------------------------------------------------------------------- -->\r\n\r\n<div id=\"myModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n        <h4 class=\"modal-title\">Add New Group</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n    <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addGroup(newGroup);\" novalidate>\r\n    \r\n        <div class=\"form-group\" >\r\n            <label> Group name </label>\r\n            <br>\r\n            <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                {{errorMsg}}\r\n           </div>\r\n          \r\n           <div class=\"col-md-7\">\r\n            <div>\r\n              <div class=\"inputitem\">\r\n              <mat-form-field class=\"inputfileds\">\r\n                <input matInput placeholder=\"Group name\" name =\"group\" [(ngModel)]=\"newGroup.group\"  required >\r\n                <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n              </mat-form-field>\r\n              </div>\r\n            </div>\r\n            <div style=\"clear: both;\"></div>\r\n           \r\n            <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n          \r\n                  <mat-select placeholder=\"Users\" name='selected'  #users=\"ngModel\"  [(ngModel)]=\"newGroup.email\" multiple>\r\n                    <mat-option [value]=\"users\" *ngFor=\"let users of userData;\"  >{{users.email}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n          </div>\r\n            <br>\r\n            <div style=\"clear: both;\"></div>\r\n            <div *ngIf=\"showAddGroup\">\r\n            <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n              \r\n        </div>\r\n        <br>\r\n        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n       \r\n    </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->\r\n<div id=\"myModal2\"  class=\"modal fade\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n          <h4 class=\"modal-title\">Add New Group</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          \r\n      <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && updateUserGroup(newGroup,id);\" novalidate>\r\n      \r\n          <div class=\"form-group\" >\r\n              <label> Group name </label>\r\n              <br>\r\n              <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                  {{errorMsg}}\r\n             </div>\r\n            \r\n             <div class=\"col-md-7\">\r\n              <div>\r\n                <div class=\"inputitem\">\r\n                   \r\n                <mat-form-field class=\"inputfileds\">\r\n                  <input matInput placeholder=\"Group name\" name =\"group\" [(ngModel)]=\"newGroup.group\"  required >\r\n                  <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                </mat-form-field>\r\n                </div>\r\n              </div>\r\n              <div style=\"clear: both;\"></div>\r\n             \r\n              <div class=\"inputitem\">\r\n                  <mat-form-field class=\"inputfileds\">\r\n            \r\n                    <!-- <mat-select placeholder=\"Users\" name='edituser'  [(ngModel)]=\"newGroup.email\" multiple> -->\r\n                    <mat-select placeholder=\"Users\" name='edituser'  [(ngModel)]=\"newGroup.email\" multiple>\r\n                      <mat-option [value]=\"users.email\" *ngFor=\"let users of userData;\"   >{{users.email}}</mat-option>\r\n                    </mat-select>\r\n                  </mat-form-field>\r\n\r\n              </div>\r\n            </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                  <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                </mat-form-field>\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                </div>\r\n                \r\n          </div>\r\n          <br>\r\n          <button type= \"submit\"  class=\"btn btn-danger ourbutton\" >Submit</button>\r\n         \r\n      </form>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n        </div>\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n\r\n    </div>\r\n </div>\r\n  </body>"
+module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                                  \r\n<div class=\"col-md-6 col-md-offset-3\">\r\n    <flash-messages></flash-messages>\r\n  \r\n  <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n        <div class=\"example-header\" >\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n        </div>\r\n        \r\n  <div class=\"example-container mat-elevation-z8 \">\r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n           <ng-container matColumnDef=\"id\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n              <ng-container matColumnDef=\"name\">\r\n                 <mat-header-cell *matHeaderCellDef mat-sort-header> GROUP NAME</mat-header-cell>\r\n                   <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n               </ng-container>\r\n                <ng-container matColumnDef=\"action\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                      <mat-menu #menu=\"matMenu\">\r\n                          <button  mat-menu-item (click)=\"getEditId(row.id,row.name)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                <span>Edit</span>\r\n                                </button>\r\n                            <button mat-menu-item  (click)=\"getId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                <span>Delete</span>\r\n                            </button>\r\n                      </mat-menu> </mat-cell>\r\n            \r\n                   </ng-container>\r\n     \r\n  \r\n\r\n                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                 <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                 </mat-row>\r\n                </mat-table>\r\n                <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                    <div class=\"col-md-4 col-md-offset-4\">\r\n                        <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                    </div>\r\n                </div>\r\n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n    <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n      \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <!-- <div class=\"modal-header\"> -->\r\n              <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n            <!-- </div> -->\r\n            <div class=\"modal-body\">\r\n                <h4>Are you sure to delete?</h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n              <button type=\"button\" (click)=\"deleteUserGroup(id)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n            </div>\r\n          </div>\r\n      \r\n        </div>\r\n      </div>\r\n\r\n\r\n<!-- -------------------------------------------------------------add user group modal--------------------------------------------------------------------- -->\r\n\r\n<div id=\"myModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n        <h4 class=\"modal-title\">Add New Group</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n    <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addGroup(newGroup);\" novalidate>\r\n    \r\n        <div class=\"form-group\" >\r\n            <label> Group name </label>\r\n            <br>\r\n            <!-- <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                {{errorMsg}}\r\n           </div>\r\n           -->\r\n           <div class=\"col-md-7\">\r\n            <div>\r\n              <div class=\"inputitem\">\r\n              <mat-form-field class=\"inputfileds\">\r\n                <input matInput placeholder=\"Group name\" name =\"group\" [(ngModel)]=\"newGroup.group\"  required >\r\n                <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n              </mat-form-field>\r\n              </div>\r\n            </div>\r\n            <div style=\"clear: both;\"></div>\r\n           \r\n            <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n          \r\n                  <mat-select placeholder=\"Users\" name='selected'  #users=\"ngModel\"  [(ngModel)]=\"newGroup.email\" multiple>\r\n                    <mat-option [value]=\"users\" *ngFor=\"let users of userData;\"  >{{users.email}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n          </div>\r\n            <br>\r\n            <div style=\"clear: both;\"></div>\r\n            <div *ngIf=\"showAddGroup\">\r\n            <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n              \r\n        </div>\r\n        <br>\r\n        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n       \r\n    </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->\r\n<div id=\"myModal2\"  class=\"modal fade\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n          <h4 class=\"modal-title\">Add New Group</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          \r\n      <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && updateUserGroup(newGroup,id);\" novalidate>\r\n      \r\n          <div class=\"form-group\" >\r\n              <label> Group name </label>\r\n              <br>\r\n              <!-- <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                  {{errorMsg}}\r\n             </div>\r\n             -->\r\n             <div class=\"col-md-7\">\r\n              <div>\r\n                <div class=\"inputitem\">\r\n                   \r\n                <mat-form-field class=\"inputfileds\">\r\n                  <input matInput placeholder=\"Group name\" name =\"group\" [(ngModel)]=\"newGroup.group\"  required >\r\n                  <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                </mat-form-field>\r\n                </div>\r\n              </div>\r\n              <div style=\"clear: both;\"></div>\r\n             \r\n              <div class=\"inputitem\">\r\n                  <mat-form-field class=\"inputfileds\">\r\n            \r\n                    <!-- <mat-select placeholder=\"Users\" name='edituser'  [(ngModel)]=\"newGroup.email\" multiple> -->\r\n                    <mat-select placeholder=\"Users\" name='edituser'  [(ngModel)]=\"newGroup.email\" multiple>\r\n                      <mat-option [value]=\"users.email\" *ngFor=\"let users of userData;\"   >{{users.email}}</mat-option>\r\n                    </mat-select>\r\n                  </mat-form-field>\r\n\r\n              </div>\r\n            </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                  <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                </mat-form-field>\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                </div>\r\n                \r\n          </div>\r\n          <br>\r\n          <button type= \"submit\"  class=\"btn btn-danger ourbutton\" >Submit</button>\r\n         \r\n      </form>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n        </div>\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n\r\n    </div>\r\n </div>\r\n  </body>"
 
 /***/ }),
 
@@ -8675,10 +9003,11 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyManageUserGroupsComponent = /** @class */ (function () {
-    function CompanyManageUserGroupsComponent(companyService, _flashMessagesService, routes) {
+    function CompanyManageUserGroupsComponent(companyService, _flashMessagesService, routes, snackBar) {
         this.companyService = companyService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.existStatus = false;
         this.displayedColumns = ['id', 'name', 'action'];
         this.newGroup = { group: '', email: [], id: '' };
@@ -8830,12 +9159,15 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
         // console.log(newGroup);
         this.companyService.updateUserGroup(this.newGroup).subscribe(function (updateData) {
             if (!updateData.success) {
-                _this.isError = true;
+                // this.isError = true;
                 _this.errorMsg = updateData.msg;
+                var snackBarRef = _this.snackBar.open(_this.errorMsg, '', {
+                    duration: 2000
+                });
                 // this.btnDisbled = false;
                 setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
+                    // this.isError = false;
+                    // this.errorMsg = '';
                 }, 2000);
             }
             else if (updateData.success) {
@@ -8843,7 +9175,10 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
                 _this.loadData();
                 _this.closeBtn1.nativeElement.click();
                 // this.isSuccess = true;
-                _this._flashMessagesService.show('Update User Group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                // this._flashMessagesService.show('Update User Group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open('Update User Group Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newGroup = { group: '', email: [], id: '' };
             }
@@ -8862,11 +9197,17 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
         var _this = this;
         this.companyService.deleteUserGroup(id).subscribe(function (data2) {
             if (data2.success == false) {
-                _this._flashMessagesService.show('Failed! ', { cssClass: 'alert-danger', timeout: 3000 });
+                // this._flashMessagesService.show('Failed! ', { cssClass: 'alert-danger', timeout: 3000 });
+                var snackBarRef = _this.snackBar.open('* Failed! ', '', {
+                    duration: 2000
+                });
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete User group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                // this._flashMessagesService.show('Delete User group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open('Delete User group Successfully ', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -8884,12 +9225,15 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
         //  console.log(newGroup);
         this.companyService.addUserGroupsInCompany(this.newGroup).subscribe(function (addGroup) {
             if (!addGroup.success) {
-                _this.isError = true;
+                // this.isError = true;
                 _this.errorMsg = addGroup.msg;
+                var snackBarRef = _this.snackBar.open(_this.errorMsg, '', {
+                    duration: 2000
+                });
                 _this.btnDisbled = false;
                 setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
+                    // this.isError = false;
+                    // this.errorMsg = '';
                 }, 2000);
             }
             else if (addGroup.success) {
@@ -8897,7 +9241,10 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
                 _this.loadData();
                 _this.closeBtn.nativeElement.click();
                 // this.isSuccess = true;
-                _this._flashMessagesService.show('Add User Groups Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                // this._flashMessagesService.show('Add User Groups Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open('Add User Groups Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newGroup = { group: '', email: [], id: '' };
                 _this.btnDisbled = false;
@@ -8936,7 +9283,7 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, material_1.MatSnackBar])
     ], CompanyManageUserGroupsComponent);
     return CompanyManageUserGroupsComponent;
 }());
@@ -8990,12 +9337,14 @@ var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var CompanyProfileComponent = /** @class */ (function () {
-    function CompanyProfileComponent(_formBuilder, companyService, routes, _flashMessagesService) {
+    function CompanyProfileComponent(_formBuilder, companyService, routes, _flashMessagesService, snackBar) {
         this._formBuilder = _formBuilder;
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
+        this.snackBar = snackBar;
         this.checked = false;
         this.showSubscribe = false;
         this.newReg = {
@@ -9136,14 +9485,20 @@ var CompanyProfileComponent = /** @class */ (function () {
         var _this = this;
         this.companyService.subscribeCompany().subscribe(function (data) {
             if (data.success) {
-                _this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Subscribed successfully', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/profile']);
                     location.reload();
                 }, 4000);
             }
             else {
-                _this._flashMessagesService.show('Some error occured, Please try again', { cssClass: 'alert-danger', timeout: 4000 });
+                // this._flashMessagesService.show('* Some error occured, Please try again!', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('* Some error occured, Please try again!', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/profile']);
                 }, 4000);
@@ -9172,13 +9527,19 @@ var CompanyProfileComponent = /** @class */ (function () {
         });
         this.companyService.updateCompany(this.newReg).subscribe(function (info) {
             if (info.success) {
-                _this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Profile updated Successfully', '', {
+                    duration: 2000
+                });
+                // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
                 setTimeout(function () {
                     _this.routes.navigate(['/profile']);
                 }, 4000);
             }
             else {
-                _this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+                // this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('* Error!', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/profile']);
                 }, 4000);
@@ -9191,7 +9552,7 @@ var CompanyProfileComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService])
+        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
     ], CompanyProfileComponent);
     return CompanyProfileComponent;
 }());
@@ -9245,13 +9606,15 @@ var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var password_validation_1 = __webpack_require__("../../../../../src/app/components/company-registration/password-validation.ts");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var CompanyRegistrationComponent = /** @class */ (function () {
-    function CompanyRegistrationComponent(_formBuilder, companyService, routes, _flashMessagesService) {
+    function CompanyRegistrationComponent(_formBuilder, companyService, routes, _flashMessagesService, snackBar) {
         this._formBuilder = _formBuilder;
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
+        this.snackBar = snackBar;
         this.isLinear = true;
         this.hide = true;
         this.timestamp = new Date().getTime().toString();
@@ -9379,13 +9742,19 @@ var CompanyRegistrationComponent = /** @class */ (function () {
         this.companyService.registration(this.result).subscribe(function (data) {
             console.log(data);
             if (data.success == true) {
-                _this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
+                // this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Account created successfully, Please verify your Email address', '', {
+                    duration: 3000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/clogin']);
                 }, 4000);
             }
             else {
-                _this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
+                // this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('The email address you specified is already in use. Please login to continue', '', {
+                    duration: 3000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/clogin']);
                 }, 4000);
@@ -9398,7 +9767,7 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService])
+        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
     ], CompanyRegistrationComponent);
     return CompanyRegistrationComponent;
 }());
@@ -9830,7 +10199,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-users/company-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                        <div class=\"col-md-2\">\r\n                              <nav class=\"nav-sidebar\">\r\n                                  <ul class=\"nav tabs buttonleft\">\r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New</button>\r\n                                        </li>\r\n                                  \r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#importModal\" >Import from Excel</button>\r\n                                        </li>\r\n                                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                                     \r\n                                  </ul>\r\n                                </nav>\r\n                        </div>\r\n                        <div class=\"col-md-10\">\r\n\r\n                            <div *ngIf=\"viewComp == 'All'\">\r\n                              <!-- <all-users></all-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Active'\">\r\n                                <!-- <active-users></active-users> -->\r\n                              </div>\r\n                            <div *ngIf=\"viewComp == 'Blocked'\">\r\n                              <!-- <disabled-users></disabled-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Delete'\">\r\n                              <!-- <deleted-users></deleted-users> -->\r\n                            </div>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n\r\n              <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                  <div class=\"modal-dialog\">\r\n                \r\n                    <!-- Modal content-->\r\n                    <div class=\"modal-content\">\r\n                      <!-- <div class=\"modal-header\"> -->\r\n                        <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                      <!-- </div> -->\r\n                      <div class=\"modal-body\">\r\n                          <h4>Are you sure to delete?</h4>\r\n                      \r\n                      </div>\r\n                    \r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                        <button type=\"button\" (click)=\"deleteUser(userId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                      </div>\r\n                    </div>\r\n                \r\n                  </div>\r\n                </div>\r\n\r\n                <div id=\"myModal2\"  class=\"modal fade\">\r\n                    <div class=\"modal-dialog\"> \r\n            <!-- Modal content-->\r\n                      <div class=\"modal-content\">\r\n                         <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                              <h4 class=\"modal-title\">User Block Request </h4>\r\n                         </div>\r\n                         <br>\r\n                         <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                          {{errorMsg}}\r\n                       </div>\r\n                       <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                           {{errorMsg}}\r\n                        </div>\r\n                       \r\n                          \r\n                        <div class=\"modal-body\">\r\n                             <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"sendBlockRequest(newBlock)\">\r\n                                  <p>User Name :  {{newBlock.email}}</p>\r\n                                  \r\n                                     \r\n                            <br>\r\n                                   <div class=\"form-group\" >\r\n                                     <textarea class=\"form-control\" rows=\"5\" name = \"reason\" id=\"comment\" placeholder=\"Reason\" [(ngModel)]=\"newBlock.reason\"></textarea>\r\n                                 </div>\r\n                                        <input type=\"submit\" class=\"btn btn-danger\" value=\"Send\"  [disabled]=\"btnDisbled\">\r\n                                 </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                      </div>\r\n                   </div>\r\n                </div>\r\n          </div>\r\n      \r\n                <flash-messages></flash-messages>\r\n           \r\n                  <br>\r\n                      <div class=\"col-md-7\">\r\n                          <div class=\"col-md-4 pull-right\">\r\n                              <mat-form-field class=\"filter\">\r\n                                  <mat-select   (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                    <mat-option value=\"all\">All</mat-option>\r\n                                    <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                  </mat-select>\r\n                          </mat-form-field>\r\n                          </div>\r\n                      <div class=\"example-header\" >\r\n                          <mat-form-field>\r\n                            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                          </mat-form-field>\r\n                      </div>\r\n                      \r\n                      \r\n                      \r\n                      <br>\r\n                      <div class=\"example-container mat-elevation-z8 \">\r\n                          <mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <ng-container matColumnDef=\"id\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                        </ng-container>\r\n                                  <ng-container matColumnDef=\"email\">\r\n                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                                       <mat-cell *matCellDef=\"let row\"> {{row.email}}</mat-cell>\r\n                                   </ng-container>\r\n                                    <ng-container  matColumnDef=\"action\">\r\n                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                          <mat-menu #menu=\"matMenu\">\r\n                                            <div>\r\n                                             \r\n                                              <button *ngIf=\"row.block_req_status==false\"  mat-menu-item (click)=\"getUserEmail(row.id,row.email)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                  <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                  <span>Sent Block Request</span>\r\n                                                  </button>\r\n                                                  <button *ngIf=\"row.block_req_status==true\"  mat-menu-item >\r\n                                                      <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                      <span>Already sent Block request</span>\r\n                                                      </button>\r\n                                                  </div>\r\n                                              <button  mat-menu-item (click)=\"bindEditUser(row.item)\" data-toggle=\"modal\" data-target=\"#editModal\">\r\n                                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                    <span>Edit</span>\r\n                                                    </button>\r\n                                                <button mat-menu-item  (click)=\"getUserId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                    <span>Delete</span>\r\n                                                </button>\r\n                                          </mat-menu> </mat-cell>\r\n                                \r\n                                       </ng-container>\r\n                         \r\n                      \r\n                  \r\n                                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                     </mat-row>\r\n                                   \r\n                                    </mat-table>\r\n                                    <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                                        <div class=\"col-md-4 col-md-offset-4\">\r\n                                            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                        </div>\r\n                                    </div>\r\n                                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                          </div>\r\n                        </div>\r\n                        \r\n              \r\n                      \r\n\r\n<!-- -------------------------------------------------------------------------------------------edit------------------------- -->\r\n                      <div id=\"editModal\"  class=\"modal fade\" >\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                              <h4 class=\"modal-title\">Edit User</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateUsers(f1);\" novalidate>\r\n                               \r\n                              <div class=\"form-group\" >\r\n                                  <label > Email </label>\r\n                                  <br>\r\n                                  <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                      {{msg1}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                    {{msg1}}\r\n                              </div>\r\n                                 \r\n                                  <div  >\r\n                                    <div class=\"inputitem\">\r\n                                    <mat-form-field *ngIf=\"!selUser.is_registered\" class=\"inputfileds\">\r\n                                      <input matInput  [value]=\"selUser.email\" placeholder=\"Email address\" required email  #email=\"ngModel\" name=\"email\" [(ngModel)]=\"selUser.newEmail\"  >\r\n                                      <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                    \r\n                                    </mat-form-field>\r\n                                    <div *ngIf=\"selUser.is_registered\">\r\n                                    <label >{{selUser.email}}</label>\r\n                                    </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <br/>\r\n                           \r\n                                  <br/>\r\n                                  <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <mat-select placeholder=\"Groups\" name='editgrup' [(ngModel)]=\"selUserGroups\" multiple>\r\n                                          <mat-option [value]=\"grp._id\" *ngFor=\"let grp of groups;\" >{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                  </div>\r\n                              \r\n                                  <br>\r\n                                  <div style=\"clear: both;\"></div>\r\n                              </div>\r\n                              <br>\r\n                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->\r\n<div id=\"importModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn2>&times;</button>\r\n          <h4 class=\"modal-title\">Import From Excel</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form  role=\"form\"  #f2=\"ngForm\" (ngSubmit)=\"f2.form.valid && import(f2);\" novalidate>\r\n           <div class=\"form-group\" >\r\n             <div class=\"row\">\r\n             <div class=\"col-md-6\">\r\n                <label > File </label>\r\n                <!-- <br> -->\r\n                <input #myInput type=\"file\" (change)=\"handleFile($event)\" accept=\".xlsx\"/>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <br>\r\n              Sample Excel :   <a href=\"/assets/sampleFile/sample.xlsx\" target=\"_self\" download>\r\n                <i class=\"fa fa-download\"></i>\r\n              </a>\r\n            </div>\r\n            </div>\r\n              <br>\r\n              <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                {{msg}}\r\n           </div>\r\n           <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n              {{msg}}\r\n        </div>\r\n              <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                    <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div style=\"float: left;\">\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n              </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n            </div>\r\n         \r\n          <button type= \"submit\" [disabled]=\"updateBtnDisbled1\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n         \r\n      </form>\r\n      </div>\r\n\r\n       \r\n        \r\n        <div class=\"modal-footer\">\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->\r\n                      \r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                          <div class=\"modal-dialog\">\r\n                          \r\n                            <!-- Modal content-->\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtnAdd>&times;</button>\r\n                                <h4 class=\"modal-title\">Add User</h4>\r\n                              </div>\r\n                              <div class=\"modal-body\">\r\n                                \r\n                            <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addUsers(f);\" novalidate>\r\n                            \r\n                                <div class=\"form-group\" >\r\n                                    <label > Email </label>\r\n                                    <br>\r\n                                    <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                        {{msg}}\r\n                                   </div>\r\n                                   <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                      {{msg}}\r\n                                </div>\r\n                                   \r\n                                    <div  *ngFor=\"let item of newUser.email; let i = index; trackBy:trackByIndex\" >\r\n                                      <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <input matInput placeholder=\"Email address\" required email  #email{{i}}=\"ngModel\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\" >\r\n                                        <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                      \r\n                                      </mat-form-field>\r\n                                      \r\n                                      </div>\r\n                                      <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                      </div>\r\n                                    </div>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <br/>\r\n                                    <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                    <br/>\r\n                                    <br/>\r\n                                    <div class=\"inputitem\">\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                          <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                                            <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                                          </mat-select>\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    <div style=\"float: left;\">\r\n                                        <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n                                    </div>\r\n                                    <br>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <div *ngIf=\"showAddGroup\">\r\n                                    <mat-form-field class=\"inputfileds\" >\r\n                                        <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                                      </mat-form-field>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                                      </div>\r\n                                      \r\n                                </div>\r\n                                <br>\r\n                                <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                               \r\n                            </form>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                              </div>\r\n                            </div>\r\n                            \r\n                          </div>\r\n                        </div>\r\n\r\n\r\n                        \r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
+module.exports = "<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                        <div class=\"col-md-2\">\r\n                              <nav class=\"nav-sidebar\">\r\n                                  <ul class=\"nav tabs buttonleft\">\r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New</button>\r\n                                        </li>\r\n                                  \r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#importModal\" >Import from Excel</button>\r\n                                        </li>\r\n                                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                                     \r\n                                  </ul>\r\n                                </nav>\r\n                        </div>\r\n                        <div class=\"col-md-10\">\r\n\r\n                            <div *ngIf=\"viewComp == 'All'\">\r\n                              <!-- <all-users></all-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Active'\">\r\n                                <!-- <active-users></active-users> -->\r\n                              </div>\r\n                            <div *ngIf=\"viewComp == 'Blocked'\">\r\n                              <!-- <disabled-users></disabled-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Delete'\">\r\n                              <!-- <deleted-users></deleted-users> -->\r\n                            </div>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n\r\n              <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                  <div class=\"modal-dialog\">\r\n                \r\n                    <!-- Modal content-->\r\n                    <div class=\"modal-content\">\r\n                      <!-- <div class=\"modal-header\"> -->\r\n                        <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                      <!-- </div> -->\r\n                      <div class=\"modal-body\">\r\n                          <h4>Are you sure to delete?</h4>\r\n                      \r\n                      </div>\r\n                    \r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                        <button type=\"button\" (click)=\"deleteUser(userId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                      </div>\r\n                    </div>\r\n                \r\n                  </div>\r\n                </div>\r\n\r\n                <div id=\"myModal2\"  class=\"modal fade\">\r\n                    <div class=\"modal-dialog\"> \r\n            <!-- Modal content-->\r\n                      <div class=\"modal-content\">\r\n                         <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                              <h4 class=\"modal-title\">User Block Request </h4>\r\n                         </div>\r\n                         <br>\r\n                         <!-- <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                          {{errorMsg}}\r\n                       </div>\r\n                       <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                           {{errorMsg}}\r\n                        </div> -->\r\n                       \r\n                          \r\n                        <div class=\"modal-body\">\r\n                             <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"sendBlockRequest(newBlock)\">\r\n                                  <p>User Name :  {{newBlock.email}}</p>\r\n                                  \r\n                                     \r\n                            <br>\r\n                                   <div class=\"form-group\" >\r\n                                     <textarea class=\"form-control\" rows=\"5\" name = \"reason\" id=\"comment\" placeholder=\"Reason\" [(ngModel)]=\"newBlock.reason\"></textarea>\r\n                                 </div>\r\n                                        <input type=\"submit\" class=\"btn btn-danger\" value=\"Send\"  [disabled]=\"btnDisbled\">\r\n                                 </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                      </div>\r\n                   </div>\r\n                </div>\r\n          </div>\r\n      \r\n                <flash-messages></flash-messages>\r\n           \r\n                  <br>\r\n                      <div class=\"col-md-7\">\r\n                          <div class=\"col-md-4 pull-right\">\r\n                              <mat-form-field class=\"filter\">\r\n                                  <mat-select   (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                    <mat-option value=\"all\">All</mat-option>\r\n                                    <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                  </mat-select>\r\n                          </mat-form-field>\r\n                          </div>\r\n                      <div class=\"example-header\" >\r\n                          <mat-form-field>\r\n                            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                          </mat-form-field>\r\n                      </div>\r\n                      \r\n                      \r\n                      \r\n                      <br>\r\n                      <div class=\"example-container mat-elevation-z8 \">\r\n                          <mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <ng-container matColumnDef=\"id\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                        </ng-container>\r\n                                  <ng-container matColumnDef=\"email\">\r\n                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                                       <mat-cell *matCellDef=\"let row\"> {{row.email}}</mat-cell>\r\n                                   </ng-container>\r\n                                    <ng-container  matColumnDef=\"action\">\r\n                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                          <mat-menu #menu=\"matMenu\">\r\n                                            <div>\r\n                                             \r\n                                              <button *ngIf=\"row.block_req_status==false\"  mat-menu-item (click)=\"getUserEmail(row.id,row.email)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                  <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                  <span>Sent Block Request</span>\r\n                                                  </button>\r\n                                                  <button *ngIf=\"row.block_req_status==true\"  mat-menu-item >\r\n                                                      <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                      <span>Already sent Block request</span>\r\n                                                      </button>\r\n                                                  </div>\r\n                                              <button  mat-menu-item (click)=\"bindEditUser(row.item)\" data-toggle=\"modal\" data-target=\"#editModal\">\r\n                                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                    <span>Edit</span>\r\n                                                    </button>\r\n                                                <button mat-menu-item  (click)=\"getUserId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                    <span>Delete</span>\r\n                                                </button>\r\n                                          </mat-menu> </mat-cell>\r\n                                \r\n                                       </ng-container>\r\n                         \r\n                      \r\n                  \r\n                                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                     </mat-row>\r\n                                   \r\n                                    </mat-table>\r\n                                    <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                                        <div class=\"col-md-4 col-md-offset-4\">\r\n                                            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                        </div>\r\n                                    </div>\r\n                                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                          </div>\r\n                        </div>\r\n                        \r\n              \r\n                      \r\n\r\n<!-- -------------------------------------------------------------------------------------------edit------------------------- -->\r\n                      <div id=\"editModal\"  class=\"modal fade\" >\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                              <h4 class=\"modal-title\">Edit User</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateUsers(f1);\" novalidate>\r\n                               \r\n                              <div class=\"form-group\" >\r\n                                  <label > Email </label>\r\n                                  <br>\r\n                                  <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                      {{msg1}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                    {{msg1}}\r\n                              </div> -->\r\n                                 \r\n                                  <div  >\r\n                                    <div class=\"inputitem\">\r\n                                    <mat-form-field *ngIf=\"!selUser.is_registered\" class=\"inputfileds\">\r\n                                      <input matInput  [value]=\"selUser.email\" placeholder=\"Email address\" required email  #email=\"ngModel\" name=\"email\" [(ngModel)]=\"selUser.newEmail\"  >\r\n                                      <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                    \r\n                                    </mat-form-field>\r\n                                    <div *ngIf=\"selUser.is_registered\">\r\n                                    <label >{{selUser.email}}</label>\r\n                                    </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <br/>\r\n                           \r\n                                  <br/>\r\n                                  <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <mat-select placeholder=\"Groups\" name='editgrup' [(ngModel)]=\"selUserGroups\" multiple>\r\n                                          <mat-option [value]=\"grp._id\" *ngFor=\"let grp of groups;\" >{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                  </div>\r\n                              \r\n                                  <br>\r\n                                  <div style=\"clear: both;\"></div>\r\n                              </div>\r\n                              <br>\r\n                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->\r\n<div id=\"importModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn2>&times;</button>\r\n          <h4 class=\"modal-title\">Import From Excel</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form  role=\"form\"  #f2=\"ngForm\" (ngSubmit)=\"f2.form.valid && import(f2);\" novalidate>\r\n           <div class=\"form-group\" >\r\n             <div class=\"row\">\r\n             <div class=\"col-md-6\">\r\n                <label > File </label>\r\n                <!-- <br> -->\r\n                <input #myInput type=\"file\" (change)=\"handleFile($event)\" accept=\".xlsx\"/>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <br>\r\n              Sample Excel :   <a href=\"/assets/sampleFile/sample.xlsx\" target=\"_self\" download>\r\n                <i class=\"fa fa-download\"></i>\r\n              </a>\r\n            </div>\r\n            </div>\r\n              <br>\r\n              <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                {{msg}}\r\n           </div>\r\n           <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n              {{msg}}\r\n        </div> -->\r\n              <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                    <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div style=\"float: left;\">\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n              </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n            </div>\r\n         \r\n          <button type= \"submit\" [disabled]=\"updateBtnDisbled1\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n         \r\n      </form>\r\n      </div>\r\n\r\n       \r\n        \r\n        <div class=\"modal-footer\">\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->\r\n                      \r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                          <div class=\"modal-dialog\">\r\n                          \r\n                            <!-- Modal content-->\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtnAdd>&times;</button>\r\n                                <h4 class=\"modal-title\">Add User</h4>\r\n                              </div>\r\n                              <div class=\"modal-body\">\r\n                                \r\n                            <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addUsers(f);\" novalidate>\r\n                            \r\n                                <div class=\"form-group\" >\r\n                                    <label > Email </label>\r\n                                    <br>\r\n                                    <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                        {{msg}}\r\n                                   </div>\r\n                                   <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                      {{msg}}\r\n                                </div> -->\r\n                                   \r\n                                    <div  *ngFor=\"let item of newUser.email; let i = index; trackBy:trackByIndex\" >\r\n                                      <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <input matInput placeholder=\"Email address\" required email  #email{{i}}=\"ngModel\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\" >\r\n                                        <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                      \r\n                                      </mat-form-field>\r\n                                      \r\n                                      </div>\r\n                                      <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                      </div>\r\n                                    </div>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <br/>\r\n                                    <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                    <br/>\r\n                                    <br/>\r\n                                    <div class=\"inputitem\">\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                          <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                                            <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                                          </mat-select>\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    <div style=\"float: left;\">\r\n                                        <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n                                    </div>\r\n                                    <br>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <div *ngIf=\"showAddGroup\">\r\n                                    <mat-form-field class=\"inputfileds\" >\r\n                                        <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                                      </mat-form-field>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                                      </div>\r\n                                      \r\n                                </div>\r\n                                <br>\r\n                                <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                               \r\n                            </form>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                              </div>\r\n                            </div>\r\n                            \r\n                          </div>\r\n                        </div>\r\n\r\n\r\n                        \r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
 
 /***/ }),
 
@@ -9858,10 +10227,11 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var xlsx_to_json_service_1 = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
 var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
 var CompanyUsersComponent = /** @class */ (function () {
-    function CompanyUsersComponent(companyService, _flashMessagesService, routes) {
+    function CompanyUsersComponent(companyService, _flashMessagesService, routes, snackBar) {
         this.companyService = companyService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.newBlock = {
             id: String,
             email: String,
@@ -10088,12 +10458,18 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.companyService.deleteUser(userId).subscribe(function (deleteData) {
             console.log(deleteData);
             if (deleteData.success == false) {
-                _this._flashMessagesService.show(' Survey invitation is  already sent, cant delete! ', { cssClass: 'alert-danger', timeout: 3000 });
+                // this._flashMessagesService.show(' Survey invitation is  already sent, cant delete! ', { cssClass: 'alert-danger', timeout: 3000 });
+                var snackBarRef = _this.snackBar.open('* Survey invitation is  already sent, cant delete!', '', {
+                    duration: 2000
+                });
                 // console.log("error")
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete User Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                // this._flashMessagesService.show('Delete User Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open(' Delete User Successfully', '', {
+                    duration: 2000
+                });
                 // console.log("success")
             }
         });
@@ -10127,7 +10503,9 @@ var CompanyUsersComponent = /** @class */ (function () {
         }
         else {
             this.isError = true;
-            this.msg = "Atleast one item required";
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
             setTimeout(function () {
                 _this.isError = false;
                 _this.msg = '';
@@ -10180,25 +10558,31 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.companyService.updateUser(this.selUser).subscribe(function (data) {
             if (data.success) {
                 _this.selUser = { email: '', groups: [], newEmail: '', is_registered: false };
-                _this.isSuccess1 = true;
+                // this.isSuccess1 = true;
                 _this.msg1 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg1, '', {
+                    duration: 2000
+                });
                 form.resetForm();
                 //update company = data.company
                 _this.loadData();
                 setTimeout(function () {
                     _this.closeBtn1.nativeElement.click();
-                    _this.isSuccess1 = false;
-                    _this.msg1 = '';
+                    // this.isSuccess1 = false;
+                    // this.msg1 = '';
                     _this.updateBtnDisbled = false;
                 }, 2000);
             }
             else {
-                _this.isError1 = true;
+                // this.isError1 = true;
                 _this.msg1 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg1, '', {
+                    duration: 2000
+                });
                 _this.updateBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError1 = false;
-                    _this.msg1 = '';
+                    // this.isError1 = false;
+                    // this.msg1 = '';
                 }, 3000);
             }
         });
@@ -10219,26 +10603,32 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.companyService.addUsers(this.newUser).subscribe(function (data) {
             if (data.success) {
                 _this.newUser = { email: [''], groups: [] };
-                _this.isSuccess = true;
+                // this.isSuccess = true;
                 _this.msg = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
                 form.resetForm();
                 _this.loadData();
                 //update company = data.company
                 setTimeout(function () {
                     _this.closeBtnAdd.nativeElement.click();
                     _this.closeBtn2.nativeElement.click();
-                    _this.isSuccess = false;
-                    _this.msg = '';
+                    // this.isSuccess = false;
+                    // this.msg = '';
                     _this.btnDisbled = false;
                     _this.updateBtnDisbled1 = false;
                 }, 2000);
             }
             else {
-                _this.isError = true;
+                // this.isError = true;
                 _this.msg = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
                 _this.btnDisbled = false;
                 setTimeout(function () {
-                    _this.isError = false;
+                    // this.isError = false;
                     _this.updateBtnDisbled1 = false;
                     _this.msg = '';
                 }, 3000);
@@ -10262,8 +10652,11 @@ var CompanyUsersComponent = /** @class */ (function () {
                 _this.showAddGroup = false;
                 _this.groups.push(data.data);
                 _this.newGroup = '';
-                _this.isSuccess = true;
+                // this.isSuccess = true;
                 _this.msg = "Group Created Successfully";
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
                 _this.loadGroup();
                 setTimeout(function () {
                     _this.isSuccess = false;
@@ -10271,11 +10664,14 @@ var CompanyUsersComponent = /** @class */ (function () {
                 }, 3000);
             }
             else {
-                _this.isError = true;
-                _this.msg = "Faild, Group Already Exists";
+                // this.isError = true;
+                _this.msg = "* Faild, Group Already Exists!";
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
-                    _this.isError = false;
-                    _this.msg = '';
+                    // this.isError = false;
+                    // this.msg = '';
                 }, 3000);
             }
         });
@@ -10295,13 +10691,16 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.companyService.sendBlockRequest(request).subscribe(function (data4) {
             if (!data4.success) {
                 console.log(data4);
-                _this.isError = true;
+                // this.isError = true;
                 _this.errorMsg = data4.msg;
+                var snackBarRef = _this.snackBar.open(_this.errorMsg, '', {
+                    duration: 2000
+                });
                 _this.btnDisbled = false;
                 _this.newBlock.reason = '';
                 setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
+                    // this.isError = false;
+                    // this.errorMsg = '';
                 }, 2000);
             }
             else if (data4.success) {
@@ -10311,12 +10710,15 @@ var CompanyUsersComponent = /** @class */ (function () {
                 // this.isSuccess = true;
                 _this.errorMsg = data4.msg;
                 setTimeout(function () {
-                    _this.isSuccess = false;
-                    _this.errorMsg = '';
+                    // this.isSuccess = false;
+                    // this.errorMsg = '';
                     _this.btnDisbled = false;
                 }, 2000);
                 _this.newBlock.reason = '';
-                _this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                // this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open('Sent Block request successfully!', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
             }
         });
@@ -10421,7 +10823,7 @@ var CompanyUsersComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-users/company-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-users/company-users.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, material_2.MatSnackBar])
     ], CompanyUsersComponent);
     return CompanyUsersComponent;
 }());
@@ -11158,14 +11560,16 @@ var user_service_1 = __webpack_require__("../../../../../src/app/services/user.s
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var password_validation_1 = __webpack_require__("../../../../../src/app/components/user-registration/password-validation.ts");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var UserRegistrationComponent = /** @class */ (function () {
-    function UserRegistrationComponent(route, _formBuilder, userService, routes, _flashMessagesService, companyService) {
+    function UserRegistrationComponent(route, _formBuilder, userService, routes, _flashMessagesService, companyService, snackBar) {
         this.route = route;
         this._formBuilder = _formBuilder;
         this.userService = userService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
         this.companyService = companyService;
+        this.snackBar = snackBar;
         this.hide = true;
         this.newReg = {
             email: '',
@@ -11245,14 +11649,20 @@ var UserRegistrationComponent = /** @class */ (function () {
         this.userService.registration(this.newReg, this.surveyId).subscribe(function (data) {
             if (data.success == true) {
                 _this.userService.storeUserData(data.token, data.user);
-                _this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
+                //  this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Account created successfully', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/survey', _this.surveyId]);
                 }, 4000);
             }
             else {
                 _this.msg = data.msg;
-                _this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
+                //  this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('* Some error occured!', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/404']);
                 }, 4000);
@@ -11265,7 +11675,7 @@ var UserRegistrationComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute, forms_1.FormBuilder, user_service_1.UserService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, company_service_1.CompanyService])
+        __metadata("design:paramtypes", [router_1.ActivatedRoute, forms_1.FormBuilder, user_service_1.UserService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, company_service_1.CompanyService, material_1.MatSnackBar])
     ], UserRegistrationComponent);
     return UserRegistrationComponent;
 }());
@@ -11616,14 +12026,16 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var UserSurveyMultipleComponent = /** @class */ (function () {
-    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
+    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, routes, config, route, snackBar) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
         this.routes = routes;
         this.config = config;
         this.route = route;
+        this.snackBar = snackBar;
         this.cardNo = 0;
         this.incDisp = false;
         this.disp = false;
@@ -11727,12 +12139,19 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
                     _this.blankAns = true;
                 }
                 else if (res.status == 1 || res.status == 3) {
-                    $('#myModal .modal-body h4').text("Somthing went wrong!");
-                    $('#myModal').modal('show');
+                    var snackBarRef = _this.snackBar.open('* Somthing went wrong!!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text("Somthing went wrong!");
+                    // $('#myModal').modal('show'); 
                 }
                 else if (res.status == 4) {
-                    $('#myModal .modal-body h4').text("Successfully submitted!");
-                    $('#myModal').modal('show');
+                    window.location.reload();
+                    var snackBarRef = _this.snackBar.open('* Successfully submitted', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text("Successfully submitted!");
+                    // $('#myModal').modal('show'); 
                 }
             });
         }
@@ -11807,12 +12226,18 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
     UserSurveyMultipleComponent.prototype.timeOver = function () {
         console.log("h");
         if (this.skip == false) {
-            $('#myModalx .modal-body h4').text("Surevey TimeOut!");
-            $('#myModalx').modal('show');
+            var snackBarRef = this.snackBar.open('* Survey TimeOut', '', {
+                duration: 2000
+            });
+            // $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+            // $('#myModalx').modal('show'); 
         }
         else {
-            $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
-            $('#myModaly').modal('show');
+            var snackBarRef = this.snackBar.open('* Survey TimeOut! Do you want to submit?!', '', {
+                duration: 2000
+            });
+            // $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+            // $('#myModaly').modal('show');
         }
     };
     // -----------------------------------End------------------------------------------
@@ -11843,7 +12268,7 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             user_service_1.UserService,
             company_service_1.CompanyService,
-            router_1.Router, config_1.Config, router_1.ActivatedRoute])
+            router_1.Router, config_1.Config, router_1.ActivatedRoute, material_1.MatSnackBar])
     ], UserSurveyMultipleComponent);
     return UserSurveyMultipleComponent;
 }());

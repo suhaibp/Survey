@@ -2,7 +2,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule, FormControl, FormGroup, Validators }   from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -40,7 +40,7 @@ export class AdminManageIndustryComponent implements OnInit {
    trackByIndex(index: number, value: number) {
    return index;
 }
-constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute) { }
+constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute,public snackBar: MatSnackBar) { }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
 // Function      : get logged user details
@@ -156,10 +156,9 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
          this.newIndustry.splice(index, 1);
       }
       else{
-          this.atleastOneitem = true;
-          setTimeout(()=>{ 
-                this.atleastOneitem = false;
-          }, 2000);
+        let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
+            duration: 2000
+        });
             // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 3000 });
             return false;
       }
@@ -177,13 +176,10 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
  insertIndustry(){
       this._adminService.addIndustry(this.newIndustry).subscribe(data => {
           if(!data.success){
-              this.isError = true;
-              this.errorMsg = data.msg;
               this.btnDisbled = false
-              setTimeout(()=>{ 
-                  this.isError = false;
-                  this.errorMsg = '';
-              }, 2000);
+              let snackBarRef =  this.snackBar.open(data.msg, '', {
+                duration: 2000
+            });
            }
                 
           else if(data.success){
@@ -197,7 +193,9 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                   this.errorMsg = '';
                   this.btnDisbled = false
               }, 2000);
-              this._flashMessagesService.show('Add Industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+              let snackBarRef =  this.snackBar.open('Create  Industry Successfully', '', {
+                duration: 2000
+              });
             // this.closeBtn.nativeElement.click();
               this.newIndustry =  [{name: ''}];
           }
@@ -241,7 +239,9 @@ addNew(){
          }
         else{
             this.loadData();
-            this._flashMessagesService.show('Delete Industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+            let snackBarRef =  this.snackBar.open('Delete Industry successfully', '', {
+                duration: 2000
+            });
         }
    });
 }
@@ -282,29 +282,29 @@ getIndustryId(id){
         this._adminService.updateIndustry(industry).subscribe(data4 => {
             if(data4.success==false && data4.msg == 'required'){
                 this.Updaterequired = true
-                setTimeout(()=>{ 
-                    this.Updaterequired = false;
-                }, 2000);
+                let snackBarRef =  this.snackBar.open('* It is a required Field!', '', {
+                    duration: 2000
+                });
             }
             else{
                 if(data4.success==false && data4.msg == 'alreadyexist'){
-                    this.UpdatealreadyExist = true
-                    setTimeout(()=>{ 
-                        this.UpdatealreadyExist = false;
-                    }, 2000);
+                    let snackBarRef =  this.snackBar.open('* This Industry is already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else{
                     if(data4.success==false && data4.msg == 'nochange'){
-                        this.Updatechange = true
-                        setTimeout(()=>{ 
-                          this.Updatechange = false;
-                          }, 2000);
+                        let snackBarRef =  this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     
                     }
                 else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
-                    this._flashMessagesService.show('Update industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                    let snackBarRef =  this.snackBar.open('Update Industry Successfully', '', {
+                        duration: 2000
+                    });
                 }
             }
         }

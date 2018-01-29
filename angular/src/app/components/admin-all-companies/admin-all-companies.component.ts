@@ -1,5 +1,5 @@
 import { Component ,ViewChild, OnInit } from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { AdminService} from './../../services/admin.service';
 import {Router} from '@angular/router';
 
@@ -27,7 +27,7 @@ export class AdminAllCompaniesComponent implements OnInit {
 // Desc          : All users
   constructor(
     private adminService : AdminService,
-     private routes: Router) { }
+     private routes: Router,public snackBar: MatSnackBar) { }
 
     
            refresh(){
@@ -111,11 +111,17 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
 //delete company
 deleteCompany(id){  
     this.adminService.deleteCompany(id).subscribe(data=>{
-      console.log(data);
+      // console.log(data);
       if(data.success){
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
         this.refresh();
            }
            else{
+            let snackBarRef =  this.snackBar.open(data.msg, '', {
+              duration: 2000
+            });
           }
           
     });
@@ -125,11 +131,17 @@ deleteCompany(id){
 //block company
 blockCompany(id){  
   this.adminService.blockCompany(id).subscribe(data=>{
-    console.log(data);
+    // console.log(data);
     if(data.success){
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
       this.refresh();
     
     }else{
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
      
     }
   });
@@ -138,12 +150,17 @@ blockCompany(id){
 //unblock company
 unblockCompany(id){
   this.adminService.unblockCompany(id).subscribe(data=>{
-    console.log(data);
+    // console.log(data);
     if(data.success){
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
       this.refresh();
    
     }else{
-     
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
     }
   });
 

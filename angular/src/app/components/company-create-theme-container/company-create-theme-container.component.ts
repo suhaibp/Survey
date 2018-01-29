@@ -1,5 +1,5 @@
 import {Component, ViewChild, OnInit} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../services/company.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
@@ -53,7 +53,8 @@ submitBtnDisabled = false;
 themeSaved = false;
   constructor(
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,
+    public snackBar: MatSnackBar) { }
   
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -100,21 +101,33 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
         if(theme.status == 0){
         this.submitBtnDisabled = false;
     
-          $('#myModal .modal-body h4').text("Theme name already exist!");
-          $('#myModal').modal('show'); 
+          // $('#myModal .modal-body h4').text("Theme name already exist!");
+          let snackBarRef =  this.snackBar.open('* Theme name already exist!', '', {
+            duration: 2000
+          });
+          // $('#myModal').modal('show'); 
         }
         else if(theme.status == 1){
-          $('#myModal .modal-body h4').text("Error occured!");
-          $('#myModal').modal('show'); 
+          // $('#myModal .modal-body h4').text("Error occured!");
+          // $('#myModal').modal('show'); 
+          let snackBarRef =  this.snackBar.open('* Error occured!', '', {
+            duration: 2000
+          });
           this.submitBtnDisabled = false;
         
         }
         else{
+          window.location.reload();
           // window.location.reload();
           // this.routes.navigate(['/create-theme']);
           this.themeSaved =true;
-          $('#myModal .modal-body h4').text("Theme saved!");
-          $('#myModal').modal('show'); 
+          let snackBarRef =  this.snackBar.open('Theme Saved Successfully', '', {
+            duration: 2000
+            
+          });
+         
+          // $('#myModal .modal-body h4').text("Theme saved!");
+          // $('#myModal').modal('show'); 
         }
         
       });

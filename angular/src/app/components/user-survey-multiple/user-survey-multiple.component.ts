@@ -6,6 +6,7 @@ import {ReversePipe } from './../../pipe/reverse.pipe'
 declare var $:any;
 import {RatingModule} from "ngx-rating";
 import {Config} from '../../config/config';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-user-survey-multiple',
@@ -34,7 +35,7 @@ export class UserSurveyMultipleComponent implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
-    private routes: Router,private config: Config,private route: ActivatedRoute) {
+    private routes: Router,private config: Config,private route: ActivatedRoute, public snackBar: MatSnackBar) {
       this.serviceUrl = config.siteUrl + '/company/';
      }
 
@@ -142,12 +143,19 @@ submitAns(){
         this.blankAns = true;
       }
       else if(res.status == 1||res.status == 3){
-        $('#myModal .modal-body h4').text("Somthing went wrong!");
-        $('#myModal').modal('show'); 
+        let snackBarRef =  this.snackBar.open('* Somthing went wrong!!', '', {
+          duration: 2000
+        });
+        // $('#myModal .modal-body h4').text("Somthing went wrong!");
+        // $('#myModal').modal('show'); 
       } 
       else if(res.status == 4){
-        $('#myModal .modal-body h4').text("Successfully submitted!");
-        $('#myModal').modal('show'); 
+        window.location.reload();
+        let snackBarRef =  this.snackBar.open('* Successfully submitted', '', {
+          duration: 2000
+        });
+        // $('#myModal .modal-body h4').text("Successfully submitted!");
+        // $('#myModal').modal('show'); 
       } 
       });
   }
@@ -233,13 +241,18 @@ closed(){
 timeOver(){
   console.log("h");
   if(this.skip == false){
-  $('#myModalx .modal-body h4').text("Surevey TimeOut!");
-  $('#myModalx').modal('show'); 
+    let snackBarRef =  this.snackBar.open('* Survey TimeOut'!, '', {
+      duration: 2000
+    });
+  // $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+  // $('#myModalx').modal('show'); 
   }
   else{
-    
-    $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
-    $('#myModaly').modal('show');
+    let snackBarRef =  this.snackBar.open('* Survey TimeOut! Do you want to submit?!', '', {
+      duration: 2000
+    });
+    // $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+    // $('#myModaly').modal('show');
   }
 }
 // -----------------------------------End------------------------------------------

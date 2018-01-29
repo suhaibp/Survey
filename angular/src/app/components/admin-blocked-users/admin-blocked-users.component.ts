@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { AdminService} from './../../services/admin.service';
 import {Router} from '@angular/router';
 
@@ -19,7 +19,8 @@ export class AdminBlockedUsersComponent implements OnInit {
  
   constructor(
     private adminService : AdminService,
-    private routes: Router
+    private routes: Router,
+    public snackBar: MatSnackBar
   ) { }
 // ---------------------------------Start-------------------------------------------
 // Function      : Admin blockuser management
@@ -90,9 +91,15 @@ deleteUser(id){
     this.adminService.deleteUser(id).subscribe(data=>{
       console.log(data);
       if(data.success){
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
         this.refresh();
            }
            else{
+            let snackBarRef =  this.snackBar.open(data.msg, '', {
+              duration: 2000
+            });
           }
           
     });
@@ -104,10 +111,15 @@ unblockUser(id){
   this.adminService.unblockUser(id).subscribe(data=>{
     console.log(data);
     if(data.success){
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
       this.refresh();
    
     }else{
-     
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
     }
   });
 

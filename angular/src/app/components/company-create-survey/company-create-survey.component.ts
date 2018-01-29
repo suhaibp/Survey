@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef ,ViewChild } from '@angular/core';
 import { CompanyService } from '../../services/company.service';
 import { DragulaService } from 'ng2-dragula/ng2-dragula';
-import {MatTableDataSource,MatPaginator, MatSort} from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatSnackBar } from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import { CanActivate,ActivatedRoute, Router } from '@angular/router';
 declare var $:any
@@ -81,7 +81,7 @@ export class CompanyCreateSurveyComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   selection = new SelectionModel<Element>(true, []);
 
-  constructor(private companyService: CompanyService,private dragulaService: DragulaService, private routes: Router) { }
+  constructor(private companyService: CompanyService,private dragulaService: DragulaService, private routes: Router,public snackBar: MatSnackBar) { }
   
   ngOnInit() {
 
@@ -203,8 +203,6 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
    
   }
 
-  
-
   showTitleInput(){
     this.survey.showTitleInput=true;
   }
@@ -250,8 +248,11 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
           if(this.quest.opts.length > 2){
             this.quest.opts.splice(index, 1);
           }else{
-              this.isError = true;
-              this.msg = "Atleast two options required";
+              // this.isError = true;
+              // this.msg = "Atleast two options required";
+              let snackBarRef =  this.snackBar.open('* Atleast two options required!', '', {
+                duration: 2000
+              });
               setTimeout(()=>{ 
     
                   this.isError = false;
@@ -262,23 +263,28 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
           return false;
     
   }
+  
   removeOptionEdit(index){
     
           if(this.editQuest.opts.length > 2){
             this.editQuest.opts.splice(index, 1);
           }else{
-              this.isError1 = true;
+              // this.isError1 = true;
               this.msg1 = "Atleast two options required";
+              let snackBarRef =  this.snackBar.open(this.msg1, '', {
+                duration: 2000
+              });
               setTimeout(()=>{ 
     
-                  this.isError1 = false;
-                  this.msg1 = '';
+                  // this.isError1 = false;
+                  // this.msg1 = '';
                   
               }, 3000);
           }
           return false;
     
   }
+
 
   deleteQuestionConfirm(index){
     this.deleteIndex = index;
@@ -306,18 +312,21 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   addQuestion(form){
    // console.log(this.quest);
    this.btnDisbled = true;
-   this.isSuccess = true;
+  //  this.isSuccess = true;
    if(this.quest.answerType == 'star rating' && !this.quest.showStarLabel){
     this.quest.starOpts = ['1','2','3','4','5']
    }
    this.survey.questions.push(this.quest); 
    this.msg = "Question Added Successfully";
+   let snackBarRef =  this.snackBar.open(this.msg, '', {
+    duration: 2000
+  });
    this.quest = {question:'',opts:['',''], answerType:'', showStarLabel : false, starOpts:['','','','','']};
    this.btnDisbled = false;
    form.resetForm();
    setTimeout(()=>{ 
-     this.isSuccess = false;
-     this.msg = '';
+    //  this.isSuccess = false;
+    //  this.msg = '';
    }, 2000);
     
    
@@ -331,19 +340,22 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 
   updateQuestion(form){
     this.updateBtnDisbled = true;
-    this.isSuccess1 = true;
+    // this.isSuccess1 = true;
     if(this.editQuest.answerType == 'star rating' && !this.editQuest.showStarLabel){
       this.editQuest.starOpts = ['1','2','3','4','5']
      }
     this.survey.questions[this.editIndex] = this.editQuest;
     this.editIndex = 0;
     this.msg1 = "Question Updated Successfully";
+    let snackBarRef =  this.snackBar.open(this.msg1, '', {
+      duration: 2000
+    });
     setTimeout(()=>{ 
       this.closeBtn1.nativeElement.click();
       this. editQuest = {question:'',opts:['',''],answerType:'',showStarLabel : false,starOpts:['','','','','']};
       form.resetForm();
-      this.isSuccess1 = false;
-      this.msg1 = '';
+      // this.isSuccess1 = false;
+      // this.msg1 = '';
       this.updateBtnDisbled = false;
     }, 2000);
   }
@@ -355,23 +367,29 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       console.log(data);
       if(data.success){
         this.selectedSurvey = data.survey;
-        this.isSuccess2 = true;
+        // this.isSuccess2 = true;
         this.msg2 = "Survey Created Successfully";
+        let snackBarRef =  this.snackBar.open(this.msg2, '', {
+          duration: 2000
+        });
         this.invitePopUp.nativeElement.click();
         setTimeout(()=>{ 
-          this.isSuccess2 = false;
-          this.msg2 = '';
+          // this.isSuccess2 = false;
+          // this.msg2 = '';
         }, 2000);
 
       }else{
         this.saveBtnDisbled = false;
-        this.isError2 = true;
+        // this.isError2 = true;
         this.msg2 = data.msg;
+        let snackBarRef =  this.snackBar.open(this.msg2, '', {
+          duration: 3000
+        });
         setTimeout(()=>{ 
           //this.closeBtn1.nativeElement.click();
         //  form.resetForm();
-          this.isError2 = false;
-          this.msg2 = '';
+          // this.isError2 = false;
+          // this.msg2 = '';
          // this.saveBtnDisbled = ;
         }, 2000);
       }
@@ -385,22 +403,27 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
         if(data.success){
           this.updateUserList();
           this.newUser =  '';
-          this.isSuccess3 = true;
+          // this.isSuccess3 = true;
           this.msg3 = data.msg;
-        
+          let snackBarRef =  this.snackBar.open(this.msg3, '', {
+            duration: 2000
+          });
           //update company = data.company
           setTimeout(()=>{ 
-            this.isSuccess3 = false;
-            this.msg3 = '';
+            // this.isSuccess3 = false;
+            // this.msg3 = '';
             this.addUserBtnDisbled = false;
           }, 2000);
         }else{
-          this.isError3 = true;
+          // this.isError3 = true;
           this.msg3 = data.msg;
+          let snackBarRef =  this.snackBar.open(this.msg3, '', {
+            duration: 3000
+          });
           this.addUserBtnDisbled = false;
           setTimeout(()=>{ 
-            this.isError3 = false;
-            this.msg3 = '';
+            // this.isError3 = false;
+            // this.msg3 = '';
           }, 3000);
         }
        
@@ -413,20 +436,26 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     let data = {users:this.selection.selected,survey:this.selectedSurvey}
     this.companyService.inviteUsers(data).subscribe(data=>{
       if(data.success){
-        this.isSuccess3 = true;
+        // this.isSuccess3 = true;
         this.msg3 = data.msg;
+        let snackBarRef =  this.snackBar.open(this.msg3, '', {
+          duration: 2000
+        });
         setTimeout(()=>{ 
-          this.isSuccess3 = false;
-          this.msg3 = '';
+          // this.isSuccess3 = false;
+          // this.msg3 = '';
           window.location.href = "/company-list-survey";
         }, 2000);
       }else{
-        this.isError3 = true;
+        // this.isError3 = true;
         this.msg3 = data.msg;
+        let snackBarRef =  this.snackBar.open(this.msg3, '', {
+          duration: 3000
+        });
         this.inviteBtnDisbled = false;
         setTimeout(()=>{ 
-          this.isError3 = false;
-          this.msg3 = '';
+          // this.isError3 = false;
+          // this.msg3 = '';
         }, 3000);
       }
     });

@@ -1,5 +1,5 @@
 import {Component, ViewChild, OnInit} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../services/company.service';
 import {Router,ActivatedRoute, Params} from '@angular/router';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
@@ -24,7 +24,8 @@ export class CompanyEditThemeComponent implements OnInit {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -137,28 +138,44 @@ getTheme(){
       this._companyService.updateTheme(this.themeId, this.Theme).subscribe(res =>{
         console.log(res.status);
        if(res.status == 0){
-        $('#myModal .modal-body h4').text('Error in updating!');
-        $('#myModal').modal('show');  
+        let snackBarRef =  this.snackBar.open('* Error in updation!', '', {
+          duration: 2000
+       });
+        // $('#myModal .modal-body h4').text('Error in updating!');
+        // $('#myModal').modal('show');  
        }
         else if(res.status == 1){
-          $('#myModal .modal-body h4').text('Title is empty!');
-          $('#myModal').modal('show');  
+          let snackBarRef =  this.snackBar.open('* Title is empty!', '', {
+            duration: 2000
+         });
+          // $('#myModal .modal-body h4').text('Title is empty!');
+          // $('#myModal').modal('show');  
         }
         else if(res.status == 2){
-          $('#myModal .modal-body h4').text('Successfully updated!');
-          $('#myModal .modal-title').text('Message');
-          $('#myModal').modal('show');
+          this.routes.navigate(['./create-theme']);
+          let snackBarRef =  this.snackBar.open('Successfully updated!', '', {
+            duration: 2000
+         });
+          // $('#myModal .modal-body h4').text('Successfully updated!');
+          // $('#myModal .modal-title').text('Message');
+          // $('#myModal').modal('show');
         }
         else if(res.status == 4){
           this.stat4 = true;
-          $('#myModal .modal-body h4').text('Theme name already exist!');
-          $('#myModal .modal-title').text('Message');
-          $('#myModal').modal('show');
-          $('#upbtn').prop('disabled', false);
+          let snackBarRef =  this.snackBar.open('Theme name already exist', '', {
+            duration: 2000
+         });
+          // $('#myModal .modal-body h4').text('Theme name already exist!');
+          // $('#myModal .modal-title').text('Message');
+          // $('#myModal').modal('show');
+          // $('#upbtn').prop('disabled', false);
         }
         else{
-          $('#myModal .modal-body h4').text('Error in updating!');
-          $('#myModal').modal('show');  
+          let snackBarRef =  this.snackBar.open('Error in updation', '', {
+            duration: 2000
+         });
+          // $('#myModal .modal-body h4').text('Error in updating!');
+          // $('#myModal').modal('show');  
         }
       });
     }

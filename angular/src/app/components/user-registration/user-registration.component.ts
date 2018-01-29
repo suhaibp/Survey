@@ -5,6 +5,7 @@ import { UserService} from './../../services/user.service';
 import { CanActivate, Router, ActivatedRoute } from '@angular/router';
 import { PasswordValidation } from './password-validation';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'user-registration',
@@ -25,7 +26,7 @@ export class UserRegistrationComponent implements OnInit {
     password : '',
   }
   Reg = { confirmPassword : ''}
-  constructor(private route: ActivatedRoute, private _formBuilder: FormBuilder, private userService : UserService, private routes: Router, private _flashMessagesService: FlashMessagesService, private companyService : CompanyService) { }
+  constructor(private route: ActivatedRoute, private _formBuilder: FormBuilder, private userService : UserService, private routes: Router, private _flashMessagesService: FlashMessagesService, private companyService : CompanyService,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -98,13 +99,19 @@ this.userService.getLoggedUSerDetails().subscribe(info =>{
     this.userService.registration(this.newReg, this.surveyId).subscribe(data => {
       if(data.success==true){
         this.userService.storeUserData(data.token, data.user);  
-       this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
+      //  this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
+      let snackBarRef =  this.snackBar.open('Account created successfully', '', {
+        duration: 2000
+      });
        setTimeout(() => {
          this.routes.navigate(['/survey', this.surveyId]);
        }, 4000);
      } else {
       this.msg = data.msg;
-       this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
+      //  this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
+      let snackBarRef =  this.snackBar.open('* Some error occured!', '', {
+        duration: 2000
+      });
        setTimeout(() => {  
          this.routes.navigate(['/404']);
        }, 4000);

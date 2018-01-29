@@ -4,6 +4,7 @@ import { AdminService } from '../../services/admin.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'admin-manage-survey-attender-type',
@@ -42,7 +43,7 @@ export class AdminManageSurveyAttenderTypeComponent implements OnInit {
 }
 
 
-  constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute) { }
+  constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -159,11 +160,9 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   if(this.newAttender.length > 1){
         this.newAttender.splice(index, 1);
         }else{
-            this.atleastOneitem = true;
-            setTimeout(()=>{ 
-                this.atleastOneitem = false;
-            }, 2000);
-            return false;
+          let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
+            duration: 2000
+          });
         }
     }
 //  ---------------------------------end-----------------------------------------------
@@ -179,13 +178,10 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
  insertAttenderType(){
    this._adminService.addAttenderType(this.newAttender).subscribe(data => {
         if(!data.success){
-            this.isError = true;
-            this.errorMsg = data.msg;
             this.btnDisbled = false
-            setTimeout(()=>{ 
-                this.isError = false;
-                this.errorMsg = '';
-            }, 2000);
+            let snackBarRef =  this.snackBar.open(data.msg, '', {
+              duration: 2000
+          });
         }
              
         else if(data.success){
@@ -199,7 +195,9 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                 this.errorMsg = '';
                 this.btnDisbled = false
           }, 2000);
-            this._flashMessagesService.show('Add Survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+          let snackBarRef =  this.snackBar.open('Create  Category Successfully', '', {
+            duration: 2000
+          });
           // this.closeBtn.nativeElement.click();
             this.newAttender =  [{name: ''}];
       }
@@ -245,7 +243,9 @@ addNew(){
         }
         else{
             this.loadData();
-            this._flashMessagesService.show('Delete survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+            let snackBarRef =  this.snackBar.open('Delete Survey attender type Successfully', '', {
+              duration: 2000
+            });
         }
    });
 }
@@ -285,31 +285,29 @@ getAttenderTypeId(id){
  updateattenderType(attender){ 
     this._adminService.updateAttenderType(attender).subscribe(data4 => {
         if(data4.success==false && data4.msg == 'required'){
-              this.Updaterequired = true
-              setTimeout(()=>{ 
-                    this.Updaterequired = false;
-              }, 2000);
+          let snackBarRef =  this.snackBar.open('* It is a required field!', '', {
+            duration: 2000
+          });
         }
         else{
         if(data4.success==false && data4.msg == 'alreadyexist'){
-                this.UpdatealreadyExist = true
-                setTimeout(()=>{ 
-                      this.UpdatealreadyExist = false;
-                }, 2000);
-              
+          let snackBarRef =  this.snackBar.open('* This type is already exist!', '', {
+            duration: 2000
+          });
           }
           else{
             if(data4.success==false && data4.msg == 'nochange'){
-                this.Updatechange = true
-                setTimeout(()=>{ 
-                  this.Updatechange = false;
-                  }, 2000);
+              let snackBarRef =  this.snackBar.open('* No changes to update!', '', {
+                duration: 2000
+              });
             
             }
           else{
                 this.loadData();
                 this.closeBtn1.nativeElement.click();
-                this._flashMessagesService.show('Update survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                let snackBarRef =  this.snackBar.open('Update Survey attender type Successfully', '', {
+                  duration: 2000
+                });
         }
       }
     }

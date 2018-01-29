@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgF
 import { CompanyService} from './../../services/company.service';
 import { CanActivate, Router } from '@angular/router';
 import { PasswordValidation } from './password-validation';
-import { MatStepper } from '@angular/material';
+import { MatStepper, MatSnackBar } from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
@@ -49,7 +49,7 @@ export class CompanyRegistrationComponent implements OnInit {
   thirdForm : any ;
   result : any;
 
-  constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService) { }
+  constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -159,12 +159,18 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
    this.companyService.registration(this.result).subscribe(data => {
      console.log(data);
      if(data.success==true){
-      this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
+      // this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
+      let snackBarRef =  this.snackBar.open('Account created successfully, Please verify your Email address', '', {
+        duration: 3000
+      });
       setTimeout(() => {  
         this.routes.navigate(['/clogin']);
       }, 4000);
     } else {
-      this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
+      // this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
+      let snackBarRef =  this.snackBar.open('The email address you specified is already in use. Please login to continue', '', {
+        duration: 3000
+      });
       setTimeout(() => {  
         this.routes.navigate(['/clogin']);
       }, 4000);

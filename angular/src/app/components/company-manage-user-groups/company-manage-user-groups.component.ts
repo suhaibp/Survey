@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CompanyService } from '../../services/company.service';
 import { FormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -37,7 +37,7 @@ export class CompanyManageUserGroupsComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router) { }
+  constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     // ---------------------------------Start-------------------------------------------
@@ -190,12 +190,15 @@ export class CompanyManageUserGroupsComponent implements OnInit {
     this.companyService.updateUserGroup(this.newGroup).subscribe(updateData => {
 
       if (!updateData.success) {
-        this.isError = true;
+        // this.isError = true;
         this.errorMsg = updateData.msg;
+         let snackBarRef =  this.snackBar.open(this.errorMsg, '', {
+          duration: 2000
+        });
         // this.btnDisbled = false;
         setTimeout(() => {
-          this.isError = false;
-          this.errorMsg = '';
+          // this.isError = false;
+          // this.errorMsg = '';
         }, 2000);
       }
       else if (updateData.success) {
@@ -204,7 +207,10 @@ export class CompanyManageUserGroupsComponent implements OnInit {
         this.closeBtn1.nativeElement.click();
         // this.isSuccess = true;
 
-        this._flashMessagesService.show('Update User Group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        // this._flashMessagesService.show('Update User Group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        let snackBarRef =  this.snackBar.open('Update User Group Successfully', '', {
+          duration: 2000
+        });
         // this.closeBtn.nativeElement.click();
         this.newGroup = { group: '', email: [], id: '' };
 
@@ -227,12 +233,18 @@ export class CompanyManageUserGroupsComponent implements OnInit {
     this.companyService.deleteUserGroup(id).subscribe(data2 => {
 
       if (data2.success == false) {
-        this._flashMessagesService.show('Failed! ', { cssClass: 'alert-danger', timeout: 3000 });
+        // this._flashMessagesService.show('Failed! ', { cssClass: 'alert-danger', timeout: 3000 });
+        let snackBarRef =  this.snackBar.open('* Failed! ', '', {
+          duration: 2000
+        });
       }
       else {
        
         this.loadData();
-        this._flashMessagesService.show('Delete User group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        // this._flashMessagesService.show('Delete User group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        let snackBarRef =  this.snackBar.open('Delete User group Successfully ', '', {
+          duration: 2000
+        });
       }
 
     });
@@ -252,12 +264,15 @@ export class CompanyManageUserGroupsComponent implements OnInit {
     this.companyService.addUserGroupsInCompany(this.newGroup).subscribe(addGroup => {
 
       if (!addGroup.success) {
-        this.isError = true;
+        // this.isError = true;
         this.errorMsg = addGroup.msg;
+        let snackBarRef =  this.snackBar.open(this.errorMsg, '', {
+          duration: 2000
+        });
         this.btnDisbled = false
         setTimeout(() => {
-          this.isError = false;
-          this.errorMsg = '';
+          // this.isError = false;
+          // this.errorMsg = '';
         }, 2000);
       }
       else if (addGroup.success) {
@@ -266,7 +281,10 @@ export class CompanyManageUserGroupsComponent implements OnInit {
         this.closeBtn.nativeElement.click();
         // this.isSuccess = true;
 
-        this._flashMessagesService.show('Add User Groups Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        // this._flashMessagesService.show('Add User Groups Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        let snackBarRef =  this.snackBar.open('Add User Groups Successfully', '', {
+          duration: 2000
+        });
         // this.closeBtn.nativeElement.click();
         this.newGroup = { group: '', email: [], id: '' };
         this.btnDisbled = false
