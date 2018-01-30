@@ -16,6 +16,8 @@ export class AdminManageIndustryComponent implements OnInit {
   btnDisbled:boolean = false;
   isSuccess : boolean = false
   isError : Boolean = false;
+  showSpinner :boolean = false;
+  showSpinnerDelete :boolean = false;
   errorMsg :'';
   existStatus :Boolean =false;
   Updatechange:Boolean =false;
@@ -106,8 +108,10 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   // Desc          : to get all survey Industry
 
   loadData(){
+    this.showSpinner = true;
       const users: any[] = [];
       this._adminService.getIndustry().subscribe(data1=>{
+        this.showSpinner = false;
         if(data1 == '')
         {
             this.existStatus = false;
@@ -139,6 +143,8 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
  // Desc          : Add more Industry
  addMoreIndustry(){
      this.newIndustry.push({name: ''});
+    
+    
  }
 //  ---------------------------------end-----------------------------------------------
 
@@ -174,6 +180,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
  // Last Modified : 29-12-2017, Jooshifa 
  // Desc          : close a industry
  insertIndustry(){
+    this.showSpinner = true;
       this._adminService.addIndustry(this.newIndustry).subscribe(data => {
           if(!data.success){
               this.btnDisbled = false
@@ -189,10 +196,11 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                           // this.isSuccess = true;
               this.errorMsg = data.msg;
               setTimeout(()=>{ 
-                  this.isSuccess = false;
-                  this.errorMsg = '';
+                //   this.isSuccess = false;
+                //   this.errorMsg = '';
                   this.btnDisbled = false
               }, 2000);
+              this.showSpinner = false;
               let snackBarRef =  this.snackBar.open('Create  Industry Successfully', '', {
                 duration: 2000
               });
@@ -221,6 +229,7 @@ applyFilter(filterValue: string) {
 //  ---------------------------------end-----------------------------------------------
 addNew(){
     this.newIndustry =  [{name: ''}];
+    this.showSpinner = false;
 }
 
 //  ---------------------------------Start-------------------------------------------
@@ -233,12 +242,18 @@ addNew(){
  // Desc          : delete survey Industry
 
  deleteIndustry(id){ 
+    this.showSpinnerDelete = true
     this._adminService.deleteIndustry(id).subscribe(data2=>{
         if(data2.success==false){
-            this._flashMessagesService.show('Failed! This Industry is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+            this.showSpinnerDelete = false
+            let snackBarRef =  this.snackBar.open('Failed! This Industry is currently used by a company', '', {
+                duration: 2000
+            });
+            // this._flashMessagesService.show('Failed! This Industry is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
          }
         else{
             this.loadData();
+            this.showSpinnerDelete = false
             let snackBarRef =  this.snackBar.open('Delete Industry successfully', '', {
                 duration: 2000
             });
@@ -259,6 +274,7 @@ addNew(){
 
 
 getIndustryId(id){
+    this.showSpinner = false;
     this.industryId = id;
     this.sub = this.route.params.subscribe(params => {
         this._adminService.getSingleindustry(this.industryId).subscribe(data3 => {
@@ -278,22 +294,26 @@ getIndustryId(id){
  // Desc          : Update industry
 
 
- updateIndustry(industry){ 
+ updateIndustry(industry){
+    this.showSpinner =true
         this._adminService.updateIndustry(industry).subscribe(data4 => {
             if(data4.success==false && data4.msg == 'required'){
                 this.Updaterequired = true
+                this.showSpinner =false
                 let snackBarRef =  this.snackBar.open('* It is a required Field!', '', {
                     duration: 2000
                 });
             }
             else{
                 if(data4.success==false && data4.msg == 'alreadyexist'){
+                    this.showSpinner =false
                     let snackBarRef =  this.snackBar.open('* This Industry is already exist!', '', {
                         duration: 2000
                     });
                 }
                 else{
                     if(data4.success==false && data4.msg == 'nochange'){
+                        this.showSpinner =false
                         let snackBarRef =  this.snackBar.open('* No changes to update!', '', {
                             duration: 2000
                         });
@@ -302,6 +322,7 @@ getIndustryId(id){
                 else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
+                    this.showSpinner =false
                     let snackBarRef =  this.snackBar.open('Update Industry Successfully', '', {
                         duration: 2000
                     });

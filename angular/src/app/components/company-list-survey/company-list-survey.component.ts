@@ -17,6 +17,7 @@ export class CompanyListSurveyComponent implements OnInit {
   dateNow = new Date();
   editId = '';
   existStatus: boolean = false;
+  showSpinnerDelete :boolean = false;
   constructor(private companyService: CompanyService, private routes: Router,  public snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -67,7 +68,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
   loadSurvey(){
+    this.showSpinnerDelete = true
     this.companyService.getAllSurvey().subscribe(data=>{
+      this.showSpinnerDelete = false
       if(data.length <= 0 ){
         // console.log("theme is empty");
         this.existStatus = true;
@@ -89,9 +92,11 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.dataSource.filter = filterValue;
   }
   deleteSurvey(){
+    this.showSpinnerDelete = true
     this.companyService.deleteSurvey(this.editId).subscribe(data=>{
       console.log(data);
       if(data.success){
+        this.showSpinnerDelete = false
         this.loadSurvey();
         let snackBarRef =  this.snackBar.open(data.msg, '', {
           duration: 2000
@@ -99,6 +104,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
         // $('#myModal .modal-body h4').text(data.msg)
         // $('#myModal').modal('show');
       }else{
+        this.showSpinnerDelete = false
         let snackBarRef =  this.snackBar.open(data.msg, '', {
           duration: 2000
         });
@@ -108,6 +114,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     });
   }
   setEditId(id){
+    this.showSpinnerDelete = false
     this.editId = id;
   }
 // ---------------------------------End-------------------------------------------

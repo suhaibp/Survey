@@ -24,6 +24,8 @@ export class CompanyManageUserGroupsComponent implements OnInit {
   btnDisbled: boolean = false;
   catgId: any;
   atleastOneitem: boolean = false;
+  showSpinner :boolean = false;
+  showSpinnerDelete :boolean = false;
   isSuccess: boolean = false
   isError: Boolean = false;
   errorMsg: '';
@@ -105,9 +107,13 @@ export class CompanyManageUserGroupsComponent implements OnInit {
   // Desc          : to get all user groups
 
   loadData() {
+  
+    this.showSpinnerDelete  = true;
     const users: any[] = [];
     this.companyService.getAllUserGroup().subscribe(data1 => {
+      this.showSpinnerDelete  = false;
     if(data1.group.length <=0){
+      // this.showSpinnerDelete  = false;
       this.existStatus =true;
     }
     else{
@@ -141,6 +147,8 @@ export class CompanyManageUserGroupsComponent implements OnInit {
   // Desc          :fget id of a group
 
   getId(id) {
+    this.showSpinnerDelete  = false;
+    this.showSpinner  = false;
     this.id = id
     
   }
@@ -156,6 +164,8 @@ export class CompanyManageUserGroupsComponent implements OnInit {
   // Desc          :get name and id of group and get single user group
 
   getEditId(id, name) {
+    this.showSpinnerDelete  = false;
+    this.showSpinner  = false;
     //  console.log(id);
     this.id = id
     this.newGroup.group = name;
@@ -184,6 +194,7 @@ export class CompanyManageUserGroupsComponent implements OnInit {
   // Last Modified : 08-01-2018, Jooshifa 
   // Desc          :fget id of a group
   updateUserGroup(newGroup, id) {
+    this.showSpinner  = true;
     this.newGroup.id = id;
     // console.log(id)
     // console.log(newGroup);
@@ -192,6 +203,7 @@ export class CompanyManageUserGroupsComponent implements OnInit {
       if (!updateData.success) {
         // this.isError = true;
         this.errorMsg = updateData.msg;
+        this.showSpinner  = false;
          let snackBarRef =  this.snackBar.open(this.errorMsg, '', {
           duration: 2000
         });
@@ -206,7 +218,7 @@ export class CompanyManageUserGroupsComponent implements OnInit {
         this.loadData();
         this.closeBtn1.nativeElement.click();
         // this.isSuccess = true;
-
+        this.showSpinner  = false;
         // this._flashMessagesService.show('Update User Group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
         let snackBarRef =  this.snackBar.open('Update User Group Successfully', '', {
           duration: 2000
@@ -230,9 +242,11 @@ export class CompanyManageUserGroupsComponent implements OnInit {
   // Last Modified : 08-01-2018, Jooshifa 
   // Desc          :gelete a usergroup
   deleteUserGroup(id) {
+    this.showSpinnerDelete  = true;
     this.companyService.deleteUserGroup(id).subscribe(data2 => {
 
       if (data2.success == false) {
+        this.showSpinnerDelete  = false;
         // this._flashMessagesService.show('Failed! ', { cssClass: 'alert-danger', timeout: 3000 });
         let snackBarRef =  this.snackBar.open('* Failed! ', '', {
           duration: 2000
@@ -241,6 +255,7 @@ export class CompanyManageUserGroupsComponent implements OnInit {
       else {
        
         this.loadData();
+        this.showSpinnerDelete  = false;
         // this._flashMessagesService.show('Delete User group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
         let snackBarRef =  this.snackBar.open('Delete User group Successfully ', '', {
           duration: 2000
@@ -260,12 +275,14 @@ export class CompanyManageUserGroupsComponent implements OnInit {
   // Last Modified : 08-01-2018, Jooshifa 
   // Desc          :add a user group
   addGroup(newGroup) {
+    this.showSpinner  = true;
     //  console.log(newGroup);
     this.companyService.addUserGroupsInCompany(this.newGroup).subscribe(addGroup => {
 
       if (!addGroup.success) {
         // this.isError = true;
         this.errorMsg = addGroup.msg;
+        this.showSpinner  = false;
         let snackBarRef =  this.snackBar.open(this.errorMsg, '', {
           duration: 2000
         });
@@ -280,7 +297,7 @@ export class CompanyManageUserGroupsComponent implements OnInit {
         this.loadData();
         this.closeBtn.nativeElement.click();
         // this.isSuccess = true;
-
+        this.showSpinner  = false;
         // this._flashMessagesService.show('Add User Groups Successfully!', { cssClass: 'alert-success', timeout: 1000 });
         let snackBarRef =  this.snackBar.open('Add User Groups Successfully', '', {
           duration: 2000

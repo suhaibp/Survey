@@ -26,6 +26,7 @@ export class UserRegistrationComponent implements OnInit {
     password : '',
   }
   Reg = { confirmPassword : ''}
+  showSpinner :boolean = false
   constructor(private route: ActivatedRoute, private _formBuilder: FormBuilder, private userService : UserService, private routes: Router, private _flashMessagesService: FlashMessagesService, private companyService : CompanyService,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -96,18 +97,21 @@ this.userService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
   userRegister(){
+    this.showSpinner = true;
     this.userService.registration(this.newReg, this.surveyId).subscribe(data => {
       if(data.success==true){
+        this.showSpinner = false;
         this.userService.storeUserData(data.token, data.user);  
       //  this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
       let snackBarRef =  this.snackBar.open('Account created successfully', '', {
         duration: 2000
       });
-       setTimeout(() => {
+      //  setTimeout(() => {
          this.routes.navigate(['/survey', this.surveyId]);
-       }, 4000);
+      //  }, 4000);
      } else {
-      this.msg = data.msg;
+      this.showSpinner = false;
+      // this.msg = data.msg;
       //  this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
       let snackBarRef =  this.snackBar.open('* Some error occured!', '', {
         duration: 2000

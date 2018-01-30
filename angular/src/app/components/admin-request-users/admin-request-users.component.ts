@@ -14,6 +14,7 @@ export class AdminRequestUsersComponent implements OnInit {
   displayedColumns = [ 'slno','username','email','requestedcompanies','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  showSpinner :Boolean =false
   private socket: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -37,10 +38,11 @@ export class AdminRequestUsersComponent implements OnInit {
 
   
   refresh(){
-  
+    this.showSpinner =true
    const company = [];
 
        this.adminService.getAllrequsers().subscribe(data=>{
+        this.showSpinner =false
         this.notExist =false;
         if(data.length == 0){
           this.notExist = true;
@@ -102,15 +104,18 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
   }
 // //accept user
 acceptUser(id){  
+  this.showSpinner =true
     this.adminService.acceptUser(id).subscribe(data=>{
       console.log(data);
       if(data.success){
+        this.showSpinner =false
         let snackBarRef =  this.snackBar.open(data.msg, '', {
           duration: 2000
         });
         this.refresh();
            }
            else{
+            this.showSpinner =false
             let snackBarRef =  this.snackBar.open(data.msg, '', {
               duration: 2000
             });
@@ -122,17 +127,20 @@ acceptUser(id){
 
 //reject User
 rejectUser(id){  
+  this.showSpinner =true
   console.log(id);
   this.adminService.rejectUser(id).subscribe(data=>{
     
     console.log(data);
     if(data.success){
+      this.showSpinner =false
       let snackBarRef =  this.snackBar.open(data.msg, '', {
         duration: 2000
       });
       this.refresh();
     
     }else{
+      this.showSpinner =false
       let snackBarRef =  this.snackBar.open(data.msg, '', {
         duration: 2000
       });

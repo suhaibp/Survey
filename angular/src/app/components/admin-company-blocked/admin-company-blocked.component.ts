@@ -12,6 +12,7 @@ export class AdminCompanyBlockedComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   notExist =false;
   selected = 'all';
+  showSpinner :Boolean =false
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(
@@ -31,31 +32,37 @@ export class AdminCompanyBlockedComponent implements OnInit {
  
  
 refresh(){
+  this.showSpinner =true
   console.log(this.selected);
  const company = [];
    if(this.selected == 'all'){
      this.adminService.getAllblockedcompanies().subscribe(data=>{
        this.loadToDataTable(data);
+       this.showSpinner =false
      });
    }
    if(this.selected == 'Subscribed'){
      this.adminService.getAllsubblockcompanies().subscribe(data=>{
        this.loadToDataTable(data);
+       this.showSpinner =false
      });
    }
    if(this.selected == 'Trail'){
      this.adminService.getAlltrialblockcompanies().subscribe(data=>{
        this.loadToDataTable(data);
+       this.showSpinner =false
      });
    }
    if(this.selected == 'Expired'){
      this.adminService.getAllexpiredblockcompanies().subscribe(data=>{
        this.loadToDataTable(data);
+       this.showSpinner =false
      });
    }
    if(this.selected == 'Not Verified'){
     this.adminService.getAllnotverfiblockcompanies().subscribe(data=>{
       this.loadToDataTable(data);
+      this.showSpinner =false
     });
   }
 }
@@ -135,36 +142,41 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
 
 //delete company
 deleteCompany(id){  
+  this.showSpinner =true
     this.adminService.deleteCompany(id).subscribe(data=>{
       console.log(data);
       if(data.success){
+        this.showSpinner =false
         let snackBarRef =  this.snackBar.open(data.msg, '', {
           duration: 2000
         });
         this.refresh();
            }
            else{
-          }
+            this.showSpinner =false
           let snackBarRef =  this.snackBar.open(data.msg, '', {
             duration: 2000
           });
-          
+        }
     });
-
+  
   }
 
 
 //unblock company
 unblockCompany(id){
+  this.showSpinner =true
   this.adminService.unblockCompany(id).subscribe(data=>{
     console.log(data);
     if(data.success){
+      this.showSpinner =false
       let snackBarRef =  this.snackBar.open(data.msg, '', {
         duration: 2000
       });
       this.refresh();
    
     }else{
+      this.showSpinner =false
       let snackBarRef =  this.snackBar.open(data.msg, '', {
         duration: 2000
       });

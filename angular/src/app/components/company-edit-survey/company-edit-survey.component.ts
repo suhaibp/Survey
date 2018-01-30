@@ -14,6 +14,8 @@ import {Config} from '../../config/config';
 export class CompanyEditSurveyComponent implements OnInit {
 
   @ViewChild('closeBtn1') closeBtn1: ElementRef;
+  @ViewChild('closeBtn2') closeBtn2: ElementRef;
+  
   @ViewChild('invitePopUp') invitePopUp : ElementRef;
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -23,7 +25,7 @@ export class CompanyEditSurveyComponent implements OnInit {
   surveyCategory : any;
   themes : any;
   answerType : any;
-
+  showSpinner :boolean = false
   isError = false;
   isSuccess = false;
   msg = '';
@@ -239,8 +241,10 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.dataSource.filter = filterValue;
   }
   updateUserList() {
+    this.showSpinner = true;
    console.log(this.selectedUserGroup);
    if(this.selectedUserGroup == 'all'){
+    this.showSpinner = false;
         this.companyService.getMyUsers().subscribe(data=>{
           this.users = this.updateAlreadyInvitedUsers(data);
           console.log(this.users);
@@ -249,6 +253,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
             this.selection.clear();
       });
    }else{
+    this.showSpinner = false;
       this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(data=>{
         this.users = this.updateAlreadyInvitedUsers(data);
         console.log(this.users);
@@ -261,8 +266,10 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
  updateAlreadyInvitedUsers(data){
+  this.showSpinner = true;
    console.log(data);
    data.forEach((user,i)=>{
+    this.showSpinner = false;
       if(this.invitedEmailds.indexOf(user.email) > -1){
         data[i].invited = true;
       }else{
@@ -378,6 +385,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     return index;
   }
   addQuestion(form){
+    this.showSpinner = true;
    // console.log(this.quest);
    this.btnDisbled = true;
   //  this.isSuccess = true;
@@ -386,6 +394,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
    }
    this.survey.questions.push(this.quest); 
    this.msg = "Question Added Successfully";
+   this.showSpinner = false;
    let snackBarRef =  this.snackBar.open(this.msg, '', {
     duration: 2000
   });
@@ -407,6 +416,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
   updateQuestion(form){
+    this.showSpinner = true;
     this.updateBtnDisbled = true;
     // this.isSuccess1 = true;
     if(this.editQuest.answerType == 'star rating' && !this.editQuest.showStarLabel){
@@ -418,18 +428,21 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     let snackBarRef =  this.snackBar.open(this.msg1, '', {
       duration: 2000
     });
-    setTimeout(()=>{ 
-      this.closeBtn1.nativeElement.click();
-      this. editQuest = {question:'',opts:['',''],answerType:'',showStarLabel : false,starOpts:['','','','','']};
-      form.resetForm();
+    
+    this.closeBtn2.nativeElement.click();
+    this.showSpinner = false;
+    // setTimeout(()=>{ 
+      
+      // this. editQuest = {question:'',opts:['',''],answerType:'',showStarLabel : false,starOpts:['','','','','']};
+      // form.resetForm();
       // this.isSuccess1 = false;
       // this.msg1 = '';
       this.updateBtnDisbled = false;
-    }, 2000);
+    // }, 2000);
   }
 
   saveBtnClick(form){
-
+    this.showSpinner = true;
     console.log(this.survey);
 
     this.saveBtnDisbled = true;
@@ -437,6 +450,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.companyService.updateSurvey(this.survey).subscribe(data=>{
       // console.log(data);
       if(data.success){
+        this.showSpinner = false;
         this.selectedSurvey = data.survey;
         // this.isSuccess2 = true;
         this.msg2 = "Survey Updated Successfully";
@@ -451,6 +465,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
         }, 2000);
 
       }else{
+        this.showSpinner = false;
         this.saveBtnDisbled = false;
         // this.isError2 = true;
         this.msg2 = data.msg;
@@ -469,10 +484,12 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
   addUser(){
+    this.showSpinner = true;
     var newUser =  {email: [this.newUser], groups:[]};
     this.addUserBtnDisbled = true;
     this.companyService.addUsers(newUser).subscribe(data=>{
         if(data.success){
+          this.showSpinner = false;
           this.updateUserList();
           this.newUser =  '';
           // this.isSuccess3 = true;
@@ -487,6 +504,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
             this.addUserBtnDisbled = false;
           }, 2000);
         }else{
+          this.showSpinner = false;
           // this.isError3 = true;
           this.msg3 = data.msg;
           let snackBarRef =  this.snackBar.open(this.msg3, '', {
@@ -503,11 +521,13 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
   
   inviteUser(){
+    this.showSpinner = true;
    // this.inviteBtnDisbled = true;
     console.log(this.selection.selected);
     let data = {users:this.selection.selected,survey:{_id: this.survey.id}}
     this.companyService.inviteUsers(data).subscribe(data=>{
       if(data.success){
+        this.showSpinner = false;
         this.selection.selected.forEach(val=>{
            this.invitedEmailds.push(val.email);
         });
@@ -522,6 +542,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
           // this.msg3 = '';
         }, 2000);
       }else{
+        this.showSpinner = false;
         // this.isError3 = true;
         this.msg3 = data.msg;
         let snackBarRef =  this.snackBar.open(this.msg3, '', {

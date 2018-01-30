@@ -298,3 +298,10 @@ a{outline:none; }
   ::ng-deep .custom-class .mat-simple-snackbar {
     color: green;
   }
+  .deletespinner{
+      background-color: white;
+      padding: 0px 100px 0px 280px;
+  }
+  .updatespinner{
+      margin-top: 50px;
+  }

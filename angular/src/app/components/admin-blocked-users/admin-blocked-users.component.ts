@@ -13,6 +13,7 @@ export class AdminBlockedUsersComponent implements OnInit {
   displayedColumns = [ 'slno','username','email','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  showSpinner :Boolean=false
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -32,8 +33,10 @@ export class AdminBlockedUsersComponent implements OnInit {
 // Desc          : All block users, delete,unblock
 
   refresh(){
+    this.showSpinner =true
     const users = [];
         this.adminService.getAllblockusers().subscribe(data=>{
+          this.showSpinner =false
          // console.log(data);
           if(data.length == 0){
             this.notExist = true;
@@ -88,15 +91,18 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
   }
 //delete user
 deleteUser(id){  
+  this.showSpinner =true
     this.adminService.deleteUser(id).subscribe(data=>{
       console.log(data);
       if(data.success){
+        this.showSpinner =false
         let snackBarRef =  this.snackBar.open(data.msg, '', {
           duration: 2000
         });
         this.refresh();
            }
            else{
+            this.showSpinner =false
             let snackBarRef =  this.snackBar.open(data.msg, '', {
               duration: 2000
             });
@@ -108,15 +114,18 @@ deleteUser(id){
 
 //unblock User
 unblockUser(id){
+  this.showSpinner =true
   this.adminService.unblockUser(id).subscribe(data=>{
-    console.log(data);
+    // console.log(data);
     if(data.success){
+      this.showSpinner =false
       let snackBarRef =  this.snackBar.open(data.msg, '', {
         duration: 2000
       });
       this.refresh();
    
     }else{
+      this.showSpinner =false
       let snackBarRef =  this.snackBar.open(data.msg, '', {
         duration: 2000
       });

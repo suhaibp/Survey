@@ -11,6 +11,7 @@ export class AdminNotVerifiedComponent implements OnInit {
   displayedColumns = [ 'slno','companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  showSpinner :boolean = false;
   selected = 'all';
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -31,26 +32,31 @@ export class AdminNotVerifiedComponent implements OnInit {
 
 
   refresh(){
+    this.showSpinner = true;
     console.log(this.selected);
    const company = [];
      if(this.selected == 'all'){
        this.adminService.getAllnotverficompanies().subscribe(data=>{
          this.loadToDataTable(data);
+         this.showSpinner = false;
        });
      }
      if(this.selected == 'Active'){
        this.adminService.getAllnotverfiactivecompanies().subscribe(data=>{
          this.loadToDataTable(data);
+         this.showSpinner = false;
        });
      }
      if(this.selected == 'Block'){
        this.adminService.getAllnotverfiblockcompanies().subscribe(data=>{
          this.loadToDataTable(data);
+         this.showSpinner = false;
        });
      }
      if(this.selected == 'Delete'){
        this.adminService.getAllnotverfideletecompanies().subscribe(data=>{
          this.loadToDataTable(data);
+         this.showSpinner = false;
        });
      }
   }
@@ -131,15 +137,18 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
 // Desc          : delete,block,unblock
     //delete company
     deleteCompany(id){  
+      this.showSpinner = true;
         this.adminService.deleteCompany(id).subscribe(data=>{
           // console.log(data);
           if(data.success){
+            this.showSpinner = false;
             let snackBarRef =  this.snackBar.open(data.msg, '', {
               duration: 2000
             });
             this.refresh();
                }
                else{
+                this.showSpinner = false;
                 let snackBarRef =  this.snackBar.open(data.msg, '', {
                   duration: 2000
                 });
@@ -151,7 +160,9 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
     
     //block company
     blockCompany(id){  
+      this.showSpinner = true;
       this.adminService.blockCompany(id).subscribe(data=>{
+        this.showSpinner = false;
         let snackBarRef =  this.snackBar.open(data.msg, '', {
           duration: 2000
         });
@@ -160,6 +171,7 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
           this.refresh();
         
         }else{
+          this.showSpinner = false;
           let snackBarRef =  this.snackBar.open(data.msg, '', {
             duration: 2000
           });
@@ -169,15 +181,18 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
     }  
     //unblock company
     unblockCompany(id){
+      this.showSpinner = true;
       this.adminService.unblockCompany(id).subscribe(data=>{
         // console.log(data);
         if(data.success){
+          this.showSpinner = false;
           let snackBarRef =  this.snackBar.open(data.msg, '', {
             duration: 2000
           });
           this.refresh();
        
         }else{
+          this.showSpinner = false;
           let snackBarRef =  this.snackBar.open(data.msg, '', {
             duration: 2000
           });

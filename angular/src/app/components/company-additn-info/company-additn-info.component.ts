@@ -11,7 +11,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./company-additn-info.component.css']
 })
 export class CompanyAdditnInfoComponent implements OnInit {
-  
+  showSpinner :boolean = false
   private sub: any;
   isLinear = true;
   contact_person_email : any;
@@ -168,6 +168,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
   register(){
+    this.showSpinner = true
   this.thirdForm = '';
   this.newReg.survey_attenders = [];
     this.surveyattenders.forEach(element => {
@@ -192,6 +193,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 
    this.companyService.registerAdditnInfo(this.id,this.result).subscribe(info => {
      if(info.success==true){
+      this.showSpinner = false
       // this._flashMessagesService.show('Redirecting..', { cssClass: 'alert-success', timeout: 4000 });
       let snackBarRef =  this.snackBar.open('Redirecting into your account.', '', {
         duration: 2000
@@ -203,16 +205,17 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       // });
       setTimeout(() => {  
         this.routes.navigate(['/dashboard']);
-      }, 4000);
+      }, 2000);
     
     } else {
+      this.showSpinner = false
       // this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
       let snackBarRef =  this.snackBar.open('Error', '', {
         duration: 2000
       });
-      setTimeout(() => {  
+      // setTimeout(() => {  
         this.routes.navigate(['/404']);
-      }, 4000);
+      // }, 4000);
     }
    });
 // -----------------------------------End------------------------------------------

@@ -12,6 +12,7 @@ export class AdminDeletedUsersComponent implements OnInit {
   displayedColumns = ['slno','username','email'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  showSpinner :Boolean =false
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -30,8 +31,10 @@ export class AdminDeletedUsersComponent implements OnInit {
 // Desc          : All delete users
 
 refresh(){
+  this.showSpinner =true
   const users = [];
       this.adminService.getAlldeleteusers().subscribe(data=>{
+        this.showSpinner =false
        // console.log(data);
         if(data.length == 0){
           this.notExist = true;

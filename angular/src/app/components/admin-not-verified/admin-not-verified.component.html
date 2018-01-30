@@ -83,7 +83,9 @@
       <mat-row *matRowDef="let row; columns: displayedColumns;">
       </mat-row>
     </mat-table>
-  
+    <div *ngIf="showSpinner" class="deletespinner">
+        <mat-spinner></mat-spinner>
+       </div>
     <div class="col-md-12 noItemFound" *ngIf="notExist">
         <div class="col-md-4 col-md-offset-4">
             <mat-toolbar   class="back-color">No item found!</mat-toolbar>

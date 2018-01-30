@@ -102,6 +102,9 @@
                                    <div class="form-group" >
                                      <textarea class="form-control" rows="5" name = "reason" id="comment" placeholder="Reason" [(ngModel)]="newBlock.reason"></textarea>
                                  </div>
+                                 <div *ngIf="showSpinner">
+                                    <mat-spinner></mat-spinner>
+                                   </div>
                                         <input type="submit" class="btn btn-danger" value="Send"  [disabled]="btnDisbled">
                                  </form>
                       </div>
@@ -177,6 +180,11 @@
                                      </mat-row>
                                    
                                     </mat-table>
+                                    <div class="col-md-15 ">
+                                        <div *ngIf="showSpinnerDelete" class="deletespinner">
+                                            <mat-spinner></mat-spinner>
+                                           </div>
+                                    </div>
                                     <div class="col-md-12 noItemFound" *ngIf="!existStatus">
                                         <div class="col-md-4 col-md-offset-4">
                                             <mat-toolbar   class="back-color">No item found!</mat-toolbar>
@@ -241,6 +249,9 @@
                                   <div style="clear: both;"></div>
                               </div>
                               <br>
+                              <div *ngIf="showSpinner">
+                                  <mat-spinner></mat-spinner>
+                                 </div>
                               <button type= "submit" [disabled]="updateBtnDisbled" class="btn btn-danger ourbutton" >Update</button>
                              
                           </form>
@@ -302,7 +313,9 @@
               <button  class="btn btn-danger ourbutton" (click)="addGroup()">Add</button>
               </div>
             </div>
-         
+            <div *ngIf="showSpinner">
+                <mat-spinner></mat-spinner>
+               </div>
           <button type= "submit" [disabled]="updateBtnDisbled1" class="btn btn-danger ourbutton" >Update</button>
          
       </form>
@@ -379,6 +392,9 @@
                                       
                                 </div>
                                 <br>
+                                <div *ngIf="showSpinner">
+                                    <mat-spinner></mat-spinner>
+                                   </div>
                                 <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
                                
                             </form>

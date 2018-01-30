@@ -15,6 +15,7 @@ export class CompanyManageThemesComponent implements OnInit {
   themeId: string;
   showErr = false;
   existStatus: boolean = false;
+  showSpinner :boolean = false
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(
@@ -80,8 +81,9 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
 
 
 getThemes(){
+  this.showSpinner =true
   this._companyService.getThemes().subscribe(themes =>{
-   
+    this.showSpinner =false
       // console.log(themes);
     if(themes.length <= 0 ){
       // console.log("theme is empty");
@@ -116,6 +118,7 @@ getThemes(){
 
 
 getThemeId(id){
+  this.showSpinner =false
   this.themeId = id;
   console.log(id)
 
@@ -135,17 +138,20 @@ getThemeId(id){
 
 
   deleteTheme(id){
-  console.log(id)
+    this.showSpinner =true
+  // console.log(id)
   
     this._companyService.deleteTheme(id).subscribe(res =>{
       console.log(res);
       if(res.status == 2){
+        this.showSpinner =false
         let snackBarRef =  this.snackBar.open('Deleted Successfully', '', {
           duration: 2000
        });
         this.getThemes();
       }
       else if(res.status == 0){
+        this.showSpinner =false
         let snackBarRef =  this.snackBar.open('Cant delete, This theme is currently used for in a survey!', '', {
           duration: 2000
        });
@@ -153,6 +159,7 @@ getThemeId(id){
         // $('#myModal').modal('show')    
       }
       else{
+        this.showSpinner =false
         let snackBarRef =  this.snackBar.open('* Error in deleting theme!', '', {
           duration: 2000
        });

@@ -14,6 +14,7 @@ export class AdminCompanyActiveComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   notExist =false;
   selected = 'all';
+  showSpinner :boolean = false;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
  
@@ -32,31 +33,37 @@ export class AdminCompanyActiveComponent implements OnInit {
 // Desc          : All active companieslist, block,delete
 // --------------------------------------------------------------------------------------
           refresh(){
+            this.showSpinner =true
             console.log(this.selected);
            const company = [];
              if(this.selected == 'all'){
                this.adminService.getAllactivecompanies().subscribe(data=>{
                  this.loadToDataTable(data);
+                 this.showSpinner =false
                });
              }
              if(this.selected == 'Subscribed'){
                this.adminService.getAllsubactivecompanies().subscribe(data=>{
                  this.loadToDataTable(data);
+                 this.showSpinner =false
                });
              }
              if(this.selected == 'Trail'){
                this.adminService.getAlltrialactivecompanies().subscribe(data=>{
                  this.loadToDataTable(data);
+                 this.showSpinner =false
                });
              }
              if(this.selected == 'Expired'){
                this.adminService.getAllexpiredactivecompanies().subscribe(data=>{
                  this.loadToDataTable(data);
+                 this.showSpinner =false
                });
              }
              if(this.selected == 'Not Verified'){
               this.adminService.getAllnotverfiactivecompanies().subscribe(data=>{
                 this.loadToDataTable(data);
+                this.showSpinner =false
               });
             }
           }
@@ -117,15 +124,18 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
 
   //delete company
 deleteCompany(id){  
+  this.showSpinner =true
   this.adminService.deleteCompany(id).subscribe(data=>{
     console.log(data);
     if(data.success){
+      this.showSpinner =false
       let snackBarRef =  this.snackBar.open(data.msg, '', {
         duration: 2000
       });
       this.refresh();
          }
          else{
+          this.showSpinner =false
           let snackBarRef =  this.snackBar.open(data.msg, '', {
             duration: 2000
           });
@@ -137,15 +147,18 @@ deleteCompany(id){
 
 //block company
 blockCompany(id){  
+  this.showSpinner =true
 this.adminService.blockCompany(id).subscribe(data=>{
   console.log(data);
   if(data.success){
+    this.showSpinner =false
     let snackBarRef =  this.snackBar.open(data.msg, '', {
       duration: 2000
     });
     this.refresh();
   
   }else{
+    this.showSpinner =false
     let snackBarRef =  this.snackBar.open(data.msg, '', {
       duration: 2000
     });

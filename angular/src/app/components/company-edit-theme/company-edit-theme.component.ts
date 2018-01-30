@@ -19,6 +19,7 @@ export class CompanyEditThemeComponent implements OnInit {
   fonts : any;
   fontSize: any;
   submitBtnDisabled = false;
+  showSpinner :boolean = false
   themeId;
   stat4 =false;
   constructor(
@@ -132,12 +133,14 @@ getTheme(){
 
 
   updateTheme(){
+    this.showSpinner  = true
     // console.log(this.Theme);
     this.submitBtnDisabled = true;
     if(this.Theme.title != ""){
       this._companyService.updateTheme(this.themeId, this.Theme).subscribe(res =>{
         console.log(res.status);
        if(res.status == 0){
+        this.showSpinner  = false
         let snackBarRef =  this.snackBar.open('* Error in updation!', '', {
           duration: 2000
        });
@@ -145,6 +148,7 @@ getTheme(){
         // $('#myModal').modal('show');  
        }
         else if(res.status == 1){
+          this.showSpinner  = false
           let snackBarRef =  this.snackBar.open('* Title is empty!', '', {
             duration: 2000
          });
@@ -152,6 +156,7 @@ getTheme(){
           // $('#myModal').modal('show');  
         }
         else if(res.status == 2){
+          this.showSpinner  = false
           this.routes.navigate(['./create-theme']);
           let snackBarRef =  this.snackBar.open('Successfully updated!', '', {
             duration: 2000
@@ -161,6 +166,7 @@ getTheme(){
           // $('#myModal').modal('show');
         }
         else if(res.status == 4){
+          this.showSpinner  = false
           this.stat4 = true;
           let snackBarRef =  this.snackBar.open('Theme name already exist', '', {
             duration: 2000
@@ -171,6 +177,7 @@ getTheme(){
           // $('#upbtn').prop('disabled', false);
         }
         else{
+          this.showSpinner  = false
           let snackBarRef =  this.snackBar.open('Error in updation', '', {
             duration: 2000
          });

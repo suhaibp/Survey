@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material';
   inputs:['survey']
 })
 export class UserSurveyMultipleComponent implements OnInit {
-
+  showSpinner :boolean = false
   cardNo = 0;
   incDisp = false;
   survey: any;
@@ -126,8 +126,10 @@ getTheme(){
 // Last Modified : 28-12-2017, Manu Prasad, Desc:
 // Desc          : Submit survey answrs
 submitAns(){
+  this.showSpinner = true
   console.log(this.survey);
   if(this.skip == false){
+    this.showSpinner = false
     this.survey.questions.forEach(element => {
       if(element.ans == '' || !element.ans){
         this.blankAns = true;
@@ -136,6 +138,7 @@ submitAns(){
     
   }
   if(!this.blankAns){
+    this.showSpinner = false
     this._userService.submitSurvey(this.survey, this.survey._id).subscribe(res =>{
   console.log(res);
   

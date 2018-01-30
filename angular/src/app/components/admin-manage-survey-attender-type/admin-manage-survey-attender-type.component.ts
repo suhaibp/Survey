@@ -20,6 +20,8 @@ export class AdminManageSurveyAttenderTypeComponent implements OnInit {
   errorMsg :'';
   existStatus : boolean= false
   Updatechange:Boolean =false;
+  showSpinner :boolean = false;
+  showSpinnerDelete :boolean = false;
   Updaterequired :boolean = false;
   UpdatealreadyExist :boolean = false;
   attenderId :any;
@@ -111,17 +113,21 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   // Desc          : to get all survey survey attender type
 
   loadData(){
+    this.showSpinner = true
     const users: any[] = [];
     this._adminService.getAttenderType().subscribe(data1=>{
       if(data1 == '')
       {
+        this.showSpinner = false
         this.existStatus = false;
       }
         else if(data1 != '')
         {
+          this.showSpinner = false
           this.existStatus = true;
         }
           data1.forEach((item, index) => {
+            this.showSpinner = false
               users.push({
               name: item.name,
               id :item._id
@@ -176,15 +182,18 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
  // Last Modified : 29-12-2017, Jooshifa 
  // Desc          : close a survey attender  type
  insertAttenderType(){
+  this.showSpinner = true
    this._adminService.addAttenderType(this.newAttender).subscribe(data => {
         if(!data.success){
-            this.btnDisbled = false
+             this.btnDisbled = false
+            this.showSpinner = false
             let snackBarRef =  this.snackBar.open(data.msg, '', {
               duration: 2000
           });
         }
              
         else if(data.success){
+         
             this.btnDisbled = true
             this.loadData();
             this.closeBtn.nativeElement.click();
@@ -195,6 +204,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                 this.errorMsg = '';
                 this.btnDisbled = false
           }, 2000);
+          this.showSpinner = false
           let snackBarRef =  this.snackBar.open('Create  Category Successfully', '', {
             duration: 2000
           });
@@ -222,7 +232,7 @@ applyFilter(filterValue: string) {
 //  ---------------------------------end-----------------------------------------------
 addNew(){
   this.newAttender =  [{name: ''}];
-
+  this.showSpinner = false
 
  }
 
@@ -236,13 +246,19 @@ addNew(){
  // Desc          : delete survey survey attender type
 
  deleteattenderType(id){ 
+  this.showSpinnerDelete = true
    
         this._adminService.deleteAttenderType(id).subscribe(data2=>{
         if(data2.success==false){
-            this._flashMessagesService.show('Failed! This Servey attender type is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+          this.showSpinnerDelete = false
+            // this._flashMessagesService.show('Failed! This Servey attender type is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+            let snackBarRef =  this.snackBar.open('Failed! This Industry is currently used by a company', '', {
+              duration: 2000
+          });
         }
         else{
             this.loadData();
+            this.showSpinnerDelete = false
             let snackBarRef =  this.snackBar.open('Delete Survey attender type Successfully', '', {
               duration: 2000
             });
@@ -262,6 +278,7 @@ addNew(){
 
 
 getAttenderTypeId(id){
+  this.showSpinner = false
      this.attenderId = id;
      this.sub = this.route.params.subscribe(params => {
          this._adminService.getSingleAttenderType(this.attenderId).subscribe(data3 => {
@@ -282,21 +299,25 @@ getAttenderTypeId(id){
  // Desc          : update serevey attender type
 
 
- updateattenderType(attender){ 
+ updateattenderType(attender){
+  this.showSpinner = true 
     this._adminService.updateAttenderType(attender).subscribe(data4 => {
         if(data4.success==false && data4.msg == 'required'){
+          this.showSpinner = false
           let snackBarRef =  this.snackBar.open('* It is a required field!', '', {
             duration: 2000
           });
         }
         else{
         if(data4.success==false && data4.msg == 'alreadyexist'){
+          this.showSpinner = false
           let snackBarRef =  this.snackBar.open('* This type is already exist!', '', {
             duration: 2000
           });
           }
           else{
             if(data4.success==false && data4.msg == 'nochange'){
+              this.showSpinner = false
               let snackBarRef =  this.snackBar.open('* No changes to update!', '', {
                 duration: 2000
               });

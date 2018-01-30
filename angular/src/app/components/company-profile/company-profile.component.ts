@@ -18,6 +18,7 @@ export class CompanyProfileComponent implements OnInit {
   industryId : any;
   surveyattendersId : any;
   checked = false;
+  showSpinner :boolean = false
   surveyattenderss : any;
   modelArr : any;
   showSubscribe : Boolean = false;
@@ -164,18 +165,21 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 04-1-2018, Rinsha
 // Desc          : Company can subscribe app by clicking the subscribe button
   subscribe(){
+    this.showSpinner =true
     this.companyService.subscribeCompany().subscribe(data => {
       if(data.success){
+        this.showSpinner =false
         // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
         let snackBarRef =  this.snackBar.open('Subscribed successfully', '', {
           duration: 2000
         });
-        setTimeout(() => {  
-          this.routes.navigate(['/profile']);
-          location.reload();
-        }, 4000);
+        // setTimeout(() => {  
+          this.routes.navigate(['/dashboard']);
+          // location.reload();
+        // }, 4000);
       }
       else{
+        this.showSpinner =false
         // this._flashMessagesService.show('* Some error occured, Please try again!', { cssClass: 'alert-danger', timeout: 4000 });
         let snackBarRef =  this.snackBar.open('* Some error occured, Please try again!', '', {
           duration: 2000
@@ -197,6 +201,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 03-1-2018, Rinsha
 // Desc          : Company can update all the details except email and name
   updateProfile(){
+    this.showSpinner =true
     this.newReg.survey_attenders = [];
     this.surveyattenders.forEach(element => {
       if(element.check == true){
@@ -208,6 +213,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     });
     this.companyService.updateCompany(this.newReg).subscribe(info => {
       if(info.success){
+        this.showSpinner =false
         let snackBarRef =  this.snackBar.open('Profile updated Successfully', '', {
           duration: 2000
         });
@@ -217,6 +223,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
         }, 4000);
       }
       else{
+        this.showSpinner =false
         // this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
         let snackBarRef =  this.snackBar.open('* Error!', '', {
           duration: 2000

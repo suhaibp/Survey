@@ -14,9 +14,10 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 
 
 export class CompanyRegistrationComponent implements OnInit {
-
+  showSpinner :boolean = false;
   isLinear = true;
   hide = true;
+  
   timestamp = new Date().getTime().toString();
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -48,7 +49,7 @@ export class CompanyRegistrationComponent implements OnInit {
   secondForm : any;
   thirdForm : any ;
   result : any;
-
+ 
   constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -143,6 +144,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 29-12-2017, Rinsha
 // Desc          : 
   register(){
+  this.showSpinner = true
   this.thirdForm = '';
   this.newReg.survey_attenders = [];
     this.surveyattenders.forEach(element => {
@@ -159,21 +161,23 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
    this.companyService.registration(this.result).subscribe(data => {
      console.log(data);
      if(data.success==true){
+      this.showSpinner = false
       // this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
       let snackBarRef =  this.snackBar.open('Account created successfully, Please verify your Email address', '', {
         duration: 3000
       });
-      setTimeout(() => {  
+      // setTimeout(() => {  
         this.routes.navigate(['/clogin']);
-      }, 4000);
+      // }, 4000);
     } else {
+      this.showSpinner = false
       // this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
       let snackBarRef =  this.snackBar.open('The email address you specified is already in use. Please login to continue', '', {
         duration: 3000
       });
-      setTimeout(() => {  
+      // setTimeout(() => {  
         this.routes.navigate(['/clogin']);
-      }, 4000);
+      // }, 4000);
     }
    });
   }

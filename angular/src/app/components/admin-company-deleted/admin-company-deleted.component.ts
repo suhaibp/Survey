@@ -13,6 +13,7 @@ export class AdminCompanyDeletedComponent implements OnInit {
   displayedColumns = ['slno','companyname','email','contactperson','contactnumber','companystatus'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  showSpinner :Boolean =false
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(
@@ -31,8 +32,11 @@ export class AdminCompanyDeletedComponent implements OnInit {
 // Desc          : All deleted companieslist
 // -----------------------------------
 refresh(){
+  this.showSpinner =true
   const company = [];
       this.adminService.getAlldeletedcompanies().subscribe(data=>{
+        this.showSpinner =false
+        this.showSpinner =false
         if(data.length == 0){
           this.notExist = true;
         }
