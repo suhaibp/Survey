@@ -24,7 +24,7 @@ const PlanSchema = mongoose.Schema({
         default: false,
     },
     no_survey_attenders:{
-        type: String
+        type : String
     },
     is_best_value:{
         type: Boolean,

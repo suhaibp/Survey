@@ -973,6 +973,7 @@ export class CompanyService {
   // Desc          : survey question
 
   getSurveyQuestions(surveyId){
+    // console.log(surveyId);
     let headers = this.setHeaderWithAuthorization();
     return this.http.get(this.serviceUrl + 'getAllQuestions/' + surveyId,  {headers: headers})
       .map(res => res.json());
@@ -996,4 +997,51 @@ export class CompanyService {
 
 // ----------------------------------End-------------------------------------------
 
+// ---------------------------------Start-----------------------------------------------
+  // Function      : Get all plans
+  // Params        : 
+  // Returns       : 
+  // Author        : Rinsha
+  // Date          : 29-01-2018
+  // Last Modified : 29-01-2018, Rinsha
+  // Desc          : 
+  getAllPlans() {
+    let h = this.setHeader();
+    return this.http.get(this.serviceUrl + "getAllPlans", { headers: h })
+      .map(res => res.json());
+  }
+  // ---------------------------------------End--------------------------------------------
+
+  // ---------------------------------Start-------------------------------------------
+    // Function      : get plan details using id
+    // Params        : 
+    // Returns       : plan details
+    // Author        : Rinsha
+    // Date          : 29-1-2018
+    // Last Modified : 29-1-2018, Rinsha
+    // Desc          :
+    getPlanById(planId){
+      // console.log(planId);
+      let headers = this.setHeaderWithAuthorization();
+      return this.http.get(this.serviceUrl + 'getPlanById/' + planId,  {headers: headers})
+        .map(res => res.json());
+    }
+// ---------------------------------End-------------------------------------------
+
+  // ---------------------------------Start-------------------------------------------
+    // Function      : upgrade company
+    // Params        : plan id
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 30-1-2018
+    // Last Modified : 30-1-2018, Rinsha
+    // Desc          :
+    upgradeCompany(planId, no){
+      // console.log(no);
+      // console.log(planId);
+      let headers = this.setHeaderWithAuthorization();
+      return this.http.post(this.serviceUrl + 'upgrade/' + planId,JSON.stringify({ "no": no }), {headers: headers})
+        .map(res => res.json());
+    }
+// ---------------------------------End-------------------------------------------
 }
