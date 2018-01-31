@@ -261,10 +261,10 @@ body {
   /* .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #db514f;
 } */
-svg path,
+/* svg path,
 svg rect{
   fill: #EC0C0C;
-}
+} */
 .preloader2{
     text-align: center;
     background-color: #00000045;
@@ -283,4 +283,6 @@ svg rect{
             padding: 7px 40px;}
     .buttonleft{padding:2em 0;min-height:300px;}
     
-    
+    .svgclass path,.svgclass rect{
+        fill: #EC0C0C;
+    }

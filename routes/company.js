@@ -1579,7 +1579,7 @@ var returnRouter = function (io) {
             } else {
                 req.body.group = myTrim(req.body.group); 
                 UserGroup.findOne({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
-                    if (docs.length && docs._id != req.body.id) {
+                    if (docs&& docs._id != req.body.id) {
                         res.json({ success: false, msg: "* Group Already Exists!" });
                     } else {
                         UserGroup.findOneAndUpdate({ _id: req.body.id },
