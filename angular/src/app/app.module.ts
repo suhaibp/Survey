@@ -127,6 +127,7 @@ import {Component} from "@angular/core";
 import {RatingModule} from "ngx-rating";
 import { CompanyChart2Component } from './components/company-chart2/company-chart2.component';
 
+
 const appRoutes: Routes = [
   { path: '', component: CompanyLoginComponent },
   {path:'', redirectTo:'/clogin', pathMatch:'full'},
@@ -220,7 +221,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [],
+
 })
 export class DemoMaterialModule {}
 @NgModule({
@@ -287,7 +288,8 @@ export class DemoMaterialModule {}
     UserRegistrationComponent,
     NewpieComponent,
     PageNotFoundComponent,
-    CompanyChart2Component
+    CompanyChart2Component,
+
   ],
   imports: [
     BrowserModule,

@@ -166,7 +166,9 @@
                 <h4></h4>
             
             </div>
-          
+            <div *ngIf="showSpinner" class="deletespinner">
+                <mat-spinner></mat-spinner>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" (click)="submitAns()">submit</button>
               <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closed()">Close</button>

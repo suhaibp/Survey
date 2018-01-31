@@ -2,7 +2,7 @@ import { Component, OnInit, Directive, forwardRef, Attribute,OnChanges, SimpleCh
 import {FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm,} from '@angular/forms';
 import { CompanyService} from './../../services/company.service';
 import { CanActivate, Router, ActivatedRoute } from '@angular/router';
-import { MatStepper } from '@angular/material';
+import { MatStepper, MatSnackBar } from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
@@ -11,7 +11,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./company-additn-info.component.css']
 })
 export class CompanyAdditnInfoComponent implements OnInit {
-  
+  showSpinner :boolean = false
   private sub: any;
   isLinear = true;
   contact_person_email : any;
@@ -44,7 +44,7 @@ export class CompanyAdditnInfoComponent implements OnInit {
   thirdForm : any ;
   result : any;
 
-  constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService, private route: ActivatedRoute) { }
+  constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService, private route: ActivatedRoute, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -168,6 +168,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
   register(){
+    this.showSpinner = true
   this.thirdForm = '';
   this.newReg.survey_attenders = [];
     this.surveyattenders.forEach(element => {
@@ -192,7 +193,11 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 
    this.companyService.registerAdditnInfo(this.id,this.result).subscribe(info => {
      if(info.success==true){
-      this._flashMessagesService.show('Redirecting..', { cssClass: 'alert-success', timeout: 4000 });
+      this.showSpinner = false
+      // this._flashMessagesService.show('Redirecting..', { cssClass: 'alert-success', timeout: 4000 });
+      let snackBarRef =  this.snackBar.open('Redirecting into your account.', '', {
+        duration: 2000
+      });
       // this.companyService.generateToken(this.id).subscribe(data2 => {
       //   if(data2.success){
       //     this.companyService.storeUserData(data2.token, data2.company);
@@ -200,13 +205,17 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       // });
       setTimeout(() => {  
         this.routes.navigate(['/dashboard']);
-      }, 4000);
+      }, 2000);
     
     } else {
-      this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
-      setTimeout(() => {  
+      this.showSpinner = false
+      // this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
+      let snackBarRef =  this.snackBar.open('Error', '', {
+        duration: 2000
+      });
+      // setTimeout(() => {  
         this.routes.navigate(['/404']);
-      }, 4000);
+      // }, 4000);
     }
    });
 // -----------------------------------End------------------------------------------

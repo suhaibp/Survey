@@ -268,7 +268,6 @@ var DemoMaterialModule = /** @class */ (function () {
                 material_1.MatToolbarModule,
                 material_1.MatTooltipModule,
             ],
-            declarations: [],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -342,7 +341,7 @@ var AppModule = /** @class */ (function () {
                 user_registration_component_1.UserRegistrationComponent,
                 newpie_component_1.NewpieComponent,
                 page_not_found_component_1.PageNotFoundComponent,
-                company_chart2_component_1.CompanyChart2Component
+                company_chart2_component_1.CompanyChart2Component,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -385,7 +384,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -398,7 +397,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-active-users/admin-active-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n    <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Users Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "\r\n\r\n<div class=\"col-md-9\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n   \r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n  "
 
 /***/ }),
 
@@ -422,11 +421,13 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminActiveUsersComponent = /** @class */ (function () {
-    function AdminActiveUsersComponent(adminService, routes) {
+    function AdminActiveUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email', 'action'];
         this.notExist = false;
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin user management
@@ -438,8 +439,10 @@ var AdminActiveUsersComponent = /** @class */ (function () {
     // Desc          : All active users, delete,block,unblock
     AdminActiveUsersComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         var users = [];
         this.adminService.getAllactiveusers().subscribe(function (data) {
+            _this.showSpinner = false;
             if (data.length == 0) {
                 _this.notExist = true;
             }
@@ -493,36 +496,63 @@ var AdminActiveUsersComponent = /** @class */ (function () {
     //delete user
     AdminActiveUsersComponent.prototype.deleteUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //block User
     AdminActiveUsersComponent.prototype.blockUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.blockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //unblock User
     AdminActiveUsersComponent.prototype.unblockUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.unblockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -541,7 +571,8 @@ var AdminActiveUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-active-users/admin-active-users.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminActiveUsersComponent);
     return AdminActiveUsersComponent;
 }());
@@ -558,7 +589,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  h4{\r\n    text-align: center;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  h4{\r\n    text-align: center;\r\n}\r\n.noItemFound{\r\n  text-align: center;\r\n  background-color: #ffffff;\r\n  border-bottom: 1px solid lightgray;\r\n\r\n}\r\n.back-color{\r\n  color: #757575;\r\n  background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -571,7 +602,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-all-companies/admin-all-companies.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"filter\">\r\n  \r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n    <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Company Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "<mat-form-field class=\"filter\">\r\n  \r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div>\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -603,35 +634,42 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     // Date          : 29-12-2017 
     // Last Modified : 03-01-2018
     // Desc          : All users
-    function AdminAllCompaniesComponent(adminService, routes) {
+    function AdminAllCompaniesComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
+        this.showSpinner = false;
     }
     AdminAllCompaniesComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selected);
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Active') {
             this.adminService.getAllactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Block') {
             this.adminService.getAllblockedcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Delete') {
             this.adminService.getAlldeletedcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
     };
@@ -689,12 +727,21 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     //delete company
     AdminAllCompaniesComponent.prototype.deleteCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -702,11 +749,17 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     AdminAllCompaniesComponent.prototype.blockCompany = function (id) {
         var _this = this;
         this.adminService.blockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -714,11 +767,17 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
     AdminAllCompaniesComponent.prototype.unblockCompany = function (id) {
         var _this = this;
         this.adminService.unblockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -737,7 +796,7 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-all-companies/admin-all-companies.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router, material_1.MatSnackBar])
     ], AdminAllCompaniesComponent);
     return AdminAllCompaniesComponent;
 }());
@@ -754,7 +813,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -767,7 +826,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-all-users/admin-all-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n    <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Users Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "\r\n\r\n<div class=\"col-md-9\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n        \r\n                               \r\n          "
 
 /***/ }),
 
@@ -791,11 +850,13 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminAllUsersComponent = /** @class */ (function () {
-    function AdminAllUsersComponent(adminService, routes) {
+    function AdminAllUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email', 'status', 'action'];
         this.notExist = false;
+        this.showSpinner = false;
         this.position = 'before';
     }
     // ---------------------------------Start-------------------------------------------
@@ -808,8 +869,10 @@ var AdminAllUsersComponent = /** @class */ (function () {
     // Desc          : All users, delete,block,unblock
     AdminAllUsersComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         var users = [];
         this.adminService.getAllusers().subscribe(function (data) {
+            _this.showSpinner = false;
             if (data.length == 0) {
                 _this.notExist = true;
             }
@@ -863,36 +926,63 @@ var AdminAllUsersComponent = /** @class */ (function () {
     //delete user
     AdminAllUsersComponent.prototype.deleteUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteUser(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //block User
     AdminAllUsersComponent.prototype.blockUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.blockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //unblock User
     AdminAllUsersComponent.prototype.unblockUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.unblockUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -911,7 +1001,8 @@ var AdminAllUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-all-users/admin-all-users.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminAllUsersComponent);
     return AdminAllUsersComponent;
 }());
@@ -928,7 +1019,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n  \r\n  }\r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n  }", ""]);
 
 // exports
 
@@ -941,7 +1032,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n    <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Users Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              \r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "\r\n<div class=\"col-md-9\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              \r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -965,11 +1056,13 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminBlockedUsersComponent = /** @class */ (function () {
-    function AdminBlockedUsersComponent(adminService, routes) {
+    function AdminBlockedUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email', 'action'];
         this.notExist = false;
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin blockuser management
@@ -981,8 +1074,10 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
     // Desc          : All block users, delete,unblock
     AdminBlockedUsersComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         var users = [];
         this.adminService.getAllblockusers().subscribe(function (data) {
+            _this.showSpinner = false;
             // console.log(data);
             if (data.length == 0) {
                 _this.notExist = true;
@@ -1037,24 +1132,42 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
     //delete user
     AdminBlockedUsersComponent.prototype.deleteUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //unblock User
     AdminBlockedUsersComponent.prototype.unblockUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.unblockUser(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -1073,7 +1186,8 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminBlockedUsersComponent);
     return AdminBlockedUsersComponent;
 }());
@@ -1457,7 +1571,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 10%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 10%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -1470,7 +1584,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-company-active/admin-company-active.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Subscribed\">Subscribed</mat-option>\r\n      <mat-option value=\"Trail\">Trail</mat-option>\r\n      <mat-option value=\"Expired\">Expired</mat-option>\r\n      <mat-option value=\"Not Verified\">Not Verified</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n    <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Company Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <!-- <button *ngIf=\"row.block_status==true && row.delete_status==false\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span><a  (click)=\"unblockCompany(row._id)\">Unblock</a></span>\r\n              </button> -->\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Subscribed\">Subscribed</mat-option>\r\n      <mat-option value=\"Trail\">Trail</mat-option>\r\n      <mat-option value=\"Expired\">Expired</mat-option>\r\n      <mat-option value=\"Not Verified\">Not Verified</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <!-- <button *ngIf=\"row.block_status==true && row.delete_status==false\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span><a  (click)=\"unblockCompany(row._id)\">Unblock</a></span>\r\n              </button> -->\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n        <mat-spinner></mat-spinner>\r\n       </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n    </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -1494,12 +1608,14 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyActiveComponent = /** @class */ (function () {
-    function AdminCompanyActiveComponent(adminService, routes) {
+    function AdminCompanyActiveComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'action'];
         this.notExist = false;
         this.selected = 'all';
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin company management
@@ -1512,31 +1628,37 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
     // --------------------------------------------------------------------------------------
     AdminCompanyActiveComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selected);
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Subscribed') {
             this.adminService.getAllsubactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Trail') {
             this.adminService.getAlltrialactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Expired') {
             this.adminService.getAllexpiredactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Not Verified') {
             this.adminService.getAllnotverfiactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
     };
@@ -1594,24 +1716,42 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
     //delete company
     AdminCompanyActiveComponent.prototype.deleteCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //block company
     AdminCompanyActiveComponent.prototype.blockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.blockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -1630,7 +1770,8 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-active/admin-company-active.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminCompanyActiveComponent);
     return AdminCompanyActiveComponent;
 }());
@@ -1647,7 +1788,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 10%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 10%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -1660,7 +1801,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Subscribed\">Subscribed</mat-option>\r\n      <mat-option value=\"Trail\">Trail</mat-option>\r\n      <mat-option value=\"Expired\">Expired</mat-option>\r\n      <mat-option value=\"Not Verified\">Not Verified</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n\r\n     <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Company Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <!-- <button *ngIf=\"row.block_status==false && row.delete_status==false\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span><a  (click)=\"blockCompany(row._id)\">Block</a></span>\r\n              </button> -->\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Subscribed\">Subscribed</mat-option>\r\n      <mat-option value=\"Trail\">Trail</mat-option>\r\n      <mat-option value=\"Expired\">Expired</mat-option>\r\n      <mat-option value=\"Not Verified\">Not Verified</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <!-- <button *ngIf=\"row.block_status==false && row.delete_status==false\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span><a  (click)=\"blockCompany(row._id)\">Block</a></span>\r\n              </button> -->\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n        <mat-spinner></mat-spinner>\r\n       </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n    </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -1684,12 +1825,14 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyBlockedComponent = /** @class */ (function () {
-    function AdminCompanyBlockedComponent(adminService, routes) {
+    function AdminCompanyBlockedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'action'];
         this.notExist = false;
         this.selected = 'all';
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin company management
@@ -1702,31 +1845,37 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
     // -----------------------------------
     AdminCompanyBlockedComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selected);
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllblockedcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Subscribed') {
             this.adminService.getAllsubblockcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Trail') {
             this.adminService.getAlltrialblockcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Expired') {
             this.adminService.getAllexpiredblockcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Not Verified') {
             this.adminService.getAllnotverfiblockcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
     };
@@ -1802,24 +1951,42 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
     //delete company
     AdminCompanyBlockedComponent.prototype.deleteCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //unblock company
     AdminCompanyBlockedComponent.prototype.unblockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.unblockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -1838,7 +2005,8 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminCompanyBlockedComponent);
     return AdminCompanyBlockedComponent;
 }());
@@ -1855,7 +2023,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -1868,7 +2036,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n      <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Company Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n   \r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n   \r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n        <mat-spinner></mat-spinner>\r\n       </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n    </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -1892,11 +2060,13 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminCompanyDeletedComponent = /** @class */ (function () {
-    function AdminCompanyDeletedComponent(adminService, routes) {
+    function AdminCompanyDeletedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus'];
         this.notExist = false;
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin company management
@@ -1909,8 +2079,11 @@ var AdminCompanyDeletedComponent = /** @class */ (function () {
     // -----------------------------------
     AdminCompanyDeletedComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         var company = [];
         this.adminService.getAlldeletedcompanies().subscribe(function (data) {
+            _this.showSpinner = false;
+            _this.showSpinner = false;
             if (data.length == 0) {
                 _this.notExist = true;
             }
@@ -1985,7 +2158,8 @@ var AdminCompanyDeletedComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminCompanyDeletedComponent);
     return AdminCompanyDeletedComponent;
 }());
@@ -2206,7 +2380,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n  \r\n  }\r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n  }", ""]);
 
 // exports
 
@@ -2219,7 +2393,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n    <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Users Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n  \r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "\r\n<div class=\"col-md-9\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n  \r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  "
 
 /***/ }),
 
@@ -2243,11 +2417,13 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminDeletedUsersComponent = /** @class */ (function () {
-    function AdminDeletedUsersComponent(adminService, routes) {
+    function AdminDeletedUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email'];
         this.notExist = false;
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin deleteuser 
@@ -2259,8 +2435,10 @@ var AdminDeletedUsersComponent = /** @class */ (function () {
     // Desc          : All delete users
     AdminDeletedUsersComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         var users = [];
         this.adminService.getAlldeleteusers().subscribe(function (data) {
+            _this.showSpinner = false;
             // console.log(data);
             if (data.length == 0) {
                 _this.notExist = true;
@@ -2322,7 +2500,8 @@ var AdminDeletedUsersComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminDeletedUsersComponent);
     return AdminDeletedUsersComponent;
 }());
@@ -2339,7 +2518,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -2352,7 +2531,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-expired/admin-expired.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n      <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Company Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n        <mat-spinner></mat-spinner>\r\n       </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -2376,12 +2555,14 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminExpiredComponent = /** @class */ (function () {
-    function AdminExpiredComponent(adminService, routes) {
+    function AdminExpiredComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin company management
@@ -2394,26 +2575,31 @@ var AdminExpiredComponent = /** @class */ (function () {
     // -----------------------------------
     AdminExpiredComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selected);
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllexpiredcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Active') {
             this.adminService.getAllexpiredactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Block') {
             this.adminService.getAllexpiredblockcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Delete') {
             this.adminService.getAllexpireddeletecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
     };
@@ -2489,36 +2675,63 @@ var AdminExpiredComponent = /** @class */ (function () {
     //delete company
     AdminExpiredComponent.prototype.deleteCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //block company
     AdminExpiredComponent.prototype.blockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.blockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //unblock company
     AdminExpiredComponent.prototype.unblockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.unblockCompany(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -2537,7 +2750,8 @@ var AdminExpiredComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-expired/admin-expired.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminExpiredComponent);
     return AdminExpiredComponent;
 }());
@@ -2639,7 +2853,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-login/admin-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"login-body\">\r\n   <div class=\"login-page\">\r\n    <div class=\"form\">\r\n    <h2>Login</h2>\r\n    \r\n    <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\r\n\r\n      <div class=\"input-group form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n\t\t\t  <span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\r\n        <input type=\"text\" placeholder=\"Username\" class=\"styles1 form-control\" required [(ngModel)]=\"newLogin.username\" name=\"username\" #username=\"ngModel\" />\r\n        <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\r\n      </div>\r\n      \r\n\t    <div class=\"input-group form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n\t\t\t <span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\r\n       <input type=\"password\" placeholder=\"Password\" class=\"styles1 form-control\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\r\n       <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n      </div>\r\n      \r\n     <br/>\r\n      <button type=\"submit\" class=\"btn btn-danger\">Sign In</button>\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"showError\" class=\"help-block\">User Not Found...!</div>\r\n      </div> \r\n\t  <br/>\r\n    </form>\r\n   </div>\r\n  </div>\r\n</body>\r\n\r\n    \r\n    \r\n      \r\n\r\n    \r\n\r\n\r\n"
+module.exports = "<body class=\"login-body\">\r\n   <div class=\"login-page\">\r\n    <div class=\"form\">\r\n    <h2>Login</h2>\r\n    \r\n    <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\r\n      \r\n      <div class=\"input-group form-group\" [ngClass]=\"{ 'has-error': f.submitted && !username.valid }\">\r\n\t\t\t  <span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\r\n        <input type=\"text\" placeholder=\"Username\" class=\"styles1 form-control\" required [(ngModel)]=\"newLogin.username\" name=\"username\" #username=\"ngModel\" />\r\n        <div *ngIf=\"f.submitted && !username.valid\" class=\"help-block\">Username is required</div>\r\n      </div>\r\n \r\n\t    <div class=\"input-group form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n\t\t\t <span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\r\n       <input type=\"password\" placeholder=\"Password\" class=\"styles1 form-control\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\r\n       <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n      </div>\r\n      <div class=\"col-md-15 \">\r\n          <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n              <mat-spinner></mat-spinner>\r\n             </div>\r\n      </div>\r\n     <br/>\r\n      <button type=\"submit\" class=\"btn btn-danger\">Sign In</button>\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"showError\" class=\"help-block\">User Not Found...!</div>\r\n      </div> \r\n\t  <br/>\r\n    </form>\r\n   </div>\r\n  </div>\r\n</body>\r\n\r\n    \r\n    \r\n      \r\n\r\n    \r\n\r\n\r\n"
 
 /***/ }),
 
@@ -2661,15 +2875,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var AdminLoginComponent = /** @class */ (function () {
-    function AdminLoginComponent(adminService, routes) {
+    function AdminLoginComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.newLogin = {
             username: '',
             password: '',
         };
         this.showError = false;
+        this.showSpinner = false;
     }
     AdminLoginComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2719,12 +2936,18 @@ var AdminLoginComponent = /** @class */ (function () {
     // Desc          : Admin login
     AdminLoginComponent.prototype.login = function () {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.adminLogin(this.newLogin).subscribe(function (data) {
             if (data.success == false) {
-                _this.showError = true;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('* User Not Found...!', '', {
+                    duration: 2000
+                });
+                // this.showError = true;
             }
             if (data.success) {
-                _this.showError = false;
+                _this.showSpinner = false;
+                // this.showError = false;
                 _this.adminService.storeUserData(data.token, data.admin);
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -2736,7 +2959,7 @@ var AdminLoginComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router, material_1.MatSnackBar])
     ], AdminLoginComponent);
     return AdminLoginComponent;
 }());
@@ -2753,7 +2976,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n  .heading{\r\n    color :#d9534f;\r\n    text-align: center\r\n}\r\nh4{\r\n    text-align: center;\r\n }", ""]);
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n  .heading{\r\n    color :#d9534f;\r\n    text-align: center\r\n}\r\nh4{\r\n    text-align: center;\r\n }\r\n .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -2766,7 +2989,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=true></admin-side-bar>\r\n        <h3 class=\"heading\">Manage Industry</h3>\r\n        <br>\r\n       <div id=\"\">\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add New Industry </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                      Atleast one item required!\r\n                    </div>\r\n                    <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                      {{errorMsg}}\r\n                   </div>\r\n                   <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                 <div class=\"modal-body\">\r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertIndustry();\">\r\n                            <p>Industry Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newIndustry; let i = index; trackBy:trackByIndex\" >\r\n                                  \r\n                                        <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\" placeholder=\"Name\" name=\"industry_{{i}}\" required  [(ngModel)]=\"newIndustry[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                        </mat-form-field>\r\n                      \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreIndustry(i)\">\r\n                             </div>\r\n                                  <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreIndustry()\">\r\n                                  <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                      \r\n                       </form>\r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Industry </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  <label value =\"industryName\"></label>\r\n                 Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                    No changes to upate!\r\n                   </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateIndustry(industry);\">\r\n                        <p>Industry Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"industry.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n             \r\n                         <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteIndustry(industryId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n    <flash-messages></flash-messages>\r\n    <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n          <div class=\"noitem\" *ngIf=\"!existStatus\"><h4>No item Found!</h4></div>\r\n           <br>\r\n    <div class=\"example-container mat-elevation-z8 \">\r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n            <ng-container matColumnDef=\"id\">\r\n                <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n              </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getIndustryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getIndustryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n    \r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</body>\r\n                          \r\n                                     \r\n                          "
+module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=true></admin-side-bar>\r\n        <!-- <h3 class=\"heading\">Manage Industry</h3> -->\r\n        <br>\r\n       <div id=\"\">\r\n          <div class=\"col-md-2\">\r\n              <nav class=\"nav-sidebar\">\r\n                  <ul class=\"nav tabs buttonleft\">\r\n                        <li >\r\n                            <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                  \r\n                       \r\n                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                     \r\n                  </ul>\r\n                </nav>\r\n        </div>\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add New Industry </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                      Atleast one item required!\r\n                    </div>\r\n                    <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                      {{errorMsg}}\r\n                   </div>\r\n                   <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                 <div class=\"modal-body\">\r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertIndustry();\">\r\n                            <p>Industry Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newIndustry; let i = index; trackBy:trackByIndex\" >\r\n                                  \r\n                                        <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\" placeholder=\"Name\" name=\"industry_{{i}}\" required  [(ngModel)]=\"newIndustry[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                        </mat-form-field>\r\n                      \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreIndustry(i)\">\r\n                             </div>\r\n                             <!-- <div *ngIf=\"showSpinner\">\r\n                              <mat-spinner></mat-spinner>\r\n                             </div> -->\r\n                                 \r\n                                  <div class=\"row\">\r\n                                      <div class=\"col-md-4\">\r\n                                          <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreIndustry()\">\r\n                                          <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                            </div>\r\n                                            <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                   <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                   width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                               <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                 <animateTransform attributeType=\"xml\"\r\n                                                   attributeName=\"transform\"\r\n                                                   type=\"rotate\"\r\n                                                   from=\"0 25 25\"\r\n                                                   to=\"360 25 25\"\r\n                                                   dur=\"0.6s\"\r\n                                                   repeatCount=\"indefinite\"/>\r\n                                                 </path>\r\n                                               </svg>\r\n                                            </div>\r\n                                             \r\n                                          </div>\r\n                      \r\n                       </form>\r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Industry </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  <label value =\"industryName\"></label>\r\n                 Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                    No changes to upate!\r\n                   </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateIndustry(industry);\">\r\n                        <p>Industry Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"industry.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n                              <!-- <div *ngIf=\"showSpinner\" class=\"updatespinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                        \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteIndustry(industryId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"col-md-9\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n            <ng-container matColumnDef=\"id\">\r\n                <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n              </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getIndustryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getIndustryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n                                 <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              "
 
 /***/ }),
 
@@ -2791,16 +3014,19 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminManageIndustryComponent = /** @class */ (function () {
-    function AdminManageIndustryComponent(_adminService, _flashMessagesService, routes, route) {
+    function AdminManageIndustryComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.route = route;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
         this.btnDisbled = false;
         this.isSuccess = false;
         this.isError = false;
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
         this.existStatus = false;
         this.Updatechange = false;
         this.Updaterequired = false;
@@ -2877,8 +3103,13 @@ var AdminManageIndustryComponent = /** @class */ (function () {
     // Desc          : to get all survey Industry
     AdminManageIndustryComponent.prototype.loadData = function () {
         var _this = this;
+        this.showSpinner = true;
         var users = [];
         this._adminService.getIndustry().subscribe(function (data1) {
+            _this.showSpinner = false;
+            if (data1 == '') {
+                _this.existStatus = false;
+            }
             if (data1 != '') {
                 _this.existStatus = true;
             }
@@ -2915,15 +3146,13 @@ var AdminManageIndustryComponent = /** @class */ (function () {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : close industry
     AdminManageIndustryComponent.prototype.closeMoreIndustry = function (index) {
-        var _this = this;
         if (this.newIndustry.length > 1) {
             this.newIndustry.splice(index, 1);
         }
         else {
-            this.atleastOneitem = true;
-            setTimeout(function () {
-                _this.atleastOneitem = false;
-            }, 2000);
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
             // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 3000 });
             return false;
         }
@@ -2939,15 +3168,13 @@ var AdminManageIndustryComponent = /** @class */ (function () {
     // Desc          : close a industry
     AdminManageIndustryComponent.prototype.insertIndustry = function () {
         var _this = this;
+        this.showSpinner = true;
         this._adminService.addIndustry(this.newIndustry).subscribe(function (data) {
             if (!data.success) {
-                _this.isError = true;
-                _this.errorMsg = data.msg;
                 _this.btnDisbled = false;
-                setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
-                }, 2000);
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
             else if (data.success) {
                 _this.btnDisbled = true;
@@ -2956,11 +3183,14 @@ var AdminManageIndustryComponent = /** @class */ (function () {
                 // this.isSuccess = true;
                 _this.errorMsg = data.msg;
                 setTimeout(function () {
-                    _this.isSuccess = false;
-                    _this.errorMsg = '';
+                    //   this.isSuccess = false;
+                    //   this.errorMsg = '';
                     _this.btnDisbled = false;
                 }, 2000);
-                _this._flashMessagesService.show('Add Industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('Create  Industry Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newIndustry = [{ name: '' }];
             }
@@ -2983,6 +3213,7 @@ var AdminManageIndustryComponent = /** @class */ (function () {
     //  ---------------------------------end-----------------------------------------------
     AdminManageIndustryComponent.prototype.addNew = function () {
         this.newIndustry = [{ name: '' }];
+        this.showSpinner = false;
     };
     //  ---------------------------------Start-------------------------------------------
     // Function      : deleteIndustry
@@ -2994,13 +3225,21 @@ var AdminManageIndustryComponent = /** @class */ (function () {
     // Desc          : delete survey Industry
     AdminManageIndustryComponent.prototype.deleteIndustry = function (id) {
         var _this = this;
+        this.showSpinnerDelete = true;
         this._adminService.deleteIndustry(id).subscribe(function (data2) {
             if (data2.success == false) {
-                _this._flashMessagesService.show('Failed! This Industry is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.showSpinnerDelete = false;
+                var snackBarRef = _this.snackBar.open('Failed! This Industry is currently used by a company', '', {
+                    duration: 2000
+                });
+                // this._flashMessagesService.show('Failed! This Industry is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete Industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                _this.showSpinnerDelete = false;
+                var snackBarRef = _this.snackBar.open('Delete Industry successfully', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -3015,6 +3254,7 @@ var AdminManageIndustryComponent = /** @class */ (function () {
     // Desc          : pass id from modal and get it for the purpuse edit
     AdminManageIndustryComponent.prototype.getIndustryId = function (id) {
         var _this = this;
+        this.showSpinner = false;
         this.industryId = id;
         this.sub = this.route.params.subscribe(function (params) {
             _this._adminService.getSingleindustry(_this.industryId).subscribe(function (data3) {
@@ -3033,31 +3273,36 @@ var AdminManageIndustryComponent = /** @class */ (function () {
     // Desc          : Update industry
     AdminManageIndustryComponent.prototype.updateIndustry = function (industry) {
         var _this = this;
+        this.showSpinner = true;
         this._adminService.updateIndustry(industry).subscribe(function (data4) {
             if (data4.success == false && data4.msg == 'required') {
                 _this.Updaterequired = true;
-                setTimeout(function () {
-                    _this.Updaterequired = false;
-                }, 2000);
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('* It is a required Field!', '', {
+                    duration: 2000
+                });
             }
             else {
                 if (data4.success == false && data4.msg == 'alreadyexist') {
-                    _this.UpdatealreadyExist = true;
-                    setTimeout(function () {
-                        _this.UpdatealreadyExist = false;
-                    }, 2000);
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* This Industry is already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else {
                     if (data4.success == false && data4.msg == 'nochange') {
-                        _this.Updatechange = true;
-                        setTimeout(function () {
-                            _this.Updatechange = false;
-                        }, 2000);
+                        _this.showSpinner = false;
+                        var snackBarRef = _this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     }
                     else {
                         _this.loadData();
                         _this.closeBtn1.nativeElement.click();
-                        _this._flashMessagesService.show('Update industry Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                        _this.showSpinner = false;
+                        var snackBarRef = _this.snackBar.open('Update Industry Successfully', '', {
+                            duration: 2000
+                        });
                     }
                 }
             }
@@ -3093,7 +3338,7 @@ var AdminManageIndustryComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_1.MatSnackBar])
     ], AdminManageIndustryComponent);
     return AdminManageIndustryComponent;
 }());
@@ -3110,7 +3355,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n  .heading{\r\n    color :#d9534f;\r\n    text-align: center\r\n}\r\nh4{\r\n    text-align: center;\r\n }", ""]);
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n  .heading{\r\n    color :#d9534f;\r\n    text-align: center\r\n}\r\nh4{\r\n    text-align: center;\r\n }\r\n .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n\r\n\r\nsvg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n.preloader2{\r\ntext-align: center;\r\nbackground-color: #00000045;\r\nborder-bottom: 1px solid lightgray;\r\nheight: 100%;\r\npadding-top: 13%;\r\nposition: absolute;\r\nz-index: 1000;}\r\n.buttonleft>li{\r\n    border:none !important;\r\n    text-align: center;\r\n    padding: 4px;\r\n} \r\n\r\n.ourbutton2{    border-radius: 20px;\r\n        padding: 7px 40px;}\r\n.buttonleft{padding:2em 0;min-height:300px;}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -3123,7 +3368,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r\n       <!-- Navigation -->\r\n          <admin-top-bar></admin-top-bar>            \r\n          <admin-side-bar [open]=true></admin-side-bar>\r\n          <h3 class=\"heading\">Manage Survey Organization type</h3>\r\n          <br> \r\n         <div id=\"\">\r\n            <div id=\"myModal\"  class=\"modal fade\">\r\n                <div class=\"modal-dialog\"> \r\n        <!-- Modal content-->\r\n                  <div class=\"modal-content\">\r\n                     <div class=\"modal-header\">\r\n                          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                          <h4 class=\"modal-title\">Add Organization Type </h4>\r\n                     </div>\r\n                     <br>\r\n                     <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                        Atleast one item required!\r\n                      </div>\r\n                      <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                     <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                         {{errorMsg}}\r\n                      </div>\r\n                   <div class=\"modal-body\">\r\n                         <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertOrganizationType();\">\r\n                              <p>Organization type Name</p>\r\n                               <div class=\"form-group\" *ngFor=\"let item of newOrganization; let i = index; trackBy:trackByIndex\" >\r\n                                   \r\n                                          <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"organization_{{i}}\" required  [(ngModel)]=\"newOrganization[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                          </mat-form-field>\r\n                          \r\n                                    \r\n                                    <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreOrganizationType(i)\">\r\n                               </div>\r\n                                    <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreOrganizationtype()\">\r\n                                    <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                        \r\n                         </form>\r\n                  </div>\r\n                  <div class=\"modal-footer\">\r\n                      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n      </div>\r\n  \r\n   \r\n      <div id=\"myModal2\"  class=\"modal fade\">\r\n          <div class=\"modal-dialog\">\r\n              <div class=\"modal-content\">\r\n                  <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                         <h4 class=\"modal-title\">Edit Survey Organization type </h4>\r\n                  </div>\r\n                  <br>\r\n                  <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                    Name Already Exist!\r\n                  </div>\r\n                  <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                    Name is required!\r\n                  </div>\r\n                  <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                      No changes to upate!\r\n                     </div>\r\n                <div class=\"modal-body\">\r\n                     <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateOrganizationType(organization);\">\r\n                          <p>Organization type Name</p>\r\n                                <div class=\"form-group\"  >\r\n                                  <div class=\"col-md-11\">\r\n                                      <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"name\" required   [(ngModel)]=\"organization.name\" />\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                        </mat-form-field>\r\n                                        \r\n                                  </div>\r\n                                  \r\n                                </div>\r\n               \r\n                           <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n      \r\n                  </form>\r\n              </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteOrganizationType(organizationId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n  \r\n  \r\n  <div class=\"col-md-6 col-md-offset-3\">\r\n      <flash-messages></flash-messages>\r\n      <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"noitem\" *ngIf=\"!existStatus\"><h4>No item Found!</h4></div>\r\n            <br>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n          <mat-table [dataSource]=\"dataSource\" matSort>\r\n              <ng-container matColumnDef=\"id\">\r\n                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                  <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                </ng-container>\r\n                  <ng-container matColumnDef=\"name\">\r\n                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                       <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                   </ng-container>\r\n                    <ng-container matColumnDef=\"action\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                          <mat-menu #menu=\"matMenu\">\r\n                              <button  mat-menu-item (click)=\"getOrganizationTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                    <span>Edit</span>\r\n                                    </button>\r\n                                <button mat-menu-item  (click)=\"getOrganizationTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                    <span>Delete</span>\r\n                                </button>\r\n                          </mat-menu> </mat-cell>\r\n                \r\n                       </ng-container>\r\n         \r\n      \r\n  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                     </mat-row>\r\n                    </mat-table>\r\n      \r\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </body>\r\n                            \r\n                                       \r\n                            "
+module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r\n       <!-- Navigation -->\r\n          <admin-top-bar></admin-top-bar>            \r\n          <admin-side-bar [open]=true></admin-side-bar>\r\n          <!-- <h3 class=\"heading\">Manage Survey Organization type</h3> -->\r\n          <br> \r\n         <div id=\"\">\r\n            <div class=\"col-md-2\">\r\n                <nav class=\"nav-sidebar\">\r\n                    <ul class=\"nav tabs buttonleft\">\r\n                          <li >\r\n                              <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                          </li>\r\n                    \r\n                         \r\n                          <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                          <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                          <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                       \r\n                    </ul>\r\n                  </nav>\r\n          </div>\r\n            <div id=\"myModal\"  class=\"modal fade\">\r\n                <div class=\"modal-dialog\"> \r\n        <!-- Modal content-->\r\n                  <div class=\"modal-content\">\r\n                     <div class=\"modal-header\">\r\n                          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                          <h4 class=\"modal-title\">Add Organization Type </h4>\r\n                     </div>\r\n                     <br>\r\n                     <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                        Atleast one item required!\r\n                      </div>\r\n                      <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                     <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                         {{errorMsg}}\r\n                      </div>\r\n                   <div class=\"modal-body\">\r\n                         <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertOrganizationType();\">\r\n                              <p>Organization type Name</p>\r\n                               <div class=\"form-group\" *ngFor=\"let item of newOrganization; let i = index; trackBy:trackByIndex\" >\r\n                                   \r\n                                          <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"organization_{{i}}\" required  [(ngModel)]=\"newOrganization[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                          </mat-form-field>\r\n                          \r\n                                    \r\n                                    <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreOrganizationType(i)\">\r\n                               </div>\r\n                              \r\n                               <div class=\"row\">\r\n                                 <div class=\"col-md-4\">\r\n                                   \r\n                                      <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreOrganizationtype()\">\r\n                                      <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                    \r\n                                   </div>\r\n                                   <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                          <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                          width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                      <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                        <animateTransform attributeType=\"xml\"\r\n                                          attributeName=\"transform\"\r\n                                          type=\"rotate\"\r\n                                          from=\"0 25 25\"\r\n                                          to=\"360 25 25\"\r\n                                          dur=\"0.6s\"\r\n                                          repeatCount=\"indefinite\"/>\r\n                                        </path>\r\n                                      </svg>\r\n                                   </div>\r\n                                    \r\n                                 </div>\r\n                            \r\n                        \r\n                         </form>\r\n                  </div>\r\n                  <div class=\"modal-footer\">\r\n                      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n      </div>\r\n  \r\n   \r\n      <div id=\"myModal2\"  class=\"modal fade\">\r\n          <div class=\"modal-dialog\">\r\n              <div class=\"modal-content\">\r\n                  <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                         <h4 class=\"modal-title\">Edit Survey Organization type </h4>\r\n                  </div>\r\n                  <br>\r\n                  <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                    Name Already Exist!\r\n                  </div>\r\n                  <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                    Name is required!\r\n                  </div>\r\n                  <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                      No changes to upate!\r\n                     </div>\r\n                <div class=\"modal-body\">\r\n                     <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateOrganizationType(organization);\">\r\n                          <p>Organization type Name</p>\r\n                                <div class=\"form-group\"  >\r\n                                  <div class=\"col-md-11\">\r\n                                      <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"name\" required   [(ngModel)]=\"organization.name\" />\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                        </mat-form-field>\r\n                                        \r\n                                  </div>\r\n                                  \r\n                                </div>\r\n                                <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div> -->\r\n\r\n                        <div class=\"row\">\r\n                          <div class=\"col-md-4\">\r\n                          <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                </div>\r\n                                <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                       <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                       width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                   <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                     <animateTransform attributeType=\"xml\"\r\n                                       attributeName=\"transform\"\r\n                                       type=\"rotate\"\r\n                                       from=\"0 25 25\"\r\n                                       to=\"360 25 25\"\r\n                                       dur=\"0.6s\"\r\n                                       repeatCount=\"indefinite\"/>\r\n                                     </path>\r\n                                   </svg>\r\n                                </div>\r\n                                 \r\n                              </div>\r\n          \r\n      \r\n                  </form>\r\n              </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteOrganizationType(organizationId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n  \r\n  <div class=\"col-md-9\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n      \r\n         \r\n          <mat-table [dataSource]=\"dataSource\" matSort>\r\n             \r\n              <ng-container matColumnDef=\"id\">\r\n                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                  <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                </ng-container>\r\n                  <ng-container matColumnDef=\"name\">\r\n                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                       <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                   </ng-container>\r\n                    <ng-container matColumnDef=\"action\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                          <mat-menu #menu=\"matMenu\">\r\n                              <button  mat-menu-item (click)=\"getOrganizationTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                    <span>Edit</span>\r\n                                    </button>\r\n                                <button mat-menu-item  (click)=\"getOrganizationTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                    <span>Delete</span>\r\n                                </button>\r\n                          </mat-menu> </mat-cell>\r\n                \r\n                       </ng-container>\r\n         \r\n      \r\n  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                     </mat-row>\r\n                    </mat-table>\r\n                    <!-- <div class=\"col-md-15 \"> -->\r\n                        <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                            <mat-spinner></mat-spinner>\r\n                         </div> -->\r\n                        \r\n                    <!-- </div> -->\r\n             \r\n                    <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                        <div class=\"col-md-4 col-md-offset-4\">\r\n                            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                        </div>\r\n                        </div>\r\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    </div>\r\n  </body>\r\n                            \r\n                                       \r\n                            "
 
 /***/ }),
 
@@ -3147,12 +3392,14 @@ var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
 var AdminManageOrganizationTypeComponent = /** @class */ (function () {
-    function AdminManageOrganizationTypeComponent(_adminService, _flashMessagesService, routes, route) {
+    function AdminManageOrganizationTypeComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.route = route;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
         this.btnDisbled = false;
@@ -3162,6 +3409,8 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
         this.Updaterequired = false;
         this.Updatechange = false;
         this.UpdatealreadyExist = false;
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
         this.newOrganization = [{ name: '' }];
         this.organization = {
             name: String
@@ -3226,6 +3475,7 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
     //  ---------------------------------end-------------------------------------------
     AdminManageOrganizationTypeComponent.prototype.addNew = function () {
         this.newOrganization = [{ name: '' }];
+        this.showSpinner = false;
     };
     //  ---------------------------------Start-------------------------------------------
     // Function      : loadData
@@ -3237,12 +3487,19 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
     // Desc          : to get all survey organization type
     AdminManageOrganizationTypeComponent.prototype.loadData = function () {
         var _this = this;
+        this.showSpinner = true;
         var users = [];
         this._adminService.getOrganizationType().subscribe(function (data1) {
+            if (data1 == '') {
+                _this.showSpinner = false;
+                _this.existStatus = false;
+            }
             if (data1 != '') {
+                _this.showSpinner = false;
                 _this.existStatus = true;
             }
             data1.forEach(function (item, index) {
+                _this.showSpinner = false;
                 users.push({
                     name: item.name,
                     id: item._id
@@ -3280,7 +3537,9 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
             this.newOrganization.splice(index, 1);
         }
         else {
-            this.atleastOneitem = true;
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
             setTimeout(function () {
                 _this.atleastOneitem = false;
             }, 2000);
@@ -3296,12 +3555,17 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
     // Date          : 29-12-2017
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : close a Organization type
-    AdminManageOrganizationTypeComponent.prototype.insertOrganizationType = function () {
+    AdminManageOrganizationTypeComponent.prototype.insertOrganizationType = function (message) {
         var _this = this;
+        this.showSpinner = true;
         this._adminService.addOrganizationType(this.newOrganization).subscribe(function (data) {
             if (!data.success) {
-                _this.isError = true;
-                _this.errorMsg = data.msg;
+                _this.showSpinner = false;
+                // this.isError = true;
+                // this.errorMsg = data.msg;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.btnDisbled = false;
                 setTimeout(function () {
                     _this.isError = false;
@@ -3309,6 +3573,7 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
                 }, 2000);
             }
             else if (data.success) {
+                _this.showSpinner = false;
                 _this.btnDisbled = true;
                 _this.loadData();
                 _this.closeBtn.nativeElement.click();
@@ -3319,7 +3584,9 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
                     _this.errorMsg = '';
                     _this.btnDisbled = false;
                 }, 2000);
-                _this._flashMessagesService.show('Add Organization type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                var snackBarRef = _this.snackBar.open('Create  Organization type Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newOrganization = [{ name: '' }];
             }
@@ -3350,13 +3617,21 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
     // Desc          : delete survey Organization type
     AdminManageOrganizationTypeComponent.prototype.deleteOrganizationType = function (id) {
         var _this = this;
+        this.showSpinnerDelete = true;
         this._adminService.deleteOrganizationType(id).subscribe(function (data2) {
             if (data2.success == false) {
-                _this._flashMessagesService.show('Failed! This Organization type is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.showSpinnerDelete = false;
+                // this._flashMessagesService.show('Failed! This Organization type is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+                var snackBarRef = _this.snackBar.open('Failed! This Industry is currently used by a company', '', {
+                    duration: 2000
+                });
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete Organisation type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                _this.showSpinnerDelete = false;
+                var snackBarRef = _this.snackBar.open('Delete  Organization type Successfully', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -3371,6 +3646,7 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
     // Desc          : pass id from modal and get it for the purpuse edit
     AdminManageOrganizationTypeComponent.prototype.getOrganizationTypeId = function (id) {
         var _this = this;
+        this.showSpinner = false;
         this.organizationId = id;
         this.sub = this.route.params.subscribe(function (params) {
             _this._adminService.getSingleOrganizationType(_this.organizationId).subscribe(function (data3) {
@@ -3389,31 +3665,35 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
     // Desc          : update Organization type
     AdminManageOrganizationTypeComponent.prototype.updateOrganizationType = function (organization) {
         var _this = this;
+        this.showSpinner = true;
         this._adminService.updateOrganizationType(organization).subscribe(function (data4) {
             if (data4.success == false && data4.msg == 'required') {
-                _this.Updaterequired = true;
-                setTimeout(function () {
-                    _this.Updaterequired = false;
-                }, 2000);
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('* It is a required field!', '', {
+                    duration: 2000
+                });
             }
             else {
                 if (data4.success == false && data4.msg == 'alreadyexist') {
-                    _this.UpdatealreadyExist = true;
-                    setTimeout(function () {
-                        _this.UpdatealreadyExist = false;
-                    }, 2000);
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* This type is already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else {
                     if (data4.success == false && data4.msg == 'nochange') {
-                        _this.Updatechange = true;
-                        setTimeout(function () {
-                            _this.Updatechange = false;
-                        }, 2000);
+                        _this.showSpinner = false;
+                        var snackBarRef = _this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     }
                     else {
                         _this.loadData();
                         _this.closeBtn1.nativeElement.click();
-                        _this._flashMessagesService.show('Update Organization type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                        _this.showSpinner = false;
+                        var snackBarRef = _this.snackBar.open('Update  Organization type Successfully', '', {
+                            duration: 2000
+                        });
                     }
                 }
             }
@@ -3449,7 +3729,7 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
     ], AdminManageOrganizationTypeComponent);
     return AdminManageOrganizationTypeComponent;
 }());
@@ -3466,7 +3746,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 200px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n.heading{\r\n    color :#d9534f;\r\n    text-align: center\r\n}\r\nh4{\r\n    text-align: center;\r\n }", ""]);
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 200px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n.heading{\r\n    color :#d9534f;\r\n    text-align: center\r\n}\r\nh4{\r\n    text-align: center;\r\n }\r\n .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -3479,7 +3759,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r\n       <!-- Navigation -->\r\n          <admin-top-bar></admin-top-bar>            \r\n          <admin-side-bar  [open]=true></admin-side-bar>\r\n          <h3 class=\"heading\">Manage Survey Attender type</h3>\r\n          <br>\r\n         <div id=\"\">\r\n            <div id=\"myModal\"  class=\"modal fade\">\r\n                <div class=\"modal-dialog\"> \r\n                   \r\n        <!-- Modal content-->\r\n                  <div class=\"modal-content\">\r\n                     <div class=\"modal-header\">\r\n                          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                          <h4 class=\"modal-title\">Add Survey attender Type </h4>\r\n                     </div>\r\n                     <br>\r\n                     <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                        Atleast one item required!\r\n                      </div>\r\n                      <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                     <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                         {{errorMsg}}\r\n                      </div>\r\n                   <div class=\"modal-body\">\r\n                         <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertAttenderType();\">\r\n                              <p>\r\n                                Survey attender type</p>\r\n                               <div class=\"form-group\" *ngFor=\"let item of newAttender; let i = index; trackBy:trackByIndex\" >\r\n                                   \r\n                                          <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"attender{{i}}\" required  [(ngModel)]=\"newAttender[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                          </mat-form-field>\r\n                                          <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreattenderType(i)\">\r\n                                   \r\n                                  \r\n                               </div>\r\n                                    <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreAttendertype()\">\r\n                                    <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                        \r\n                         </form>\r\n                  </div>\r\n                \r\n                  <div class=\"modal-footer\">\r\n                      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n      </div>\r\n  \r\n   \r\n      <div id=\"myModal2\"  class=\"modal fade\">\r\n          <div class=\"modal-dialog\">\r\n              <div class=\"modal-content\">\r\n                  <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                         <h4 class=\"modal-title\">Edit Survey attender type </h4>\r\n                  </div>\r\n                  <br>\r\n                  <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                    Name Already Exist!\r\n                  </div>\r\n                  <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                    Name is required!\r\n                  </div>\r\n                  <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                      No changes to upate!\r\n                     </div>\r\n                <div class=\"modal-body\">\r\n                     <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateattenderType(attender);\">\r\n                          <p>survey attender type </p>\r\n                                <div class=\"form-group\"  >\r\n                                  <div class=\"col-md-11\">\r\n                                      <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Type name\" name=\"name\" required   [(ngModel)]=\"attender.name\" />\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                        </mat-form-field>\r\n                                        \r\n                                  </div>\r\n                                  \r\n                                </div>\r\n               \r\n                           <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n      \r\n                  </form>\r\n              </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteattenderType(attenderId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n  \r\n  \r\n  <div class=\"col-md-6 col-md-offset-3\">\r\n      <flash-messages></flash-messages>\r\n      <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"noitem\" *ngIf=\"!existStatus\"><h4>No item Found!</h4></div>\r\n            \r\n            <br>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n          <mat-table [dataSource]=\"dataSource\" matSort>\r\n              <ng-container matColumnDef=\"id\">\r\n                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                  <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                </ng-container>\r\n                  <ng-container matColumnDef=\"name\">\r\n                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                       <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                   </ng-container>\r\n                    <ng-container matColumnDef=\"action\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                          <mat-menu #menu=\"matMenu\">\r\n                              <button  mat-menu-item (click)=\"getAttenderTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                    <span>Edit</span>\r\n                                    </button>\r\n                                <button mat-menu-item  (click)=\"getAttenderTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                    <span>Delete</span>\r\n                                </button>\r\n                          </mat-menu> </mat-cell>\r\n                \r\n                       </ng-container>\r\n         \r\n      \r\n  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                     </mat-row>\r\n                    </mat-table>\r\n      \r\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </body>\r\n                            \r\n                                       \r\n                            "
+module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r\n       <!-- Navigation -->\r\n          <admin-top-bar></admin-top-bar>            \r\n          <admin-side-bar  [open]=true></admin-side-bar>\r\n          <!-- <h3 class=\"heading\">Manage Survey Attender type</h3> -->\r\n          <br>\r\n         <div id=\"\">\r\n            <div class=\"col-md-2\">\r\n                <nav class=\"nav-sidebar\">\r\n                    <ul class=\"nav tabs buttonleft\">\r\n                          <li >\r\n                              <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                    \r\n                         \r\n                          <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                          <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                          <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                       \r\n                    </ul>\r\n                  </nav>\r\n          </div>\r\n            <div id=\"myModal\"  class=\"modal fade\">\r\n                <div class=\"modal-dialog\"> \r\n                   \r\n        <!-- Modal content-->\r\n                  <div class=\"modal-content\">\r\n                     <div class=\"modal-header\">\r\n                          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                          <h4 class=\"modal-title\">Add Survey attender Type </h4>\r\n                     </div>\r\n                     <br>\r\n                     <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                        Atleast one item required!\r\n                      </div>\r\n                      <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                     <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                         {{errorMsg}}\r\n                      </div>\r\n                   <div class=\"modal-body\">\r\n                         <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertAttenderType();\">\r\n                              <p>\r\n                                Survey attender type</p>\r\n                               <div class=\"form-group\" *ngFor=\"let item of newAttender; let i = index; trackBy:trackByIndex\" >\r\n                                   \r\n                                          <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"attender{{i}}\" required  [(ngModel)]=\"newAttender[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                          </mat-form-field>\r\n                                          <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreattenderType(i)\">\r\n                                   \r\n                                  \r\n                               </div>\r\n                               <!-- <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                                   \r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-md-4\">\r\n                                            <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreAttendertype()\">\r\n                                            <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                              </div>\r\n                                              <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                     <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                     width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                 <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                   <animateTransform attributeType=\"xml\"\r\n                                                     attributeName=\"transform\"\r\n                                                     type=\"rotate\"\r\n                                                     from=\"0 25 25\"\r\n                                                     to=\"360 25 25\"\r\n                                                     dur=\"0.6s\"\r\n                                                     repeatCount=\"indefinite\"/>\r\n                                                   </path>\r\n                                                 </svg>\r\n                                              </div>\r\n                                               \r\n                                            </div>\r\n                        \r\n                         </form>\r\n                  </div>\r\n                \r\n                  <div class=\"modal-footer\">\r\n                      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n      </div>\r\n  \r\n   \r\n      <div id=\"myModal2\"  class=\"modal fade\">\r\n          <div class=\"modal-dialog\">\r\n              <div class=\"modal-content\">\r\n                  <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                         <h4 class=\"modal-title\">Edit Survey attender type </h4>\r\n                  </div>\r\n                  <br>\r\n                  <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                    Name Already Exist!\r\n                  </div>\r\n                  <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                    Name is required!\r\n                  </div>\r\n                  <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                      No changes to upate!\r\n                     </div>\r\n                <div class=\"modal-body\">\r\n                     <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateattenderType(attender);\">\r\n                          <p>survey attender type </p>\r\n                                <div class=\"form-group\"  >\r\n                                  <div class=\"col-md-11\">\r\n                                      <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Type name\" name=\"name\" required   [(ngModel)]=\"attender.name\" />\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                        </mat-form-field>\r\n                                        \r\n                                  </div>\r\n                                  \r\n                                </div>\r\n                                <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                </div> -->\r\n                         \r\n                           <div class=\"row\">\r\n                              <div class=\"col-md-4\">\r\n                                  <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                    </div>\r\n                                    <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                           <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                           width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                       <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                         <animateTransform attributeType=\"xml\"\r\n                                           attributeName=\"transform\"\r\n                                           type=\"rotate\"\r\n                                           from=\"0 25 25\"\r\n                                           to=\"360 25 25\"\r\n                                           dur=\"0.6s\"\r\n                                           repeatCount=\"indefinite\"/>\r\n                                         </path>\r\n                                       </svg>\r\n                                    </div>\r\n                                     \r\n                                  </div>\r\n\r\n                           \r\n      \r\n                  </form>\r\n              </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteattenderType(attenderId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n  \r\n  \r\n    <div class=\"col-md-9\">\r\n        <div class=\"row\">\r\n        <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n            <div class=\"\"  >\r\n                <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n            <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n              <animateTransform attributeType=\"xml\"\r\n                attributeName=\"transform\"\r\n                type=\"rotate\"\r\n                from=\"0 25 25\"\r\n                to=\"360 25 25\"\r\n                dur=\"0.6s\"\r\n                repeatCount=\"indefinite\"/>\r\n              </path>\r\n            </svg>\r\n        </div>\r\n        </div>\r\n        <flash-messages></flash-messages>\r\n     \r\n              <div class=\"example-header\" >\r\n                  <mat-form-field>\r\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                  </mat-form-field>\r\n              </div>\r\n           \r\n        <div class=\"example-container mat-elevation-z8 \">\r\n          <mat-table [dataSource]=\"dataSource\" matSort>\r\n              <ng-container matColumnDef=\"id\">\r\n                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                  <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                </ng-container>\r\n                  <ng-container matColumnDef=\"name\">\r\n                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                       <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                   </ng-container>\r\n                    <ng-container matColumnDef=\"action\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                          <mat-menu #menu=\"matMenu\">\r\n                              <button  mat-menu-item (click)=\"getAttenderTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                    <span>Edit</span>\r\n                                    </button>\r\n                                <button mat-menu-item  (click)=\"getAttenderTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                    <span>Delete</span>\r\n                                </button>\r\n                          </mat-menu> </mat-cell>\r\n                \r\n                       </ng-container>\r\n         \r\n      \r\n  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                     </mat-row>\r\n                    </mat-table>\r\n                        <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              "
 
 /***/ }),
 
@@ -3503,12 +3783,14 @@ var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
 var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
-    function AdminManageSurveyAttenderTypeComponent(_adminService, _flashMessagesService, routes, route) {
+    function AdminManageSurveyAttenderTypeComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.route = route;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'action'];
         this.atleastOneitem = false;
         this.btnDisbled = false;
@@ -3516,6 +3798,8 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
         this.isError = false;
         this.existStatus = false;
         this.Updatechange = false;
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
         this.Updaterequired = false;
         this.UpdatealreadyExist = false;
         this.newAttender = [{ name: '' }];
@@ -3590,12 +3874,19 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     // Desc          : to get all survey survey attender type
     AdminManageSurveyAttenderTypeComponent.prototype.loadData = function () {
         var _this = this;
+        this.showSpinner = true;
         var users = [];
         this._adminService.getAttenderType().subscribe(function (data1) {
-            if (data1 != '') {
+            if (data1 == '') {
+                _this.showSpinner = false;
+                _this.existStatus = false;
+            }
+            else if (data1 != '') {
+                _this.showSpinner = false;
                 _this.existStatus = true;
             }
             data1.forEach(function (item, index) {
+                _this.showSpinner = false;
                 users.push({
                     name: item.name,
                     id: item._id
@@ -3628,16 +3919,13 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : close survey attender type
     AdminManageSurveyAttenderTypeComponent.prototype.closeMoreattenderType = function (index) {
-        var _this = this;
         if (this.newAttender.length > 1) {
             this.newAttender.splice(index, 1);
         }
         else {
-            this.atleastOneitem = true;
-            setTimeout(function () {
-                _this.atleastOneitem = false;
-            }, 2000);
-            return false;
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
         }
     };
     //  ---------------------------------end-----------------------------------------------
@@ -3651,15 +3939,14 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     // Desc          : close a survey attender  type
     AdminManageSurveyAttenderTypeComponent.prototype.insertAttenderType = function () {
         var _this = this;
+        this.showSpinner = true;
         this._adminService.addAttenderType(this.newAttender).subscribe(function (data) {
             if (!data.success) {
-                _this.isError = true;
-                _this.errorMsg = data.msg;
                 _this.btnDisbled = false;
-                setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
-                }, 2000);
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
             else if (data.success) {
                 _this.btnDisbled = true;
@@ -3672,7 +3959,10 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
                     _this.errorMsg = '';
                     _this.btnDisbled = false;
                 }, 2000);
-                _this._flashMessagesService.show('Add Survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('Create  Category Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newAttender = [{ name: '' }];
             }
@@ -3695,6 +3985,7 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     //  ---------------------------------end-----------------------------------------------
     AdminManageSurveyAttenderTypeComponent.prototype.addNew = function () {
         this.newAttender = [{ name: '' }];
+        this.showSpinner = false;
     };
     //  ---------------------------------Start-------------------------------------------
     // Function      : deleteattenderType
@@ -3706,13 +3997,21 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     // Desc          : delete survey survey attender type
     AdminManageSurveyAttenderTypeComponent.prototype.deleteattenderType = function (id) {
         var _this = this;
+        this.showSpinnerDelete = true;
         this._adminService.deleteAttenderType(id).subscribe(function (data2) {
             if (data2.success == false) {
-                _this._flashMessagesService.show('Failed! This Servey attender type is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.showSpinnerDelete = false;
+                // this._flashMessagesService.show('Failed! This Servey attender type is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+                var snackBarRef = _this.snackBar.open('Failed! This Industry is currently used by a company', '', {
+                    duration: 2000
+                });
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                _this.showSpinnerDelete = false;
+                var snackBarRef = _this.snackBar.open('Delete Survey attender type Successfully', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -3727,6 +4026,7 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     // Desc          : pass id from modal and get it for the purpuse edit
     AdminManageSurveyAttenderTypeComponent.prototype.getAttenderTypeId = function (id) {
         var _this = this;
+        this.showSpinner = false;
         this.attenderId = id;
         this.sub = this.route.params.subscribe(function (params) {
             _this._adminService.getSingleAttenderType(_this.attenderId).subscribe(function (data3) {
@@ -3745,31 +4045,34 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     // Desc          : update serevey attender type
     AdminManageSurveyAttenderTypeComponent.prototype.updateattenderType = function (attender) {
         var _this = this;
+        this.showSpinner = true;
         this._adminService.updateAttenderType(attender).subscribe(function (data4) {
             if (data4.success == false && data4.msg == 'required') {
-                _this.Updaterequired = true;
-                setTimeout(function () {
-                    _this.Updaterequired = false;
-                }, 2000);
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('* It is a required field!', '', {
+                    duration: 2000
+                });
             }
             else {
                 if (data4.success == false && data4.msg == 'alreadyexist') {
-                    _this.UpdatealreadyExist = true;
-                    setTimeout(function () {
-                        _this.UpdatealreadyExist = false;
-                    }, 2000);
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* This type is already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else {
                     if (data4.success == false && data4.msg == 'nochange') {
-                        _this.Updatechange = true;
-                        setTimeout(function () {
-                            _this.Updatechange = false;
-                        }, 2000);
+                        _this.showSpinner = false;
+                        var snackBarRef = _this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     }
                     else {
                         _this.loadData();
                         _this.closeBtn1.nativeElement.click();
-                        _this._flashMessagesService.show('Update survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                        var snackBarRef = _this.snackBar.open('Update Survey attender type Successfully', '', {
+                            duration: 2000
+                        });
                     }
                 }
             }
@@ -3805,7 +4108,7 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
     ], AdminManageSurveyAttenderTypeComponent);
     return AdminManageSurveyAttenderTypeComponent;
 }());
@@ -3822,7 +4125,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n .heading{\r\n     color :#d9534f;\r\n     text-align: center\r\n }\r\n h4{\r\n    text-align: center;\r\n }", ""]);
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n .heading{\r\n     color :#d9534f;\r\n     text-align: center\r\n }\r\n\r\n .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n::ng-deep snack-bar-container.custom-class {\r\n    background: yellow;\r\n  }\r\n  \r\n  ::ng-deep .custom-class .mat-simple-snackbar {\r\n    color: green;\r\n  }\r\n  .deletespinner{\r\n      background-color: white;\r\n      padding: 0px 100px 0px 280px;\r\n  }\r\n  .updatespinner{\r\n      margin-top: 50px;\r\n  }", ""]);
 
 // exports
 
@@ -3835,7 +4138,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=true></admin-side-bar>\r\n            <h3 class=\"heading\">Manage Survey Category</h3>\r\n            <br>\r\n       <div id=\"\">\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add Survey Category </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                    Atleast one item required!\r\n                  </div>\r\n                   <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                    <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                  \r\n                    \r\n                 <div class=\"modal-body\">\r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertCategory();\">\r\n                            <p>Category Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newCategory; let i = index; trackBy:trackByIndex\" >\r\n                                \r\n                              <mat-form-field class=\"example-form-field\">\r\n                                  <input matInput type=\"text\" placeholder=\"Name\" name=\"category{{i}}\" required  [(ngModel)]=\"newCategory[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                  <mat-icon>close</mat-icon>\r\n                                </button>\r\n                              </mat-form-field>\r\n                        \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreCategory(i)\">\r\n                             </div>\r\n                                  <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreCategory()\">\r\n                                  <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\"  [disabled]=\"btnDisbled\"> \r\n                      \r\n                       </form>\r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Category </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                   No changes to upate!\r\n                  </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateCategory(category);\">\r\n                        <p>Category Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"category.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n             \r\n                         <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteCategory(catgId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n    <flash-messages></flash-messages>\r\n    \r\n    <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n          \r\n            <div class=\"noitem\" *ngIf=\"!existStatus\"><h4>No item Found!</h4></div>\r\n          \r\n          <br>\r\n    <div class=\"example-container mat-elevation-z8 \">\r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n             <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n    \r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</body>\r\n                          \r\n                                     \r\n                          "
+module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=true></admin-side-bar>\r\n            <!-- <h3 class=\"heading\">Manage Survey Category</h3> -->\r\n            <br>\r\n       <div id=\"\">\r\n          <div class=\"col-md-2\">\r\n              <nav class=\"nav-sidebar\">\r\n                  <ul class=\"nav tabs buttonleft\">\r\n                        <li >\r\n                            <button type=\"button\" (click)=\"addNew();\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                  \r\n                       \r\n                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                     \r\n                  </ul>\r\n                </nav>\r\n        </div>\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add Survey Category </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                    Atleast one item required!\r\n                  </div>\r\n                   <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                    <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                  \r\n                    \r\n                 <div class=\"modal-body\">\r\n                    \r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertCategory();\">\r\n                            <p>Category Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newCategory; let i = index; trackBy:trackByIndex\" >\r\n                                \r\n                              <mat-form-field class=\"example-form-field\">\r\n                                  <input matInput type=\"text\" placeholder=\"Name\" name=\"category{{i}}\" required  [(ngModel)]=\"newCategory[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                  <mat-icon>close</mat-icon>\r\n                                </button>\r\n                              </mat-form-field>\r\n                        \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreCategory(i)\">\r\n                             </div>\r\n                             <!-- <div *ngIf=\"showSpinner\">\r\n                             <mat-spinner></mat-spinner>\r\n                            </div> -->\r\n                                 \r\n\r\n\r\n\r\n                                       \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreCategory()\">\r\n                                <input type=\"submit\"  class=\"btn btn-danger\" value=\"Save\" > \r\n                    \r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n                       </form>\r\n                       \r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Category </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                   No changes to upate!\r\n                  </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateCategory(category);\">\r\n                        <p>Category Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"category.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n                            \r\n                              <!-- <div *ngIf=\"showSpinner\" class=\"updatespinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                        \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                    \r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteCategory(catgId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n  <div class=\"col-md-9\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n        \r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n           \r\n             <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n                    <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              \r\n                                     \r\n                          "
 
 /***/ }),
 
@@ -3859,14 +4162,15 @@ var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
 var AdminManageSurveyCategoryComponent = /** @class */ (function () {
-    function AdminManageSurveyCategoryComponent(_adminService, _flashMessagesService, routes, route) {
+    function AdminManageSurveyCategoryComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.route = route;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'action'];
-        this.btnDisbled = false;
         this.atleastOneitem = false;
         this.isSuccess = false;
         this.isError = false;
@@ -3874,6 +4178,8 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
         this.Updatechange = false;
         this.Updaterequired = false;
         this.UpdatealreadyExist = false;
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
         this.newCategory = [{ name: '' }];
         this.category = {
             name: String
@@ -3921,6 +4227,7 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
     };
     AdminManageSurveyCategoryComponent.prototype.addNew = function () {
         this.newCategory = [{ name: '' }];
+        this.showSpinner = false;
     };
     //  ---------------------------------Start-------------------------------------------
     // Function      : keypress
@@ -3931,7 +4238,7 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : to avoid space and special characters in name field
     AdminManageSurveyCategoryComponent.prototype._keyPress = function (event) {
-        var pattern = /[a-z A-Z1-9]/;
+        var pattern = /[a-z A-Z]/;
         var inputChar = String.fromCharCode(event.charCode);
         if (!pattern.test(inputChar) && event.charCode != 0) {
             // invalid character, prevent input
@@ -3949,12 +4256,19 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
     // Desc          : to get all survey category
     AdminManageSurveyCategoryComponent.prototype.loadData = function () {
         var _this = this;
+        this.showSpinnerDelete = true;
         var users = [];
         this._adminService.getCategory().subscribe(function (data1) {
-            if (data1 != '') {
+            if (data1 == '') {
+                _this.showSpinnerDelete = false;
+                _this.existStatus = false;
+            }
+            else if (data1 != '') {
+                _this.showSpinnerDelete = false;
                 _this.existStatus = true;
             }
             data1.forEach(function (item, index) {
+                _this.showSpinnerDelete = false;
                 users.push({
                     name: item.name,
                     id: item._id
@@ -3992,11 +4306,13 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
             this.newCategory.splice(index, 1);
         }
         else {
-            this.atleastOneitem = true;
+            // this.atleastOneitem = true;
             setTimeout(function () {
                 _this.atleastOneitem = false;
             }, 3000);
-            // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 1000 });
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
             return false;
         }
     };
@@ -4011,28 +4327,25 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
     // Desc          : close a category
     AdminManageSurveyCategoryComponent.prototype.insertCategory = function () {
         var _this = this;
+        this.showSpinner = true;
         this._adminService.addCategory(this.newCategory).subscribe(function (data) {
+            // console.log(data);
             if (!data.success) {
-                _this.isError = true;
-                _this.errorMsg = data.msg;
-                _this.btnDisbled = false;
-                setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
-                }, 2000);
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
             else if (data.success) {
-                _this.btnDisbled = true;
                 _this.loadData();
                 _this.closeBtn.nativeElement.click();
-                // this.isSuccess = true;
-                _this.errorMsg = data.msg;
-                setTimeout(function () {
-                    _this.isSuccess = false;
-                    _this.errorMsg = '';
-                    _this.btnDisbled = false;
-                }, 2000);
-                _this._flashMessagesService.show('Add Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                //   setTimeout(()=>{ 
+                //     this.showSpinner = false;
+                //  }, 2000);
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('Create Survey Category Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newCategory = [{ name: '' }];
             }
@@ -4063,13 +4376,21 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
     // Desc          : delete survey category
     AdminManageSurveyCategoryComponent.prototype.deleteCategory = function (id) {
         var _this = this;
+        this.showSpinnerDelete = true;
         this._adminService.deleteCategory(id).subscribe(function (data2) {
             if (data2.success == false) {
-                _this._flashMessagesService.show('Failed! This survey category is currently used in a survey ', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.showSpinnerDelete = false;
+                // this._flashMessagesService.show('Failed! This survey category is currently used in a survey ', { cssClass: 'alert-danger', timeout: 3000 });
+                var snackBarRef = _this.snackBar.open('Failed! This Industry is currently used by a company', '', {
+                    duration: 2000
+                });
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                _this.showSpinnerDelete = false;
+                var snackBarRef = _this.snackBar.open('Delete Survey category Successfully', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4084,6 +4405,7 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
     // Desc          : pass id from modal and get it for the purpuse edit
     AdminManageSurveyCategoryComponent.prototype.getCategoryId = function (id) {
         var _this = this;
+        this.showSpinner = false;
         this.catgId = id;
         this.sub = this.route.params.subscribe(function (params) {
             _this._adminService.getSinglecategory(_this.catgId).subscribe(function (data3) {
@@ -4103,31 +4425,35 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
     // Desc          : Update Category
     AdminManageSurveyCategoryComponent.prototype.updateCategory = function (category) {
         var _this = this;
+        this.showSpinner = true;
         this._adminService.updateCategory(category).subscribe(function (data4) {
             if (data4.success == false && data4.msg == 'required') {
-                _this.Updaterequired = true;
-                setTimeout(function () {
-                    _this.Updaterequired = false;
-                }, 3000);
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('* It is a required field!', '', {
+                    duration: 2000
+                });
             }
             else {
                 if (data4.success == false && data4.msg == 'alreadyexist') {
-                    _this.UpdatealreadyExist = true;
-                    setTimeout(function () {
-                        _this.UpdatealreadyExist = false;
-                    }, 3000);
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* This category already exist!', '', {
+                        duration: 2000
+                    });
                 }
                 else {
                     if (data4.success == false && data4.msg == 'nochange') {
-                        _this.Updatechange = true;
-                        setTimeout(function () {
-                            _this.Updatechange = false;
-                        }, 3000);
+                        _this.showSpinner = false;
+                        var snackBarRef = _this.snackBar.open('* No changes to update!', '', {
+                            duration: 2000
+                        });
                     }
                     else {
                         _this.loadData();
                         _this.closeBtn1.nativeElement.click();
-                        _this._flashMessagesService.show('Update Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                        _this.showSpinner = false;
+                        var snackBarRef = _this.snackBar.open('Update Survey category successfully', '', {
+                            duration: 2000
+                        });
                     }
                 }
             }
@@ -4163,7 +4489,7 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
     ], AdminManageSurveyCategoryComponent);
     return AdminManageSurveyCategoryComponent;
 }());
@@ -4180,7 +4506,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -4193,7 +4519,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-not-verified/admin-not-verified.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n      <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Company Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n        <mat-spinner></mat-spinner>\r\n       </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n    </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -4217,11 +4543,13 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminNotVerifiedComponent = /** @class */ (function () {
-    function AdminNotVerifiedComponent(adminService, routes) {
+    function AdminNotVerifiedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
+        this.showSpinner = false;
         this.selected = 'all';
     }
     // ---------------------------------Start-------------------------------------------
@@ -4234,26 +4562,31 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
     // Desc          : Allnotverficompanieslist
     AdminNotVerifiedComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selected);
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllnotverficompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Active') {
             this.adminService.getAllnotverfiactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Block') {
             this.adminService.getAllnotverfiblockcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Delete') {
             this.adminService.getAllnotverfideletecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
     };
@@ -4329,36 +4662,63 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
     //delete company
     AdminNotVerifiedComponent.prototype.deleteCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //block company
     AdminNotVerifiedComponent.prototype.blockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.blockCompany(id).subscribe(function (data) {
-            console.log(data);
+            _this.showSpinner = false;
+            var snackBarRef = _this.snackBar.open(data.msg, '', {
+                duration: 2000
+            });
+            // console.log(data);
             if (data.success) {
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef_1 = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //unblock company
     AdminNotVerifiedComponent.prototype.unblockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.unblockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4377,7 +4737,8 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-not-verified/admin-not-verified.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminNotVerifiedComponent);
     return AdminNotVerifiedComponent;
 }());
@@ -4394,7 +4755,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 10%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 10%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n  \r\n  }\r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n  }", ""]);
 
 // exports
 
@@ -4407,7 +4768,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-request-users/admin-request-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"example-header\">\r\n    <mat-form-field>\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n  </div>\r\n    \r\n    <div class=\"example-container mat-elevation-z8\">\r\n      <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Users Found!</h4></div>\r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n        <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n        <!-- Name Column -->\r\n        <ng-container matColumnDef=\"username\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n        </ng-container>\r\n    \r\n     <!-- Name Column -->\r\n     <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"requestedcompanies\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> REQUESTED COMPANIES </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> <i class=\"material-icons\" (click)=\"getCompany(row)\" data-toggle=\"modal\" data-target=\"#myModal\" data-id={{row._id}}  >visibility</i> \r\n     \r\n      </mat-cell>\r\n    </ng-container>\r\n      <ng-container matColumnDef=\"status\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\">{{row.block_request[row.block_request.length-1].action_status}}\r\n          </mat-cell>\r\n        </ng-container>\r\n         <!-- Name Column -->\r\n     \r\n      \r\n      <ng-container matColumnDef=\"action\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n            <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n                <mat-icon>more_vert</mat-icon>\r\n              </button>\r\n              <mat-menu #menu=\"matMenu\">\r\n               \r\n                <button  (click)=\"acceptUser(row.email)\" mat-menu-item>\r\n                   \r\n                  <span>Accept</span>\r\n                </button>\r\n                <button  (click)=\"rejectUser(row.email)\" mat-menu-item>\r\n                   \r\n                  <span>Reject</span>\r\n                </button>\r\n              </mat-menu>\r\n           \r\n          </mat-cell>\r\n      </ng-container>\r\n    \r\n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n        </mat-row>\r\n      </mat-table>\r\n    \r\n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n    </div>\r\n    \r\n    \r\n     <!-- Modal -->\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n        <h4 class=\"modal-title\">Requested Companies</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <table class=\"table\">\r\n          <thead>\r\n            <tr>\r\n              <th>Sl.No</th>\r\n              <th>COMPANY NAME</th>\r\n              <th>REQUESTED DATE</th>\r\n              <th>REASON</th>\r\n            </tr>\r\n          </thead>\r\n          <!-- <tbody *ngIf=\"involvedCompany.block_request.length ==0\">\r\n            <tr >\r\n                  <td colspan=\"4\" class=\"text-center\">No Company Involved</td>\r\n            </tr>\r\n        </tbody> -->\r\n          <tbody>\r\n            <tr *ngFor=\"let cmp of complaintCompanies;let i = index\">\r\n                <td >{{i+1}}</td>\r\n              <td>{{cmp.organization}}</td>\r\n              <td>{{cmp.date | date: 'dd-MM-yyyy'}}</td>\r\n              <td>{{cmp.reason}}</td>\r\n            </tr>\r\n           \r\n            \r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"col-md-9\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n  \r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n        <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n        <!-- Name Column -->\r\n        <ng-container matColumnDef=\"username\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n        </ng-container>\r\n    \r\n     <!-- Name Column -->\r\n     <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"requestedcompanies\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> REQUESTED COMPANIES </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> <i class=\"material-icons\" (click)=\"getCompany(row)\" data-toggle=\"modal\" data-target=\"#myModal\" data-id={{row._id}}  >visibility</i> \r\n     \r\n      </mat-cell>\r\n    </ng-container>\r\n      <ng-container matColumnDef=\"status\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\">{{row.block_request[row.block_request.length-1].action_status}}\r\n          </mat-cell>\r\n        </ng-container>\r\n         <!-- Name Column -->\r\n     \r\n      \r\n      <ng-container matColumnDef=\"action\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n            <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n                <mat-icon>more_vert</mat-icon>\r\n              </button>\r\n              <mat-menu #menu=\"matMenu\">\r\n               \r\n                <button  (click)=\"acceptUser(row.email)\" mat-menu-item>\r\n                   \r\n                  <span>Accept</span>\r\n                </button>\r\n                <button  (click)=\"rejectUser(row.email)\" mat-menu-item>\r\n                   \r\n                  <span>Reject</span>\r\n                </button>\r\n              </mat-menu>\r\n           \r\n          </mat-cell>\r\n      </ng-container>\r\n    \r\n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n        </mat-row>\r\n      </mat-table>\r\n      <!-- <div class=\"col-md-15 \">\r\n          <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n              <mat-spinner></mat-spinner>\r\n             </div>\r\n      </div> -->\r\n      <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n          <div class=\"col-md-4 col-md-offset-4\">\r\n              <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n          </div>\r\n      </div>\r\n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n    </div>\r\n    \r\n    \r\n     <!-- Modal -->\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n        <h4 class=\"modal-title\">Requested Companies</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <table class=\"table\">\r\n          <thead>\r\n            <tr>\r\n              <th>Sl.No</th>\r\n              <th>COMPANY NAME</th>\r\n              <th>REQUESTED DATE</th>\r\n              <th>REASON</th>\r\n            </tr>\r\n          </thead>\r\n          <!-- <tbody *ngIf=\"involvedCompany.block_request.length ==0\">\r\n            <tr >\r\n                  <td colspan=\"4\" class=\"text-center\">No Company Involved</td>\r\n            </tr>\r\n        </tbody> -->\r\n          <tbody>\r\n            <tr *ngFor=\"let cmp of complaintCompanies;let i = index\">\r\n                <td >{{i+1}}</td>\r\n              <td>{{cmp.organization}}</td>\r\n              <td>{{cmp.date | date: 'dd-MM-yyyy'}}</td>\r\n              <td>{{cmp.reason}}</td>\r\n            </tr>\r\n           \r\n            \r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n     <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -4433,12 +4794,14 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var AdminRequestUsersComponent = /** @class */ (function () {
-    function AdminRequestUsersComponent(adminService, routes, config) {
+    function AdminRequestUsersComponent(adminService, routes, config, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
         this.config = config;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'username', 'email', 'requestedcompanies', 'status', 'action'];
         this.notExist = false;
+        this.showSpinner = false;
         this.involvedCompany = [];
         this.socket = socketIo(config.siteUrl);
     }
@@ -4452,8 +4815,10 @@ var AdminRequestUsersComponent = /** @class */ (function () {
     // Desc          : All users, delete,block,unblock 
     AdminRequestUsersComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         var company = [];
         this.adminService.getAllrequsers().subscribe(function (data) {
+            _this.showSpinner = false;
             _this.notExist = false;
             if (data.length == 0) {
                 _this.notExist = true;
@@ -4511,25 +4876,43 @@ var AdminRequestUsersComponent = /** @class */ (function () {
     // //accept user
     AdminRequestUsersComponent.prototype.acceptUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.acceptUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //reject User
     AdminRequestUsersComponent.prototype.rejectUser = function (id) {
         var _this = this;
+        this.showSpinner = true;
         console.log(id);
         this.adminService.rejectUser(id).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4553,7 +4936,8 @@ var AdminRequestUsersComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
             router_1.Router,
-            config_1.Config])
+            config_1.Config,
+            material_1.MatSnackBar])
     ], AdminRequestUsersComponent);
     return AdminRequestUsersComponent;
 }());
@@ -4583,7 +4967,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-side-bar/admin-side-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a>\r\n   <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-tachometer\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li>\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\">\r\n      <li><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n      <li><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!-- ----------------------------------End------------------------------------------- -->\r\n"
+module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a>\r\n   <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-tachometer\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li>\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\">\r\n\r\n      <li><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n      <li><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!-- ----------------------------------End------------------------------------------- -->\r\n"
 
 /***/ }),
 
@@ -4633,7 +5017,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -4646,7 +5030,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-subscribed/admin-subscribed.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n      <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Company Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  \r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n  \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  \r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div>\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n    </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -4670,12 +5054,14 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminSubscribedComponent = /** @class */ (function () {
-    function AdminSubscribedComponent(adminService, routes) {
+    function AdminSubscribedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin company management
@@ -4688,26 +5074,31 @@ var AdminSubscribedComponent = /** @class */ (function () {
     // -----------------------------------
     AdminSubscribedComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selected);
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllsubcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Active') {
             this.adminService.getAllsubactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Block') {
             this.adminService.getAllsubblockcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Delete') {
             this.adminService.getAllsubdeletecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
     };
@@ -4783,36 +5174,63 @@ var AdminSubscribedComponent = /** @class */ (function () {
     //delete company
     AdminSubscribedComponent.prototype.deleteCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //block company
     AdminSubscribedComponent.prototype.blockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.blockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //unblock company
     AdminSubscribedComponent.prototype.unblockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.unblockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -4831,7 +5249,7 @@ var AdminSubscribedComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-subscribed/admin-subscribed.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router, material_1.MatSnackBar])
     ], AdminSubscribedComponent);
     return AdminSubscribedComponent;
 }());
@@ -4975,7 +5393,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -4988,7 +5406,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-trial/admin-trial.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n      <div *ngIf=\"notExist\"><h4 class=\"tb-hd\">No Company Found!</h4></div>\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n  \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
+module.exports = "<mat-form-field class=\"filter\" >\r\n    <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n      <!-- <mat-option>None</mat-option> -->\r\n      <mat-option value=\"all\">All</mat-option>\r\n      <mat-option value=\"Active\">Active</mat-option>\r\n      <mat-option value=\"Block\">Block</mat-option>\r\n      <mat-option value=\"Delete\">Delete </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n  \r\n  <div class=\"example-container mat-elevation-z8\">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_first_name}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_number}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n        <mat-spinner></mat-spinner>\r\n       </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n    </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n  "
 
 /***/ }),
 
@@ -5012,12 +5430,14 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminTrialComponent = /** @class */ (function () {
-    function AdminTrialComponent(adminService, routes) {
+    function AdminTrialComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
+        this.showSpinner = false;
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin company management
@@ -5029,26 +5449,31 @@ var AdminTrialComponent = /** @class */ (function () {
     // Desc          : Allnot trailcompanieslist
     AdminTrialComponent.prototype.refresh = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selected);
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAlltrialcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Active') {
             this.adminService.getAlltrialactivecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Block') {
             this.adminService.getAlltrialblockcompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
         if (this.selected == 'Delete') {
             this.adminService.getAlltrialdeletecompanies().subscribe(function (data) {
                 _this.loadToDataTable(data);
+                _this.showSpinner = false;
             });
         }
     };
@@ -5124,36 +5549,63 @@ var AdminTrialComponent = /** @class */ (function () {
     //delete company
     AdminTrialComponent.prototype.deleteCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.deleteCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //block company
     AdminTrialComponent.prototype.blockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.blockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
     //unblock company
     AdminTrialComponent.prototype.unblockCompany = function (id) {
         var _this = this;
+        this.showSpinner = true;
         this.adminService.unblockCompany(id).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
                 _this.refresh();
             }
             else {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -5172,7 +5624,8 @@ var AdminTrialComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/admin-trial/admin-trial.component.css")]
         }),
         __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], AdminTrialComponent);
     return AdminTrialComponent;
 }());
@@ -5306,7 +5759,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-additn-info/company-additn-info.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\">\r\n\r\n<flash-messages></flash-messages>\r\n<mat-horizontal-stepper [linear]=\"isLinear\">\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm1()\" >\r\n      <ng-template matStepLabel>Step 1</ng-template>\r\n      <h5>Email : {{contact_person_email}}</h5>\r\n      <h5>Contact Name : {{contact_person_fname}} {{contact_person_lname}}</h5>\r\n      <h4>Tell us about your job to get a sense of how many responses to expect</h4>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\" placeholder=\"Your Organization\" required formControlName=\"orgValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <mat-select placeholder=\"Organization Type\" [(ngModel)]=\"newReg.organization_type\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n          <mat-option *ngFor=\"let type of orgType\" [value]=\"type\" > \r\n            {{ type.name }}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n\t  \r\n          <mat-select placeholder=\"Industry\" [(ngModel)]=\"newReg.industry\" name=\"industry\" required formControlName=\"industryValidation\">\r\n              <mat-option *ngFor=\"let item of industry\" [value]=\"item\">\r\n                {{ item.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" placeholder=\"Location\" required formControlName=\"locationValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" placeholder=\"Company Strength\"  required formControlName=\"strengthValidation\">\r\n        </mat-form-field>\r\n        <br/>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm2()\" >\r\n      <ng-template matStepLabel>Step 2</ng-template>\r\n      <h4>Tell us about yourself</h4>\r\n       <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" placeholder=\"Phone Number\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n        <mat-error>Not a valid phone number</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" placeholder=\"Job Role\" required formControlName=\"jobRoleValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n   <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" placeholder=\"Job Level\" required formControlName=\"jobLevelValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperPrevious>Back</button>\r\n      </div>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n    </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"thirdFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"register()\">\r\n    <ng-template matStepLabel>Step 3</ng-template>\r\n    <h4>Tell us who you are looking to get answers from</h4>\r\n    <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n        <mat-checkbox class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n      \r\n    </section>\r\n    <div class=\"btn btn-danger\">\r\n      <button mat-button matStepperPrevious>Back</button>\r\n    </div>\r\n    <div class=\"btn btn-danger\">\r\n      <button type=\"submit\" mat-button >Finish</button>\r\n    </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n</mat-horizontal-stepper>\r\n\r\n"
+module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\">\r\n\r\n<flash-messages></flash-messages>\r\n<mat-horizontal-stepper [linear]=\"isLinear\">\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm1()\" >\r\n      <ng-template matStepLabel>Step 1</ng-template>\r\n      <h5>Email : {{contact_person_email}}</h5>\r\n      <h5>Contact Name : {{contact_person_fname}} {{contact_person_lname}}</h5>\r\n      <h4>Tell us about your job to get a sense of how many responses to expect</h4>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\" placeholder=\"Your Organization\" required formControlName=\"orgValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <mat-select placeholder=\"Organization Type\" [(ngModel)]=\"newReg.organization_type\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n          <mat-option *ngFor=\"let type of orgType\" [value]=\"type\" > \r\n            {{ type.name }}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n\t  \r\n          <mat-select placeholder=\"Industry\" [(ngModel)]=\"newReg.industry\" name=\"industry\" required formControlName=\"industryValidation\">\r\n              <mat-option *ngFor=\"let item of industry\" [value]=\"item\">\r\n                {{ item.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" placeholder=\"Location\" required formControlName=\"locationValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" placeholder=\"Company Strength\"  required formControlName=\"strengthValidation\">\r\n        </mat-form-field>\r\n        <br/>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm2()\" >\r\n      <ng-template matStepLabel>Step 2</ng-template>\r\n      <h4>Tell us about yourself</h4>\r\n       <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" placeholder=\"Phone Number\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n        <mat-error>Not a valid phone number</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" placeholder=\"Job Role\" required formControlName=\"jobRoleValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n   <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" placeholder=\"Job Level\" required formControlName=\"jobLevelValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperPrevious>Back</button>\r\n      </div>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n    </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"thirdFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"register()\">\r\n    <ng-template matStepLabel>Step 3</ng-template>\r\n    <h4>Tell us who you are looking to get answers from</h4>\r\n    <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n        <mat-checkbox class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n      \r\n    </section>\r\n    <div class=\"btn btn-danger\">\r\n      <button mat-button matStepperPrevious>Back</button>\r\n    </div>\r\n    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n      <mat-spinner></mat-spinner>\r\n   </div>\r\n    <div class=\"btn btn-danger\">\r\n      <button type=\"submit\" mat-button >Finish</button>\r\n    </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n</mat-horizontal-stepper>\r\n\r\n"
 
 /***/ }),
 
@@ -5329,14 +5782,17 @@ var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var CompanyAdditnInfoComponent = /** @class */ (function () {
-    function CompanyAdditnInfoComponent(_formBuilder, companyService, routes, _flashMessagesService, route) {
+    function CompanyAdditnInfoComponent(_formBuilder, companyService, routes, _flashMessagesService, route, snackBar) {
         this._formBuilder = _formBuilder;
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
         this.route = route;
+        this.snackBar = snackBar;
+        this.showSpinner = false;
         this.isLinear = true;
         this.timestamp = new Date().getTime().toString();
         this.newReg = {
@@ -5473,6 +5929,7 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
     };
     CompanyAdditnInfoComponent.prototype.register = function () {
         var _this = this;
+        this.showSpinner = true;
         this.thirdForm = '';
         this.newReg.survey_attenders = [];
         this.surveyattenders.forEach(function (element) {
@@ -5495,7 +5952,11 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
         // Desc          : Save additional information for company who sign in with google or facebook
         this.companyService.registerAdditnInfo(this.id, this.result).subscribe(function (info) {
             if (info.success == true) {
-                _this._flashMessagesService.show('Redirecting..', { cssClass: 'alert-success', timeout: 4000 });
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('Redirecting..', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Redirecting into your account.', '', {
+                    duration: 2000
+                });
                 // this.companyService.generateToken(this.id).subscribe(data2 => {
                 //   if(data2.success){
                 //     this.companyService.storeUserData(data2.token, data2.company);
@@ -5503,13 +5964,17 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
                 // });
                 setTimeout(function () {
                     _this.routes.navigate(['/dashboard']);
-                }, 4000);
+                }, 2000);
             }
             else {
-                _this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
-                setTimeout(function () {
-                    _this.routes.navigate(['/404']);
-                }, 4000);
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('Error', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Error', '', {
+                    duration: 2000
+                });
+                // setTimeout(() => {  
+                _this.routes.navigate(['/404']);
+                // }, 4000);
             }
         });
         // -----------------------------------End------------------------------------------
@@ -5520,7 +5985,7 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute, material_1.MatSnackBar])
     ], CompanyAdditnInfoComponent);
     return CompanyAdditnInfoComponent;
 }());
@@ -5537,7 +6002,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "path {  stroke: #fff; }\r\npath:hover {  opacity:0.9; }\r\nrect:hover {  fill:blue; }\r\n.axis {  font: 10px sans-serif; }\r\n.legend tr{    border-bottom:1px solid grey; }\r\n.legend tr:first-child{    border-top:1px solid grey; }\r\n\r\n.axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n\r\n.x.axis path {  display: none; }\r\n.legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n.legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n.legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n\r\n  .wdth{\r\n    width: 804px;\r\n  }", ""]);
+exports.push([module.i, "path {  stroke: #fff; }\r\npath:hover {  opacity:0.9; }\r\nrect:hover {  fill:blue; }\r\n.axis {  font: 10px sans-serif; }\r\n.legend tr{    border-bottom:1px solid grey; }\r\n.legend tr:first-child{    border-top:1px solid grey; }\r\n\r\n.axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n\r\n.x.axis path {  display: none; }\r\n.legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n.legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n.legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n\r\n  .wdth{\r\n    width: 804px;\r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -5550,7 +6015,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-chart2/company-chart2.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>{{title}}</h2>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n\r\n    <svg  id=\"br-1\"width=\"600\" height=\"300\"></svg>\r\n\r\n\r\n<svg id=\"sd\" width=\"400\" height=\"390\" ></svg>\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"answeredUsers\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog wdth\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">Answered Users</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n     \r\n\r\n          <div class=\"example-header\">\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n          </div>\r\n            \r\n            <div class=\"example-container mat-elevation-z8\">\r\n\r\n                <div class=\"example-container mat-elevation-z8\">\r\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\r\n                  \r\n                      <ng-container matColumnDef=\"slno\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n                      </ng-container>\r\n                        <!-- Name Column -->\r\n                        <ng-container matColumnDef=\"email\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n                        </ng-container>\r\n                    \r\n                     <!-- Answer Column -->\r\n                     <div >\r\n                      <ng-container  matColumnDef=\"answer\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Answer </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"> {{row.answer}} </mat-cell>\r\n                      </ng-container>\r\n                    </div>\r\n\r\n                     <!-- Name Column -->\r\n                     <ng-container matColumnDef=\"date_time\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\r\n                    </ng-container>\r\n                  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                      </mat-row>\r\n                    </mat-table>\r\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                  </div>\r\n              \r\n            </div>\r\n            <br>\r\n          \r\n     \r\n\r\n  \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<h2>{{title}}</h2>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n\r\n    <svg  id=\"br-1\"width=\"600\" height=\"300\"></svg>\r\n\r\n\r\n<svg id=\"sd\" width=\"400\" height=\"390\" ></svg>\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"answeredUsers\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog wdth\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">Answered Users</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n     \r\n\r\n          <div class=\"example-header\">\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n          </div>\r\n            \r\n            <div class=\"example-container mat-elevation-z8\">\r\n\r\n                <div class=\"example-container mat-elevation-z8\">\r\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\r\n                  \r\n                      <ng-container matColumnDef=\"slno\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n                      </ng-container>\r\n                        <!-- Name Column -->\r\n                        <ng-container matColumnDef=\"email\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n                        </ng-container>\r\n                    \r\n                     <!-- Answer Column -->\r\n                     <div >\r\n                      <ng-container  matColumnDef=\"answer\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Answer </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"> {{row.answer}} </mat-cell>\r\n                      </ng-container>\r\n                    </div>\r\n\r\n                     <!-- Name Column -->\r\n                     <ng-container matColumnDef=\"date_time\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\r\n                    </ng-container>\r\n                  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                      </mat-row>\r\n                    </mat-table>\r\n               \r\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                  </div>\r\n              \r\n            </div>\r\n            <br>\r\n          \r\n     \r\n\r\n  \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -5800,7 +6265,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n\r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n\r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  .ftr h4{\r\n    font-size: 16px ;\r\n}\r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px !important;\r\n  }\r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n    .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n\r\n\r\n    .mat-checkbox-layout{\r\n      margin-bottom: 24px;\r\n  }\r\n  .control-label{\r\n    font-size: 14px;\r\n    font-weight: 400\r\n}\r\n.quest{\r\n  margin: 40px 20px;\r\n  background: #f1e8e8;\r\n  padding: 10px;\r\n  position: relative;\r\n}\r\n.edit-iconz{position:absolute ;right: 0;top: 0;z-index: 10;min-height:10px;width:40px;}\r\n.progrs{\r\n  margin: 10px 20px;\r\n}\r\n\r\n\r\n.ourbutton2{    border-radius: 20px;\r\n    padding: 7px 40px;}\r\n.buttonleft{padding:2em 0;min-height: 300px;}\r\n\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n\r\n    .modal-content{border-radius:0;box-shadow:none;}\r\n    .modal-header {\r\n        padding: 7px 15px;\r\n        border-bottom: 1px solid #e5e5e5;\r\n        background: #da524f;\r\n    }\r\n    .modal-title {\r\n        margin: 0;\r\n        line-height: 26px;\r\n        font-size: 15px;\r\n        color: #fff;\r\n    }\r\n    .close {\r\n       \r\n        font-size: 21px;\r\n        font-weight: 400;\r\n        line-height: 28px;\r\n        color: #fff;\r\n        text-shadow: none;\r\n        filter: alpha(opacity=20);\r\n        opacity: inherit;\r\n        padding-top:0px;\r\n    }\r\n    a{outline:none; }\r\n    .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n    \r\n    .inputfileds{\r\n        width: 300px !important;\r\n    }\r\n    .inputitem{\r\n        margin-bottom:-15px;\r\n        float: left;\r\n        width: 500px;\r\n        /* width: 305px; */\r\n        /* width: 400px; */\r\n    }\r\n    .relaive{position:relative;}    \r\n\r\n    .bdy{\r\n      min-height: 300px;\r\n    }\r\n\r\n    .filter{\r\n      width: 20%;\r\n      float: right;\r\n      clear: left;\r\n    }", ""]);
+exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n\r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n\r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  .ftr h4{\r\n    font-size: 16px ;\r\n}\r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px !important;\r\n  }\r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n    .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n\r\n\r\n    .mat-checkbox-layout{\r\n      margin-bottom: 24px;\r\n  }\r\n  .control-label{\r\n    font-size: 14px;\r\n    font-weight: 400\r\n}\r\n.quest{\r\n  margin: 40px 20px;\r\n  background: #f1e8e8;\r\n  padding: 10px;\r\n  position: relative;\r\n}\r\n.edit-iconz{position:absolute ;right: 0;top: 0;z-index: 10;min-height:10px;width:40px;}\r\n.progrs{\r\n  margin: 10px 20px;\r\n}\r\n\r\n\r\n.ourbutton2{    border-radius: 20px;\r\n    padding: 7px 40px;}\r\n.buttonleft{padding:2em 0;min-height: 300px;}\r\n\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n\r\n    .modal-content{border-radius:0;box-shadow:none;}\r\n    .modal-header {\r\n        padding: 7px 15px;\r\n        border-bottom: 1px solid #e5e5e5;\r\n        background: #da524f;\r\n    }\r\n    .modal-title {\r\n        margin: 0;\r\n        line-height: 26px;\r\n        font-size: 15px;\r\n        color: #fff;\r\n    }\r\n    .close {\r\n       \r\n        font-size: 21px;\r\n        font-weight: 400;\r\n        line-height: 28px;\r\n        color: #fff;\r\n        text-shadow: none;\r\n        filter: alpha(opacity=20);\r\n        opacity: inherit;\r\n        padding-top:0px;\r\n    }\r\n    a{outline:none; }\r\n    .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n    \r\n    .inputfileds{\r\n        width: 300px !important;\r\n    }\r\n    .inputitem{\r\n        margin-bottom:-15px;\r\n        float: left;\r\n        width: 500px;\r\n        /* width: 305px; */\r\n        /* width: 400px; */\r\n    }\r\n    .relaive{position:relative;}    \r\n\r\n    .bdy{\r\n      min-height: 300px;\r\n    }\r\n\r\n    .filter{\r\n      width: 20%;\r\n      float: right;\r\n      clear: left;\r\n    }\r\n    .noItemFound{\r\n      text-align: center;\r\n      background-color: #ffffff;\r\n      border-bottom: 1px solid lightgray;\r\n  \r\n   }\r\n   .back-color{\r\n      color: #757575;\r\n      background-color: #ffffff;\r\n  }", ""]);
 
 // exports
 
@@ -5813,7 +6278,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-create-survey/company-create-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body *ngIf=\"!preview\">\n    \n                  <div id=\"wrapper\">\n              \n                      <!-- Navigation -->\n                      <app-company-top-bar></app-company-top-bar>            \n          <app-company-sidebar></app-company-sidebar>\n              \n                      <div id=\"\">\n                          <div class=\"container-fluid\">\n                                  \n                                              <!-- Page Heading -->\n                                            \n                                        \n                                              <!-- /.row -->\n                              \n                                          </div>\n                          <div class=\"row\">\n                            <div class=\"col-md-2\"> </div>    \n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \n                            <div class=\"col-md-10\">\n                              \n                                <div class=\"col-md-4\">\n                                    <div style=\"background-color: #fff;padding: 10px\">\n                                      <h3>Create Survey</h3>\n\n\n                                      <mat-form-field  class=\"inputfileds\">\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\n                                        </mat-form-field>\n                                        <br>\n                                        <mat-form-field class=\"inputfileds\">\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                          <br>\n                                          <mat-form-field>\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\n                                          </mat-form-field>\n                                          <br>\n                                          <mat-form-field>\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\n                                          </mat-form-field>\n                                          <br>\n                                        <mat-form-field class=\"inputfileds\">\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                          <br>\n                                        <mat-form-field  class=\"inputfileds\">\n                                            <mat-select [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                          <br>\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\n                                          <section class=\"example-section\">\n                                             Dispaly Page Number\n                                              <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\n                                                 \n                                                </mat-slide-toggle>\n                                                \n                                              </section>\n                                              <br>\n                                             </div> \n                                                \n                                          <section  class=\"example-section\">\n                                              Random Question  \n                                              <mat-slide-toggle  [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\n                                                 \n                                                </mat-slide-toggle>\n                                              </section>\n\n                                              <br>\n                                              <section  class=\"example-section\">\n                                                  Skip Question  \n                                                  <mat-slide-toggle  [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\n                                                     \n                                                    </mat-slide-toggle>\n                                                  </section>\n                                         <br>\n                                          <section class=\"example-section\">\n                                            Header  \n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\n                                               \n                                              </mat-slide-toggle>\n                                            </section>\n                                          <br>\n                                          \n                                          <section class=\"example-section\">\n                                            Footer  \n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\n                                               \n                                              </mat-slide-toggle>\n                                            </section>\n                                           \n                                    </div>\n                                </div>\n                                <div class=\"col-md-8\">\n                                    <div style=\"background-color: #fff\">\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\n                                            <div class=\"overlayz\"></div>\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\" style=\"display: none;\"></a>\n                                        <br>\n                                        <br>\n                                            <div class=\"col-md-12 shdw\">\n                                              <div class=\"row\">\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\n                                                  <div class=\"col-md-2\">\n                                                  <div class=\"image-upload\">\n\n                                                      <label for=\"file-input\">\n                                                          <h6 *ngIf=\"!survey.logoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\n                                                      </label>\n                                                  \n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\n                                                  </div>\n                                                </div>\n                                                  <div class=\"col-md-10\">\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\n                                                  </h5></a>\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\n                                                </div>\n                                                </div>\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\n                                                  <div class=\"row\">\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\n                                                                  {{item.question}}\n                                                                </h4>\n                                                                <div class=\"edit-iconz\">\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\n                                                                </div>\n                                                          </div>\n                                                        </div>\n                                                  </div>\n                                                  \n                                                  <div>\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\n                                                        <div class=\"progress\" >\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\n                                                              <span class=\"sr-only\">70% Complete</span>\n                                                            </div>\n                                                          </div> \n                                                    </div>\n                                                                \n                                                  </div> \n                                                </div>\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\n                                                  </h6>\n                                                  </a>\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\n                                              </div>\n                                                <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button>\n                                                <div *ngIf=\"isError2\" class=\"text-danger text-left\">\n                                                    {{msg2}}\n                                               </div>\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\n                                                    {{msg2}}\n                                              </div>\n                                              </div>\n                                            </div>\n                                          </div>\n                                    </div>\n                                </div>\n                            </div>\n                            </form> \n                          </div>\n                          \n                        </div>\n                        <!-- /#page-wrapper -->\n                        \n                                   \n                        </div>\n                    \n                        \n\n                      <!-- User Invite Popup start   -->\n\n                        <div id=\"inviteUser\"  class=\"modal fade\">\n                            <div class=\"modal-dialog\">\n                            \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <div class=\"modal-header\">\n                                  <!-- <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button> -->\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\n                                </div>\n                                <div class=\"modal-body\">\n                                  \n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\n                              \n                                  <div class=\"form-group\" >\n                                      \n                                  \n                                  <mat-form-field class=\"filter\">\n                                      \n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\n                                          <mat-option value=\"all\">All</mat-option>\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\n                                        </mat-select>\n                                      </mat-form-field>\n                                      \n                                      <!-- <p>You selected: {{selected}} </p> -->\n                                    <div class=\"example-header\">\n                                      <mat-form-field>\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n                                      </mat-form-field>\n                                    </div>\n                                      \n                                      <div class=\"example-container mat-elevation-z8\">\n\n                                          <div class=\"example-container mat-elevation-z8\">\n                                              <mat-table #table [dataSource]=\"dataSource\">\n                                            \n                                                <!-- Checkbox Column -->\n                                                <ng-container matColumnDef=\"select\">\n                                                  <mat-header-cell *matHeaderCellDef>\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n                                                    </mat-checkbox>\n                                                  </mat-header-cell>\n                                                  <mat-cell *matCellDef=\"let row\">\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\n                                                                  [checked]=\"selection.isSelected(row)\">\n                                                    </mat-checkbox>\n                                                  </mat-cell>\n                                                </ng-container>\n                                            \n                                                    <ng-container matColumnDef=\"email\">\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\n                                                      </ng-container>\n                                            \n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n                                                         (click)=\"selection.toggle(row)\">\n                                                </mat-row>\n                                              </mat-table>\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n                                            </div>\n                                        \n                                      </div>\n                                      <br>\n                                      {{selection.selected.length}} User Selected\n                                      <br>\n\n                                      <div >\n                                          <mat-form-field class=\"inputfileds\" >\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\n                                            </mat-form-field>\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\n                                      </div>\n                                  </div>\n\n                                  <div style=\"clear: both;\"></div>\n                                  <div *ngIf=\"isError3\" class=\"text-danger text-left\">\n                                      {{msg3}}\n                                 </div>\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\n                                    {{msg3}}\n                              </div>\n                                  <!-- <button [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" >Send Later</button> -->\n                                  <a class=\"btn btn-danger ourbutton\"  href=\"/company-list-survey\" >Send Later</a>\n                                  <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\n                                  \n                                 \n                              <!-- </form> -->\n                                </div>\n                                <div class=\"modal-footer\">\n                                </div>\n                              </div>\n                              \n                            </div>\n                          </div>\n\n                          <!-- user ivite Popup End   -->\n\n\n\n\n                      <!-- Edit Popup start   -->\n\n                        <div id=\"editQuestion\"  class=\"modal fade\">\n                            <div class=\"modal-dialog\">\n                            \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <div class=\"modal-header\">\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\n                                  <h4 class=\"modal-title\">Update Question</h4>\n                                </div>\n                                <div class=\"modal-body\">\n                                  \n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\n                              \n                                  <div class=\"form-group\" >\n                                      <label > Question </label>\n                                      <br>\n                                      <div *ngIf=\"isError1\" class=\"text-danger text-left\">\n                                          {{msg1}}\n                                     </div>\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\n                                        {{msg1}}\n                                  </div>\n\n                                      <div class=\"inputitem\">\n                                          <mat-form-field class=\"inputfileds\">\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\n                                          </mat-form-field>\n                                        \n                                        </div>\n                                      <br>\n                                      <br>\n                                      <br>\n                                      <br>\n                                 \n                                      <div class=\"inputitem\">\n                                          <mat-form-field class=\"inputfileds\">\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                      </div>\n                                     \n                                      <div style=\"clear: both;\"></div>\n\n                                      <!-- multiple choice Start -->\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\n                                              <div class=\"inputitem\">\n                                                  <div class=\"row\">\n                                                      <div class=\"col-md-7\">\n                                                        <mat-form-field class=\"inputfileds\">\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\n                                                        </mat-form-field>\n                                                      </div>  \n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\n                                                      </div>  \n                                              </div>\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\n                                                 \n                                              </div> -->\n                                            </div>\n                                      </div>\n                                      <div style=\"clear: both;\"></div>\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\n                                      </div>\n                                       <!-- multiple choice  End -->\n\n                                      <!-- Start Rating Start -->\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\n                                          <br>\n                                          <section class=\"example-section\">\n                                            Show Label  \n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\n                                               \n                                              </mat-slide-toggle>\n                                            </section>\n                                            <div *ngIf=\"editQuest.showStarLabel\">\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-7\">\n                                                        <mat-form-field class=\"inputfileds\">\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\n                                                        </mat-form-field>\n                                                      </div>  \n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\n                                                  </div>\n                                                  \n                                                </div>\n                                              </div>\n                                            </div>\n                                      </div>\n                                       <!-- Star Rating  End -->\n\n                                  </div>\n                                  <div style=\"clear: both;\"></div>\n                                  <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\n                                 \n                              </form>\n                                </div>\n                                <div class=\"modal-footer\">\n                                </div>\n                              </div>\n                              \n                            </div>\n                          </div>\n\n                          <!-- Edit Popup End   -->\n\n\n                        <!-- Add Popup Start   -->\n\n                        <div id=\"addQuestion\"  class=\"modal fade\">\n                            <div class=\"modal-dialog\">\n                            \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <div class=\"modal-header\">\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\n                                  <h4 class=\"modal-title\">Create Question</h4>\n                                </div>\n                                <div class=\"modal-body\">\n                                  \n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\n                              \n                                  <div class=\"form-group\" >\n                                      <label > Question </label>\n                                      <br>\n                                      <div *ngIf=\"isError\" class=\"text-danger text-left\">\n                                          {{msg}}\n                                     </div>\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\n                                        {{msg}}\n                                  </div>\n\n                                      <div class=\"inputitem\">\n                                          <mat-form-field class=\"inputfileds\">\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\n                                          </mat-form-field>\n                                        \n                                        </div>\n                                      <br>\n                                      <br>\n                                      <br>\n                                      <br>\n                                 \n                                      <div class=\"inputitem\">\n                                          <mat-form-field class=\"inputfileds\">\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                      </div>\n                                     \n                                      <div style=\"clear: both;\"></div>\n\n                                      <!-- multiple choice Start -->\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\n                                              <div class=\"inputitem\">\n                                                  <div class=\"row\">\n                                                      <div class=\"col-md-7\">\n                                                        <mat-form-field class=\"inputfileds\">\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\n                                                        </mat-form-field>\n                                                      </div>  \n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\n                                                      </div>  \n                                              </div>\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\n                                                 \n                                              </div> -->\n                                            </div>\n                                      </div>\n                                      <div style=\"clear: both;\"></div>\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\n                                      </div>\n                                       <!-- multiple choice  End -->\n\n                                      <!-- Start Rating Start -->\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\n                                          <br>\n                                          <section class=\"example-section\">\n                                            Show Label  \n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\n                                               \n                                              </mat-slide-toggle>\n                                            </section>\n                                            <div *ngIf=\"quest.showStarLabel\">\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-7\">\n                                                        <mat-form-field class=\"inputfileds\">\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\n                                                        </mat-form-field>\n                                                      </div>  \n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\n                                                  </div>\n                                                  \n                                                </div>\n                                              </div>\n                                            </div>\n                                      </div>\n                                       <!-- Star Rating  End -->\n\n                                  </div>\n                                  <div style=\"clear: both;\"></div>\n                                  <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\n                                 \n                              </form>\n                                </div>\n                                <div class=\"modal-footer\">\n                                </div>\n                              </div>\n                              \n                            </div>\n                          </div>\n\n                            <!-- Add Popup End   -->\n\n\n                          <!-- Delete Popup Start -->\n\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\n                            <div class=\"modal-dialog\">\n                          \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <!-- <div class=\"modal-header\"> -->\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\n                                <!-- </div> -->\n                                <div class=\"modal-body\">\n                                    <h4>Are you sure ?</h4>\n                                \n                                </div>\n                              \n                                <div class=\"modal-footer\">\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\n                                </div>\n                              </div>\n                          \n                            </div>\n                          </div>\n\n                          <!-- Delete Popup End -->\n                \n                        <footer></footer> \n                          \n                        </body>\n  <div *ngIf=\"preview\">\n                            <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \n    </div>                          "
+module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Create Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field  class=\"inputfileds\">\r\n                                            <mat-select [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section  class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle  [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section  class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle  [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\" style=\"display: none;\"></a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                                    <mat-spinner></mat-spinner>\r\n                                                   </div>\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n                                                <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button>\r\n                                                <!-- <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div> -->\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <!-- <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button> -->\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\"  *ngIf=\"existStatus\" >\r\n                                      \r\n                                  \r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                      \r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [checked]=\"selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n\r\n                                              <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                                                <div class=\"col-md-4 col-md-offset-4\">\r\n                                                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                                </div>\r\n                                            </div>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div>\r\n                                  <!-- <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div> -->\r\n                                  <!-- <button [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" >Send Later</button> -->\r\n                                  <a class=\"btn btn-danger ourbutton\"  href=\"/company-list-survey\" >Send Later</a>\r\n                                  <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div>\r\n                                  <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div>\r\n                                  <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <!-- <div class=\"modal-header\"> -->\r\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                <!-- </div> -->\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure ?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n  <div *ngIf=\"preview\">\r\n                            <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n    </div>                          "
 
 /***/ }),
 
@@ -5839,12 +6304,15 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyCreateSurveyComponent = /** @class */ (function () {
-    function CompanyCreateSurveyComponent(companyService, dragulaService, routes) {
+    function CompanyCreateSurveyComponent(companyService, dragulaService, routes, snackBar) {
         this.companyService = companyService;
         this.dragulaService = dragulaService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.preview = false;
         this.displayType = [{ value: 'Single', label: 'Single Page' }, { value: 'Multiple', label: 'Multiple Page' }];
+        this.existStatus = false;
+        this.showSpinner = false;
         this.isError = false;
         this.isSuccess = false;
         this.msg = '';
@@ -5957,6 +6425,7 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             _this.dataSource = new material_1.MatTableDataSource(data);
             _this.dataSource.paginator = _this.paginator;
         });
+        this.updateUserList();
     };
     /** Whether the number of selected elements matches the total number of rows. */
     CompanyCreateSurveyComponent.prototype.isAllSelected = function () {
@@ -5978,10 +6447,17 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
     };
     CompanyCreateSurveyComponent.prototype.updateUserList = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selectedUserGroup);
         if (this.selectedUserGroup == 'all') {
             this.companyService.getMyUsers().subscribe(function (data) {
-                console.log(data);
+                _this.showSpinner = false;
+                if (data.length <= 0 || data == '') {
+                    _this.existStatus = true;
+                }
+                else {
+                    _this.existStatus = false;
+                }
                 _this.users = data;
                 _this.dataSource = new material_1.MatTableDataSource(data);
                 _this.dataSource.paginator = _this.paginator;
@@ -5990,6 +6466,13 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         }
         else {
             this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(function (data) {
+                _this.showSpinner = false;
+                if (data.length <= 0 || data == '') {
+                    _this.existStatus = true;
+                }
+                else {
+                    _this.existStatus = false;
+                }
                 _this.users = data;
                 _this.dataSource = new material_1.MatTableDataSource(_this.users);
                 _this.dataSource.paginator = _this.paginator;
@@ -6037,8 +6520,11 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             this.quest.opts.splice(index, 1);
         }
         else {
-            this.isError = true;
-            this.msg = "Atleast two options required";
+            // this.isError = true;
+            // this.msg = "Atleast two options required";
+            var snackBarRef = this.snackBar.open('* Atleast two options required!', '', {
+                duration: 2000
+            });
             setTimeout(function () {
                 _this.isError = false;
                 _this.msg = '';
@@ -6047,16 +6533,18 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         return false;
     };
     CompanyCreateSurveyComponent.prototype.removeOptionEdit = function (index) {
-        var _this = this;
         if (this.editQuest.opts.length > 2) {
             this.editQuest.opts.splice(index, 1);
         }
         else {
-            this.isError1 = true;
+            // this.isError1 = true;
             this.msg1 = "Atleast two options required";
+            var snackBarRef = this.snackBar.open(this.msg1, '', {
+                duration: 2000
+            });
             setTimeout(function () {
-                _this.isError1 = false;
-                _this.msg1 = '';
+                // this.isError1 = false;
+                // this.msg1 = '';
             }, 3000);
         }
         return false;
@@ -6081,31 +6569,38 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         return index;
     };
     CompanyCreateSurveyComponent.prototype.addQuestion = function (form) {
-        var _this = this;
+        this.showSpinner = true;
         // console.log(this.quest);
         if (this.survey.questions.length < this.loggedInCompany.plans[this.loggedInCompany.plans.length - 1].no_question) {
             this.btnDisbled = true;
-            this.isSuccess = true;
+            //this.isSuccess = true;
             if (this.quest.answerType == 'star rating' && !this.quest.showStarLabel) {
                 this.quest.starOpts = ['1', '2', '3', '4', '5'];
             }
             this.survey.questions.push(this.quest);
             this.msg = "Question Added Successfully";
+            this.showSpinner = false;
+            var snackBarRef = this.snackBar.open(this.msg, '', {
+                duration: 2000
+            });
             this.quest = { question: '', opts: ['', ''], answerType: '', showStarLabel: false, starOpts: ['', '', '', '', ''] };
             this.btnDisbled = false;
             form.resetForm();
-            setTimeout(function () {
-                _this.isSuccess = false;
-                _this.msg = '';
-            }, 2000);
+            // setTimeout(()=>{ 
+            //   this.isSuccess = false;
+            //   this.msg = '';
+            // }, 2000);
         }
         else {
-            this.isError = true;
             this.msg = "Failed, Reached Maximum Questions";
-            setTimeout(function () {
-                _this.isError = false;
-                _this.msg = '';
-            }, 2000);
+            this.showSpinner = false;
+            var snackBarRef = this.snackBar.open(this.msg, '', {
+                duration: 2000
+            });
+            // setTimeout(()=>{ 
+            //   this.isError = false;
+            //   this.msg = '';
+            // }, 2000);
         }
     };
     CompanyCreateSurveyComponent.prototype.editQuestion = function (index) {
@@ -6115,48 +6610,62 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
     };
     CompanyCreateSurveyComponent.prototype.updateQuestion = function (form) {
         var _this = this;
+        this.showSpinner = true;
         this.updateBtnDisbled = true;
-        this.isSuccess1 = true;
+        // this.isSuccess1 = true;
         if (this.editQuest.answerType == 'star rating' && !this.editQuest.showStarLabel) {
             this.editQuest.starOpts = ['1', '2', '3', '4', '5'];
         }
         this.survey.questions[this.editIndex] = this.editQuest;
         this.editIndex = 0;
         this.msg1 = "Question Updated Successfully";
+        var snackBarRef = this.snackBar.open(this.msg1, '', {
+            duration: 2000
+        });
+        this.closeBtn1.nativeElement.click();
         setTimeout(function () {
-            _this.closeBtn1.nativeElement.click();
             _this.editQuest = { question: '', opts: ['', ''], answerType: '', showStarLabel: false, starOpts: ['', '', '', '', ''] };
             form.resetForm();
-            _this.isSuccess1 = false;
-            _this.msg1 = '';
+            // this.isSuccess1 = false;
+            // this.msg1 = '';
             _this.updateBtnDisbled = false;
         }, 2000);
+        this.showSpinner = false;
     };
     CompanyCreateSurveyComponent.prototype.saveBtnClick = function (form) {
         var _this = this;
+        this.showSpinner = true;
         this.saveBtnDisbled = true;
         console.log(this.survey);
         this.companyService.createSurvey(this.survey).subscribe(function (data) {
             console.log(data);
             if (data.success) {
                 _this.selectedSurvey = data.survey;
-                _this.isSuccess2 = true;
+                // this.isSuccess2 = true;
                 _this.msg2 = "Survey Created Successfully";
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.msg2, '', {
+                    duration: 2000
+                });
                 _this.invitePopUp.nativeElement.click();
                 setTimeout(function () {
-                    _this.isSuccess2 = false;
-                    _this.msg2 = '';
+                    // this.isSuccess2 = false;
+                    // this.msg2 = '';
                 }, 2000);
             }
             else {
                 _this.saveBtnDisbled = false;
-                _this.isError2 = true;
+                _this.showSpinner = false;
+                // this.isError2 = true;
                 _this.msg2 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg2, '', {
+                    duration: 3000
+                });
                 setTimeout(function () {
                     //this.closeBtn1.nativeElement.click();
                     //  form.resetForm();
-                    _this.isError2 = false;
-                    _this.msg2 = '';
+                    // this.isError2 = false;
+                    // this.msg2 = '';
                     // this.saveBtnDisbled = ;
                 }, 2000);
             }
@@ -6164,54 +6673,72 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
     };
     CompanyCreateSurveyComponent.prototype.addUser = function () {
         var _this = this;
+        this.showSpinner = true;
         var newUser = { email: [this.newUser], groups: [] };
         this.addUserBtnDisbled = true;
         this.companyService.addUsers(newUser).subscribe(function (data) {
             if (data.success) {
+                _this.showSpinner = false;
                 _this.updateUserList();
                 _this.newUser = '';
-                _this.isSuccess3 = true;
+                // this.isSuccess3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 //update company = data.company
                 setTimeout(function () {
-                    _this.isSuccess3 = false;
-                    _this.msg3 = '';
+                    // this.isSuccess3 = false;
+                    // this.msg3 = '';
                     _this.addUserBtnDisbled = false;
                 }, 2000);
             }
             else {
-                _this.isError3 = true;
+                _this.showSpinner = false;
+                // this.isError3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 3000
+                });
                 _this.addUserBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError3 = false;
-                    _this.msg3 = '';
+                    // this.isError3 = false;
+                    // this.msg3 = '';
                 }, 3000);
             }
         });
     };
     CompanyCreateSurveyComponent.prototype.inviteUser = function () {
         var _this = this;
+        this.showSpinner = true;
         this.inviteBtnDisbled = true;
         console.log(this.selection.selected);
         var data = { users: this.selection.selected, survey: this.selectedSurvey };
         this.companyService.inviteUsers(data).subscribe(function (data) {
             if (data.success) {
-                _this.isSuccess3 = true;
+                // this.isSuccess3 = true;
                 _this.msg3 = data.msg;
-                setTimeout(function () {
-                    _this.isSuccess3 = false;
-                    _this.msg3 = '';
-                    window.location.href = "/company-list-survey";
-                }, 2000);
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
+                // setTimeout(()=>{ 
+                // this.isSuccess3 = false;
+                // this.msg3 = '';
+                // this.routes.navigate(['./company-list-survey']);
+                window.location.href = "./company-list-survey";
+                // }, 2000);
             }
             else {
-                _this.isError3 = true;
+                // this.isError3 = true;
                 _this.msg3 = data.msg;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 3000
+                });
                 _this.inviteBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError3 = false;
-                    _this.msg3 = '';
+                    // this.isError3 = false;
+                    // this.msg3 = '';
                 }, 3000);
             }
         });
@@ -6244,7 +6771,7 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-create-survey/company-create-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-create-survey/company-create-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router, material_1.MatSnackBar])
     ], CompanyCreateSurveyComponent);
     return CompanyCreateSurveyComponent;
 }());
@@ -6274,7 +6801,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-12 bg-white\">\r\n  <div class=\"col-md-6 mid-division\">\r\n      <div class=\"col-md-8 col-md-offset-2\">\r\n        <div class=\"col-md-6 col-md-offset-3\">\r\n            <h4 class=\"theme-hd\">Create Theme</h4>            \r\n        </div>\r\n        <form class=\"example-form\" >\r\n          <table class=\"example-full-width\" cellspacing=\"0\"><tr>\r\n            <td> <h4>Title</h4></td>\r\n            <td><mat-form-field class=\"example-full-width\"> \r\n              <input matInput type=\"text\" placeholder=\"Title\" [(ngModel)]=\"newTheme.title\" name=\"title\" required [formControl]=\"titleFormControl\" class=\"nme\">\r\n              <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                  Title is <strong>required</strong>\r\n                </mat-error>\r\n            </mat-form-field></td></tr>\r\n            <tr>\r\n              <td>\r\n                <h4>Header</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.h_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.h_font_color\" [(ngModel)]=\"newTheme.h_font_color\" (colorPickerChange)=\"newTheme.h_font_color=newTheme.h_font_color\" name=\"h-f-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.h_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.h_bg_color\" [(ngModel)]=\"newTheme.h_bg_color\" (colorPickerChange)=\"newTheme.h_bg_color=newTheme.h_bg_color\" name=\"h-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.h_font_family\" name=\"h-f-f\" >\r\n                    <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                      {{ font.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.h_font_size\" name=\"h-f-s\">\r\n                    <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                      {{ fontsize.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n              </td>\r\n              <td>\r\n                <section class=\"example-section\">\r\n                  <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.h_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                  <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.h_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                </section>\r\n              </td>\r\n            </tr>\r\n  \r\n  \r\n            <tr>\r\n              <td>\r\n                <h4>Question</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.q_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.q_font_color\" [(ngModel)]=\"newTheme.q_font_color\" (colorPickerChange)=\"newTheme.q_font_color=newTheme.q_font_color\" name=\"q-f-color\"/>\r\n              </td>\r\n            </tr>\r\n          \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n              </td>\r\n              <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.q_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.q_bg_color\" [(ngModel)]=\"newTheme.q_bg_color\" (colorPickerChange)=\"newTheme.q_bg_color=newTheme.q_bg_color\" name=\"q-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n          \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.q_font_family\" name=\"q-f-f\">\r\n                    <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                      {{ font.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n                                \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.q_font_size\" name=\"q-f-s \">\r\n                    <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                      {{ fontsize.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                </td>\r\n                <td>\r\n                  <section class=\"example-section\">\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.q_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.q_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                  </section>\r\n                </td>\r\n              </tr>\r\n  \r\n              <tr>\r\n                <td>\r\n                  <h4>Footer</h4>\r\n                </td>\r\n              </tr>\r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                </td>\r\n                <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.f_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.f_font_color\" [(ngModel)]=\"newTheme.f_font_color\" (colorPickerChange)=\"newTheme.f_font_color=newTheme.f_font_color\" name=\"f-f-color\"/>\r\n                </td>\r\n              </tr>\r\n          \r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                </td>\r\n                <td>\r\n                    <input readonly [(colorPicker)]=\"newTheme.f_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.f_bg_color\" [(ngModel)]=\"newTheme.f_bg_color\" (colorPickerChange)=\"newTheme.f_bg_color=newTheme.f_bg_color\" name=\"f-bg-color\"/>\r\n                </td>\r\n              </tr>\r\n          \r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                </td>\r\n                <td>\r\n                  <mat-form-field>\r\n                    <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.f_font_family\" name=\"f-f-f\">\r\n                      <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                        {{ font.name }}\r\n                      </mat-option>\r\n                    </mat-select>\r\n                  </mat-form-field>\r\n                </td>\r\n              </tr>\r\n                                \r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                </td>\r\n                <td>\r\n                  <mat-form-field>\r\n                    <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.f_font_size\" name=\"f-f-s\">\r\n                      <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                        {{ fontsize.name }}\r\n                      </mat-option>\r\n                    </mat-select>\r\n                  </mat-form-field>\r\n                </td>\r\n              </tr>\r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                </td>\r\n                <td>\r\n                  <section class=\"example-section\">\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.f_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.f_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                  </section>\r\n                </td>\r\n              </tr>\r\n            <tr>\r\n              <td>\r\n                <h4>Progress Bar Text</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.progress_text_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.progress_text_color\" [(ngModel)]=\"newTheme.progress_text_color\" (colorPickerChange)=\"newTheme.progress_text_color=newTheme.progress_text_color\" name=\"p-f-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                  <h4>Progress Bar Color</h4>\r\n                </td>\r\n                <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.progress_bar_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.progress_bar_color\" [(ngModel)]=\"newTheme.progress_bar_color\" (colorPickerChange)=\"newTheme.progress_bar_color=newTheme.progress_bar_color\" name=\"p-color\"/>\r\n                </td>\r\n              </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <h4>Body Background Color</h4>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.body_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.body_bg_color\" [(ngModel)]=\"newTheme.body_bg_color\" (colorPickerChange)=\"newTheme.body_bg_color=newTheme.body_bg_color\" name=\"b-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n          <tr>\r\n            <td>\r\n              <button type=\"submit\" (click)=\"submitTheme()\" class=\"btn btn-danger ourbutton\" [disabled]=\"submitBtnDisabled\">Submit</button> \r\n            </td>\r\n          </tr>\r\n        </table>\r\n      </form>\r\n      </div>\r\n      <!-- <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label for=\"inputEmail3\" class=\"col-sm-12 control-label\">Title</label>\r\n            <div class=\"col-sm-10\">\r\n              <input type=\"text\" class=\"form-control\"  placeholder=\"Title\">\r\n            </div>\r\n          </div>\r\n      </form> -->\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"col-md-8 col-md-offset-2\">\r\n      <h3 class=\"theme-pre-hd\">Preview</h3>\r\n      <div class=\"col-md-12 shdw\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12 hdr\" [ngStyle]=\"{'background-color': newTheme.h_bg_color}\"><h4 [ngStyle]=\"{'color': newTheme.h_font_color, 'font-size':newTheme.h_font_size, 'font-family':newTheme.h_font_family}\" [ngClass]=\"{ 'itlc' : newTheme.h_font_italic, 'bld': newTheme.h_font_bold}\">Sample Header</h4></div>\r\n          <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': newTheme.body_bg_color}\">\r\n            <div class=\"row\">\r\n                <div class=\"quest\" [ngStyle]=\"{'background-color': newTheme.q_bg_color}\">\r\n                    \r\n                         <h4 [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">1. Question here</h4>\r\n                         <mat-radio-group class=\"example-radio-group\">\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                         </mat-radio-group>\r\n                     \r\n                       \r\n                   </div>\r\n                   <div class=\"quest\" [ngStyle]=\"{'background-color': newTheme.q_bg_color}\">\r\n                         <h4 [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">2. Question here</h4>\r\n                         <mat-radio-group class=\"example-radio-group\">\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                         </mat-radio-group>\r\n                     \r\n                       \r\n                   </div>\r\n            </div>\r\n            \r\n            <div>\r\n              <div class=\"col-md-6 progrs\">\r\n                  <h5 [ngStyle]=\"{'color': newTheme.progress_text_color}\">Page No. 4 of 10</h5>\r\n                  <div class=\"progress\" >\r\n                      <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                      aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': newTheme.progress_bar_color}\">\r\n                        <span class=\"sr-only\">70% Complete</span>\r\n                      </div>\r\n                    </div> \r\n              </div>\r\n                          \r\n            </div> \r\n          </div>\r\n          <div class=\"col-md-12 ftr\" [ngStyle]=\"{'background-color': newTheme.f_bg_color}\"><h4 [ngStyle]=\"{'color': newTheme.f_font_color, 'font-size':newTheme.f_font_size, 'font-family':newTheme.f_font_family}\" [ngClass]=\"{ 'itlc' : newTheme.f_font_italic, 'bld': newTheme.f_font_bold}\">Sample Footer</h4></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n<div class=\"modal-dialog\">\r\n\r\n  <!-- Modal content-->\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <h4 class=\"modal-title\">Message</h4>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n        <h4></h4>\r\n    \r\n    </div>\r\n  \r\n    <div class=\"modal-footer\">\r\n      <button type=\"button\" *ngIf=\"!themeSaved\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      <button type=\"button\" *ngIf=\"themeSaved\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"thmSaved()\">Close</button>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n</div>"
+module.exports = "<div class=\"col-md-12 bg-white\">\r\n  <div class=\"col-md-6 mid-division\">\r\n      <div class=\"col-md-8 col-md-offset-2\">\r\n        <div class=\"col-md-6 col-md-offset-3\">\r\n            <h4 class=\"theme-hd\">Create Theme</h4>            \r\n        </div>\r\n        <form class=\"example-form\" >\r\n          <table class=\"example-full-width\" cellspacing=\"0\"><tr>\r\n            <td> <h4>Title</h4></td>\r\n            <td><mat-form-field class=\"example-full-width\"> \r\n              <input matInput type=\"text\" placeholder=\"Title\" [(ngModel)]=\"newTheme.title\" name=\"title\" required [formControl]=\"titleFormControl\" class=\"nme\">\r\n              <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                  Title is <strong>required</strong>\r\n                </mat-error>\r\n            </mat-form-field></td></tr>\r\n            <tr>\r\n              <td>\r\n                <h4>Header</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.h_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.h_font_color\" [(ngModel)]=\"newTheme.h_font_color\" (colorPickerChange)=\"newTheme.h_font_color=newTheme.h_font_color\" name=\"h-f-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.h_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.h_bg_color\" [(ngModel)]=\"newTheme.h_bg_color\" (colorPickerChange)=\"newTheme.h_bg_color=newTheme.h_bg_color\" name=\"h-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.h_font_family\" name=\"h-f-f\" >\r\n                    <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                      {{ font.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.h_font_size\" name=\"h-f-s\">\r\n                    <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                      {{ fontsize.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n              </td>\r\n              <td>\r\n                <section class=\"example-section\">\r\n                  <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.h_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                  <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.h_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                </section>\r\n              </td>\r\n            </tr>\r\n  \r\n            <tr>\r\n                <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                    <mat-spinner></mat-spinner>\r\n                   </div>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <h4>Question</h4>\r\n              </td>\r\n            </tr>\r\n          \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.q_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.q_font_color\" [(ngModel)]=\"newTheme.q_font_color\" (colorPickerChange)=\"newTheme.q_font_color=newTheme.q_font_color\" name=\"q-f-color\"/>\r\n              </td>\r\n            </tr>\r\n          \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n              </td>\r\n              <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.q_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.q_bg_color\" [(ngModel)]=\"newTheme.q_bg_color\" (colorPickerChange)=\"newTheme.q_bg_color=newTheme.q_bg_color\" name=\"q-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n          \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.q_font_family\" name=\"q-f-f\">\r\n                    <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                      {{ font.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n                                \r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n              </td>\r\n              <td>\r\n                <mat-form-field>\r\n                  <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.q_font_size\" name=\"q-f-s \">\r\n                    <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                      {{ fontsize.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                </td>\r\n                <td>\r\n                  <section class=\"example-section\">\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.q_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.q_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                  </section>\r\n                </td>\r\n              </tr>\r\n  \r\n              <tr>\r\n                <td>\r\n                  <h4>Footer</h4>\r\n                </td>\r\n              </tr>\r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                </td>\r\n                <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.f_font_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.f_font_color\" [(ngModel)]=\"newTheme.f_font_color\" (colorPickerChange)=\"newTheme.f_font_color=newTheme.f_font_color\" name=\"f-f-color\"/>\r\n                </td>\r\n              </tr>\r\n          \r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                </td>\r\n                <td>\r\n                    <input readonly [(colorPicker)]=\"newTheme.f_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.f_bg_color\" [(ngModel)]=\"newTheme.f_bg_color\" (colorPickerChange)=\"newTheme.f_bg_color=newTheme.f_bg_color\" name=\"f-bg-color\"/>\r\n                </td>\r\n              </tr>\r\n          \r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                </td>\r\n                <td>\r\n                  <mat-form-field>\r\n                    <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"newTheme.f_font_family\" name=\"f-f-f\">\r\n                      <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                        {{ font.name }}\r\n                      </mat-option>\r\n                    </mat-select>\r\n                  </mat-form-field>\r\n                </td>\r\n              </tr>\r\n                                \r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                </td>\r\n                <td>\r\n                  <mat-form-field>\r\n                    <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"newTheme.f_font_size\" name=\"f-f-s\">\r\n                      <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                        {{ fontsize.name }}\r\n                      </mat-option>\r\n                    </mat-select>\r\n                  </mat-form-field>\r\n                </td>\r\n              </tr>\r\n              <tr>\r\n                <td>\r\n                  <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                </td>\r\n                <td>\r\n                  <section class=\"example-section\">\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.f_font_bold\" name=\"bold\">Bold</mat-checkbox>\r\n                    <mat-checkbox class=\"example-margin\" [(ngModel)]=\"newTheme.f_font_italic\" name=\"italic\"><i>italic</i></mat-checkbox>\r\n                  </section>\r\n                </td>\r\n              </tr>\r\n            <tr>\r\n              <td>\r\n                <h4>Progress Bar Text</h4>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td>\r\n                <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.progress_text_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.progress_text_color\" [(ngModel)]=\"newTheme.progress_text_color\" (colorPickerChange)=\"newTheme.progress_text_color=newTheme.progress_text_color\" name=\"p-f-color\"/>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n                <td>\r\n                  <h4>Progress Bar Color</h4>\r\n                </td>\r\n                <td>\r\n                  <input readonly [(colorPicker)]=\"newTheme.progress_bar_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.progress_bar_color\" [(ngModel)]=\"newTheme.progress_bar_color\" (colorPickerChange)=\"newTheme.progress_bar_color=newTheme.progress_bar_color\" name=\"p-color\"/>\r\n                </td>\r\n              </tr>\r\n  \r\n            <tr>\r\n              <td>\r\n                <h4>Body Background Color</h4>\r\n              </td>\r\n              <td>\r\n                <input readonly [(colorPicker)]=\"newTheme.body_bg_color\"  [cpCancelButton]=\"true\" [value]=\"newTheme.body_bg_color\" [(ngModel)]=\"newTheme.body_bg_color\" (colorPickerChange)=\"newTheme.body_bg_color=newTheme.body_bg_color\" name=\"b-bg-color\"/>\r\n              </td>\r\n            </tr>\r\n          <tr>\r\n            <td>\r\n              <button type=\"submit\" (click)=\"submitTheme()\" class=\"btn btn-danger ourbutton\" [disabled]=\"submitBtnDisabled\">Submit</button> \r\n            </td>\r\n          </tr>\r\n        </table>\r\n      </form>\r\n      </div>\r\n      <!-- <form class=\"form-horizontal\">\r\n          <div class=\"form-group\">\r\n            <label for=\"inputEmail3\" class=\"col-sm-12 control-label\">Title</label>\r\n            <div class=\"col-sm-10\">\r\n              <input type=\"text\" class=\"form-control\"  placeholder=\"Title\">\r\n            </div>\r\n          </div>\r\n      </form> -->\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"col-md-8 col-md-offset-2\">\r\n      <h3 class=\"theme-pre-hd\">Preview</h3>\r\n      <div class=\"col-md-12 shdw\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12 hdr\" [ngStyle]=\"{'background-color': newTheme.h_bg_color}\"><h4 [ngStyle]=\"{'color': newTheme.h_font_color, 'font-size':newTheme.h_font_size, 'font-family':newTheme.h_font_family}\" [ngClass]=\"{ 'itlc' : newTheme.h_font_italic, 'bld': newTheme.h_font_bold}\">Sample Header</h4></div>\r\n          <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': newTheme.body_bg_color}\">\r\n            <div class=\"row\">\r\n                <div class=\"quest\" [ngStyle]=\"{'background-color': newTheme.q_bg_color}\">\r\n                    \r\n                         <h4 [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">1. Question here</h4>\r\n                         <mat-radio-group class=\"example-radio-group\">\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                         </mat-radio-group>\r\n                     \r\n                       \r\n                   </div>\r\n                   <div class=\"quest\" [ngStyle]=\"{'background-color': newTheme.q_bg_color}\">\r\n                         <h4 [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">2. Question here</h4>\r\n                         <mat-radio-group class=\"example-radio-group\">\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                           <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': newTheme.q_font_color, 'font-family':newTheme.q_font_family, 'font-size':newTheme.q_font_size}\" [ngClass]=\"{ 'itlc' : newTheme.q_font_italic, 'bld': newTheme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                         </mat-radio-group>\r\n                     \r\n                       \r\n                   </div>\r\n            </div>\r\n            \r\n            <div>\r\n              <div class=\"col-md-6 progrs\">\r\n                  <h5 [ngStyle]=\"{'color': newTheme.progress_text_color}\">Page No. 4 of 10</h5>\r\n                  <div class=\"progress\" >\r\n                      <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                      aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': newTheme.progress_bar_color}\">\r\n                        <span class=\"sr-only\">70% Complete</span>\r\n                      </div>\r\n                    </div> \r\n              </div>\r\n                          \r\n            </div> \r\n          </div>\r\n          <div class=\"col-md-12 ftr\" [ngStyle]=\"{'background-color': newTheme.f_bg_color}\"><h4 [ngStyle]=\"{'color': newTheme.f_font_color, 'font-size':newTheme.f_font_size, 'font-family':newTheme.f_font_family}\" [ngClass]=\"{ 'itlc' : newTheme.f_font_italic, 'bld': newTheme.f_font_bold}\">Sample Footer</h4></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n<div class=\"modal-dialog\">\r\n\r\n  <!-- Modal content-->\r\n  <div class=\"modal-content\">\r\n    <div class=\"modal-header\">\r\n      <h4 class=\"modal-title\">Message</h4>\r\n    </div>\r\n    <div class=\"modal-body\">\r\n        <h4></h4>\r\n    \r\n    </div>\r\n  \r\n    <div class=\"modal-footer\">\r\n      <button type=\"button\" *ngIf=\"!themeSaved\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      <button type=\"button\" *ngIf=\"themeSaved\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"thmSaved()\">Close</button>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n</div>"
 
 /***/ }),
 
@@ -6294,13 +6821,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var CompanyCreateThemeContainerComponent = /** @class */ (function () {
-    function CompanyCreateThemeContainerComponent(_companyService, routes) {
+    function CompanyCreateThemeContainerComponent(_companyService, routes, snackBar) {
         this._companyService = _companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.newTheme = {
             title: "",
             h_font_color: "#ffffff",
@@ -6328,6 +6857,7 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
         this.titleFormControl = new forms_1.FormControl('', [
             forms_1.Validators.required,
         ]);
+        this.showSpinner = false;
         // public colorx : string = "#ffffff";
         // public color2x : string = "#1f7a90";
         // public color3x : string = "#ffffff";
@@ -6380,25 +6910,39 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
     };
     CompanyCreateThemeContainerComponent.prototype.submitTheme = function () {
         var _this = this;
+        this.showSpinner = true;
         this.submitBtnDisabled = true;
         if (this.newTheme.title != "") {
             this._companyService.saveTheme(this.newTheme).subscribe(function (theme) {
                 if (theme.status == 0) {
                     _this.submitBtnDisabled = false;
-                    $('#myModal .modal-body h4').text("Theme name already exist!");
-                    $('#myModal').modal('show');
+                    // $('#myModal .modal-body h4').text("Theme name already exist!");
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* Theme name already exist!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal').modal('show'); 
                 }
                 else if (theme.status == 1) {
-                    $('#myModal .modal-body h4').text("Error occured!");
-                    $('#myModal').modal('show');
+                    // $('#myModal .modal-body h4').text("Error occured!");
+                    // $('#myModal').modal('show'); 
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* Error occured!', '', {
+                        duration: 2000
+                    });
                     _this.submitBtnDisabled = false;
                 }
                 else {
+                    window.location.reload();
                     // window.location.reload();
                     // this.routes.navigate(['/create-theme']);
                     _this.themeSaved = true;
-                    $('#myModal .modal-body h4').text("Theme saved!");
-                    $('#myModal').modal('show');
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('Theme Saved Successfully', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text("Theme saved!");
+                    // $('#myModal').modal('show'); 
                 }
             });
         }
@@ -6439,7 +6983,8 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.css")]
         }),
         __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], CompanyCreateThemeContainerComponent);
     return CompanyCreateThemeContainerComponent;
 }());
@@ -6496,6 +7041,7 @@ var CompanyCreateThemeComponent = /** @class */ (function () {
         this.companyService = companyService;
         this.routes = routes;
         this.viewComp = "list";
+        this.showSpinner = false;
     }
     CompanyCreateThemeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -7054,7 +7600,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-edit-survey/company-edit-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body *ngIf=\"!preview\">\n    \n                  <div id=\"wrapper\">\n              \n                      <!-- Navigation -->\n                      <app-company-top-bar></app-company-top-bar>            \n          <app-company-sidebar></app-company-sidebar>\n              \n                      <div id=\"\">\n                          <div class=\"container-fluid\">\n                                  \n                                              <!-- Page Heading -->\n                                            \n                                        \n                                              <!-- /.row -->\n                              \n                                          </div>\n                          <div class=\"row\">\n                            <div class=\"col-md-2\"> </div>    \n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \n                            <div class=\"col-md-10\">\n                              \n                                <div class=\"col-md-4\">\n                                    <div style=\"background-color: #fff;padding: 10px\">\n                                      <h3>Edit Survey</h3>\n\n\n                                      <mat-form-field  class=\"inputfileds\">\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\n                                        </mat-form-field>\n                                        <br>\n                                        <mat-form-field class=\"inputfileds\">\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                          <br>\n                                          <mat-form-field>\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\n                                          </mat-form-field>\n                                          <br>\n                                          <mat-form-field>\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\n                                          </mat-form-field>\n                                          <br>\n                                        <mat-form-field class=\"inputfileds\">\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                          <br>\n                                        <mat-form-field class=\"inputfileds\">\n                                            <mat-select [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                          <br>\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\n                                          <section class=\"example-section\">\n                                             Dispaly Page Number\n                                              <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\n                                                 \n                                                </mat-slide-toggle>\n                                                \n                                              </section>\n                                              <br>\n                                             </div> \n                                                \n                                          <section class=\"example-section\">\n                                              Random Question  \n                                              <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\n                                                 \n                                                </mat-slide-toggle>\n                                              </section>\n\n                                              <br>\n                                              <section class=\"example-section\">\n                                                  Skip Question  \n                                                  <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\n                                                     \n                                                    </mat-slide-toggle>\n                                                  </section>\n                                         <br>\n                                          <section class=\"example-section\">\n                                            Header  \n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\n                                               \n                                              </mat-slide-toggle>\n                                            </section>\n                                          <br>\n                                          \n                                          <section class=\"example-section\">\n                                            Footer  \n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\n                                               \n                                              </mat-slide-toggle>\n                                            </section>\n                                           \n                                    </div>\n                                </div>\n                                <div class=\"col-md-8\">\n                                    <div style=\"background-color: #fff\">\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\n                                            <div class=\"overlayz\"></div>\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\">Invite Users</a>\n                                        <br>\n                                        <br>\n                                            <div class=\"col-md-12 shdw\">\n                                              <div class=\"row\">\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\n                                                  <div class=\"col-md-2\">\n                                                  <div class=\"image-upload\">\n\n                                                      <label for=\"file-input\">\n                                                          <h6 *ngIf=\"!survey.logoSrc && !tmplogoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\n                                                          <img *ngIf=\"!survey.logoSrc && tmplogoSrc \" height=\"100\" [src]=\"tmplogoSrc\" title=\"Click here to change logo\">\n                                                      </label>\n                                                  \n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\n                                                  </div>\n                                                </div>\n                                                  <div class=\"col-md-10\">\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\n                                                  </h5></a>\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\n                                                </div>\n                                                </div>\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\n                                                  <div class=\"row\">\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\n                                                                  {{item.question}}\n                                                                </h4>\n                                                                <div class=\"edit-iconz\">\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\n                                                                </div>\n                                                          </div>\n                                                        </div>\n                                                  </div>\n                                                  \n                                                  <div>\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\n                                                        <div class=\"progress\" >\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\n                                                              <span class=\"sr-only\">70% Complete</span>\n                                                            </div>\n                                                          </div> \n                                                    </div>\n                                                                \n                                                  </div> \n                                                </div>\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\n                                                  </h6>\n                                                  </a>\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\n                                              </div>\n                                                <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Update</button>\n                                                <div *ngIf=\"isError2\" class=\"text-danger text-left\">\n                                                    {{msg2}}\n                                               </div>\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\n                                                    {{msg2}}\n                                              </div>\n                                              </div>\n                                            </div>\n                                          </div>\n                                    </div>\n                                </div>\n                            </div>\n                            </form> \n                          </div>\n                          \n                        </div>\n                        <!-- /#page-wrapper -->\n                        \n                                   \n                        </div>\n                    \n                        \n\n                      <!-- User Invite Popup start   -->\n\n                        <div id=\"inviteUser\"  class=\"modal fade\">\n                            <div class=\"modal-dialog\">\n                            \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <div class=\"modal-header\">\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\n                                </div>\n                                <div class=\"modal-body\">\n                                  \n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\n                              \n                                  <div class=\"form-group\" >\n                                      \n                                  \n                                  <mat-form-field class=\"filter\">\n                                      \n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\n                                          <mat-option value=\"all\">All</mat-option>\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\n                                        </mat-select>\n                                      </mat-form-field>\n                                      \n                                      <!-- <p>You selected: {{selected}} </p> -->\n                                    <div class=\"example-header\">\n                                      <mat-form-field>\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n                                      </mat-form-field>\n                                    </div>\n                                      \n                                      <div class=\"example-container mat-elevation-z8\">\n\n                                          <div class=\"example-container mat-elevation-z8\">\n                                              <mat-table #table [dataSource]=\"dataSource\">\n                                            \n                                                <!-- Checkbox Column -->\n                                                <ng-container matColumnDef=\"select\">\n                                                  <mat-header-cell *matHeaderCellDef>\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n                                                    </mat-checkbox>\n                                                  </mat-header-cell>\n                                                  <mat-cell *matCellDef=\"let row\">\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\n                                                                  [disabled]=\"row.invited\"\n                                                                  [checked]=\"row.invited || selection.isSelected(row)\">\n                                                    </mat-checkbox>\n                                                  </mat-cell>\n                                                </ng-container>\n                                            \n                                                    <ng-container matColumnDef=\"email\">\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\n                                                      </ng-container>\n                                            \n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n                                                         (click)=\"!row.invited && selection.toggle(row)\">\n                                                </mat-row>\n                                              </mat-table>\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n                                            </div>\n                                        \n                                      </div>\n                                      <br>\n                                      {{selection.selected.length}} User Selected\n                                      <br>\n\n                                      <div >\n                                          <mat-form-field class=\"inputfileds\" >\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\n                                            </mat-form-field>\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\n                                      </div>\n                                  </div>\n\n                                  <div style=\"clear: both;\"></div>\n                                  <div *ngIf=\"isError3\" class=\"text-danger text-left\">\n                                      {{msg3}}\n                                 </div>\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\n                                    {{msg3}}\n                              </div>\n                                  <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\n                                  \n                                 \n                              <!-- </form> -->\n                                </div>\n                                <div class=\"modal-footer\">\n                                </div>\n                              </div>\n                              \n                            </div>\n                          </div>\n\n                          <!-- user ivite Popup End   -->\n\n\n\n\n                      <!-- Edit Popup start   -->\n\n                        <div id=\"editQuestion\"  class=\"modal fade\">\n                            <div class=\"modal-dialog\">\n                            \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <div class=\"modal-header\">\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\n                                  <h4 class=\"modal-title\">Update Question</h4>\n                                </div>\n                                <div class=\"modal-body\">\n                                  \n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\n                              \n                                  <div class=\"form-group\" >\n                                      <label > Question </label>\n                                      <br>\n                                      <div *ngIf=\"isError1\" class=\"text-danger text-left\">\n                                          {{msg1}}\n                                     </div>\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\n                                        {{msg1}}\n                                  </div>\n\n                                      <div class=\"inputitem\">\n                                          <mat-form-field class=\"inputfileds\">\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\n                                          </mat-form-field>\n                                        \n                                        </div>\n                                      <br>\n                                      <br>\n                                      <br>\n                                      <br>\n                                 \n                                      <div class=\"inputitem\">\n                                          <mat-form-field class=\"inputfileds\">\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                      </div>\n                                     \n                                      <div style=\"clear: both;\"></div>\n\n                                      <!-- multiple choice Start -->\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\n                                              <div class=\"inputitem\">\n                                                  <div class=\"row\">\n                                                      <div class=\"col-md-7\">\n                                                        <mat-form-field class=\"inputfileds\">\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\n                                                        </mat-form-field>\n                                                      </div>  \n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\n                                                      </div>  \n                                              </div>\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\n                                                 \n                                              </div> -->\n                                            </div>\n                                      </div>\n                                      <div style=\"clear: both;\"></div>\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\n                                      </div>\n                                       <!-- multiple choice  End -->\n\n                                      <!-- Start Rating Start -->\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\n                                          <br>\n                                          <section class=\"example-section\">\n                                            Show Label  \n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\n                                               \n                                              </mat-slide-toggle>\n                                            </section>\n                                            <div *ngIf=\"editQuest.showStarLabel\">\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-7\">\n                                                        <mat-form-field class=\"inputfileds\">\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\n                                                        </mat-form-field>\n                                                      </div>  \n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\n                                                  </div>\n                                                  \n                                                </div>\n                                              </div>\n                                            </div>\n                                      </div>\n                                       <!-- Star Rating  End -->\n\n                                  </div>\n                                  <div style=\"clear: both;\"></div>\n                                  <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\n                                 \n                              </form>\n                                </div>\n                                <div class=\"modal-footer\">\n                                </div>\n                              </div>\n                              \n                            </div>\n                          </div>\n\n                          <!-- Edit Popup End   -->\n\n\n                        <!-- Add Popup Start   -->\n\n                        <div id=\"addQuestion\"  class=\"modal fade\">\n                            <div class=\"modal-dialog\">\n                            \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <div class=\"modal-header\">\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\n                                  <h4 class=\"modal-title\">Create Question</h4>\n                                </div>\n                                <div class=\"modal-body\">\n                                  \n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\n                              \n                                  <div class=\"form-group\" >\n                                      <label > Question </label>\n                                      <br>\n                                      <div *ngIf=\"isError\" class=\"text-danger text-left\">\n                                          {{msg}}\n                                     </div>\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\n                                        {{msg}}\n                                  </div>\n\n                                      <div class=\"inputitem\">\n                                          <mat-form-field class=\"inputfileds\">\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\n                                          </mat-form-field>\n                                        \n                                        </div>\n                                      <br>\n                                      <br>\n                                      <br>\n                                      <br>\n                                 \n                                      <div class=\"inputitem\">\n                                          <mat-form-field class=\"inputfileds\">\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\n                                            </mat-select>\n                                          </mat-form-field>\n                                      </div>\n                                     \n                                      <div style=\"clear: both;\"></div>\n\n                                      <!-- multiple choice Start -->\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\n                                              <div class=\"inputitem\">\n                                                  <div class=\"row\">\n                                                      <div class=\"col-md-7\">\n                                                        <mat-form-field class=\"inputfileds\">\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\n                                                        </mat-form-field>\n                                                      </div>  \n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\n                                                      </div>  \n                                              </div>\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\n                                                 \n                                              </div> -->\n                                            </div>\n                                      </div>\n                                      <div style=\"clear: both;\"></div>\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\n                                      </div>\n                                       <!-- multiple choice  End -->\n\n                                      <!-- Start Rating Start -->\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\n                                          <br>\n                                          <section class=\"example-section\">\n                                            Show Label  \n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\n                                               \n                                              </mat-slide-toggle>\n                                            </section>\n                                            <div *ngIf=\"quest.showStarLabel\">\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\n                                                <div class=\"row\">\n                                                    <div class=\"col-md-7\">\n                                                        <mat-form-field class=\"inputfileds\">\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\n                                                        </mat-form-field>\n                                                      </div>  \n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\n                                                  </div>\n                                                  \n                                                </div>\n                                              </div>\n                                            </div>\n                                      </div>\n                                       <!-- Star Rating  End -->\n\n                                  </div>\n                                  <div style=\"clear: both;\"></div>\n                                  <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\n                                 \n                              </form>\n                                </div>\n                                <div class=\"modal-footer\">\n                                </div>\n                              </div>\n                              \n                            </div>\n                          </div>\n\n                            <!-- Add Popup End   -->\n\n\n                          <!-- Delete Popup Start -->\n\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\n                            <div class=\"modal-dialog\">\n                          \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <!-- <div class=\"modal-header\"> -->\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\n                                <!-- </div> -->\n                                <div class=\"modal-body\">\n                                    <h4>Are you sure ?</h4>\n                                \n                                </div>\n                              \n                                <div class=\"modal-footer\">\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\n                                </div>\n                              </div>\n                          \n                            </div>\n                          </div>\n\n                          <!-- Delete Popup End -->\n                \n                        <footer></footer> \n                          \n                        </body>\n<div *ngIf=\"preview\">\n                        <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \n</div>                    "
+module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Edit Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\">Invite Users</a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc && !tmplogoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                          <img *ngIf=\"!survey.logoSrc && tmplogoSrc \" height=\"100\" [src]=\"tmplogoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                                \r\n                                                    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                                        <mat-spinner></mat-spinner>\r\n                                                       </div>\r\n                                                \r\n                                              </div>\r\n                                                <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                               \r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Update</button>\r\n                                                <!-- <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div> -->\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      \r\n                                  \r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                      \r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [disabled]=\"row.invited\"\r\n                                                                  [checked]=\"row.invited || selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"!row.invited && selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div> -->\r\n                              <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div>\r\n                                  <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn2>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div>\r\n                                  <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                               \r\n                                      <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                          <mat-spinner></mat-spinner>\r\n                                         </div>\r\n                                  \r\n                                  <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <!-- <div class=\"modal-header\"> -->\r\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                <!-- </div> -->\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure ?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n<div *ngIf=\"preview\">\r\n                        <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n</div>                    "
 
 /***/ }),
 
@@ -7081,14 +7627,16 @@ var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var CompanyEditSurveyComponent = /** @class */ (function () {
-    function CompanyEditSurveyComponent(companyService, dragulaService, routes, route, config) {
+    function CompanyEditSurveyComponent(companyService, dragulaService, routes, route, config, snackBar) {
         this.companyService = companyService;
         this.dragulaService = dragulaService;
         this.routes = routes;
         this.route = route;
         this.config = config;
+        this.snackBar = snackBar;
         this.preview = false;
         this.displayType = [{ value: 'Single', label: 'Single Page' }, { value: 'Multiple', label: 'Multiple Page' }];
+        this.showSpinner = false;
         this.isError = false;
         this.isSuccess = false;
         this.msg = '';
@@ -7284,8 +7832,10 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
     };
     CompanyEditSurveyComponent.prototype.updateUserList = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.selectedUserGroup);
         if (this.selectedUserGroup == 'all') {
+            this.showSpinner = false;
             this.companyService.getMyUsers().subscribe(function (data) {
                 _this.users = _this.updateAlreadyInvitedUsers(data);
                 console.log(_this.users);
@@ -7295,6 +7845,7 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
             });
         }
         else {
+            this.showSpinner = false;
             this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(function (data) {
                 _this.users = _this.updateAlreadyInvitedUsers(data);
                 console.log(_this.users);
@@ -7306,8 +7857,10 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
     };
     CompanyEditSurveyComponent.prototype.updateAlreadyInvitedUsers = function (data) {
         var _this = this;
+        this.showSpinner = true;
         console.log(data);
         data.forEach(function (user, i) {
+            _this.showSpinner = false;
             if (_this.invitedEmailds.indexOf(user.email) > -1) {
                 data[i].invited = true;
             }
@@ -7352,31 +7905,35 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         return new Array(length);
     };
     CompanyEditSurveyComponent.prototype.removeOption = function (index) {
-        var _this = this;
         if (this.quest.opts.length > 2) {
             this.quest.opts.splice(index, 1);
         }
         else {
-            this.isError = true;
+            // this.isError = true;
             this.msg = "Atleast two options required";
+            var snackBarRef = this.snackBar.open(this.msg, '', {
+                duration: 2000
+            });
             setTimeout(function () {
-                _this.isError = false;
-                _this.msg = '';
+                // this.isError = false;
+                // this.msg = '';
             }, 3000);
         }
         return false;
     };
     CompanyEditSurveyComponent.prototype.removeOptionEdit = function (index) {
-        var _this = this;
         if (this.editQuest.opts.length > 2) {
             this.editQuest.opts.splice(index, 1);
         }
         else {
-            this.isError1 = true;
+            // this.isError1 = true;
             this.msg1 = "Atleast two options required";
+            var snackBarRef = this.snackBar.open(this.msg1, '', {
+                duration: 2000
+            });
             setTimeout(function () {
-                _this.isError1 = false;
-                _this.msg1 = '';
+                // this.isError1 = false;
+                // this.msg1 = '';
             }, 3000);
         }
         return false;
@@ -7401,31 +7958,30 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         return index;
     };
     CompanyEditSurveyComponent.prototype.addQuestion = function (form) {
-        var _this = this;
+        this.showSpinner = true;
         // console.log(this.quest);
         if (this.survey.questions.length < this.loggedInCompany.plans[this.loggedInCompany.plans.length - 1].no_question) {
             this.btnDisbled = true;
-            this.isSuccess = true;
+            //  this.isSuccess = true;
             if (this.quest.answerType == 'star rating' && !this.quest.showStarLabel) {
                 this.quest.starOpts = ['1', '2', '3', '4', '5'];
             }
             this.survey.questions.push(this.quest);
             this.msg = "Question Added Successfully";
+            this.showSpinner = false;
+            var snackBarRef = this.snackBar.open(this.msg, '', {
+                duration: 2000
+            });
             this.quest = { question: '', opts: ['', ''], answerType: '', showStarLabel: false, starOpts: ['', '', '', '', ''] };
             this.btnDisbled = false;
             form.resetForm();
-            setTimeout(function () {
-                _this.isSuccess = false;
-                _this.msg = '';
-            }, 2000);
         }
         else {
-            this.isError = true;
-            this.msg = "Failed, Reached Maximum Questions";
-            setTimeout(function () {
-                _this.isError = false;
-                _this.msg = '';
-            }, 2000);
+            this.msg = "* Failed, Reached Maximum Questions!";
+            this.showSpinner = false;
+            var snackBarRef = this.snackBar.open(this.msg, '', {
+                duration: 2000
+            });
         }
     };
     CompanyEditSurveyComponent.prototype.editQuestion = function (index) {
@@ -7434,51 +7990,64 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         console.log(this.editQuest);
     };
     CompanyEditSurveyComponent.prototype.updateQuestion = function (form) {
-        var _this = this;
+        this.showSpinner = true;
         this.updateBtnDisbled = true;
-        this.isSuccess1 = true;
+        // this.isSuccess1 = true;
         if (this.editQuest.answerType == 'star rating' && !this.editQuest.showStarLabel) {
             this.editQuest.starOpts = ['1', '2', '3', '4', '5'];
         }
         this.survey.questions[this.editIndex] = this.editQuest;
         this.editIndex = 0;
         this.msg1 = "Question Updated Successfully";
-        setTimeout(function () {
-            _this.closeBtn1.nativeElement.click();
-            _this.editQuest = { question: '', opts: ['', ''], answerType: '', showStarLabel: false, starOpts: ['', '', '', '', ''] };
-            form.resetForm();
-            _this.isSuccess1 = false;
-            _this.msg1 = '';
-            _this.updateBtnDisbled = false;
-        }, 2000);
+        var snackBarRef = this.snackBar.open(this.msg1, '', {
+            duration: 2000
+        });
+        this.closeBtn2.nativeElement.click();
+        this.showSpinner = false;
+        // setTimeout(()=>{ 
+        // this. editQuest = {question:'',opts:['',''],answerType:'',showStarLabel : false,starOpts:['','','','','']};
+        // form.resetForm();
+        // this.isSuccess1 = false;
+        // this.msg1 = '';
+        this.updateBtnDisbled = false;
+        // }, 2000);
     };
     CompanyEditSurveyComponent.prototype.saveBtnClick = function (form) {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.survey);
         this.saveBtnDisbled = true;
         console.log(this.survey);
         this.companyService.updateSurvey(this.survey).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
+                _this.showSpinner = false;
                 _this.selectedSurvey = data.survey;
-                _this.isSuccess2 = true;
+                // this.isSuccess2 = true;
                 _this.msg2 = "Survey Updated Successfully";
+                var snackBarRef = _this.snackBar.open(_this.msg2, '', {
+                    duration: 2000
+                });
                 // this.invitePopUp.nativeElement.click();
                 setTimeout(function () {
                     _this.saveBtnDisbled = false;
-                    _this.isSuccess2 = false;
-                    _this.msg2 = '';
+                    // this.isSuccess2 = false;
+                    // this.msg2 = '';
                 }, 2000);
             }
             else {
+                _this.showSpinner = false;
                 _this.saveBtnDisbled = false;
-                _this.isError2 = true;
+                // this.isError2 = true;
                 _this.msg2 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg2, '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     //this.closeBtn1.nativeElement.click();
                     //  form.resetForm();
-                    _this.isError2 = false;
-                    _this.msg2 = '';
+                    // this.isError2 = false;
+                    // this.msg2 = '';
                     // this.saveBtnDisbled = ;
                 }, 2000);
             }
@@ -7486,57 +8055,75 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
     };
     CompanyEditSurveyComponent.prototype.addUser = function () {
         var _this = this;
+        this.showSpinner = true;
         var newUser = { email: [this.newUser], groups: [] };
         this.addUserBtnDisbled = true;
         this.companyService.addUsers(newUser).subscribe(function (data) {
             if (data.success) {
+                _this.showSpinner = false;
                 _this.updateUserList();
                 _this.newUser = '';
-                _this.isSuccess3 = true;
+                // this.isSuccess3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 //update company = data.company
                 setTimeout(function () {
-                    _this.isSuccess3 = false;
-                    _this.msg3 = '';
+                    // this.isSuccess3 = false;
+                    // this.msg3 = '';
                     _this.addUserBtnDisbled = false;
                 }, 2000);
             }
             else {
-                _this.isError3 = true;
+                _this.showSpinner = false;
+                // this.isError3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 _this.addUserBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError3 = false;
-                    _this.msg3 = '';
+                    // this.isError3 = false;
+                    // this.msg3 = '';
                 }, 3000);
             }
         });
     };
     CompanyEditSurveyComponent.prototype.inviteUser = function () {
         var _this = this;
+        this.showSpinner = true;
         // this.inviteBtnDisbled = true;
         console.log(this.selection.selected);
         var data = { users: this.selection.selected, survey: { _id: this.survey.id } };
         this.companyService.inviteUsers(data).subscribe(function (data) {
             if (data.success) {
+                _this.showSpinner = false;
                 _this.selection.selected.forEach(function (val) {
                     _this.invitedEmailds.push(val.email);
                 });
                 _this.updateUserList();
-                _this.isSuccess3 = true;
+                // this.isSuccess3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
-                    _this.isSuccess3 = false;
-                    _this.msg3 = '';
+                    // this.isSuccess3 = false;
+                    // this.msg3 = '';
                 }, 2000);
             }
             else {
-                _this.isError3 = true;
+                _this.showSpinner = false;
+                // this.isError3 = true;
                 _this.msg3 = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg3, '', {
+                    duration: 2000
+                });
                 _this.inviteBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError3 = false;
-                    _this.msg3 = '';
+                    // this.isError3 = false;
+                    // this.msg3 = '';
                 }, 3000);
             }
         });
@@ -7551,6 +8138,10 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         core_1.ViewChild('closeBtn1'),
         __metadata("design:type", core_1.ElementRef)
     ], CompanyEditSurveyComponent.prototype, "closeBtn1", void 0);
+    __decorate([
+        core_1.ViewChild('closeBtn2'),
+        __metadata("design:type", core_1.ElementRef)
+    ], CompanyEditSurveyComponent.prototype, "closeBtn2", void 0);
     __decorate([
         core_1.ViewChild('invitePopUp'),
         __metadata("design:type", core_1.ElementRef)
@@ -7569,7 +8160,7 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-edit-survey/company-edit-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-edit-survey/company-edit-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router, router_1.ActivatedRoute, config_1.Config])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router, router_1.ActivatedRoute, config_1.Config, material_1.MatSnackBar])
     ], CompanyEditSurveyComponent);
     return CompanyEditSurveyComponent;
 }());
@@ -7709,7 +8300,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-edit-theme/company-edit-theme.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  <div id=\"wrapper\">\r\n    <!-- Navigation -->\r\n    <app-company-top-bar></app-company-top-bar>            \r\n    <app-company-sidebar></app-company-sidebar>\r\n    <div id=\"\">\r\n      <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n    \r\n      \r\n        <div class=\"col-md-12\" *ngIf=\"displatStat\">\r\n         \r\n          <div class=\"col-md-12 bg-white\">\r\n            <div class=\"col-md-6 mid-division\">\r\n                <div class=\"col-md-8 col-md-offset-2\">\r\n                  <div class=\"col-md-6 col-md-offset-3\">\r\n                      <h4 class=\"theme-hd\">Edit Theme</h4>                    \r\n                      \r\n                  </div>\r\n                  <form class=\"example-form\" >\r\n                    <table class=\"example-full-width\" cellspacing=\"0\"><tr>\r\n                      <td> <h4>Title</h4></td>\r\n                      <td><mat-form-field class=\"example-full-width\"> \r\n                        <input matInput type=\"text\" placeholder=\"Title\" [(ngModel)]=\"Theme.title\" name=\"title\" required [formControl]=\"titleFormControl\" class=\"nme\">\r\n                        <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                          Title is empty<strong>required</strong>\r\n                          </mat-error>\r\n                      </mat-form-field></td></tr>\r\n                      <tr>\r\n                        <td>\r\n                          <h4>Header</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.h_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.h_font_color\" [(ngModel)]=\"Theme.h_font_color\" (colorPickerChange)=\"Theme.h_font_color=Theme.h_font_color\" name=\"h-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.h_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.h_bg_color\" [(ngModel)]=\"Theme.h_bg_color\" (colorPickerChange)=\"Theme.h_bg_color=Theme.h_bg_color\" name=\"h-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.h_font_family\" name=\"h-f-f\" >\r\n                              <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                {{ font.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.h_font_size\" name=\"h-f-s\">\r\n                              <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                {{ fontsize.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                        </td>\r\n                        <td>\r\n                          <section class=\"example-section\">\r\n                            <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.h_font_bold\" name=\"bold1\">Bold</mat-checkbox>\r\n                            <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.h_font_italic\" name=\"italic1\"><i>italic</i></mat-checkbox>\r\n                          </section>\r\n                        </td>\r\n                      </tr>\r\n            \r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <h4>Question</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.q_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.q_font_color\" [(ngModel)]=\"Theme.q_font_color\" (colorPickerChange)=\"Theme.q_font_color=Theme.q_font_color\" name=\"q-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                        </td>\r\n                        <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.q_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.q_bg_color\" [(ngModel)]=\"Theme.q_bg_color\" (colorPickerChange)=\"Theme.q_bg_color=Theme.q_bg_color\" name=\"q-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.q_font_family\" name=\"q-f-f\">\r\n                              <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                {{ font.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n                                          \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.q_font_size\" name=\"q-f-s \">\r\n                              <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                {{ fontsize.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                          </td>\r\n                          <td>\r\n                            <section class=\"example-section\">\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.q_font_bold\" name=\"bold3\">Bold</mat-checkbox>\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.q_font_italic\" name=\"italic3\"><i>italic</i></mat-checkbox>\r\n                            </section>\r\n                          </td>\r\n                        </tr>\r\n            \r\n                        <tr>\r\n                          <td>\r\n                            <h4>Footer</h4>\r\n                          </td>\r\n                        </tr>\r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                          </td>\r\n                          <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.f_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.f_font_color\" [(ngModel)]=\"Theme.f_font_color\" (colorPickerChange)=\"Theme.f_font_color=Theme.f_font_color\" name=\"f-f-color\"/>\r\n                          </td>\r\n                        </tr>\r\n                    \r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                          </td>\r\n                          <td>\r\n                              <input readonly [(colorPicker)]=\"Theme.f_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.f_bg_color\" [(ngModel)]=\"Theme.f_bg_color\" (colorPickerChange)=\"Theme.f_bg_color=Theme.f_bg_color\" name=\"f-bg-color\"/>\r\n                          </td>\r\n                        </tr>\r\n                    \r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                          </td>\r\n                          <td>\r\n                            <mat-form-field>\r\n                              <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.f_font_family\" name=\"f-f-f\">\r\n                                <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                  {{ font.name }}\r\n                                </mat-option>\r\n                              </mat-select>\r\n                            </mat-form-field>\r\n                          </td>\r\n                        </tr>\r\n                                          \r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                          </td>\r\n                          <td>\r\n                            <mat-form-field>\r\n                              <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.f_font_size\" name=\"f-f-s\">\r\n                                <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                  {{ fontsize.name }}\r\n                                </mat-option>\r\n                              </mat-select>\r\n                            </mat-form-field>\r\n                          </td>\r\n                        </tr>\r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                          </td>\r\n                          <td>\r\n                            <section class=\"example-section\">\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.f_font_bold\" name=\"bold2\">Bold</mat-checkbox>\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.f_font_italic\" name=\"italic2\"><i>italic</i></mat-checkbox>\r\n                            </section>\r\n                          </td>\r\n                        </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <h4>Progress Bar Text</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.progress_text_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.progress_text_color\" [(ngModel)]=\"Theme.progress_text_color\" (colorPickerChange)=\"Theme.progress_text_color=Theme.progress_text_color\" name=\"p-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                          <td>\r\n                            <h4>Progress Bar Color</h4>\r\n                          </td>\r\n                          <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.progress_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.progress_color\" [(ngModel)]=\"Theme.progress_color\" (colorPickerChange)=\"Theme.progress_color=Theme.progress_color\" name=\"p-color\"/>\r\n                          </td>\r\n                        </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <h4>Body Background Color</h4>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.b_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.b_bg_color\" [(ngModel)]=\"Theme.b_bg_color\" (colorPickerChange)=\"Theme.b_bg_color=Theme.b_bg_color\" name=\"b-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    <tr>\r\n                      <td>\r\n                        <button type=\"submit\" (click)=\"updateTheme()\" class=\"btn btn-danger ourbutton\" [disabled]=\"submitBtnDisabled\" id=\"upbtn\">Update</button> \r\n                      </td>\r\n                    </tr>\r\n                  </table>\r\n                </form>\r\n                </div>\r\n                <!-- <form class=\"form-horizontal\">\r\n                    <div class=\"form-group\">\r\n                      <label for=\"inputEmail3\" class=\"col-sm-12 control-label\">Title</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input type=\"text\" class=\"form-control\"  placeholder=\"Title\">\r\n                      </div>\r\n                    </div>\r\n                </form> -->\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <div class=\"col-md-8 col-md-offset-2\">\r\n                <h3 class=\"theme-pre-hd\">Preview</h3>\r\n                <div class=\"col-md-12 shdw\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-md-12 hdr\" [ngStyle]=\"{'background-color': Theme.h_bg_color}\"><h4 [ngStyle]=\"{'color': Theme.h_font_color, 'font-size':Theme.h_font_size, 'font-family':Theme.h_font_family}\" [ngClass]=\"{ 'itlc' : Theme.h_font_italic, 'bld': Theme.h_font_bold}\">Sample Header</h4></div>\r\n                    <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': Theme.b_bg_color}\">\r\n                      <div class=\"row\">\r\n                          <div class=\"quest\" [ngStyle]=\"{'background-color': Theme.q_bg_color}\">\r\n                              \r\n                                   <h4 [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">1. Question here</h4>\r\n                                   <mat-radio-group class=\"example-radio-group\">\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                                   </mat-radio-group>\r\n                               \r\n                                 \r\n                             </div>\r\n                             <div class=\"quest\" [ngStyle]=\"{'background-color': Theme.q_bg_color}\">\r\n                                   <h4 [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">2. Question here</h4>\r\n                                   <mat-radio-group class=\"example-radio-group\">\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                                   </mat-radio-group>\r\n                               \r\n                                 \r\n                             </div>\r\n                      </div>\r\n                      \r\n                      <div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <h5 [ngStyle]=\"{'color': Theme.progress_text_color}\">Page No. 4 of 10</h5>\r\n                            <div class=\"progress\" >\r\n                                <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': Theme.progress_color}\">\r\n                                  <span class=\"sr-only\">70% Complete</span>\r\n                                </div>\r\n                              </div> \r\n                        </div>\r\n                                    \r\n                      </div> \r\n                    </div>\r\n                    <div class=\"col-md-12 ftr\" [ngStyle]=\"{'background-color': Theme.f_bg_color}\"><h4 [ngStyle]=\"{'color': Theme.f_font_color, 'font-size':Theme.f_font_size, 'font-family':Theme.f_font_family}\" [ngClass]=\"{ 'itlc' : Theme.f_font_italic, 'bld': Theme.f_font_bold}\">Sample Footer</h4></div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          \r\n        </div>\r\n      </div>\r\n    <!-- /#page-wrapper -->\r\n  </div>\r\n  \r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\" data-backdrop=\"static\" data-keyboard=\"false\" >\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Error</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4></h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" *ngIf=\"stat4\" >Close</button>          \r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" *ngIf=\"!stat4\" (click)=\"redirect()\">Close</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n  <footer></footer> \r\n  \r\n"
+module.exports = "\r\n  <div id=\"wrapper\">\r\n    <!-- Navigation -->\r\n    <app-company-top-bar></app-company-top-bar>            \r\n    <app-company-sidebar></app-company-sidebar>\r\n    <div id=\"\">\r\n      <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n    \r\n      \r\n        <div class=\"col-md-12\" *ngIf=\"displatStat\">\r\n         \r\n          <div class=\"col-md-12 bg-white\">\r\n            <div class=\"col-md-6 mid-division\">\r\n                <div class=\"col-md-8 col-md-offset-2\">\r\n                  <div class=\"col-md-6 col-md-offset-3\">\r\n                      <h4 class=\"theme-hd\">Edit Theme</h4>                    \r\n                      \r\n                  </div>\r\n                  <form class=\"example-form\" >\r\n                    <table class=\"example-full-width\" cellspacing=\"0\"><tr>\r\n                      <td> <h4>Title</h4></td>\r\n                      <td><mat-form-field class=\"example-full-width\"> \r\n                        <input matInput type=\"text\" placeholder=\"Title\" [(ngModel)]=\"Theme.title\" name=\"title\" required [formControl]=\"titleFormControl\" class=\"nme\">\r\n                        <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                          Title is empty<strong>required</strong>\r\n                          </mat-error>\r\n                      </mat-form-field></td></tr>\r\n                      <tr>\r\n                        <td>\r\n                          <h4>Header</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.h_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.h_font_color\" [(ngModel)]=\"Theme.h_font_color\" (colorPickerChange)=\"Theme.h_font_color=Theme.h_font_color\" name=\"h-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.h_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.h_bg_color\" [(ngModel)]=\"Theme.h_bg_color\" (colorPickerChange)=\"Theme.h_bg_color=Theme.h_bg_color\" name=\"h-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.h_font_family\" name=\"h-f-f\" >\r\n                              <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                {{ font.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.h_font_size\" name=\"h-f-s\">\r\n                              <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                {{ fontsize.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                        </td>\r\n                        <td>\r\n                          <section class=\"example-section\">\r\n                            <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.h_font_bold\" name=\"bold1\">Bold</mat-checkbox>\r\n                            <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.h_font_italic\" name=\"italic1\"><i>italic</i></mat-checkbox>\r\n                          </section>\r\n                        </td>\r\n                      </tr>\r\n            \r\n                      <tr>\r\n                          <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                              <mat-spinner></mat-spinner>\r\n                             </div>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <h4>Question</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.q_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.q_font_color\" [(ngModel)]=\"Theme.q_font_color\" (colorPickerChange)=\"Theme.q_font_color=Theme.q_font_color\" name=\"q-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                        </td>\r\n                        <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.q_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.q_bg_color\" [(ngModel)]=\"Theme.q_bg_color\" (colorPickerChange)=\"Theme.q_bg_color=Theme.q_bg_color\" name=\"q-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.q_font_family\" name=\"q-f-f\">\r\n                              <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                {{ font.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n                                          \r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                        </td>\r\n                        <td>\r\n                          <mat-form-field>\r\n                            <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.q_font_size\" name=\"q-f-s \">\r\n                              <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                {{ fontsize.name }}\r\n                              </mat-option>\r\n                            </mat-select>\r\n                          </mat-form-field>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                          </td>\r\n                          <td>\r\n                            <section class=\"example-section\">\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.q_font_bold\" name=\"bold3\">Bold</mat-checkbox>\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.q_font_italic\" name=\"italic3\"><i>italic</i></mat-checkbox>\r\n                            </section>\r\n                          </td>\r\n                        </tr>\r\n            \r\n                        <tr>\r\n                          <td>\r\n                            <h4>Footer</h4>\r\n                          </td>\r\n                        </tr>\r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                          </td>\r\n                          <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.f_font_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.f_font_color\" [(ngModel)]=\"Theme.f_font_color\" (colorPickerChange)=\"Theme.f_font_color=Theme.f_font_color\" name=\"f-f-color\"/>\r\n                          </td>\r\n                        </tr>\r\n                    \r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Background Color</label>\r\n                          </td>\r\n                          <td>\r\n                              <input readonly [(colorPicker)]=\"Theme.f_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.f_bg_color\" [(ngModel)]=\"Theme.f_bg_color\" (colorPickerChange)=\"Theme.f_bg_color=Theme.f_bg_color\" name=\"f-bg-color\"/>\r\n                          </td>\r\n                        </tr>\r\n                    \r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Family</label>\r\n                          </td>\r\n                          <td>\r\n                            <mat-form-field>\r\n                              <mat-select placeholder=\"Select Font Family\" [(ngModel)]=\"Theme.f_font_family\" name=\"f-f-f\">\r\n                                <mat-option *ngFor=\"let font of fonts\" [value]=\"font.name\">\r\n                                  {{ font.name }}\r\n                                </mat-option>\r\n                              </mat-select>\r\n                            </mat-form-field>\r\n                          </td>\r\n                        </tr>\r\n                                          \r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Size</label>\r\n                          </td>\r\n                          <td>\r\n                            <mat-form-field>\r\n                              <mat-select placeholder=\"Select Font Size\" [(ngModel)]=\"Theme.f_font_size\" name=\"f-f-s\">\r\n                                <mat-option *ngFor=\"let fontsize of fontSize\" [value]=\"fontsize.name\">\r\n                                  {{ fontsize.name }}\r\n                                </mat-option>\r\n                              </mat-select>\r\n                            </mat-form-field>\r\n                          </td>\r\n                        </tr>\r\n                        <tr>\r\n                          <td>\r\n                            <label  class=\"col-sm-12 control-label\">Font Style</label>\r\n                          </td>\r\n                          <td>\r\n                            <section class=\"example-section\">\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.f_font_bold\" name=\"bold2\">Bold</mat-checkbox>\r\n                              <mat-checkbox class=\"example-margin\" [(ngModel)]=\"Theme.f_font_italic\" name=\"italic2\"><i>italic</i></mat-checkbox>\r\n                            </section>\r\n                          </td>\r\n                        </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <h4>Progress Bar Text</h4>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td>\r\n                          <label  class=\"col-sm-12 control-label\">Font Color</label>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.progress_text_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.progress_text_color\" [(ngModel)]=\"Theme.progress_text_color\" (colorPickerChange)=\"Theme.progress_text_color=Theme.progress_text_color\" name=\"p-f-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                          <td>\r\n                            <h4>Progress Bar Color</h4>\r\n                          </td>\r\n                          <td>\r\n                            <input readonly [(colorPicker)]=\"Theme.progress_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.progress_color\" [(ngModel)]=\"Theme.progress_color\" (colorPickerChange)=\"Theme.progress_color=Theme.progress_color\" name=\"p-color\"/>\r\n                          </td>\r\n                        </tr>\r\n            \r\n                      <tr>\r\n                        <td>\r\n                          <h4>Body Background Color</h4>\r\n                        </td>\r\n                        <td>\r\n                          <input readonly [(colorPicker)]=\"Theme.b_bg_color\"  [cpCancelButton]=\"true\" [value]=\"Theme.b_bg_color\" [(ngModel)]=\"Theme.b_bg_color\" (colorPickerChange)=\"Theme.b_bg_color=Theme.b_bg_color\" name=\"b-bg-color\"/>\r\n                        </td>\r\n                      </tr>\r\n                    <tr>\r\n                      <td>\r\n                        <button type=\"submit\" (click)=\"updateTheme()\" class=\"btn btn-danger ourbutton\" [disabled]=\"submitBtnDisabled\" id=\"upbtn\">Update</button> \r\n                      </td>\r\n                    </tr>\r\n                  </table>\r\n                </form>\r\n                </div>\r\n                <!-- <form class=\"form-horizontal\">\r\n                    <div class=\"form-group\">\r\n                      <label for=\"inputEmail3\" class=\"col-sm-12 control-label\">Title</label>\r\n                      <div class=\"col-sm-10\">\r\n                        <input type=\"text\" class=\"form-control\"  placeholder=\"Title\">\r\n                      </div>\r\n                    </div>\r\n                </form> -->\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <div class=\"col-md-8 col-md-offset-2\">\r\n                <h3 class=\"theme-pre-hd\">Preview</h3>\r\n                <div class=\"col-md-12 shdw\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-md-12 hdr\" [ngStyle]=\"{'background-color': Theme.h_bg_color}\"><h4 [ngStyle]=\"{'color': Theme.h_font_color, 'font-size':Theme.h_font_size, 'font-family':Theme.h_font_family}\" [ngClass]=\"{ 'itlc' : Theme.h_font_italic, 'bld': Theme.h_font_bold}\">Sample Header</h4></div>\r\n                    <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': Theme.b_bg_color}\">\r\n                      <div class=\"row\">\r\n                          <div class=\"quest\" [ngStyle]=\"{'background-color': Theme.q_bg_color}\">\r\n                              \r\n                                   <h4 [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">1. Question here</h4>\r\n                                   <mat-radio-group class=\"example-radio-group\">\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                                   </mat-radio-group>\r\n                               \r\n                                 \r\n                             </div>\r\n                             <div class=\"quest\" [ngStyle]=\"{'background-color': Theme.q_bg_color}\">\r\n                                   <h4 [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">2. Question here</h4>\r\n                                   <mat-radio-group class=\"example-radio-group\">\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"1\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">a. Option A</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"2\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">b. Option B</span></mat-radio-button>\r\n                                     <mat-radio-button class=\"example-radio-button\" value=\"3\"><span [ngStyle]=\"{'color': Theme.q_font_color, 'font-family':Theme.q_font_family, 'font-size':Theme.q_font_size}\" [ngClass]=\"{ 'itlc' : Theme.q_font_italic, 'bld': Theme.q_font_bold}\">c. Option C</span></mat-radio-button>\r\n                                   </mat-radio-group>\r\n                               \r\n                                 \r\n                             </div>\r\n                      </div>\r\n                      \r\n                      <div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <h5 [ngStyle]=\"{'color': Theme.progress_text_color}\">Page No. 4 of 10</h5>\r\n                            <div class=\"progress\" >\r\n                                <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': Theme.progress_color}\">\r\n                                  <span class=\"sr-only\">70% Complete</span>\r\n                                </div>\r\n                              </div> \r\n                        </div>\r\n                                    \r\n                      </div> \r\n                    </div>\r\n                    <div class=\"col-md-12 ftr\" [ngStyle]=\"{'background-color': Theme.f_bg_color}\"><h4 [ngStyle]=\"{'color': Theme.f_font_color, 'font-size':Theme.f_font_size, 'font-family':Theme.f_font_family}\" [ngClass]=\"{ 'itlc' : Theme.f_font_italic, 'bld': Theme.f_font_bold}\">Sample Footer</h4></div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          \r\n        </div>\r\n      </div>\r\n    <!-- /#page-wrapper -->\r\n  </div>\r\n  \r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\" data-backdrop=\"static\" data-keyboard=\"false\" >\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Error</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4></h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" *ngIf=\"stat4\" >Close</button>          \r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" *ngIf=\"!stat4\" (click)=\"redirect()\">Close</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n  <footer></footer> \r\n  \r\n"
 
 /***/ }),
 
@@ -7729,19 +8320,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var CompanyEditThemeComponent = /** @class */ (function () {
-    function CompanyEditThemeComponent(_activatedRoute, _companyService, routes) {
+    function CompanyEditThemeComponent(_activatedRoute, _companyService, routes, snackBar) {
         this._activatedRoute = _activatedRoute;
         this._companyService = _companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displatStat = false;
         this.titleFormControl = new forms_1.FormControl('', [
             forms_1.Validators.required,
         ]);
         this.submitBtnDisabled = false;
+        this.showSpinner = false;
         this.stat4 = false;
     }
     CompanyEditThemeComponent.prototype.ngOnInit = function () {
@@ -7836,34 +8430,56 @@ var CompanyEditThemeComponent = /** @class */ (function () {
     // Desc          : update theme properties in  database
     CompanyEditThemeComponent.prototype.updateTheme = function () {
         var _this = this;
+        this.showSpinner = true;
         // console.log(this.Theme);
         this.submitBtnDisabled = true;
         if (this.Theme.title != "") {
             this._companyService.updateTheme(this.themeId, this.Theme).subscribe(function (res) {
                 console.log(res.status);
                 if (res.status == 0) {
-                    $('#myModal .modal-body h4').text('Error in updating!');
-                    $('#myModal').modal('show');
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* Error in updation!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Error in updating!');
+                    // $('#myModal').modal('show');  
                 }
                 else if (res.status == 1) {
-                    $('#myModal .modal-body h4').text('Title is empty!');
-                    $('#myModal').modal('show');
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* Title is empty!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Title is empty!');
+                    // $('#myModal').modal('show');  
                 }
                 else if (res.status == 2) {
-                    $('#myModal .modal-body h4').text('Successfully updated!');
-                    $('#myModal .modal-title').text('Message');
-                    $('#myModal').modal('show');
+                    _this.showSpinner = false;
+                    _this.routes.navigate(['./create-theme']);
+                    var snackBarRef = _this.snackBar.open('Successfully updated!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Successfully updated!');
+                    // $('#myModal .modal-title').text('Message');
+                    // $('#myModal').modal('show');
                 }
                 else if (res.status == 4) {
+                    _this.showSpinner = false;
                     _this.stat4 = true;
-                    $('#myModal .modal-body h4').text('Theme name already exist!');
-                    $('#myModal .modal-title').text('Message');
-                    $('#myModal').modal('show');
-                    $('#upbtn').prop('disabled', false);
+                    var snackBarRef = _this.snackBar.open('Theme name already exist', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Theme name already exist!');
+                    // $('#myModal .modal-title').text('Message');
+                    // $('#myModal').modal('show');
+                    // $('#upbtn').prop('disabled', false);
                 }
                 else {
-                    $('#myModal .modal-body h4').text('Error in updating!');
-                    $('#myModal').modal('show');
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('Error in updation', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text('Error in updating!');
+                    // $('#myModal').modal('show');  
                 }
             });
         }
@@ -7891,7 +8507,8 @@ var CompanyEditThemeComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             company_service_1.CompanyService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], CompanyEditThemeComponent);
     return CompanyEditThemeComponent;
 }());
@@ -7944,12 +8561,14 @@ var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var CompanyEmailVerificationComponent = /** @class */ (function () {
-    function CompanyEmailVerificationComponent(companyService, routes, _flashMessagesService, route) {
+    function CompanyEmailVerificationComponent(companyService, routes, _flashMessagesService, route, snackBar) {
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
         this.route = route;
+        this.snackBar = snackBar;
     }
     CompanyEmailVerificationComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -7964,13 +8583,19 @@ var CompanyEmailVerificationComponent = /** @class */ (function () {
         this.sub = this.route.params.subscribe(function (params) {
             _this.companyService.verifyCompany(params.id).subscribe(function (data) {
                 if (data.success) {
-                    _this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                    // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                    var snackBarRef = _this.snackBar.open('Successfully verified...', '', {
+                        duration: 2000
+                    });
                     setTimeout(function () {
                         _this.routes.navigate(['/clogin']);
                     }, 4000);
                 }
                 else {
-                    _this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+                    // this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+                    var snackBarRef = _this.snackBar.open('Error...', '', {
+                        duration: 2000
+                    });
                     setTimeout(function () {
                         _this.routes.navigate(['/clogin']);
                     }, 4000);
@@ -7985,7 +8610,7 @@ var CompanyEmailVerificationComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute, material_1.MatSnackBar])
     ], CompanyEmailVerificationComponent);
     return CompanyEmailVerificationComponent;
 }());
@@ -8143,7 +8768,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 50%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n\r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n    .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n\r\n    .filter{\r\n        width: 20%;\r\n        float: right;\r\n        clear: left;\r\n      }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 50%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n\r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n    .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n\r\n    .filter{\r\n        width: 20%;\r\n        float: right;\r\n        clear: left;\r\n      }\r\n      .noItemFound{\r\n        text-align: center;\r\n        background-color: #ffffff;\r\n        border-bottom: 1px solid lightgray;\r\n    \r\n     }\r\n     .back-color{\r\n        color: #757575;\r\n        background-color: #ffffff;\r\n    }", ""]);
 
 // exports
 
@@ -8156,7 +8781,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-list-survey/company-list-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\n    \n                  <div id=\"wrapper\">\n              \n                      <!-- Navigation -->\n                      <app-company-top-bar></app-company-top-bar>            \n          <app-company-sidebar></app-company-sidebar>\n              \n                      <div id=\"\">\n                          <div class=\"container-fluid\">\n                                  \n                                              <!-- Page Heading -->\n                                            \n                                        \n                                              <!-- /.row -->\n                              \n                                          </div>\n               \n                          <div class=\"col-md-2\"></div>\n                          <div class=\"col-md-10\">\n                                <!-- <p>You selected: {{selected}} </p> -->\n<div class=\"example-header\">\n    <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n    </mat-form-field>\n    <a class=\"btn btn-danger ourbutton filter\"  [routerLink]=\"['/company-create-survey']\" >Create Survey</a>\n  </div>\n    \n    <div class=\"example-container mat-elevation-z8\">\n      <!-- <div ><h4>No Company Found!</h4></div> -->\n      <mat-table [dataSource]=\"dataSource\" matSort>\n     <!-- Name Column -->\n     <ng-container matColumnDef=\"slno\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\n        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\n      </ng-container>\n        <!-- Name Column -->\n        <ng-container matColumnDef=\"name\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>\n          <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\n        </ng-container>\n    \n     <!-- Name Column -->\n     <ng-container matColumnDef=\"start_datetime\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.start_datetime| date: 'dd-MM-yyyy h:mm a'}} </mat-cell>\n    </ng-container>\n      <!-- Progress Column -->\n      <ng-container matColumnDef=\"end_datetime\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header>End Date</mat-header-cell>\n        <mat-cell *matCellDef=\"let row\"> {{row.end_datetime| date: 'dd-MM-yyyy h:mm a'}}</mat-cell>\n      </ng-container>\n  \n      <ng-container matColumnDef=\"status\">\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>\n          <mat-cell *matCellDef=\"let row\">\n            {{row.status}}\n          </mat-cell>\n        </ng-container>\n      <ng-container matColumnDef=\"action\">\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>\n        <mat-cell *matCellDef=\"let row\">\n            <button mat-icon-button [matMenuTriggerFor]=\"menu\">\n                <mat-icon>more_vert</mat-icon>\n              </button>\n              <mat-menu #menu=\"matMenu\">\n                <button *ngIf=\"row.status=='Upcoming'\" (click)=\"setEditId(row._id)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal3\" mat-menu-item>\n                <!-- <button *ngIf=\"row.status=='Upcoming'\" (click)=\"setEditId(row._id)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal3\" mat-menu-item> -->\n                    <i class=\"material-icons\">delete</i>\n                  <span>Delete</span>\n                </button>\n                <a *ngIf=\"row.status=='Upcoming'\" href=\"/company-edit-survey/{{row._id}}\" mat-menu-item>\n                    <i class=\"material-icons\">edit</i>\n                  <span>Edit</span>\n                </a>\n                <a *ngIf=\"row.status != 'Upcoming'\" href=\"/dashboard/{{row._id}}\" mat-menu-item>\n                    <i class=\"material-icons\">dashboard</i>\n                  <span>Report</span>\n                </a>\n                <!-- <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\n                    <i class=\"material-icons\">block</i>\n                  <span>Unblock</span>\n                </button> -->\n              </mat-menu>\n           \n          </mat-cell>\n      </ng-container>\n    \n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n        </mat-row>\n      </mat-table>\n    \n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n    </div>\n                            \n                          </div>\n                          \n                        </div>\n                        <!-- /#page-wrapper -->\n                        \n                        <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\n                            <div class=\"modal-dialog\">\n                          \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <div class=\"modal-header\">\n                                  <h4 class=\"modal-title\">Delete</h4>\n                                </div>\n                                <div class=\"modal-body\">\n                                    <h4>Are you sure to delete?</h4>\n                                \n                                </div>\n                              \n                                <div class=\"modal-footer\">\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n                                  <button type=\"button\" (click)=\"deleteSurvey()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\n                                </div>\n                              </div>\n                          \n                            </div>\n                          </div>  \n                          \n                        \n                        <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\n                            <div class=\"modal-dialog\">\n                          \n                              <!-- Modal content-->\n                              <div class=\"modal-content\">\n                                <div class=\"modal-header\">\n                                  <h4 class=\"modal-title\">Alert</h4>\n                                </div>\n                                <div class=\"modal-body\">\n                                    <h4></h4>\n                                \n                                </div>\n                              \n                                <div class=\"modal-footer\">\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n                                </div>\n                              </div>\n                          \n                            </div>\n                          </div>  \n                          \n                          \n                        </div>\n                        \n  \n  \n                        \n  \n                        <footer></footer> \n                          \n                        </body>"
+module.exports = "<body>\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n               \r\n                          <div class=\"col-md-2\"></div>\r\n                          <div class=\"col-md-10\">\r\n                                <!-- <p>You selected: {{selected}} </p> -->\r\n<div class=\"example-header\">\r\n    <mat-form-field>\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n    <a class=\"btn btn-danger ourbutton filter\"  [routerLink]=\"['/company-create-survey']\" >Create Survey</a>\r\n  </div>\r\n    \r\n    <div class=\"example-container mat-elevation-z8\">\r\n      <!-- <div ><h4>No Company Found!</h4></div> -->\r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n     <ng-container matColumnDef=\"slno\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n        <!-- Name Column -->\r\n        <ng-container matColumnDef=\"name\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n        </ng-container>\r\n    \r\n     <!-- Name Column -->\r\n     <ng-container matColumnDef=\"start_datetime\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.start_datetime| date: 'dd-MM-yyyy h:mm a'}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Progress Column -->\r\n      <ng-container matColumnDef=\"end_datetime\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>End Date</mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.end_datetime| date: 'dd-MM-yyyy h:mm a'}}</mat-cell>\r\n      </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"status\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\">\r\n            {{row.status}}\r\n          </mat-cell>\r\n        </ng-container>\r\n      <ng-container matColumnDef=\"action\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n            <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n                <mat-icon>more_vert</mat-icon>\r\n              </button>\r\n              <mat-menu #menu=\"matMenu\">\r\n                <button *ngIf=\"row.status=='Upcoming'\" (click)=\"setEditId(row._id)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal3\" mat-menu-item>\r\n                <!-- <button *ngIf=\"row.status=='Upcoming'\" (click)=\"setEditId(row._id)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal3\" mat-menu-item> -->\r\n                    <i class=\"material-icons\">delete</i>\r\n                  <span>Delete</span>\r\n                </button>\r\n                <a *ngIf=\"row.status=='Upcoming'\" href=\"/company-edit-survey/{{row._id}}\" mat-menu-item>\r\n                    <i class=\"material-icons\">edit</i>\r\n                  <span>Edit</span>\r\n                </a>\r\n                <a *ngIf=\"row.status != 'Upcoming'\" href=\"/dashboard/{{row._id}}\" mat-menu-item>\r\n                    <i class=\"material-icons\">dashboard</i>\r\n                  <span>Report</span>\r\n                </a>\r\n                <!-- <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                    <i class=\"material-icons\">block</i>\r\n                  <span>Unblock</span>\r\n                </button> -->\r\n              </mat-menu>\r\n           \r\n          </mat-cell>\r\n      </ng-container>\r\n    \r\n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n        </mat-row>\r\n      </mat-table>\r\n      <div class=\"col-md-15 \">\r\n          <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n              <mat-spinner></mat-spinner>\r\n             </div>\r\n      </div>\r\n      <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n    </div>\r\n\r\n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n    </div>\r\n                            \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                        <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <h4 class=\"modal-title\">Delete</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure to delete?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteSurvey()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>  \r\n                          \r\n                        \r\n                        <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <h4 class=\"modal-title\">Alert</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                    <h4></h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>  \r\n                          \r\n                          \r\n                        </div>\r\n                        \r\n  \r\n  \r\n                        \r\n  \r\n                        <footer></footer> \r\n                          \r\n                        </body>"
 
 /***/ }),
 
@@ -8180,12 +8805,15 @@ var company_service_1 = __webpack_require__("../../../../../src/app/services/com
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyListSurveyComponent = /** @class */ (function () {
-    function CompanyListSurveyComponent(companyService, routes) {
+    function CompanyListSurveyComponent(companyService, routes, snackBar) {
         this.companyService = companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'name', 'start_datetime', 'end_datetime', 'status', 'action'];
         this.dateNow = new Date();
         this.editId = '';
+        this.existStatus = false;
+        this.showSpinnerDelete = false;
     }
     CompanyListSurveyComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -8235,8 +8863,17 @@ var CompanyListSurveyComponent = /** @class */ (function () {
     };
     CompanyListSurveyComponent.prototype.loadSurvey = function () {
         var _this = this;
+        this.showSpinnerDelete = true;
         this.companyService.getAllSurvey().subscribe(function (data) {
-            console.log(data);
+            _this.showSpinnerDelete = false;
+            if (data.length <= 0) {
+                // console.log("theme is empty");
+                _this.existStatus = true;
+            }
+            else {
+                _this.existStatus = false;
+            }
+            // console.log(data);
             _this.dataSource = new material_1.MatTableDataSource(data);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
@@ -8249,20 +8886,30 @@ var CompanyListSurveyComponent = /** @class */ (function () {
     };
     CompanyListSurveyComponent.prototype.deleteSurvey = function () {
         var _this = this;
+        this.showSpinnerDelete = true;
         this.companyService.deleteSurvey(this.editId).subscribe(function (data) {
             console.log(data);
             if (data.success) {
+                _this.showSpinnerDelete = false;
                 _this.loadSurvey();
-                $('#myModal .modal-body h4').text(data.msg);
-                $('#myModal').modal('show');
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
+                // $('#myModal .modal-body h4').text(data.msg)
+                // $('#myModal').modal('show');
             }
             else {
-                $('#myModal .modal-body h4').text(data.msg);
-                $('#myModal').modal('show');
+                _this.showSpinnerDelete = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
+                // $('#myModal .modal-body h4').text(data.msg)
+                // $('#myModal').modal('show'); 
             }
         });
     };
     CompanyListSurveyComponent.prototype.setEditId = function (id) {
+        this.showSpinnerDelete = false;
         this.editId = id;
     };
     __decorate([
@@ -8279,7 +8926,7 @@ var CompanyListSurveyComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-list-survey/company-list-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-list-survey/company-list-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, material_1.MatSnackBar])
     ], CompanyListSurveyComponent);
     return CompanyListSurveyComponent;
 }());
@@ -8309,7 +8956,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-login/company-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"login-body\">\r\n   \r\n\t<div class=\"login-page\">\r\n  <div class=\"form\">\r\n\t<h2>Login</h2>\r\n\t\r\n    <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\r\n    <div class=\"input-group\" [ngClass]=\"{ 'has-error': f.submitted && !email.valid }\">\r\n\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\r\n\t\t\t<input type=\"text\" placeholder=\"Username\" class=\"styles1\" required [(ngModel)]=\"newLogin.contact_person_email\" name=\"email\" #email=\"ngModel\"/>\r\n\t\t\t<div *ngIf=\"f.submitted && !email.valid\" class=\"help-block\">Username is required</div>\r\n\t  </div>\r\n\t   <div class=\"input-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\r\n\t\t\t<input type=\"password\" placeholder=\"Password\" class=\"styles1\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\r\n\t\t\t<div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n\t  </div>\r\n     <br/>\r\n\t\t\t<button [disabled]=\"btnDisbled\" type=\"submit\" class=\"btn btn-danger\">Sign In</button>\r\n\t\t\t<br>\r\n\t\t <div class=\"text-danger text-center\">\r\n\t\t\t\t{{msg}}\r\n\t </div>\r\n\t\t<br/>\r\n\r\n\t\t<div class=\"row omb_row-sm-offset-3 omb_socialButtons\">\r\n    \t    <div class=\"col-xs-12 col-sm-12\">\r\n\t\t        <a href=\"/auth/facebook\" class=\"btn btn-lg btn-block omb_btn-facebook\" style=\"color:#fff;\">\r\n\t\t\t        <i class=\"fa fa-facebook visible-xs\"></i>\r\n\t\t\t        <span class=\"hidden-xs\">Sign In With Facebook</span>\r\n\t\t        </a>\r\n\t        </div>\r\n        \t\r\n        \t<div class=\"col-xs-12 col-sm-12\">\r\n\t\t        <a href=\"/auth/google\" class=\"btn btn-lg btn-block omb_btn-google\" style=\"color:#fff;\">\r\n\t\t\t        <i class=\"fa fa-google-plus visible-xs\"></i>\r\n\t\t\t        <span class=\"hidden-xs\">Sign In With Google+</span>\r\n\t\t        </a>\r\n\t        </div>\t\r\n\t    </div>\r\n\t\t<button type=\"button\" [routerLink]=\"['/creg']\" class=\"btn btn-danger\">SignUp</button>\r\n    </form>\r\n\t\t\t\t\t\t\t\t\r\n  </div>\r\n</div>\r\n\r\n</body>\r\n\r\n\r\n\r\n"
+module.exports = "<body class=\"login-body\">\r\n   \r\n\t<div class=\"login-page\">\r\n  <div class=\"form\">\r\n\t<h2>Login</h2>\r\n\t\r\n    <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\r\n    <div class=\"input-group\" [ngClass]=\"{ 'has-error': f.submitted && !email.valid }\">\r\n\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\r\n\t\t\t<input type=\"text\" placeholder=\"Username\" class=\"styles1\" required [(ngModel)]=\"newLogin.contact_person_email\" name=\"email\" #email=\"ngModel\"/>\r\n\t\t\t<div *ngIf=\"f.submitted && !email.valid\" class=\"help-block\">Username is required</div>\r\n\t  </div>\r\n\t   <div class=\"input-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n\t\t\t<span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\r\n\t\t\t<input type=\"password\" placeholder=\"Password\" class=\"styles1\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\r\n\t\t\t<div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n\t  </div>\r\n\t <br/>\r\n\t \t\t<div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n\t\t\t<mat-spinner></mat-spinner>\r\n\t\t   </div>\r\n\t\t\t<button [disabled]=\"btnDisbled\" type=\"submit\" class=\"btn btn-danger\">Sign In</button>\r\n\t\t\t<br>\r\n\t\t <div class=\"text-danger text-center\">\r\n\t\t\t\t<!-- {{msg}} -->\r\n\t </div>\r\n\t\t<br/>\r\n\r\n\t\t<div class=\"row omb_row-sm-offset-3 omb_socialButtons\">\r\n    \t    <div class=\"col-xs-12 col-sm-12\">\r\n\t\t        <a href=\"/auth/facebook\" class=\"btn btn-lg btn-block omb_btn-facebook\" style=\"color:#fff;\">\r\n\t\t\t        <i class=\"fa fa-facebook visible-xs\"></i>\r\n\t\t\t        <span class=\"hidden-xs\">Sign In With Facebook</span>\r\n\t\t        </a>\r\n\t        </div>\r\n        \t\r\n        \t<div class=\"col-xs-12 col-sm-12\">\r\n\t\t        <a href=\"/auth/google\" class=\"btn btn-lg btn-block omb_btn-google\" style=\"color:#fff;\">\r\n\t\t\t        <i class=\"fa fa-google-plus visible-xs\"></i>\r\n\t\t\t        <span class=\"hidden-xs\">Sign In With Google+</span>\r\n\t\t        </a>\r\n\t        </div>\t\r\n\t    </div>\r\n\t\t<button type=\"button\" [routerLink]=\"['/creg']\" class=\"btn btn-danger\">SignUp</button>\r\n    </form>\r\n\t\t\t\t\t\t\t\t\r\n  </div>\r\n</div>\r\n\r\n</body>\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -8331,11 +8978,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var CompanyLoginComponent = /** @class */ (function () {
-    function CompanyLoginComponent(companyService, routes) {
+    function CompanyLoginComponent(companyService, routes, snackBar) {
         this.companyService = companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.btnDisbled = false;
+        this.showSpinner = false;
         this.newLogin = {
             contact_person_email: '',
             password: '',
@@ -8389,9 +9039,11 @@ var CompanyLoginComponent = /** @class */ (function () {
     // Desc          : CHeck whether company is expired. If expired, it redirect to expired page, otherwise dashboard
     CompanyLoginComponent.prototype.login = function () {
         var _this = this;
+        this.showSpinner = true;
         this.btnDisbled = true;
         this.companyService.authenticateCompany(this.newLogin).subscribe(function (data) {
             if (data.success) {
+                _this.showSpinner = false;
                 _this.btnDisbled = false;
                 if (data.company.status == "Expired") {
                     var json = data.company;
@@ -8409,8 +9061,12 @@ var CompanyLoginComponent = /** @class */ (function () {
                 }
             }
             else {
+                _this.showSpinner = false;
                 _this.btnDisbled = false;
                 _this.msg = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -8420,7 +9076,7 @@ var CompanyLoginComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-login/company-login.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-login/company-login.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, material_1.MatSnackBar])
     ], CompanyLoginComponent);
     return CompanyLoginComponent;
 }());
@@ -8437,7 +9093,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n\r\n  \r\n\r\n\r\n\r\n  .modal-content{border-radius:0;box-shadow:none;}\r\n  .modal-header {\r\n      padding: 7px 15px;\r\n      border-bottom: 1px solid #e5e5e5;\r\n      background: #da524f;\r\n  }\r\n  .modal-title {\r\n      margin: 0;\r\n      line-height: 26px;\r\n      font-size: 15px;\r\n      color: #fff;\r\n  }\r\n  .close {\r\n     \r\n      font-size: 21px;\r\n      font-weight: 400;\r\n      line-height: 28px;\r\n      color: #fff;\r\n      text-shadow: none;\r\n      filter: alpha(opacity=20);\r\n      opacity: inherit;\r\n      padding-top:0px;\r\n  }\r\n  a{outline:none; }\r\n  .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n  #myModal{\r\n    z-index: 2000;\r\n  }\r\n  .margin-class{\r\n    \r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n\r\n  \r\n\r\n\r\n\r\n  .modal-content{border-radius:0;box-shadow:none;}\r\n  .modal-header {\r\n      padding: 7px 15px;\r\n      border-bottom: 1px solid #e5e5e5;\r\n      background: #da524f;\r\n  }\r\n  .modal-title {\r\n      margin: 0;\r\n      line-height: 26px;\r\n      font-size: 15px;\r\n      color: #fff;\r\n  }\r\n  .close {\r\n     \r\n      font-size: 21px;\r\n      font-weight: 400;\r\n      line-height: 28px;\r\n      color: #fff;\r\n      text-shadow: none;\r\n      filter: alpha(opacity=20);\r\n      opacity: inherit;\r\n      padding-top:0px;\r\n  }\r\n  a{outline:none; }\r\n  .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n  #myModal{\r\n    z-index: 2000;\r\n  }\r\n  .margin-class{\r\n    \r\n  }\r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -8450,7 +9106,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-manage-themes/company-manage-themes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-8 col-md-offset-2\">\r\n  <div class=\"example-header\" *ngIf=\"displatStat\">\r\n    <mat-form-field>\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n    </div>\r\n    \r\n    <div class=\"example-container mat-elevation-z8\">\r\n    \r\n    <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n    \r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n  \r\n      <!-- Theme Name -->\r\n      <ng-container matColumnDef=\"name\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> THEME NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.title}} </mat-cell>\r\n      </ng-container>\r\n    \r\n      <!-- Progress Column -->\r\n      <!-- <ng-container matColumnDef=\"mybid\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Your Bids </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">  -->\r\n          \r\n          <!-- {{row.status}} -->\r\n          <!-- {{row.h_font_family }} -->\r\n          <!-- <p *ngFor=\"let bid of row.mybid\">{{row.h_font_family }} : {{bid.date_time | date: 'dd-MM-yyyy h:mm a'}}</p> -->\r\n        <!-- </mat-cell>\r\n      </ng-container> -->\r\n    \r\n      <!-- ID Column -->\r\n      <!-- <ng-container matColumnDef=\"topbid\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Top Bid </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> {{row.progress_text_color }} </mat-cell>\r\n        </ng-container> -->\r\n    \r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"status\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n            <mat-icon>more_vert</mat-icon>\r\n          </button>\r\n          <mat-menu #menu=\"matMenu\">\r\n            <button mat-menu-item  (click)=\"getThemeId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n              <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n              <span>Delete</span>\r\n            </button>\r\n            <button mat-menu-item [routerLink]=\"['/edit-theme/',row._id]\">\r\n              <mat-icon>mode_edit</mat-icon>\r\n              <span>Edit</span>\r\n            </button>\r\n            \r\n          </mat-menu>\r\n           </mat-cell>\r\n        </ng-container>\r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    \r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n    </div>\r\n\r\n</div>\r\n  \r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\" >\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Error</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n          <h4></h4>\r\n      \r\n      </div>\r\n    \r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Delete</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteTheme(themeId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n    \r\n\r\n  \r\n\r\n"
+module.exports = "<div class=\"col-md-8 col-md-offset-2\">\r\n  <div class=\"example-header\" >\r\n    <mat-form-field>\r\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n    </mat-form-field>\r\n    </div>\r\n    \r\n    <div class=\"example-container mat-elevation-z8\">\r\n    \r\n    <mat-table #table [dataSource]=\"dataSource\" matSort>\r\n    \r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n  \r\n      <!-- Theme Name -->\r\n      <ng-container matColumnDef=\"name\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> THEME NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.title}} </mat-cell>\r\n      </ng-container>\r\n    \r\n      <!-- Progress Column -->\r\n      <!-- <ng-container matColumnDef=\"mybid\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> Your Bids </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">  -->\r\n          \r\n          <!-- {{row.status}} -->\r\n          <!-- {{row.h_font_family }} -->\r\n          <!-- <p *ngFor=\"let bid of row.mybid\">{{row.h_font_family }} : {{bid.date_time | date: 'dd-MM-yyyy h:mm a'}}</p> -->\r\n        <!-- </mat-cell>\r\n      </ng-container> -->\r\n    \r\n      <!-- ID Column -->\r\n      <!-- <ng-container matColumnDef=\"topbid\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> Top Bid </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> {{row.progress_text_color }} </mat-cell>\r\n        </ng-container> -->\r\n    \r\n      <!-- ID Column -->\r\n      <ng-container matColumnDef=\"status\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n            <mat-icon>more_vert</mat-icon>\r\n          </button>\r\n          <mat-menu #menu=\"matMenu\">\r\n            <button mat-menu-item  (click)=\"getThemeId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n              <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n              <span>Delete</span>\r\n            </button>\r\n            <button mat-menu-item [routerLink]=\"['/edit-theme/',row._id]\">\r\n              <mat-icon>mode_edit</mat-icon>\r\n              <span>Edit</span>\r\n            </button>\r\n            \r\n          </mat-menu>\r\n           </mat-cell>\r\n        </ng-container>\r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n   \r\n    </mat-table>\r\n    <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n        <mat-spinner></mat-spinner>\r\n       </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n      <div class=\"col-md-4 col-md-offset-4\">\r\n          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n      </div>\r\n  </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n    </div>\r\n\r\n</div>\r\n  \r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\" >\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Error</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n          <h4></h4>\r\n      \r\n      </div>\r\n    \r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Delete</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteTheme(themeId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n    \r\n\r\n  \r\n\r\n"
 
 /***/ }),
 
@@ -8474,12 +9130,15 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyManageThemesComponent = /** @class */ (function () {
-    function CompanyManageThemesComponent(_companyService, routes) {
+    function CompanyManageThemesComponent(_companyService, routes, snackBar) {
         this._companyService = _companyService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.displayedColumns = ['id', 'name', 'status'];
         this.displatStat = false;
         this.showErr = false;
+        this.existStatus = false;
+        this.showSpinner = false;
     }
     CompanyManageThemesComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -8534,14 +9193,26 @@ var CompanyManageThemesComponent = /** @class */ (function () {
     // Desc          : Get Themes from database
     CompanyManageThemesComponent.prototype.getThemes = function () {
         var _this = this;
+        this.showSpinner = true;
         this._companyService.getThemes().subscribe(function (themes) {
-            console.log(themes);
-            if (themes) {
-                _this.displatStat = true;
-                _this.dataSource = new material_1.MatTableDataSource(themes);
-                _this.dataSource.paginator = _this.paginator;
-                _this.dataSource.sort = _this.sort;
+            _this.showSpinner = false;
+            // console.log(themes);
+            if (themes.length <= 0) {
+                // console.log("theme is empty");
+                _this.existStatus = true;
             }
+            else {
+                _this.existStatus = false;
+            }
+            //  else {
+            // console.log(themes);
+            // console.log("theme is not empty");
+            //  console.log(this.existStatus);
+            _this.displatStat = true;
+            _this.dataSource = new material_1.MatTableDataSource(themes);
+            _this.dataSource.paginator = _this.paginator;
+            _this.dataSource.sort = _this.sort;
+            // }  
         });
     };
     //  ---------------------------------end-----------------------------------------------
@@ -8554,6 +9225,7 @@ var CompanyManageThemesComponent = /** @class */ (function () {
     // Last Modified : 1-1-2018, Manu Prasad 
     // Desc          : pass id to modal for deleting
     CompanyManageThemesComponent.prototype.getThemeId = function (id) {
+        this.showSpinner = false;
         this.themeId = id;
         console.log(id);
     };
@@ -8568,19 +9240,32 @@ var CompanyManageThemesComponent = /** @class */ (function () {
     // Desc          : pass id to modal for deleting
     CompanyManageThemesComponent.prototype.deleteTheme = function (id) {
         var _this = this;
-        console.log(id);
+        this.showSpinner = true;
+        // console.log(id)
         this._companyService.deleteTheme(id).subscribe(function (res) {
             console.log(res);
             if (res.status == 2) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('Deleted Successfully', '', {
+                    duration: 2000
+                });
                 _this.getThemes();
             }
             else if (res.status == 0) {
-                $('#myModal .modal-body h4').text('Theme is currently used for a survey!');
-                $('#myModal').modal('show');
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('Cant delete, This theme is currently used for in a survey!', '', {
+                    duration: 2000
+                });
+                // $('#myModal .modal-body h4').text('Theme is currently used for a survey!')
+                // $('#myModal').modal('show')    
             }
             else {
-                $('#myModal .modal-body h4').text('Error in deleting theme!');
-                $('#myModal').modal('show');
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('* Error in deleting theme!', '', {
+                    duration: 2000
+                });
+                // $('#myModal .modal-body h4').text('Error in deleting theme!')
+                // $('#myModal').modal('show')    
             }
         });
     };
@@ -8599,7 +9284,8 @@ var CompanyManageThemesComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.css")]
         }),
         __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router])
+            router_1.Router,
+            material_1.MatSnackBar])
     ], CompanyManageThemesComponent);
     return CompanyManageThemesComponent;
 }());
@@ -8616,7 +9302,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n  .heading{\r\n    color :#d9534f;\r\n    text-align: center\r\n}\r\nh4{\r\n    text-align: center;\r\n }\r\n", ""]);
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 7px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  .example-form-field {\r\n    width: 500px;\r\n  }\r\n  .heading{\r\n    color :#d9534f;\r\n    text-align: center\r\n}\r\nh4{\r\n    text-align: center;\r\n }\r\n .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -8629,7 +9315,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                                  \r\n<div class=\"col-md-6 col-md-offset-3\">\r\n    <flash-messages></flash-messages>\r\n  \r\n  <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n        <div class=\"example-header\" >\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n        </div>\r\n        \r\n          <div class=\"noitem\" *ngIf=\"!existStatus\"><h4>No item Found!</h4></div>\r\n        \r\n        <br>\r\n  <div class=\"example-container mat-elevation-z8 \">\r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n           <ng-container matColumnDef=\"id\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n              <ng-container matColumnDef=\"name\">\r\n                 <mat-header-cell *matHeaderCellDef mat-sort-header> GROUP NAME</mat-header-cell>\r\n                   <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n               </ng-container>\r\n                <ng-container matColumnDef=\"action\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                      <mat-menu #menu=\"matMenu\">\r\n                          <button  mat-menu-item (click)=\"getEditId(row.id,row.name)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                <span>Edit</span>\r\n                                </button>\r\n                            <button mat-menu-item  (click)=\"getId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                <span>Delete</span>\r\n                            </button>\r\n                      </mat-menu> </mat-cell>\r\n            \r\n                   </ng-container>\r\n     \r\n  \r\n\r\n                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                 <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                 </mat-row>\r\n                </mat-table>\r\n  \r\n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n    <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n      \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <!-- <div class=\"modal-header\"> -->\r\n              <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n            <!-- </div> -->\r\n            <div class=\"modal-body\">\r\n                <h4>Are you sure to delete?</h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n              <button type=\"button\" (click)=\"deleteUserGroup(id)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n            </div>\r\n          </div>\r\n      \r\n        </div>\r\n      </div>\r\n\r\n\r\n<!-- -------------------------------------------------------------add user group modal--------------------------------------------------------------------- -->\r\n\r\n<div id=\"myModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n        <h4 class=\"modal-title\">Add New Group</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n    <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addGroup(newGroup);\" novalidate>\r\n    \r\n        <div class=\"form-group\" >\r\n            <label> Group name </label>\r\n            <br>\r\n            <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                {{errorMsg}}\r\n           </div>\r\n          \r\n           <div class=\"col-md-7\">\r\n            <div>\r\n              <div class=\"inputitem\">\r\n              <mat-form-field class=\"inputfileds\">\r\n                <input matInput placeholder=\"Group name\" name =\"group\" [(ngModel)]=\"newGroup.group\"  required >\r\n                <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n              </mat-form-field>\r\n              </div>\r\n            </div>\r\n            <div style=\"clear: both;\"></div>\r\n           \r\n            <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n          \r\n                  <mat-select placeholder=\"Users\" name='selected'  #users=\"ngModel\"  [(ngModel)]=\"newGroup.email\" multiple>\r\n                    <mat-option [value]=\"users\" *ngFor=\"let users of userData;\"  >{{users.email}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n          </div>\r\n            <br>\r\n            <div style=\"clear: both;\"></div>\r\n            <div *ngIf=\"showAddGroup\">\r\n            <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n              \r\n        </div>\r\n        <br>\r\n        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n       \r\n    </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->\r\n<div id=\"myModal2\"  class=\"modal fade\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n          <h4 class=\"modal-title\">Add New Group</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          \r\n      <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && updateUserGroup(newGroup,id);\" novalidate>\r\n      \r\n          <div class=\"form-group\" >\r\n              <label> Group name </label>\r\n              <br>\r\n              <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                  {{errorMsg}}\r\n             </div>\r\n            \r\n             <div class=\"col-md-7\">\r\n              <div>\r\n                <div class=\"inputitem\">\r\n                   \r\n                <mat-form-field class=\"inputfileds\">\r\n                  <input matInput placeholder=\"Group name\" name =\"group\" [(ngModel)]=\"newGroup.group\"  required >\r\n                  <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                </mat-form-field>\r\n                </div>\r\n              </div>\r\n              <div style=\"clear: both;\"></div>\r\n             \r\n              <div class=\"inputitem\">\r\n                  <mat-form-field class=\"inputfileds\">\r\n            \r\n                    <!-- <mat-select placeholder=\"Users\" name='edituser'  [(ngModel)]=\"newGroup.email\" multiple> -->\r\n                    <mat-select placeholder=\"Users\" name='edituser'  [(ngModel)]=\"newGroup.email\" multiple>\r\n                      <mat-option [value]=\"users.email\" *ngFor=\"let users of userData;\"   >{{users.email}}</mat-option>\r\n                    </mat-select>\r\n                  </mat-form-field>\r\n\r\n              </div>\r\n            </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                  <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                </mat-form-field>\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                </div>\r\n                \r\n          </div>\r\n          <br>\r\n          <button type= \"submit\"  class=\"btn btn-danger ourbutton\" >Submit</button>\r\n         \r\n      </form>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n        </div>\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n\r\n    </div>\r\n </div>\r\n  </body>"
+module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                                  \r\n<div class=\"col-md-6 col-md-offset-3\">\r\n    <flash-messages></flash-messages>\r\n  \r\n  <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n        <div class=\"example-header\" >\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n        </div>\r\n        \r\n  <div class=\"example-container mat-elevation-z8 \">\r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n           <ng-container matColumnDef=\"id\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n              <ng-container matColumnDef=\"name\">\r\n                 <mat-header-cell *matHeaderCellDef mat-sort-header> GROUP NAME</mat-header-cell>\r\n                   <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n               </ng-container>\r\n                <ng-container matColumnDef=\"action\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                      <mat-menu #menu=\"matMenu\">\r\n                          <button  mat-menu-item (click)=\"getEditId(row.id,row.name)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                <span>Edit</span>\r\n                                </button>\r\n                            <button mat-menu-item  (click)=\"getId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                <span>Delete</span>\r\n                            </button>\r\n                      </mat-menu> </mat-cell>\r\n            \r\n                   </ng-container>\r\n     \r\n  \r\n\r\n                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                 <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                 </mat-row>\r\n                </mat-table>\r\n                <div class=\"col-md-15 \">\r\n                    <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                        <mat-spinner></mat-spinner>\r\n                       </div>\r\n                </div>\r\n                <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                    <div class=\"col-md-4 col-md-offset-4\">\r\n                        <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                    </div>\r\n                </div>\r\n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n    <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n      \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <!-- <div class=\"modal-header\"> -->\r\n              <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n            <!-- </div> -->\r\n            <div class=\"modal-body\">\r\n                <h4>Are you sure to delete?</h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n              <button type=\"button\" (click)=\"deleteUserGroup(id)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n            </div>\r\n          </div>\r\n      \r\n        </div>\r\n      </div>\r\n\r\n\r\n<!-- -------------------------------------------------------------add user group modal--------------------------------------------------------------------- -->\r\n\r\n<div id=\"myModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n        <h4 class=\"modal-title\">Add New Group</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n    <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addGroup(newGroup);\" novalidate>\r\n    \r\n        <div class=\"form-group\" >\r\n            <label> Group name </label>\r\n            <br>\r\n            <!-- <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                {{errorMsg}}\r\n           </div>\r\n           -->\r\n           <div class=\"col-md-7\">\r\n            <div>\r\n              <div class=\"inputitem\">\r\n              <mat-form-field class=\"inputfileds\">\r\n                <input matInput placeholder=\"Group name\" name =\"group\" [(ngModel)]=\"newGroup.group\"  required >\r\n                <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n              </mat-form-field>\r\n              </div>\r\n            </div>\r\n            <div style=\"clear: both;\"></div>\r\n           \r\n            <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n          \r\n                  <mat-select placeholder=\"Users\" name='selected'  #users=\"ngModel\"  [(ngModel)]=\"newGroup.email\" multiple>\r\n                    <mat-option [value]=\"users\" *ngFor=\"let users of userData;\"  >{{users.email}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n          </div>\r\n            <br>\r\n            <div style=\"clear: both;\"></div>\r\n            <div *ngIf=\"showAddGroup\">\r\n            <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n              \r\n        </div>\r\n        <div *ngIf=\"showSpinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div>\r\n        <br>\r\n        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n       \r\n    </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->\r\n<div id=\"myModal2\"  class=\"modal fade\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n          <h4 class=\"modal-title\">Add New Group</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          \r\n      <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && updateUserGroup(newGroup,id);\" novalidate>\r\n      \r\n          <div class=\"form-group\" >\r\n              <label> Group name </label>\r\n              <br>\r\n              <!-- <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                  {{errorMsg}}\r\n             </div>\r\n             -->\r\n             <div class=\"col-md-7\">\r\n              <div>\r\n                <div class=\"inputitem\">\r\n                   \r\n                <mat-form-field class=\"inputfileds\">\r\n                  <input matInput placeholder=\"Group name\" name =\"group\" [(ngModel)]=\"newGroup.group\"  required >\r\n                  <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                </mat-form-field>\r\n                </div>\r\n              </div>\r\n              <div style=\"clear: both;\"></div>\r\n             \r\n              <div class=\"inputitem\">\r\n                  <mat-form-field class=\"inputfileds\">\r\n            \r\n                    <!-- <mat-select placeholder=\"Users\" name='edituser'  [(ngModel)]=\"newGroup.email\" multiple> -->\r\n                    <mat-select placeholder=\"Users\" name='edituser'  [(ngModel)]=\"newGroup.email\" multiple>\r\n                      <mat-option [value]=\"users.email\" *ngFor=\"let users of userData;\"   >{{users.email}}</mat-option>\r\n                    </mat-select>\r\n                  </mat-form-field>\r\n\r\n              </div>\r\n            </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                  <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                </mat-form-field>\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                </div>\r\n                \r\n          </div>\r\n          <div *ngIf=\"showSpinner\">\r\n              <mat-spinner></mat-spinner>\r\n             </div>\r\n          <br>\r\n          <button type= \"submit\"  class=\"btn btn-danger ourbutton\" >Submit</button>\r\n         \r\n      </form>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n        </div>\r\n      </div>\r\n      \r\n    </div>\r\n  </div>\r\n\r\n    </div>\r\n </div>\r\n  </body>"
 
 /***/ }),
 
@@ -8654,16 +9340,19 @@ var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var CompanyManageUserGroupsComponent = /** @class */ (function () {
-    function CompanyManageUserGroupsComponent(companyService, _flashMessagesService, routes) {
+    function CompanyManageUserGroupsComponent(companyService, _flashMessagesService, routes, snackBar) {
         this.companyService = companyService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.existStatus = false;
         this.displayedColumns = ['id', 'name', 'action'];
         this.newGroup = { group: '', email: [], id: '' };
         this.newGrouparray = [];
         this.btnDisbled = false;
         this.atleastOneitem = false;
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
         this.isSuccess = false;
         this.isError = false;
         this.Updaterequired = false;
@@ -8707,8 +9396,6 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
         // ---------------------------------End-------------------------------------------
         this.loadData();
         this.companyService.getMyUsers().subscribe(function (userDatas) {
-            // console.log(userData);
-            // console.log(userData)
             _this.userData = userDatas;
         });
     };
@@ -8736,10 +9423,16 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
     // Desc          : to get all user groups
     CompanyManageUserGroupsComponent.prototype.loadData = function () {
         var _this = this;
+        this.showSpinnerDelete = true;
         var users = [];
         this.companyService.getAllUserGroup().subscribe(function (data1) {
-            if (data1 != '') {
+            _this.showSpinnerDelete = false;
+            if (data1.group.length <= 0) {
+                // this.showSpinnerDelete  = false;
                 _this.existStatus = true;
+            }
+            else {
+                _this.existStatus = false;
             }
             data1.group.forEach(function (item, index) {
                 users.push({
@@ -8762,8 +9455,9 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
     // Last Modified : 08-01-2018, Jooshifa 
     // Desc          :fget id of a group
     CompanyManageUserGroupsComponent.prototype.getId = function (id) {
+        this.showSpinnerDelete = false;
+        this.showSpinner = false;
         this.id = id;
-        //  console.log(this.id)
     };
     //  ---------------------------------end---------------------------------------------
     //  ---------------------------------Start-------------------------------------------
@@ -8776,6 +9470,8 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
     // Desc          :get name and id of group and get single user group
     CompanyManageUserGroupsComponent.prototype.getEditId = function (id, name) {
         var _this = this;
+        this.showSpinnerDelete = false;
+        this.showSpinner = false;
         //  console.log(id);
         this.id = id;
         this.newGroup.group = name;
@@ -8804,17 +9500,22 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
     // Desc          :fget id of a group
     CompanyManageUserGroupsComponent.prototype.updateUserGroup = function (newGroup, id) {
         var _this = this;
+        this.showSpinner = true;
         this.newGroup.id = id;
         // console.log(id)
         // console.log(newGroup);
         this.companyService.updateUserGroup(this.newGroup).subscribe(function (updateData) {
             if (!updateData.success) {
-                _this.isError = true;
+                // this.isError = true;
                 _this.errorMsg = updateData.msg;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.errorMsg, '', {
+                    duration: 2000
+                });
                 // this.btnDisbled = false;
                 setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
+                    // this.isError = false;
+                    // this.errorMsg = '';
                 }, 2000);
             }
             else if (updateData.success) {
@@ -8822,7 +9523,11 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
                 _this.loadData();
                 _this.closeBtn1.nativeElement.click();
                 // this.isSuccess = true;
-                _this._flashMessagesService.show('Update User Group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('Update User Group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open('Update User Group Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newGroup = { group: '', email: [], id: '' };
             }
@@ -8839,15 +9544,22 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
     // Desc          :gelete a usergroup
     CompanyManageUserGroupsComponent.prototype.deleteUserGroup = function (id) {
         var _this = this;
+        this.showSpinnerDelete = true;
         this.companyService.deleteUserGroup(id).subscribe(function (data2) {
             if (data2.success == false) {
-                console.log("success is false");
-                _this._flashMessagesService.show('Failed! ', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.showSpinnerDelete = false;
+                // this._flashMessagesService.show('Failed! ', { cssClass: 'alert-danger', timeout: 3000 });
+                var snackBarRef = _this.snackBar.open('* Failed! ', '', {
+                    duration: 2000
+                });
             }
             else {
                 _this.loadData();
-                console.log("success is true");
-                _this._flashMessagesService.show('Delete User group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                _this.showSpinnerDelete = false;
+                // this._flashMessagesService.show('Delete User group Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open('Delete User group Successfully ', '', {
+                    duration: 2000
+                });
             }
         });
     };
@@ -8862,15 +9574,20 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
     // Desc          :add a user group
     CompanyManageUserGroupsComponent.prototype.addGroup = function (newGroup) {
         var _this = this;
+        this.showSpinner = true;
         //  console.log(newGroup);
         this.companyService.addUserGroupsInCompany(this.newGroup).subscribe(function (addGroup) {
             if (!addGroup.success) {
-                _this.isError = true;
+                // this.isError = true;
                 _this.errorMsg = addGroup.msg;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.errorMsg, '', {
+                    duration: 2000
+                });
                 _this.btnDisbled = false;
                 setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
+                    // this.isError = false;
+                    // this.errorMsg = '';
                 }, 2000);
             }
             else if (addGroup.success) {
@@ -8878,7 +9595,11 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
                 _this.loadData();
                 _this.closeBtn.nativeElement.click();
                 // this.isSuccess = true;
-                _this._flashMessagesService.show('Add User Groups Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('Add User Groups Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open('Add User Groups Successfully', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
                 _this.newGroup = { group: '', email: [], id: '' };
                 _this.btnDisbled = false;
@@ -8917,7 +9638,7 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, material_1.MatSnackBar])
     ], CompanyManageUserGroupsComponent);
     return CompanyManageUserGroupsComponent;
 }());
@@ -8947,7 +9668,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-profile/company-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n          <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>   \r\n\r\n\r\n<br>\r\n<div class=\"container\">\r\n        <flash-messages></flash-messages>\r\n  <div class=\"panel panel-default panel-primary\">\r\n    <div class=\"panel-body\">\r\n      \r\n      <div class=\"form-group example-container\">\r\n          <div class=\"col-md-12 names\">\r\n            <label class=\"col-xs-12\">Email : {{company?.contact_person_email}}</label><br>\r\n            <label class=\"col-xs-12\">Name : {{company?.contact_person_fname}} {{company?.contact_person_lname}}</label><br/>\r\n          </div>\r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Organization </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\"  required formControlName=\"orgValidation\">\r\n              </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Organization Type</label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <mat-select [ngModel]=\"typeId\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n                      <mat-option *ngFor=\"let type of orgType\" [value]=\"type._id\" (click)=\"getOrgType(type)\">\r\n                        {{ type.name }}\r\n                      </mat-option>\r\n                    </mat-select>\r\n              </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Industry </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\"> \r\n                        <mat-select [(ngModel)]=\"industryId\" name=\"industry\" required formControlName=\"industryValidation\">\r\n                            <mat-option *ngFor=\"let item of industry\" [value]=\"item._id\" (click)=\"getIndustry(item)\" >\r\n                              {{ item.name }}\r\n                            </mat-option>\r\n                          </mat-select>\r\n                    </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Location </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" required formControlName=\"locationValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Company Strength </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" required formControlName=\"strengthValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Phone Number </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n                  <mat-error>Not a valid phone number</mat-error>\r\n                </mat-form-field> \r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Job Role </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" required formControlName=\"jobRoleValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Job Level </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" required formControlName=\"jobLevelValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Survey Attenders </label>\r\n              <div class=\"col-md-6\">\r\n                  <br>\r\n                  <div class=\"row\">\r\n                  <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n                  <mat-checkbox [checked]=\"modelArr && modelArr.includes(data._id)\" class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n                </section>\r\n                </div>\r\n              </div>\r\n          </div>\r\n         \r\n          <div class=\"clearfix\"></div>\r\n          <br>\r\n          <br>\r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <div class=\"col-md-1 col-sm-2 col-xs-6\"> \r\n            <button type=\"submit\" class=\"btn btn-danger\" (click)=\"updateProfile()\">Update</button>\r\n            </div>\r\n            <div class=\"col-md-1 col-sm-2 col-xs-6\"> \r\n            <div *ngIf=\"showSubscribe\">\r\n            <button type=\"button\" (click)=\"subscribe()\" class=\"btn btn-danger\">Subscribe</button>\r\n            </div>\r\n            </div>\r\n          </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</body>"
+module.exports = "<body>\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n          <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>   \r\n\r\n\r\n<br>\r\n<div class=\"container\">\r\n        <flash-messages></flash-messages>\r\n  <div class=\"panel panel-default panel-primary\">\r\n    <div class=\"panel-body\">\r\n      \r\n      <div class=\"form-group example-container\">\r\n          <div class=\"col-md-12 names\">\r\n            <label class=\"col-xs-12\">Email : {{company?.contact_person_email}}</label><br>\r\n            <label class=\"col-xs-12\">Name : {{company?.contact_person_fname}} {{company?.contact_person_lname}}</label><br/>\r\n          </div>\r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Organization </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\"  required formControlName=\"orgValidation\">\r\n              </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Organization Type</label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <mat-select [ngModel]=\"typeId\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n                      <mat-option *ngFor=\"let type of orgType\" [value]=\"type._id\" (click)=\"getOrgType(type)\">\r\n                        {{ type.name }}\r\n                      </mat-option>\r\n                    </mat-select>\r\n              </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Industry </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\"> \r\n                        <mat-select [(ngModel)]=\"industryId\" name=\"industry\" required formControlName=\"industryValidation\">\r\n                            <mat-option *ngFor=\"let item of industry\" [value]=\"item._id\" (click)=\"getIndustry(item)\" >\r\n                              {{ item.name }}\r\n                            </mat-option>\r\n                          </mat-select>\r\n                    </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Location </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" required formControlName=\"locationValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Company Strength </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" required formControlName=\"strengthValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Phone Number </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n                  <mat-error>Not a valid phone number</mat-error>\r\n                </mat-form-field> \r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Job Role </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" required formControlName=\"jobRoleValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Job Level </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" required formControlName=\"jobLevelValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Survey Attenders </label>\r\n              <div class=\"col-md-6\">\r\n                  <br>\r\n                  <div class=\"row\">\r\n                  <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n                  <mat-checkbox [checked]=\"modelArr && modelArr.includes(data._id)\" class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n                </section>\r\n                </div>\r\n              </div>\r\n          </div>\r\n         \r\n          <div class=\"clearfix\"></div>\r\n          <br>\r\n          <br>\r\n          <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                <mat-spinner></mat-spinner>\r\n               </div>\r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <div class=\"col-md-1 col-sm-2 col-xs-6\"> \r\n            <button type=\"submit\" class=\"btn btn-danger\" (click)=\"updateProfile()\">Update</button>\r\n            </div>\r\n            <div class=\"col-md-1 col-sm-2 col-xs-6\"> \r\n            <div *ngIf=\"showSubscribe\">\r\n            <button type=\"button\" (click)=\"subscribe()\" class=\"btn btn-danger\">Subscribe</button>\r\n            </div>\r\n            </div>\r\n          </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</body>"
 
 /***/ }),
 
@@ -8971,13 +9692,16 @@ var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var CompanyProfileComponent = /** @class */ (function () {
-    function CompanyProfileComponent(_formBuilder, companyService, routes, _flashMessagesService) {
+    function CompanyProfileComponent(_formBuilder, companyService, routes, _flashMessagesService, snackBar) {
         this._formBuilder = _formBuilder;
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
+        this.snackBar = snackBar;
         this.checked = false;
+        this.showSpinner = false;
         this.showSubscribe = false;
         this.newReg = {
             organization: '',
@@ -9115,16 +9839,25 @@ var CompanyProfileComponent = /** @class */ (function () {
     // Desc          : Company can subscribe app by clicking the subscribe button
     CompanyProfileComponent.prototype.subscribe = function () {
         var _this = this;
+        this.showSpinner = true;
         this.companyService.subscribeCompany().subscribe(function (data) {
             if (data.success) {
-                _this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
-                setTimeout(function () {
-                    _this.routes.navigate(['/profile']);
-                    location.reload();
-                }, 4000);
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Subscribed successfully', '', {
+                    duration: 2000
+                });
+                // setTimeout(() => {  
+                _this.routes.navigate(['/dashboard']);
+                // location.reload();
+                // }, 4000);
             }
             else {
-                _this._flashMessagesService.show('Some error occured, Please try again', { cssClass: 'alert-danger', timeout: 4000 });
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('* Some error occured, Please try again!', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('* Some error occured, Please try again!', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/profile']);
                 }, 4000);
@@ -9142,6 +9875,7 @@ var CompanyProfileComponent = /** @class */ (function () {
     // Desc          : Company can update all the details except email and name
     CompanyProfileComponent.prototype.updateProfile = function () {
         var _this = this;
+        this.showSpinner = true;
         this.newReg.survey_attenders = [];
         this.surveyattenders.forEach(function (element) {
             if (element.check == true) {
@@ -9153,13 +9887,21 @@ var CompanyProfileComponent = /** @class */ (function () {
         });
         this.companyService.updateCompany(this.newReg).subscribe(function (info) {
             if (info.success) {
-                _this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open('Profile updated Successfully', '', {
+                    duration: 2000
+                });
+                // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
                 setTimeout(function () {
                     _this.routes.navigate(['/profile']);
                 }, 4000);
             }
             else {
-                _this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('* Error!', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/profile']);
                 }, 4000);
@@ -9172,7 +9914,7 @@ var CompanyProfileComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService])
+        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
     ], CompanyProfileComponent);
     return CompanyProfileComponent;
 }());
@@ -9202,7 +9944,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-registration/company-registration.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\">\r\n  \r\n<flash-messages></flash-messages>\r\n<mat-horizontal-stepper [linear]=\"isLinear\">\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm1()\" >\r\n      <ng-template matStepLabel>Step 1</ng-template>\r\n      <h4>Tell us about your job to get a sense of how many responses to expect</h4>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\" placeholder=\"Your Organization\"  required formControlName=\"orgValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <mat-select placeholder=\"Organization Type\" [(ngModel)]=\"newReg.organization_type\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n              <mat-option *ngFor=\"let type of orgType\" [value]=\"type\">\r\n                {{ type.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n\t  \r\n          <mat-select placeholder=\"Industry\" [(ngModel)]=\"newReg.industry\" name=\"industry\" required formControlName=\"industryValidation\">\r\n              <mat-option *ngFor=\"let item of industry\" [value]=\"item\">\r\n                {{ item.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" placeholder=\"Location\" required formControlName=\"locationValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" placeholder=\"Company Strength\"  required formControlName=\"strengthValidation\">\r\n        </mat-form-field>\r\n        <br/>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm2()\" >\r\n      <ng-template matStepLabel>Step 2</ng-template>\r\n      <h4>Tell us about yourself</h4>\r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_fname\" name=\"contact_person_fname\" placeholder=\"First Name\" required formControlName=\"fnameValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_lname\" name=\"contact_person_lname\" placeholder=\"Last Name\" required formControlName=\"lnameValidation\">\r\n      </mat-form-field>\r\n      <br/> \r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_email\" name=\"contact_person_email\" placeholder=\"Email\" required formControlName=\"email\">\r\n        <mat-error>Not a valid email</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n       <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" placeholder=\"Phone Number\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n        <mat-error>Not a valid phone number</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" placeholder=\"Job Role\" required formControlName=\"jobRoleValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n   <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" placeholder=\"Job Level\" required formControlName=\"jobLevelValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n      <input matInput [(ngModel)]=\"newReg.password\" id=\"password\" placeholder=\"Password\" name=\"password\" [type]=\"hide ? 'password' : 'text'\"  required formControlName=\"password\" validateEqual=\"confirmPassword\" reverse=\"true\">\r\n      <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n      <mat-error>Password contain atleast 6 characters and should contain one number,one character and one special character</mat-error>\r\n    </mat-form-field>\r\n      <br/>\r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n      <input type=\"password\" matInput [(ngModel)]=\"Reg.confirmPassword\" reverse=\"false\" validateEqual=\"password\" placeholder=\"Confirm Password\" name=\"confirmPassword\" required formControlName=\"confirmPassword\" id=\"confirmPassword\">\r\n      <mat-error>Password Not Match</mat-error>\r\n    </mat-form-field>\r\n      <br/>\r\n\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperPrevious>Back</button>\r\n      </div>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"thirdFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"register()\">\r\n    <ng-template matStepLabel>Step 3</ng-template>\r\n    <h4>Tell us who you are looking to get answers from</h4>\r\n    <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n        <mat-checkbox class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n      \r\n      </section>\r\n    <div class=\"btn btn-danger\">\r\n      <!-- <button mat-button matStepperPrevious>Back</button> -->\r\n      <button type=\"submit\" mat-button >Finish</button>\r\n    </div>\r\n    </form>\r\n    </div>\r\n  </mat-step>\r\n\r\n</mat-horizontal-stepper>\r\n\r\n</div>"
+module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\">\r\n  \r\n<flash-messages></flash-messages>\r\n<mat-horizontal-stepper [linear]=\"isLinear\">\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm1()\" >\r\n      <ng-template matStepLabel>Step 1</ng-template>\r\n      <h4>Tell us about your job to get a sense of how many responses to expect</h4>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\" placeholder=\"Your Organization\"  required formControlName=\"orgValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <mat-select placeholder=\"Organization Type\" [(ngModel)]=\"newReg.organization_type\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n              <mat-option *ngFor=\"let type of orgType\" [value]=\"type\">\r\n                {{ type.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n\t  \r\n          <mat-select placeholder=\"Industry\" [(ngModel)]=\"newReg.industry\" name=\"industry\" required formControlName=\"industryValidation\">\r\n              <mat-option *ngFor=\"let item of industry\" [value]=\"item\">\r\n                {{ item.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" placeholder=\"Location\" required formControlName=\"locationValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" placeholder=\"Company Strength\"  required formControlName=\"strengthValidation\">\r\n        </mat-form-field>\r\n        <br/>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm2()\" >\r\n      <ng-template matStepLabel>Step 2</ng-template>\r\n      <h4>Tell us about yourself</h4>\r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_fname\" name=\"contact_person_fname\" placeholder=\"First Name\" required formControlName=\"fnameValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_lname\" name=\"contact_person_lname\" placeholder=\"Last Name\" required formControlName=\"lnameValidation\">\r\n      </mat-form-field>\r\n      <br/> \r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_email\" name=\"contact_person_email\" placeholder=\"Email\" required formControlName=\"email\">\r\n        <mat-error>Not a valid email</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n       <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" placeholder=\"Phone Number\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n        <mat-error>Not a valid phone number</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" placeholder=\"Job Role\" required formControlName=\"jobRoleValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n   <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" placeholder=\"Job Level\" required formControlName=\"jobLevelValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n      <input matInput [(ngModel)]=\"newReg.password\" id=\"password\" placeholder=\"Password\" name=\"password\" [type]=\"hide ? 'password' : 'text'\"  required formControlName=\"password\" validateEqual=\"confirmPassword\" reverse=\"true\">\r\n      <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n      <mat-error>Password contain atleast 6 characters and should contain one number,one character and one special character</mat-error>\r\n    </mat-form-field>\r\n      <br/>\r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n      <input type=\"password\" matInput [(ngModel)]=\"Reg.confirmPassword\" reverse=\"false\" validateEqual=\"password\" placeholder=\"Confirm Password\" name=\"confirmPassword\" required formControlName=\"confirmPassword\" id=\"confirmPassword\">\r\n      <mat-error>Password Not Match</mat-error>\r\n    </mat-form-field>\r\n      <br/>\r\n\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperPrevious>Back</button>\r\n      </div>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"thirdFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"register()\">\r\n    <ng-template matStepLabel>Step 3</ng-template>\r\n    <h4>Tell us who you are looking to get answers from</h4>\r\n    <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n        <mat-checkbox class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n      \r\n      </section>\r\n      <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n          <mat-spinner></mat-spinner>\r\n      </div>\r\n    <div class=\"btn btn-danger\">\r\n      <!-- <button mat-button matStepperPrevious>Back</button> -->\r\n      <button type=\"submit\" mat-button >Finish</button>\r\n    </div>\r\n    </form>\r\n    </div>\r\n  </mat-step>\r\n\r\n</mat-horizontal-stepper>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -9226,13 +9968,16 @@ var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var password_validation_1 = __webpack_require__("../../../../../src/app/components/company-registration/password-validation.ts");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var CompanyRegistrationComponent = /** @class */ (function () {
-    function CompanyRegistrationComponent(_formBuilder, companyService, routes, _flashMessagesService) {
+    function CompanyRegistrationComponent(_formBuilder, companyService, routes, _flashMessagesService, snackBar) {
         this._formBuilder = _formBuilder;
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
+        this.snackBar = snackBar;
+        this.showSpinner = false;
         this.isLinear = true;
         this.hide = true;
         this.timestamp = new Date().getTime().toString();
@@ -9345,6 +10090,7 @@ var CompanyRegistrationComponent = /** @class */ (function () {
     // Desc          : 
     CompanyRegistrationComponent.prototype.register = function () {
         var _this = this;
+        this.showSpinner = true;
         this.thirdForm = '';
         this.newReg.survey_attenders = [];
         this.surveyattenders.forEach(function (element) {
@@ -9360,16 +10106,24 @@ var CompanyRegistrationComponent = /** @class */ (function () {
         this.companyService.registration(this.result).subscribe(function (data) {
             console.log(data);
             if (data.success == true) {
-                _this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
-                setTimeout(function () {
-                    _this.routes.navigate(['/clogin']);
-                }, 4000);
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Account created successfully, Please verify your Email address', '', {
+                    duration: 3000
+                });
+                // setTimeout(() => {  
+                _this.routes.navigate(['/clogin']);
+                // }, 4000);
             }
             else {
-                _this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
-                setTimeout(function () {
-                    _this.routes.navigate(['/clogin']);
-                }, 4000);
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('The email address you specified is already in use. Please login to continue', '', {
+                    duration: 3000
+                });
+                // setTimeout(() => {  
+                _this.routes.navigate(['/clogin']);
+                // }, 4000);
             }
         });
     };
@@ -9379,7 +10133,7 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService])
+        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
     ], CompanyRegistrationComponent);
     return CompanyRegistrationComponent;
 }());
@@ -9710,7 +10464,7 @@ var CompanyTopBarComponent = /** @class */ (function () {
                 _this.routes.navigate(['/clogin']);
             }
             _this.company_name = info.organization;
-            console.log(_this.company_name);
+            // console.log(this.company_name);
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -9737,17 +10491,18 @@ var CompanyTopBarComponent = /** @class */ (function () {
     CompanyTopBarComponent.prototype.loadData = function () {
         var _this = this;
         this.companyService.getAcceptedNotification().subscribe(function (data) {
-            _this.count = data.arr1.length;
-            console.log(_this.count);
+            console.log(data);
+            _this.count = data.length;
+            // console.log(this.count);
             _this.dataArray = [];
-            data.arr1.forEach(function (element) {
+            data.forEach(function (element) {
                 _this.dataArray.push(element);
             });
         });
     };
     CompanyTopBarComponent.prototype.notifViewed = function (email, id) {
         var _this = this;
-        // console.log(id);
+        console.log(id);
         // console.log(email);
         this.userData.userEmail = email;
         this.userData.userId = id;
@@ -9797,7 +10552,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.buttonleft>li{\r\n    border:none !important;\r\n    text-align: center;\r\n    padding: 4px;\r\n} \r\n\r\n.ourbutton2{    border-radius: 20px;\r\n        padding: 7px 40px;}\r\n.buttonleft{padding:2em 0;min-height: 300px;}\r\n\r\n\r\n\r\n\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n\r\n.inputfileds{\r\n    width: 300px !important;\r\n}\r\n.inputitem{\r\n    margin-bottom:-15px;\r\n    float: left;\r\n    width: 305px;\r\n    /* width: 400px; */\r\n}\r\n.relaive{position:relative;}\r\n\r\n/* Structure */\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  h4{\r\n    text-align: center;\r\n }\r\n .dropdown{\r\n    float:right;\r\n    margin-right :17%\r\n }\r\n .cdk-overlay-container {\r\n    z-index: 1052 !important;\r\n }\r\n", ""]);
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n.buttonleft>li{\r\n    border:none !important;\r\n    text-align: center;\r\n    padding: 4px;\r\n} \r\n\r\n.ourbutton2{    border-radius: 20px;\r\n        padding: 7px 40px;}\r\n.buttonleft{padding:2em 0;min-height: 300px;}\r\n\r\n\r\n\r\n\r\n.ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n\r\n.modal-content{border-radius:0;box-shadow:none;}\r\n.modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n.modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n.close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\na{outline:none; }\r\n.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus{outline:none;}\r\n\r\n.inputfileds{\r\n    width: 300px !important;\r\n}\r\n.inputitem{\r\n    margin-bottom:-15px;\r\n    float: left;\r\n    width: 305px;\r\n    /* width: 400px; */\r\n}\r\n.relaive{position:relative;}\r\n\r\n/* Structure */\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  h4{\r\n    text-align: center;\r\n }\r\n .dropdown{\r\n    float:right;\r\n    margin-right :17%\r\n }\r\n .cdk-overlay-container {\r\n    z-index: 1052 !important;\r\n }\r\n .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
 
 // exports
 
@@ -9810,7 +10565,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-users/company-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                        <div class=\"col-md-2\">\r\n                              <nav class=\"nav-sidebar\">\r\n                                  <ul class=\"nav tabs buttonleft\">\r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New</button>\r\n                                        </li>\r\n                                        <li *ngIf=\"loggedInCompany.plans[loggedInCompany.plans.length-1].excel_import\">\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#importModal\" >Import from Excel</button>\r\n                                        </li>\r\n                                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                                     \r\n                                  </ul>\r\n                                </nav>\r\n                        </div>\r\n                        <div class=\"col-md-10\">\r\n\r\n                            <div *ngIf=\"viewComp == 'All'\">\r\n                              <!-- <all-users></all-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Active'\">\r\n                                <!-- <active-users></active-users> -->\r\n                              </div>\r\n                            <div *ngIf=\"viewComp == 'Blocked'\">\r\n                              <!-- <disabled-users></disabled-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Delete'\">\r\n                              <!-- <deleted-users></deleted-users> -->\r\n                            </div>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n\r\n              <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                  <div class=\"modal-dialog\">\r\n                \r\n                    <!-- Modal content-->\r\n                    <div class=\"modal-content\">\r\n                      <!-- <div class=\"modal-header\"> -->\r\n                        <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                      <!-- </div> -->\r\n                      <div class=\"modal-body\">\r\n                          <h4>Are you sure to delete?</h4>\r\n                      \r\n                      </div>\r\n                    \r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                        <button type=\"button\" (click)=\"deleteUser(userId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                      </div>\r\n                    </div>\r\n                \r\n                  </div>\r\n                </div>\r\n\r\n                <div id=\"myModal2\"  class=\"modal fade\">\r\n                    <div class=\"modal-dialog\"> \r\n            <!-- Modal content-->\r\n                      <div class=\"modal-content\">\r\n                         <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                              <h4 class=\"modal-title\">User Block Request </h4>\r\n                         </div>\r\n                         <br>\r\n                         <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                          {{errorMsg}}\r\n                       </div>\r\n                       <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                           {{errorMsg}}\r\n                        </div>\r\n                       \r\n                          \r\n                        <div class=\"modal-body\">\r\n                             <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"sendBlockRequest(newBlock)\">\r\n                                  <p>User Name :  {{newBlock.email}}</p>\r\n                                  \r\n                                     \r\n                            <br>\r\n                                   <div class=\"form-group\" >\r\n                                     <textarea class=\"form-control\" rows=\"5\" name = \"reason\" id=\"comment\" placeholder=\"Reason\" [(ngModel)]=\"newBlock.reason\"></textarea>\r\n                                 </div>\r\n                                        <input type=\"submit\" class=\"btn btn-danger\" value=\"Send\"  [disabled]=\"btnDisbled\">\r\n                                 </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                      </div>\r\n                   </div>\r\n                </div>\r\n          </div>\r\n      \r\n                <flash-messages></flash-messages>\r\n           \r\n                  <br>\r\n                      <div class=\"col-md-7\">\r\n                          <div class=\"col-md-4 pull-right\">\r\n                              <mat-form-field class=\"filter\">\r\n                                  <mat-select   (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                    <mat-option value=\"all\">All</mat-option>\r\n                                    <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                  </mat-select>\r\n                          </mat-form-field>\r\n                          </div>\r\n                      <div class=\"example-header\" >\r\n                          <mat-form-field>\r\n                            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                          </mat-form-field>\r\n                      </div>\r\n                      \r\n                        <div class=\"noitem\" *ngIf=\"existStatus\"><h4>No item Found!</h4></div>\r\n                      \r\n                      <br>\r\n                      <div class=\"example-container mat-elevation-z8 \">\r\n                          <mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <ng-container matColumnDef=\"id\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                        </ng-container>\r\n                                  <ng-container matColumnDef=\"email\">\r\n                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                                       <mat-cell *matCellDef=\"let row\"> {{row.email}}</mat-cell>\r\n                                   </ng-container>\r\n                                    <ng-container  matColumnDef=\"action\">\r\n                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                          <mat-menu #menu=\"matMenu\">\r\n                                            <div>\r\n                                             \r\n                                              <button *ngIf=\"row.block_req_status==false\"  mat-menu-item (click)=\"getUserEmail(row.id,row.email)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                  <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                  <span>Sent Block Request</span>\r\n                                                  </button>\r\n                                                  <button *ngIf=\"row.block_req_status==true\"  mat-menu-item >\r\n                                                      <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                      <span>Already sent Block request</span>\r\n                                                      </button>\r\n                                                  </div>\r\n                                              <button  mat-menu-item (click)=\"bindEditUser(row.item)\" data-toggle=\"modal\" data-target=\"#editModal\">\r\n                                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                    <span>Edit</span>\r\n                                                    </button>\r\n                                                <button mat-menu-item  (click)=\"getUserId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                    <span>Delete</span>\r\n                                                </button>\r\n                                          </mat-menu> </mat-cell>\r\n                                \r\n                                       </ng-container>\r\n                         \r\n                      \r\n                  \r\n                                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                     </mat-row>\r\n                                    </mat-table>\r\n                      \r\n                                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                          </div>\r\n                        </div>\r\n                        \r\n              \r\n                      \r\n\r\n<!-- -------------------------------------------------------------------------------------------edit------------------------- -->\r\n                      <div id=\"editModal\"  class=\"modal fade\" >\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                              <h4 class=\"modal-title\">Edit User</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateUsers(f1);\" novalidate>\r\n                               \r\n                              <div class=\"form-group\" >\r\n                                  <label > Email </label>\r\n                                  <br>\r\n                                  <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                      {{msg1}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                    {{msg1}}\r\n                              </div>\r\n                                 \r\n                                  <div  >\r\n                                    <div class=\"inputitem\">\r\n                                    <mat-form-field *ngIf=\"!selUser.is_registered\" class=\"inputfileds\">\r\n                                      <input matInput  [value]=\"selUser.email\" placeholder=\"Email address\" required email  #email=\"ngModel\" name=\"email\" [(ngModel)]=\"selUser.newEmail\"  >\r\n                                      <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                    \r\n                                    </mat-form-field>\r\n                                    <div *ngIf=\"selUser.is_registered\">\r\n                                    <label >{{selUser.email}}</label>\r\n                                    </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <br/>\r\n                           \r\n                                  <br/>\r\n                                  <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <mat-select placeholder=\"Groups\" name='editgrup' [(ngModel)]=\"selUserGroups\" multiple>\r\n                                          <mat-option [value]=\"grp._id\" *ngFor=\"let grp of groups;\" >{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                  </div>\r\n                              \r\n                                  <br>\r\n                                  <div style=\"clear: both;\"></div>\r\n                              </div>\r\n                              <br>\r\n                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->\r\n<div id=\"importModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn2>&times;</button>\r\n          <h4 class=\"modal-title\">Import From Excel</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form  role=\"form\"  #f2=\"ngForm\" (ngSubmit)=\"f2.form.valid && import(f2);\" novalidate>\r\n           <div class=\"form-group\" >\r\n             <div class=\"row\">\r\n             <div class=\"col-md-6\">\r\n                <label > File </label>\r\n                <!-- <br> -->\r\n                <input #myInput type=\"file\" (change)=\"handleFile($event)\" accept=\".xlsx\"/>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <br>\r\n              Sample Excel :   <a href=\"/assets/sampleFile/sample.xlsx\" target=\"_self\" download>\r\n                <i class=\"fa fa-download\"></i>\r\n              </a>\r\n            </div>\r\n            </div>\r\n              <br>\r\n              <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                {{msg}}\r\n           </div>\r\n           <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n              {{msg}}\r\n        </div>\r\n              <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                    <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div style=\"float: left;\">\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n              </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n            </div>\r\n         \r\n          <button type= \"submit\" [disabled]=\"updateBtnDisbled1\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n         \r\n      </form>\r\n      </div>\r\n\r\n       \r\n        \r\n        <div class=\"modal-footer\">\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->\r\n                      \r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                          <div class=\"modal-dialog\">\r\n                          \r\n                            <!-- Modal content-->\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtnAdd>&times;</button>\r\n                                <h4 class=\"modal-title\">Add User</h4>\r\n                              </div>\r\n                              <div class=\"modal-body\">\r\n                                \r\n                            <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addUsers(f);\" novalidate>\r\n                            \r\n                                <div class=\"form-group\" >\r\n                                    <label > Email </label>\r\n                                    <br>\r\n                                    <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                        {{msg}}\r\n                                   </div>\r\n                                   <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                      {{msg}}\r\n                                </div>\r\n                                   \r\n                                    <div  *ngFor=\"let item of newUser.email; let i = index; trackBy:trackByIndex\" >\r\n                                      <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <input matInput placeholder=\"Email address\" required email  #email{{i}}=\"ngModel\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\" >\r\n                                        <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                      \r\n                                      </mat-form-field>\r\n                                      \r\n                                      </div>\r\n                                      <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                      </div>\r\n                                    </div>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <br/>\r\n                                    <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                    <br/>\r\n                                    <br/>\r\n                                    <div class=\"inputitem\">\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                          <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                                            <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                                          </mat-select>\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    <div style=\"float: left;\">\r\n                                        <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n                                    </div>\r\n                                    <br>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <div *ngIf=\"showAddGroup\">\r\n                                    <mat-form-field class=\"inputfileds\" >\r\n                                        <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                                      </mat-form-field>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                                      </div>\r\n                                      \r\n                                </div>\r\n                                <br>\r\n                                <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                               \r\n                            </form>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                              </div>\r\n                            </div>\r\n                            \r\n                          </div>\r\n                        </div>\r\n\r\n\r\n                        \r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
+module.exports = "<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                        <div class=\"col-md-2\">\r\n                              <nav class=\"nav-sidebar\">\r\n                                  <ul class=\"nav tabs buttonleft\">\r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New</button>\r\n                                        </li>\r\n                                        <li *ngIf=\"loggedInCompany.plans[loggedInCompany.plans.length-1].excel_import\">\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#importModal\" >Import from Excel</button>\r\n                                        </li>\r\n                                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                                     \r\n                                  </ul>\r\n                                </nav>\r\n                        </div>\r\n                        <div class=\"col-md-10\">\r\n\r\n                            <div *ngIf=\"viewComp == 'All'\">\r\n                              <!-- <all-users></all-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Active'\">\r\n                                <!-- <active-users></active-users> -->\r\n                              </div>\r\n                            <div *ngIf=\"viewComp == 'Blocked'\">\r\n                              <!-- <disabled-users></disabled-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Delete'\">\r\n                              <!-- <deleted-users></deleted-users> -->\r\n                            </div>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n\r\n              <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                  <div class=\"modal-dialog\">\r\n                \r\n                    <!-- Modal content-->\r\n                    <div class=\"modal-content\">\r\n                      <!-- <div class=\"modal-header\"> -->\r\n                        <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                      <!-- </div> -->\r\n                      <div class=\"modal-body\">\r\n                          <h4>Are you sure to delete?</h4>\r\n                      \r\n                      </div>\r\n                    \r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                        <button type=\"button\" (click)=\"deleteUser(userId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                      </div>\r\n                    </div>\r\n                \r\n                  </div>\r\n                </div>\r\n\r\n                <div id=\"myModal2\"  class=\"modal fade\">\r\n                    <div class=\"modal-dialog\"> \r\n            <!-- Modal content-->\r\n                      <div class=\"modal-content\">\r\n                         <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                              <h4 class=\"modal-title\">User Block Request </h4>\r\n                         </div>\r\n                         <br>\r\n                         <!-- <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                          {{errorMsg}}\r\n                       </div>\r\n                       <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                           {{errorMsg}}\r\n                        </div> -->\r\n                       \r\n                          \r\n                        <div class=\"modal-body\">\r\n                             <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"sendBlockRequest(newBlock)\">\r\n                                  <p>User Name :  {{newBlock.email}}</p>\r\n                                  \r\n                                     \r\n                            <br>\r\n                                   <div class=\"form-group\" >\r\n                                     <textarea class=\"form-control\" rows=\"5\" name = \"reason\" id=\"comment\" placeholder=\"Reason\" [(ngModel)]=\"newBlock.reason\"></textarea>\r\n                                 </div>\r\n                                 <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div>\r\n                                        <input type=\"submit\" class=\"btn btn-danger\" value=\"Send\"  [disabled]=\"btnDisbled\">\r\n                                 </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                      </div>\r\n                   </div>\r\n                </div>\r\n          </div>\r\n      \r\n                <flash-messages></flash-messages>\r\n           \r\n                  <br>\r\n                      <div class=\"col-md-7\">\r\n                          <div class=\"col-md-4 pull-right\">\r\n                              <mat-form-field class=\"filter\">\r\n                                  <mat-select   (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                    <mat-option value=\"all\">All</mat-option>\r\n                                    <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                  </mat-select>\r\n                          </mat-form-field>\r\n                          </div>\r\n                      <div class=\"example-header\" >\r\n                          <mat-form-field>\r\n                            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                          </mat-form-field>\r\n                      </div>\r\n                      \r\n                      \r\n                      \r\n                      <br>\r\n                      <div class=\"example-container mat-elevation-z8 \">\r\n                          <mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <ng-container matColumnDef=\"id\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                        </ng-container>\r\n                                  <ng-container matColumnDef=\"email\">\r\n                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                                       <mat-cell *matCellDef=\"let row\"> {{row.email}}</mat-cell>\r\n                                   </ng-container>\r\n                                    <ng-container  matColumnDef=\"action\">\r\n                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                          <mat-menu #menu=\"matMenu\">\r\n                                            <div>\r\n                                             \r\n                                              <button *ngIf=\"row.block_req_status==false\"  mat-menu-item (click)=\"getUserEmail(row.id,row.email)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                  <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                  <span>Sent Block Request</span>\r\n                                                  </button>\r\n                                                  <button *ngIf=\"row.block_req_status==true\"  mat-menu-item >\r\n                                                      <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                      <span>Already sent Block request</span>\r\n                                                      </button>\r\n                                                  </div>\r\n                                              <button  mat-menu-item (click)=\"bindEditUser(row.item)\" data-toggle=\"modal\" data-target=\"#editModal\">\r\n                                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                    <span>Edit</span>\r\n                                                    </button>\r\n                                                <button mat-menu-item  (click)=\"getUserId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                    <span>Delete</span>\r\n                                                </button>\r\n                                          </mat-menu> </mat-cell>\r\n                                \r\n                                       </ng-container>\r\n                         \r\n                      \r\n                  \r\n                                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                     </mat-row>\r\n                                   \r\n                                    </mat-table>\r\n                                    <div class=\"col-md-15 \">\r\n                                        <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                                            <mat-spinner></mat-spinner>\r\n                                           </div>\r\n                                    </div>\r\n                                    <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                                        <div class=\"col-md-4 col-md-offset-4\">\r\n                                            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                        </div>\r\n                                    </div>\r\n                                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                          </div>\r\n                        </div>\r\n                        \r\n              \r\n                      \r\n\r\n<!-- -------------------------------------------------------------------------------------------edit------------------------- -->\r\n                      <div id=\"editModal\"  class=\"modal fade\" >\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                              <h4 class=\"modal-title\">Edit User</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateUsers(f1);\" novalidate>\r\n                               \r\n                              <div class=\"form-group\" >\r\n                                  <label > Email </label>\r\n                                  <br>\r\n                                  <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                      {{msg1}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                    {{msg1}}\r\n                              </div> -->\r\n                                 \r\n                                  <div  >\r\n                                    <div class=\"inputitem\">\r\n                                    <mat-form-field *ngIf=\"!selUser.is_registered\" class=\"inputfileds\">\r\n                                      <input matInput  [value]=\"selUser.email\" placeholder=\"Email address\" required email  #email=\"ngModel\" name=\"email\" [(ngModel)]=\"selUser.newEmail\"  >\r\n                                      <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                    \r\n                                    </mat-form-field>\r\n                                    <div *ngIf=\"selUser.is_registered\">\r\n                                    <label >{{selUser.email}}</label>\r\n                                    </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <br/>\r\n                           \r\n                                  <br/>\r\n                                  <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <mat-select placeholder=\"Groups\" name='editgrup' [(ngModel)]=\"selUserGroups\" multiple>\r\n                                          <mat-option [value]=\"grp._id\" *ngFor=\"let grp of groups;\" >{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                  </div>\r\n                              \r\n                                  <br>\r\n                                  <div style=\"clear: both;\"></div>\r\n                              </div>\r\n                              <br>\r\n                              <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div>\r\n                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->\r\n<div id=\"importModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn2>&times;</button>\r\n          <h4 class=\"modal-title\">Import From Excel</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form  role=\"form\"  #f2=\"ngForm\" (ngSubmit)=\"f2.form.valid && import(f2);\" novalidate>\r\n           <div class=\"form-group\" >\r\n             <div class=\"row\">\r\n             <div class=\"col-md-6\">\r\n                <label > File </label>\r\n                <!-- <br> -->\r\n                <input #myInput type=\"file\" (change)=\"handleFile($event)\" accept=\".xlsx\"/>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <br>\r\n              Sample Excel :   <a href=\"/assets/sampleFile/sample.xlsx\" target=\"_self\" download>\r\n                <i class=\"fa fa-download\"></i>\r\n              </a>\r\n            </div>\r\n            </div>\r\n              <br>\r\n              <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                {{msg}}\r\n           </div>\r\n           <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n              {{msg}}\r\n        </div> -->\r\n              <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                    <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div style=\"float: left;\">\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n              </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n            </div>\r\n            <div *ngIf=\"showSpinner\">\r\n                <mat-spinner></mat-spinner>\r\n               </div>\r\n          <button type= \"submit\" [disabled]=\"updateBtnDisbled1\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n         \r\n      </form>\r\n      </div>\r\n\r\n       \r\n        \r\n        <div class=\"modal-footer\">\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->\r\n                      \r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                          <div class=\"modal-dialog\">\r\n                          \r\n                            <!-- Modal content-->\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtnAdd>&times;</button>\r\n                                <h4 class=\"modal-title\">Add User</h4>\r\n                              </div>\r\n                              <div class=\"modal-body\">\r\n                                \r\n                            <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addUsers(f);\" novalidate>\r\n                            \r\n                                <div class=\"form-group\" >\r\n                                    <label > Email </label>\r\n                                    <br>\r\n                                    <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                        {{msg}}\r\n                                   </div>\r\n                                   <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                      {{msg}}\r\n                                </div> -->\r\n                                   \r\n                                    <div  *ngFor=\"let item of newUser.email; let i = index; trackBy:trackByIndex\" >\r\n                                      <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <input matInput placeholder=\"Email address\" required email  #email{{i}}=\"ngModel\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\" >\r\n                                        <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                      \r\n                                      </mat-form-field>\r\n                                      \r\n                                      </div>\r\n                                      <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                      </div>\r\n                                    </div>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <br/>\r\n                                    <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                    <br/>\r\n                                    <br/>\r\n                                    <div class=\"inputitem\">\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                          <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                                            <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                                          </mat-select>\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    <div style=\"float: left;\">\r\n                                        <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n                                    </div>\r\n                                    <br>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <div *ngIf=\"showAddGroup\">\r\n                                    <mat-form-field class=\"inputfileds\" >\r\n                                        <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                                      </mat-form-field>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                                      </div>\r\n                                      \r\n                                </div>\r\n                                <br>\r\n                                <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div>\r\n                                <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                               \r\n                            </form>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                              </div>\r\n                            </div>\r\n                            \r\n                          </div>\r\n                        </div>\r\n\r\n\r\n                        \r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
 
 /***/ }),
 
@@ -9838,10 +10593,11 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var xlsx_to_json_service_1 = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
 var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
 var CompanyUsersComponent = /** @class */ (function () {
-    function CompanyUsersComponent(companyService, _flashMessagesService, routes) {
+    function CompanyUsersComponent(companyService, _flashMessagesService, routes, snackBar) {
         this.companyService = companyService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.newBlock = {
             id: String,
             email: String,
@@ -9851,6 +10607,9 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.displayedColumns = ['id', 'email', 'action'];
         this.selection = new collections_1.SelectionModel(true, []);
         this.selectedUserGroup = 'all';
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
+        this.existStatus = false;
         this.newUser = { email: [''], groups: [] };
         this.isError = false;
         this.isSuccess = false;
@@ -9859,7 +10618,6 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.isError1 = false;
         this.isSuccess1 = false;
         this.msg1 = '';
-        this.existStatus = false;
         this.showAddGroup = false;
         this.newGroup = '';
         this.xlsxToJsonService = new xlsx_to_json_service_1.XlsxToJsonService();
@@ -9933,7 +10691,9 @@ var CompanyUsersComponent = /** @class */ (function () {
     };
     CompanyUsersComponent.prototype.loadGroup = function () {
         var _this = this;
+        this.showSpinnerDelete = true;
         this.companyService.getAllUserGroup().subscribe(function (data) {
+            _this.showSpinnerDelete = false;
             _this.userGroups = data.group;
             ;
             //  console.log(this.answerType);
@@ -9949,8 +10709,16 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Desc          : to load saved user email
     CompanyUsersComponent.prototype.loadData = function () {
         var _this = this;
+        this.showSpinnerDelete = true;
         var users = [];
         this.companyService.getMyUsers().subscribe(function (data1) {
+            _this.showSpinnerDelete = false;
+            if (data1 == '') {
+                _this.existStatus = false;
+            }
+            else if (data1 != '') {
+                _this.existStatus = true;
+            }
             // console.log('list users');
             // console.log(data1);
             _this.userData = data1;
@@ -9991,6 +10759,8 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Desc          : pass id from modal and get it for the purpuse edit
     CompanyUsersComponent.prototype.bindEditUser = function (data) {
         var _this = this;
+        this.showSpinnerDelete = false;
+        this.showSpinner = false;
         this.selUser.email = data.email;
         this.selUser.newEmail = data.email;
         this.selUser.is_registered = data.is_registered;
@@ -10011,11 +10781,15 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : pass id from modal and get it for the purpuse edit
     CompanyUsersComponent.prototype.getUserId = function (id) {
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
         this.userId = id;
         // console.log(this.userId)
     };
     //  ---------------------------------end----------------------------------------------
     CompanyUsersComponent.prototype.getUserEmail = function (id, email) {
+        this.showSpinnerDelete = false;
+        this.showSpinner = false;
         this.newBlock.id = id;
         this.newBlock.email = email;
     };
@@ -10030,15 +10804,18 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Desc          : to filter based on groups
     CompanyUsersComponent.prototype.filterGroup = function (groups) {
         var _this = this;
+        this.showSpinnerDelete = true;
         // console.log(groups)
         this.companyService.getUserByGroup(groups).subscribe(function (data2) {
             if (data2.success == false) {
+                _this.showSpinnerDelete = false;
                 //  console.log("data not exist")
                 _this.existStatus = true;
             }
             else {
-                console.log(data2);
+                // console.log(data2)
                 if (data2) {
+                    _this.showSpinnerDelete = false;
                     // console.log("data exist")
                     _this.userData = data2;
                     _this.comp_id1 = _this.userData._id;
@@ -10060,15 +10837,24 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Desc          : Delete a user
     CompanyUsersComponent.prototype.deleteUser = function (userId) {
         var _this = this;
+        this.showSpinnerDelete = true;
         this.companyService.deleteUser(userId).subscribe(function (deleteData) {
-            console.log(deleteData);
+            // console.log(deleteData)
             if (deleteData.success == false) {
-                _this._flashMessagesService.show(' Survey invitation is  already sent, cant delete! ', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.showSpinnerDelete = false;
+                // this._flashMessagesService.show(' Survey invitation is  already sent, cant delete! ', { cssClass: 'alert-danger', timeout: 3000 });
+                var snackBarRef = _this.snackBar.open('* Survey invitation is  already sent, cant delete!', '', {
+                    duration: 2000
+                });
                 // console.log("error")
             }
             else {
                 _this.loadData();
-                _this._flashMessagesService.show('Delete User Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                _this.showSpinnerDelete = false;
+                // this._flashMessagesService.show('Delete User Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open(' Delete User Successfully', '', {
+                    duration: 2000
+                });
                 // console.log("success")
             }
         });
@@ -10102,7 +10888,9 @@ var CompanyUsersComponent = /** @class */ (function () {
         }
         else {
             this.isError = true;
-            this.msg = "Atleast one item required";
+            var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+            });
             setTimeout(function () {
                 _this.isError = false;
                 _this.msg = '';
@@ -10146,34 +10934,43 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Desc          : For update user details and assigned groups
     CompanyUsersComponent.prototype.updateUsers = function (form) {
         var _this = this;
+        this.showSpinner = true;
         this.updateBtnDisbled = true;
-        console.log(this.selUser.groups);
+        // console.log(this.selUser.groups);
         this.selUserGroups.forEach(function (val, key) {
             _this.selUser.groups[key] = _this.groupsObject[val];
         });
-        console.log(this.selUser);
+        // console.log(this.selUser);
         this.companyService.updateUser(this.selUser).subscribe(function (data) {
             if (data.success) {
                 _this.selUser = { email: '', groups: [], newEmail: '', is_registered: false };
-                _this.isSuccess1 = true;
+                // this.isSuccess1 = true;
                 _this.msg1 = data.msg;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.msg1, '', {
+                    duration: 2000
+                });
                 form.resetForm();
                 //update company = data.company
                 _this.loadData();
-                setTimeout(function () {
-                    _this.closeBtn1.nativeElement.click();
-                    _this.isSuccess1 = false;
-                    _this.msg1 = '';
-                    _this.updateBtnDisbled = false;
-                }, 2000);
+                // setTimeout(()=>{ 
+                _this.closeBtn1.nativeElement.click();
+                // this.isSuccess1 = false;
+                // this.msg1 = '';
+                _this.updateBtnDisbled = false;
+                // }, 2000);
             }
             else {
-                _this.isError1 = true;
+                // this.isError1 = true;
                 _this.msg1 = data.msg;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.msg1, '', {
+                    duration: 2000
+                });
                 _this.updateBtnDisbled = false;
                 setTimeout(function () {
-                    _this.isError1 = false;
-                    _this.msg1 = '';
+                    // this.isError1 = false;
+                    // this.msg1 = '';
                 }, 3000);
             }
         });
@@ -10189,31 +10986,40 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Desc          : For add new user emails and assigned groups
     CompanyUsersComponent.prototype.addUsers = function (form) {
         var _this = this;
+        this.showSpinner = true;
         this.btnDisbled = true;
-        console.log(this.newUser);
+        // console.log(this.newUser);
         this.companyService.addUsers(this.newUser).subscribe(function (data) {
             if (data.success) {
                 _this.newUser = { email: [''], groups: [] };
-                _this.isSuccess = true;
+                // this.isSuccess = true;
                 _this.msg = data.msg;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
                 form.resetForm();
                 _this.loadData();
                 //update company = data.company
-                setTimeout(function () {
-                    _this.closeBtnAdd.nativeElement.click();
-                    _this.closeBtn2.nativeElement.click();
-                    _this.isSuccess = false;
-                    _this.msg = '';
-                    _this.btnDisbled = false;
-                    _this.updateBtnDisbled1 = false;
-                }, 2000);
+                // setTimeout(()=>{ 
+                _this.closeBtnAdd.nativeElement.click();
+                _this.closeBtn2.nativeElement.click();
+                // this.isSuccess = false;
+                // this.msg = '';
+                _this.btnDisbled = false;
+                _this.updateBtnDisbled1 = false;
+                // }, 2000);
             }
             else {
-                _this.isError = true;
+                // this.isError = true;
                 _this.msg = data.msg;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
                 _this.btnDisbled = false;
                 setTimeout(function () {
-                    _this.isError = false;
+                    // this.isError = false;
                     _this.updateBtnDisbled1 = false;
                     _this.msg = '';
                 }, 3000);
@@ -10231,14 +11037,19 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Desc          : For add new user group to db
     CompanyUsersComponent.prototype.addGroup = function () {
         var _this = this;
+        this.showSpinner = true;
         this.companyService.addUserGroup(this.newGroup).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success) {
                 _this.showAddGroup = false;
                 _this.groups.push(data.data);
                 _this.newGroup = '';
-                _this.isSuccess = true;
+                // this.isSuccess = true;
                 _this.msg = "Group Created Successfully";
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
                 _this.loadGroup();
                 setTimeout(function () {
                     _this.isSuccess = false;
@@ -10246,11 +11057,15 @@ var CompanyUsersComponent = /** @class */ (function () {
                 }, 3000);
             }
             else {
-                _this.isError = true;
-                _this.msg = "Faild, Group Already Exists";
+                // this.isError = true;
+                _this.msg = "* Faild, Group Already Exists!";
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
-                    _this.isError = false;
-                    _this.msg = '';
+                    // this.isError = false;
+                    // this.msg = '';
                 }, 3000);
             }
         });
@@ -10267,16 +11082,21 @@ var CompanyUsersComponent = /** @class */ (function () {
     // Desc          : send block request to admin to block a user
     CompanyUsersComponent.prototype.sendBlockRequest = function (request) {
         var _this = this;
+        this.showSpinner = true;
         this.companyService.sendBlockRequest(request).subscribe(function (data4) {
             if (!data4.success) {
                 console.log(data4);
-                _this.isError = true;
+                // this.isError = true;
                 _this.errorMsg = data4.msg;
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(_this.errorMsg, '', {
+                    duration: 2000
+                });
                 _this.btnDisbled = false;
                 _this.newBlock.reason = '';
                 setTimeout(function () {
-                    _this.isError = false;
-                    _this.errorMsg = '';
+                    // this.isError = false;
+                    // this.errorMsg = '';
                 }, 2000);
             }
             else if (data4.success) {
@@ -10286,12 +11106,16 @@ var CompanyUsersComponent = /** @class */ (function () {
                 // this.isSuccess = true;
                 _this.errorMsg = data4.msg;
                 setTimeout(function () {
-                    _this.isSuccess = false;
-                    _this.errorMsg = '';
+                    // this.isSuccess = false;
+                    // this.errorMsg = '';
                     _this.btnDisbled = false;
                 }, 2000);
                 _this.newBlock.reason = '';
-                _this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                _this.showSpinner = false;
+                // this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+                var snackBarRef = _this.snackBar.open('Sent Block request successfully!', '', {
+                    duration: 2000
+                });
                 // this.closeBtn.nativeElement.click();
             }
         });
@@ -10322,15 +11146,25 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.addUsers(form);
     };
     CompanyUsersComponent.prototype.openModal = function () {
+        this.showSpinner = false;
+        this.showSpinner = false;
         this.newUser.email = [''];
         this.myInputVariable.nativeElement.value = "";
     };
     CompanyUsersComponent.prototype.updateUserList = function () {
         var _this = this;
+        this.showSpinnerDelete = true;
         console.log(this.selectedUserGroup);
         if (this.selectedUserGroup == 'all') {
             this.companyService.getMyUsers().subscribe(function (data) {
-                console.log(data);
+                _this.showSpinnerDelete = false;
+                if (data == '') {
+                    _this.existStatus = false;
+                }
+                else if (data != '') {
+                    _this.existStatus = true;
+                }
+                //  console.log(data);
                 _this.users = data;
                 _this.dataSource = new material_1.MatTableDataSource(data);
                 _this.dataSource.paginator = _this.paginator;
@@ -10339,6 +11173,13 @@ var CompanyUsersComponent = /** @class */ (function () {
         }
         else {
             this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(function (data) {
+                _this.showSpinnerDelete = false;
+                if (data == '') {
+                    _this.existStatus = false;
+                }
+                else if (data != '') {
+                    _this.existStatus = true;
+                }
                 _this.users = data;
                 _this.dataSource = new material_1.MatTableDataSource(_this.users);
                 _this.dataSource.paginator = _this.paginator;
@@ -10384,7 +11225,7 @@ var CompanyUsersComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-users/company-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-users/company-users.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, material_2.MatSnackBar])
     ], CompanyUsersComponent);
     return CompanyUsersComponent;
 }());
@@ -10925,7 +11766,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-login/user-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"login-body\">\r\n    <div class=\"login-page\">\r\n     <div class=\"form\">\r\n     <h2>Login</h2>\r\n     \r\n     <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\r\n \r\n       <div class=\"input-group form-group\">\r\n         <span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\r\n        <!-- <label class=\"styles1\">{{userEmail}}</label> -->\r\n        <label class=\"styles2\">{{userEmail}}</label>\r\n       </div>\r\n       \r\n       <div class=\"input-group form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n        <span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\r\n        <input type=\"password\" placeholder=\"Password\" class=\"styles1 form-control\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\r\n        <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n       </div>\r\n       \r\n      <br/>\r\n       <button type=\"submit\" class=\"btn btn-danger\">Sign In</button>\r\n       <div class=\"form-group\">\r\n         <div *ngIf=\"showError\" class=\"help-block\">{{msg}}</div>\r\n       </div> \r\n     <br/>\r\n     </form>\r\n    </div>\r\n   </div>\r\n </body>\r\n \r\n     \r\n     \r\n       \r\n \r\n     \r\n \r\n \r\n "
+module.exports = "<body class=\"login-body\">\r\n    <div class=\"login-page\">\r\n     <div class=\"form\">\r\n     <h2>Login</h2>\r\n     \r\n     <form class=\"login-form\" role=\"form\" #f=\"ngForm\" (ngSubmit)=\"f.form.valid && login()\" novalidate>\r\n \r\n       <div class=\"input-group form-group\">\r\n         <span class=\"input-group-addon\"><i class=\"fa fa-user fa\" aria-hidden=\"true\"></i></span>\r\n        <!-- <label class=\"styles1\">{{userEmail}}</label> -->\r\n        <label class=\"styles2\">{{userEmail}}</label>\r\n       </div>\r\n       \r\n       <div class=\"input-group form-group\" [ngClass]=\"{ 'has-error': f.submitted && !password.valid }\">\r\n        <span class=\"input-group-addon\"><i class=\"fa fa-lock fa\" aria-hidden=\"true\"></i></span>\r\n        <input type=\"password\" placeholder=\"Password\" class=\"styles1 form-control\" required [(ngModel)]=\"newLogin.password\" name=\"password\" #password=\"ngModel\"/>\r\n        <div *ngIf=\"f.submitted && !password.valid\" class=\"help-block\">Password is required</div>\r\n       </div>\r\n       \r\n      <br/>\r\n       <button type=\"submit\" class=\"btn btn-danger\">Sign In</button>\r\n       <div class=\"form-group\">\r\n         <!-- <div *ngIf=\"showError\" class=\"help-block\">{{msg}}</div> -->\r\n       </div> \r\n     <br/>\r\n     </form>\r\n    </div>\r\n   </div>\r\n </body>\r\n \r\n     \r\n     \r\n       \r\n \r\n     \r\n \r\n \r\n "
 
 /***/ }),
 
@@ -10947,11 +11788,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var UserLoginComponent = /** @class */ (function () {
-    function UserLoginComponent(route, userService, routes) {
+    function UserLoginComponent(route, userService, routes, snackBar) {
         this.route = route;
         this.userService = userService;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.newLogin = {
             email: '',
             password: '',
@@ -11023,6 +11866,9 @@ var UserLoginComponent = /** @class */ (function () {
             if (data.success == false) {
                 _this.showError = true;
                 _this.msg = data.msg;
+                var snackBarRef = _this.snackBar.open(_this.msg, '', {
+                    duration: 2000
+                });
             }
             if (data.success) {
                 _this.showError = false;
@@ -11037,7 +11883,7 @@ var UserLoginComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/user-login/user-login.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-login/user-login.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute, user_service_1.UserService, router_1.Router])
+        __metadata("design:paramtypes", [router_1.ActivatedRoute, user_service_1.UserService, router_1.Router, material_1.MatSnackBar])
     ], UserLoginComponent);
     return UserLoginComponent;
 }());
@@ -11095,7 +11941,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-registration/user-registration.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-body\">\r\n<div class=\"form\">\r\n    <flash-messages></flash-messages>\r\n    <br>\r\n    <div class=\"\">\r\n    <div class=\"panel panel-default panel-primary\">\r\n    <div class=\"panel-body\">\r\n    <form  [formGroup]=\"regFormGroup\" (ngSubmit)=\"regFormGroup.valid && userRegister()\" >\r\n    <div class=\"form-group example-container\">\r\n        <h2>Sign Up</h2>\r\n        <!-- <div class=\"col-md-12 names\">\r\n            <label class=\"col-xs-12\">Email : {{userEmail}}</label><br>\r\n        </div> -->\r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <label class=\"control-label col-md-5 col-sm-5 col-xs-12\" >Email </label>\r\n            <!-- <mat-form-field > -->\r\n                    <label class=\"col-xs-12 col-md-6 col-sm-6 styles2\">{{userEmail}}</label><br>\r\n            <!-- </mat-form-field> -->\r\n        </div>\r\n\r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <label class=\"control-label col-md-5 col-sm-5 col-xs-12\" >Name </label>\r\n            <mat-form-field [formGroup]=\"regFormGroup\">\r\n                <input matInput autofocus [(ngModel)]=\"newReg.name\" name=\"name\" required formControlName=\"nameValidation\">\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        \r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <label class=\"control-label col-md-5 col-sm-5 col-xs-12\" >Password </label>\r\n            <mat-form-field [formGroup]=\"regFormGroup\">\r\n                <input matInput [(ngModel)]=\"newReg.password\" id=\"password\" name=\"password\" [type]=\"hide ? 'password' : 'text'\"  required formControlName=\"password\" validateEqual=\"confirmPassword\" reverse=\"true\">\r\n                <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n                <mat-error>Password contain atleast 6 characters and should contain one number,one character and one special character</mat-error>\r\n                </mat-form-field>\r\n        </div>\r\n        <div class=\"clearfix\"></div>\r\n        \r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <label class=\"control-label col-md-5 col-sm-5 col-xs-12\" >Confirm Password </label>\r\n            <mat-form-field [formGroup]=\"regFormGroup\">\r\n                <input type=\"password\" matInput [(ngModel)]=\"Reg.confirmPassword\" reverse=\"false\" validateEqual=\"password\" name=\"confirmPassword\" required formControlName=\"confirmPassword\" id=\"confirmPassword\">\r\n                <mat-error>Password Not Match</mat-error>\r\n                </mat-form-field>\r\n        </div>\r\n        \r\n        <div class=\"clearfix\"></div>\r\n        <br>\r\n        <br>\r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <div class=\"col-md-12 col-sm-12 col-xs-6 text-cnrt\"> \r\n            <button type=\"submit\" class=\"btn btn-danger\">Sign Up</button>\r\n            </div>\r\n            <div class=\"text-danger text-center col-md-6 col-sm-3 col-xs-6\">\r\n                    {{msg}}\r\n            </div>\r\n        </div>\r\n    </div>\r\n    </form>\r\n    </div>\r\n    </div>\r\n</div>\r\n</div>\r\n</div>"
+module.exports = "<div class=\"login-body\">\r\n<div class=\"form\">\r\n    <flash-messages></flash-messages>\r\n    <br>\r\n    <div class=\"\">\r\n    <div class=\"panel panel-default panel-primary\">\r\n    <div class=\"panel-body\">\r\n    <form  [formGroup]=\"regFormGroup\" (ngSubmit)=\"regFormGroup.valid && userRegister()\" >\r\n    <div class=\"form-group example-container\">\r\n        <h2>Sign Up</h2>\r\n        <!-- <div class=\"col-md-12 names\">\r\n            <label class=\"col-xs-12\">Email : {{userEmail}}</label><br>\r\n        </div> -->\r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <label class=\"control-label col-md-5 col-sm-5 col-xs-12\" >Email </label>\r\n            <!-- <mat-form-field > -->\r\n                    <label class=\"col-xs-12 col-md-6 col-sm-6 styles2\">{{userEmail}}</label><br>\r\n            <!-- </mat-form-field> -->\r\n        </div>\r\n\r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <label class=\"control-label col-md-5 col-sm-5 col-xs-12\" >Name </label>\r\n            <mat-form-field [formGroup]=\"regFormGroup\">\r\n                <input matInput autofocus [(ngModel)]=\"newReg.name\" name=\"name\" required formControlName=\"nameValidation\">\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        \r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <label class=\"control-label col-md-5 col-sm-5 col-xs-12\" >Password </label>\r\n            <mat-form-field [formGroup]=\"regFormGroup\">\r\n                <input matInput [(ngModel)]=\"newReg.password\" id=\"password\" name=\"password\" [type]=\"hide ? 'password' : 'text'\"  required formControlName=\"password\" validateEqual=\"confirmPassword\" reverse=\"true\">\r\n                <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n                <mat-error>Password contain atleast 6 characters and should contain one number,one character and one special character</mat-error>\r\n                </mat-form-field>\r\n        </div>\r\n        <div class=\"clearfix\"></div>\r\n        \r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <label class=\"control-label col-md-5 col-sm-5 col-xs-12\" >Confirm Password </label>\r\n            <mat-form-field [formGroup]=\"regFormGroup\">\r\n                <input type=\"password\" matInput [(ngModel)]=\"Reg.confirmPassword\" reverse=\"false\" validateEqual=\"password\" name=\"confirmPassword\" required formControlName=\"confirmPassword\" id=\"confirmPassword\">\r\n                <mat-error>Password Not Match</mat-error>\r\n                </mat-form-field>\r\n        </div>\r\n        \r\n        <div class=\"clearfix\"></div>\r\n        <br>\r\n        <br>\r\n        <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n                <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                        <mat-spinner></mat-spinner>\r\n                    </div>\r\n            <div class=\"col-md-12 col-sm-12 col-xs-6 text-cnrt\"> \r\n            <button type=\"submit\" class=\"btn btn-danger\">Sign Up</button>\r\n            </div>\r\n            <div class=\"text-danger text-center col-md-6 col-sm-3 col-xs-6\">\r\n                    <!-- {{msg}} -->\r\n            </div>\r\n        </div>\r\n    </div>\r\n    </form>\r\n    </div>\r\n    </div>\r\n</div>\r\n</div>\r\n</div>"
 
 /***/ }),
 
@@ -11121,14 +11967,16 @@ var user_service_1 = __webpack_require__("../../../../../src/app/services/user.s
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var password_validation_1 = __webpack_require__("../../../../../src/app/components/user-registration/password-validation.ts");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var UserRegistrationComponent = /** @class */ (function () {
-    function UserRegistrationComponent(route, _formBuilder, userService, routes, _flashMessagesService, companyService) {
+    function UserRegistrationComponent(route, _formBuilder, userService, routes, _flashMessagesService, companyService, snackBar) {
         this.route = route;
         this._formBuilder = _formBuilder;
         this.userService = userService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
         this.companyService = companyService;
+        this.snackBar = snackBar;
         this.hide = true;
         this.newReg = {
             email: '',
@@ -11136,6 +11984,7 @@ var UserRegistrationComponent = /** @class */ (function () {
             password: '',
         };
         this.Reg = { confirmPassword: '' };
+        this.showSpinner = false;
     }
     UserRegistrationComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -11205,17 +12054,26 @@ var UserRegistrationComponent = /** @class */ (function () {
     // Desc          : 
     UserRegistrationComponent.prototype.userRegister = function () {
         var _this = this;
+        this.showSpinner = true;
         this.userService.registration(this.newReg, this.surveyId).subscribe(function (data) {
             if (data.success == true) {
+                _this.showSpinner = false;
                 _this.userService.storeUserData(data.token, data.user);
-                _this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
-                setTimeout(function () {
-                    _this.routes.navigate(['/survey', _this.surveyId]);
-                }, 4000);
+                //  this._flashMessagesService.show('Account created successfully', { cssClass: 'alert-success', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('Account created successfully', '', {
+                    duration: 2000
+                });
+                //  setTimeout(() => {
+                _this.routes.navigate(['/survey', _this.surveyId]);
+                //  }, 4000);
             }
             else {
-                _this.msg = data.msg;
-                _this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
+                _this.showSpinner = false;
+                // this.msg = data.msg;
+                //  this._flashMessagesService.show('Some error occured', { cssClass: 'alert-danger', timeout: 4000 });
+                var snackBarRef = _this.snackBar.open('* Some error occured!', '', {
+                    duration: 2000
+                });
                 setTimeout(function () {
                     _this.routes.navigate(['/404']);
                 }, 4000);
@@ -11228,7 +12086,7 @@ var UserRegistrationComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute, forms_1.FormBuilder, user_service_1.UserService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, company_service_1.CompanyService])
+        __metadata("design:paramtypes", [router_1.ActivatedRoute, forms_1.FormBuilder, user_service_1.UserService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, company_service_1.CompanyService, material_1.MatSnackBar])
     ], UserRegistrationComponent);
     return UserRegistrationComponent;
 }());
@@ -11555,7 +12413,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n  <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n        <div class=\"col-md-4 txt-right\">\r\n          <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n        </div>\r\n        <div class=\"col-md-8 \">\r\n            <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n        </div>\r\n      </div>\r\n      <ng-template #newhd>\r\n        <div class=\"col-md-12\">\r\n          <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n          \r\n        </div>\r\n      </ng-template>\r\n    </div>\r\n  </nav>\r\n  <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px;\">\r\n  <div class=\"container\">\r\n      <div class=\"col-md-12 questn-container\">\r\n          <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n          <div class=\"col-md-12\">\r\n              <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\" (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n              \r\n          </div>\r\n          <div class=\"col-md-12\">\r\n            <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n              <form action=\"\">\r\n                  <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\" [ngStyle]=\"{'background-color':theme.q_bg_color}\">\r\n                    <div *ngIf=\"cardNo == i\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n                       \r\n                      \r\n                      \r\n                    </div>\r\n                     \r\n                    \r\n\r\n                      <ng-template #star >\r\n                          <div *ngIf=\"cardNo == i\">\r\n                          <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                              <!-- <fieldset>\r\n                                <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                <div class=\"rating\">\r\n                                  <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                                    <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                                    <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\" ></rating>\r\n                                    \r\n                                  <!-- </ng-container> -->\r\n                      \r\n                                    <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                    <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                    <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                    <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                </div>\r\n                              <!-- </fieldset> -->\r\n                      \r\n                            </div>\r\n                            \r\n                            </div>\r\n                      </ng-template>\r\n\r\n\r\n                      <ng-template #text >\r\n                          <mat-form-field class=\"example-full-width\">\r\n                              <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                            </mat-form-field>\r\n                      \r\n                      </ng-template>\r\n                      \r\n                    </div>\r\n                    <div class=\"col-md-12\">\r\n                        <div class=\"col-md-6 progrs \">\r\n                            <h5 *ngIf=\"!survey.display_type.pageno\">&nbsp;</h5>\r\n                            \r\n                            <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': theme.progress_text_color}\">Page No. {{cardNo+1}} of {{questionCount}}</h5>\r\n                            <div class=\"progress\" >\r\n                                <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\" [ngStyle]=\"{'background-color': theme.progress_bar_color}\">\r\n                                  <span class=\"sr-only\">70% Complete</span>\r\n                                </div>\r\n                              </div> \r\n                        </div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Back</button> \r\n                            \r\n                            <button *ngIf=\"cardNo < questionCount-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Next</button> \r\n                            <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < questionCount-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Skip</button> </div>\r\n                        </div>\r\n                      \r\n                    <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\" >Submit</button> \r\n                    \r\n              </form>\r\n          </div>\r\n          \r\n          \r\n        </div>   \r\n  </div>\r\n     </div>  \r\n  <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n    <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n  </footer>\r\n            \r\n</div>\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n    \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Message</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4></h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n        </div>\r\n      </div>\r\n    \r\n    </div>\r\n    </div>\r\n    <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
+module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n  <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n        <div class=\"col-md-4 txt-right\">\r\n          <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n        </div>\r\n        <div class=\"col-md-8 \">\r\n            <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n        </div>\r\n      </div>\r\n      <ng-template #newhd>\r\n        <div class=\"col-md-12\">\r\n          <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n          \r\n        </div>\r\n      </ng-template>\r\n    </div>\r\n  </nav>\r\n  <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px;\">\r\n  <div class=\"container\">\r\n      <div class=\"col-md-12 questn-container\">\r\n          <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n          <div class=\"col-md-12\">\r\n              <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\" (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n              \r\n          </div>\r\n          <div class=\"col-md-12\">\r\n            <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n              <form action=\"\">\r\n                  <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\" [ngStyle]=\"{'background-color':theme.q_bg_color}\">\r\n                    <div *ngIf=\"cardNo == i\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n                       \r\n                      \r\n                      \r\n                    </div>\r\n                     \r\n                    \r\n\r\n                      <ng-template #star >\r\n                          <div *ngIf=\"cardNo == i\">\r\n                          <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                              <!-- <fieldset>\r\n                                <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                <div class=\"rating\">\r\n                                  <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                                    <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                                    <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\" ></rating>\r\n                                    \r\n                                  <!-- </ng-container> -->\r\n                      \r\n                                    <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                    <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                    <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                    <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                </div>\r\n                              <!-- </fieldset> -->\r\n                      \r\n                            </div>\r\n                            \r\n                            </div>\r\n                      </ng-template>\r\n\r\n\r\n                      <ng-template #text >\r\n                          <mat-form-field class=\"example-full-width\">\r\n                              <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                            </mat-form-field>\r\n                      \r\n                      </ng-template>\r\n                      \r\n                    </div>\r\n                    <div class=\"col-md-12\">\r\n                        <div class=\"col-md-6 progrs \">\r\n                            <h5 *ngIf=\"!survey.display_type.pageno\">&nbsp;</h5>\r\n                            \r\n                            <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': theme.progress_text_color}\">Page No. {{cardNo+1}} of {{questionCount}}</h5>\r\n                            <div class=\"progress\" >\r\n                                <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\" [ngStyle]=\"{'background-color': theme.progress_bar_color}\">\r\n                                  <span class=\"sr-only\">70% Complete</span>\r\n                                </div>\r\n                              </div> \r\n                        </div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Back</button> \r\n                            \r\n                            <button *ngIf=\"cardNo < questionCount-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Next</button> \r\n                            <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < questionCount-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Skip</button> </div>\r\n                        </div>\r\n                      \r\n                    <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\" >Submit</button> \r\n                    \r\n              </form>\r\n          </div>\r\n          \r\n          \r\n        </div>   \r\n  </div>\r\n     </div>  \r\n  <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n    <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n  </footer>\r\n            \r\n</div>\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n    \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Message</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4></h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n        </div>\r\n      </div>\r\n    \r\n    </div>\r\n    </div>\r\n    <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n            <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                <mat-spinner></mat-spinner>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -11579,14 +12437,17 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var UserSurveyMultipleComponent = /** @class */ (function () {
-    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
+    function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, routes, config, route, snackBar) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
         this.routes = routes;
         this.config = config;
         this.route = route;
+        this.snackBar = snackBar;
+        this.showSpinner = false;
         this.cardNo = 0;
         this.incDisp = false;
         this.disp = false;
@@ -11675,8 +12536,10 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
     // Desc          : Submit survey answrs
     UserSurveyMultipleComponent.prototype.submitAns = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.survey);
         if (this.skip == false) {
+            this.showSpinner = false;
             this.survey.questions.forEach(function (element) {
                 if (element.ans == '' || !element.ans) {
                     _this.blankAns = true;
@@ -11684,18 +12547,26 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
             });
         }
         if (!this.blankAns) {
+            this.showSpinner = false;
             this._userService.submitSurvey(this.survey, this.survey._id).subscribe(function (res) {
                 console.log(res);
                 if (res.status == 0) {
                     _this.blankAns = true;
                 }
                 else if (res.status == 1 || res.status == 3) {
-                    $('#myModal .modal-body h4').text("Somthing went wrong!");
-                    $('#myModal').modal('show');
+                    var snackBarRef = _this.snackBar.open('* Somthing went wrong!!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text("Somthing went wrong!");
+                    // $('#myModal').modal('show'); 
                 }
                 else if (res.status == 4) {
-                    $('#myModal .modal-body h4').text("Successfully submitted!");
-                    $('#myModal').modal('show');
+                    window.location.reload();
+                    var snackBarRef = _this.snackBar.open('* Successfully submitted', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text("Successfully submitted!");
+                    // $('#myModal').modal('show'); 
                 }
             });
         }
@@ -11770,12 +12641,18 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
     UserSurveyMultipleComponent.prototype.timeOver = function () {
         console.log("h");
         if (this.skip == false) {
-            $('#myModalx .modal-body h4').text("Surevey TimeOut!");
-            $('#myModalx').modal('show');
+            var snackBarRef = this.snackBar.open('* Survey TimeOut', '', {
+                duration: 2000
+            });
+            // $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+            // $('#myModalx').modal('show'); 
         }
         else {
-            $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
-            $('#myModaly').modal('show');
+            var snackBarRef = this.snackBar.open('* Survey TimeOut! Do you want to submit?!', '', {
+                duration: 2000
+            });
+            // $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+            // $('#myModaly').modal('show');
         }
     };
     // -----------------------------------End------------------------------------------
@@ -11806,7 +12683,7 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             user_service_1.UserService,
             company_service_1.CompanyService,
-            router_1.Router, config_1.Config, router_1.ActivatedRoute])
+            router_1.Router, config_1.Config, router_1.ActivatedRoute, material_1.MatSnackBar])
     ], UserSurveyMultipleComponent);
     return UserSurveyMultipleComponent;
 }());
@@ -11836,7 +12713,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n          <div class=\"col-md-4 txt-right\">\r\n            <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n          </div>\r\n          <div class=\"col-md-8 \">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n              \r\n          </div>\r\n        </div>\r\n        <ng-template #newhd>\r\n          <div class=\"col-md-12\">\r\n            <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n          </div>\r\n        </ng-template>\r\n      </div>\r\n    </nav>\r\n    <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\"  (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                <form action=\"\">\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index\" [ngStyle]=\"{'background-color':theme.q_bg_color}\" style=\"margin-bottom:10px;padding:10px;\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                      </div>\r\n                      <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                      \r\n                </form>\r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n       </div>  \r\n    <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n      \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Message</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n          </div>\r\n        </div>\r\n      \r\n      </div>\r\n      </div>\r\n\r\n\r\n\r\n\r\n\r\n      <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
+module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n          <div class=\"col-md-4 txt-right\">\r\n            <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n          </div>\r\n          <div class=\"col-md-8 \">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n              \r\n          </div>\r\n        </div>\r\n        <ng-template #newhd>\r\n          <div class=\"col-md-12\">\r\n            <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n          </div>\r\n        </ng-template>\r\n      </div>\r\n    </nav>\r\n    <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\"  (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                <form action=\"\">\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index\" [ngStyle]=\"{'background-color':theme.q_bg_color}\" style=\"margin-bottom:10px;padding:10px;\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                      </div>\r\n\r\n\r\n                      <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                      </div>\r\n                      \r\n                      <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                      \r\n                </form>\r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n       </div>  \r\n    <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n      \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Message</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n          </div>\r\n        </div>\r\n      \r\n      </div>\r\n      </div>\r\n\r\n\r\n\r\n\r\n\r\n      <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -11860,15 +12737,18 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 // import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
 var UserSurveySinglepageComponent = /** @class */ (function () {
-    function UserSurveySinglepageComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
+    function UserSurveySinglepageComponent(_activatedRoute, _userService, _companyService, snackBar, routes, config, route) {
         this._activatedRoute = _activatedRoute;
         this._userService = _userService;
         this._companyService = _companyService;
+        this.snackBar = snackBar;
         this.routes = routes;
         this.config = config;
         this.route = route;
+        this.showSpinner = false;
         this.disp = false;
         this.skip = false;
         this.blankAns = false;
@@ -11950,10 +12830,12 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
     // Desc          : Submit survey answrs
     UserSurveySinglepageComponent.prototype.submitAns = function () {
         var _this = this;
+        this.showSpinner = true;
         console.log(this.survey);
         if (this.skip == false) {
             this.blankAns = false;
             this.survey.questions.forEach(function (element) {
+                _this.showSpinner = false;
                 if (element.ans == '' || !element.ans) {
                     _this.blankAns = true;
                 }
@@ -11963,14 +12845,24 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
             this._userService.submitSurvey(this.survey, this.survey._id).subscribe(function (res) {
                 if (res.status == 0) {
                     _this.blankAns = true;
+                    _this.showSpinner = false;
                 }
                 else if (res.status == 1 || res.status == 3) {
-                    $('#myModal .modal-body h4').text("Somthing went wrong!");
-                    $('#myModal').modal('show');
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('* Somthing went wrong!', '', {
+                        duration: 2000
+                    });
+                    // $('#myModal .modal-body h4').text("Somthing went wrong!");
+                    // $('#myModal').modal('show'); 
                 }
                 else if (res.status == 4) {
-                    $('#myModal .modal-body h4').text("Successfully submitted!");
-                    $('#myModal').modal('show');
+                    _this.showSpinner = false;
+                    var snackBarRef = _this.snackBar.open('Successfully submitted', '', {
+                        duration: 2000
+                    });
+                    window.location.reload();
+                    // $('#myModal .modal-body h4').text("Successfully submitted!");
+                    // $('#myModal').modal('show'); 
                 }
             });
         }
@@ -11999,12 +12891,18 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
     UserSurveySinglepageComponent.prototype.timeOver = function () {
         console.log("h");
         if (this.skip == false) {
-            $('#myModalx .modal-body h4').text("Surevey TimeOut!");
-            $('#myModalx').modal('show');
+            var snackBarRef = this.snackBar.open('Survey TimeOut', '', {
+                duration: 2000
+            });
+            // $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+            // $('#myModalx').modal('show'); 
         }
         else {
-            $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
-            $('#myModaly').modal('show');
+            var snackBarRef = this.snackBar.open('Survey TimeOut! Do you want to submit?', '', {
+                duration: 2000
+            });
+            // $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+            // $('#myModaly').modal('show');
         }
     };
     // -----------------------------------End------------------------------------------
@@ -12035,6 +12933,7 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             user_service_1.UserService,
             company_service_1.CompanyService,
+            material_1.MatSnackBar,
             router_1.Router, config_1.Config, router_1.ActivatedRoute])
     ], UserSurveySinglepageComponent);
     return UserSurveySinglepageComponent;
@@ -13763,7 +14662,6 @@ var CompanyService = /** @class */ (function () {
     // Last Modified : 09-01-2018, Jooshifa 
     // Desc          : gto update company is viewed to true when the notification is viewed by user
     CompanyService.prototype.updateNotifViewed = function (view) {
-        // console.log(view);
         var h = this.setHeaderWithAuthorization();
         return this.http.put(this.serviceUrl + "updateviewednotification", (view), { headers: h })
             .map(function (res) { return res.json(); });
@@ -13778,7 +14676,6 @@ var CompanyService = /** @class */ (function () {
     // Last Modified : 09-01-2018, Jooshifa 
     // Desc          : to delete a user group
     CompanyService.prototype.deleteUserGroup = function (userGroupId) {
-        console.log(userGroupId);
         var h = this.setHeaderWithAuthorization();
         return this.http.delete(this.serviceUrl + "deleteusergroups/" + userGroupId, { headers: h })
             .map(function (res) { return res.json(); });
@@ -13793,7 +14690,6 @@ var CompanyService = /** @class */ (function () {
     // Last Modified : 10-01-2018, Jooshifa 
     // Desc          : to delete a user group
     CompanyService.prototype.addUserGroupsInCompany = function (data) {
-        // console.log(data)
         var headers = this.setHeaderWithAuthorization();
         return this.http.post(this.serviceUrl + 'add-user-group', data, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -14216,7 +15112,6 @@ var CompanyService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : survey question
     CompanyService.prototype.getSurveyQuestions = function (surveyId) {
-        console.log(surveyId);
         var headers = this.setHeaderWithAuthorization();
         return this.http.get(this.serviceUrl + 'getAllQuestions/' + surveyId, { headers: headers })
             .map(function (res) { return res.json(); });

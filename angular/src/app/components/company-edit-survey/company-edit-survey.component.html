@@ -170,16 +170,22 @@
                                                   </h6>
                                                   </a>
                                                 <input type="text" (focusout)="updateFooterText()" name="footertitle" *ngIf="survey.showFooterInput" [(ngModel)]="survey.footer" >
+                                                
+                                                    <div *ngIf="showSpinner" class="deletespinner">
+                                                        <mat-spinner></mat-spinner>
+                                                       </div>
+                                                
                                               </div>
                                                 <a class="btn btn-danger ourbutton"  [routerLink]="['/company-list-survey']" >Back</a>
+                                               
                                                 <button  class="btn btn-danger ourbutton" type= "submit" (click)="showPreview();" >Preview</button>
                                                 <button  class="btn btn-danger ourbutton" type= "submit" [disabled]="saveBtnDisbled"  >Update</button>
-                                                <div *ngIf="isError2" class="text-danger text-left">
+                                                <!-- <div *ngIf="isError2" class="text-danger text-left">
                                                     {{msg2}}
                                                </div>
                                                 <div *ngIf="isSuccess2" class="text-success text-left">
                                                     {{msg2}}
-                                              </div>
+                                              </div> -->
                                               </div>
                                             </div>
                                           </div>
@@ -279,12 +285,15 @@
                                   </div>
 
                                   <div style="clear: both;"></div>
-                                  <div *ngIf="isError3" class="text-danger text-left">
+                                  <!-- <div *ngIf="isError3" class="text-danger text-left">
                                       {{msg3}}
                                  </div>
                                  <div *ngIf="isSuccess3" class="text-success text-left">
                                     {{msg3}}
-                              </div>
+                              </div> -->
+                              <div *ngIf="showSpinner" class="deletespinner">
+                                  <mat-spinner></mat-spinner>
+                                 </div>
                                   <button  [disabled]="inviteBtnDisbled" class="btn btn-danger ourbutton" (click)="inviteUser()" >Send Invitation</button>
                                   
                                  
@@ -310,7 +319,7 @@
                               <!-- Modal content-->
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" #closeBtn1>&times;</button>
+                                  <button type="button" class="close" data-dismiss="modal" #closeBtn2>&times;</button>
                                   <h4 class="modal-title">Update Question</h4>
                                 </div>
                                 <div class="modal-body">
@@ -320,12 +329,12 @@
                                   <div class="form-group" >
                                       <label > Question </label>
                                       <br>
-                                      <div *ngIf="isError1" class="text-danger text-left">
+                                      <!-- <div *ngIf="isError1" class="text-danger text-left">
                                           {{msg1}}
                                      </div>
                                      <div *ngIf="isSuccess1" class="text-success text-left">
                                         {{msg1}}
-                                  </div>
+                                  </div> -->
 
                                       <div class="inputitem">
                                           <mat-form-field class="inputfileds">
@@ -401,6 +410,9 @@
 
                                   </div>
                                   <div style="clear: both;"></div>
+                                  <div *ngIf="showSpinner" class="deletespinner">
+                                      <mat-spinner></mat-spinner>
+                                     </div>
                                   <button type= "submit" [disabled]="updateBtnDisbled" class="btn btn-danger ourbutton" >Update</button>
                                  
                               </form>
@@ -433,12 +445,12 @@
                                   <div class="form-group" >
                                       <label > Question </label>
                                       <br>
-                                      <div *ngIf="isError" class="text-danger text-left">
+                                      <!-- <div *ngIf="isError" class="text-danger text-left">
                                           {{msg}}
                                      </div>
                                      <div *ngIf="isSuccess" class="text-success text-left">
                                         {{msg}}
-                                  </div>
+                                  </div> -->
 
                                       <div class="inputitem">
                                           <mat-form-field class="inputfileds">
@@ -514,6 +526,11 @@
 
                                   </div>
                                   <div style="clear: both;"></div>
+                               
+                                      <div *ngIf="showSpinner" class="deletespinner">
+                                          <mat-spinner></mat-spinner>
+                                         </div>
+                                  
                                   <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
                                  
                               </form>

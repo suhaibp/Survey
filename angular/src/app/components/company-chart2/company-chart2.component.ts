@@ -107,6 +107,7 @@ export class CompanyChart2Component implements OnChanges {
   pierefresh() {
 
     this.companyService.getSurveyQuestions(this.surveyid).subscribe(data => {
+      
      
       this.initSvg();
       this.drawPie();

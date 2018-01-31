@@ -48,11 +48,14 @@
         <br>
         <br>
         <div class="col-md-6 col-sm-6 col-xs-12">
+                <div *ngIf="showSpinner" class="deletespinner">
+                        <mat-spinner></mat-spinner>
+                    </div>
             <div class="col-md-12 col-sm-12 col-xs-6 text-cnrt"> 
             <button type="submit" class="btn btn-danger">Sign Up</button>
             </div>
             <div class="text-danger text-center col-md-6 col-sm-3 col-xs-6">
-                    {{msg}}
+                    <!-- {{msg}} -->
             </div>
         </div>
     </div>
