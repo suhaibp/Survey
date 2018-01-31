@@ -63,6 +63,29 @@ export class AdminPlanComponent implements OnInit {
 
 
   ngOnInit() {
+    this.adminService.getLoggedUSerDetails().subscribe(info =>{
+      if(info == null || info == ''){
+        this.routes.navigate(['/admin-login']); 
+      }
+      if(info.role == "user"){
+        if(info.delete_status == true || info.block_status == true){
+          this.routes.navigate(['/404']); 
+        }
+        this.routes.navigate(['/survey', info.surveyId]); 
+      }
+      if(info.role == "company"){
+        if(info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified"){
+          this.routes.navigate(['/clogin']); 
+        }
+        if(info.cmp_status == "Expired"){
+          this.routes.navigate(['/expired']);
+        }
+        if(info.is_profile_completed == false){
+          this.routes.navigate(['/additnInfo', info._id]);
+        }
+        this.routes.navigate(['/dashboard']);
+      }
+    });
     this.refresh();
   }
 
