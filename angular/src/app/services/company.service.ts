@@ -321,6 +321,7 @@ export class CompanyService {
   // Desc          : function used to get details of a theme from database
   updateTheme(id, theme) {
     let headers = this.setHeaderWithAuthorization();
+    console.log("exe");
     return this.http.put(this.serviceUrl + 'update-theme/' + id, theme, { headers: headers })
       .map(res => res.json());
   }

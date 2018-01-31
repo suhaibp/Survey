@@ -1889,8 +1889,8 @@ var returnRouter = function (io) {
 
 
 
-        Survey.findOne({ "theme.id": req.params.id }, function (err, surveyTheme) {
-            console.log(req.params.id);
+        Survey.findOne({ "theme": req.params.id }, function (err, surveyTheme) {
+            console.log(surveyTheme);
 
             if (surveyTheme) {
                 res.json({
@@ -1959,7 +1959,7 @@ var returnRouter = function (io) {
     // Desc          : routing used to updated details of a theme
 
     router.put('/update-theme/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-
+        console.log(req.body);
         if (req.body.title != '') {
             if (req.headers && req.headers.authorization) {
                 var authorization = req.headers.authorization.substring(4), decoded;
@@ -1967,14 +1967,19 @@ var returnRouter = function (io) {
                 decoded = jwt.verify(authorization, config.secret);
                 var cmp_id = decoded._id;
                 Theme.findOne({ "cmp_id": cmp_id, title: req.body.title }, function (err, surveyTheme) {
-                    console.log(surveyTheme);
+                    // console.log(surveyTheme);
                     
-                    if (surveyTheme) {
-                        res.json({
-                            status: 4
-                        });
+                    if (surveyTheme && req.body._id != surveyTheme._id) {
+                    console.log(surveyTheme._id);
+                    console.log(req.body._id);
+
+                            res.json({
+                                status: 4 //already exist
+                            });
+                        
+                        
                     }
-                    else if (!surveyTheme) {
+                    else  {
                         Theme.findByIdAndUpdate(req.body._id,
                             {
                                 $set: {
@@ -3178,7 +3183,7 @@ var returnRouter = function (io) {
                             answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time,answer :eachanswer.answer });
                            
                         })
-                        mainArray[i].ans.push({ value: 'Click Here ', "count": 1, answeredUser: answeredUser });
+                        mainArray[i].ans.push({ value: 'Descriptive', "count": 1, answeredUser: answeredUser });
 
                     }
 

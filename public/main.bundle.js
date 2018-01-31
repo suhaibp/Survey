@@ -96,12 +96,13 @@ var ng2_dragula_1 = __webpack_require__("../../../../ng2-dragula/ng2-dragula.js"
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 __webpack_require__("../../../../hammerjs/hammer.js");
+// import {scaleLinear} from "d3-scale";
 // import * as d3 from "d3";
 var xlsx_to_json_service_1 = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
 var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var d3_ng2_service_1 = __webpack_require__("../../../../d3-ng2-service/index.js");
+// import { D3Service } from 'd3-ng2-service';
 var app_component_1 = __webpack_require__("../../../../../src/app/app.component.ts");
 var top_bar_component_1 = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
 var side_bar_component_1 = __webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.ts");
@@ -142,6 +143,7 @@ var admin_active_users_component_1 = __webpack_require__("../../../../../src/app
 var admin_blocked_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.ts");
 var admin_deleted_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.ts");
 var admin_request_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-request-users/admin-request-users.component.ts");
+var admin_plan_component_1 = __webpack_require__("../../../../../src/app/components/admin-plan/admin-plan.component.ts");
 var company_login_component_1 = __webpack_require__("../../../../../src/app/components/company-login/company-login.component.ts");
 var company_registration_component_1 = __webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.ts");
 var company_additn_info_component_1 = __webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.ts");
@@ -149,6 +151,7 @@ var company_expired_page_component_1 = __webpack_require__("../../../../../src/a
 var company_email_verification_component_1 = __webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.ts");
 var company_profile_component_1 = __webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.ts");
 var user_response_email_component_1 = __webpack_require__("../../../../../src/app/components/user-response-email/user-response-email.component.ts");
+var company_chart2_component_1 = __webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.ts");
 var user_login_component_1 = __webpack_require__("../../../../../src/app/components/user-login/user-login.component.ts");
 var user_registration_component_1 = __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.ts");
 var newpie_component_1 = __webpack_require__("../../../../../src/app/components/newpie/newpie.component.ts");
@@ -170,7 +173,8 @@ var core_2 = __webpack_require__("../../../../@agm/core/index.js");
 var reverse_pipe_1 = __webpack_require__("../../../../../src/app/pipe/reverse.pipe.ts");
 var angular_star_rating_1 = __webpack_require__("../../../../angular-star-rating/dist/index.js");
 var ngx_rating_1 = __webpack_require__("../../../../ngx-rating/index.js");
-var company_chart2_component_1 = __webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.ts");
+var user_survey_success_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-success/user-survey-success.component.ts");
+var user_test_component_1 = __webpack_require__("../../../../../src/app/components/user-test/user-test.component.ts");
 var appRoutes = [
     { path: '', component: company_login_component_1.CompanyLoginComponent },
     { path: '', redirectTo: '/clogin', pathMatch: 'full' },
@@ -204,6 +208,7 @@ var appRoutes = [
     { path: 'admin-company-blocked', component: admin_company_blocked_component_1.AdminCompanyBlockedComponent },
     { path: 'admin-company-deleted', component: admin_company_deleted_component_1.AdminCompanyDeletedComponent },
     { path: 'admin-users', component: admin_users_component_1.AdminUsersComponent },
+    { path: 'admin-users/:id', component: admin_users_component_1.AdminUsersComponent },
     { path: 'admin-all-users', component: admin_all_users_component_1.AdminAllUsersComponent },
     { path: 'admin-blocked-users', component: admin_blocked_users_component_1.AdminBlockedUsersComponent },
     { path: 'admin-company-active', component: admin_company_active_component_1.AdminCompanyActiveComponent },
@@ -227,7 +232,10 @@ var appRoutes = [
     { path: 'company-create-survey', component: company_create_survey_component_1.CompanyCreateSurveyComponent },
     { path: 'company-list-survey', component: company_list_survey_component_1.CompanyListSurveyComponent },
     { path: 'company-edit-survey/:id', component: company_edit_survey_component_1.CompanyEditSurveyComponent },
-    { path: 'preview', component: company_survey_preview_component_1.CompanySurveyPreviewComponent }
+    { path: 'preview', component: company_survey_preview_component_1.CompanySurveyPreviewComponent },
+    { path: 'admin-plan', component: admin_plan_component_1.AdminPlanComponent },
+    { path: 'survey-success', component: user_survey_success_component_1.UserSurveySuccessComponent },
+    { path: 'test', component: user_test_component_1.UserTestComponent },
 ];
 var DemoMaterialModule = /** @class */ (function () {
     function DemoMaterialModule() {
@@ -342,6 +350,9 @@ var AppModule = /** @class */ (function () {
                 newpie_component_1.NewpieComponent,
                 page_not_found_component_1.PageNotFoundComponent,
                 company_chart2_component_1.CompanyChart2Component,
+                admin_plan_component_1.AdminPlanComponent,
+                user_survey_success_component_1.UserSurveySuccessComponent,
+                user_test_component_1.UserTestComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -364,7 +375,7 @@ var AppModule = /** @class */ (function () {
                 angular_star_rating_1.StarRatingModule.forRoot(),
                 ngx_rating_1.RatingModule
             ],
-            providers: [config_1.Config, admin_service_1.AdminService, company_service_1.CompanyService, xlsx_to_json_service_1.XlsxToJsonService, user_service_1.UserService, d3_ng2_service_1.D3Service],
+            providers: [config_1.Config, admin_service_1.AdminService, company_service_1.CompanyService, xlsx_to_json_service_1.XlsxToJsonService, user_service_1.UserService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
@@ -589,7 +600,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  h4{\r\n    text-align: center;\r\n}\r\n  \r\n  .noItemFound{\r\n  text-align: center;\r\n  background-color: #ffffff;\r\n  border-bottom: 1px solid lightgray;\r\n\r\n}\r\n  \r\n  .back-color{\r\n  color: #757575;\r\n  background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 88%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .filter{\r\n    /* width: 5%; */\r\n    /* float: right;\r\n    clear: left; */\r\n    /* padding-bottom: 25px; */\r\n    margin-top: 10px;\r\n   \r\n  }\r\n  \r\n  h4{\r\n    text-align: center;\r\n}\r\n  \r\n  .noItemFound{\r\n  text-align: center;\r\n  background-color: #ffffff;\r\n  border-bottom: 1px solid lightgray;\r\n\r\n}\r\n  \r\n  .back-color{\r\n  color: #757575;\r\n  background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
 
 // exports
 
@@ -641,6 +652,7 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'status', 'action'];
         this.notExist = false;
         this.selected = 'all';
+        this.all_value = false;
         this.showSpinner = false;
     }
     AdminAllCompaniesComponent.prototype.refresh = function () {
@@ -650,6 +662,9 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllcompanies().subscribe(function (data) {
+                if (data.length != 0) {
+                    _this.all_value = true;
+                }
                 _this.loadToDataTable(data);
                 _this.showSpinner = false;
             });
@@ -1204,7 +1219,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n\r\n.bar {\r\n  fill: steelblue;\r\n}\r\n\r\n.bar:hover {\r\n  fill: brown;\r\n}\r\n\r\n.axis-title {\r\n  fill: none;\r\n  stroke: black;\r\n  stroke-width: 0.5px;\r\n}", ""]);
+exports.push([module.i, "\r\n\r\n.bar {\r\n  fill: #FE6896;\r\n}\r\n\r\n.bar:hover {\r\n  fill: #FE4980;\r\n}\r\n\r\n.axis-title {\r\n  fill: none;\r\n  stroke: black;\r\n  stroke-width: 0.5px;\r\n}\r\n\r\n.no-g-data{\r\n  text-align: center;\r\n  min-height: 550px;\r\n  padding: 72px 0 55px 0;\r\n}\r\n\r\n.no-g-data h4{\r\n  font-size: 30px;\r\n  font-weight: 800;\r\n  color: #4F657D\r\n}\r\n\r\n.no-g-data img{\r\n\r\n  width: 62px;\r\n  margin: 100px 0 0 0;\r\n}", ""]);
 
 // exports
 
@@ -1217,7 +1232,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-chatd3/admin-chatd3.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<h1>{{title}}</h1>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n    <svg  width=\"960\" height=\"500\"></svg>\r\n    \r\n"
+module.exports = "\r\n<h1>{{title}}</h1>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n<div *ngIf=\"!graphData; else empty\"  class=\"col-md-12 no-g-data\">\r\n    <!-- <svg  width=\"960\" height=\"500\"></svg> -->\r\n    <div id=\"bchart\"></div> \r\n\r\n</div>\r\n    \r\n<ng-template #empty>\r\n    <div class=\"col-md-12 no-g-data\">\r\n        <img src=\"assets/images/sad.png\" alt=\"sad\">\r\n        <h4>No Data Available!</h4>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1237,10 +1252,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var d3 = __webpack_require__("../../../../d3-selection/index.js");
-var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
-var d3Array = __webpack_require__("../../../../d3-array/index.js");
-var d3Axis = __webpack_require__("../../../../d3-axis/index.js");
+// import * as d3 from 'd3-selection';
+// import * as d3Scale from 'd3-scale';
+// import * as d3Array from 'd3-array';
+// import * as d3Axis from 'd3-axis';
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
@@ -1250,29 +1265,174 @@ var AdminChatd3Component = /** @class */ (function () {
         this.adminService = adminService;
         this.routes = routes;
         this.config = config;
-        this.title = 'Company Vs Survey';
+        this.title = 'Company vs Survey';
         // subtitle = 'Bar Chart';
         this.barchart = [];
         this.margin = { top: 20, right: 20, bottom: 30, left: 40 };
+        this.graphData = false;
         this.socket = socketIo(config.siteUrl);
     }
     AdminChatd3Component.prototype.refresh = function () {
         var _this = this;
         this.adminService.getchartbar().subscribe(function (data) {
+            if (data.length <= 0) {
+                _this.graphData = true;
+            }
+            // console.log(this.graphData)
             _this.barchart = [];
             data.forEach(function (elm) {
-                console.log(elm);
+                // console.log(elm);
                 if (elm.count != 0) {
                     _this.barchart.push({ company: elm._id, count: (elm.count) });
-                    _this.initSvg();
-                    _this.initAxis();
-                    _this.drawAxis();
-                    _this.drawBars();
+                    // this.initSvg();
+                    // this.initAxis();
+                    // this.drawAxis();
+                    // this.drawBars();
+                    _this.drawBar();
                 }
             });
             //  console.log(data);
         });
     };
+    /*_____________________________________BAR CHART____________________________________*/
+    AdminChatd3Component.prototype.drawBar = function () {
+        // var mydata = 
+        // [
+        //   {
+        //     "State":"Alaska",
+        //     "Population":735132
+        //   },
+        //   {
+        //     "State":"Arizona",
+        //     "Population":6626624
+        //   }
+        // ]
+        // d3.select("#pieChart2").selectAll("svg").remove();
+        d3.select("#bchart").selectAll("svg").remove();
+        var mydata = this.barchart;
+        var dataMax = d3.max(mydata, function (d) { return d.count; });
+        var margin = { top: 15, right: 30, bottom: 85, left: 45 };
+        var width = 800 - margin.left - margin.right, height = 450 - margin.top - margin.bottom, barWidth = 10;
+        var tempColor; //for mouseover effect
+        var yScale = d3.scale.linear()
+            .domain([0, dataMax])
+            .range([0, height]);
+        var xScale = d3.scale.ordinal()
+            .domain(d3.range(0, mydata.length))
+            .rangeBands([0, width], .2);
+        var vGuideScale = d3.scale.linear()
+            .domain([0, dataMax]) //guide numbering will be in the millions
+            .range([height, 0]);
+        var vAxis = d3.svg.axis()
+            .scale(vGuideScale)
+            .orient('left')
+            .ticks(10);
+        var hAxis = d3.svg.axis()
+            .scale(xScale)
+            .orient('bottom');
+        var tooltip = d3.select('body').append('div')
+            .style('position', 'absolute')
+            .style('padding', '0 10px')
+            .style('background', '#333')
+            .style('opacity', '.7')
+            .style('color', '#fff')
+            .style('border-radius', '3px');
+        ////CHART////
+        this.chart = d3.select('#bchart').append('svg')
+            .style('background', '#fff')
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+            .attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
+        // chart.exit().remove()
+        var bars = this.chart.selectAll('rect')
+            .data(mydata).enter()
+            .append('rect')
+            .attr('width', xScale.rangeBand())
+            .attr('x', function (d, i) { return xScale(i); })
+            .attr('height', 0)
+            .attr('y', height)
+            .attr('class', 'barhvr')
+            .on('mouseover', function (d) {
+            tempColor = this.style.fill;
+            d3.select(this)
+                .attr('cursor', 'pointer');
+            tooltip.html("Company: " + d.company)
+                .style('left', (d3.event.pageX + 10) + 'px')
+                .style('top', (d3.event.pageY - 20) + 'px');
+            tooltip
+                .style('opacity', .9);
+        })
+            .on('mouseout', function (d) {
+            d3.select(this);
+            // .attr('fill', tempColor)
+            // .attr('opacity', 1)
+            tooltip.style('opacity', 0)
+                .style('left', '0px')
+                .style('top', '0px');
+        });
+        // .on("click", this.mouseclick)  
+        // .on('click', (d, i) => {
+        //       // this.svg.remove();
+        //       this.piechart = []
+        //       this.quest[i].ans.forEach((val) => {
+        //         // console.log("****************");
+        //         // console.log(this.quest[i]);
+        //         // console.log("****************");
+        //       if (val.count != 0) {
+        //           this.piechart.push({ name: val.value, percent: val.count,answeredUser:val.answeredUser, ans_type : this.quest[i].ans_type });
+        //       }
+        //   });
+        //   this.setgraph();
+        // });
+        var vGuide = d3.select('svg').append('g');
+        vAxis(vGuide);
+        vGuide.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+        vGuide.selectAll('path')
+            .style({ fill: 'none', stroke: '#000' });
+        vGuide.selectAll('line')
+            .style({ stroke: '#000' });
+        vGuide.selectAll('text')
+            .attr('font-size', '.8em');
+        var hGuide = d3.select('svg').append('g');
+        hAxis(hGuide);
+        hGuide.attr('transform', 'translate(' + margin.left + ',' + (height + margin.top) + ')');
+        hGuide.selectAll('path')
+            .style({ fill: 'none', stroke: '#000' });
+        hGuide.selectAll('line')
+            .style({ stroke: '#000' });
+        hGuide.selectAll('text')
+            .attr('transform', 'translate(12,5) rotate(55)')
+            .attr('font-size', '12px')
+            .style('text-anchor', 'start')
+            .text(function (d) {
+            return mydata[d].company;
+        });
+        //Label on left of Y axis
+        d3.select('svg').append('text')
+            .text('No. of Surveys')
+            .style('text-anchor', 'middle')
+            .style('font-weight', 'bold')
+            .attr('transform', 'translate(12,' + ((height + margin.top + margin.bottom) * .45) + ') rotate(-90)')
+            .attr('font-size', '12px').attr('letter-spacing', "4");
+        //chart animation
+        bars.transition()
+            .attr('height', function (d) {
+            return yScale(d.count);
+        })
+            .attr('y', function (d) {
+            return height - yScale(d.count);
+        })
+            .delay(function (d, i) {
+            return i * 10;
+        })
+            .duration(800)
+            .ease('cubic-out');
+        // d3.select('#bchart').append('div').append('p')
+        //   .html('* Data from 2013')
+        //   .style('font-size', '.6em')
+    };
+    /*______________________________________________BAR CHART ENDS____________________________________________*/
     AdminChatd3Component.prototype.ngOnInit = function () {
         var _this = this;
         // ---------------------------------Start-------------------------------------------
@@ -1317,44 +1477,43 @@ var AdminChatd3Component = /** @class */ (function () {
         // this.drawBars();
     };
     AdminChatd3Component.prototype.initSvg = function () {
-        this.svg = d3.select("svg");
-        this.width = +this.svg.attr("width") - this.margin.left - this.margin.right;
-        this.height = +this.svg.attr("height") - this.margin.top - this.margin.bottom;
-        this.g = this.svg.append("g")
-            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+        // this.svg = d3.select("svg");
+        // this.width = +this.svg.attr("width") - this.margin.left - this.margin.right;
+        // this.height = +this.svg.attr("height") - this.margin.top - this.margin.bottom;
+        // this.g = this.svg.append("g")
+        //                  .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
     };
     AdminChatd3Component.prototype.initAxis = function () {
-        this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
-        this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
-        this.x.domain(this.barchart.map(function (d) { return d.company; }));
-        this.y.domain([0, d3Array.max(this.barchart, function (d) { return d.count; })]);
+        // this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
+        // this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
+        // this.x.domain(this.barchart.map((d) => d.company));
+        // this.y.domain([0, d3Array.max(this.barchart, (d) => d.count)]);
     };
     AdminChatd3Component.prototype.drawAxis = function () {
-        this.g.append("g")
-            .attr("class", "axis axis--x")
-            .attr("transform", "translate(0," + this.height + ")")
-            .call(d3Axis.axisBottom(this.x));
-        this.g.append("g")
-            .attr("class", "axis axis--y")
-            .call(d3Axis.axisLeft(this.y))
-            .append("text")
-            .attr("class", "axis-title")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", "0.71em")
-            .attr("text-anchor", "end")
-            .text("count");
+        // this.g.append("g")
+        //       .attr("class", "axis axis--x")
+        //       .attr("transform", "translate(0," + this.height + ")")
+        //       .call(d3Axis.axisBottom(this.x));
+        // this.g.append("g")
+        //       .attr("class", "axis axis--y")
+        //       .call(d3Axis.axisLeft(this.y))
+        //       .append("text")
+        //       .attr("class", "axis-title")
+        //       .attr("transform", "rotate(-90)")
+        //       .attr("y", 6)
+        //       .attr("dy", "0.71em")
+        //       .attr("text-anchor", "end")
+        //       .text("count");
     };
     AdminChatd3Component.prototype.drawBars = function () {
-        var _this = this;
-        this.g.selectAll(".bar")
-            .data(this.barchart)
-            .enter().append("rect")
-            .attr("class", "bar")
-            .attr("x", function (d) { return _this.x(d.company); })
-            .attr("y", function (d) { return _this.y(d.count); })
-            .attr("width", this.x.bandwidth())
-            .attr("height", function (d) { return _this.height - _this.y(d.count); });
+        // this.g.selectAll(".bar")
+        //       .data(this.barchart)
+        //       .enter().append("rect")
+        //       .attr("class", "bar")
+        //       .attr("x", (d) => this.x(d.company) )
+        //       .attr("y", (d) => this.y(d.count) )
+        //       .attr("width", this.x.bandwidth())
+        //       .attr("height", (d) => this.height - this.y(d.count) );
     };
     AdminChatd3Component = __decorate([
         core_1.Component({
@@ -1390,7 +1549,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".arc text {\r\n  font: 14px sans-serif;\r\n  text-anchor: middle;\r\n}\r\n\r\n.arc path {\r\n  stroke: #fff;\r\n}", ""]);
+exports.push([module.i, ".arc text {\r\n  font: 14px sans-serif;\r\n  text-anchor: middle;\r\n}\r\n\r\n.arc path {\r\n  stroke: #fff;\r\n}\r\n\r\n.no-g-data{\r\n  padding: 72px 0 55px 0;\r\n  text-align: center;\r\n  min-height: 550px;\r\n}\r\n\r\n.no-g-data h4{\r\n  font-size: 30px;\r\n  font-weight: 800;\r\n  color: #4F657D\r\n}\r\n\r\n.no-g-data img{\r\n\r\n  width: 62px;\r\n  margin: 100px 0 0 0;\r\n}\r\n\r\n.pie-chart-admin{\r\n  padding-top: 50px;\r\n  padding-bottom: 75px;\r\n}", ""]);
 
 // exports
 
@@ -1403,7 +1562,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-chatd3pie/admin-chatd3pie.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<h1>{{title}}</h1>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n\r\n<svg id=\"sd\" width=\"960\" height=\"500\" ></svg>\r\n"
+module.exports = "\r\n\r\n<h1>{{title}}</h1>\r\n\r\n<div *ngIf=\"graphData; else empty\">\r\n        <div   class=\"col-md-12 no-g-data\">\r\n    \r\n                <!-- <svg  id=\"sd\" width=\"960\" height=\"500\" ></svg> -->\r\n                <div class=\"col-md-12 pie-chart-admin\">\r\n                    <div class=\"row\">\r\n                        <div class=\"col-md-8 col-md-offset-2\">\r\n                            <div id=\"chart\"></div>\r\n            \r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            \r\n            </div>\r\n</div>\r\n\r\n<ng-template #empty>\r\n    <div class=\"col-md-12 no-g-data\">\r\n            <img src=\"assets/images/sad.png\" alt=\"sad\">\r\n        <h4>No Data Available!</h4>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1423,9 +1582,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var d3 = __webpack_require__("../../../../d3-selection/index.js");
-var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
-var d3Shape = __webpack_require__("../../../../d3-shape/index.js");
+// import * as d3 from 'd3-selection';
+// import * as d3Scale from 'd3-scale';
+// import * as d3Shape from 'd3-shape';
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
@@ -1435,30 +1594,184 @@ var AdminChatd3pieComponent = /** @class */ (function () {
         this.adminService = adminService;
         this.routes = routes;
         this.config = config;
-        this.title = 'Company Vs Status';
+        this.title = 'Company vs Status';
         this.margin = { top: 80, right: 20, bottom: 30, left: 50 };
         this.piechart = [];
+        this.graphData = true;
         this.socket = socketIo(config.siteUrl);
         this.width = 900 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
         this.radius = Math.min(this.width, this.height) / 2;
     }
+    /*__________________________________NEW PIE___________________________________*/
+    AdminChatd3pieComponent.prototype.setgraph = function () {
+        var dataset = this.piechart;
+        d3.select("#chart").select('svg').remove();
+        if (this.piechart.length != 0) {
+            console.log("this.Stats");
+            /*_______________________________________________________________________________________*/
+            //   var dataset = [
+            //     { name: 'Data', percent: 100 },
+            //     { name: 'Chrome', percent: 32.51 },
+            //     { name: 'Safari', percent: 23.68 },
+            //     { name: 'Opera', percent: 50.71 },
+            //     { name: 'Firefox', percent: 8.71 },
+            //     { name: 'Others', percent: 36.01 }
+            // ];
+            var pie = d3.layout.pie()
+                .value(function (d) { return d.count; })
+                .sort(null)
+                .padAngle(.03);
+            var w = 350, h = 350;
+            var outerRadius = w / 2;
+            var innerRadius = w / 3;
+            var color = d3.scale.category10();
+            var arc = d3.svg.arc()
+                .outerRadius(outerRadius)
+                .innerRadius(innerRadius);
+            var svg = d3.select("#chart")
+                .append("svg")
+                .attr({
+                width: w,
+                height: h,
+                class: 'shadow'
+            })
+                .append('g')
+                .attr({
+                transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+            });
+            // filters go in defs element
+            var defs = svg.append("defs");
+            // create filter with id #drop-shadow
+            // height=130% so that the shadow is not clipped
+            var filter = defs.append("filter")
+                .attr("id", "drop-shadow")
+                .attr("height", "130%");
+            // SourceAlpha refers to opacity of graphic that this filter will be applied to
+            // convolve that with a Gaussian with standard deviation 3 and store result
+            // in blur
+            filter.append("feGaussianBlur")
+                .attr("in", "SourceAlpha")
+                .attr("stdDeviation", 15)
+                .attr("result", "blur");
+            // translate output of Gaussian blur to the right and downwards with 2px
+            // store result in offsetBlur
+            filter.append("feOffset")
+                .attr("in", "blur")
+                .attr("dx", 100)
+                .attr("dy", 100)
+                .attr("result", "offsetBlur");
+            // overlay original SourceGraphic over translated blurred opacity by using
+            // feMerge filter. Order of specifying inputs is important!
+            var feMerge = filter.append("feMerge");
+            feMerge.append("feMergeNode")
+                .attr("in", "offsetBlur");
+            feMerge.append("feMergeNode")
+                .attr("in", "SourceGraphic");
+            var path = svg.selectAll('path')
+                .data(pie(dataset))
+                .enter()
+                .append('path')
+                .attr({
+                d: arc,
+                fill: function (d, i) {
+                    return color(d.data.status);
+                }
+            });
+            path.transition()
+                .duration(1000)
+                .attrTween('d', function (d) {
+                var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                return function (t) {
+                    return arc(interpolate(t));
+                };
+            });
+            var restOfTheData = function () {
+                var text = svg.selectAll('text')
+                    .data(pie(dataset))
+                    .enter()
+                    .append("text")
+                    .transition()
+                    .duration(500)
+                    .attr("transform", function (d) {
+                    return "translate(" + arc.centroid(d) + ")";
+                })
+                    .attr("dy", ".4em")
+                    .attr("text-anchor", "middle")
+                    .text(function (d) {
+                    return d.data.count;
+                })
+                    .style({
+                    fill: '#fff',
+                    'font-size': '12px'
+                });
+                var legendRectSize = 20;
+                var legendSpacing = 7;
+                var legendHeight = legendRectSize + legendSpacing;
+                var legend = svg.selectAll('.legend')
+                    .data(color.domain())
+                    .enter()
+                    .append('g')
+                    .attr({
+                    class: 'legend',
+                    transform: function (d, i) {
+                        //Just a calculation for x & y position
+                        return 'translate(-35,' + ((i * legendHeight) - 65) + ')';
+                    }
+                });
+                legend.append('rect')
+                    .attr({
+                    width: legendRectSize,
+                    height: legendRectSize,
+                    rx: 20,
+                    ry: 20
+                })
+                    .style({
+                    fill: color,
+                    stroke: color
+                });
+                legend.append('text')
+                    .attr({
+                    x: 30,
+                    y: 15
+                })
+                    .text(function (d) {
+                    return d;
+                }).style({
+                    fill: '#929DAF',
+                    'font-size': '14px'
+                });
+            };
+            setTimeout(restOfTheData, 2000);
+        }
+    };
+    /*__________________________________NEW PIE END___________________________________*/
     AdminChatd3pieComponent.prototype.refresh = function () {
         var _this = this;
         this.adminService.getchart1().subscribe(function (data) {
-            console.log(data);
+            //  if(data.length <= 0){
+            // }
             _this.piechart = [];
             data.forEach(function (elm) {
-                console.log(elm);
+                // console.log(elm);
                 if (elm.Count != 0) {
+                    // this.graphData = false;
                     _this.piechart.push({ status: elm.label, count: elm.Count });
                 }
             });
-            console.log(_this.piechart);
-            _this.initSvg();
-            _this.drawPie();
+            if (_this.piechart.length > 0) {
+                _this.graphData = true;
+                _this.setgraph();
+            }
+            else {
+                _this.graphData = false;
+            }
+            // console.log(this.piechart);
         });
     };
+    // refresh(){
+    //   this.graphData = true;
+    // }
     AdminChatd3pieComponent.prototype.ngOnInit = function () {
         var _this = this;
         // ---------------------------------Start-------------------------------------------
@@ -1494,6 +1807,7 @@ var AdminChatd3pieComponent = /** @class */ (function () {
         });
         // ---------------------------------End-------------------------------------------
         this.refresh();
+        console.log(this.graphData);
         this.socket.on('Not Verified', function (data) {
             _this.refresh();
         });
@@ -1505,37 +1819,40 @@ var AdminChatd3pieComponent = /** @class */ (function () {
         });
         this.socket.on('Expired', function (data) {
             _this.refresh();
+            if (_this.graphData == true) {
+                _this.initSvg();
+                // this.drawPie();
+            }
         });
         // this.initSvg();
         // this.drawPie();
     };
     AdminChatd3pieComponent.prototype.initSvg = function () {
-        this.color = d3Scale.scaleOrdinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-        this.arc = d3Shape.arc()
-            .outerRadius(this.radius - 10)
-            .innerRadius(0);
-        this.labelArc = d3Shape.arc()
-            .outerRadius(this.radius - 40)
-            .innerRadius(this.radius - 40);
-        this.pie = d3Shape.pie()
-            .sort(null)
-            .value(function (d) { return d.count; });
-        this.svg = d3.select("#sd")
-            .append("g")
-            .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
-    };
-    AdminChatd3pieComponent.prototype.drawPie = function () {
-        var _this = this;
-        var g = this.svg.selectAll(".arc")
-            .data(this.pie(this.piechart))
-            .enter().append("g")
-            .attr("class", "arc");
-        g.append("path").attr("d", this.arc)
-            .style("fill", function (d) { return _this.color(d.data.status); });
-        g.append("text").attr("transform", function (d) { return "translate(" + _this.labelArc.centroid(d) + ")"; })
-            .attr("dy", ".35em")
-            .text(function (d) { return d.data.status; });
+        //   this.color = d3Scale.scaleOrdinal()
+        //                       .range(["#623470", "#22A984", "#0189A9", '#97AC38', '#623470']);
+        //   this.arc = d3Shape.arc()
+        //                     .outerRadius(this.radius - 10)
+        //                     .innerRadius(0);
+        //   this.labelArc = d3Shape.arc()
+        //                          .outerRadius(this.radius - 40)
+        //                          .innerRadius(this.radius - 40);
+        //   this.pie = d3Shape.pie()
+        //                     .sort(null)
+        //                     .value((d: any) => d.count);
+        //   this.svg = d3.select("#sd")
+        //                .append("g")
+        //                .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
+        // }
+        // private drawPie() {
+        //   let g = this.svg.selectAll(".arc")
+        //                   .data(this.pie(this.piechart))
+        //                   .enter().append("g")
+        //                   .attr("class", "arc");
+        //   g.append("path").attr("d", this.arc)
+        //                   .style("fill", (d: any) => this.color(d.data.status) );
+        //   g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
+        //                   .attr("dy", ".35em")
+        //                   .text((d: any) => d.data.status);
     };
     AdminChatd3pieComponent = __decorate([
         core_1.Component({
@@ -1571,7 +1888,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 10%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
 
 // exports
 
@@ -1614,6 +1931,7 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
         this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'action'];
         this.notExist = false;
+        this.all_value = false;
         this.selected = 'all';
         this.showSpinner = false;
     }
@@ -1633,6 +1951,9 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllactivecompanies().subscribe(function (data) {
+                if (data.length != 0) {
+                    _this.all_value = true;
+                }
                 _this.loadToDataTable(data);
                 _this.showSpinner = false;
             });
@@ -1788,7 +2109,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 10%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
 
 // exports
 
@@ -1831,6 +2152,7 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'companystatus', 'action'];
         this.notExist = false;
+        this.all_value = false;
         this.selected = 'all';
         this.showSpinner = false;
     }
@@ -1850,6 +2172,9 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllblockedcompanies().subscribe(function (data) {
+                if (data.length != 0) {
+                    _this.all_value = true;
+                }
                 _this.loadToDataTable(data);
                 _this.showSpinner = false;
             });
@@ -2295,7 +2620,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-dashboard/admin-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n                    <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar></admin-side-bar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                             <!-- Page Heading -->\r\n                                   \r\n                                \r\n                                        <!-- /.row -->\r\n                                       \r\n                         </div>   \r\n                         <div class=\"col-md-2\"> </div>  \r\n                                <div class=\"col-md-10\">\r\n                            \r\n                                    <div class=\"col-md-12\"><admin-chatd3></admin-chatd3></div>\r\n                             <div class=\"clearfix\"></div>\r\n                             <div class=\"col-md-12\"><admin-chatd3pie></admin-chatd3pie>  </div>\r\n                                     \r\n                                    </div>\r\n                                    \r\n</div>\r\n<!-- /#page-wrapper -->\r\n\r\n           \r\n</div>\r\n\r\n<footer></footer> \r\n  \r\n</body>"
+module.exports = "<body>\r\n\r\n    <div id=\"wrapper\">\r\n\r\n        <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>\r\n        <admin-side-bar></admin-side-bar>\r\n\r\n        <div id=\"\">\r\n            <div class=\"container-fluid\">\r\n                <!-- Page Heading -->\r\n\r\n\r\n                <!-- /.row -->\r\n\r\n            </div>\r\n            <div class=\"col-md-2\"> </div>\r\n            <div class=\"col-md-10\">\r\n\r\n                <div class=\"col-md-12 graph-containers\">\r\n                    <admin-chatd3></admin-chatd3>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n                <div class=\"col-md-12 graph-containers\">\r\n                    <admin-chatd3pie></admin-chatd3pie>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <!-- /#page-wrapper -->\r\n\r\n\r\n    </div>\r\n\r\n    <footer></footer>\r\n\r\n</body>"
 
 /***/ }),
 
@@ -2518,7 +2843,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  wi.filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2561,6 +2886,7 @@ var AdminExpiredComponent = /** @class */ (function () {
         this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
+        this.all_value = false;
         this.selected = 'all';
         this.showSpinner = false;
     }
@@ -2580,6 +2906,9 @@ var AdminExpiredComponent = /** @class */ (function () {
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllexpiredcompanies().subscribe(function (data) {
+                if (data.length != 0) {
+                    _this.all_value = true;
+                }
                 _this.loadToDataTable(data);
                 _this.showSpinner = false;
             });
@@ -2989,7 +3318,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=true></admin-side-bar>\r\n        <!-- <h3 class=\"heading\">Manage Industry</h3> -->\r\n        <br>\r\n       <div id=\"\">\r\n          <div class=\"col-md-2\">\r\n              <nav class=\"nav-sidebar\">\r\n                  <ul class=\"nav tabs buttonleft\">\r\n                        <li >\r\n                            <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                  \r\n                       \r\n                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                     \r\n                  </ul>\r\n                </nav>\r\n        </div>\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add New Industry </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                      Atleast one item required!\r\n                    </div>\r\n                    <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                      {{errorMsg}}\r\n                   </div>\r\n                   <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                 <div class=\"modal-body\">\r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertIndustry();\">\r\n                            <p>Industry Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newIndustry; let i = index; trackBy:trackByIndex\" >\r\n                                  \r\n                                        <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\" placeholder=\"Name\" name=\"industry_{{i}}\" required  [(ngModel)]=\"newIndustry[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                        </mat-form-field>\r\n                      \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreIndustry(i)\">\r\n                             </div>\r\n                             <!-- <div *ngIf=\"showSpinner\">\r\n                              <mat-spinner></mat-spinner>\r\n                             </div> -->\r\n                                 \r\n                                  <div class=\"row\">\r\n                                      <div class=\"col-md-4\">\r\n                                          <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreIndustry()\">\r\n                                          <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                            </div>\r\n                                            <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                   <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                   width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                               <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                 <animateTransform attributeType=\"xml\"\r\n                                                   attributeName=\"transform\"\r\n                                                   type=\"rotate\"\r\n                                                   from=\"0 25 25\"\r\n                                                   to=\"360 25 25\"\r\n                                                   dur=\"0.6s\"\r\n                                                   repeatCount=\"indefinite\"/>\r\n                                                 </path>\r\n                                               </svg>\r\n                                            </div>\r\n                                             \r\n                                          </div>\r\n                      \r\n                       </form>\r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Industry </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  <label value =\"industryName\"></label>\r\n                 Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                    No changes to upate!\r\n                   </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateIndustry(industry);\">\r\n                        <p>Industry Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"industry.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n                              <!-- <div *ngIf=\"showSpinner\" class=\"updatespinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                        \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteIndustry(industryId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"col-md-9\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n            <ng-container matColumnDef=\"id\">\r\n                <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n              </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getIndustryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getIndustryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n                                 <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              "
+module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=\"'open'\"></admin-side-bar>\r\n        <h3 class=\"heading\">Manage Industry</h3>\r\n        <br>\r\n       <div id=\"\">\r\n          <div class=\"col-md-2\">\r\n              <nav class=\"nav-sidebar\">\r\n                  <ul class=\"nav tabs buttonleft\">\r\n                        <li >\r\n                            <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                  \r\n                       \r\n                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                     \r\n                  </ul>\r\n                </nav>\r\n        </div>\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add New Industry </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                      Atleast one item required!\r\n                    </div>\r\n                    <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                      {{errorMsg}}\r\n                   </div>\r\n                   <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                 <div class=\"modal-body\">\r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertIndustry();\">\r\n                            <p>Industry Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newIndustry; let i = index; trackBy:trackByIndex\" >\r\n                                  \r\n                                        <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\" placeholder=\"Name\" name=\"industry_{{i}}\" required  [(ngModel)]=\"newIndustry[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                        </mat-form-field>\r\n                      \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreIndustry(i)\">\r\n                             </div>\r\n                             <!-- <div *ngIf=\"showSpinner\">\r\n                              <mat-spinner></mat-spinner>\r\n                             </div> -->\r\n                                 \r\n                                  <div class=\"row\">\r\n                                      <div class=\"col-md-4\">\r\n                                          <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreIndustry()\">\r\n                                          <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                            </div>\r\n                                            <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                   <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                   width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                               <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                 <animateTransform attributeType=\"xml\"\r\n                                                   attributeName=\"transform\"\r\n                                                   type=\"rotate\"\r\n                                                   from=\"0 25 25\"\r\n                                                   to=\"360 25 25\"\r\n                                                   dur=\"0.6s\"\r\n                                                   repeatCount=\"indefinite\"/>\r\n                                                 </path>\r\n                                               </svg>\r\n                                            </div>\r\n                                             \r\n                                          </div>\r\n                      \r\n                       </form>\r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Industry </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  <label value =\"industryName\"></label>\r\n                 Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                    No changes to upate!\r\n                   </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateIndustry(industry);\">\r\n                        <p>Industry Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"industry.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n                              <!-- <div *ngIf=\"showSpinner\" class=\"updatespinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                        \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteIndustry(industryId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"col-md-9\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n            <ng-container matColumnDef=\"id\">\r\n                <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n              </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getIndustryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getIndustryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n                                 <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              "
 
 /***/ }),
 
@@ -3368,7 +3697,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r\n       <!-- Navigation -->\r\n          <admin-top-bar></admin-top-bar>            \r\n          <admin-side-bar [open]=true></admin-side-bar>\r\n          <!-- <h3 class=\"heading\">Manage Survey Organization type</h3> -->\r\n          <br> \r\n         <div id=\"\">\r\n            <div class=\"col-md-2\">\r\n                <nav class=\"nav-sidebar\">\r\n                    <ul class=\"nav tabs buttonleft\">\r\n                          <li >\r\n                              <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                          </li>\r\n                    \r\n                         \r\n                          <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                          <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                          <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                       \r\n                    </ul>\r\n                  </nav>\r\n          </div>\r\n            <div id=\"myModal\"  class=\"modal fade\">\r\n                <div class=\"modal-dialog\"> \r\n        <!-- Modal content-->\r\n                  <div class=\"modal-content\">\r\n                     <div class=\"modal-header\">\r\n                          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                          <h4 class=\"modal-title\">Add Organization Type </h4>\r\n                     </div>\r\n                     <br>\r\n                     <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                        Atleast one item required!\r\n                      </div>\r\n                      <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                     <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                         {{errorMsg}}\r\n                      </div>\r\n                   <div class=\"modal-body\">\r\n                         <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertOrganizationType();\">\r\n                              <p>Organization type Name</p>\r\n                               <div class=\"form-group\" *ngFor=\"let item of newOrganization; let i = index; trackBy:trackByIndex\" >\r\n                                   \r\n                                          <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"organization_{{i}}\" required  [(ngModel)]=\"newOrganization[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                          </mat-form-field>\r\n                          \r\n                                    \r\n                                    <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreOrganizationType(i)\">\r\n                               </div>\r\n                              \r\n                               <div class=\"row\">\r\n                                 <div class=\"col-md-4\">\r\n                                   \r\n                                      <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreOrganizationtype()\">\r\n                                      <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                    \r\n                                   </div>\r\n                                   <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                          <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                          width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                      <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                        <animateTransform attributeType=\"xml\"\r\n                                          attributeName=\"transform\"\r\n                                          type=\"rotate\"\r\n                                          from=\"0 25 25\"\r\n                                          to=\"360 25 25\"\r\n                                          dur=\"0.6s\"\r\n                                          repeatCount=\"indefinite\"/>\r\n                                        </path>\r\n                                      </svg>\r\n                                   </div>\r\n                                    \r\n                                 </div>\r\n                            \r\n                        \r\n                         </form>\r\n                  </div>\r\n                  <div class=\"modal-footer\">\r\n                      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n      </div>\r\n  \r\n   \r\n      <div id=\"myModal2\"  class=\"modal fade\">\r\n          <div class=\"modal-dialog\">\r\n              <div class=\"modal-content\">\r\n                  <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                         <h4 class=\"modal-title\">Edit Survey Organization type </h4>\r\n                  </div>\r\n                  <br>\r\n                  <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                    Name Already Exist!\r\n                  </div>\r\n                  <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                    Name is required!\r\n                  </div>\r\n                  <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                      No changes to upate!\r\n                     </div>\r\n                <div class=\"modal-body\">\r\n                     <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateOrganizationType(organization);\">\r\n                          <p>Organization type Name</p>\r\n                                <div class=\"form-group\"  >\r\n                                  <div class=\"col-md-11\">\r\n                                      <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"name\" required   [(ngModel)]=\"organization.name\" />\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                        </mat-form-field>\r\n                                        \r\n                                  </div>\r\n                                  \r\n                                </div>\r\n                                <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div> -->\r\n\r\n                        <div class=\"row\">\r\n                          <div class=\"col-md-4\">\r\n                          <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                </div>\r\n                                <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                       <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                       width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                   <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                     <animateTransform attributeType=\"xml\"\r\n                                       attributeName=\"transform\"\r\n                                       type=\"rotate\"\r\n                                       from=\"0 25 25\"\r\n                                       to=\"360 25 25\"\r\n                                       dur=\"0.6s\"\r\n                                       repeatCount=\"indefinite\"/>\r\n                                     </path>\r\n                                   </svg>\r\n                                </div>\r\n                                 \r\n                              </div>\r\n          \r\n      \r\n                  </form>\r\n              </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteOrganizationType(organizationId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n    <div class=\"col-md-9\">\r\n        <div class=\"row\">\r\n        <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n            <div class=\"\"  >\r\n                <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n            <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n              <animateTransform attributeType=\"xml\"\r\n                attributeName=\"transform\"\r\n                type=\"rotate\"\r\n                from=\"0 25 25\"\r\n                to=\"360 25 25\"\r\n                dur=\"0.6s\"\r\n                repeatCount=\"indefinite\"/>\r\n              </path>\r\n            </svg>\r\n        </div>\r\n        </div>\r\n        <flash-messages></flash-messages>\r\n     \r\n              <div class=\"example-header\" >\r\n                  <mat-form-field>\r\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                  </mat-form-field>\r\n              </div>\r\n           \r\n        <div class=\"example-container mat-elevation-z8 \">\r\n         \r\n          <mat-table [dataSource]=\"dataSource\" matSort>\r\n             \r\n              <ng-container matColumnDef=\"id\">\r\n                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                  <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                </ng-container>\r\n                  <ng-container matColumnDef=\"name\">\r\n                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                       <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                   </ng-container>\r\n                    <ng-container matColumnDef=\"action\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                          <mat-menu #menu=\"matMenu\">\r\n                              <button  mat-menu-item (click)=\"getOrganizationTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                    <span>Edit</span>\r\n                                    </button>\r\n                                <button mat-menu-item  (click)=\"getOrganizationTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                    <span>Delete</span>\r\n                                </button>\r\n                          </mat-menu> </mat-cell>\r\n                \r\n                       </ng-container>\r\n         \r\n      \r\n  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                     </mat-row>\r\n                    </mat-table>\r\n                    <!-- <div class=\"col-md-15 \"> -->\r\n                        <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                            <mat-spinner></mat-spinner>\r\n                         </div> -->\r\n                        \r\n                    <!-- </div> -->\r\n             \r\n                    <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                        <div class=\"col-md-4 col-md-offset-4\">\r\n                            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                        </div>\r\n                        </div>\r\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    </div>\r\n  </body>\r\n                            \r\n                                       \r\n                            "
+module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r\n       <!-- Navigation -->\r\n          <admin-top-bar></admin-top-bar>            \r\n          <admin-side-bar [open]=\"'open'\"></admin-side-bar>\r\n          <h3 class=\"heading\">Manage Survey Organization type</h3>\r\n          <br> \r\n         <div id=\"\">\r\n            <div class=\"col-md-2\">\r\n                <nav class=\"nav-sidebar\">\r\n                    <ul class=\"nav tabs buttonleft\">\r\n                          <li >\r\n                              <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                          </li>\r\n                    \r\n                         \r\n                          <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                          <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                          <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                       \r\n                    </ul>\r\n                  </nav>\r\n          </div>\r\n            <div id=\"myModal\"  class=\"modal fade\">\r\n                <div class=\"modal-dialog\"> \r\n        <!-- Modal content-->\r\n                  <div class=\"modal-content\">\r\n                     <div class=\"modal-header\">\r\n                          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                          <h4 class=\"modal-title\">Add Organization Type </h4>\r\n                     </div>\r\n                     <br>\r\n                     <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                        Atleast one item required!\r\n                      </div>\r\n                      <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                     <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                         {{errorMsg}}\r\n                      </div>\r\n                   <div class=\"modal-body\">\r\n                         <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertOrganizationType();\">\r\n                              <p>Organization type Name</p>\r\n                               <div class=\"form-group\" *ngFor=\"let item of newOrganization; let i = index; trackBy:trackByIndex\" >\r\n                                   \r\n                                          <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"organization_{{i}}\" required  [(ngModel)]=\"newOrganization[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                          </mat-form-field>\r\n                          \r\n                                    \r\n                                    <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreOrganizationType(i)\">\r\n                               </div>\r\n                              \r\n                               <div class=\"row\">\r\n                                 <div class=\"col-md-4\">\r\n                                   \r\n                                      <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreOrganizationtype()\">\r\n                                      <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                    \r\n                                   </div>\r\n                                   <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                          <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                          width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                      <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                        <animateTransform attributeType=\"xml\"\r\n                                          attributeName=\"transform\"\r\n                                          type=\"rotate\"\r\n                                          from=\"0 25 25\"\r\n                                          to=\"360 25 25\"\r\n                                          dur=\"0.6s\"\r\n                                          repeatCount=\"indefinite\"/>\r\n                                        </path>\r\n                                      </svg>\r\n                                   </div>\r\n                                    \r\n                                 </div>\r\n                            \r\n                        \r\n                         </form>\r\n                  </div>\r\n                  <div class=\"modal-footer\">\r\n                      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n      </div>\r\n  \r\n   \r\n      <div id=\"myModal2\"  class=\"modal fade\">\r\n          <div class=\"modal-dialog\">\r\n              <div class=\"modal-content\">\r\n                  <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                         <h4 class=\"modal-title\">Edit Survey Organization type </h4>\r\n                  </div>\r\n                  <br>\r\n                  <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                    Name Already Exist!\r\n                  </div>\r\n                  <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                    Name is required!\r\n                  </div>\r\n                  <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                      No changes to upate!\r\n                     </div>\r\n                <div class=\"modal-body\">\r\n                     <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateOrganizationType(organization);\">\r\n                          <p>Organization type Name</p>\r\n                                <div class=\"form-group\"  >\r\n                                  <div class=\"col-md-11\">\r\n                                      <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"name\" required   [(ngModel)]=\"organization.name\" />\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                        </mat-form-field>\r\n                                        \r\n                                  </div>\r\n                                  \r\n                                </div>\r\n                                <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div> -->\r\n\r\n                        <div class=\"row\">\r\n                          <div class=\"col-md-4\">\r\n                          <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                </div>\r\n                                <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                       <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                       width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                   <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                     <animateTransform attributeType=\"xml\"\r\n                                       attributeName=\"transform\"\r\n                                       type=\"rotate\"\r\n                                       from=\"0 25 25\"\r\n                                       to=\"360 25 25\"\r\n                                       dur=\"0.6s\"\r\n                                       repeatCount=\"indefinite\"/>\r\n                                     </path>\r\n                                   </svg>\r\n                                </div>\r\n                                 \r\n                              </div>\r\n          \r\n      \r\n                  </form>\r\n              </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteOrganizationType(organizationId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n    <div class=\"col-md-9\">\r\n        <div class=\"row\">\r\n        <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n            <div class=\"\"  >\r\n                <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n            <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n              <animateTransform attributeType=\"xml\"\r\n                attributeName=\"transform\"\r\n                type=\"rotate\"\r\n                from=\"0 25 25\"\r\n                to=\"360 25 25\"\r\n                dur=\"0.6s\"\r\n                repeatCount=\"indefinite\"/>\r\n              </path>\r\n            </svg>\r\n        </div>\r\n        </div>\r\n        <flash-messages></flash-messages>\r\n     \r\n              <div class=\"example-header\" >\r\n                  <mat-form-field>\r\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                  </mat-form-field>\r\n              </div>\r\n           \r\n        <div class=\"example-container mat-elevation-z8 \">\r\n         \r\n          <mat-table [dataSource]=\"dataSource\" matSort>\r\n             \r\n              <ng-container matColumnDef=\"id\">\r\n                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                  <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                </ng-container>\r\n                  <ng-container matColumnDef=\"name\">\r\n                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                       <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                   </ng-container>\r\n                    <ng-container matColumnDef=\"action\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                          <mat-menu #menu=\"matMenu\">\r\n                              <button  mat-menu-item (click)=\"getOrganizationTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                    <span>Edit</span>\r\n                                    </button>\r\n                                <button mat-menu-item  (click)=\"getOrganizationTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                    <span>Delete</span>\r\n                                </button>\r\n                          </mat-menu> </mat-cell>\r\n                \r\n                       </ng-container>\r\n         \r\n      \r\n  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                     </mat-row>\r\n                    </mat-table>\r\n                    <!-- <div class=\"col-md-15 \"> -->\r\n                        <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                            <mat-spinner></mat-spinner>\r\n                         </div> -->\r\n                        \r\n                    <!-- </div> -->\r\n             \r\n                    <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                        <div class=\"col-md-4 col-md-offset-4\">\r\n                            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                        </div>\r\n                        </div>\r\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    </div>\r\n  </body>\r\n                            \r\n                                       \r\n                            "
 
 /***/ }),
 
@@ -3759,7 +4088,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r\n       <!-- Navigation -->\r\n          <admin-top-bar></admin-top-bar>            \r\n          <admin-side-bar  [open]=true></admin-side-bar>\r\n          <!-- <h3 class=\"heading\">Manage Survey Attender type</h3> -->\r\n          <br>\r\n         <div id=\"\">\r\n            <div class=\"col-md-2\">\r\n                <nav class=\"nav-sidebar\">\r\n                    <ul class=\"nav tabs buttonleft\">\r\n                          <li >\r\n                              <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                    \r\n                         \r\n                          <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                          <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                          <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                       \r\n                    </ul>\r\n                  </nav>\r\n          </div>\r\n            <div id=\"myModal\"  class=\"modal fade\">\r\n                <div class=\"modal-dialog\"> \r\n                   \r\n        <!-- Modal content-->\r\n                  <div class=\"modal-content\">\r\n                     <div class=\"modal-header\">\r\n                          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                          <h4 class=\"modal-title\">Add Survey attender Type </h4>\r\n                     </div>\r\n                     <br>\r\n                     <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                        Atleast one item required!\r\n                      </div>\r\n                      <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                     <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                         {{errorMsg}}\r\n                      </div>\r\n                   <div class=\"modal-body\">\r\n                         <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertAttenderType();\">\r\n                              <p>\r\n                                Survey attender type</p>\r\n                               <div class=\"form-group\" *ngFor=\"let item of newAttender; let i = index; trackBy:trackByIndex\" >\r\n                                   \r\n                                          <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"attender{{i}}\" required  [(ngModel)]=\"newAttender[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                          </mat-form-field>\r\n                                          <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreattenderType(i)\">\r\n                                   \r\n                                  \r\n                               </div>\r\n                               <!-- <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                                   \r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-md-4\">\r\n                                            <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreAttendertype()\">\r\n                                            <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                              </div>\r\n                                              <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                     <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                     width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                 <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                   <animateTransform attributeType=\"xml\"\r\n                                                     attributeName=\"transform\"\r\n                                                     type=\"rotate\"\r\n                                                     from=\"0 25 25\"\r\n                                                     to=\"360 25 25\"\r\n                                                     dur=\"0.6s\"\r\n                                                     repeatCount=\"indefinite\"/>\r\n                                                   </path>\r\n                                                 </svg>\r\n                                              </div>\r\n                                               \r\n                                            </div>\r\n                        \r\n                         </form>\r\n                  </div>\r\n                \r\n                  <div class=\"modal-footer\">\r\n                      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n      </div>\r\n  \r\n   \r\n      <div id=\"myModal2\"  class=\"modal fade\">\r\n          <div class=\"modal-dialog\">\r\n              <div class=\"modal-content\">\r\n                  <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                         <h4 class=\"modal-title\">Edit Survey attender type </h4>\r\n                  </div>\r\n                  <br>\r\n                  <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                    Name Already Exist!\r\n                  </div>\r\n                  <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                    Name is required!\r\n                  </div>\r\n                  <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                      No changes to upate!\r\n                     </div>\r\n                <div class=\"modal-body\">\r\n                     <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateattenderType(attender);\">\r\n                          <p>survey attender type </p>\r\n                                <div class=\"form-group\"  >\r\n                                  <div class=\"col-md-11\">\r\n                                      <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Type name\" name=\"name\" required   [(ngModel)]=\"attender.name\" />\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                        </mat-form-field>\r\n                                        \r\n                                  </div>\r\n                                  \r\n                                </div>\r\n                                <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                </div> -->\r\n                         \r\n                           <div class=\"row\">\r\n                              <div class=\"col-md-4\">\r\n                                  <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                    </div>\r\n                                    <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                           <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                           width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                       <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                         <animateTransform attributeType=\"xml\"\r\n                                           attributeName=\"transform\"\r\n                                           type=\"rotate\"\r\n                                           from=\"0 25 25\"\r\n                                           to=\"360 25 25\"\r\n                                           dur=\"0.6s\"\r\n                                           repeatCount=\"indefinite\"/>\r\n                                         </path>\r\n                                       </svg>\r\n                                    </div>\r\n                                     \r\n                                  </div>\r\n\r\n                           \r\n      \r\n                  </form>\r\n              </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteattenderType(attenderId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n  \r\n  \r\n    <div class=\"col-md-9\">\r\n        <div class=\"row\">\r\n        <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n            <div class=\"\"  >\r\n                <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n            <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n              <animateTransform attributeType=\"xml\"\r\n                attributeName=\"transform\"\r\n                type=\"rotate\"\r\n                from=\"0 25 25\"\r\n                to=\"360 25 25\"\r\n                dur=\"0.6s\"\r\n                repeatCount=\"indefinite\"/>\r\n              </path>\r\n            </svg>\r\n        </div>\r\n        </div>\r\n        <flash-messages></flash-messages>\r\n     \r\n              <div class=\"example-header\" >\r\n                  <mat-form-field>\r\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                  </mat-form-field>\r\n              </div>\r\n           \r\n        <div class=\"example-container mat-elevation-z8 \">\r\n          <mat-table [dataSource]=\"dataSource\" matSort>\r\n              <ng-container matColumnDef=\"id\">\r\n                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                  <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                </ng-container>\r\n                  <ng-container matColumnDef=\"name\">\r\n                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                       <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                   </ng-container>\r\n                    <ng-container matColumnDef=\"action\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                          <mat-menu #menu=\"matMenu\">\r\n                              <button  mat-menu-item (click)=\"getAttenderTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                    <span>Edit</span>\r\n                                    </button>\r\n                                <button mat-menu-item  (click)=\"getAttenderTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                    <span>Delete</span>\r\n                                </button>\r\n                          </mat-menu> </mat-cell>\r\n                \r\n                       </ng-container>\r\n         \r\n      \r\n  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                     </mat-row>\r\n                    </mat-table>\r\n                        <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              "
+module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r\n       <!-- Navigation -->\r\n          <admin-top-bar></admin-top-bar>            \r\n          <admin-side-bar  [open]=\"'open'\"></admin-side-bar>\r\n          <h3 class=\"heading\">Manage Survey Attender type</h3>\r\n          <br>\r\n         <div id=\"\">\r\n            <div class=\"col-md-2\">\r\n                <nav class=\"nav-sidebar\">\r\n                    <ul class=\"nav tabs buttonleft\">\r\n                          <li >\r\n                              <button type=\"button\" (click)=\"addNew()\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                    \r\n                         \r\n                          <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                          <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                          <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                       \r\n                    </ul>\r\n                  </nav>\r\n          </div>\r\n            <div id=\"myModal\"  class=\"modal fade\">\r\n                <div class=\"modal-dialog\"> \r\n                   \r\n        <!-- Modal content-->\r\n                  <div class=\"modal-content\">\r\n                     <div class=\"modal-header\">\r\n                          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                          <h4 class=\"modal-title\">Add Survey attender Type </h4>\r\n                     </div>\r\n                     <br>\r\n                     <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                        Atleast one item required!\r\n                      </div>\r\n                      <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                     <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                         {{errorMsg}}\r\n                      </div>\r\n                   <div class=\"modal-body\">\r\n                         <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertAttenderType();\">\r\n                              <p>\r\n                                Survey attender type</p>\r\n                               <div class=\"form-group\" *ngFor=\"let item of newAttender; let i = index; trackBy:trackByIndex\" >\r\n                                   \r\n                                          <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Name\" name=\"attender{{i}}\" required  [(ngModel)]=\"newAttender[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                          </mat-form-field>\r\n                                          <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreattenderType(i)\">\r\n                                   \r\n                                  \r\n                               </div>\r\n                               <!-- <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                                   \r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-md-4\">\r\n                                            <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreAttendertype()\">\r\n                                            <input type=\"submit\" class=\"btn btn-danger\" value=\"Save\">\r\n                                              </div>\r\n                                              <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                     <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                     width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                 <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                   <animateTransform attributeType=\"xml\"\r\n                                                     attributeName=\"transform\"\r\n                                                     type=\"rotate\"\r\n                                                     from=\"0 25 25\"\r\n                                                     to=\"360 25 25\"\r\n                                                     dur=\"0.6s\"\r\n                                                     repeatCount=\"indefinite\"/>\r\n                                                   </path>\r\n                                                 </svg>\r\n                                              </div>\r\n                                               \r\n                                            </div>\r\n                        \r\n                         </form>\r\n                  </div>\r\n                \r\n                  <div class=\"modal-footer\">\r\n                      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                  </div>\r\n               </div>\r\n            </div>\r\n      </div>\r\n  \r\n   \r\n      <div id=\"myModal2\"  class=\"modal fade\">\r\n          <div class=\"modal-dialog\">\r\n              <div class=\"modal-content\">\r\n                  <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                         <h4 class=\"modal-title\">Edit Survey attender type </h4>\r\n                  </div>\r\n                  <br>\r\n                  <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                    Name Already Exist!\r\n                  </div>\r\n                  <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                    Name is required!\r\n                  </div>\r\n                  <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                      No changes to upate!\r\n                     </div>\r\n                <div class=\"modal-body\">\r\n                     <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateattenderType(attender);\">\r\n                          <p>survey attender type </p>\r\n                                <div class=\"form-group\"  >\r\n                                  <div class=\"col-md-11\">\r\n                                      <mat-form-field class=\"example-form-field\">\r\n                                          <input matInput type=\"text\" placeholder=\"Type name\" name=\"name\" required   [(ngModel)]=\"attender.name\" />\r\n                                          <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                            <mat-icon>close</mat-icon>\r\n                                          </button>\r\n                                        </mat-form-field>\r\n                                        \r\n                                  </div>\r\n                                  \r\n                                </div>\r\n                                <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                </div> -->\r\n                         \r\n                           <div class=\"row\">\r\n                              <div class=\"col-md-4\">\r\n                                  <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                                    </div>\r\n                                    <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                           <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                           width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                       <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                         <animateTransform attributeType=\"xml\"\r\n                                           attributeName=\"transform\"\r\n                                           type=\"rotate\"\r\n                                           from=\"0 25 25\"\r\n                                           to=\"360 25 25\"\r\n                                           dur=\"0.6s\"\r\n                                           repeatCount=\"indefinite\"/>\r\n                                         </path>\r\n                                       </svg>\r\n                                    </div>\r\n                                     \r\n                                  </div>\r\n\r\n                           \r\n      \r\n                  </form>\r\n              </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n    </div>\r\n  \r\n    <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteattenderType(attenderId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n  \r\n  \r\n  \r\n  \r\n    <div class=\"col-md-9\">\r\n        <div class=\"row\">\r\n        <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n            <div class=\"\"  >\r\n                <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n            <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n              <animateTransform attributeType=\"xml\"\r\n                attributeName=\"transform\"\r\n                type=\"rotate\"\r\n                from=\"0 25 25\"\r\n                to=\"360 25 25\"\r\n                dur=\"0.6s\"\r\n                repeatCount=\"indefinite\"/>\r\n              </path>\r\n            </svg>\r\n        </div>\r\n        </div>\r\n        <flash-messages></flash-messages>\r\n     \r\n              <div class=\"example-header\" >\r\n                  <mat-form-field>\r\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                  </mat-form-field>\r\n              </div>\r\n           \r\n        <div class=\"example-container mat-elevation-z8 \">\r\n          <mat-table [dataSource]=\"dataSource\" matSort>\r\n              <ng-container matColumnDef=\"id\">\r\n                  <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                  <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                </ng-container>\r\n                  <ng-container matColumnDef=\"name\">\r\n                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                       <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                   </ng-container>\r\n                    <ng-container matColumnDef=\"action\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                          <mat-menu #menu=\"matMenu\">\r\n                              <button  mat-menu-item (click)=\"getAttenderTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                    <span>Edit</span>\r\n                                    </button>\r\n                                <button mat-menu-item  (click)=\"getAttenderTypeId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                    <span>Delete</span>\r\n                                </button>\r\n                          </mat-menu> </mat-cell>\r\n                \r\n                       </ng-container>\r\n         \r\n      \r\n  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                     </mat-row>\r\n                    </mat-table>\r\n                        <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              "
 
 /***/ }),
 
@@ -4138,7 +4467,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=true></admin-side-bar>\r\n            <!-- <h3 class=\"heading\">Manage Survey Category</h3> -->\r\n            <br>\r\n       <div id=\"\">\r\n          <div class=\"col-md-2\">\r\n              <nav class=\"nav-sidebar\">\r\n                  <ul class=\"nav tabs buttonleft\">\r\n                        <li >\r\n                            <button type=\"button\" (click)=\"addNew();\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                  \r\n                       \r\n                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                     \r\n                  </ul>\r\n                </nav>\r\n        </div>\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add Survey Category </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                    Atleast one item required!\r\n                  </div>\r\n                   <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                    <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                  \r\n                    \r\n                 <div class=\"modal-body\">\r\n                    \r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertCategory();\">\r\n                            <p>Category Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newCategory; let i = index; trackBy:trackByIndex\" >\r\n                                \r\n                              <mat-form-field class=\"example-form-field\">\r\n                                  <input matInput type=\"text\" placeholder=\"Name\" name=\"category{{i}}\" required  [(ngModel)]=\"newCategory[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                  <mat-icon>close</mat-icon>\r\n                                </button>\r\n                              </mat-form-field>\r\n                        \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreCategory(i)\">\r\n                             </div>\r\n                             <!-- <div *ngIf=\"showSpinner\">\r\n                             <mat-spinner></mat-spinner>\r\n                            </div> -->\r\n                                 \r\n\r\n\r\n\r\n                                       \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreCategory()\">\r\n                                <input type=\"submit\"  class=\"btn btn-danger\" value=\"Save\" > \r\n                    \r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n                       </form>\r\n                       \r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Category </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                   No changes to upate!\r\n                  </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateCategory(category);\">\r\n                        <p>Category Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"category.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n                            \r\n                              <!-- <div *ngIf=\"showSpinner\" class=\"updatespinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                        \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                    \r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteCategory(catgId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n  <div class=\"col-md-9\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n        \r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n           \r\n             <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n                    <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              \r\n                                     \r\n                          "
+module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n     <!-- Navigation -->\r\n        <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar  [open]=\"'open'\"></admin-side-bar>\r\n            <h3 class=\"heading\">Manage Survey Category</h3>\r\n            <br>\r\n       <div id=\"\">\r\n          <div class=\"col-md-2\">\r\n              <nav class=\"nav-sidebar\">\r\n                  <ul class=\"nav tabs buttonleft\">\r\n                        <li >\r\n                            <button type=\"button\" (click)=\"addNew();\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#myModal\" data-backdrop=\"static\">+Add New</button>\r\n                  \r\n                       \r\n                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                     \r\n                  </ul>\r\n                </nav>\r\n        </div>\r\n          <div id=\"myModal\"  class=\"modal fade\">\r\n              <div class=\"modal-dialog\"> \r\n      <!-- Modal content-->\r\n                <div class=\"modal-content\">\r\n                   <div class=\"modal-header\">\r\n                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                        <h4 class=\"modal-title\">Add Survey Category </h4>\r\n                   </div>\r\n                   <br>\r\n                   <div *ngIf=\"atleastOneitem\" class=\"alert alert-danger\">\r\n                    Atleast one item required!\r\n                  </div>\r\n                   <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                       {{errorMsg}}\r\n                    </div>\r\n                    <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                        {{errorMsg}}\r\n                     </div>\r\n                  \r\n                    \r\n                 <div class=\"modal-body\">\r\n                    \r\n                       <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"insertCategory();\">\r\n                            <p>Category Name</p>\r\n                             <div class=\"form-group\" *ngFor=\"let item of newCategory; let i = index; trackBy:trackByIndex\" >\r\n                                \r\n                              <mat-form-field class=\"example-form-field\">\r\n                                  <input matInput type=\"text\" placeholder=\"Name\" name=\"category{{i}}\" required  [(ngModel)]=\"newCategory[i].name\" (keypress)=\"_keyPress($event)\"/>\r\n                                <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                  <mat-icon>close</mat-icon>\r\n                                </button>\r\n                              </mat-form-field>\r\n                        \r\n                                  <input type=\"button\" class=\"btn-danger\" value=\"X\"  (click)=\"closeMoreCategory(i)\">\r\n                             </div>\r\n                             <!-- <div *ngIf=\"showSpinner\">\r\n                             <mat-spinner></mat-spinner>\r\n                            </div> -->\r\n                                 \r\n\r\n\r\n\r\n                                       \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"button\" class=\"btn btn-danger\" value=\"Add More\"  (click)=\"addMoreCategory()\">\r\n                                <input type=\"submit\"  class=\"btn btn-danger\" value=\"Save\" > \r\n                    \r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n                       </form>\r\n                       \r\n                </div>\r\n                <div class=\"modal-footer\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                </div>\r\n             </div>\r\n          </div>\r\n    </div>\r\n\r\n \r\n    <div id=\"myModal2\"  class=\"modal fade\">\r\n        <div class=\"modal-dialog\">\r\n            <div class=\"modal-content\">\r\n                <div class=\"modal-header\">\r\n                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                       <h4 class=\"modal-title\">Edit Survey Category </h4>\r\n                </div>\r\n                <br>\r\n                <div *ngIf=\"UpdatealreadyExist\" class=\"alert alert-danger\">\r\n                  Name Already Exist!\r\n                </div>\r\n                <div *ngIf=\"Updaterequired\" class=\"alert alert-danger\">\r\n                  Name is required!\r\n                </div>\r\n                <div *ngIf=\"Updatechange\" class=\"alert alert-danger\">\r\n                   No changes to upate!\r\n                  </div>\r\n              <div class=\"modal-body\">\r\n                   <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"updateCategory(category);\">\r\n                        <p>Category Name</p>\r\n                              <div class=\"form-group\"  >\r\n                                <div class=\"col-md-11\">\r\n                                    <mat-form-field class=\"example-form-field\">\r\n                                        <input matInput type=\"text\"  name=\"name\" required   [(ngModel)]=\"category.name\" />\r\n                                        <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n                                          <mat-icon>close</mat-icon>\r\n                                        </button>\r\n                                      </mat-form-field>\r\n                                      \r\n                                </div>\r\n                                \r\n                              </div>\r\n                            \r\n                              <!-- <div *ngIf=\"showSpinner\" class=\"updatespinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                        \r\n\r\n                         <div class=\"row\">\r\n                            <div class=\"col-md-4\">\r\n                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Update\">\r\n                    \r\n                                  </div>\r\n                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                         <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                       <animateTransform attributeType=\"xml\"\r\n                                         attributeName=\"transform\"\r\n                                         type=\"rotate\"\r\n                                         from=\"0 25 25\"\r\n                                         to=\"360 25 25\"\r\n                                         dur=\"0.6s\"\r\n                                         repeatCount=\"indefinite\"/>\r\n                                       </path>\r\n                                     </svg>\r\n                                  </div>\r\n                                   \r\n                                </div>\r\n    \r\n                </form>\r\n            </div>\r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn1>Close</button>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div id=\"myModal3\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n  \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <!-- <div class=\"modal-header\"> -->\r\n          <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n        <!-- </div> -->\r\n        <div class=\"modal-body\">\r\n            <h4>Are you sure to delete?</h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button type=\"button\" (click)=\"deleteCategory(catgId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n        </div>\r\n      </div>\r\n  \r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n  <div class=\"col-md-9\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n        \r\n        <mat-table [dataSource]=\"dataSource\" matSort>\r\n           \r\n             <ng-container matColumnDef=\"id\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n      </ng-container>\r\n                <ng-container matColumnDef=\"name\">\r\n                   <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                     <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n                 </ng-container>\r\n                  <ng-container matColumnDef=\"action\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION</mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\"><mat-icon>more_vert</mat-icon> </button>\r\n                        <mat-menu #menu=\"matMenu\">\r\n                            <button  mat-menu-item (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                  <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                  <span>Edit</span>\r\n                                  </button>\r\n                              <button mat-menu-item  (click)=\"getCategoryId(row.id)\" data-toggle=\"modal\" data-target=\"#myModal3\"> \r\n                                  <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                  <span>Delete</span>\r\n                              </button>\r\n                        </mat-menu> </mat-cell>\r\n              \r\n                     </ng-container>\r\n       \r\n    \r\n\r\n                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                   </mat-row>\r\n                  </mat-table>\r\n                    <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n</body>\r\n              \r\n                                     \r\n                          "
 
 /***/ }),
 
@@ -4506,7 +4835,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
 
 // exports
 
@@ -4549,6 +4878,7 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
         this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
+        this.all_value = false;
         this.showSpinner = false;
         this.selected = 'all';
     }
@@ -4567,6 +4897,9 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllnotverficompanies().subscribe(function (data) {
+                if (data.length != 0) {
+                    _this.all_value = true;
+                }
                 _this.loadToDataTable(data);
                 _this.showSpinner = false;
             });
@@ -4743,6 +5076,268 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
     return AdminNotVerifiedComponent;
 }());
 exports.AdminNotVerifiedComponent = AdminNotVerifiedComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin-plan/admin-plan.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n/* .active1{\r\n    background-color: #eee;\r\n} */\r\n\r\n.active1 > a\r\n{background-color: #fff !important;\r\n    color:#ea5a5a !important;}\r\n\r\n.buttonleft>li{\r\n        border:none !important;\r\n        text-align: center;\r\n        padding: 4px;\r\n    }\r\n\r\n.ourbutton2{    border-radius: 20px;\r\n        padding: 7px 40px;}\r\n\r\n.buttonleft{padding:2em 0;min-height: 300px;}\r\n\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n  }\r\n\r\n.example-container > * {\r\n    width: 100%;\r\n  }\r\n\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n\r\n.example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n\r\n.mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n\r\n.example-right-align {\r\n    text-align: right;\r\n  }\r\n\r\ninput.example-right-align::-webkit-outer-spin-button,\r\n  input.example-right-align::-webkit-inner-spin-button {\r\n    display: none;\r\n  }\r\n  ", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin-plan/admin-plan.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n                    <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar></admin-side-bar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                                        <div class=\"col-md-2\">\r\n                                          <nav class=\"nav-sidebar\">\r\n                                              <ul class=\"nav tabs buttonleft\">\r\n                                                    <li >\r\n                                                      <button  class=\"btn btn-danger ourbutton2\" (click)=\"addNewplan()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New Plan</button>\r\n                                                    </li>\r\n                                              \r\n                                                                    \r\n                                              </ul>\r\n                                            </nav>\r\n                                    </div>\r\n                                    <div class=\"col-md-10\">\r\n                                        \r\n                                    <div class=\"example-header\" >\r\n                                        <mat-form-field>\r\n                                          <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    \r\n                                      <div class=\"noitem\" *ngIf=\"existStatus\"><h4>No item Found!</h4></div>\r\n                                    \r\n                                    <br>\r\n                                    <div class=\"example-container mat-elevation-z8 \">\r\n                                        <mat-table [dataSource]=\"dataSource\" matSort>\r\n                                         <ng-container matColumnDef=\"slno\">\r\n                                         <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                                         <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                                        </ng-container>\r\n                                                <ng-container matColumnDef=\"planname\">\r\n                                                   <mat-header-cell *matHeaderCellDef mat-sort-header> PLAN NAME</mat-header-cell>\r\n                                                     <mat-cell *matCellDef=\"let row\"> {{row.plan_name}}</mat-cell>\r\n                                                 </ng-container>\r\n                                                 <ng-container matColumnDef=\"price\">\r\n                                                    <mat-header-cell *matHeaderCellDef mat-sort-header> PRICE</mat-header-cell>\r\n                                                      <mat-cell *matCellDef=\"let row\"> {{row.plan_price}}</mat-cell>\r\n                                                  </ng-container>\r\n                                                  <ng-container matColumnDef=\"bestvalue\">\r\n                                                      <mat-header-cell *matHeaderCellDef mat-sort-header> BEST VALUE</mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let row\"> \r\n                                                         \r\n                                                           <mat-slide-toggle   class=\"example-margin\" name=\"best\" [(ngModel)]=\"row.is_best_value\"  (change)=\"onChange(row._id,row.is_best_value)\"   [checked]=\"row.is_best_value\" >\r\n\r\n                                                      </mat-slide-toggle></mat-cell>\r\n                                                    </ng-container>\r\n                                                  <ng-container  matColumnDef=\"action\">\r\n                                                      <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                                        <mat-menu #menu=\"matMenu\">\r\n                                                            <button  mat-menu-item disabled  *ngIf=\"row.status==false\"(click)=\"getEditId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                                <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                                <span>Edit</span>\r\n                                                                </button>\r\n                                                          <button  mat-menu-item  *ngIf=\"row.status==true\"(click)=\"getEditId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                            <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                            <span>Edit</span>\r\n                                                            </button>\r\n\r\n                                                          \r\n                                                        <button mat-menu-item *ngIf=\"row.status==true || row.status==false \"  (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                            <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                            <span>Delete</span>\r\n                                                        </button>\r\n                                                        </mat-menu> </mat-cell>\r\n                                              \r\n                                                     </ng-container>\r\n                                       \r\n                                    \r\n                                \r\n                                                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                                   </mat-row>\r\n                                                  </mat-table>\r\n                                                  <div class=\"col-md-15 \">\r\n                                                      <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                                                          <mat-spinner></mat-spinner>\r\n                                                         </div>\r\n                                                  </div>\r\n                                               \r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                        </div>\r\n                                      </div>\r\n\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n                      <!-- -------------------------Modal -add plan------------------------------ -->\r\n\r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                              <h4 class=\"modal-title\">Add New Plan</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"addPlan(newPlan);\" novalidate >\r\n                          \r\n                              <div class=\"form-group\" >\r\n                                <div class=\"example-container\">\r\n                                  <mat-form-field>\r\n                                    <input matInput placeholder=\"Plan Name\"  name =\"planname\" [(ngModel)]=\"newPlan.planname\"  required>\r\n                                  </mat-form-field>\r\n                                \r\n                                  <mat-form-field>\r\n                                    <input matInput placeholder=\"Price\" type=\"number\" min=\"1\"  class=\"example-right-align\"  name =\"planprice\" [(ngModel)]=\"newPlan.planprice\"  required>\r\n                                    <span matPrefix>₹&nbsp;</span>\r\n                                    <!-- <span matSuffix>.00</span> -->\r\n                                  </mat-form-field>\r\n                                \r\n                                  <mat-form-field>\r\n\r\n                                    <mat-select placeholder=\"No of survey\"  name=\"surveyno\"  [(ngModel)]=\"newPlan.surveyno\" required>\r\n\r\n                                      <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                      <mat-option value=\"limited\">limited</mat-option>\r\n                                    \r\n                                    </mat-select>\r\n                                  </mat-form-field>\r\n\r\n                                  \r\n                                    \r\n                                  <mat-form-field *ngIf=\"newPlan.surveyno == 'limited'\" >\r\n                                      <input  matInput placeholder=\"value\" type=\"number\" name=\"value1\"  [(ngModel)]=\"newPlan.value1\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                    </mat-form-field>\r\n                                  \r\n                                  <mat-form-field>\r\n                                    <mat-select placeholder=\"No of Question\"  name=\"surveyqtno\"  [(ngModel)]=\"newPlan.surveyqtno\" required>\r\n                                      <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                      <mat-option value=\"limited\">limited</mat-option>\r\n                                    \r\n                                    </mat-select>\r\n      \r\n                                  </mat-form-field>\r\n                                  <mat-form-field *ngIf=\"newPlan.surveyqtno == 'limited'\" >\r\n                                      <input  matInput placeholder=\"value\" type=\"number\"name=\"value2\"  [(ngModel)]=\"newPlan.value2\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                    </mat-form-field>\r\n                                  <mat-form-field>\r\n                                      <mat-select placeholder=\"No of Survey Attenders\"   name=\"surveyattno\"  [(ngModel)]=\"newPlan.surveyattno\" required>\r\n                                        <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                        <mat-option value=\"limited\">limited</mat-option>\r\n                                      \r\n                                      </mat-select>\r\n                                    </mat-form-field>\r\n                                    <mat-form-field *ngIf=\"newPlan.surveyattno == 'limited'\" >\r\n                                        <input  matInput placeholder=\"value\" type=\"number\" name=\"value3\"  [(ngModel)]=\"newPlan.value3\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                      </mat-form-field>\r\n                                  <section class=\"example-section\">\r\n                                    Excel import\r\n                                    <mat-slide-toggle class=\"example-margin\" name=\"eximport\" [(ngModel)]=\"newPlan.eximport\" [checked]=\"newPlan.eximport\"></mat-slide-toggle>\r\n                                        \r\n                                       \r\n                                    \r\n                                  </section>\r\n                                  <section class=\"example-section\">\r\n                                      Skip \r\n                                      <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"newPlan.skip\" [checked]=\"newPlan.skip\">\r\n                                          \r\n                                         </mat-slide-toggle>\r\n                                    </section>\r\n\r\n                                </div>\r\n                                    \r\n                              </div>\r\n                              <br>\r\n                              <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div>\r\n                              <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n\r\n <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n    <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" >Close</button>\r\n            <button type=\"button\" (click)=\"deletePlan(id)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n\r\n    \r\n\r\n<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->\r\n<div id=\"myModal2\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">update plan</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n    <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && updatePlan(plan);\" novalidate>\r\n    \r\n      <div class=\"form-group\" >\r\n        <div class=\"example-container\">\r\n                 \r\n                <mat-form-field>\r\n                  <input matInput placeholder=\"Plan Name\"  name =\"plan_name\" [(ngModel)]=\"plan.plan_name\"  required>\r\n                </mat-form-field>\r\n           <div *ngIf=\"!disablePrice\">\r\n                <mat-form-field class=\"inputfileds\">\r\n          \r\n                    <input matInput placeholder=\"Price\" type=\"number\" min=\"1\"  class=\"example-right-align\"  name =\"plan_price\" [(ngModel)]=\"plan.plan_price\"  required>\r\n                    <span matPrefix>₹&nbsp;</span>\r\n                    <!-- <span matSuffix>.00</span> -->\r\n                 \r\n                </mat-form-field>\r\n              </div>\r\n              <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"No of survey\"  name=\"no_survey\"  [(ngModel)]=\"plan.numofsurvey\" required>\r\n                    \r\n                    <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                    <mat-option value=\"limited\">limited</mat-option>\r\n                                                        \r\n                  </mat-select>\r\n              </mat-form-field>\r\n              <mat-form-field *ngIf=\"plan.numofsurvey == 'limited'\" >\r\n                    <input  matInput placeholder=\"value\" type=\"number\" name=\"value1\"  [(ngModel)]=\"plan.no_survey\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n              </mat-form-field>\r\n\r\n\r\n              <mat-form-field class=\"inputfileds\">\r\n                <mat-select placeholder=\"No of survey Question\"  name=\"no_question\"  [(ngModel)]=\"plan.numofqtn\" required>\r\n                  \r\n                  <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                  <mat-option value=\"limited\">limited</mat-option>\r\n                                                      \r\n                </mat-select>\r\n            </mat-form-field>\r\n            <mat-form-field *ngIf=\"plan.numofqtn == 'limited'\" >\r\n                  <input  matInput placeholder=\"value\" type=\"number\" name=\"value2\"  [(ngModel)]=\"plan.no_question\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n            </mat-form-field>\r\n            \r\n            <mat-form-field class=\"inputfileds\">\r\n              <mat-select placeholder=\"No of Survey Attenders\"   name=\"no_survey_attenders\"   [(ngModel)]=\"plan.numofsurveyattn\" required>\r\n                \r\n                <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                <mat-option value=\"limited\">limited</mat-option>\r\n                                                    \r\n              </mat-select>\r\n          </mat-form-field>\r\n          <mat-form-field *ngIf=\"plan.numofsurveyattn == 'limited'\" >\r\n                <input  matInput placeholder=\"value\" type=\"number\" name=\"value3\"  [(ngModel)]=\"plan.no_survey_attenders\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n          </mat-form-field>\r\n\r\n          <section class=\"example-section\">\r\n            Excel import\r\n            <mat-slide-toggle class=\"example-margin\" name=\"eximport\" [(ngModel)]=\"plan.excel_import\" [checked]=\"plan.excel_import\"></mat-slide-toggle>\r\n                \r\n               \r\n            \r\n          </section>\r\n          <section class=\"example-section\">\r\n              Skip \r\n              <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"plan.survey_logic\" [checked]=\"plan.survey_logic\">\r\n                  \r\n                 </mat-slide-toggle>\r\n            </section>\r\n          \r\n              </div>\r\n        </div>\r\n        <div *ngIf=\"showSpinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div>\r\n        <br>\r\n     \r\n       \r\n        <button type= \"submit\"  class=\"btn btn-danger ourbutton\" >Update</button>\r\n       \r\n    </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>    \r\n\r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/admin-plan/admin-plan.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
+var AdminPlanComponent = /** @class */ (function () {
+    function AdminPlanComponent(adminService, routes, snackBar) {
+        this.adminService = adminService;
+        this.routes = routes;
+        this.snackBar = snackBar;
+        this.displayedColumns = ['slno', 'planname', 'price', 'bestvalue', 'action'];
+        this.notExist = false;
+        this.disablePrice = false;
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
+        this.plan = {
+            plan_name: '',
+            plan_price: '',
+            no_survey: '',
+            numofsurvey: '',
+            no_question: '',
+            numofqtn: '',
+            no_survey_attenders: '',
+            numofsurveyattn: '',
+            excel_import: '',
+            survey_logic: ''
+        };
+        this.newPlan = { planname: '',
+            planprice: '',
+            surveyno: '',
+            surveyqtno: '',
+            surveyattno: '',
+            value1: '',
+            value2: '',
+            value3: '',
+            skip: false,
+            eximport: false };
+    }
+    // ---------------------------------Start-------------------------------------------
+    // Function      : admin plan 
+    // Params        : id
+    // Returns       : 
+    // Author        : sudha
+    // Date          : 25-01-2018
+    // Last Modified : 
+    // Desc          : All plan,add plan, delete plan,edit plan
+    AdminPlanComponent.prototype.ngOnInit = function () {
+        this.refresh();
+    };
+    AdminPlanComponent.prototype.refresh = function () {
+        var _this = this;
+        this.showSpinnerDelete = true;
+        var users = [];
+        this.adminService.getAllplans().subscribe(function (data) {
+            _this.showSpinnerDelete = false;
+            console.log(data);
+            if (data.length == 0) {
+                _this.notExist = true;
+            }
+            _this.dataSource = new material_1.MatTableDataSource(data);
+            console.log(_this.dataSource);
+            _this.dataSource.paginator = _this.paginator;
+            _this.dataSource.sort = _this.sort;
+        });
+    };
+    AdminPlanComponent.prototype.applyFilter = function (filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    };
+    AdminPlanComponent.prototype.addNewplan = function () {
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
+        this.newPlan = { planname: '',
+            planprice: '',
+            surveyno: '',
+            surveyqtno: '',
+            surveyattno: '',
+            value1: '',
+            value2: '',
+            value3: '',
+            skip: false,
+            eximport: false };
+    };
+    AdminPlanComponent.prototype.addPlan = function (newPlan) {
+        var _this = this;
+        this.showSpinner = true;
+        // console.log(newPlan);
+        this.adminService.addPlan(this.newPlan).subscribe(function (addPlan) {
+            if (!addPlan.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(addPlan.msg, '', {
+                    duration: 2000
+                });
+                _this.refresh();
+            }
+            else if (addPlan.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(addPlan.msg, '', {
+                    duration: 2000
+                });
+                _this.closeBtn.nativeElement.click();
+                _this.refresh();
+            }
+        });
+    };
+    AdminPlanComponent.prototype.getId = function (id) {
+        this.showSpinner = false;
+        this.showSpinnerDelete = false;
+        this.id = id;
+        //  console.log(this.id)
+    };
+    AdminPlanComponent.prototype.onChange = function (id, value) {
+        var _this = this;
+        this.adminService.bestPlan(id, value).subscribe(function (data2) {
+            // console.log(data2.success);
+            if (data2.success == true) {
+                _this.refresh();
+            }
+            else {
+                // this.refresh();
+            }
+        });
+    };
+    AdminPlanComponent.prototype.deletePlan = function (id) {
+        var _this = this;
+        this.showSpinnerDelete = true;
+        console.log(id);
+        this.adminService.deletePlan(id).subscribe(function (data2) {
+            if (data2.success == false) {
+                _this.showSpinnerDelete = false;
+                var snackBarRef = _this.snackBar.open(data2.msg, '', {
+                    duration: 2000
+                });
+                _this.refresh();
+            }
+            else {
+                _this.refresh();
+                _this.showSpinnerDelete = false;
+                var snackBarRef = _this.snackBar.open(data2.msg, '', {
+                    duration: 2000
+                });
+            }
+        });
+    };
+    AdminPlanComponent.prototype.getEditId = function (id) {
+        var _this = this;
+        this.showSpinner = false;
+        this.adminService.getSingleplan(id).subscribe(function (data) {
+            console.log(data);
+            if (data.is_default_plan == true) {
+                _this.disablePrice = true;
+            }
+            else if (data.is_default_plan == false) {
+                _this.disablePrice = false;
+            }
+            //console.log(data);
+            if (data.success == false) {
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
+                _this.refresh();
+            }
+            else {
+            }
+            _this.plan = data;
+            _this.plan.numofsurvey = (data.no_survey != 'Unlimited') ? "limited" : "Unlimited";
+            _this.plan.numofqtn = (data.no_question != 'Unlimited') ? "limited" : "Unlimited";
+            _this.plan.numofsurveyattn = (data.no_survey_attenders != 'Unlimited') ? "limited" : "Unlimited";
+        });
+    };
+    AdminPlanComponent.prototype.updatePlan = function (plan) {
+        var _this = this;
+        this.showSpinner = true;
+        this.adminService.updatePlan(this.plan).subscribe(function (data) {
+            if (!data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
+            }
+            else if (data.success) {
+                _this.showSpinner = false;
+                var snackBarRef = _this.snackBar.open(data.msg, '', {
+                    duration: 2000
+                });
+                _this.closeBtn1.nativeElement.click();
+                _this.refresh();
+            }
+        });
+    };
+    __decorate([
+        core_1.ViewChild('closeBtn'),
+        __metadata("design:type", core_1.ElementRef)
+    ], AdminPlanComponent.prototype, "closeBtn", void 0);
+    __decorate([
+        core_1.ViewChild('closeBtn1'),
+        __metadata("design:type", core_1.ElementRef)
+    ], AdminPlanComponent.prototype, "closeBtn1", void 0);
+    __decorate([
+        core_1.ViewChild(material_1.MatPaginator),
+        __metadata("design:type", material_1.MatPaginator)
+    ], AdminPlanComponent.prototype, "paginator", void 0);
+    __decorate([
+        core_1.ViewChild(material_1.MatSort),
+        __metadata("design:type", material_1.MatSort)
+    ], AdminPlanComponent.prototype, "sort", void 0);
+    AdminPlanComponent = __decorate([
+        core_1.Component({
+            selector: 'admin-plan',
+            template: __webpack_require__("../../../../../src/app/components/admin-plan/admin-plan.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/admin-plan/admin-plan.component.css")]
+        }),
+        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router, material_2.MatSnackBar])
+    ], AdminPlanComponent);
+    return AdminPlanComponent;
+}());
+exports.AdminPlanComponent = AdminPlanComponent;
 
 
 /***/ }),
@@ -4954,7 +5549,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 0px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #282c37;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n        padding-top: 20px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #ea5a5a !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 15px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {\r\n    background-color: #ea5a5a;\r\n    border-color: #337ab7;\r\n}\r\n\r\n.dropdown-menu>li>a.active2{background-color: #a71b1c;\r\n    color: #fff !important;}\r\n\r\n.sd-block{\r\n    display: block;\r\n}\r\n\r\nul li{\r\n    cursor: pointer\r\n}\r\n\r\n.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {\r\n    \r\n    background-color: #d9534f;\r\n    color: #ffffff !important;\r\n    \r\n}\r\n\r\n.side-nav .dropdown-menu {\r\n    background-color: #6f2f38;\r\n}", ""]);
+exports.push([module.i, "body {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 0px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #282c37;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n        padding-top: 20px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #ea5a5a !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 15px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {\r\n    background-color: #ea5a5a;\r\n    border-color: #337ab7;\r\n}\r\n\r\n.dropdown-menu>li>a.active2{background-color: #a71b1c;\r\n    color: #fff !important;}\r\n\r\n.sd-block{\r\n    display: block;\r\n}\r\n\r\nul li{\r\n    cursor: pointer\r\n}\r\n\r\n.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {\r\n    \r\n    background-color: #d9534f;\r\n    color: #ffffff !important;\r\n    \r\n}\r\n\r\n.side-nav .dropdown-menu {\r\n    background-color: #212f3e;\r\n}\r\n\r\n.side-nav > li > ul > li > a {\r\n    padding: 13px 16px 13px 54px;\r\n    font-size: 12px;\r\n}\r\n\r\n.side-nav > li > ul {\r\n    border: none;\r\n    border-radius: 0;\r\n}\r\n\r\n.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {\r\n    background-color:  #bd0c2b !important;\r\n    color: #fff !important;\r\n}\r\n", ""]);
 
 // exports
 
@@ -4967,7 +5562,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-side-bar/admin-side-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a>\r\n   <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-tachometer\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li>\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\">\r\n\r\n      <li><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n      <li><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!-- ----------------------------------End------------------------------------------- -->\r\n"
+module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a>\r\n   <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-tachometer\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-plan\"><i class=\"fa fa-pencil-square-o\"></i> Plans</a>\r\n\r\n</li>\r\n<li>\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\">\r\n      <li><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n      <li><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\" id=\"opnr\" >\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\" ><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\" [ngClass]=\"{'sd-block': open=='open'}\">\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!------------------------------------End--------------------------------------------->\r\n"
 
 /***/ }),
 
@@ -4991,7 +5586,6 @@ var AdminSideBarComponent = /** @class */ (function () {
     function AdminSideBarComponent() {
     }
     AdminSideBarComponent.prototype.ngOnInit = function () {
-        console.log(this.open);
     };
     AdminSideBarComponent = __decorate([
         core_1.Component({
@@ -5017,7 +5611,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
 
 // exports
 
@@ -5060,6 +5654,7 @@ var AdminSubscribedComponent = /** @class */ (function () {
         this.snackBar = snackBar;
         this.displayedColumns = ['companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
+        this.all_value = false;
         this.selected = 'all';
         this.showSpinner = false;
     }
@@ -5079,6 +5674,9 @@ var AdminSubscribedComponent = /** @class */ (function () {
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAllsubcompanies().subscribe(function (data) {
+                if (data.length != 0) {
+                    _this.all_value = true;
+                }
                 _this.loadToDataTable(data);
                 _this.showSpinner = false;
             });
@@ -5279,7 +5877,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-top-bar/admin-top-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\" role=\"navigation\">\r\n  <!-- Brand and toggle get grouped for better mobile display -->\r\n  \r\n \r\n  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->\r\n  <div class=\"collapse navbar-collapse navbar-ex1-collapse\">\r\n      <div class=\"navbar-header\">\r\n          \r\n       <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-ex1-collapse\">\r\n           <span class=\"sr-only\">Toggle navigation</span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n       </button>\r\n      \r\n      </div>\r\n         <ul class=\"nav navbar-nav pull-right profilz\">\r\n            <li class=\"dropdown notification\">\r\n                <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                 <span class=\"glyphicon glyphicon-bell alertNotificacao\"></span>\r\n                 <span class='badgeAlert'>{{notif.count}}</span>\r\n                 <span class=\"\"></span></a>\r\n                    <ul class=\"list-notificacao dropdown-menu\">\r\n                        <h3>Block Requests</h3>\r\n                        <div *ngFor=\"let item of notif.users\">\r\n                            <div *ngFor=\"let cmp of item.block_request\"> \r\n                                <div *ngFor=\"let cmpy of cmp.companies\"> \r\n                                    <div *ngIf=\"cmpy.is_viewed==false\">\r\n                                        <li>\r\n                                            <div class=\"media\">\r\n                                                        \r\n                                                <div class=\"media-body\" >\r\n                                                    <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs button_exclusao' id='1'(click)=\"viewstatusUser(item._id,cmpy.company_id)\" >x</button>\r\n                                                     </div>\r\n                                                        <h4 class=\"media-heading\"  >{{item.name}}</h4>\r\n                                                         <p>Organization:{{cmpy.organization}}</p>\r\n                                                         <p> Reason : {{cmpy.reason}}</p>\r\n                                                </div>\r\n                                            </div>\r\n                                                \r\n                                        </li> \r\n                                    </div>  \r\n                                </div>   \r\n                            </div>\r\n                        </div>\r\n                    </ul>\r\n             </li>\r\n            <li class=\"dropdown\">\r\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Survey  Admin <span class=\"glyphicon glyphicon-user pull-right\"></span></a>\r\n                    <ul class=\"dropdown-menu\">\r\n                    \r\n                    <li class=\"divider\"></li>\r\n                    <li>\r\n                        <a  (click)=\"logout()\" ><span class=\"glyphicon glyphicon-log-out pull-right\"></span> LogOut </a>\r\n                        \r\n                    </li>\r\n                    </ul>\r\n            </li>\r\n\r\n          \r\n        </ul>\r\n     \r\n        \r\n  </div>\r\n  <!-- /.navbar-collapse -->\r\n</nav>\r\n\r\n<!-- Top Menu Items -->\r\n<ul class=\"nav navbar-right top-nav\">\r\n  <li class=\"dropdown\" *ngFor= \"let item of info\">\r\n          \r\n      <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bell\"><div class=\"notify-count\">2</div></i> <b class=\"caret\"></b></a>\r\n      <ul class=\"dropdown-menu message-dropdown\">\r\n          <li class=\"message-preview\"  >\r\n              <a >\r\n                  <div class=\"media\">\r\n                      <div class=\"row\">\r\n                      <div class=\"col-md-4\">\r\n                      <span class=\"pull-left\">\r\n                          <img class=\"media-object\"\r\n                          \r\n                           alt=\"\">\r\n                      </span>\r\n                     </div>\r\n                     <div class=\"col-md-8\">\r\n                      <div class=\"media-body\">\r\n                          <h5 class=\"media-heading\">\r\n                              <strong>Name</strong>\r\n                          </h5>\r\n                          \r\n                          <p>Item confirmed by bidder</p>\r\n                      </div>\r\n                      </div>\r\n                      </div>\r\n                  </div>\r\n              </a>\r\n          </li>\r\n          <!-- <li class=\"message-footer\">\r\n              <a href=\"#\">Read All New Messages</a>\r\n          </li> -->\r\n      </ul>\r\n  </li>\r\n  \r\n  \r\n</ul>"
+module.exports = "<nav class=\"navbar navbar-inverse\" role=\"navigation\">\r\n  <!-- Brand and toggle get grouped for better mobile display -->\r\n  \r\n \r\n  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->\r\n  <div class=\"collapse navbar-collapse navbar-ex1-collapse\">\r\n      <div class=\"navbar-header\">\r\n          \r\n       <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-ex1-collapse\">\r\n           <span class=\"sr-only\">Toggle navigation</span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n           <span class=\"icon-bar\"></span>\r\n       </button>\r\n      \r\n      </div>\r\n         <ul class=\"nav navbar-nav pull-right profilz\">\r\n            <li class=\"dropdown notification\">\r\n                <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n                 <span class=\"glyphicon glyphicon-bell alertNotificacao\"></span>\r\n                 <span class='badgeAlert'>{{notif.count}}</span>\r\n                 <span class=\"\"></span></a>\r\n                    <ul class=\"list-notificacao dropdown-menu\">\r\n                        <h5 style=\"padding: 15px;\">Block Requests</h5>\r\n                        <div *ngFor=\"let item of notif.users\">\r\n                            <div *ngFor=\"let cmp of item.block_request\"> \r\n                                <div *ngFor=\"let cmpy of cmp.companies\"> \r\n                                    <div *ngIf=\"cmpy.is_viewed==false\">\r\n                                        <li>\r\n                                            <div class=\"media\">\r\n                                                        \r\n                                                <div class=\"media-body\" >\r\n                                                    <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs button_exclusao' id='1'(click)=\"viewstatusUser(item._id,cmpy.company_id)\" >x</button>\r\n                                                     </div>\r\n                                                        <h4 class=\"media-heading\"  >{{item.name}}</h4>\r\n                                                         <p>Organization:{{cmpy.organization}}</p>\r\n                                                         <p> Reason : {{cmpy.reason}}</p>\r\n                                                </div>\r\n                                            </div>\r\n                                                \r\n                                        </li> \r\n                                    </div>  \r\n                                </div>   \r\n                            </div>\r\n                        </div>\r\n                    </ul>\r\n             </li>\r\n            <li class=\"dropdown\">\r\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Survey  Admin <span class=\"glyphicon glyphicon-user pull-right\"></span></a>\r\n                    <ul class=\"dropdown-menu\">\r\n                    \r\n                    <li class=\"divider\"></li>\r\n                    <li>\r\n                        <a  (click)=\"logout()\" ><span class=\"glyphicon glyphicon-log-out pull-right\"></span> LogOut </a>\r\n                        \r\n                    </li>\r\n                    </ul>\r\n            </li>\r\n\r\n          \r\n        </ul>\r\n     \r\n        \r\n  </div>\r\n  <!-- /.navbar-collapse -->\r\n</nav>\r\n\r\n<!-- Top Menu Items -->\r\n<ul class=\"nav navbar-right top-nav\">\r\n  <li class=\"dropdown\" *ngFor= \"let item of info\">\r\n          \r\n      <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-bell\"><div class=\"notify-count\">2</div></i> <b class=\"caret\"></b></a>\r\n      <ul class=\"dropdown-menu message-dropdown\">\r\n          <li class=\"message-preview\"  >\r\n              <a >\r\n                  <div class=\"media\">\r\n                      <div class=\"row\">\r\n                      <div class=\"col-md-4\">\r\n                      <span class=\"pull-left\">\r\n                          <img class=\"media-object\"\r\n                          \r\n                           alt=\"\">\r\n                      </span>\r\n                     </div>\r\n                     <div class=\"col-md-8\">\r\n                      <div class=\"media-body\">\r\n                          <h5 class=\"media-heading\">\r\n                              <strong>Name</strong>\r\n                          </h5>\r\n                          \r\n                          <p>Item confirmed by bidder</p>\r\n                      </div>\r\n                      </div>\r\n                      </div>\r\n                  </div>\r\n              </a>\r\n          </li>\r\n          <!-- <li class=\"message-footer\">\r\n              <a href=\"#\">Read All New Messages</a>\r\n          </li> -->\r\n      </ul>\r\n  </li>\r\n  \r\n  \r\n</ul>"
 
 /***/ }),
 
@@ -5325,7 +5923,7 @@ var AdminTopBarComponent = /** @class */ (function () {
         //this.users = [];
         this.adminService.getAdminnotification().subscribe(function (data) {
             _this.notif = data;
-            console.log(data);
+            // console.log(data);
         });
     };
     AdminTopBarComponent.prototype.ngOnInit = function () {
@@ -5348,7 +5946,8 @@ var AdminTopBarComponent = /** @class */ (function () {
         this.adminService.viewstatusUser(id, cmpid).subscribe(function (data) {
             console.log(data);
             if (data.success) {
-                _this.refresh();
+                // http://localhost:3000/#tab5
+                _this.router.navigate(['admin-users/block_request']);
             }
             else {
             }
@@ -5393,7 +5992,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
 
 // exports
 
@@ -5436,6 +6035,7 @@ var AdminTrialComponent = /** @class */ (function () {
         this.snackBar = snackBar;
         this.displayedColumns = ['slno', 'companyname', 'email', 'contactperson', 'contactnumber', 'status', 'action'];
         this.notExist = false;
+        this.all_value = false;
         this.selected = 'all';
         this.showSpinner = false;
     }
@@ -5454,6 +6054,9 @@ var AdminTrialComponent = /** @class */ (function () {
         var company = [];
         if (this.selected == 'all') {
             this.adminService.getAlltrialcompanies().subscribe(function (data) {
+                if (data.length != 0) {
+                    _this.all_value = true;
+                }
                 _this.loadToDataTable(data);
                 _this.showSpinner = false;
             });
@@ -5678,9 +6281,10 @@ var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var AdminUsersComponent = /** @class */ (function () {
-    function AdminUsersComponent(adminService, routes) {
+    function AdminUsersComponent(adminService, routes, _activatedRoute) {
         this.adminService = adminService;
         this.routes = routes;
+        this._activatedRoute = _activatedRoute;
         this.viewComp = 'All';
     }
     AdminUsersComponent.prototype.ngOnInit = function () {
@@ -5718,6 +6322,9 @@ var AdminUsersComponent = /** @class */ (function () {
         });
         // ---------------------------------End-------------------------------------------
         console.log(this.viewComp);
+        this._activatedRoute.params.subscribe(function (params) {
+            _this.viewComp = (params['id'] == 'block_request') ? 'Request' : 'All';
+        });
     };
     AdminUsersComponent.prototype.updateView = function (page) {
         this.viewComp = page;
@@ -5729,7 +6336,7 @@ var AdminUsersComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/admin-users/admin-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-users/admin-users.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router])
+        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router, router_1.ActivatedRoute])
     ], AdminUsersComponent);
     return AdminUsersComponent;
 }());
@@ -6002,7 +6609,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "path {  stroke: #fff; }\r\npath:hover {  opacity:0.9; }\r\nrect:hover {  fill:blue; }\r\n.axis {  font: 10px sans-serif; }\r\n.legend tr{    border-bottom:1px solid grey; }\r\n.legend tr:first-child{    border-top:1px solid grey; }\r\n.axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n.x.axis path {  display: none; }\r\n.legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n.legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n.legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n.example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n.mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n.example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n.example-select {\r\n    margin: 0 10px;\r\n  }\r\n.filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n.wdth{\r\n    width: 804px;\r\n  }\r\n.noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n.back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}", ""]);
+exports.push([module.i, "path {  stroke: #fff; }\r\npath:hover {  opacity:0.9; }\r\nrect:hover {  fill:blue; }\r\n.axis {  font: 10px sans-serif; }\r\n.legend tr{    border-bottom:1px solid grey; }\r\n.legend tr:first-child{    border-top:1px solid grey; }\r\n.axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n.x.axis path {  display: none; }\r\n.legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n.legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n.legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n.example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n.example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n.mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n.example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n.example-select {\r\n    margin: 0 10px;\r\n  }\r\n.filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n.wdth{\r\n    width: 804px;\r\n  }\r\n.no-g-data{\r\n    text-align: center;\r\n    min-height: 550px;\r\n    padding: 72px 0 55px 0;\r\n  }\r\n.no-g-data h4{\r\n    font-size: 30px;\r\n    font-weight: 800;\r\n    color: #4F657D;\r\n  }\r\n.no-g-data img{\r\n  \r\n    width: 62px;\r\n    margin: 100px 0 0 0;\r\n  }\r\n.graph-containers h4{\r\n    padding: 0 0px 0 18px;\r\n    font-size: 25px;\r\n    color: #4F657D;\r\n    \r\n  }\r\n.bar-gf{\r\n    margin: 26px 0 0 0;\r\n  }\r\n.noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n.back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n", ""]);
 
 // exports
 
@@ -6015,7 +6622,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-chart2/company-chart2.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>{{title}}</h2>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n\r\n    <svg  id=\"br-1\"width=\"600\" height=\"300\"></svg>\r\n\r\n\r\n<svg id=\"sd\" width=\"400\" height=\"390\" ></svg>\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"answeredUsers\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog wdth\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">Answered Users</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n     \r\n\r\n          <div class=\"example-header\">\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n          </div>\r\n            \r\n            <div class=\"example-container mat-elevation-z8\">\r\n\r\n                <div class=\"example-container mat-elevation-z8\">\r\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\r\n                  \r\n                      <ng-container matColumnDef=\"slno\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n                      </ng-container>\r\n                        <!-- Name Column -->\r\n                        <ng-container matColumnDef=\"email\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n                        </ng-container>\r\n                    \r\n                     <!-- Answer Column -->\r\n                     <div >\r\n                      <ng-container  matColumnDef=\"answer\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Answer </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"> {{row.answer}} </mat-cell>\r\n                      </ng-container>\r\n                    </div>\r\n\r\n                     <!-- Name Column -->\r\n                     <ng-container matColumnDef=\"date_time\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\r\n                    </ng-container>\r\n                  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                      </mat-row>\r\n                    </mat-table>\r\n               \r\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                  </div>\r\n              \r\n            </div>\r\n            <br>\r\n          \r\n     \r\n\r\n  \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<h1>{{title}}</h1>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n<div class=\"no-g-data\">\r\n  <div class=\"col-md-8 bar-gf\">\r\n      <!-- <svg  id=\"br-1\"width=\"600\" height=\"300\"></svg> -->\r\n      <div id=\"bchart\"></div> \r\n      \r\n  </div>\r\n    \r\n    <div class=\"col-md-4\">\r\n        <!-- <svg id=\"sd\" width=\"400\" height=\"390\" ></svg> -->\r\n        <div id=\"pieChart2\"></div>\r\n\r\n    </div>\r\n</div>\r\n    \r\n\r\n\r\n\r\n\r\n\r\n<div id=\"answeredUsers\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog wdth\">\r\n  \r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">Answered Users</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n     \r\n\r\n          <div class=\"example-header\">\r\n            <mat-form-field>\r\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n            </mat-form-field>\r\n          </div>\r\n            \r\n            <div class=\"example-container mat-elevation-z8\">\r\n\r\n                <div class=\"example-container mat-elevation-z8\">\r\n                    <mat-table  [dataSource]=\"dataSource\" matSort>\r\n                  \r\n                      <ng-container matColumnDef=\"slno\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Sl no </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n                      </ng-container>\r\n                        <!-- Name Column -->\r\n                        <ng-container matColumnDef=\"email\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header>Email </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n                        </ng-container>\r\n                    \r\n                     <!-- Answer Column -->\r\n                     <div >\r\n                      <ng-container  matColumnDef=\"answer\">\r\n                        <mat-header-cell *matHeaderCellDef mat-sort-header>Answer </mat-header-cell>\r\n                        <mat-cell *matCellDef=\"let row\"> {{row.answer}} </mat-cell>\r\n                      </ng-container>\r\n                    </div>\r\n\r\n                     <!-- Name Column -->\r\n                     <ng-container matColumnDef=\"date_time\">\r\n                      <mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </mat-header-cell>\r\n                      <mat-cell *matCellDef=\"let row\"> {{row.date_time| date:'medium'}} </mat-cell>\r\n                    </ng-container>\r\n                  \r\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                      </mat-row>\r\n                    </mat-table>\r\n               \r\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                  </div>\r\n              \r\n            </div>\r\n            <br>\r\n          \r\n     \r\n\r\n  \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -6035,11 +6642,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var d3 = __webpack_require__("../../../../d3-selection/index.js");
-var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
-var d3Array = __webpack_require__("../../../../d3-array/index.js");
-var d3Axis = __webpack_require__("../../../../d3-axis/index.js");
-var d3Shape = __webpack_require__("../../../../d3-shape/index.js");
+// import * as d3 from 'd3-selection';
+// import * as d3Scale from 'd3-scale';
+// import * as d3Array from 'd3-array';
+// import * as d3Axis from 'd3-axis';
+// import * as d3Shape from 'd3-shape';
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
@@ -6049,17 +6656,155 @@ var CompanyChart2Component = /** @class */ (function () {
     function CompanyChart2Component(companyService, router, config) {
         this.companyService = companyService;
         this.displayedColumns = ['slno', 'email', 'date_time', 'answer'];
-        this.title = 'Questions Vs Answers';
+        this.title = 'Questions vs Answers';
         // subtitle = 'Bar Chart';
         this.barchart = [];
         this.marginb = { top: 20, right: 20, bottom: 30, left: 40 };
         this.margin = { top: 80, right: 20, bottom: 30, left: 50 };
         this.piechart = [];
+        this.undefnd = false;
         this.socket = socketIo(config.siteUrl);
         this.width = 400 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
         this.radius = Math.min(this.width, this.height) / 2;
     }
+    CompanyChart2Component.prototype.drawBar = function () {
+        var _this = this;
+        // var mydata = 
+        // [
+        //   {
+        //     "State":"Alaska",
+        //     "Population":735132
+        //   },
+        //   {
+        //     "State":"Arizona",
+        //     "Population":6626624
+        //   }
+        // ]
+        // d3.select("#pieChart2").selectAll("svg").remove();
+        d3.select("#bchart").selectAll("svg").remove();
+        var mydata = this.barchart;
+        var dataMax = d3.max(mydata, function (d) { return d.count; });
+        var margin = { top: 15, right: 30, bottom: 85, left: 45 };
+        var width = 800 - margin.left - margin.right, height = 450 - margin.top - margin.bottom, barWidth = 10;
+        var tempColor; //for mouseover effect
+        var yScale = d3.scale.linear()
+            .domain([0, dataMax])
+            .range([0, height]);
+        var xScale = d3.scale.ordinal()
+            .domain(d3.range(0, mydata.length))
+            .rangeBands([0, width], .2);
+        var vGuideScale = d3.scale.linear()
+            .domain([0, dataMax]) //guide numbering will be in the millions
+            .range([height, 0]);
+        var vAxis = d3.svg.axis()
+            .scale(vGuideScale)
+            .orient('left')
+            .ticks(10);
+        var hAxis = d3.svg.axis()
+            .scale(xScale)
+            .orient('bottom');
+        var tooltip = d3.select('body').append('div')
+            .style('position', 'absolute')
+            .style('padding', '0 10px')
+            .style('background', '#333')
+            .style('opacity', '.7')
+            .style('color', '#fff')
+            .style('border-radius', '3px');
+        ////CHART////
+        this.chart = d3.select('#bchart').append('svg')
+            .style('background', '#fff')
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+            .attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
+        // chart.exit().remove()
+        var bars = this.chart.selectAll('rect')
+            .data(mydata).enter()
+            .append('rect')
+            .attr('width', xScale.rangeBand())
+            .attr('x', function (d, i) { return xScale(i); })
+            .attr('height', 0)
+            .attr('y', height)
+            .attr('class', 'barhvr')
+            .on('mouseover', function (d) {
+            tempColor = this.style.fill;
+            d3.select(this)
+                .attr('cursor', 'pointer');
+            tooltip.html(d.company)
+                .style('left', (d3.event.pageX + 10) + 'px')
+                .style('top', (d3.event.pageY - 20) + 'px');
+            tooltip
+                .style('opacity', .9);
+        })
+            .on('mouseout', function (d) {
+            d3.select(this);
+            // .attr('fill', tempColor)
+            // .attr('opacity', 1)
+            tooltip.style('opacity', 0)
+                .style('left', '0px')
+                .style('top', '0px');
+        })
+            .on('click', function (d, i) {
+            // this.svg.remove();
+            _this.piechart = [];
+            _this.quest[i].ans.forEach(function (val) {
+                // console.log("****************");
+                // console.log(this.quest[i]);
+                // console.log("****************");
+                if (val.count != 0) {
+                    _this.piechart.push({ name: val.value, percent: val.count, answeredUser: val.answeredUser, ans_type: _this.quest[i].ans_type });
+                }
+            });
+            _this.setgraph();
+        });
+        var vGuide = d3.select('svg').append('g');
+        vAxis(vGuide);
+        vGuide.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+        vGuide.selectAll('path')
+            .style({ fill: 'none', stroke: '#000' });
+        vGuide.selectAll('line')
+            .style({ stroke: '#000' });
+        vGuide.selectAll('text')
+            .attr('font-size', '.8em');
+        var hGuide = d3.select('svg').append('g');
+        hAxis(hGuide);
+        hGuide.attr('transform', 'translate(' + margin.left + ',' + (height + margin.top) + ')');
+        hGuide.selectAll('path')
+            .style({ fill: 'none', stroke: '#000' });
+        hGuide.selectAll('line')
+            .style({ stroke: '#000' });
+        hGuide.selectAll('text')
+            .attr('transform', 'translate(12,5) rotate(55)')
+            .attr('font-size', '12px')
+            .style('text-anchor', 'start')
+            .text(function (d) {
+            return mydata[d].ind;
+        });
+        //Label on left of Y axis
+        d3.select('svg').append('text')
+            .text('Attended users')
+            .style('text-anchor', 'middle')
+            .style('font-weight', 'bold')
+            .attr('transform', 'translate(12,' + ((height + margin.top + margin.bottom) * .45) + ') rotate(-90)')
+            .attr('font-size', '12px').attr('letter-spacing', "4");
+        //chart animation
+        bars.transition()
+            .attr('height', function (d) {
+            return yScale(d.count);
+        })
+            .attr('y', function (d) {
+            return height - yScale(d.count);
+        })
+            .delay(function (d, i) {
+            return i * 10;
+        })
+            .duration(800)
+            .ease('cubic-out');
+        // d3.select('#bchart').append('div').append('p')
+        //   .html('* Data from 2013')
+        //   .style('font-size', '.6em')
+    };
     CompanyChart2Component.prototype.refresh = function () {
         // d3.select("#br-1").remove();
         // console.log("yasir");
@@ -6071,14 +6816,18 @@ var CompanyChart2Component = /** @class */ (function () {
             _this.quest = data;
             // console.log(data + " data");
             _this.barchart = [];
-            data.forEach(function (element) {
-                _this.barchart.push({ company: element.question, count: element.totalCount, id: element.id, surveyid: _this.sId });
+            data.forEach(function (element, index) {
+                var i = index + 1;
+                _this.barchart.push({ company: element.question, count: element.totalCount, id: element.id, surveyid: _this.sId, ind: "Q" + i });
             });
-            _this.initSvg1();
-            _this.initAxis();
-            _this.drawAxis();
-            _this.drawBars();
-            // console.log(data);
+            // this.initSvg1();
+            // this.initAxis();
+            // this.drawAxis();
+            // this.drawBars();
+            if (_this.barchart.length > 0) {
+                _this.drawBar();
+            }
+            console.log(_this.barchart);
         });
     };
     CompanyChart2Component.prototype.getAllsurvey = function () {
@@ -6090,15 +6839,175 @@ var CompanyChart2Component = /** @class */ (function () {
             // console.log(this.sId);
         });
     };
-    CompanyChart2Component.prototype.pierefresh = function () {
+    /*_____________________________NEW PIE____________________________*/
+    CompanyChart2Component.prototype.setgraph = function () {
         var _this = this;
+        var dataset = this.piechart;
+        d3.select("#pieChart2").selectAll("svg").remove();
+        if (this.piechart.length != 0) {
+            // console.log("this.Stats");
+            /*_______________________________________________________________________________________*/
+            //   var dataset = [
+            //     { name: 'Data', percent: 100 },
+            //     { name: 'Chrome', percent: 32.51 },
+            //     { name: 'Safari', percent: 23.68 },
+            //     { name: 'Opera', percent: 50.71 },
+            //     { name: 'Firefox', percent: 8.71 },
+            //     { name: 'Others', percent: 36.01 }
+            // ];
+            var pie = d3.layout.pie()
+                .value(function (d) { return d.percent; })
+                .sort(null)
+                .padAngle(.03);
+            var w = 250, h = 250;
+            var outerRadius = w / 2;
+            var innerRadius = w / 3;
+            var color = d3.scale.category10();
+            var arc = d3.svg.arc()
+                .outerRadius(outerRadius)
+                .innerRadius(innerRadius);
+            var svg2 = d3.select("#pieChart2")
+                .append("svg")
+                .attr({
+                width: w,
+                height: h,
+                class: 'shadow'
+            })
+                .append('g')
+                .attr({
+                transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+            });
+            // filters go in defs element
+            var defs = svg2.append("defs");
+            // create filter with id #drop-shadow
+            // height=130% so that the shadow is not clipped
+            var filter = defs.append("filter")
+                .attr("id", "drop-shadow")
+                .attr("height", "130%");
+            // SourceAlpha refers to opacity of graphic that this filter will be applied to
+            // convolve that with a Gaussian with standard deviation 3 and store result
+            // in blur
+            filter.append("feGaussianBlur")
+                .attr("in", "SourceAlpha")
+                .attr("stdDeviation", 15)
+                .attr("result", "blur");
+            // translate output of Gaussian blur to the right and downwards with 2px
+            // store result in offsetBlur
+            filter.append("feOffset")
+                .attr("in", "blur")
+                .attr("dx", 100)
+                .attr("dy", 100)
+                .attr("result", "offsetBlur");
+            // overlay original SourceGraphic over translated blurred opacity by using
+            // feMerge filter. Order of specifying inputs is important!
+            var feMerge = filter.append("feMerge");
+            feMerge.append("feMergeNode")
+                .attr("in", "offsetBlur");
+            feMerge.append("feMergeNode")
+                .attr("in", "SourceGraphic");
+            var tempColor;
+            var path = svg2.selectAll('path')
+                .data(pie(dataset))
+                .enter()
+                .append('path')
+                .attr('cursor', 'pointer')
+                .attr('class', 'piehvr')
+                .attr({
+                d: arc,
+                fill: function (d, i) {
+                    return color(d.data.name);
+                }
+            })
+                .on('click', function (dataset) {
+                _this.answer_type = dataset.data.ans_type;
+                if (_this.answer_type == "Descriptive") {
+                    _this.displayedColumns = ['slno', 'email', 'date_time', 'answer'];
+                }
+                if (_this.answer_type != "Descriptive") {
+                    _this.displayedColumns = ['slno', 'email', 'date_time'];
+                }
+                _this.dataSource = new material_1.MatTableDataSource(dataset.data.answeredUser);
+                _this.dataSource.paginator = _this.paginator;
+                _this.dataSource.sort = _this.sort;
+                $('#answeredUsers').modal('show');
+            });
+            path.transition()
+                .duration(1000)
+                .attrTween('d', function (d) {
+                var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                return function (t) {
+                    return arc(interpolate(t));
+                };
+            });
+            var restOfTheData = function () {
+                var text = svg2.selectAll('text')
+                    .data(pie(dataset))
+                    .enter()
+                    .append("text")
+                    .transition()
+                    .duration(500)
+                    .attr("transform", function (d) {
+                    return "translate(" + arc.centroid(d) + ")";
+                })
+                    .attr("dy", ".4em")
+                    .attr("text-anchor", "middle")
+                    .text(function (d) {
+                    return d.data.percent;
+                })
+                    .style({
+                    fill: '#fff',
+                    'font-size': '12px'
+                });
+                var legendRectSize = 15;
+                var legendSpacing = 3;
+                var legendHeight = legendRectSize + legendSpacing;
+                var legend = svg2.selectAll('.legend')
+                    .data(color.domain())
+                    .enter()
+                    .append('g')
+                    .attr({
+                    class: 'legend',
+                    transform: function (d, i) {
+                        //Just a calculation for x & y position
+                        return 'translate(-35,' + ((i * legendHeight) - 30) + ')';
+                    }
+                });
+                legend.append('rect')
+                    .attr({
+                    width: legendRectSize,
+                    height: legendRectSize,
+                    rx: 15,
+                    ry: 20
+                })
+                    .style({
+                    fill: color,
+                    stroke: color
+                });
+                legend.append('text')
+                    .attr({
+                    x: 22,
+                    y: 10
+                })
+                    .text(function (d) {
+                    return d;
+                }).style({
+                    fill: '#929DAF',
+                    'font-size': '14px'
+                });
+            };
+            setTimeout(restOfTheData, 2000);
+        }
+    };
+    /*__________________________________NEW PIE END___________________________________*/
+    CompanyChart2Component.prototype.pierefresh = function () {
         this.companyService.getSurveyQuestions(this.surveyid).subscribe(function (data) {
-            _this.initSvg();
-            _this.drawPie();
+            // this.initSvg();
+            // this.drawPie();
         });
     };
     CompanyChart2Component.prototype.ngOnChanges = function () {
         var _this = this;
+        // console.log(this.surveyid);
         if (this.surveyid != undefined) {
             // console.log("______"+this.surveyid)
             d3.selectAll("svg > *").remove();
@@ -6106,7 +7015,7 @@ var CompanyChart2Component = /** @class */ (function () {
             //  console.log("xxxxxx");
             //if(this.surveyid != 'all'){
             this.refresh();
-            this.pierefresh();
+            // this.pierefresh();
             //}
             this.socket.on('new survey created', function (data) {
                 _this.refresh();
@@ -6116,6 +7025,9 @@ var CompanyChart2Component = /** @class */ (function () {
             // this.drawPie();
             // this.svg.remove();
         }
+        else {
+            this.undefnd = true;
+        }
     };
     CompanyChart2Component.prototype.applyFilter = function (filterValue) {
         filterValue = filterValue.trim(); // Remove whitespace
@@ -6123,104 +7035,103 @@ var CompanyChart2Component = /** @class */ (function () {
         this.dataSource.filter = filterValue;
     };
     CompanyChart2Component.prototype.initSvg1 = function () {
-        this.svg1 = d3.select("#br-1");
-        this.widthb = +this.svg1.attr("width") - this.marginb.left - this.marginb.right;
-        this.heightb = +this.svg1.attr("height") - this.marginb.top - this.marginb.bottom;
-        this.g = this.svg1.append("g")
-            .attr("transform", "translate(" + this.marginb.left + "," + this.marginb.top + ")");
+        // this.svg1 = d3.select("#br-1");
+        // this.widthb = +this.svg1.attr("width") - this.marginb.left - this.marginb.right;
+        // this.heightb = +this.svg1.attr("height") - this.marginb.top - this.marginb.bottom;
+        // this.g = this.svg1.append("g")
+        //   .attr("transform", "translate(" + this.marginb.left + "," + this.marginb.top + ")");
     };
     CompanyChart2Component.prototype.initAxis = function () {
-        this.x = d3Scale.scaleBand().rangeRound([0, this.widthb]).padding(0.1);
-        this.y = d3Scale.scaleLinear().rangeRound([this.heightb, 0]);
-        this.x.domain(this.barchart.map(function (d) { return d.company; }));
-        this.y.domain([0, d3Array.max(this.barchart, function (d) { return d.count; })]);
+        // this.x = d3Scale.scaleBand().rangeRound([0, this.widthb]).padding(0.1);
+        // this.y = d3Scale.scaleLinear().rangeRound([this.heightb, 0]);
+        // this.x.domain(this.barchart.map((d) => d.company));
+        // this.y.domain([0, d3Array.max(this.barchart, (d) => d.count)]);
     };
     CompanyChart2Component.prototype.drawAxis = function () {
-        this.g.append("g")
-            .attr("class", "axis axis--x")
-            .attr("transform", "translate(0," + this.heightb + ")")
-            .call(d3Axis.axisBottom(this.x));
-        this.g.append("g")
-            .attr("class", "axis axis--y")
-            .call(d3Axis.axisLeft(this.y))
-            .append("text")
-            .attr("class", "axis-title")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", "0.71em")
-            .attr("text-anchor", "end")
-            .text("count");
+        // this.g.append("g")
+        //   .attr("class", "axis axis--x")
+        //   .attr("transform", "translate(0," + this.heightb + ")")
+        //   .call(d3Axis.axisBottom(this.x));
+        // this.g.append("g")
+        //   .attr("class", "axis axis--y")
+        //   .call(d3Axis.axisLeft(this.y))
+        //   .append("text")
+        //   .attr("class", "axis-title")
+        //   .attr("transform", "rotate(-90)")
+        //   .attr("y", 6)
+        //   .attr("dy", "0.71em")
+        //   .attr("text-anchor", "end")
+        //   .text("count");
     };
     CompanyChart2Component.prototype.drawBars = function () {
-        var _this = this;
-        this.g.selectAll(".bar")
-            .data(this.barchart)
-            .enter().append("rect")
-            .attr("class", "bar")
-            .attr("x", function (d) { return _this.x(d.company); })
-            .attr("y", function (d) { return _this.y(d.count); })
-            .attr("data-id", function (d) { return _this.y(d.id); })
-            .attr("width", this.x.bandwidth())
-            .attr("height", function (d) { return _this.heightb - _this.y(d.count); })
-            .on('click', function (d, i) {
-            _this.svg.remove();
-            _this.piechart = [];
-            _this.quest[i].ans.forEach(function (val) {
-                // console.log(this.quest[i]);
-                if (val.count != 0) {
-                    _this.piechart.push({ status: val.value, count: val.count, answeredUser: val.answeredUser, ans_type: _this.quest[i].ans_type });
-                }
-            });
-            _this.initSvg();
-            _this.drawPie();
-            console.log(i);
-            // this.companyService.getSingleQA(d).subscribe(data1=>{
-            //   console.log(data1);
-            // });
-        });
+        // this.g.selectAll(".bar")
+        //   .data(this.barchart)
+        //   .enter().append("rect")
+        //   .attr("class", "bar")
+        //   .attr("x", (d) => this.x(d.company))
+        //   .attr("y", (d) => this.y(d.count))
+        //   .attr("data-id", (d) => this.y(d.id))
+        //   .attr("width", this.x.bandwidth())
+        //   .attr("height", (d) => this.heightb - this.y(d.count))
+        //   // .on("click", this.mouseclick)  
+        //   .on('click', (d, i) => {
+        //         this.svg.remove();
+        //         this.piechart = []
+        //         this.quest[i].ans.forEach((val) => {
+        //           // console.log(this.quest[i]);
+        //         if (val.count != 0) {
+        //             this.piechart.push({ status: val.value, count: val.count,answeredUser:val.answeredUser, ans_type : this.quest[i].ans_type });
+        //         }
+        //     });
+        //     this.initSvg();
+        //     this.drawPie();
+        //     console.log(i);
+        //     // this.companyService.getSingleQA(d).subscribe(data1=>{
+        //     //   console.log(data1);
+        //     // });
+        //   })
     };
     //piechart
     CompanyChart2Component.prototype.initSvg = function () {
-        this.color = d3Scale.scaleOrdinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-        this.arc = d3Shape.arc()
-            .outerRadius(this.radius - 10)
-            .innerRadius(0);
-        this.labelArc = d3Shape.arc()
-            .outerRadius(this.radius - 40)
-            .innerRadius(this.radius - 40);
-        this.pie = d3Shape.pie()
-            .sort(null)
-            .value(function (d) { return d.count; });
-        this.svg = d3.select("#sd")
-            .append("g")
-            .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
+        // this.color = d3Scale.scaleOrdinal()
+        //   .range(["#623470", "#22A984", "#0189A9", '#97AC38', '#623470']);
+        // this.arc = d3Shape.arc()
+        //   .outerRadius(this.radius - 10)
+        //   .innerRadius(60);
+        // this.labelArc = d3Shape.arc()
+        //   .outerRadius(this.radius - 70)
+        //   .innerRadius(this.radius - 70);
+        // this.pie = d3Shape.pie()
+        //   .sort(null)
+        //   .value((d: any) => d.count);
+        // this.svg = d3.select("#sd")
+        //   .append("g")
+        //   .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
     };
     CompanyChart2Component.prototype.drawPie = function () {
-        var _this = this;
-        var g = this.svg.selectAll(".arc")
-            .data(this.pie(this.piechart))
-            .enter().append("g")
-            .attr("class", "arc");
-        g.append("path").attr("d", this.arc)
-            .style("fill", function (d) { return _this.color(d.data.status); })
-            .on('click', function (d, i) {
-            // console.log(d.data.ans_type);
-            _this.answer_type = d.data.ans_type;
-            if (_this.answer_type == "Descriptive") {
-                _this.displayedColumns = ['slno', 'email', 'date_time', 'answer'];
-            }
-            if (_this.answer_type != "Descriptive") {
-                _this.displayedColumns = ['slno', 'email', 'date_time'];
-            }
-            _this.dataSource = new material_1.MatTableDataSource(d.data.answeredUser);
-            _this.dataSource.paginator = _this.paginator;
-            _this.dataSource.sort = _this.sort;
-            $('#answeredUsers').modal('show');
-        });
-        g.append("text").attr("transform", function (d) { return "translate(" + _this.labelArc.centroid(d) + ")"; })
-            .attr("dy", ".35em")
-            .text(function (d) { return d.data.status; });
+        // let g = this.svg.selectAll(".arc")
+        //   .data(this.pie(this.piechart))
+        //   .enter().append("g")
+        //   .attr("class", "arc");
+        // g.append("path").attr("d", this.arc) 
+        //   .style("fill", (d: any) => this.color(d.data.status))
+        //   .on('click', (d,i) => {
+        //     // console.log(d.data.ans_type);
+        //     this.answer_type = d.data.ans_type;
+        //     if(this.answer_type == "Descriptive"){
+        //       this.displayedColumns = ['slno','email','date_time', 'answer'];
+        //     }
+        //     if(this.answer_type != "Descriptive"){
+        //       this.displayedColumns = ['slno','email','date_time'];
+        //     }
+        //     this.dataSource = new MatTableDataSource(d.data.answeredUser);
+        //     this.dataSource.paginator = this.paginator;
+        //     this.dataSource.sort = this.sort;
+        //      $('#answeredUsers').modal('show'); 
+        //   });
+        // g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
+        //   .attr("dy", ".35em")
+        //   .text((d: any) => d.data.status)
     };
     __decorate([
         core_1.ViewChild(material_1.MatPaginator),
@@ -6278,7 +7189,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-create-survey/company-create-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Create Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field  class=\"inputfileds\">\r\n                                            <mat-select [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section  class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle  [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section  class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle  [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\" style=\"display: none;\"></a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                                    <mat-spinner></mat-spinner>\r\n                                                   </div> -->\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n\r\n                                              \r\n                                         \r\n\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-6\">\r\n                                               \r\n                                                        <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                        <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                        <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button>\r\n                                                      \r\n                                                      </div>\r\n                                                      <div class=\"col-md-3\" *ngIf=\"showSpinner\">\r\n                                                             <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                             width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                         <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                           <animateTransform attributeType=\"xml\"\r\n                                                             attributeName=\"transform\"\r\n                                                             type=\"rotate\"\r\n                                                             from=\"0 25 25\"\r\n                                                             to=\"360 25 25\"\r\n                                                             dur=\"0.6s\"\r\n                                                             repeatCount=\"indefinite\"/>\r\n                                                           </path>\r\n                                                         </svg>\r\n                                                      </div>\r\n                                                       \r\n                                                    </div>\r\n                                                <!-- <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button> -->\r\n                                                <!-- <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div> -->\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <!-- <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button> -->\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\"  >\r\n                                      \r\n                                  \r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                      \r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [checked]=\"selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n\r\n                                              <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                                                <div class=\"col-md-4 col-md-offset-4\">\r\n                                                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                                </div>\r\n                                            </div>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n                                  <!-- <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div> -->\r\n                                  <!-- <button [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" >Send Later</button> -->\r\n                                  \r\n\r\n                                  <div class=\"row\">\r\n                                    <div class=\"col-md-6\">\r\n                                        <a class=\"btn btn-danger ourbutton\"  href=\"/company-list-survey\" >Send Later</a>\r\n                                        <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                          </div>\r\n                                          <div class=\"col-md-3\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n\r\n                                    \r\n                                     <div class=\"row\">\r\n                                      <div class=\"col-md-4\">\r\n                                         \r\n                                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                           \r\n                                            </div>\r\n                                            <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                   <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                   width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                               <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                 <animateTransform attributeType=\"xml\"\r\n                                                   attributeName=\"transform\"\r\n                                                   type=\"rotate\"\r\n                                                   from=\"0 25 25\"\r\n                                                   to=\"360 25 25\"\r\n                                                   dur=\"0.6s\"\r\n                                                   repeatCount=\"indefinite\"/>\r\n                                                 </path>\r\n                                               </svg>\r\n                                            </div>\r\n                                             \r\n                                          </div>\r\n                                  \r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n                                 \r\n                                     <div>\r\n                                        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                      </div>\r\n                                  <div class=\"row\">\r\n                                    <div class=\"col-md-4\">\r\n                                    \r\n                                          </div>\r\n                                          <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <!-- <div class=\"modal-header\"> -->\r\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                <!-- </div> -->\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure ?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n  <div *ngIf=\"preview\">\r\n                            <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n    </div>                          "
+module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Create Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\" required name=\"start_date\" [(ngModel)]=\"survey.start_date\" placeholder=\"Start Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" placeholder=\"End Date\" >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field  class=\"inputfileds\">\r\n                                            <mat-select [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section  class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle  [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section  class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle  [disabled]=\"!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\" style=\"display: none;\"></a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                                    <mat-spinner></mat-spinner>\r\n                                                   </div> -->\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n\r\n                                              \r\n                                         \r\n\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-6\">\r\n                                               \r\n                                                        <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                        <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                        <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button>\r\n                                                      \r\n                                                      </div>\r\n                                                      <div class=\"col-md-3\" *ngIf=\"showSpinner\">\r\n                                                             <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                             width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                         <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                           <animateTransform attributeType=\"xml\"\r\n                                                             attributeName=\"transform\"\r\n                                                             type=\"rotate\"\r\n                                                             from=\"0 25 25\"\r\n                                                             to=\"360 25 25\"\r\n                                                             dur=\"0.6s\"\r\n                                                             repeatCount=\"indefinite\"/>\r\n                                                           </path>\r\n                                                         </svg>\r\n                                                      </div>\r\n                                                       \r\n                                                    </div>\r\n                                                <!-- <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button> -->\r\n                                                <!-- <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div> -->\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <!-- <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button> -->\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\"  >\r\n                                      \r\n                                      <div *ngIf=\"userGroups.length > 0\">\r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [checked]=\"selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n\r\n                                              <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                                                <div class=\"col-md-4 col-md-offset-4\">\r\n                                                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                                </div>\r\n                                            </div>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n                                  <!-- <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div> -->\r\n                                  <!-- <button [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" >Send Later</button> -->\r\n                                  \r\n\r\n                                  <div class=\"row\">\r\n                                    <div class=\"col-md-6\">\r\n                                        <a class=\"btn btn-danger ourbutton\"  href=\"/company-list-survey\" >Send Later</a>\r\n                                        <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                          </div>\r\n                                          <div class=\"col-md-3\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n\r\n                                    \r\n                                     <div class=\"row\">\r\n                                      <div class=\"col-md-4\">\r\n                                         \r\n                                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                           \r\n                                            </div>\r\n                                            <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                   <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                   width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                               <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                 <animateTransform attributeType=\"xml\"\r\n                                                   attributeName=\"transform\"\r\n                                                   type=\"rotate\"\r\n                                                   from=\"0 25 25\"\r\n                                                   to=\"360 25 25\"\r\n                                                   dur=\"0.6s\"\r\n                                                   repeatCount=\"indefinite\"/>\r\n                                                 </path>\r\n                                               </svg>\r\n                                            </div>\r\n                                             \r\n                                          </div>\r\n                                  \r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n                                 \r\n                                     <div>\r\n                                        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                      </div>\r\n                                  <div class=\"row\">\r\n                                    <div class=\"col-md-4\">\r\n                                    \r\n                                          </div>\r\n                                          <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <!-- <div class=\"modal-header\"> -->\r\n                                  <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                <!-- </div> -->\r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure ?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n  <div *ngIf=\"preview\">\r\n                            <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n    </div>                          "
 
 /***/ }),
 
@@ -6830,6 +7741,7 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
         this._companyService = _companyService;
         this.routes = routes;
         this.snackBar = snackBar;
+        this.themeCreated = new core_1.EventEmitter();
         this.newTheme = {
             title: "",
             h_font_color: "#ffffff",
@@ -6971,7 +7883,8 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
     };
     // ----------------------------------End-------------------------------------------
     CompanyCreateThemeContainerComponent.prototype.thmSaved = function () {
-        window.location.reload();
+        // window.location.reload();
+        this.themeCreated.emit(true);
         // this.routes.navigate(['/create-theme']);   
         // this.routes.navigate(["/create-theme?refresh=1"]); 
         // this.routes.navigate(['/create-theme'], { queryParams: { 'refresh': 1 } });
@@ -6980,7 +7893,8 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'app-company-create-theme-container',
             template: __webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.css")]
+            styles: [__webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.css")],
+            outputs: ['themeCreated']
         }),
         __metadata("design:paramtypes", [company_service_1.CompanyService,
             router_1.Router,
@@ -7014,7 +7928,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-create-theme/company-create-theme.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    <div id=\"wrapper\">\r\n      <!-- Navigation -->\r\n      <app-company-top-bar></app-company-top-bar>            \r\n      <app-company-sidebar></app-company-sidebar>\r\n      <div id=\"\">\r\n        <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n    \r\n          <!-- /.row -->\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n          <nav class=\"nav-sidebar\">\r\n            <ul class=\"nav tabs\">\r\n              <li [ngClass]=\"{'active1': viewComp == 'All'}\"><a (click)=\"updateView('list')\" href=\"#tab1\" data-toggle=\"tab\">Manage Themes</a></li>\r\n              <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('create')\" href=\"#tab4\" data-toggle=\"tab\">Create Themes</a></li> \r\n            </ul>\r\n          </nav>\r\n                                                       \r\n        </div>\r\n        <div class=\"col-md-10\">\r\n          <div *ngIf=\"viewComp == 'list'\">\r\n            <app-company-manage-themes></app-company-manage-themes>\r\n            <!-- <all-users></all-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'create'\">\r\n            <app-company-create-theme-container></app-company-create-theme-container>\r\n              <!-- <active-users></active-users> -->\r\n            </div>\r\n          <div *ngIf=\"viewComp == 'Blocked'\">\r\n            <!-- <disabled-users></disabled-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'Delete'\">\r\n            <!-- <deleted-users></deleted-users> -->\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /#page-wrapper -->\r\n    </div>\r\n    <footer></footer> \r\n    \r\n  </body>"
+module.exports = "<body>\r\n    <div id=\"wrapper\">\r\n      <!-- Navigation -->\r\n      <app-company-top-bar></app-company-top-bar>            \r\n      <app-company-sidebar></app-company-sidebar>\r\n      <div id=\"\">\r\n        <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n    \r\n          <!-- /.row -->\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n          <nav class=\"nav-sidebar\">\r\n            <ul class=\"nav tabs\">\r\n              <li [ngClass]=\"{'active1': viewComp == 'All'}\"><a (click)=\"updateView('list')\" href=\"#tab1\" data-toggle=\"tab\">Manage Themes</a></li>\r\n              <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('create')\" href=\"#tab4\" data-toggle=\"tab\">Create Themes</a></li> \r\n            </ul>\r\n          </nav>\r\n                                                       \r\n        </div>\r\n        <div class=\"col-md-10\">\r\n          <div *ngIf=\"viewComp == 'list'\">\r\n            <app-company-manage-themes></app-company-manage-themes>\r\n            <!-- <all-users></all-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'create'\">\r\n            <app-company-create-theme-container (themeCreated)=\"themeCreated($event)\"></app-company-create-theme-container>\r\n              <!-- <active-users></active-users> -->\r\n            </div>\r\n          <div *ngIf=\"viewComp == 'Blocked'\">\r\n            <!-- <disabled-users></disabled-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'Delete'\">\r\n            <!-- <deleted-users></deleted-users> -->\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /#page-wrapper -->\r\n    </div>\r\n    <footer></footer> \r\n    \r\n  </body>"
 
 /***/ }),
 
@@ -7091,6 +8005,20 @@ var CompanyCreateThemeComponent = /** @class */ (function () {
     CompanyCreateThemeComponent.prototype.updateView = function (content) {
         this.viewComp = content;
     };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : themeCreated()
+    // Params        : true
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 24-1-2018
+    // Last Modified : 22-1-2018, Manu Prasad, Desc:
+    // Desc          : capture the event emitted by theme-create-container component
+    CompanyCreateThemeComponent.prototype.themeCreated = function (stat) {
+        if (stat == true) {
+            this.viewComp = 'list';
+        }
+    };
     CompanyCreateThemeComponent = __decorate([
         core_1.Component({
             selector: 'app-company-create-theme',
@@ -7114,7 +8042,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n    margin-top: 20px;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n  \r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  \r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n  \r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  \r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  \r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  \r\n  .ftr h4{\r\n    font-size: 16px;\r\n}\r\n  \r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  \r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px ;\r\n  }\r\n  \r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  \r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  \r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  \r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  \r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n  \r\n  .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n  \r\n  .test:after {\r\n      content: '\\2807';\r\n      font-size:25px;\r\n      }\r\n  \r\n  body {\r\n      margin-top: 100px;\r\n      background-color: #222;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      body {\r\n          margin-top: 50px;\r\n      }\r\n  }\r\n  \r\n  #wrapper {\r\n      padding-left: 0;\r\n  }\r\n  \r\n  #page-wrapper {\r\n      width: 100%;\r\n      padding: 0;\r\n      background-color: #fff;\r\n  }\r\n  \r\n  .huge {\r\n      font-size: 50px;\r\n      line-height: normal;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      #wrapper {\r\n          padding-left: 225px;\r\n      }\r\n  \r\n      #page-wrapper {\r\n          padding: 10px;\r\n      }\r\n  }\r\n  \r\n  /* Top Navigation */\r\n  \r\n  .top-nav {\r\n      padding: 0 15px;\r\n  }\r\n  \r\n  .top-nav>li {\r\n      display: inline-block;\r\n      float: left;\r\n  }\r\n  \r\n  .top-nav>li>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n      line-height: 20px;\r\n      color: #999;\r\n  }\r\n  \r\n  .top-nav>li>a:hover,\r\n  .top-nav>li>a:focus,\r\n  .top-nav>.open>a,\r\n  .top-nav>.open>a:hover,\r\n  .top-nav>.open>a:focus {\r\n      color: #fff;\r\n      background-color: #000;\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu {\r\n      float: left;\r\n      position: absolute;\r\n      margin-top: 0;\r\n      border: 1px solid rgba(0,0,0,.15);\r\n      border-top-left-radius: 0;\r\n      border-top-right-radius: 0;\r\n      background-color: #fff;\r\n      -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n      box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu>li>a {\r\n      white-space: normal;\r\n  }\r\n  \r\n  ul.message-dropdown {\r\n      padding: 0;\r\n      max-height: 250px;\r\n      overflow-x: hidden;\r\n      overflow-y: auto;\r\n  }\r\n  \r\n  li.message-preview {\r\n      width: 275px;\r\n      border-bottom: 1px solid rgba(0,0,0,.15);\r\n  }\r\n  \r\n  li.message-preview>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  li.message-footer {\r\n      margin: 5px 0;\r\n  }\r\n  \r\n  ul.alert-dropdown {\r\n      width: 200px;\r\n  }\r\n  \r\n  /* Side Navigation */\r\n  \r\n  @media(min-width:768px) {\r\n      .side-nav {\r\n          position: fixed;\r\n          top: 51px;\r\n          left: 225px;\r\n          width: 225px;\r\n          margin-left: -225px;\r\n          border: none;\r\n          border-radius: 0;\r\n          overflow-y: auto;\r\n          background-color: #222;\r\n          bottom: 0;\r\n          overflow-x: hidden;\r\n          padding-bottom: 40px;\r\n      }\r\n  \r\n      .side-nav>li>a {\r\n          width: 225px;\r\n      }\r\n  \r\n      .side-nav li a:hover,\r\n      .side-nav li a:focus {\r\n          outline: none;\r\n          background-color: #000 !important;\r\n      }\r\n  }\r\n  \r\n  .side-nav>li>ul {\r\n      padding: 0;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a {\r\n      display: block;\r\n      padding: 10px 15px 10px 38px;\r\n      text-decoration: none;\r\n      color: #999;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a:hover {\r\n      color: #fff;\r\n  }\r\n  \r\n  /* Flot Chart Containers */\r\n  \r\n  .flot-chart {\r\n      display: block;\r\n      height: 400px;\r\n  }\r\n  \r\n  .flot-chart-content {\r\n      width: 100%;\r\n      height: 100%;\r\n  }\r\n  \r\n  /* Custom Colored Panels */\r\n  \r\n  .huge {\r\n      font-size: 40px;\r\n  }\r\n  \r\n  .panel-green {\r\n      border-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > .panel-heading {\r\n      border-color: #5cb85c;\r\n      color: #fff;\r\n      background-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a {\r\n      color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a:hover {\r\n      color: #3d8b3d;\r\n  }\r\n  \r\n  .panel-red {\r\n      border-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > .panel-heading {\r\n      border-color: #d9534f;\r\n      color: #fff;\r\n      background-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a {\r\n      color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a:hover {\r\n      color: #b52b27;\r\n  }\r\n  \r\n  .panel-yellow {\r\n      border-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > .panel-heading {\r\n      border-color: #f0ad4e;\r\n      color: #fff;\r\n      background-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a {\r\n      color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a:hover {\r\n      color: #df8a13;\r\n  }\r\n  \r\n  .active1{\r\n      background-color: #eee;\r\n  }\r\n  \r\n  .control-label{\r\n      font-size: 14px;\r\n      font-weight: 400\r\n  }\r\n  \r\n  .quest{\r\n    margin: 40px 20px;\r\n  }\r\n  \r\n  .progrs{\r\n    margin: 10px 20px;\r\n  }\r\n  \r\n  #map {\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n  \r\n  .stations, .stations svg {\r\n    position: absolute;\r\n  }\r\n  \r\n  .stations svg {\r\n    width: 60px;\r\n    height: 20px;\r\n    padding-right: 100px;\r\n    font: 10px sans-serif;\r\n  }\r\n  \r\n  .stations circle {\r\n    fill: brown;\r\n    stroke: black;\r\n    stroke-width: 1.5px;\r\n  }\r\n  \r\n  .map-fltr{\r\n    margin: 2px 0px 0px 10px;\r\n  }\r\n  \r\n  path {  stroke: #fff; }\r\n  \r\n  path:hover {  opacity:0.9; }\r\n  \r\n  rect:hover {  fill:blue; }\r\n  \r\n  .axis {  font: 10px sans-serif; }\r\n  \r\n  .legend tr{    border-bottom:1px solid grey; }\r\n  \r\n  .legend tr:first-child{    border-top:1px solid grey; }\r\n  \r\n  .axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n  \r\n  .x.axis path {  display: none; }\r\n  \r\n  .legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n  \r\n  .legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n  \r\n  .legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n  \r\n  .example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  /* chart2 */\r\n  \r\n  path {  stroke: #fff; }\r\n  \r\n  path:hover {  opacity:0.9; }\r\n  \r\n  rect:hover {  fill:blue; }\r\n  \r\n  .axis {  font: 10px sans-serif; }\r\n  \r\n  .legend tr{    border-bottom:1px solid grey; }\r\n  \r\n  .legend tr:first-child{    border-top:1px solid grey; }\r\n  \r\n  .axis path,\r\n  .axis line {\r\n    fill: none;\r\n    stroke: #000;\r\n    shape-rendering: crispEdges;\r\n  }\r\n  \r\n  .x.axis path {  display: none; }\r\n  \r\n  .legend{\r\n      margin-bottom:76px;\r\n      display:inline-block;\r\n      border-collapse: collapse;\r\n      border-spacing: 0px;\r\n  }\r\n  \r\n  .legend td{\r\n      padding:4px 5px;\r\n      vertical-align:bottom;\r\n  }\r\n  \r\n  .legendFreq, .legendPerc{\r\n      align:right;\r\n      width:50px;\r\n  }\r\n  \r\n  .example-container {\r\n      display: -webkit-box;\r\n      display: -ms-flexbox;\r\n      display: flex;\r\n      -webkit-box-orient: vertical;\r\n      -webkit-box-direction: normal;\r\n          -ms-flex-direction: column;\r\n              flex-direction: column;\r\n      min-width: 300px;\r\n    }\r\n  \r\n  .example-header {\r\n      min-height: 64px;\r\n      padding: 8px 24px 0;\r\n    }\r\n  \r\n  .mat-form-field {\r\n      font-size: 14px;\r\n      width: 100%;\r\n    }\r\n  \r\n  .mat-table {\r\n      overflow: auto;\r\n      max-height: 500px;\r\n    }\r\n  \r\n  .example-tooltip-host {\r\n      display: -webkit-inline-box;\r\n      display: -ms-inline-flexbox;\r\n      display: inline-flex;\r\n      -webkit-box-align: center;\r\n          -ms-flex-align: center;\r\n              align-items: center;\r\n      margin: 50px;\r\n    }\r\n  \r\n  .example-select {\r\n      margin: 0 10px;\r\n    }\r\n  \r\n  .filter{\r\n      width: 5%;\r\n      float: right;\r\n      clear: left;\r\n    }\r\n  \r\n  /* newpie */\r\n  \r\n  .arc text {\r\n        font: 10px sans-serif;\r\n        text-anchor: middle;\r\n      }\r\n  \r\n  .arc path {\r\n        stroke: #fff;\r\n      }\r\n      ", ""]);
+exports.push([module.i, ".example-form {\r\n    min-width: 150px;\r\n    max-width: 500px;\r\n    width: 100%;\r\n    margin-top: 20px;\r\n  }\r\n  \r\n  .example-full-width {\r\n    width: 100%;\r\n  }\r\n  \r\n  button, input, select, textarea {\r\n    margin-bottom: 12px;\r\n    margin-top: 12px;\r\n  }\r\n  \r\n  .mid-division{\r\n      border-right: 2px solid #ccc;\r\n  }\r\n  \r\n  .example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    padding-left: 20px\r\n  }\r\n  \r\n  .example-radio-button {\r\n    margin: 5px;\r\n  }\r\n  \r\n  .example-selected-value {\r\n    margin: 15px 0;\r\n  }\r\n  \r\n  .hdr{\r\n    text-align: center;\r\n  }\r\n  \r\n  .hdr h4{\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  .ftr{\r\n      text-align: center\r\n  }\r\n  \r\n  .ftr h4{\r\n    font-size: 16px;\r\n}\r\n  \r\n  /* .quest{\r\n      overflow: hidden;\r\n  } */\r\n  \r\n  .quest h4{\r\n    padding: 5px;\r\n    font-size: 14px ;\r\n  }\r\n  \r\n  mat-progress-bar{\r\n    margin: 5px auto;\r\n  }\r\n  \r\n  .progress {\r\n    height: 5px;\r\n    border-radius: 0;\r\n  }\r\n  \r\n  .bld{\r\n    font-weight: 700 !important\r\n  }\r\n  \r\n  .itlc{\r\n    font-style: italic !important;\r\n  }\r\n  \r\n  .mat-radio-label-content{\r\n      font-weight: unset !important;\r\n  }\r\n  \r\n  .ourbutton{    border-radius: 20px;\r\n    padding: 5px 20px;}\r\n  \r\n  .bg-white{\r\n      background-color: #ffffff;\r\n    }\r\n  \r\n  .test:after {\r\n      content: '\\2807';\r\n      font-size:25px;\r\n      }\r\n  \r\n  body {\r\n      margin-top: 100px;\r\n      background-color: #222;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      body {\r\n          margin-top: 50px;\r\n      }\r\n  }\r\n  \r\n  #wrapper {\r\n      padding-left: 0;\r\n  }\r\n  \r\n  #page-wrapper {\r\n      width: 100%;\r\n      padding: 0;\r\n      background-color: #fff;\r\n  }\r\n  \r\n  .huge {\r\n      font-size: 50px;\r\n      line-height: normal;\r\n  }\r\n  \r\n  @media(min-width:768px) {\r\n      #wrapper {\r\n          padding-left: 225px;\r\n      }\r\n  \r\n      #page-wrapper {\r\n          padding: 10px;\r\n      }\r\n  }\r\n  \r\n  /* Top Navigation */\r\n  \r\n  .top-nav {\r\n      padding: 0 15px;\r\n  }\r\n  \r\n  .top-nav>li {\r\n      display: inline-block;\r\n      float: left;\r\n  }\r\n  \r\n  .top-nav>li>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n      line-height: 20px;\r\n      color: #999;\r\n  }\r\n  \r\n  .top-nav>li>a:hover,\r\n  .top-nav>li>a:focus,\r\n  .top-nav>.open>a,\r\n  .top-nav>.open>a:hover,\r\n  .top-nav>.open>a:focus {\r\n      color: #fff;\r\n      background-color: #000;\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu {\r\n      float: left;\r\n      position: absolute;\r\n      margin-top: 0;\r\n      border: 1px solid rgba(0,0,0,.15);\r\n      border-top-left-radius: 0;\r\n      border-top-right-radius: 0;\r\n      background-color: #fff;\r\n      -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n      box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n  }\r\n  \r\n  .top-nav>.open>.dropdown-menu>li>a {\r\n      white-space: normal;\r\n  }\r\n  \r\n  ul.message-dropdown {\r\n      padding: 0;\r\n      max-height: 250px;\r\n      overflow-x: hidden;\r\n      overflow-y: auto;\r\n  }\r\n  \r\n  li.message-preview {\r\n      width: 275px;\r\n      border-bottom: 1px solid rgba(0,0,0,.15);\r\n  }\r\n  \r\n  li.message-preview>a {\r\n      padding-top: 15px;\r\n      padding-bottom: 15px;\r\n  }\r\n  \r\n  li.message-footer {\r\n      margin: 5px 0;\r\n  }\r\n  \r\n  ul.alert-dropdown {\r\n      width: 200px;\r\n  }\r\n  \r\n  /* Side Navigation */\r\n  \r\n  @media(min-width:768px) {\r\n      .side-nav {\r\n          position: fixed;\r\n          top: 51px;\r\n          left: 225px;\r\n          width: 225px;\r\n          margin-left: -225px;\r\n          border: none;\r\n          border-radius: 0;\r\n          overflow-y: auto;\r\n          background-color: #222;\r\n          bottom: 0;\r\n          overflow-x: hidden;\r\n          padding-bottom: 40px;\r\n      }\r\n  \r\n      .side-nav>li>a {\r\n          width: 225px;\r\n      }\r\n  \r\n      .side-nav li a:hover,\r\n      .side-nav li a:focus {\r\n          outline: none;\r\n          background-color: #000 !important;\r\n      }\r\n  }\r\n  \r\n  .side-nav>li>ul {\r\n      padding: 0;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a {\r\n      display: block;\r\n      padding: 10px 15px 10px 38px;\r\n      text-decoration: none;\r\n      color: #999;\r\n  }\r\n  \r\n  .side-nav>li>ul>li>a:hover {\r\n      color: #fff;\r\n  }\r\n  \r\n  /* Flot Chart Containers */\r\n  \r\n  .flot-chart {\r\n      display: block;\r\n      height: 400px;\r\n  }\r\n  \r\n  .flot-chart-content {\r\n      width: 100%;\r\n      height: 100%;\r\n  }\r\n  \r\n  /* Custom Colored Panels */\r\n  \r\n  .huge {\r\n      font-size: 40px;\r\n  }\r\n  \r\n  .panel-green {\r\n      border-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > .panel-heading {\r\n      border-color: #5cb85c;\r\n      color: #fff;\r\n      background-color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a {\r\n      color: #5cb85c;\r\n  }\r\n  \r\n  .panel-green > a:hover {\r\n      color: #3d8b3d;\r\n  }\r\n  \r\n  .panel-red {\r\n      border-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > .panel-heading {\r\n      border-color: #d9534f;\r\n      color: #fff;\r\n      background-color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a {\r\n      color: #d9534f;\r\n  }\r\n  \r\n  .panel-red > a:hover {\r\n      color: #b52b27;\r\n  }\r\n  \r\n  .panel-yellow {\r\n      border-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > .panel-heading {\r\n      border-color: #f0ad4e;\r\n      color: #fff;\r\n      background-color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a {\r\n      color: #f0ad4e;\r\n  }\r\n  \r\n  .panel-yellow > a:hover {\r\n      color: #df8a13;\r\n  }\r\n  \r\n  .active1{\r\n      background-color: #eee;\r\n  }\r\n  \r\n  .control-label{\r\n      font-size: 14px;\r\n      font-weight: 400\r\n  }\r\n  \r\n  .quest{\r\n    margin: 40px 20px;\r\n  }\r\n  \r\n  .progrs{\r\n    margin: 10px 20px;\r\n  }\r\n  \r\n  #map {\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n  \r\n  .stations, .stations svg {\r\n    position: absolute;\r\n  }\r\n  \r\n  .stations svg {\r\n    width: 60px;\r\n    height: 20px;\r\n    padding-right: 100px;\r\n    font: 10px sans-serif;\r\n  }\r\n  \r\n  .stations circle {\r\n    fill: brown;\r\n    stroke: black;\r\n    stroke-width: 1.5px;\r\n  }\r\n  \r\n  .map-fltr{\r\n    /* margin: 2px 0px 0px 10px; */\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 1px 6px 19px 0px #ccc;\r\n            box-shadow: 1px 6px 19px 0px #ccc;\r\n    margin-bottom: 25px;\r\n    border-radius: 3px;\r\n    padding: 14px 20px 9px 20px;    \r\n  }\r\n  \r\n  path {  stroke: #fff; }\r\n  \r\n  path:hover {  opacity:0.9; }\r\n  \r\n  rect:hover {  fill:blue; }\r\n  \r\n  .axis {  font: 10px sans-serif; }\r\n  \r\n  .legend tr{    border-bottom:1px solid grey; }\r\n  \r\n  .legend tr:first-child{    border-top:1px solid grey; }\r\n  \r\n  .axis path,\r\n.axis line {\r\n  fill: none;\r\n  stroke: #000;\r\n  shape-rendering: crispEdges;\r\n}\r\n  \r\n  .x.axis path {  display: none; }\r\n  \r\n  .legend{\r\n    margin-bottom:76px;\r\n    display:inline-block;\r\n    border-collapse: collapse;\r\n    border-spacing: 0px;\r\n}\r\n  \r\n  .legend td{\r\n    padding:4px 5px;\r\n    vertical-align:bottom;\r\n}\r\n  \r\n  .legendFreq, .legendPerc{\r\n    align:right;\r\n    width:50px;\r\n}\r\n  \r\n  .example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .filter{\r\n    width: 5%;\r\n    float: right;\r\n    clear: left;\r\n  }\r\n  \r\n  /* chart2 */\r\n  \r\n  path {  stroke: #fff; }\r\n  \r\n  path:hover {  opacity:0.9; }\r\n  \r\n  rect:hover {  fill:blue; }\r\n  \r\n  .axis {  font: 10px sans-serif; }\r\n  \r\n  .legend tr{    border-bottom:1px solid grey; }\r\n  \r\n  .legend tr:first-child{    border-top:1px solid grey; }\r\n  \r\n  .axis path,\r\n  .axis line {\r\n    fill: none;\r\n    stroke: #000;\r\n    shape-rendering: crispEdges;\r\n  }\r\n  \r\n  .x.axis path {  display: none; }\r\n  \r\n  .legend{\r\n      margin-bottom:76px;\r\n      display:inline-block;\r\n      border-collapse: collapse;\r\n      border-spacing: 0px;\r\n  }\r\n  \r\n  .legend td{\r\n      padding:4px 5px;\r\n      vertical-align:bottom;\r\n  }\r\n  \r\n  .legendFreq, .legendPerc{\r\n      align:right;\r\n      width:50px;\r\n  }\r\n  \r\n  .example-container {\r\n      display: -webkit-box;\r\n      display: -ms-flexbox;\r\n      display: flex;\r\n      -webkit-box-orient: vertical;\r\n      -webkit-box-direction: normal;\r\n          -ms-flex-direction: column;\r\n              flex-direction: column;\r\n      min-width: 300px;\r\n    }\r\n  \r\n  .example-header {\r\n      min-height: 64px;\r\n      padding: 8px 24px 0;\r\n    }\r\n  \r\n  .mat-form-field {\r\n      font-size: 14px;\r\n      width: 100%;\r\n    }\r\n  \r\n  .mat-table {\r\n      overflow: auto;\r\n      max-height: 500px;\r\n    }\r\n  \r\n  .example-tooltip-host {\r\n      display: -webkit-inline-box;\r\n      display: -ms-inline-flexbox;\r\n      display: inline-flex;\r\n      -webkit-box-align: center;\r\n          -ms-flex-align: center;\r\n              align-items: center;\r\n      margin: 50px;\r\n    }\r\n  \r\n  .example-select {\r\n      margin: 0 10px;\r\n    }\r\n  \r\n  .filter{\r\n      width: 5%;\r\n      float: right;\r\n      clear: left;\r\n    }\r\n  \r\n  /* newpie */\r\n  \r\n  .arc text {\r\n        font: 10px sans-serif;\r\n        text-anchor: middle;\r\n      }\r\n  \r\n  .arc path {\r\n        stroke: #fff;\r\n      }\r\n  \r\n  .no-g-data{\r\n        text-align: center;\r\n        min-height: 550px;\r\n        padding: 72px 0 55px 0;\r\n      }\r\n  \r\n  .no-g-data h4{\r\n        font-size: 30px;\r\n        font-weight: 800;\r\n        color: #4F657D;\r\n      }\r\n  \r\n  .no-g-data img{\r\n      \r\n        width: 62px;\r\n        margin: 100px 0 0 0;\r\n      }\r\n  \r\n  .graph-containers h4{\r\n        padding: 0 0px 0 18px;\r\n        font-size: 25px;\r\n        color: #4F657D;\r\n        \r\n      }\r\n      ", ""]);
 
 // exports
 
@@ -7127,7 +8055,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-dashboard/company-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"wrapper\">\r\n  <!-- Navigation -->\r\n  <app-company-top-bar></app-company-top-bar>\r\n  <app-company-sidebar></app-company-sidebar>\r\n  <div id=\"\">\r\n    <div class=\"container-fluid\">\r\n      <!-- Page Heading -->\r\n\r\n      <!-- <div *ngFor=\"let item of locations\" >{{item.lat}} {{item.long}}</div> -->\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12 bg-white\">\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12 \">\r\n                <div class=\"row\">\r\n                  <div class=\"map-fltr\">\r\n                    <mat-form-field>\r\n                      <mat-select placeholder=\"Select Survey\" [(ngModel)]=\"surveyId\" name=\"survey\" (change)=\"getMapPositionsforId();refreshDia();\">\r\n\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"{{item._id}}\" *ngFor=\"let item of allSurveys\">\r\n                          <!-- <ng-container > -->\r\n\r\n                          {{ item.name }}\r\n                          <!-- </ng-container > -->\r\n\r\n                        </mat-option>\r\n\r\n                      </mat-select>\r\n\r\n                    </mat-form-field>\r\n                  </div>\r\n                  <h2>Survey Attenders</h2>\r\n                  \r\n                  <agm-map [latitude]=\"13.026017\" [longitude]=\"75.354847\" [zoom]=\"6\">\r\n\r\n                    <ng-container *ngFor=\"let item of locations; let i=index\">\r\n\r\n                      <ng-container *ngFor=\"let elem of item.questions\">\r\n                        <ng-container *ngFor=\"let elemx of elem.answers\">\r\n                          <!-- {{elemx.latitude}} -->\r\n                          <agm-marker [latitude]=\"ConvertString(elemx.latitude)\" [longitude]=\"ConvertString(elemx.longitude)\"></agm-marker>\r\n\r\n                        </ng-container>\r\n\r\n                      </ng-container>\r\n                    </ng-container>\r\n                    <!-- <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"27.56\" [longitude]=\"-82.68\"></agm-marker>\r\n                                    <agm-marker [latitude]=\"42.05\" [longitude]=\"-119.47\"></agm-marker> -->\r\n\r\n                  </agm-map>\r\n\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n\r\n\r\n\r\n            </div>\r\n            <!-- <div class=\"modal-footer\"></div> -->\r\n            <h2>Survey Response</h2>\r\n            \r\n            <div class=\"col-md-8 col-md-offset-2 svg-div\">\r\n<!-- pie diagram start -->\r\n  <svg id=\"piedia\" width=\"960\" height=\"500\"></svg>\r\n<!-- pie diagram end -->\r\n            </div>\r\n            <!-- <div class=\"col-md-12\"></div> -->\r\n\r\n            <div class=\"col-md-12\" *ngIf=\"surveyId != 'all'\">\r\n              <company-chart2  [surveyid]=\"surveyId\"></company-chart2>\r\n            </div>\r\n\r\n            \r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n<!-- \r\n</div>\r\n<div class=\"col-md-12\">\r\n\r\n</div>\r\n</div>\r\n\r\n</div>\r\n\r\n</div> -->\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Error</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <h4></h4>\r\n\r\n      </div>\r\n\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"redirect()\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<footer></footer>"
+module.exports = "<div id=\"wrapper\">\r\n  <!-- Navigation -->\r\n  <app-company-top-bar></app-company-top-bar>\r\n  <app-company-sidebar></app-company-sidebar>\r\n  <div id=\"\">\r\n    <div class=\"container-fluid\">\r\n      <!-- Page Heading -->\r\n\r\n      <!-- <div *ngFor=\"let item of locations\" >{{item.lat}} {{item.long}}</div> -->\r\n      <div class=\"col-md-12\">\r\n          <div class=\"col-md-12 \">    \r\n              <div class=\"col-md-12 \">\r\n                <div class=\"row\">\r\n                  <div *ngIf=\"!noPositionAvailable\" class=\"map-fltr\">\r\n                      <!-- <div  class=\"map-fltr\"> -->\r\n                    <mat-form-field>\r\n                      <mat-select placeholder=\"Select Survey\" [(ngModel)]=\"surveyId\" name=\"survey\" (change)=\"getMapPositionsforId();refreshDia();\">\r\n\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"{{item._id}}\" *ngFor=\"let item of allSurveys\">\r\n                          <!-- <ng-container > -->\r\n\r\n                          {{ item.name }}\r\n                          <!-- </ng-container > -->\r\n\r\n                        </mat-option>\r\n\r\n                      </mat-select>\r\n\r\n                    </mat-form-field>\r\n                  </div>\r\n                  <div class=\"col-md-12 graph-containers\">\r\n                      <h1>Survey Attenders</h1>\r\n                      <div class=\"row\">\r\n                          <div *ngIf=\"!noPositionAvailable; else empty\">\r\n                              <agm-map [latitude]=\"13.026017\" [longitude]=\"75.354847\" [zoom]=\"6\">\r\n                                  \r\n                                <ng-container *ngFor=\"let item of locations; let i=index\">\r\n            \r\n                                  <ng-container *ngFor=\"let elem of item.questions\">\r\n                                    <ng-container *ngFor=\"let elemx of elem.answers\">\r\n                                      <!-- {{elemx.latitude}} -->\r\n                                      <agm-marker [latitude]=\"ConvertString(elemx.latitude)\" [longitude]=\"ConvertString(elemx.longitude)\"></agm-marker>\r\n            \r\n                                    </ng-container>\r\n            \r\n                                  </ng-container>\r\n                                </ng-container>\r\n                                <!-- <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n                                                <agm-marker [latitude]=\"27.56\" [longitude]=\"-82.68\"></agm-marker>\r\n                                                <agm-marker [latitude]=\"42.05\" [longitude]=\"-119.47\"></agm-marker> -->\r\n            \r\n                              </agm-map>\r\n                                  \r\n                            </div>\r\n                      </div>\r\n                      \r\n                  </div>\r\n                  \r\n                  \r\n\r\n                  <ng-template #empty>\r\n                      <div class=\"col-md-12 no-g-data\">\r\n                          <img src=\"assets/images/sad.png\" alt=\"sad\">\r\n                          <h4>No Data Available!</h4>\r\n                      </div>\r\n                  </ng-template>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n\r\n\r\n\r\n            \r\n            <!-- <div class=\"modal-footer\"></div> -->\r\n            <div class=\"col-md-12 graph-containers\">\r\n                <h1>Survey Response</h1>\r\n                \r\n                <div *ngIf=\"!noPositionAvailable; else empty\" class=\"col-md-8 col-md-offset-2 svg-div no-g-data\">\r\n                <!-- pie diagram start -->\r\n                  <!-- <svg id=\"piedia\" width=\"960\" height=\"500\"></svg> -->\r\n                <!-- pie diagram end -->\r\n                <div id=\"chart\"></div>\r\n                \r\n                </div>\r\n            </div>\r\n            \r\n            <!-- <div class=\"col-md-12\"></div> -->\r\n\r\n            <div class=\"col-md-12 graph-containers \" *ngIf=\"surveyId != undefined; else empty2\">\r\n              <company-chart2  [surveyid]=\"surveyId\"></company-chart2>\r\n            </div>\r\n\r\n\r\n            <ng-template #empty2>\r\n                <div class=\"col-md-12 graph-containers\">\r\n                  <h1>Survey Response</h1>\r\n                  <div class=\"col-md-12 no-g-data\">\r\n                      <img src=\"assets/images/sad.png\" alt=\"sad\">\r\n                      <h4>No Data Available!</h4>\r\n                  </div>\r\n                </div>\r\n            </ng-template>\r\n            \r\n          </div>\r\n\r\n        \r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n<!-- \r\n</div>\r\n<div class=\"col-md-12\">\r\n\r\n</div>\r\n</div>\r\n\r\n</div>\r\n\r\n</div> -->\r\n\r\n\r\n\r\n\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Error</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <h4></h4>\r\n\r\n      </div>\r\n\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"redirect()\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<footer></footer>"
 
 /***/ }),
 
@@ -7152,9 +8080,11 @@ var company_service_1 = __webpack_require__("../../../../../src/app/services/com
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var d3 = __webpack_require__("../../../../d3-selection/index.js");
-var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
-var d3Shape = __webpack_require__("../../../../d3-shape/index.js");
+// import * as d3 from 'd3-selection';
+// import * as d3Scale from 'd3-scale';
+// import * as d3Array from 'd3-array';
+// import * as d3Axis from 'd3-axis';
+// import * as d3Shape from 'd3-shape';
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var CompanyDashboardComponent = /** @class */ (function () {
     function CompanyDashboardComponent(_companyService, routes, config, route) {
@@ -7167,7 +8097,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
         this.lng = 7.809007;
         this.locations = [];
         this.displayedColumns = ['slno', 'email', 'date_time'];
-        this.title = 'Questions Vs Answers';
+        this.title = 'Questions vs Answers';
         this.barchart = [];
         this.marginb = { top: 20, right: 20, bottom: 30, left: 40 };
         this.margin = { top: 80, right: 20, bottom: 30, left: 50 };
@@ -7183,6 +8113,9 @@ var CompanyDashboardComponent = /** @class */ (function () {
         this.survey_completed_count = 0;
         this.invited_user_count = 0;
         this.mail_not_readed_count = 0;
+        this.noPositionAvailable = false;
+        this.timeout = setTimeout(function () {
+        }, 2000);
         this.surveyId = 'all';
         this.socket = socketIo(config.socketURL);
         // this.socket = socketIo(config.siteUrl);
@@ -7198,35 +8131,6 @@ var CompanyDashboardComponent = /** @class */ (function () {
             }
         });
     }
-    // refresh() {
-    //   // this.getAllsurvey();
-    //   console.log(this.surveyId)
-    //   if(this.surveyId){
-    //     this._companyService.getSurveyQuestions(this.surveyId).subscribe(data => {
-    //       this.quest = data;
-    //       this.barchart = [];
-    //       data.forEach(element => {
-    //         this.barchart.push({ company: element.question, count: element.totalCount});
-    //       });
-    //       this.initSvg1();
-    //       this.initAxis();
-    //       this.drawAxis();
-    //       this.drawBars();
-    //     });
-    //   }
-    // }
-    // getAllsurvey() {
-    //   this._companyService.getAllsurveyDashboard().subscribe(data => {
-    //     this.survey = data;
-    //     this.sId = data[0]._id;
-    //   });
-    // }
-    // pierefresh() {
-    //   // this._companyService.getSurveyQuestions(this.surveyId).subscribe(data => {
-    //   //   this.initSvg();
-    //   //   this.drawPie();
-    //   // });
-    // }
     CompanyDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         // console.log('surveyId');
@@ -7301,27 +8205,13 @@ var CompanyDashboardComponent = /** @class */ (function () {
     // Last Modified : 1-1-2018, Manu Prasad 
     // Desc          : Get Theme details using id from parameter in router from database
     CompanyDashboardComponent.prototype.getMapPositions = function () {
-        // this.locations.push({lat:27.56,long:-82.68});
-        // this.locations.push({lat:37.56,long:-72.68});
         var _this = this;
         this._companyService.getPositions().subscribe(function (survey) {
-            // console.log(survey);
+            if (survey.length <= 0) {
+                _this.noPositionAvailable = true;
+            }
             _this.locations = survey;
             _this.allSurveys = survey;
-            // console.log(this.locations);
-            // survey.questions.forEach((element,i) => {
-            //   // this.locations[i].question = element.question;
-            //   // this.locations[i].answer = element.question;
-            //   // this.locations[i].question = element.question;
-            //   element.forEach((ele,j) => {
-            //     console.log(element._id.longitude);
-            //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
-            //   })
-            // });
-            // console.log(this.locations);
-            // this.locations.push({lat:27.56,long:-82.68});
-            // this.locations.push({lat:37.56,long:-72.68});
-            // console.log(this.locations);
         });
     };
     //  ---------------------------------end-----------------------------------------------
@@ -7335,8 +8225,6 @@ var CompanyDashboardComponent = /** @class */ (function () {
     // Desc          : Get Theme details using id from parameter in router from database
     CompanyDashboardComponent.prototype.getMapPositionsforId = function () {
         var _this = this;
-        // this.locations.push({lat:27.56,long:-82.68});
-        // this.locations.push({lat:37.56,long:-72.68});
         console.log("reee" + this.surveyId);
         if (this.surveyId == 'all' || typeof (this.surveyId) == undefined || this.surveyId == null || this.surveyId == '') {
             this.getMapPositions();
@@ -7347,20 +8235,6 @@ var CompanyDashboardComponent = /** @class */ (function () {
             this._companyService.getSurveyforDash(this.surveyId).subscribe(function (survey) {
                 // console.log(theme);
                 _this.locations = survey;
-                // console.log(this.locations);
-                // survey.questions.forEach((element,i) => {
-                //   // this.locations[i].question = element.question;
-                //   // this.locations[i].answer = element.question;
-                //   // this.locations[i].question = element.question;
-                //   element.forEach((ele,j) => {
-                //     console.log(element._id.longitude);
-                //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
-                //   })
-                // });
-                // console.log(this.locations);
-                // this.locations.push({lat:27.56,long:-82.68});
-                // this.locations.push({lat:37.56,long:-72.68});
-                // console.log(this.locations);
             });
         }
     };
@@ -7368,137 +8242,184 @@ var CompanyDashboardComponent = /** @class */ (function () {
     CompanyDashboardComponent.prototype.ConvertString = function (value) {
         return parseFloat(value);
     };
-    // //chart2
-    // applyFilter(filterValue: string) {
-    //   filterValue = filterValue.trim(); // Remove whitespace
-    //   filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    //   this.dataSource.filter = filterValue;
-    // }
-    // initSvg1() {
-    //   this.svg1 = d3.select("#bar1");
-    //   this.widthb = +this.svg1.attr("width") - this.marginb.left - this.marginb.right;
-    //   this.heightb = +this.svg1.attr("height") - this.marginb.top - this.marginb.bottom;
-    //   this.g = this.svg1.append("g")
-    //     .attr("transform", "translate(" + this.marginb.left + "," + this.marginb.top + ")");
-    // }
-    // initAxis() {
-    //   this.x = d3Scale.scaleBand().rangeRound([0, this.widthb]).padding(0.1);
-    //   this.y = d3Scale.scaleLinear().rangeRound([this.heightb, 0]);
-    //   this.x.domain(this.barchart.map((d) => d.company));
-    //   this.y.domain([0, d3Array.max(this.barchart, (d) => d.count)]);
-    // }
-    // drawAxis() {
-    //   this.g.append("g")
-    //     .attr("class", "axis axis--x")
-    //     .attr("transform", "translate(0," + this.heightb + ")")
-    //     .call(d3Axis.axisBottom(this.x));
-    //   this.g.append("g")
-    //     .attr("class", "axis axis--y")
-    //     .call(d3Axis.axisLeft(this.y))
-    //     .append("text")
-    //     .attr("class", "axis-title")
-    //     .attr("transform", "rotate(-90)")
-    //     .attr("y", 6)
-    //     .attr("dy", "0.71em")
-    //     .attr("text-anchor", "end")
-    //     .text("count");
-    // }
-    // drawBars() {
-    //   this.g.selectAll(".bar")
-    //     .data(this.barchart)
-    //     .enter().append("rect")
-    //     .attr("class", "bar")
-    //     .attr("x", (d) => this.x(d.company))
-    //     .attr("y", (d) => this.y(d.count))
-    //     .attr("data-id", (d) => this.y(d.id))
-    //     .attr("width", this.x.bandwidth())
-    //     .attr("height", (d) => this.heightb - this.y(d.count))
-    //     // .on("click", this.mouseclick)  
-    //     .on('click', (d, i) => {
-    //       this.svg.remove();
-    //       this.piechart = []
-    //       this.quest[i].ans.forEach((val) => {
-    //         if (val.count != 0) {
-    //           this.piechart.push({ status: val.value, count: val.count, answeredUser: val.answeredUser });
-    //         }
-    //       });
-    //       this.initSvg();
-    //       this.drawPie();
-    //       console.log(i);
-    //       // this.companyService.getSingleQA(d).subscribe(data1=>{
-    //       //   console.log(data1);
-    //       // });
-    //     })
-    // }
-    //piechart
-    // initSvg() {
-    //   this.color = d3Scale.scaleOrdinal()
-    //     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-    //   this.arc = d3Shape.arc()
-    //     .outerRadius(this.radius - 10)
-    //     .innerRadius(0);
-    //   this.labelArc = d3Shape.arc()
-    //     .outerRadius(this.radius - 40)
-    //     .innerRadius(this.radius - 40);
-    //   this.pie = d3Shape.pie()
-    //     .sort(null)
-    //     .value((d: any) => d.count);
-    //   this.svg = d3.select("#sd")
-    //     .append("g")
-    //     .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
-    // }
-    // drawPie() {
-    //   let g = this.svg.selectAll(".arc")
-    //     .data(this.pie(this.piechart))
-    //     .enter().append("g")
-    //     .attr("class", "arc");
-    //   g.append("path").attr("d", this.arc)
-    //     .style("fill", (d: any) => this.color(d.data.status))
-    //     .on('click', (d, i) => {
-    //       this.dataSource = new MatTableDataSource(d.data.answeredUser);
-    //       this.dataSource.paginator = this.paginator;
-    //       this.dataSource.sort = this.sort;
-    //       $('#answeredUsers').modal('show');
-    //     });
-    //   g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
-    //     .attr("dy", ".35em")
-    //     .text((d: any) => d.data.status)
-    // }
+    /*__________________________________NEW PIE___________________________________*/
+    CompanyDashboardComponent.prototype.setgraph = function () {
+        var dataset = this.Stats;
+        if (this.Stats.length != 0) {
+            d3.select("#chart").selectAll("svg").remove();
+            // console.log("this.Stats");
+            /*_______________________________________________________________________________________*/
+            //   var dataset = [
+            //     { name: 'Data', percent: 100 },
+            //     { name: 'Chrome', percent: 32.51 },
+            //     { name: 'Safari', percent: 23.68 },
+            //     { name: 'Opera', percent: 50.71 },
+            //     { name: 'Firefox', percent: 8.71 },
+            //     { name: 'Others', percent: 36.01 }
+            // ];
+            var pie = d3.layout.pie()
+                .value(function (d) { return d.percent; })
+                .sort(null)
+                .padAngle(.03);
+            var w = 500, h = 500;
+            var outerRadius = w / 2;
+            var innerRadius = w / 3;
+            var color = d3.scale.category10();
+            var arc = d3.svg.arc()
+                .outerRadius(outerRadius)
+                .innerRadius(innerRadius);
+            var svg = d3.select("#chart")
+                .append("svg")
+                .attr({
+                width: w,
+                height: h,
+                class: 'shadow'
+            })
+                .append('g')
+                .attr({
+                transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+            });
+            // filters go in defs element
+            var defs = svg.append("defs");
+            // create filter with id #drop-shadow
+            // height=130% so that the shadow is not clipped
+            var filter = defs.append("filter")
+                .attr("id", "drop-shadow")
+                .attr("height", "130%");
+            // SourceAlpha refers to opacity of graphic that this filter will be applied to
+            // convolve that with a Gaussian with standard deviation 3 and store result
+            // in blur
+            filter.append("feGaussianBlur")
+                .attr("in", "SourceAlpha")
+                .attr("stdDeviation", 15)
+                .attr("result", "blur");
+            // translate output of Gaussian blur to the right and downwards with 2px
+            // store result in offsetBlur
+            filter.append("feOffset")
+                .attr("in", "blur")
+                .attr("dx", 100)
+                .attr("dy", 100)
+                .attr("result", "offsetBlur");
+            // overlay original SourceGraphic over translated blurred opacity by using
+            // feMerge filter. Order of specifying inputs is important!
+            var feMerge = filter.append("feMerge");
+            feMerge.append("feMergeNode")
+                .attr("in", "offsetBlur");
+            feMerge.append("feMergeNode")
+                .attr("in", "SourceGraphic");
+            var path = svg.selectAll('path')
+                .data(pie(dataset))
+                .enter()
+                .append('path')
+                .attr({
+                d: arc,
+                fill: function (d, i) {
+                    return color(d.data.name);
+                }
+            });
+            path.transition()
+                .duration(1000)
+                .attrTween('d', function (d) {
+                var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                return function (t) {
+                    return arc(interpolate(t));
+                };
+            });
+            var restOfTheData = function () {
+                var text = svg.selectAll('text')
+                    .data(pie(dataset))
+                    .enter()
+                    .append("text")
+                    .transition()
+                    .duration(500)
+                    .attr("transform", function (d) {
+                    return "translate(" + arc.centroid(d) + ")";
+                })
+                    .attr("dy", ".4em")
+                    .attr("text-anchor", "middle")
+                    .text(function (d) {
+                    return d.data.percent;
+                })
+                    .style({
+                    fill: '#fff',
+                    'font-size': '12px'
+                });
+                var legendRectSize = 20;
+                var legendSpacing = 7;
+                var legendHeight = legendRectSize + legendSpacing;
+                var legend = svg.selectAll('.legend')
+                    .data(color.domain())
+                    .enter()
+                    .append('g')
+                    .attr({
+                    class: 'legend',
+                    transform: function (d, i) {
+                        //Just a calculation for x & y position
+                        return 'translate(-35,' + ((i * legendHeight) - 65) + ')';
+                    }
+                });
+                legend.append('rect')
+                    .attr({
+                    width: legendRectSize,
+                    height: legendRectSize,
+                    rx: 20,
+                    ry: 20
+                })
+                    .style({
+                    fill: color,
+                    stroke: color
+                });
+                legend.append('text')
+                    .attr({
+                    x: 30,
+                    y: 15
+                })
+                    .text(function (d) {
+                    return d;
+                }).style({
+                    fill: '#929DAF',
+                    'font-size': '14px'
+                });
+            };
+            setTimeout(restOfTheData, 2000);
+        }
+    };
+    /*__________________________________NEW PIE END___________________________________*/
     // -------------------Pie Start------------------
     CompanyDashboardComponent.prototype.initSvgDia = function () {
-        this.color1 = d3Scale.scaleOrdinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
-        this.arc1 = d3Shape.arc()
-            .outerRadius(this.radius1 - 10)
-            .innerRadius(0);
-        this.labelArc1 = d3Shape.arc()
-            .outerRadius(this.radius1 - 40)
-            .innerRadius(this.radius1 - 40);
-        this.pie1 = d3Shape.pie()
-            .sort(null)
-            .value(function (d) { return d.count; });
-        this.svg2 = d3.select("svg")
-            .append("g")
-            .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
+        // this.color1 = d3Scale.scaleOrdinal()
+        //   .range(["#623470", "#22A984", "#0189A9", '#97AC38', '#623470']);
+        // this.arc1 = d3Shape.arc()
+        //   .outerRadius(this.radius1 - 10)
+        //   .innerRadius(60);
+        // this.labelArc1 = d3Shape.arc()
+        //   .outerRadius(this.radius1 - 90)
+        //   .innerRadius(this.radius1 - 90);
+        // this.pie1 = d3Shape.pie()
+        //   .sort(null)
+        //   .value((d: any) => d.count);
+        // this.svg2 = d3.select("svg")
+        //   .append("g")
+        //   .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
     };
     CompanyDashboardComponent.prototype.drawPieDia = function () {
-        var _this = this;
-        var g = this.svg2.selectAll("#piedia")
-            .data(this.pie1(this.Stats))
-            .enter().append("g")
-            .attr("class", "arc");
-        g.append("path").attr("d", this.arc1)
-            .style("fill", function (d) { return _this.color1(d.data.case); });
-        g.append("text").attr("transform", function (d) { return "translate(" + _this.labelArc1.centroid(d) + ")"; })
-            .attr("dy", ".35em")
-            .text(function (d) { return d.data.case; });
+        // let g = this.svg2.selectAll("#piedia")
+        //   .data(this.pie1(this.Stats))
+        //   .enter().append("g")
+        //   .attr("class", "arc");
+        // g.append("path").attr("d", this.arc1)
+        //   .style("fill", (d: any) => this.color1(d.data.case));
+        // g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc1.centroid(d) + ")")
+        //   .attr("dy", ".35em")
+        //   .text((d: any) => d.data.case);
     };
     CompanyDashboardComponent.prototype.refreshDia = function () {
         // console.log("------------------------");
         // console.log(this.surveyId);
         // console.log("------------------------");
         d3.select("svg").remove();
-        var svg = d3.select(".svg-div").append("svg").attr("width", "960").attr("height", "500"), inner = svg.append("g");
+        // var svg = d3.select(".svg-div").append("svg").attr("width", "960").attr("height", "500"),
+        //   inner = svg.append("g");
         this.loadData();
     };
     CompanyDashboardComponent.prototype.loadData = function () {
@@ -7535,19 +8456,21 @@ var CompanyDashboardComponent = /** @class */ (function () {
                         _this.mail_not_readed_count = _this.invited_user_count - _this.mail_viewed_count - _this.mail_response_count - _this.survey_completed_count;
                         _this.Stats = [];
                         if (_this.mail_viewed_count != 0) {
-                            _this.Stats.push({ case: "Mail Readed", count: _this.mail_viewed_count });
+                            _this.Stats.push({ name: 'Mail Readed', percent: _this.mail_viewed_count });
                         }
                         if (_this.mail_not_readed_count != 0) {
-                            _this.Stats.push({ case: "Mail Not Readed", count: _this.mail_not_readed_count });
+                            _this.Stats.push({ name: 'Mail Not Readed', percent: _this.mail_not_readed_count });
                         }
                         if (_this.mail_response_count != 0) {
-                            _this.Stats.push({ case: "Mail Responsed", count: _this.mail_response_count });
+                            _this.Stats.push({ name: 'Mail Responsed', percent: _this.mail_response_count });
                         }
                         if (_this.survey_completed_count != 0) {
-                            _this.Stats.push({ case: "Survey Completed", count: _this.survey_completed_count });
+                            _this.Stats.push({ name: 'Survey Completed', percent: _this.survey_completed_count });
                         }
-                        _this.initSvgDia();
-                        _this.drawPieDia();
+                        // console.log(this.Stats);
+                        // this.initSvgDia();
+                        // this.drawPieDia();
+                        _this.setgraph();
                     });
                 });
             });
@@ -8431,13 +9354,15 @@ var CompanyEditThemeComponent = /** @class */ (function () {
     CompanyEditThemeComponent.prototype.updateTheme = function () {
         var _this = this;
         this.showSpinner = true;
-        // console.log(this.Theme);
+        console.log(this.Theme);
         this.submitBtnDisabled = true;
         if (this.Theme.title != "") {
             this._companyService.updateTheme(this.themeId, this.Theme).subscribe(function (res) {
-                console.log(res.status);
+                console.log(res);
                 if (res.status == 0) {
+                    console.log("0");
                     _this.showSpinner = false;
+                    _this.submitBtnDisabled = false;
                     var snackBarRef = _this.snackBar.open('* Error in updation!', '', {
                         duration: 2000
                     });
@@ -8445,7 +9370,9 @@ var CompanyEditThemeComponent = /** @class */ (function () {
                     // $('#myModal').modal('show');  
                 }
                 else if (res.status == 1) {
+                    console.log("1");
                     _this.showSpinner = false;
+                    _this.submitBtnDisabled = false;
                     var snackBarRef = _this.snackBar.open('* Title is empty!', '', {
                         duration: 2000
                     });
@@ -8453,6 +9380,7 @@ var CompanyEditThemeComponent = /** @class */ (function () {
                     // $('#myModal').modal('show');  
                 }
                 else if (res.status == 2) {
+                    console.log("2");
                     _this.showSpinner = false;
                     _this.routes.navigate(['./create-theme']);
                     var snackBarRef = _this.snackBar.open('Successfully updated!', '', {
@@ -8463,8 +9391,10 @@ var CompanyEditThemeComponent = /** @class */ (function () {
                     // $('#myModal').modal('show');
                 }
                 else if (res.status == 4) {
+                    console.log("4");
                     _this.showSpinner = false;
                     _this.stat4 = true;
+                    _this.submitBtnDisabled = false;
                     var snackBarRef = _this.snackBar.open('Theme name already exist', '', {
                         duration: 2000
                     });
@@ -10048,7 +10978,7 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             jobLevelValidation: ['', forms_1.Validators.required],
             email: new forms_1.FormControl('', [forms_1.Validators.required, forms_1.Validators.email]),
             number: new forms_1.FormControl('', forms_1.Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
-            password: new forms_1.FormControl('', forms_1.Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/)),
+            password: new forms_1.FormControl('', forms_1.Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&.])[A-Za-z\d$@$!%*#?&.]{6,}$/)),
             confirmPassword: ['', forms_1.Validators.required],
         }, {
             validator: password_validation_1.PasswordValidation.MatchPassword
@@ -10565,7 +11495,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-users/company-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                        <div class=\"col-md-2\">\r\n                              <nav class=\"nav-sidebar\">\r\n                                  <ul class=\"nav tabs buttonleft\">\r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New</button>\r\n                                        </li>\r\n                                        <li *ngIf=\"loggedInCompany.plans[loggedInCompany.plans.length-1].excel_import\">\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#importModal\" >Import from Excel</button>\r\n                                        </li>\r\n                                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                                     \r\n                                  </ul>\r\n                                </nav>\r\n                        </div>\r\n                        <div class=\"col-md-10\">\r\n\r\n                            <div *ngIf=\"viewComp == 'All'\">\r\n                              <!-- <all-users></all-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Active'\">\r\n                                <!-- <active-users></active-users> -->\r\n                              </div>\r\n                            <div *ngIf=\"viewComp == 'Blocked'\">\r\n                              <!-- <disabled-users></disabled-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Delete'\">\r\n                              <!-- <deleted-users></deleted-users> -->\r\n                            </div>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n\r\n              <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                  <div class=\"modal-dialog\">\r\n                \r\n                    <!-- Modal content-->\r\n                    <div class=\"modal-content\">\r\n                      <!-- <div class=\"modal-header\"> -->\r\n                        <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                      <!-- </div> -->\r\n                      <div class=\"modal-body\">\r\n                          <h4>Are you sure to delete?</h4>\r\n                      \r\n                      </div>\r\n                    \r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                        <button type=\"button\" (click)=\"deleteUser(userId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                      </div>\r\n                    </div>\r\n                \r\n                  </div>\r\n                </div>\r\n\r\n                <div id=\"myModal2\"  class=\"modal fade\">\r\n                    <div class=\"modal-dialog\"> \r\n            <!-- Modal content-->\r\n                      <div class=\"modal-content\">\r\n                         <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                              <h4 class=\"modal-title\">User Block Request </h4>\r\n                         </div>\r\n                         <br>\r\n                         <!-- <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                          {{errorMsg}}\r\n                       </div>\r\n                       <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                           {{errorMsg}}\r\n                        </div> -->\r\n                       \r\n                          \r\n                        <div class=\"modal-body\">\r\n                             <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"sendBlockRequest(newBlock)\">\r\n                                  <p>User Name :  {{newBlock.email}}</p>\r\n                                  \r\n                                     \r\n                            <br>\r\n                                   <div class=\"form-group\" >\r\n                                     <textarea class=\"form-control\" rows=\"5\" name = \"reason\" id=\"comment\" placeholder=\"Reason\" [(ngModel)]=\"newBlock.reason\"></textarea>\r\n                                 </div>\r\n                                 <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div> -->\r\n                                        \r\n\r\n\r\n\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col-md-4\">\r\n                                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Send\"  [disabled]=\"btnDisbled\">\r\n                                                  </div>\r\n                                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                         <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                       <animateTransform attributeType=\"xml\"\r\n                                                         attributeName=\"transform\"\r\n                                                         type=\"rotate\"\r\n                                                         from=\"0 25 25\"\r\n                                                         to=\"360 25 25\"\r\n                                                         dur=\"0.6s\"\r\n                                                         repeatCount=\"indefinite\"/>\r\n                                                       </path>\r\n                                                     </svg>\r\n                                                  </div>\r\n                                                   \r\n                                                </div>\r\n                                 </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                      </div>\r\n                   </div>\r\n                </div>\r\n          </div>\r\n      \r\n                <flash-messages></flash-messages>\r\n           \r\n                  <br>\r\n                      <div class=\"col-md-7\">\r\n                          <div class=\"col-md-4 pull-right\">\r\n                              <mat-form-field class=\"filter\">\r\n                                  <mat-select   (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                    <mat-option value=\"all\">All</mat-option>\r\n                                    <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                  </mat-select>\r\n                          </mat-form-field>\r\n                          </div>\r\n                          <div class=\"col-md-9\">\r\n                              <div class=\"row\">\r\n                              <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n                                  <div class=\"\"  >\r\n                                      <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                      width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                  <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                    <animateTransform attributeType=\"xml\"\r\n                                      attributeName=\"transform\"\r\n                                      type=\"rotate\"\r\n                                      from=\"0 25 25\"\r\n                                      to=\"360 25 25\"\r\n                                      dur=\"0.6s\"\r\n                                      repeatCount=\"indefinite\"/>\r\n                                    </path>\r\n                                  </svg>\r\n                              </div>\r\n                              </div>\r\n                              <flash-messages></flash-messages>\r\n                           \r\n                                    <div class=\"example-header\" >\r\n                                        <mat-form-field>\r\n                                          <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                 \r\n                              <div class=\"example-container mat-elevation-z8 \">\r\n                          <mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <ng-container matColumnDef=\"id\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                        </ng-container>\r\n                                  <ng-container matColumnDef=\"email\">\r\n                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                                       <mat-cell *matCellDef=\"let row\"> {{row.email}}</mat-cell>\r\n                                   </ng-container>\r\n                                    <ng-container  matColumnDef=\"action\">\r\n                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                          <mat-menu #menu=\"matMenu\">\r\n                                            <div>\r\n                                             \r\n                                              <button *ngIf=\"row.block_req_status==false\"  mat-menu-item (click)=\"getUserEmail(row.id,row.email)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                  <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                  <span>Sent Block Request</span>\r\n                                                  </button>\r\n                                                  <button *ngIf=\"row.block_req_status==true\"  mat-menu-item >\r\n                                                      <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                      <span>Already sent Block request</span>\r\n                                                      </button>\r\n                                                  </div>\r\n                                              <button  mat-menu-item (click)=\"bindEditUser(row.item)\" data-toggle=\"modal\" data-target=\"#editModal\">\r\n                                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                    <span>Edit</span>\r\n                                                    </button>\r\n                                                <button mat-menu-item  (click)=\"getUserId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                    <span>Delete</span>\r\n                                                </button>\r\n                                          </mat-menu> </mat-cell>\r\n                                \r\n                                       </ng-container>\r\n                         \r\n                      \r\n                  \r\n                                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                     </mat-row>\r\n                                   \r\n                                    </mat-table>\r\n                                       <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n   </div>\r\n   </div>    \r\n\r\n<!-- -------------------------------------------------------------------------------------------edit------------------------- -->\r\n                      <div id=\"editModal\"  class=\"modal fade\" >\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                              <h4 class=\"modal-title\">Edit User</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateUsers(f1);\" novalidate>\r\n                               \r\n                              <div class=\"form-group\" >\r\n                                  <label > Email </label>\r\n                                  <br>\r\n                                  <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                      {{msg1}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                    {{msg1}}\r\n                              </div> -->\r\n                                 \r\n                                  <div  >\r\n                                    <div class=\"inputitem\">\r\n                                    <mat-form-field *ngIf=\"!selUser.is_registered\" class=\"inputfileds\">\r\n                                      <input matInput  [value]=\"selUser.email\" placeholder=\"Email address\" required email  #email=\"ngModel\" name=\"email\" [(ngModel)]=\"selUser.newEmail\"  >\r\n                                      <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                    \r\n                                    </mat-form-field>\r\n                                    <div *ngIf=\"selUser.is_registered\">\r\n                                    <label >{{selUser.email}}</label>\r\n                                    </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <br/>\r\n                           \r\n                                  <br/>\r\n                                  <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <mat-select placeholder=\"Groups\" name='editgrup' [(ngModel)]=\"selUserGroups\" multiple>\r\n                                          <mat-option [value]=\"grp._id\" *ngFor=\"let grp of groups;\" >{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                  </div>\r\n                              \r\n                                  <br>\r\n                                  <div style=\"clear: both;\"></div>\r\n                              </div>\r\n                              <br>\r\n                              <!-- <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                            \r\n\r\n                              <div class=\"row\">\r\n                                  <div class=\"col-md-4\">\r\n                                      <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                        </div>\r\n                                        <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                               <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                               width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                           <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                             <animateTransform attributeType=\"xml\"\r\n                                               attributeName=\"transform\"\r\n                                               type=\"rotate\"\r\n                                               from=\"0 25 25\"\r\n                                               to=\"360 25 25\"\r\n                                               dur=\"0.6s\"\r\n                                               repeatCount=\"indefinite\"/>\r\n                                             </path>\r\n                                           </svg>\r\n                                        </div>\r\n                                         \r\n                                      </div>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->\r\n<div id=\"importModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn2>&times;</button>\r\n          <h4 class=\"modal-title\">Import From Excel</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form  role=\"form\"  #f2=\"ngForm\" (ngSubmit)=\"f2.form.valid && import(f2);\" novalidate>\r\n           <div class=\"form-group\" >\r\n             <div class=\"row\">\r\n             <div class=\"col-md-6\">\r\n                <label > File </label>\r\n                <!-- <br> -->\r\n                <input #myInput type=\"file\" (change)=\"handleFile($event)\" accept=\".xlsx\"/>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <br>\r\n              Sample Excel :   <a href=\"/assets/sampleFile/sample.xlsx\" target=\"_self\" download>\r\n                <i class=\"fa fa-download\"></i>\r\n              </a>\r\n            </div>\r\n            </div>\r\n              <br>\r\n              <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                {{msg}}\r\n           </div>\r\n           <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n              {{msg}}\r\n        </div> -->\r\n              <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                    <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div style=\"float: left;\">\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n              </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n            </div>\r\n            <!-- <div *ngIf=\"showSpinner\">\r\n                <mat-spinner></mat-spinner>\r\n               </div> -->\r\n        \r\n\r\n\r\n          <div class=\"row\">\r\n              <div class=\"col-md-4\">\r\n                  <button type= \"submit\" [disabled]=\"updateBtnDisbled1\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                    </div>\r\n                    <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                           <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                           width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                       <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                         <animateTransform attributeType=\"xml\"\r\n                           attributeName=\"transform\"\r\n                           type=\"rotate\"\r\n                           from=\"0 25 25\"\r\n                           to=\"360 25 25\"\r\n                           dur=\"0.6s\"\r\n                           repeatCount=\"indefinite\"/>\r\n                         </path>\r\n                       </svg>\r\n                    </div>\r\n                     \r\n                  </div>\r\n         \r\n      </form>\r\n      </div>\r\n\r\n       \r\n        \r\n        <div class=\"modal-footer\">\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->\r\n                      \r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                          <div class=\"modal-dialog\">\r\n                          \r\n                            <!-- Modal content-->\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtnAdd>&times;</button>\r\n                                <h4 class=\"modal-title\">Add User</h4>\r\n                              </div>\r\n                              <div class=\"modal-body\">\r\n                                \r\n                            <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addUsers(f);\" novalidate>\r\n                            \r\n                                <div class=\"form-group\" >\r\n                                    <label > Email </label>\r\n                                    <br>\r\n                                    <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                        {{msg}}\r\n                                   </div>\r\n                                   <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                      {{msg}}\r\n                                </div> -->\r\n                                   \r\n                                    <div  *ngFor=\"let item of newUser.email; let i = index; trackBy:trackByIndex\" >\r\n                                      <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <input matInput placeholder=\"Email address\" required email  #email{{i}}=\"ngModel\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\" >\r\n                                        <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                      \r\n                                      </mat-form-field>\r\n                                      \r\n                                      </div>\r\n                                      <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                      </div>\r\n                                    </div>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <br/>\r\n                                    <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                    <br/>\r\n                                    <br/>\r\n                                    <div class=\"inputitem\">\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                          <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                                            <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                                          </mat-select>\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    <div style=\"float: left;\">\r\n                                        <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n                                    </div>\r\n                                    <br>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <div *ngIf=\"showAddGroup\">\r\n                                    <mat-form-field class=\"inputfileds\" >\r\n                                        <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                                      </mat-form-field>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                                      </div>\r\n                                      \r\n                                </div>\r\n                                <br>\r\n                                <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div> -->\r\n                              \r\n                               <div class=\"row\">\r\n                                    <div class=\"col-md-4\">\r\n                                        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                          </div>\r\n                                          <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                               \r\n                            </form>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                              </div>\r\n                            </div>\r\n                            \r\n                          </div>\r\n                        </div>\r\n\r\n\r\n                        \r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
+module.exports = "<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n        <app-company-top-bar></app-company-top-bar>            \r\n        <app-company-sidebar></app-company-sidebar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                        <div class=\"col-md-2\">\r\n                              <nav class=\"nav-sidebar\">\r\n                                  <ul class=\"nav tabs buttonleft\">\r\n                                        <li >\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New</button>\r\n                                        </li>\r\n                                        <li *ngIf=\"loggedInCompany.plans[loggedInCompany.plans.length-1].excel_import\">\r\n                                          <button  class=\"btn btn-danger ourbutton2\" (click)=\"openModal()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#importModal\" >Import from Excel</button>\r\n                                        </li>\r\n                                        <!-- <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('Active')\" href=\"#tab4\" data-toggle=\"tab\">Active Users</a></li> \r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Blocked'}\"><a (click)=\"updateView('Blocked')\" href=\"#tab2\" data-toggle=\"tab\">Blocked Users</a></li>\r\n                                        <li [ngClass]=\"{'active1': viewComp == 'Delete'}\"><a (click)=\"updateView('Delete')\" href=\"#tab3\" data-toggle=\"tab\">Delete Users</a></li>   -->\r\n                                                                     \r\n                                  </ul>\r\n                                </nav>\r\n                        </div>\r\n                        <div class=\"col-md-10\">\r\n\r\n                            <div *ngIf=\"viewComp == 'All'\">\r\n                              <!-- <all-users></all-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Active'\">\r\n                                <!-- <active-users></active-users> -->\r\n                              </div>\r\n                            <div *ngIf=\"viewComp == 'Blocked'\">\r\n                              <!-- <disabled-users></disabled-users> -->\r\n                            </div>\r\n                            <div *ngIf=\"viewComp == 'Delete'\">\r\n                              <!-- <deleted-users></deleted-users> -->\r\n                            </div>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                      <!-- /#page-wrapper -->\r\n                      \r\n                                 \r\n                      </div>\r\n\r\n              <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                  <div class=\"modal-dialog\">\r\n                \r\n                    <!-- Modal content-->\r\n                    <div class=\"modal-content\">\r\n                      <!-- <div class=\"modal-header\"> -->\r\n                        <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                      <!-- </div> -->\r\n                      <div class=\"modal-body\">\r\n                          <h4>Are you sure to delete?</h4>\r\n                      \r\n                      </div>\r\n                    \r\n                      <div class=\"modal-footer\">\r\n                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                        <button type=\"button\" (click)=\"deleteUser(userId)\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                      </div>\r\n                    </div>\r\n                \r\n                  </div>\r\n                </div>\r\n\r\n                <div id=\"myModal2\"  class=\"modal fade\">\r\n                    <div class=\"modal-dialog\"> \r\n            <!-- Modal content-->\r\n                      <div class=\"modal-content\">\r\n                         <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                              <h4 class=\"modal-title\">User Block Request </h4>\r\n                         </div>\r\n                         <br>\r\n                         <!-- <div *ngIf=\"isError\" class=\"alert alert-danger\">\r\n                          {{errorMsg}}\r\n                       </div>\r\n                       <div *ngIf=\"isSuccess\" class=\"alert alert-danger\">\r\n                           {{errorMsg}}\r\n                        </div> -->\r\n                       \r\n                          \r\n                        <div class=\"modal-body\">\r\n                             <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"sendBlockRequest(newBlock)\">\r\n                                  <p>User Name :  {{newBlock.email}}</p>\r\n                                  \r\n                                     \r\n                            <br>\r\n                                   <div class=\"form-group\" >\r\n                                     <textarea class=\"form-control\" rows=\"5\" name = \"reason\" id=\"comment\" placeholder=\"Reason\" [(ngModel)]=\"newBlock.reason\"></textarea>\r\n                                 </div>\r\n                                 <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div> -->\r\n                                        \r\n\r\n\r\n\r\n                                        <div class=\"row\">\r\n                                            <div class=\"col-md-4\">\r\n                                                <input type=\"submit\" class=\"btn btn-danger\" value=\"Send\"  [disabled]=\"btnDisbled\">\r\n                                                  </div>\r\n                                                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                         <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                       <animateTransform attributeType=\"xml\"\r\n                                                         attributeName=\"transform\"\r\n                                                         type=\"rotate\"\r\n                                                         from=\"0 25 25\"\r\n                                                         to=\"360 25 25\"\r\n                                                         dur=\"0.6s\"\r\n                                                         repeatCount=\"indefinite\"/>\r\n                                                       </path>\r\n                                                     </svg>\r\n                                                  </div>\r\n                                                   \r\n                                                </div>\r\n                                 </form>\r\n                      </div>\r\n                      <div class=\"modal-footer\">\r\n                          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" #closeBtn>Close</button>\r\n                      </div>\r\n                   </div>\r\n                </div>\r\n          </div>\r\n      \r\n                <flash-messages></flash-messages>\r\n           \r\n                  <br>\r\n                      <div class=\"col-md-7\">\r\n                          <div class=\"col-md-4 pull-right\">\r\n                              <div *ngIf=\"userGroups.length > 0\">\r\n                              <mat-form-field class=\"filter\">\r\n                                  <mat-select   (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                    <mat-option value=\"all\">All</mat-option>\r\n                                    <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                  </mat-select>\r\n                          </mat-form-field>\r\n                          </div>\r\n                          <div class=\"col-md-9\">\r\n                              <div class=\"row\">\r\n                              <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n                                  <div class=\"\"  >\r\n                                      <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                      width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                  <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                    <animateTransform attributeType=\"xml\"\r\n                                      attributeName=\"transform\"\r\n                                      type=\"rotate\"\r\n                                      from=\"0 25 25\"\r\n                                      to=\"360 25 25\"\r\n                                      dur=\"0.6s\"\r\n                                      repeatCount=\"indefinite\"/>\r\n                                    </path>\r\n                                  </svg>\r\n                              </div>\r\n                              </div>\r\n                              <flash-messages></flash-messages>\r\n                           \r\n                                    <div class=\"example-header\" >\r\n                                        <mat-form-field>\r\n                                          <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                 \r\n                              <div class=\"example-container mat-elevation-z8 \">\r\n                          <mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <ng-container matColumnDef=\"id\">\r\n                          <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                          <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                        </ng-container>\r\n                                  <ng-container matColumnDef=\"email\">\r\n                                     <mat-header-cell *matHeaderCellDef mat-sort-header> NAME</mat-header-cell>\r\n                                       <mat-cell *matCellDef=\"let row\"> {{row.email}}</mat-cell>\r\n                                   </ng-container>\r\n                                    <ng-container  matColumnDef=\"action\">\r\n                                        <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                        <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                          <mat-menu #menu=\"matMenu\">\r\n                                            <div>\r\n                                             \r\n                                              <button *ngIf=\"row.block_req_status==false\"  mat-menu-item (click)=\"getUserEmail(row.id,row.email)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                  <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                  <span>Sent Block Request</span>\r\n                                                  </button>\r\n                                                  <button *ngIf=\"row.block_req_status==true\"  mat-menu-item >\r\n                                                      <mat-icon><i class=\"material-icons\">block</i></mat-icon>\r\n                                                      <span>Already sent Block request</span>\r\n                                                      </button>\r\n                                                  </div>\r\n                                              <button  mat-menu-item (click)=\"bindEditUser(row.item)\" data-toggle=\"modal\" data-target=\"#editModal\">\r\n                                                    <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                    <span>Edit</span>\r\n                                                    </button>\r\n                                                <button mat-menu-item  (click)=\"getUserId(row.id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                    <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                    <span>Delete</span>\r\n                                                </button>\r\n                                          </mat-menu> </mat-cell>\r\n                                \r\n                                       </ng-container>\r\n                         \r\n                      \r\n                  \r\n                                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                     <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                     </mat-row>\r\n                                   \r\n                                    </mat-table>\r\n                                       <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"!existStatus\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n   </div>\r\n   </div>    \r\n\r\n<!-- -------------------------------------------------------------------------------------------edit------------------------- -->\r\n                      <div id=\"editModal\"  class=\"modal fade\" >\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                              <h4 class=\"modal-title\">Edit User</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateUsers(f1);\" novalidate>\r\n                               \r\n                              <div class=\"form-group\" >\r\n                                  <label > Email </label>\r\n                                  <br>\r\n                                  <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                      {{msg1}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                    {{msg1}}\r\n                              </div> -->\r\n                                 \r\n                                  <div  >\r\n                                    <div class=\"inputitem\">\r\n                                    <mat-form-field *ngIf=\"!selUser.is_registered\" class=\"inputfileds\">\r\n                                      <input matInput  [value]=\"selUser.email\" placeholder=\"Email address\" required email  #email=\"ngModel\" name=\"email\" [(ngModel)]=\"selUser.newEmail\"  >\r\n                                      <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                    \r\n                                    </mat-form-field>\r\n                                    <div *ngIf=\"selUser.is_registered\">\r\n                                    <label >{{selUser.email}}</label>\r\n                                    </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <br/>\r\n                           \r\n                                  <br/>\r\n                                  <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <mat-select placeholder=\"Groups\" name='editgrup' [(ngModel)]=\"selUserGroups\" multiple>\r\n                                          <mat-option [value]=\"grp._id\" *ngFor=\"let grp of groups;\" >{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                  </div>\r\n                              \r\n                                  <br>\r\n                                  <div style=\"clear: both;\"></div>\r\n                              </div>\r\n                              <br>\r\n                              <!-- <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                            \r\n\r\n                              <div class=\"row\">\r\n                                  <div class=\"col-md-4\">\r\n                                      <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                        </div>\r\n                                        <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                               <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                               width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                           <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                             <animateTransform attributeType=\"xml\"\r\n                                               attributeName=\"transform\"\r\n                                               type=\"rotate\"\r\n                                               from=\"0 25 25\"\r\n                                               to=\"360 25 25\"\r\n                                               dur=\"0.6s\"\r\n                                               repeatCount=\"indefinite\"/>\r\n                                             </path>\r\n                                           </svg>\r\n                                        </div>\r\n                                         \r\n                                      </div>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n<!-- --------------------------------------------------------------------import-------------------------------------------------------------------------------------------------- -->\r\n<div id=\"importModal\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" (click)=\"cnclImprt()\" #closeBtn2>&times;</button>\r\n          <h4 class=\"modal-title\">Import From Excel</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <form  role=\"form\"  #f2=\"ngForm\" (ngSubmit)=\"f2.form.valid && import(f2);\" novalidate>\r\n           <div class=\"form-group\" >\r\n             <div class=\"row\">\r\n             <div class=\"col-md-6\">\r\n                <label > File </label>\r\n                <!-- <br> -->\r\n                <input #myInput type=\"file\" (change)=\"handleFile($event)\"  accept=\".xlsx\"/>\r\n            </div>\r\n            <div class=\"col-md-6\">\r\n              <br>\r\n              Sample Excel :   <a href=\"/assets/sampleFile/sample.xlsx\" target=\"_self\" download>\r\n                <i class=\"fa fa-download\"></i>\r\n              </a>\r\n            </div>\r\n            </div>\r\n              <br>\r\n              <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                {{msg}}\r\n           </div>\r\n           <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n              {{msg}}\r\n        </div> -->\r\n              <div class=\"inputitem\">\r\n                <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                    <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div style=\"float: left;\">\r\n                <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n              </div>\r\n              <br>\r\n              <div style=\"clear: both;\"></div>\r\n              <div *ngIf=\"showAddGroup\">\r\n              <mat-form-field class=\"inputfileds\" >\r\n                <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n              </mat-form-field>\r\n              <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n              </div>\r\n            </div>\r\n            <!-- <div *ngIf=\"showSpinner\">\r\n                <mat-spinner></mat-spinner>\r\n               </div> -->\r\n        \r\n\r\n\r\n          <div class=\"row\">\r\n              <div class=\"col-md-4\">\r\n                  <button type= \"submit\" [disabled]=\"updateBtnDisbled1\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                    </div>\r\n                    <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                           <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                           width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                       <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                         <animateTransform attributeType=\"xml\"\r\n                           attributeName=\"transform\"\r\n                           type=\"rotate\"\r\n                           from=\"0 25 25\"\r\n                           to=\"360 25 25\"\r\n                           dur=\"0.6s\"\r\n                           repeatCount=\"indefinite\"/>\r\n                         </path>\r\n                       </svg>\r\n                    </div>\r\n                     \r\n                  </div>\r\n         \r\n      </form>\r\n      </div>\r\n\r\n       \r\n        \r\n        <div class=\"modal-footer\">\r\n          </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n<!-- ------------------------------------------------------------------------add---------------------------------------------------------------------------------------------- -->\r\n                      \r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                          <div class=\"modal-dialog\">\r\n                          \r\n                            <!-- Modal content-->\r\n                            <div class=\"modal-content\">\r\n                              <div class=\"modal-header\">\r\n                                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtnAdd>&times;</button>\r\n                                <h4 class=\"modal-title\">Add User</h4>\r\n                              </div>\r\n                              <div class=\"modal-body\">\r\n                                \r\n                            <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addUsers(f);\" novalidate>\r\n                            \r\n                                <div class=\"form-group\" >\r\n                                    <label > Email </label>\r\n                                    <br>\r\n                                    <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                        {{msg}}\r\n                                   </div>\r\n                                   <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                      {{msg}}\r\n                                </div> -->\r\n                                   \r\n                                    <div  *ngFor=\"let item of newUser.email; let i = index; trackBy:trackByIndex\" >\r\n                                      <div class=\"inputitem\">\r\n                                      <mat-form-field class=\"inputfileds\">\r\n                                        <input matInput placeholder=\"Email address\" required email  #email{{i}}=\"ngModel\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\" >\r\n                                        <!-- <input matInput placeholder=\"Email address\" [formControl]=\"emailFormControl\" name=\"emails_{{i}}\" [(ngModel)]=\"newUser.email[i]\"  required > -->\r\n                                      \r\n                                      </mat-form-field>\r\n                                      \r\n                                      </div>\r\n                                      <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                      </div>\r\n                                    </div>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <br/>\r\n                                    <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                    <br/>\r\n                                    <br/>\r\n                                    <div class=\"inputitem\">\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                          <mat-select placeholder=\"Groups\" name='selected' #group=\"ngModel\" [(ngModel)]=\"newUser.groups\" multiple>\r\n                                            <mat-option [value]=\"grp\" *ngFor=\"let grp of groups;\"  >{{grp.name}}</mat-option>\r\n                                          </mat-select>\r\n                                        </mat-form-field>\r\n                                    </div>\r\n                                    <div style=\"float: left;\">\r\n                                        <button  class=\"btn btn-danger ourbutton\" (click)=\"showGroupAddOption()\">Add Group</button>\r\n                                    </div>\r\n                                    <br>\r\n                                    <div style=\"clear: both;\"></div>\r\n                                    <div *ngIf=\"showAddGroup\">\r\n                                    <mat-form-field class=\"inputfileds\" >\r\n                                        <input matInput placeholder=\"Group Name\" [(ngModel)]=\"newGroup\" name=\"newGroup\" >\r\n                                      </mat-form-field>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addGroup()\">Add</button>\r\n                                      </div>\r\n                                      \r\n                                </div>\r\n                                <br>\r\n                                <!-- <div *ngIf=\"showSpinner\">\r\n                                    <mat-spinner></mat-spinner>\r\n                                   </div> -->\r\n                              \r\n                               <div class=\"row\">\r\n                                    <div class=\"col-md-4\">\r\n                                        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                          </div>\r\n                                          <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                               \r\n                            </form>\r\n                              </div>\r\n                              <div class=\"modal-footer\">\r\n                              </div>\r\n                            </div>\r\n                            \r\n                          </div>\r\n                        </div>\r\n\r\n\r\n                        \r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
 
 /***/ }),
 
@@ -10988,7 +11918,7 @@ var CompanyUsersComponent = /** @class */ (function () {
         var _this = this;
         this.showSpinner = true;
         this.btnDisbled = true;
-        // console.log(this.newUser);
+        console.log(form);
         this.companyService.addUsers(this.newUser).subscribe(function (data) {
             if (data.success) {
                 _this.newUser = { email: [''], groups: [] };
@@ -11123,19 +12053,26 @@ var CompanyUsersComponent = /** @class */ (function () {
     //  ---------------------------------End-------------------------------------------
     CompanyUsersComponent.prototype.handleFile = function (event) {
         var _this = this;
+        // console.log("________________")
+        // console.log(event)
         this.emailArr = [];
         var file = event.target.files[0];
         this.xlsxToJsonService.processFileToJson({}, file).subscribe(function (data) {
             // this.result = JSON.stringify(data['sheets'].Sheet1);
             _this.result = data['sheets'].Sheet1;
-            if (typeof (_this.result != "undefined")) {
+            if (typeof (_this.result != undefined || _this.result != null)) {
                 _this.result.forEach(function (element) {
-                    _this.emailArr.push(element.Email);
+                    if (element.Email != null || element.Email != undefined) {
+                        _this.emailArr.push(element.Email);
+                    }
                 });
                 // console.log((this.emailArr));
                 // if(typeof(this.emailArr == undefined)){
                 //   this.emailArr = [];
                 // }
+                if (_this.emailArr.length == 0) {
+                    _this.msg = "no valid email address to insert!";
+                }
             }
         });
     };
@@ -11144,6 +12081,9 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.newUser.email = this.emailArr;
         // console.log(this.newUser)
         this.addUsers(form);
+    };
+    CompanyUsersComponent.prototype.cnclImprt = function () {
+        this.updateBtnDisbled1 = false;
     };
     CompanyUsersComponent.prototype.openModal = function () {
         this.showSpinner = false;
@@ -11355,9 +12295,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var d3 = __webpack_require__("../../../../d3-selection/index.js");
-var d3Scale = __webpack_require__("../../../../d3-scale/index.js");
-var d3Shape = __webpack_require__("../../../../d3-shape/index.js");
+// import * as d3 from 'd3-selection';
+// import * as d3Scale from 'd3-scale';
+// import * as d3Shape from 'd3-shape';
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
@@ -11454,20 +12394,20 @@ var NewpieComponent = /** @class */ (function () {
     };
     // ---------------------------------End-------------------------------------------
     NewpieComponent.prototype.initSvgDia = function () {
-        this.color1 = d3Scale.scaleOrdinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
-        this.arc1 = d3Shape.arc()
-            .outerRadius(this.radius1 - 10)
-            .innerRadius(0);
-        this.labelArc1 = d3Shape.arc()
-            .outerRadius(this.radius1 - 40)
-            .innerRadius(this.radius1 - 40);
-        this.pie1 = d3Shape.pie()
-            .sort(null)
-            .value(function (d) { return d.count; });
-        this.svg2 = d3.select("svg")
-            .append("g")
-            .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
+        // this.color1 = d3Scale.scaleOrdinal()
+        //                     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
+        // this.arc1 = d3Shape.arc()
+        //                   .outerRadius(this.radius1 - 10)
+        //                   .innerRadius(0);
+        // this.labelArc1 = d3Shape.arc()
+        //                        .outerRadius(this.radius1 - 40)
+        //                        .innerRadius(this.radius1 - 40);
+        // this.pie1 = d3Shape.pie()
+        //                   .sort(null)
+        //                   .value((d: any) => d.count);
+        // this.svg2 = d3.select("svg")
+        //              .append("g")
+        //              .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
     };
     NewpieComponent.prototype.drawPieDia = function () {
         var _this = this;
@@ -11482,9 +12422,10 @@ var NewpieComponent = /** @class */ (function () {
             .text(function (d) { return d.data.case; });
     };
     NewpieComponent.prototype.refreshDia = function () {
-        d3.select("svg").remove();
-        var svg = d3.select("body").append("svg").attr("width1", "960").attr("height1", "500"), inner = svg.append("g");
-        this.loadData();
+        // d3.select("svg").remove(); 
+        // var svg = d3.select("body").append("svg").attr("width1","960").attr("height1", "500"),
+        // inner = svg.append("g");
+        // this.loadData();
     };
     NewpieComponent = __decorate([
         core_1.Component({
@@ -12461,6 +13402,7 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         this.progNo = 1;
         this.progressBarWidth = 0;
         this.progressBarWidthString = '';
+        this.err = false;
         this.serviceUrl = config.siteUrl + '/company/';
     }
     UserSurveyMultipleComponent.prototype.ngOnInit = function () {
@@ -12558,6 +13500,14 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
                     _this.blankAns = true;
                 }
                 else if (res.status == 1 || res.status == 3) {
+                    _this.err = true;
+                    //   $('#myModal .modal-body h4').text("Somthing went wrong!");
+                    //   $('#myModal').modal('show'); 
+                    // } 
+                    // else if(res.status == 4){
+                    //   this.err = false;                
+                    //   $('#myModal .modal-body h4').text("Successfully submitted!");
+                    //   $('#myModal').modal('show'); 
                     var snackBarRef = _this.snackBar.open('* Somthing went wrong!!', '', {
                         duration: 2000
                     });
@@ -12565,7 +13515,7 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
                     // $('#myModal').modal('show'); 
                 }
                 else if (res.status == 4) {
-                    window.location.reload();
+                    _this.routes.navigate(['/survey-success']);
                     var snackBarRef = _this.snackBar.open('* Successfully submitted', '', {
                         duration: 2000
                     });
@@ -12631,9 +13581,22 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
     // Last Modified : 28-12-2017, Manu Prasad, Desc:
     // Desc          : reload survey after submission
     UserSurveyMultipleComponent.prototype.closed = function () {
-        window.location.reload();
+        // window.location.reload();
+        this.routes.navigate(['/survey-success']);
     };
     // -----------------------------------End------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : closed()
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 29-1-2018
+    // Last Modified : 29-1-2018, Manu Prasad, Desc:
+    // Desc          : reload survey after submission
+    UserSurveyMultipleComponent.prototype.closedErr = function () {
+        window.location.reload();
+    };
+    //  ---------------------------------end-----------------------------------------------
     // ---------------------------------Start-------------------------------------------
     // Function      : timeOver()
     // Params        : 
@@ -12717,7 +13680,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n          <div class=\"col-md-4 txt-right\">\r\n            <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n          </div>\r\n          <div class=\"col-md-8 \">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n              \r\n          </div>\r\n        </div>\r\n        <ng-template #newhd>\r\n          <div class=\"col-md-12\">\r\n            <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n          </div>\r\n        </ng-template>\r\n      </div>\r\n    </nav>\r\n    <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\"  (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                <form action=\"\">\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index\" [ngStyle]=\"{'background-color':theme.q_bg_color}\" style=\"margin-bottom:10px;padding:10px;\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                      </div>\r\n\r\n\r\n                      <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                      </div> -->\r\n\r\n                      <div class=\"row\">\r\n                          <div class=\"col-md-4\">\r\n                              <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                                </div>\r\n                                <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                       <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                       width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                   <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                     <animateTransform attributeType=\"xml\"\r\n                                       attributeName=\"transform\"\r\n                                       type=\"rotate\"\r\n                                       from=\"0 25 25\"\r\n                                       to=\"360 25 25\"\r\n                                       dur=\"0.6s\"\r\n                                       repeatCount=\"indefinite\"/>\r\n                                     </path>\r\n                                   </svg>\r\n                                </div>\r\n                                 \r\n                              </div>\r\n                      \r\n                \r\n                      \r\n                </form>\r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n       </div>  \r\n    <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n      \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Message</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n          </div>\r\n        </div>\r\n      \r\n      </div>\r\n      </div>\r\n\r\n\r\n\r\n\r\n\r\n      <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
+module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n          <div class=\"col-md-4 txt-right\">\r\n            <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n          </div>\r\n          <div class=\"col-md-8 \">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n              \r\n          </div>\r\n        </div>\r\n        <ng-template #newhd>\r\n          <div class=\"col-md-12\">\r\n            <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n          </div>\r\n        </ng-template>\r\n      </div>\r\n    </nav>\r\n    <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\"  (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                <form action=\"\">\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index\" [ngStyle]=\"{'background-color':theme.q_bg_color}\" style=\"margin-bottom:10px;padding:10px;\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                      </div>\r\n\r\n\r\n                      <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                      </div> -->\r\n\r\n                      <div class=\"row\">\r\n                          <div class=\"col-md-4\">\r\n                              <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                                </div>\r\n                                <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                       <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                       width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                   <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                     <animateTransform attributeType=\"xml\"\r\n                                       attributeName=\"transform\"\r\n                                       type=\"rotate\"\r\n                                       from=\"0 25 25\"\r\n                                       to=\"360 25 25\"\r\n                                       dur=\"0.6s\"\r\n                                       repeatCount=\"indefinite\"/>\r\n                                     </path>\r\n                                   </svg>\r\n                                </div>\r\n                                 \r\n                              </div>\r\n                      \r\n                \r\n                      \r\n                </form>\r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n       </div>  \r\n    <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n      \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Message</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" *ngIf=\"err\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closedErr()\">Close</button>\r\n            <button type=\"button\" *ngIf=\"!err\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n          </div>\r\n        </div>\r\n      \r\n      </div>\r\n      </div>\r\n\r\n\r\n\r\n\r\n\r\n      <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
 
 /***/ }),
 
@@ -12756,6 +13719,7 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
         this.disp = false;
         this.skip = false;
         this.blankAns = false;
+        this.err = false;
         this.serviceUrl = config.siteUrl + '/company/';
     }
     UserSurveySinglepageComponent.prototype.ngOnInit = function () {
@@ -12852,6 +13816,14 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
                     _this.showSpinner = false;
                 }
                 else if (res.status == 1 || res.status == 3) {
+                    _this.err = true;
+                    //   $('#myModal .modal-body h4').text("Somthing went wrong!");
+                    //   $('#myModal').modal('show'); 
+                    // } 
+                    // else if(res.status == 4){
+                    //   this.err = false;                        
+                    //   $('#myModal .modal-body h4').text("Successfully submitted!");
+                    //   $('#myModal').modal('show'); 
                     _this.showSpinner = false;
                     var snackBarRef = _this.snackBar.open('* Somthing went wrong!', '', {
                         duration: 2000
@@ -12864,7 +13836,8 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
                     var snackBarRef = _this.snackBar.open('Successfully submitted', '', {
                         duration: 2000
                     });
-                    window.location.reload();
+                    _this.routes.navigate(['/survey-success']);
+                    // window.location.reload();  
                     // $('#myModal .modal-body h4').text("Successfully submitted!");
                     // $('#myModal').modal('show'); 
                 }
@@ -12874,13 +13847,26 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
     //  ---------------------------------end-----------------------------------------------
     // ---------------------------------Start-------------------------------------------
     // Function      : closed()
-    // Params        : name of the view to be shown
+    // Params        : 
     // Returns       : 
     // Author        : Manu Prasad
     // Date          : 28-12-2017
     // Last Modified : 28-12-2017, Manu Prasad, Desc:
-    // Desc          : reload survey after submission
+    // Desc          : redirect to success message
     UserSurveySinglepageComponent.prototype.closed = function () {
+        // window.location.reload();  
+        this.routes.navigate(['/survey-success']);
+    };
+    //  ---------------------------------end-----------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : closed()
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 29-1-2018
+    // Last Modified : 29-1-2018, Manu Prasad, Desc:
+    // Desc          : reload survey after submission
+    UserSurveySinglepageComponent.prototype.closedErr = function () {
         window.location.reload();
     };
     //  ---------------------------------end-----------------------------------------------
@@ -12943,6 +13929,67 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
     return UserSurveySinglepageComponent;
 }());
 exports.UserSurveySinglepageComponent = UserSurveySinglepageComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-success/user-survey-success.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".txt-align{\r\n    margin: 321px 0 0 0;\r\n    text-align: center;\r\n}\r\n.txt-align h4{\r\n    font-size: 25px;\r\n    font-weight: 700;\r\n    color: #1b4666;\r\n    margin: 30px 0 0 0;\r\n}\r\n.txt-align img{\r\n    width: 100px;\r\n}\r\n/* .whte{\r\n    background-color: #fff !important;\r\n} */", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-success/user-survey-success.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\r\n  <div class=\"col-md-12 txt-align\">\r\n    <img src=\"assets/images/like.png\" alt=\"\">\r\n    <h4>Thank you for attending survey!</h4>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-survey-success/user-survey-success.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var UserSurveySuccessComponent = /** @class */ (function () {
+    function UserSurveySuccessComponent() {
+    }
+    UserSurveySuccessComponent.prototype.ngOnInit = function () {
+    };
+    UserSurveySuccessComponent = __decorate([
+        core_1.Component({
+            selector: 'app-user-survey-success',
+            template: __webpack_require__("../../../../../src/app/components/user-survey-success/user-survey-success.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-survey-success/user-survey-success.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], UserSurveySuccessComponent);
+    return UserSurveySuccessComponent;
+}());
+exports.UserSurveySuccessComponent = UserSurveySuccessComponent;
 
 
 /***/ }),
@@ -13272,6 +14319,470 @@ var UserSurveyComponent = /** @class */ (function () {
     return UserSurveyComponent;
 }());
 exports.UserSurveyComponent = UserSurveyComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-test/user-test.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-test/user-test.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"chart\"></div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/user-test/user-test.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+// import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+// import * as d3 from 'd3-selection';
+// import * as d3Scale from 'd3-scale';
+// import * as d3Array from 'd3-array';
+// import * as d3Axis from 'd3-axis';
+// import * as d3Shape from 'd3-shape';
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+var UserTestComponent = /** @class */ (function () {
+    function UserTestComponent(_companyService, routes, config, route) {
+        var _this = this;
+        this._companyService = _companyService;
+        this.routes = routes;
+        this.config = config;
+        this.route = route;
+        this.lat = 51.678418;
+        this.lng = 7.809007;
+        this.locations = [];
+        this.displayedColumns = ['slno', 'email', 'date_time'];
+        this.title = 'Questions vs Answers';
+        this.barchart = [];
+        this.marginb = { top: 20, right: 20, bottom: 30, left: 40 };
+        this.margin = { top: 80, right: 20, bottom: 30, left: 50 };
+        this.piechart = [];
+        //chart2 end
+        this.margin1 = { top: 20, right: 20, bottom: 30, left: 50 };
+        this.list = {
+            survey: ''
+        };
+        this.Stats = [];
+        this.mail_response_count = 0;
+        this.mail_viewed_count = 0;
+        this.survey_completed_count = 0;
+        this.invited_user_count = 0;
+        this.mail_not_readed_count = 0;
+        this.noPositionAvailable = false;
+        this.surveyId = 'all';
+        this.socket = socketIo(config.socketURL);
+        // this.socket = socketIo(config.siteUrl);
+        this.width = 900 - this.margin.left - this.margin.right;
+        this.height = 500 - this.margin.top - this.margin.bottom;
+        this.radius = Math.min(this.width, this.height) / 2;
+        this.width1 = 900 - this.margin1.left - this.margin1.right;
+        this.height1 = 500 - this.margin1.top - this.margin1.bottom;
+        this.radius1 = Math.min(this.width1, this.height1) / 2;
+        this.route.params.subscribe(function (params) {
+            if (params['id'] != '') {
+                _this.surveyId = params['id'];
+            }
+        });
+    }
+    UserTestComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // console.log('surveyId');
+        // console.log(this.surveyId);
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this._companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
+        // -----------------Pie Start-------------------
+        this.loadData();
+        this.socket.on('Mail Responsed', function (data) {
+            _this.loadData();
+        });
+        this.socket.on('Mail Viewed', function (data) {
+            _this.loadData();
+        });
+        this.socket.on('Survey Completed', function (data) {
+            _this.loadData();
+        });
+        this.socket.on('Invite Users', function (data) {
+            _this.loadData();
+        });
+        // -----------------Pie End-------------------
+        this.getMapPositions();
+        this.socket.on('closebid', function (data) {
+            // console.log(data);
+            _this.getMapPositions();
+        });
+        //chart2
+        // this.refresh();
+        // this.socket.on('new survey created', (data) => {
+        //   this.refresh();
+        // });
+        // this.pierefresh();
+    };
+    UserTestComponent.prototype.setgraph = function () {
+        var dataset = this.Stats;
+        if (this.Stats.length != 0) {
+            // console.log("this.Stats");
+            /*_______________________________________________________________________________________*/
+            //   var dataset = [
+            //     { name: 'Data', percent: 100 },
+            //     { name: 'Chrome', percent: 32.51 },
+            //     { name: 'Safari', percent: 23.68 },
+            //     { name: 'Opera', percent: 50.71 },
+            //     { name: 'Firefox', percent: 8.71 },
+            //     { name: 'Others', percent: 36.01 }
+            // ];
+            var pie = d3.layout.pie()
+                .value(function (d) { return d.percent; })
+                .sort(null)
+                .padAngle(.03);
+            var w = 500, h = 500;
+            var outerRadius = w / 2;
+            var innerRadius = w / 3;
+            var color = d3.scale.category10();
+            var arc = d3.svg.arc()
+                .outerRadius(outerRadius)
+                .innerRadius(innerRadius);
+            var svg = d3.select("#chart")
+                .append("svg")
+                .attr({
+                width: w,
+                height: h,
+                class: 'shadow'
+            })
+                .append('g')
+                .attr({
+                transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+            });
+            // filters go in defs element
+            var defs = svg.append("defs");
+            // create filter with id #drop-shadow
+            // height=130% so that the shadow is not clipped
+            var filter = defs.append("filter")
+                .attr("id", "drop-shadow")
+                .attr("height", "130%");
+            // SourceAlpha refers to opacity of graphic that this filter will be applied to
+            // convolve that with a Gaussian with standard deviation 3 and store result
+            // in blur
+            filter.append("feGaussianBlur")
+                .attr("in", "SourceAlpha")
+                .attr("stdDeviation", 15)
+                .attr("result", "blur");
+            // translate output of Gaussian blur to the right and downwards with 2px
+            // store result in offsetBlur
+            filter.append("feOffset")
+                .attr("in", "blur")
+                .attr("dx", 100)
+                .attr("dy", 100)
+                .attr("result", "offsetBlur");
+            // overlay original SourceGraphic over translated blurred opacity by using
+            // feMerge filter. Order of specifying inputs is important!
+            var feMerge = filter.append("feMerge");
+            feMerge.append("feMergeNode")
+                .attr("in", "offsetBlur");
+            feMerge.append("feMergeNode")
+                .attr("in", "SourceGraphic");
+            var path = svg.selectAll('path')
+                .data(pie(dataset))
+                .enter()
+                .append('path')
+                .attr({
+                d: arc,
+                fill: function (d, i) {
+                    return color(d.data.name);
+                }
+            });
+            path.transition()
+                .duration(1000)
+                .attrTween('d', function (d) {
+                var interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                return function (t) {
+                    return arc(interpolate(t));
+                };
+            });
+            var restOfTheData = function () {
+                var text = svg.selectAll('text')
+                    .data(pie(dataset))
+                    .enter()
+                    .append("text")
+                    .transition()
+                    .duration(500)
+                    .attr("transform", function (d) {
+                    return "translate(" + arc.centroid(d) + ")";
+                })
+                    .attr("dy", ".4em")
+                    .attr("text-anchor", "middle")
+                    .text(function (d) {
+                    return d.data.percent + "%";
+                })
+                    .style({
+                    fill: '#fff',
+                    'font-size': '10px'
+                });
+                var legendRectSize = 20;
+                var legendSpacing = 7;
+                var legendHeight = legendRectSize + legendSpacing;
+                var legend = svg.selectAll('.legend')
+                    .data(color.domain())
+                    .enter()
+                    .append('g')
+                    .attr({
+                    class: 'legend',
+                    transform: function (d, i) {
+                        //Just a calculation for x & y position
+                        return 'translate(-35,' + ((i * legendHeight) - 65) + ')';
+                    }
+                });
+                legend.append('rect')
+                    .attr({
+                    width: legendRectSize,
+                    height: legendRectSize,
+                    rx: 20,
+                    ry: 20
+                })
+                    .style({
+                    fill: color,
+                    stroke: color
+                });
+                legend.append('text')
+                    .attr({
+                    x: 30,
+                    y: 15
+                })
+                    .text(function (d) {
+                    return d;
+                }).style({
+                    fill: '#929DAF',
+                    'font-size': '14px'
+                });
+            };
+            setTimeout(restOfTheData, 2000);
+        }
+    };
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    UserTestComponent.prototype.getMapPositions = function () {
+        var _this = this;
+        this._companyService.getPositions().subscribe(function (survey) {
+            if (survey.length <= 0) {
+                _this.noPositionAvailable = true;
+            }
+            _this.locations = survey;
+            _this.allSurveys = survey;
+        });
+    };
+    //  ---------------------------------end-----------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : getTheme
+    // Params        : 
+    // Returns       : 
+    // Author        : Manu Prasad
+    // Date          : 1-1-2018
+    // Last Modified : 1-1-2018, Manu Prasad 
+    // Desc          : Get Theme details using id from parameter in router from database
+    UserTestComponent.prototype.getMapPositionsforId = function () {
+        var _this = this;
+        console.log("reee" + this.surveyId);
+        if (this.surveyId == 'all' || typeof (this.surveyId) == undefined || this.surveyId == null || this.surveyId == '') {
+            this.getMapPositions();
+            console.log("ff");
+        }
+        else {
+            // console.log("poooooo"); 
+            this._companyService.getSurveyforDash(this.surveyId).subscribe(function (survey) {
+                // console.log(theme);
+                _this.locations = survey;
+            });
+        }
+    };
+    //  ---------------------------------end-----------------------------------------------
+    UserTestComponent.prototype.ConvertString = function (value) {
+        return parseFloat(value);
+    };
+    // -------------------Pie Start------------------
+    UserTestComponent.prototype.initSvgDia = function () {
+        //   this.color1 = d3.scale.ordinal()
+        //   .range(["#623470", "#22A984", "#0189A9", '#97AC38', '#623470']);
+        // this.arc1 = d3.Shape.arc()
+        //   .outerRadius(this.radius1 - 10)
+        //   .innerRadius(60);
+        // this.labelArc1 = d3.Shape.arc()
+        //   .outerRadius(this.radius1 - 90)
+        //   .innerRadius(this.radius1 - 90);
+        // this.pie1 = d3.Shape.pie()
+        //   .sort(null)
+        //   .value((d: any) => d.count);
+        // this.svg2 = d3.select("svg")
+        //   .append("g")
+        //   .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
+    };
+    UserTestComponent.prototype.drawPieDia = function () {
+        //   let g = this.svg2.selectAll("#piedia")
+        //   .data(this.pie1(this.Stats))
+        //   .enter().append("g")
+        //   .attr("class", "arc");
+        // g.append("path").attr("d", this.arc1)
+        //   .style("fill", (d: any) => this.color1(d.data.case)).transition()
+        //   .duration(function(d, i) {
+        //     return i * 800;
+        //   });
+        // g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc1.centroid(d) + ")")
+        //   .attr("dy", ".35em")
+        //   .text((d: any) => d.data.case).attr("font-size","17px").attr("font-weight","700");
+    };
+    UserTestComponent.prototype.refreshDia = function () {
+        // console.log("------------------------");
+        // console.log(this.surveyId);
+        // console.log("------------------------");
+        // d3.select("svg").remove();
+        // var svg = d3.select(".svg-div").append("svg").attr("width", "960").attr("height", "500"),
+        //   inner = svg.append("g");
+        // this.loadData();
+    };
+    UserTestComponent.prototype.loadData = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get all Mail responsed users, mail viewed users, survey completed users
+        // Params        : 
+        // Returns       : count of mail responsed users, mail viewed users
+        // Author        : Rinsha
+        // Date          : 10-1-2018
+        // Last Modified : 11-1-2018, Rinsha
+        // Desc          : 
+        var data = {};
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.survey_id = params.id;
+        });
+        if (this.survey_id) {
+            data = { id: this.survey_id };
+        }
+        if (this.surveyId != '') {
+            data = { id: this.surveyId };
+        }
+        if (this.surveyId == "all") {
+            data = {};
+        }
+        this._companyService.getMailResponseCount(data).subscribe(function (res) {
+            _this.mail_response_count = res;
+            _this._companyService.getMailViewedCount(data).subscribe(function (res1) {
+                _this.mail_viewed_count = res1;
+                _this._companyService.getSurveyCompletedCount(data).subscribe(function (res2) {
+                    _this.survey_completed_count = res2;
+                    _this._companyService.getInvitedUserCount(data).subscribe(function (res3) {
+                        _this.invited_user_count = res3;
+                        _this.mail_not_readed_count = _this.invited_user_count - _this.mail_viewed_count - _this.mail_response_count - _this.survey_completed_count;
+                        _this.Stats = [];
+                        if (_this.mail_viewed_count != 0) {
+                            _this.Stats.push({ name: 'Mail Readed', percent: _this.mail_viewed_count });
+                        }
+                        if (_this.mail_not_readed_count != 0) {
+                            _this.Stats.push({ name: 'Mail Not Readed', percent: _this.mail_not_readed_count });
+                        }
+                        if (_this.mail_response_count != 0) {
+                            _this.Stats.push({ name: 'Mail Responsed', percent: _this.mail_response_count });
+                        }
+                        if (_this.survey_completed_count != 0) {
+                            _this.Stats.push({ name: 'Survey Completed', percent: _this.survey_completed_count });
+                        }
+                        _this.setgraph();
+                    });
+                });
+            });
+            console.log(_this.Stats);
+        });
+    };
+    __decorate([
+        core_1.ViewChild(material_1.MatPaginator),
+        __metadata("design:type", material_1.MatPaginator)
+    ], UserTestComponent.prototype, "paginator", void 0);
+    __decorate([
+        core_1.ViewChild(material_1.MatSort),
+        __metadata("design:type", material_1.MatSort)
+    ], UserTestComponent.prototype, "sort", void 0);
+    UserTestComponent = __decorate([
+        core_1.Component({
+            selector: 'app-user-test',
+            template: __webpack_require__("../../../../../src/app/components/user-test/user-test.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/user-test/user-test.component.css")]
+        }),
+        __metadata("design:paramtypes", [company_service_1.CompanyService,
+            router_1.Router,
+            config_1.Config,
+            router_1.ActivatedRoute])
+    ], UserTestComponent);
+    return UserTestComponent;
+}());
+exports.UserTestComponent = UserTestComponent;
 
 
 /***/ }),
@@ -14202,7 +15713,7 @@ var AdminService = /** @class */ (function () {
     // Params        : 
     // Returns       : 
     // Author        : sudha
-    // Date          : 03-04-2018
+    // Date          : 03-01-2018
     // Last Modified : 
     // Desc          : view status user notifcation
     AdminService.prototype.viewstatusUser = function (id, cmpid) {
@@ -14269,6 +15780,99 @@ var AdminService = /** @class */ (function () {
         this.authToken = null;
         this.admin = null;
         localStorage.clear();
+    };
+    // ---------------------------------------End--------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Admin company management
+    // Params        : 
+    // Returns       : 
+    // Author        : sudha
+    // Date          : 25-01-2018
+    // Last Modified : 
+    // Desc          : getAllplans
+    AdminService.prototype.getAllplans = function () {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.get(this.serviceUrl + 'allplans', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // -----------------------------------End------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : addplans
+    // Params        : id
+    // Returns       : 
+    // Author        : sudha
+    // Date          :25-01-2018
+    // Last Modified : 
+    // Desc          : addPlans
+    AdminService.prototype.addPlan = function (data) {
+        // console.log(data)
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(this.serviceUrl + 'addplan', data, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // < ----------------------------------End-------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : deletePlan
+    // Params        : id
+    // Returns       : 
+    // Author        : sudha
+    // Date          : 29-01-2018
+    // Last Modified :
+    // Desc          : to delete a plan
+    AdminService.prototype.deletePlan = function (plan_id) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.delete(this.serviceUrl + "deleteplan/" + plan_id, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // < ----------------------------------End------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : edit Plan
+    // Params        : id
+    // Returns       : 
+    // Author        : sudha
+    // Date          : 29-01-2018
+    // Last Modified :
+    // Desc          : to edite a plan
+    AdminService.prototype.getSingleplan = function (plan_id) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.get(this.serviceUrl + "getsingleplan/" + plan_id, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // < ----------------------------------End------------------------------------------- 
+    //  ---------------------------------Start-------------------------------------------
+    // Function      : update Plan
+    // Params        : id
+    // Returns       : 
+    // Author        : sudha
+    // Date          : 29-01-2018
+    // Last Modified :
+    // Desc          : to update a plan
+    AdminService.prototype.updatePlan = function (plan) {
+        // console.log(plan);
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(this.serviceUrl + "updateplan", plan, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // < ----------------------------------End------------------------------------------- 
+    // ---------------------------------Start-------------------------------------------
+    // Function      : bestPlan
+    // Params        : 
+    // Returns       : 
+    // Author        : sudha
+    // Date          : 30-01-2018
+    // Last Modified : 
+    // Desc          : bestPlan
+    AdminService.prototype.bestPlan = function (id, best) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        var data = { _id: id, value: best };
+        return this.http.post(this.serviceUrl + 'bestplan', data, { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     AdminService = __decorate([
         core_1.Injectable(),
@@ -14554,6 +16158,7 @@ var CompanyService = /** @class */ (function () {
     // Desc          : function used to get details of a theme from database
     CompanyService.prototype.updateTheme = function (id, theme) {
         var headers = this.setHeaderWithAuthorization();
+        console.log("exe");
         return this.http.put(this.serviceUrl + 'update-theme/' + id, theme, { headers: headers })
             .map(function (res) { return res.json(); });
     };

@@ -18,10 +18,9 @@
     overflow: auto;
     max-height: 500px;
   }
-  .filter{
-    width: 5%;
-    float: right;
-    clear: left;
+  
+    wi.filter{
+    margin-top: 10px;
   }
   .noItemFound{
     text-align: center;

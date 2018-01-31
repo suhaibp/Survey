@@ -99,7 +99,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       jobLevelValidation: ['', Validators.required],
       email : new FormControl('', [Validators.required, Validators.email]),
       number : new FormControl('', Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
-      password : new FormControl('', Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/)),
+      password : new FormControl('', Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&.])[A-Za-z\d$@$!%*#?&.]{6,}$/)),
       confirmPassword : ['', Validators.required],
     }, {
       validator: PasswordValidation.MatchPassword

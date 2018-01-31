@@ -1,0 +1,331 @@
+
+<body>
+  
+                <div id="wrapper">
+            
+                    <!-- Navigation -->
+                    <admin-top-bar></admin-top-bar>            
+        <admin-side-bar></admin-side-bar>
+            
+                    <div id="">
+                        <div class="container-fluid">
+                                
+                                            <!-- Page Heading -->
+                                          
+                                      
+                                            <!-- /.row -->
+                            
+                                        </div>
+                                        <div class="col-md-2">
+                                          <nav class="nav-sidebar">
+                                              <ul class="nav tabs buttonleft">
+                                                    <li >
+                                                      <button  class="btn btn-danger ourbutton2" (click)="addNewplan()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal">Add New Plan</button>
+                                                    </li>
+                                              
+                                                                    
+                                              </ul>
+                                            </nav>
+                                    </div>
+                                    <div class="col-md-10">
+                                        
+                                    <div class="example-header" >
+                                        <mat-form-field>
+                                          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                                        </mat-form-field>
+                                    </div>
+                                    
+                                      <div class="noitem" *ngIf="existStatus"><h4>No item Found!</h4></div>
+                                    
+                                    <br>
+                                    <div class="example-container mat-elevation-z8 ">
+                                        <mat-table [dataSource]="dataSource" matSort>
+                                         <ng-container matColumnDef="slno">
+                                         <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>
+                                         <mat-cell *matCellDef="let row; let i = index"> {{i+1}} </mat-cell>
+                                        </ng-container>
+                                                <ng-container matColumnDef="planname">
+                                                   <mat-header-cell *matHeaderCellDef mat-sort-header> PLAN NAME</mat-header-cell>
+                                                     <mat-cell *matCellDef="let row"> {{row.plan_name}}</mat-cell>
+                                                 </ng-container>
+                                                 <ng-container matColumnDef="price">
+                                                    <mat-header-cell *matHeaderCellDef mat-sort-header> PRICE</mat-header-cell>
+                                                      <mat-cell *matCellDef="let row"> {{row.plan_price}}</mat-cell>
+                                                  </ng-container>
+                                                  <ng-container matColumnDef="bestvalue">
+                                                      <mat-header-cell *matHeaderCellDef mat-sort-header> BEST VALUE</mat-header-cell>
+                                                        <mat-cell *matCellDef="let row"> 
+                                                         
+                                                           <mat-slide-toggle   class="example-margin" name="best" [(ngModel)]="row.is_best_value"  (change)="onChange(row._id,row.is_best_value)"   [checked]="row.is_best_value" >
+
+                                                      </mat-slide-toggle></mat-cell>
+                                                    </ng-container>
+                                                  <ng-container  matColumnDef="action">
+                                                      <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>
+                                                      <mat-cell *matCellDef="let row"><button mat-icon-button [matMenuTriggerFor]="menu" ><mat-icon>more_vert</mat-icon> </button>
+                                                        <mat-menu #menu="matMenu">
+                                                            <button  mat-menu-item disabled  *ngIf="row.status==false"(click)="getEditId(row._id)" data-toggle="modal" data-target="#myModal2">
+                                                                <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
+                                                                <span>Edit</span>
+                                                                </button>
+                                                          <button  mat-menu-item  *ngIf="row.status==true"(click)="getEditId(row._id)" data-toggle="modal" data-target="#myModal2">
+                                                            <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
+                                                            <span>Edit</span>
+                                                            </button>
+
+                                                          
+                                                        <button mat-menu-item *ngIf="row.status==true || row.status==false "  (click)="getId(row._id)" data-toggle="modal" data-target="#deleteModal"> 
+                                                            <mat-icon><i class="material-icons">delete</i></mat-icon>
+                                                            <span>Delete</span>
+                                                        </button>
+                                                        </mat-menu> </mat-cell>
+                                              
+                                                     </ng-container>
+                                       
+                                    
+                                
+                                                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                                   <mat-row *matRowDef="let row; columns: displayedColumns;">
+                                                   </mat-row>
+                                                  </mat-table>
+                                                  <div class="col-md-15 ">
+                                                      <div *ngIf="showSpinnerDelete" class="deletespinner">
+                                                          <mat-spinner></mat-spinner>
+                                                         </div>
+                                                  </div>
+                                               
+                                              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                                        </div>
+                                      </div>
+
+                        
+                      </div>
+                      <!-- /#page-wrapper -->
+                      
+                                 
+                      </div>
+                      <!-- -------------------------Modal -add plan------------------------------ -->
+
+                      <div id="myModal"  class="modal fade">
+                        <div class="modal-dialog">
+                        
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" #closeBtn>&times;</button>
+                              <h4 class="modal-title">Add New Plan</h4>
+                            </div>
+                            <div class="modal-body">
+                              
+                          <form  role="form"  #f="ngForm" (ngSubmit)="addPlan(newPlan);" novalidate >
+                          
+                              <div class="form-group" >
+                                <div class="example-container">
+                                  <mat-form-field>
+                                    <input matInput placeholder="Plan Name"  name ="planname" [(ngModel)]="newPlan.planname"  required>
+                                  </mat-form-field>
+                                
+                                  <mat-form-field>
+                                    <input matInput placeholder="Price" type="number" min="1"  class="example-right-align"  name ="planprice" [(ngModel)]="newPlan.planprice"  required>
+                                    <span matPrefix>₹&nbsp;</span>
+                                    <!-- <span matSuffix>.00</span> -->
+                                  </mat-form-field>
+                                
+                                  <mat-form-field>
+
+                                    <mat-select placeholder="No of survey"  name="surveyno"  [(ngModel)]="newPlan.surveyno" required>
+
+                                      <mat-option value="Unlimited">Unlimited</mat-option>
+                                      <mat-option value="limited">limited</mat-option>
+                                    
+                                    </mat-select>
+                                  </mat-form-field>
+
+                                  
+                                    
+                                  <mat-form-field *ngIf="newPlan.surveyno == 'limited'" >
+                                      <input  matInput placeholder="value" type="number" name="value1"  [(ngModel)]="newPlan.value1" min="1" oninput="validity.valid||(value='');">
+                                    </mat-form-field>
+                                  
+                                  <mat-form-field>
+                                    <mat-select placeholder="No of Question"  name="surveyqtno"  [(ngModel)]="newPlan.surveyqtno" required>
+                                      <mat-option value="Unlimited">Unlimited</mat-option>
+                                      <mat-option value="limited">limited</mat-option>
+                                    
+                                    </mat-select>
+      
+                                  </mat-form-field>
+                                  <mat-form-field *ngIf="newPlan.surveyqtno == 'limited'" >
+                                      <input  matInput placeholder="value" type="number"name="value2"  [(ngModel)]="newPlan.value2" min="1" oninput="validity.valid||(value='');">
+                                    </mat-form-field>
+                                  <mat-form-field>
+                                      <mat-select placeholder="No of Survey Attenders"   name="surveyattno"  [(ngModel)]="newPlan.surveyattno" required>
+                                        <mat-option value="Unlimited">Unlimited</mat-option>
+                                        <mat-option value="limited">limited</mat-option>
+                                      
+                                      </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field *ngIf="newPlan.surveyattno == 'limited'" >
+                                        <input  matInput placeholder="value" type="number" name="value3"  [(ngModel)]="newPlan.value3" min="1" oninput="validity.valid||(value='');">
+                                      </mat-form-field>
+                                  <section class="example-section">
+                                    Excel import
+                                    <mat-slide-toggle class="example-margin" name="eximport" [(ngModel)]="newPlan.eximport" [checked]="newPlan.eximport"></mat-slide-toggle>
+                                        
+                                       
+                                    
+                                  </section>
+                                  <section class="example-section">
+                                      Skip 
+                                      <mat-slide-toggle class="example-margin" name="skip" [(ngModel)]="newPlan.skip" [checked]="newPlan.skip">
+                                          
+                                         </mat-slide-toggle>
+                                    </section>
+
+                                </div>
+                                    
+                              </div>
+                              <br>
+                              <div *ngIf="showSpinner">
+                                  <mat-spinner></mat-spinner>
+                                 </div>
+                              <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
+                             
+                          </form>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+
+
+ <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->
+    <div id="deleteModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <!-- <div class="modal-header"> -->
+            <!-- <h4 class="modal-title">Are you sure to delete?</h4> -->
+          <!-- </div> -->
+          <div class="modal-body">
+              <h4>Are you sure to delete?</h4>
+          
+          </div>
+        
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+            <button type="button" (click)="deletePlan(id)" class="btn btn-default" data-dismiss="modal">Delete</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+    
+
+<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->
+<div id="myModal2"  class="modal fade">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" #closeBtn1>&times;</button>
+        <h4 class="modal-title">update plan</h4>
+      </div>
+      <div class="modal-body">
+        
+    <form  role="form"  #f="ngForm" (ngSubmit)="f.form.valid && updatePlan(plan);" novalidate>
+    
+      <div class="form-group" >
+        <div class="example-container">
+                 
+                <mat-form-field>
+                  <input matInput placeholder="Plan Name"  name ="plan_name" [(ngModel)]="plan.plan_name"  required>
+                </mat-form-field>
+           <div *ngIf="!disablePrice">
+                <mat-form-field class="inputfileds">
+          
+                    <input matInput placeholder="Price" type="number" min="1"  class="example-right-align"  name ="plan_price" [(ngModel)]="plan.plan_price"  required>
+                    <span matPrefix>₹&nbsp;</span>
+                    <!-- <span matSuffix>.00</span> -->
+                 
+                </mat-form-field>
+              </div>
+              <mat-form-field class="inputfileds">
+                  <mat-select placeholder="No of survey"  name="no_survey"  [(ngModel)]="plan.numofsurvey" required>
+                    
+                    <mat-option value="Unlimited">Unlimited</mat-option>
+                    <mat-option value="limited">limited</mat-option>
+                                                        
+                  </mat-select>
+              </mat-form-field>
+              <mat-form-field *ngIf="plan.numofsurvey == 'limited'" >
+                    <input  matInput placeholder="value" type="number" name="value1"  [(ngModel)]="plan.no_survey" min="1" oninput="validity.valid||(value='');">
+              </mat-form-field>
+
+
+              <mat-form-field class="inputfileds">
+                <mat-select placeholder="No of survey Question"  name="no_question"  [(ngModel)]="plan.numofqtn" required>
+                  
+                  <mat-option value="Unlimited">Unlimited</mat-option>
+                  <mat-option value="limited">limited</mat-option>
+                                                      
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="plan.numofqtn == 'limited'" >
+                  <input  matInput placeholder="value" type="number" name="value2"  [(ngModel)]="plan.no_question" min="1" oninput="validity.valid||(value='');">
+            </mat-form-field>
+            
+            <mat-form-field class="inputfileds">
+              <mat-select placeholder="No of Survey Attenders"   name="no_survey_attenders"   [(ngModel)]="plan.numofsurveyattn" required>
+                
+                <mat-option value="Unlimited">Unlimited</mat-option>
+                <mat-option value="limited">limited</mat-option>
+                                                    
+              </mat-select>
+          </mat-form-field>
+          <mat-form-field *ngIf="plan.numofsurveyattn == 'limited'" >
+                <input  matInput placeholder="value" type="number" name="value3"  [(ngModel)]="plan.no_survey_attenders" min="1" oninput="validity.valid||(value='');">
+          </mat-form-field>
+
+          <section class="example-section">
+            Excel import
+            <mat-slide-toggle class="example-margin" name="eximport" [(ngModel)]="plan.excel_import" [checked]="plan.excel_import"></mat-slide-toggle>
+                
+               
+            
+          </section>
+          <section class="example-section">
+              Skip 
+              <mat-slide-toggle class="example-margin" name="skip" [(ngModel)]="plan.survey_logic" [checked]="plan.survey_logic">
+                  
+                 </mat-slide-toggle>
+            </section>
+          
+              </div>
+        </div>
+        <div *ngIf="showSpinner">
+            <mat-spinner></mat-spinner>
+           </div>
+        <br>
+     
+       
+        <button type= "submit"  class="btn btn-danger ourbutton" >Update</button>
+       
+    </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+    
+  </div>
+</div>    
+
+                      
+                      <footer></footer> 
+                        
+                      </body>

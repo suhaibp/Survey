@@ -11,7 +11,7 @@
   
   .mat-form-field {
     font-size: 14px;
-    width: 100%;
+    width: 88%;
   }
   
   .mat-table {
@@ -28,9 +28,12 @@
     margin: 0 10px;
   }
   .filter{
-    width: 5%;
-    float: right;
-    clear: left;
+    /* width: 5%; */
+    /* float: right;
+    clear: left; */
+    /* padding-bottom: 25px; */
+    margin-top: 10px;
+   
   }
   h4{
     text-align: center;

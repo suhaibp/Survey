@@ -31,7 +31,7 @@ export class UserSurveyMultipleComponent implements OnInit {
   progressBarWidthString = '';
   serviceUrl :string;
   userIdx:any;
-  
+  err = false;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
@@ -146,6 +146,14 @@ submitAns(){
         this.blankAns = true;
       }
       else if(res.status == 1||res.status == 3){
+        this.err = true;        
+      //   $('#myModal .modal-body h4').text("Somthing went wrong!");
+      //   $('#myModal').modal('show'); 
+      // } 
+      // else if(res.status == 4){
+      //   this.err = false;                
+      //   $('#myModal .modal-body h4').text("Successfully submitted!");
+      //   $('#myModal').modal('show'); 
         let snackBarRef =  this.snackBar.open('* Somthing went wrong!!', '', {
           duration: 2000
         });
@@ -153,7 +161,7 @@ submitAns(){
         // $('#myModal').modal('show'); 
       } 
       else if(res.status == 4){
-        window.location.reload();
+        this.routes.navigate(['/survey-success']);
         let snackBarRef =  this.snackBar.open('* Successfully submitted', '', {
           duration: 2000
         });
@@ -227,11 +235,26 @@ skipQuestion(){
 // Last Modified : 28-12-2017, Manu Prasad, Desc:
 // Desc          : reload survey after submission
 closed(){
-  window.location.reload();
+  // window.location.reload();
+  this.routes.navigate(['/survey-success']);
   
 }
 // -----------------------------------End------------------------------------------
 
+
+// ---------------------------------Start-------------------------------------------
+// Function      : closed()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 29-1-2018
+// Last Modified : 29-1-2018, Manu Prasad, Desc:
+// Desc          : reload survey after submission
+closedErr(){
+  window.location.reload();  
+
+}
+//  ---------------------------------end-----------------------------------------------
 
 // ---------------------------------Start-------------------------------------------
 // Function      : timeOver()

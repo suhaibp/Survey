@@ -4,14 +4,15 @@ import { CompanyService } from './../../services/company.service';
 import { CanActivate, ActivatedRoute, Router } from '@angular/router';
 import * as socketIo from 'socket.io-client';
 import { Config } from './../../config/config';
-import * as d3 from 'd3-selection';
-import * as d3Scale from 'd3-scale';
-import * as d3Array from 'd3-array';
-import * as d3Axis from 'd3-axis';
-import * as d3Shape from 'd3-shape';
+// import * as d3 from 'd3-selection';
+// import * as d3Scale from 'd3-scale';
+// import * as d3Array from 'd3-array';
+// import * as d3Axis from 'd3-axis';
+// import * as d3Shape from 'd3-shape';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 declare var $: any;
+declare var d3: any;
 
 
 @Component({
@@ -33,7 +34,7 @@ export class CompanyDashboardComponent implements OnInit {
   displayedColumns = ['slno', 'email', 'date_time'];
   dataSource: MatTableDataSource<any>;
   surveyQuestion: any;
-  title = 'Questions Vs Answers';
+  title = 'Questions vs Answers';
   public barchart: count[] = [];
   widthb: number;
   heightb: number;
@@ -80,7 +81,7 @@ export class CompanyDashboardComponent implements OnInit {
   invited_user_count: number = 0;
   mail_not_readed_count: number = 0;
   surveyList: any;
-
+  noPositionAvailable= false;
   constructor(private _companyService: CompanyService,
     private routes: Router,
     private config: Config,
@@ -104,43 +105,7 @@ export class CompanyDashboardComponent implements OnInit {
     
   }
 
-  // refresh() {
-
-  //   // this.getAllsurvey();
-  //   console.log(this.surveyId)
-  //   if(this.surveyId){
-  //     this._companyService.getSurveyQuestions(this.surveyId).subscribe(data => {
-  //       this.quest = data;
-  //       this.barchart = [];
-  //       data.forEach(element => {
-  //         this.barchart.push({ company: element.question, count: element.totalCount});
-  //       });
-  
-  //       this.initSvg1();
-  //       this.initAxis();
-  //       this.drawAxis();
-  //       this.drawBars();
-  
-  //     });
-  //   }
-    
-
-  // }
-
-  // getAllsurvey() {
-  //   this._companyService.getAllsurveyDashboard().subscribe(data => {
-  //     this.survey = data;
-  //     this.sId = data[0]._id;
-  //   });
-  // }
-
-  // pierefresh() {
-  //   // this._companyService.getSurveyQuestions(this.surveyId).subscribe(data => {
-  //   //   this.initSvg();
-  //   //   this.drawPie();
-  //   // });
-
-  // }
+ 
 
   ngOnInit() {
 
@@ -224,30 +189,16 @@ export class CompanyDashboardComponent implements OnInit {
 
 
   getMapPositions() {
-    // this.locations.push({lat:27.56,long:-82.68});
-    // this.locations.push({lat:37.56,long:-72.68});
+    
 
     this._companyService.getPositions().subscribe(survey => {
-      // console.log(survey);
+      
+      if(survey.length <=0){
+        this.noPositionAvailable = true;
+      }
       this.locations = survey;
       this.allSurveys = survey;
 
-      // console.log(this.locations);
-      // survey.questions.forEach((element,i) => {
-      //   // this.locations[i].question = element.question;
-      //   // this.locations[i].answer = element.question;
-      //   // this.locations[i].question = element.question;
-
-      //   element.forEach((ele,j) => {
-      //     console.log(element._id.longitude);
-      //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
-      //   })
-
-      // });
-      // console.log(this.locations);
-      // this.locations.push({lat:27.56,long:-82.68});
-      // this.locations.push({lat:37.56,long:-72.68});
-      // console.log(this.locations);
     });
 
 
@@ -266,8 +217,6 @@ export class CompanyDashboardComponent implements OnInit {
 
 
   getMapPositionsforId() {
-    // this.locations.push({lat:27.56,long:-82.68});
-    // this.locations.push({lat:37.56,long:-72.68});
     console.log("reee"+this.surveyId)
     if (this.surveyId == 'all' || typeof(this.surveyId)  == undefined || this.surveyId == null || this.surveyId == '') {
       this.getMapPositions();
@@ -279,22 +228,6 @@ export class CompanyDashboardComponent implements OnInit {
       this._companyService.getSurveyforDash(this.surveyId).subscribe(survey => {
         // console.log(theme);
         this.locations = survey;
-        // console.log(this.locations);
-        // survey.questions.forEach((element,i) => {
-        //   // this.locations[i].question = element.question;
-        //   // this.locations[i].answer = element.question;
-        //   // this.locations[i].question = element.question;
-
-        //   element.forEach((ele,j) => {
-        //     console.log(element._id.longitude);
-        //     this.locations.push({lat:parseFloat(element._id.latitude),long:parseFloat(element._id.longitude)});
-        //   })
-
-        // });
-        // console.log(this.locations);
-        // this.locations.push({lat:27.56,long:-82.68});
-        // this.locations.push({lat:37.56,long:-72.68});
-        // console.log(this.locations);
       });
     }
 
@@ -306,147 +239,222 @@ export class CompanyDashboardComponent implements OnInit {
   ConvertString(value) {
     return parseFloat(value)
   }
-  // //chart2
-  // applyFilter(filterValue: string) {
-  //   filterValue = filterValue.trim(); // Remove whitespace
-  //   filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-  //   this.dataSource.filter = filterValue;
-  // }
+  /*__________________________________NEW PIE___________________________________*/
 
-  // initSvg1() {
-  //   this.svg1 = d3.select("#bar1");
-  //   this.widthb = +this.svg1.attr("width") - this.marginb.left - this.marginb.right;
-  //   this.heightb = +this.svg1.attr("height") - this.marginb.top - this.marginb.bottom;
-  //   this.g = this.svg1.append("g")
-  //     .attr("transform", "translate(" + this.marginb.left + "," + this.marginb.top + ")");
-  // }
+  setgraph(){
+    var dataset = this.Stats;
 
-  // initAxis() {
-  //   this.x = d3Scale.scaleBand().rangeRound([0, this.widthb]).padding(0.1);
-  //   this.y = d3Scale.scaleLinear().rangeRound([this.heightb, 0]);
-  //   this.x.domain(this.barchart.map((d) => d.company));
-  //   this.y.domain([0, d3Array.max(this.barchart, (d) => d.count)]);
-  // }
-
-  // drawAxis() {
-  //   this.g.append("g")
-  //     .attr("class", "axis axis--x")
-  //     .attr("transform", "translate(0," + this.heightb + ")")
-  //     .call(d3Axis.axisBottom(this.x));
-  //   this.g.append("g")
-  //     .attr("class", "axis axis--y")
-  //     .call(d3Axis.axisLeft(this.y))
-  //     .append("text")
-  //     .attr("class", "axis-title")
-  //     .attr("transform", "rotate(-90)")
-  //     .attr("y", 6)
-  //     .attr("dy", "0.71em")
-  //     .attr("text-anchor", "end")
-  //     .text("count");
-  // }
-
-  // drawBars() {
-  //   this.g.selectAll(".bar")
-  //     .data(this.barchart)
-  //     .enter().append("rect")
-  //     .attr("class", "bar")
-  //     .attr("x", (d) => this.x(d.company))
-  //     .attr("y", (d) => this.y(d.count))
-  //     .attr("data-id", (d) => this.y(d.id))
-  //     .attr("width", this.x.bandwidth())
-  //     .attr("height", (d) => this.heightb - this.y(d.count))
-  //     // .on("click", this.mouseclick)  
-  //     .on('click', (d, i) => {
-  //       this.svg.remove();
-  //       this.piechart = []
-  //       this.quest[i].ans.forEach((val) => {
-  //         if (val.count != 0) {
-  //           this.piechart.push({ status: val.value, count: val.count, answeredUser: val.answeredUser });
-  //         }
-  //       });
-  //       this.initSvg();
-  //       this.drawPie();
-  //       console.log(i);
-  //       // this.companyService.getSingleQA(d).subscribe(data1=>{
-  //       //   console.log(data1);
-  //       // });
-  //     })
-  // }
-
-  //piechart
-  // initSvg() {
-  //   this.color = d3Scale.scaleOrdinal()
-  //     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-  //   this.arc = d3Shape.arc()
-  //     .outerRadius(this.radius - 10)
-  //     .innerRadius(0);
-  //   this.labelArc = d3Shape.arc()
-  //     .outerRadius(this.radius - 40)
-  //     .innerRadius(this.radius - 40);
-  //   this.pie = d3Shape.pie()
-  //     .sort(null)
-  //     .value((d: any) => d.count);
-  //   this.svg = d3.select("#sd")
-  //     .append("g")
-  //     .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
-
-  // }
-
-  // drawPie() {
-  //   let g = this.svg.selectAll(".arc")
-  //     .data(this.pie(this.piechart))
-  //     .enter().append("g")
-  //     .attr("class", "arc");
-  //   g.append("path").attr("d", this.arc)
-  //     .style("fill", (d: any) => this.color(d.data.status))
-  //     .on('click', (d, i) => {
-  //       this.dataSource = new MatTableDataSource(d.data.answeredUser);
-  //       this.dataSource.paginator = this.paginator;
-  //       this.dataSource.sort = this.sort;
-  //       $('#answeredUsers').modal('show');
-  //     });
-  //   g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
-  //     .attr("dy", ".35em")
-  //     .text((d: any) => d.data.status)
-
-  // }
+    if(this.Stats.length != 0){
+    d3.select("#chart").selectAll("svg").remove();
+      
+    // console.log("this.Stats");
+    /*_______________________________________________________________________________________*/
+  
+  //   var dataset = [
+  //     { name: 'Data', percent: 100 },
+  //     { name: 'Chrome', percent: 32.51 },
+  //     { name: 'Safari', percent: 23.68 },
+  //     { name: 'Opera', percent: 50.71 },
+  //     { name: 'Firefox', percent: 8.71 },
+  //     { name: 'Others', percent: 36.01 }
+  // ];
+   
+  var pie=d3.layout.pie()
+    .value(function(d){return d.percent})
+    .sort(null)
+    .padAngle(.03);
+   
+  var w=500,h=500;
+   
+  var outerRadius=w/2;
+  var innerRadius=w/3;
+   
+  var color = d3.scale.category10();
+   
+  var arc=d3.svg.arc()
+    .outerRadius(outerRadius)
+    .innerRadius(innerRadius);
+   
+  var svg=d3.select("#chart")
+    .append("svg")
+    .attr({
+        width:w,
+        height:h,
+        class:'shadow'
+    })
+    //.style("filter", "url(#drop-shadow)")
+    .append('g')
+    .attr({
+        transform:'translate('+w/2+','+h/2+')'
+    });
+  
+  // filters go in defs element
+  var defs = svg.append("defs");
+  
+  // create filter with id #drop-shadow
+  // height=130% so that the shadow is not clipped
+  var filter = defs.append("filter")
+      .attr("id", "drop-shadow")
+      .attr("height", "130%");
+  
+  // SourceAlpha refers to opacity of graphic that this filter will be applied to
+  // convolve that with a Gaussian with standard deviation 3 and store result
+  // in blur
+  filter.append("feGaussianBlur")
+      .attr("in", "SourceAlpha")
+      .attr("stdDeviation", 15)
+      .attr("result", "blur");
+  
+  // translate output of Gaussian blur to the right and downwards with 2px
+  // store result in offsetBlur
+  filter.append("feOffset")
+      .attr("in", "blur")
+      .attr("dx",100)
+      .attr("dy", 100)
+      .attr("result", "offsetBlur");
+  
+  // overlay original SourceGraphic over translated blurred opacity by using
+  // feMerge filter. Order of specifying inputs is important!
+  var feMerge = filter.append("feMerge");
+  
+  feMerge.append("feMergeNode")
+      .attr("in", "offsetBlur")
+  feMerge.append("feMergeNode")
+      .attr("in", "SourceGraphic");
+  
+  
+  var path=svg.selectAll('path')
+    .data(pie(dataset))
+    .enter()
+    .append('path')
+    .attr({
+        d:arc,
+        fill:function(d,i){
+            return color(d.data.name);
+        }
+    });
+   
+  path.transition()
+    .duration(1000)
+    .attrTween('d', function(d) {
+        var interpolate = d3.interpolate({startAngle: 0, endAngle: 0}, d);
+        return function(t) {
+            return arc(interpolate(t));
+        };
+    });
+   
+   
+  var restOfTheData=function(){
+      var text=svg.selectAll('text')
+          .data(pie(dataset))
+          .enter()
+          .append("text")
+          .transition()
+          .duration(500)
+          .attr("transform", function (d) {
+              return "translate(" + arc.centroid(d) + ")";
+          })
+          .attr("dy", ".4em")
+          .attr("text-anchor", "middle")
+          .text(function(d){
+              return d.data.percent;
+          })
+          .style({
+              fill:'#fff',
+              'font-size':'12px'
+          });
+   
+      var legendRectSize=20;
+      var legendSpacing=7;
+      var legendHeight=legendRectSize+legendSpacing;
+   
+   
+      var legend=svg.selectAll('.legend')
+          .data(color.domain())
+          .enter()
+          .append('g')
+          .attr({
+              class:'legend',
+              transform:function(d,i){
+                  //Just a calculation for x & y position
+                  return 'translate(-35,' + ((i*legendHeight)-65) + ')';
+              }
+          });
+      legend.append('rect')
+          .attr({
+              width:legendRectSize,
+              height:legendRectSize,
+              rx:20,
+              ry:20
+          })
+          .style({
+              fill:color,
+              stroke:color
+          });
+   
+      legend.append('text')
+          .attr({
+              x:30,
+              y:15
+          })
+          .text(function(d){
+              return d;
+          }).style({
+              fill:'#929DAF',
+              'font-size':'14px'
+          });
+  };
+   
+  setTimeout(restOfTheData,2000);
+    
+       
+    }
+    
+  
+  }
+  /*__________________________________NEW PIE END___________________________________*/
   // -------------------Pie Start------------------
   private initSvgDia() {
-    this.color1 = d3Scale.scaleOrdinal()
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
-    this.arc1 = d3Shape.arc()
-      .outerRadius(this.radius1 - 10)
-      .innerRadius(0);
-    this.labelArc1 = d3Shape.arc()
-      .outerRadius(this.radius1 - 40)
-      .innerRadius(this.radius1 - 40);
-    this.pie1 = d3Shape.pie()
-      .sort(null)
-      .value((d: any) => d.count);
-    this.svg2 = d3.select("svg")
-      .append("g")
-      .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
+    // this.color1 = d3Scale.scaleOrdinal()
+    //   .range(["#623470", "#22A984", "#0189A9", '#97AC38', '#623470']);
+    // this.arc1 = d3Shape.arc()
+    //   .outerRadius(this.radius1 - 10)
+    //   .innerRadius(60);
+    // this.labelArc1 = d3Shape.arc()
+    //   .outerRadius(this.radius1 - 90)
+    //   .innerRadius(this.radius1 - 90);
+    // this.pie1 = d3Shape.pie()
+    //   .sort(null)
+    //   .value((d: any) => d.count);
+    // this.svg2 = d3.select("svg")
+    //   .append("g")
+    //   .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
   }
+
+
+   timeout = setTimeout(function() {
+  }, 2000);
 
   private drawPieDia() {
-    let g = this.svg2.selectAll("#piedia")
-      .data(this.pie1(this.Stats))
-      .enter().append("g")
-      .attr("class", "arc");
-    g.append("path").attr("d", this.arc1)
-      .style("fill", (d: any) => this.color1(d.data.case));
-    g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc1.centroid(d) + ")")
-      .attr("dy", ".35em")
-      .text((d: any) => d.data.case);
+    // let g = this.svg2.selectAll("#piedia")
+    //   .data(this.pie1(this.Stats))
+    //   .enter().append("g")
+    //   .attr("class", "arc");
+    // g.append("path").attr("d", this.arc1)
+    //   .style("fill", (d: any) => this.color1(d.data.case));
+    // g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc1.centroid(d) + ")")
+    //   .attr("dy", ".35em")
+    //   .text((d: any) => d.data.case);
   }
 
+  
   refreshDia() {
     // console.log("------------------------");
     // console.log(this.surveyId);
     // console.log("------------------------");
     d3.select("svg").remove();
-    var svg = d3.select(".svg-div").append("svg").attr("width", "960").attr("height", "500"),
-      inner = svg.append("g");
+    // var svg = d3.select(".svg-div").append("svg").attr("width", "960").attr("height", "500"),
+    //   inner = svg.append("g");
     this.loadData();
   }
 
@@ -483,23 +491,28 @@ export class CompanyDashboardComponent implements OnInit {
             this.mail_not_readed_count = this.invited_user_count - this.mail_viewed_count - this.mail_response_count - this.survey_completed_count;
             this.Stats = [];
             if (this.mail_viewed_count != 0) {
-              this.Stats.push({ case: "Mail Readed", count: this.mail_viewed_count });
+              this.Stats.push({ name: 'Mail Readed', percent: this.mail_viewed_count });
             }
             if (this.mail_not_readed_count != 0) {
-              this.Stats.push({ case: "Mail Not Readed", count: this.mail_not_readed_count });
+              this.Stats.push({ name: 'Mail Not Readed', percent: this.mail_not_readed_count });
             }
             if (this.mail_response_count != 0) {
-              this.Stats.push({ case: "Mail Responsed", count: this.mail_response_count });
+              this.Stats.push({ name: 'Mail Responsed', percent: this.mail_response_count });
             }
             if (this.survey_completed_count != 0) {
-              this.Stats.push({ case: "Survey Completed", count: this.survey_completed_count });
+              this.Stats.push({ name: 'Survey Completed', percent: this.survey_completed_count });
             }
-            this.initSvgDia();
-            this.drawPieDia();
+            // console.log(this.Stats);
+            // this.initSvgDia();
+            // this.drawPieDia();
+            this.setgraph();
+            
           });
         });
       });
+      
     });
+    
   }
   // -------------------------------End pie-----------------
 }

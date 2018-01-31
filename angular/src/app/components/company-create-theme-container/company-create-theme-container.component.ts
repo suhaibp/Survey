@@ -1,4 +1,4 @@
-import {Component, ViewChild, OnInit} from '@angular/core';
+import {Component, ViewChild, OnInit, EventEmitter} from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../services/company.service';
 import {Router} from '@angular/router';
@@ -8,9 +8,11 @@ declare var $:any;
 @Component({
   selector: 'app-company-create-theme-container',
   templateUrl: './company-create-theme-container.component.html',
-  styleUrls: ['./company-create-theme-container.component.css']
+  styleUrls: ['./company-create-theme-container.component.css'],
+  outputs: ['themeCreated']
 })
 export class CompanyCreateThemeContainerComponent implements OnInit {
+  public themeCreated = new EventEmitter();
   newTheme = {
   title: "",
   h_font_color: "#ffffff",
@@ -167,8 +169,8 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
 
 
   thmSaved(){
-          window.location.reload();
-    
+          // window.location.reload();
+              this.themeCreated.emit(true);
           // this.routes.navigate(['/create-theme']);   
           // this.routes.navigate(["/create-theme?refresh=1"]); 
           // this.routes.navigate(['/create-theme'], { queryParams: { 'refresh': 1 } });

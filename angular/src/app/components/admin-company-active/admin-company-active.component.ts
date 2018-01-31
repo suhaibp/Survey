@@ -13,6 +13,7 @@ export class AdminCompanyActiveComponent implements OnInit {
   displayedColumns = ['slno','companyname','email','contactperson','contactnumber','companystatus','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  all_value=false;
   selected = 'all';
   showSpinner :boolean = false;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -38,6 +39,9 @@ export class AdminCompanyActiveComponent implements OnInit {
            const company = [];
              if(this.selected == 'all'){
                this.adminService.getAllactivecompanies().subscribe(data=>{
+                if(data.length != 0){
+                  this.all_value=true;
+                }
                  this.loadToDataTable(data);
                  this.showSpinner =false
                });

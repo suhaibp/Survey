@@ -134,13 +134,16 @@ getTheme(){
 
   updateTheme(){
     this.showSpinner  = true
-    // console.log(this.Theme);
+    console.log(this.Theme);
     this.submitBtnDisabled = true;
     if(this.Theme.title != ""){
       this._companyService.updateTheme(this.themeId, this.Theme).subscribe(res =>{
-        console.log(res.status);
+        console.log(res);
        if(res.status == 0){
+        console.log("0")
+         
         this.showSpinner  = false
+        this.submitBtnDisabled = false;        
         let snackBarRef =  this.snackBar.open('* Error in updation!', '', {
           duration: 2000
        });
@@ -148,7 +151,11 @@ getTheme(){
         // $('#myModal').modal('show');  
        }
         else if(res.status == 1){
+        console.log("1")
+          
           this.showSpinner  = false
+        this.submitBtnDisabled = false;        
+          
           let snackBarRef =  this.snackBar.open('* Title is empty!', '', {
             duration: 2000
          });
@@ -156,6 +163,8 @@ getTheme(){
           // $('#myModal').modal('show');  
         }
         else if(res.status == 2){
+          console.log("2")
+          
           this.showSpinner  = false
           this.routes.navigate(['./create-theme']);
           let snackBarRef =  this.snackBar.open('Successfully updated!', '', {
@@ -166,8 +175,12 @@ getTheme(){
           // $('#myModal').modal('show');
         }
         else if(res.status == 4){
+          console.log("4")
+          
           this.showSpinner  = false
           this.stat4 = true;
+          this.submitBtnDisabled = false;        
+          
           let snackBarRef =  this.snackBar.open('Theme name already exist', '', {
             duration: 2000
          });

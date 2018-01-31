@@ -11,6 +11,7 @@ export class AdminCompanyBlockedComponent implements OnInit {
   displayedColumns = [ 'slno','companyname','email','contactperson','contactnumber','companystatus','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  all_value =false;
   selected = 'all';
   showSpinner :Boolean =false
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,6 +38,9 @@ refresh(){
  const company = [];
    if(this.selected == 'all'){
      this.adminService.getAllblockedcompanies().subscribe(data=>{
+      if(data.length != 0){
+        this.all_value=true;
+      }
        this.loadToDataTable(data);
        this.showSpinner =false
      });

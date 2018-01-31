@@ -445,7 +445,7 @@ deleteUser(userId){
   addUsers(form){
     this.showSpinner = true
     this.btnDisbled = true;
-    // console.log(this.newUser);
+    console.log(form);
     this.companyService.addUsers(this.newUser).subscribe(data=>{
         if(data.success){
           this.newUser =  {email: [''], groups:[]};
@@ -583,30 +583,45 @@ deleteUser(userId){
 }
 //  ---------------------------------End-------------------------------------------
   handleFile(event) {
+    // console.log("________________")
+    // console.log(event)
     this.emailArr = [];
     let file = event.target.files[0];
     this.xlsxToJsonService.processFileToJson({}, file).subscribe(data => {
       // this.result = JSON.stringify(data['sheets'].Sheet1);
       this.result = data['sheets'].Sheet1;
-      if(typeof(this.result != "undefined")){
+      
+      if(typeof(this.result != undefined || this.result != null)){
         this.result.forEach(element => {
-          this.emailArr.push(element.Email);
+          if(element.Email != null || element.Email != undefined){
+            this.emailArr.push(element.Email);
+            
+          }
         });
         // console.log((this.emailArr));
         // if(typeof(this.emailArr == undefined)){
         //   this.emailArr = [];
         // }
+        if(this.emailArr.length == 0){
+          this.msg = "no valid email address to insert!";
+          
+        }
       }
     })
   }
 
   import(form){
+    
+
     this. updateBtnDisbled1  =true;
     this.newUser.email = this.emailArr;
     // console.log(this.newUser)
     this.addUsers(form);
 }
-
+cnclImprt(){
+  this. updateBtnDisbled1  =false;
+  
+}
   openModal(){
     this.showSpinner = false
     this.showSpinner = false
