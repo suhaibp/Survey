@@ -129,6 +129,50 @@ const CompanySchema = mongoose.Schema({
             type: Boolean,
             default: false,
         },
+    }],
+    is_plan_completed:{
+        type: Boolean,
+        default: false,
+    },
+    plans: [{
+        upgraded_date_time: {
+            type: Date,
+            default: Date.now()
+        },
+        plan_id: {
+            type: Schema.ObjectId,
+        },
+        no_month: {
+            type: Number,
+            default: 1
+        },
+        plan_name: {
+            type: String
+        },
+        plan_price: {
+            type: String
+        },
+        no_survey: {
+            type: String
+        },
+        no_question: {
+            type: String
+        },
+        excel_import: {
+            type: Boolean,
+            default: false,
+        },
+        survey_logic: {
+            type: Boolean,
+            default: false,
+        },
+        no_survey_attenders: {
+            type: String
+        },
+        is_default_plan: {
+            type: Boolean,
+            default: true,
+        }
     }]
 });
 

@@ -140,7 +140,10 @@ const SurveySchema = mongoose.Schema({
         },
 
        
-    }]
+    }],
+    cmp_plan_id : {
+        type : Schema.ObjectId,
+    }
 });
 
 const Survey = module.exports = mongoose.model('Survey', SurveySchema, 'survey');

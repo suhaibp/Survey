@@ -271,7 +271,7 @@ svg rect{
     border-bottom: 1px solid lightgray;
     height: 100%;
     padding-top: 13%;
-    position: absolute;
+    position: absolute !important;
     z-index: 1000;}
     .buttonleft>li{
         border:none !important;

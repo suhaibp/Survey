@@ -28,12 +28,11 @@
                                         <!-- </div> -->
                                   
 <div class="col-md-10">
-    <flash-messages></flash-messages>
-  
+  <!-- <flash-messages></flash-messages> -->
 
-  <div class="col-md-9">
-      <div class="row">
-      <div  *ngIf="showSpinnerDelete">
+
+  <div class="row">
+      <div class="col-md-12 preloader2" *ngIf="showSpinnerDelete">
           <div class=""  >
               <svg class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               width="50%" height="59px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
@@ -49,14 +48,14 @@
           </svg>
       </div>
       </div>
-      <flash-messages></flash-messages>
-   
+      <!-- <flash-messages></flash-messages> -->
+    
             <div class="example-header" >
                 <mat-form-field>
                   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
                 </mat-form-field>
             </div>
-         
+          
       <div class="example-container mat-elevation-z8 ">
       <mat-table [dataSource]="dataSource" matSort>
            <ng-container matColumnDef="id">
@@ -105,7 +104,7 @@
         </div>
       </div>
    </div>
-   </div>    
+    
     <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->
     <div id="deleteModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
