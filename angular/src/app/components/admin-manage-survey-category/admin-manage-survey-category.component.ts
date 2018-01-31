@@ -170,9 +170,9 @@ _keyPress(event: any) {
         }else{
               // this.atleastOneitem = true;
               
-              setTimeout(()=>{ 
-                      this.atleastOneitem = false;
-              }, 3000);
+              // setTimeout(()=>{ 
+              //         this.atleastOneitem = false;
+              // }, 3000);
               
               let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
                 duration: 2000

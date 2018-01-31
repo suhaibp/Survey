@@ -213,9 +213,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       let snackBarRef =  this.snackBar.open('Error', '', {
         duration: 2000
       });
-      // setTimeout(() => {  
+      setTimeout(() => {  
         this.routes.navigate(['/404']);
-      // }, 4000);
+      }, 2000);
     }
    });
 // -----------------------------------End------------------------------------------

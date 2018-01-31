@@ -166,18 +166,18 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       let snackBarRef =  this.snackBar.open('Account created successfully, Please verify your Email address', '', {
         duration: 3000
       });
-      // setTimeout(() => {  
+      setTimeout(() => {  
         this.routes.navigate(['/clogin']);
-      // }, 4000);
+      }, 3000);
     } else {
       this.showSpinner = false
       // this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
       let snackBarRef =  this.snackBar.open('The email address you specified is already in use. Please login to continue', '', {
         duration: 3000
       });
-      // setTimeout(() => {  
+      setTimeout(() => {  
         this.routes.navigate(['/clogin']);
-      // }, 4000);
+      }, 3000);
     }
    });
   }
