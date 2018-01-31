@@ -308,129 +308,150 @@ var returnRouter = function (io) {
             var authorization = req.headers.authorization.substring(4), decoded;
             //     try {
             decoded = jwt.verify(authorization, config.secret);
+            //console.log(decoded);
 
             var cmp_id = decoded._id;
             var organization = decoded.organization;
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
             isErr = false;
             start = '';
             end = '';
             errMsg = '';
 
-            if (req.body.start_date == '') {
-                errMsg = "Failed, Please Select Start Date";
-                isErr = true;
-            } else {
-                var start = new Date(req.body.start_date);
-                start.setHours(00, 00, 00, 000);
-            }
-
-            if (req.body.end_date == '') {
-                errMsg = "Failed, Please Select End Date";
-                isErr = true;
-            } else {
-                var end = new Date(req.body.end_date);
-                end.setHours(23, 59, 59, 999);
-            }
-
-            if (!isErr && end <= start) {
-                errMsg = "Failed, End Date shold be greater than start date";
-                isErr = true;
-            }
-
-
-            if (!isErr && myTrim(req.body.name) == '') {
-                errMsg = "Failed, Please Enter Survay Name";
-                isErr = true;
-            }
-            if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
-                errMsg = "Failed, Please Select Category";
-                isErr = true;
-            }
-            if (!isErr && !req.body.selectedTheme) {
-                errMsg = "Failed, Please Select Any Theme";
-                isErr = true;
-            }
-            if (!isErr && !req.body.display_type) {
-                errMsg = "Failed, Please Select Display Type";
-                isErr = true;
-            }
-            if (!isErr && !req.body.display_type) {
-                errMsg = "Failed, Please Select Display Type";
-                isErr = true;
-            }
-            if (!isErr && req.body.questions.length == 0) {
-                errMsg = "Failed, Please Add Atleast OneQuestion";
-                isErr = true;
-            }
-
-
-            var logoName = '';
-            if (req.body.logoSrc != '') {
-                ext = ['gif', 'png', 'jpg', 'jpeg']
-                var base64 = decodeBase64Image(req.body.logoSrc);
-
-                if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
-                    errMsg = "Failed, Invalid Logo";
+            Survey.find({company_id: cmp_id,cmp_plan_id: plans._id }, function (err, survey) {
+                // console.log(survey.length);
+                // console.log(plans.no_survey);
+                if(survey.length >= plans.no_survey){
+                    errMsg = "Failed, Reached maximum survey limit of " + plans.no_survey;
                     isErr = true;
                 }
-                if (!isErr) {
-                    console.log(base64.type);
-                    console.log(base64.ext);
-                    logoName = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000) + '.' + base64.ext);
-                    var images = new Images();
-                    var buf = new Buffer(base64.data, 'base64');
-                    images.file_name = logoName;
-                    images.logo.data = buf;
-                    images.logo.contentType = base64.type;
-                    images.save(function (err) {
-                    });
+         
+                if(req.body.questions.length > plans.no_question){
+                    errMsg = "Failed, maximum allowed question  " + plans.no_question;
+                    isErr = true;
                 }
-            }
+         
 
-            if (!isErr) {
-                var survey = new Survey();
-                survey.name = req.body.name;
-                survey.category = { id: req.body.category._id, name: req.body.category.name };
-                survey.company_id = cmp_id;
-                survey.organization = organization;
-                survey.theme = req.body.selectedTheme._id;
-                survey.display_type = req.body.display_type;
+                if (req.body.start_date == '') {
+                    errMsg = "Failed, Please Select Start Date";
+                    isErr = true;
+                } else {
+                    var start = new Date(req.body.start_date);
+                    start.setHours(00, 00, 00, 000);
+                }
 
-                survey.start_datetime = start;
-                survey.end_datetime = end;
-                survey.logo = logoName;
+                if (req.body.end_date == '') {
+                    errMsg = "Failed, Please Select End Date";
+                    isErr = true;
+                } else {
+                    var end = new Date(req.body.end_date);
+                    end.setHours(23, 59, 59, 999);
+                }
 
-                survey.is_header = req.body.showHeader;
-                survey.is_footer = req.body.showFooter;
-                survey.header_title = req.body.header;
-                survey.footer_title = req.body.footer;
+                if (!isErr && end <= start) {
+                    errMsg = "Failed, End Date shold be greater than start date";
+                    isErr = true;
+                }
 
-                survey.header_title = req.body.header;
-                survey.header_title = req.body.header;
 
-                req.body.questions.forEach((qtn, i) => {
-                    let question = {
-                        question: qtn.question,
-                        ans_type: qtn.answerType,
-                        show_star_label: qtn.showStarLabel,
+                if (!isErr && myTrim(req.body.name) == '') {
+                    errMsg = "Failed, Please Enter Survay Name";
+                    isErr = true;
+                }
+                if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
+                    errMsg = "Failed, Please Select Category";
+                    isErr = true;
+                }
+                if (!isErr && !req.body.selectedTheme) {
+                    errMsg = "Failed, Please Select Any Theme";
+                    isErr = true;
+                }
+                if (!isErr && !req.body.display_type) {
+                    errMsg = "Failed, Please Select Display Type";
+                    isErr = true;
+                }
+                if (!isErr && !req.body.display_type) {
+                    errMsg = "Failed, Please Select Display Type";
+                    isErr = true;
+                }
+                if (!isErr && req.body.questions.length == 0) {
+                    errMsg = "Failed, Please Add Atleast OneQuestion";
+                    isErr = true;
+                }
+
+
+                var logoName = '';
+                if (req.body.logoSrc != '') {
+                    ext = ['gif', 'png', 'jpg', 'jpeg']
+                    var base64 = decodeBase64Image(req.body.logoSrc);
+
+                    if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
+                        errMsg = "Failed, Invalid Logo";
+                        isErr = true;
                     }
-                    if (qtn.answerType == 'Multiple choice') {
-                        question.options = qtn.opts
+                    if (!isErr) {
+                        console.log(base64.type);
+                        console.log(base64.ext);
+                        logoName = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000) + '.' + base64.ext);
+                        var images = new Images();
+                        var buf = new Buffer(base64.data, 'base64');
+                        images.file_name = logoName;
+                        images.logo.data = buf;
+                        images.logo.contentType = base64.type;
+                        images.save(function (err) {
+                        });
                     }
-                    if (qtn.answerType == 'star rating') {
-                        question.options = qtn.starOpts
-                    }
-                    survey.questions.push(question);
-                });
+                }
 
-                survey.save(function (err, newSurvey) {
-                    if (err) throw new Error(err);
-                    res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey });
-                });
+                if (!isErr) {
+                    var survey = new Survey();
+                    survey.name = req.body.name;
+                    survey.category = { id: req.body.category._id, name: req.body.category.name };
+                    survey.company_id = cmp_id;
+                    survey.organization = organization;
+                    survey.theme = req.body.selectedTheme._id;
+                    req.body.display_type = (plans.survey_logic) ? req.body.display_type : {ui: "Single", randomization: false, skip: false, pageno: false};
+                    survey.display_type = req.body.display_type;
 
-            } else {
-                res.json({ success: false, msg: errMsg });
-            }
+                    survey.start_datetime = start;
+                    survey.end_datetime = end;
+                    survey.logo = logoName;
+
+                    survey.is_header = req.body.showHeader;
+                    survey.is_footer = req.body.showFooter;
+                    survey.header_title = req.body.header;
+                    survey.footer_title = req.body.footer;
+
+                    survey.header_title = req.body.header;
+                    survey.header_title = req.body.header;
+
+                    survey.cmp_plan_id = plans._id;
+
+                    req.body.questions.forEach((qtn, i) => {
+                        let question = {
+                            question: qtn.question,
+                            ans_type: qtn.answerType,
+                            show_star_label: qtn.showStarLabel,
+                        }
+                        if (qtn.answerType == 'Multiple choice') {
+                            question.options = qtn.opts
+                        }
+                        if (qtn.answerType == 'star rating') {
+                            question.options = qtn.starOpts
+                        }
+                        survey.questions.push(question);
+                    });
+
+                    survey.save(function (err, newSurvey) {
+                        if (err) throw new Error(err);
+                        res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey });
+                    });
+
+                } else {
+                    res.json({ success: false, msg: errMsg });
+                }
+            });
+
             //      } catch (e) {
             //         return res.status(401).send('unauthorized 123');
             //     }
@@ -608,7 +629,7 @@ var returnRouter = function (io) {
             decoded = jwt.verify(authorization, config.secret);
             var cmp_id = decoded._id;
             companyName = decoded.organization
-
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
             //console.log(req.body);
             isErr = false;
             errMsg = '';
@@ -627,51 +648,61 @@ var returnRouter = function (io) {
 
             if (!isErr) {
 
-                let invUser = [];
-
-                req.body.users.forEach((user, index) => {
-
-                    imgCode = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000));
-                    info = {
-                        cmp_user_id: user.id,
-                        email: user.email,
-                        img_read_code: imgCode
+                Survey.findOne({ _id: req.body.survey._id, company_id: cmp_id }, (err, survey) => {
+                    if((survey.inv_users.length + req.body.users.length) > plans.no_survey_attenders){
+                        errMsg = "Failed, Maximum Allowed Survey Attenders " + plans.no_survey_attenders;
+                        isErr = true;
+                        res.json({ success: false, msg: errMsg });
+                    }else{
+                        let invUser = [];
+                        
+                        req.body.users.forEach((user, index) => {
+        
+                            imgCode = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000));
+                            info = {
+                                cmp_user_id: user.id,
+                                email: user.email,
+                                img_read_code: imgCode
+                            }
+                            invUser.push(info);
+        
+                        });
+        
+                        Survey.findOneAndUpdate({ "_id": req.body.survey._id },
+                            {
+                                $pushAll: { "inv_users": invUser }
+                            },
+                            { new: true },
+                            (err, survey) => {
+                                if (err) {
+                                    res.json({ success: false, msg: "Failed, somthing went wrong " });
+                                } else {
+                                    // res.json({success: true, msg : "User Updated successfully", company:company});
+                                    invUser.forEach(user => {
+                                        data = {
+                                            email: user.email,
+                                            company_name: companyName,
+                                            survey_name: survey.name,
+                                            start_date: formatDate(survey.start_datetime),
+                                            end_date: formatDate(survey.end_datetime),
+                                            link: config.siteUrl + 'user-response-email/' + survey._id + '/' + user.cmp_user_id,
+                                            imgeLink: config.siteUrl + 'company/show-mail-image/' + user.img_read_code
+                                        }
+                                        emailTemplate.sendInvitationMail(data);
+                                    });
+                                    io.sockets.emit("Invite Users", {
+        
+                                    });
+                                    res.json({ success: true, msg: "User Invited successfully" });
+        
+                                }
+                            });
+        
+                        console.log(invUser);    
                     }
-                    invUser.push(info);
-
                 });
 
-                Survey.findOneAndUpdate({ "_id": req.body.survey._id },
-                    {
-                        $pushAll: { "inv_users": invUser }
-                    },
-                    { new: true },
-                    (err, survey) => {
-                        if (err) {
-                            res.json({ success: false, msg: "Failed, somthing went wrong " });
-                        } else {
-                            // res.json({success: true, msg : "User Updated successfully", company:company});
-                            invUser.forEach(user => {
-                                data = {
-                                    email: user.email,
-                                    company_name: companyName,
-                                    survey_name: survey.name,
-                                    start_date: formatDate(survey.start_datetime),
-                                    end_date: formatDate(survey.end_datetime),
-                                    link: config.siteUrl + 'user-response-email/' + survey._id + '/' + user.cmp_user_id,
-                                    imgeLink: config.siteUrl + 'company/show-mail-image/' + user.img_read_code
-                                }
-                                emailTemplate.sendInvitationMail(data);
-                            });
-                            io.sockets.emit("Invite Users", {
-
-                            });
-                            res.json({ success: true, msg: "User Invited successfully" });
-
-                        }
-                    });
-
-                console.log(invUser);
+                
 
             } else {
                 res.json({ success: false, msg: errMsg });
@@ -916,6 +947,13 @@ var returnRouter = function (io) {
             end = '';
             errMsg = '';
 
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
+        
+            if(req.body.questions.length > plans.no_question){
+                errMsg = "Failed, maximum allowed question  " + plans.no_question;
+                isErr = true;
+            }
+
             if (req.body.start_date == '') {
                 errMsg = "Failed, Please Select Start Date";
                 isErr = true;
@@ -1009,6 +1047,7 @@ var returnRouter = function (io) {
                 survey.company_id = cmp_id;
                 survey.organization = organization;
                 survey.theme = req.body.selectedTheme._id;
+                req.body.display_type = (plans.survey_logic) ? req.body.display_type : {ui: "Single", randomization: false, skip: false, pageno: false};
                 survey.display_type = req.body.display_type;
 
                 survey.start_datetime = start;

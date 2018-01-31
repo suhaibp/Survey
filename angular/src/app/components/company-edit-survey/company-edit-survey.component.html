@@ -54,7 +54,7 @@
                                           </mat-form-field>
                                           <br>
                                         <mat-form-field class="inputfileds">
-                                            <mat-select placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
+                                            <mat-select [disabled]="!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic" placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
                                               <mat-option [value]="grp.value" *ngFor="let grp of displayType;" >{{grp.label}}</mat-option>
                                             </mat-select>
                                           </mat-form-field>
@@ -62,7 +62,7 @@
                                           <div  *ngIf="survey.display_type.ui == 'Multiple'">
                                           <section class="example-section">
                                              Dispaly Page Number
-                                              <mat-slide-toggle class="example-margin" name="pageno" [(ngModel)]="survey.display_type.pageno" [checked]="survey.display_type.pageno">
+                                              <mat-slide-toggle [disabled]="!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic" class="example-margin" name="pageno" [(ngModel)]="survey.display_type.pageno" [checked]="survey.display_type.pageno">
                                                  
                                                 </mat-slide-toggle>
                                                 
@@ -72,7 +72,7 @@
                                                 
                                           <section class="example-section">
                                               Random Question  
-                                              <mat-slide-toggle class="example-margin" name="randomization" [(ngModel)]="survey.display_type.randomization" [checked]="survey.display_type.randomization">
+                                              <mat-slide-toggle [disabled]="!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic" class="example-margin" name="randomization" [(ngModel)]="survey.display_type.randomization" [checked]="survey.display_type.randomization">
                                                  
                                                 </mat-slide-toggle>
                                               </section>
@@ -80,7 +80,7 @@
                                               <br>
                                               <section class="example-section">
                                                   Skip Question  
-                                                  <mat-slide-toggle class="example-margin" name="skip" [(ngModel)]="survey.display_type.skip" [checked]="survey.display_type.skip">
+                                                  <mat-slide-toggle [disabled]="!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic" class="example-margin" name="skip" [(ngModel)]="survey.display_type.skip" [checked]="survey.display_type.skip">
                                                      
                                                     </mat-slide-toggle>
                                                   </section>

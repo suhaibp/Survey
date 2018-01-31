@@ -66,6 +66,7 @@ newBlock ={
   groupsObject : any;
   getSingleData : any;
   email :any;
+  loggedInCompany : any;
   constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router ) { 
   }
   ngOnInit() {
@@ -100,6 +101,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     if(info.is_profile_completed == false){
       this.routes.navigate(['/additnInfo', info._id]);
     }
+    this.loggedInCompany = info;
   }
 });
 // ---------------------------------End-------------------------------------------

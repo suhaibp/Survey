@@ -82,7 +82,7 @@ export class CompanyEditSurveyComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);
   invitedEmailds = [];
-
+  loggedInCompany : any;
   constructor(private companyService: CompanyService,private dragulaService: DragulaService, private routes: Router, private route: ActivatedRoute,private config: Config) { }
   
   ngOnInit() {
@@ -117,6 +117,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     if(info.is_profile_completed == false){
       this.routes.navigate(['/additnInfo', info._id]);
     }
+    this.loggedInCompany = info;
   }
 });
 // ---------------------------------End-------------------------------------------
@@ -374,21 +375,30 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
   addQuestion(form){
    // console.log(this.quest);
-   this.btnDisbled = true;
-   this.isSuccess = true;
-   if(this.quest.answerType == 'star rating' && !this.quest.showStarLabel){
-    this.quest.starOpts = ['1','2','3','4','5']
-   }
-   this.survey.questions.push(this.quest); 
-   this.msg = "Question Added Successfully";
-   this.quest = {question:'',opts:['',''], answerType:'', showStarLabel : false, starOpts:['','','','','']};
-   this.btnDisbled = false;
-   form.resetForm();
-   setTimeout(()=>{ 
-     this.isSuccess = false;
-     this.msg = '';
-   }, 2000);
-    
+   if(this.survey.questions.length < this.loggedInCompany.plans[this.loggedInCompany.plans.length-1].no_question){
+      this.btnDisbled = true;
+      this.isSuccess = true;
+      if(this.quest.answerType == 'star rating' && !this.quest.showStarLabel){
+        this.quest.starOpts = ['1','2','3','4','5']
+      }
+      this.survey.questions.push(this.quest); 
+      this.msg = "Question Added Successfully";
+      this.quest = {question:'',opts:['',''], answerType:'', showStarLabel : false, starOpts:['','','','','']};
+      this.btnDisbled = false;
+      form.resetForm();
+      setTimeout(()=>{ 
+        this.isSuccess = false;
+        this.msg = '';
+      }, 2000);
+    }else{
+      this.isError = true;
+      this.msg = "Failed, Reached Maximum Questions";
+      setTimeout(()=>{ 
+        this.isError = false;
+        this.msg = '';
+      }, 2000);
+  
+    }  
    
   }
 
