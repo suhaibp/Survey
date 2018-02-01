@@ -61,4 +61,20 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 // ----------------------------------End-------------------------------------------
 
+
+// ---------------------------------Start-------------------------------------------
+// Function      : themeCreated()
+// Params        : true
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 24-1-2018
+// Last Modified : 22-1-2018, Manu Prasad, Desc:
+// Desc          : capture the event emitted by theme-create-container component
+themeCreated(stat){
+  if(stat == true){
+    this.viewComp = 'list'
+  }
+}
+// ----------------------------------End-------------------------------------------
+
 }

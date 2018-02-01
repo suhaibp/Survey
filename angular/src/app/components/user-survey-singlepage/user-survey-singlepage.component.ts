@@ -46,6 +46,7 @@ export class UserSurveySinglepageComponent implements OnInit {
   blankAns = false;
   serviceUrl :string;
   userIdx:any;
+  err = false;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
@@ -153,10 +154,12 @@ submitAns(){
         this.blankAns = true;
       }
       else if(res.status == 1||res.status == 3){
+        this.err = true;
         $('#myModal .modal-body h4').text("Somthing went wrong!");
         $('#myModal').modal('show'); 
       } 
       else if(res.status == 4){
+        this.err = false;                        
         $('#myModal .modal-body h4').text("Successfully submitted!");
         $('#myModal').modal('show'); 
       } 
@@ -170,19 +173,34 @@ submitAns(){
 
 // ---------------------------------Start-------------------------------------------
 // Function      : closed()
-// Params        : name of the view to be shown
+// Params        : 
 // Returns       : 
 // Author        : Manu Prasad
 // Date          : 28-12-2017
 // Last Modified : 28-12-2017, Manu Prasad, Desc:
-// Desc          : reload survey after submission
+// Desc          : redirect to success message
 closed(){
-  window.location.reload();  
+  // window.location.reload();  
+  this.routes.navigate(['/survey-success']);
+  
   
 }
 //  ---------------------------------end-----------------------------------------------
 
 
+// ---------------------------------Start-------------------------------------------
+// Function      : closed()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 29-1-2018
+// Last Modified : 29-1-2018, Manu Prasad, Desc:
+// Desc          : reload survey after submission
+closedErr(){
+  window.location.reload();  
+
+}
+//  ---------------------------------end-----------------------------------------------
 
 // ---------------------------------Start-------------------------------------------
 // Function      : timeOver()

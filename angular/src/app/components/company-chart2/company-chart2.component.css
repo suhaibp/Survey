@@ -65,3 +65,28 @@ rect:hover {  fill:blue; }
   .wdth{
     width: 804px;
   }
+
+  .no-g-data{
+    text-align: center;
+    min-height: 550px;
+    padding: 72px 0 55px 0;
+  }
+  .no-g-data h4{
+    font-size: 30px;
+    font-weight: 800;
+    color: #4F657D;
+  }
+  .no-g-data img{
+  
+    width: 62px;
+    margin: 100px 0 0 0;
+  }
+  .graph-containers h4{
+    padding: 0 0px 0 18px;
+    font-size: 25px;
+    color: #4F657D;
+    
+  }
+  .bar-gf{
+    margin: 26px 0 0 0;
+  }

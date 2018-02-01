@@ -1,15 +1,30 @@
 
 
 .bar {
-  fill: steelblue;
+  fill: #FE6896;
 }
 
 .bar:hover {
-  fill: brown;
+  fill: #FE4980;
 }
 
 .axis-title {
   fill: none;
   stroke: black;
   stroke-width: 0.5px;
+}
+.no-g-data{
+  text-align: center;
+  min-height: 550px;
+  padding: 72px 0 55px 0;
+}
+.no-g-data h4{
+  font-size: 30px;
+  font-weight: 800;
+  color: #4F657D
+}
+.no-g-data img{
+
+  width: 62px;
+  margin: 100px 0 0 0;
 }

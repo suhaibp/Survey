@@ -252,7 +252,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" #closeBtn2>&times;</button>
+          <button type="button" class="close" data-dismiss="modal" (click)="cnclImprt()" #closeBtn2>&times;</button>
           <h4 class="modal-title">Import From Excel</h4>
         </div>
         <div class="modal-body">
@@ -262,7 +262,7 @@
              <div class="col-md-6">
                 <label > File </label>
                 <!-- <br> -->
-                <input #myInput type="file" (change)="handleFile($event)" accept=".xlsx"/>
+                <input #myInput type="file" (change)="handleFile($event)"  accept=".xlsx"/>
             </div>
             <div class="col-md-6">
               <br>

@@ -30,7 +30,7 @@ refresh(){
   //this.users = [];
       this.adminService.getAdminnotification().subscribe(data=>{
       this.notif = data;
-      console.log(data);
+      // console.log(data);
     });
     
 }

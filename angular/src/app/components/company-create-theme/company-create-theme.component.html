@@ -25,7 +25,7 @@
             <!-- <all-users></all-users> -->
           </div>
           <div *ngIf="viewComp == 'create'">
-            <app-company-create-theme-container></app-company-create-theme-container>
+            <app-company-create-theme-container (themeCreated)="themeCreated($event)"></app-company-create-theme-container>
               <!-- <active-users></active-users> -->
             </div>
           <div *ngIf="viewComp == 'Blocked'">

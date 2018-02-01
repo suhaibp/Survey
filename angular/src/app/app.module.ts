@@ -11,14 +11,14 @@ import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 import {Config} from './config/config';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import 'hammerjs';
-import {scaleLinear} from "d3-scale";
+// import {scaleLinear} from "d3-scale";
 // import * as d3 from "d3";
 
 import { XlsxToJsonService} from './services/xlsx-to-json.service';
 import { UserService} from './services/user.service';
 import { AdminService} from './services/admin.service';
 import { CompanyService} from './services/company.service';
-import { D3Service } from 'd3-ng2-service';
+// import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
@@ -126,6 +126,8 @@ import { StarRatingModule } from 'angular-star-rating';
 import {Component} from "@angular/core";
 import {RatingModule} from "ngx-rating";
 import { CompanyChart2Component } from './components/company-chart2/company-chart2.component';
+import { UserSurveySuccessComponent } from './components/user-survey-success/user-survey-success.component';
+import { UserTestComponent } from './components/user-test/user-test.component';
 
 const appRoutes: Routes = [
   { path: '', component: CompanyLoginComponent },
@@ -183,7 +185,9 @@ const appRoutes: Routes = [
   {path:'company-create-survey', component:CompanyCreateSurveyComponent},
   {path:'company-list-survey', component:CompanyListSurveyComponent},
   {path:'company-edit-survey/:id', component:CompanyEditSurveyComponent},
-  {path:'preview', component:CompanySurveyPreviewComponent}
+  {path:'preview', component:CompanySurveyPreviewComponent},
+  {path:'survey-success', component:UserSurveySuccessComponent},
+  {path:'test', component:UserTestComponent},
 ]
 @NgModule({
   exports: [
@@ -287,7 +291,9 @@ export class DemoMaterialModule {}
     UserRegistrationComponent,
     NewpieComponent,
     PageNotFoundComponent,
-    CompanyChart2Component
+    CompanyChart2Component,
+    UserSurveySuccessComponent,
+    UserTestComponent
   ],
   imports: [
     BrowserModule,
@@ -310,7 +316,7 @@ export class DemoMaterialModule {}
     StarRatingModule.forRoot(),
     RatingModule
   ],
-  providers: [Config, AdminService, CompanyService, XlsxToJsonService, UserService, D3Service],
+  providers: [Config, AdminService, CompanyService, XlsxToJsonService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

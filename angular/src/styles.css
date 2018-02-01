@@ -134,7 +134,7 @@ body{background-color:#f0f0ef !important;margin-top:0 !important; }
 }
 
 agm-map {
-    height: 428px;
+    height: 531px;
     width: 100%;
   }
 
@@ -173,11 +173,12 @@ agm-map {
   }
 /* barchart */
 .bar {
-    fill: steelblue;
+    fill: #0189A9;
   }
   
   .bar:hover {
-    fill: brown;
+    fill: #02738e;
+    cursor: pointer;
   }
   
   .axis-title {
@@ -209,4 +210,34 @@ agm-map {
 .mat-step-header .mat-step-icon {
     background-color: #d9534f;
     color: rgba(255,255,255,.87);
+}
+
+#opnr li a:hover{
+    outline: none;
+    background-color: #c0233f !important;
+}
+.graph-containers{
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 1px 6px 19px 0px #ccc;
+    margin-bottom: 25px;
+}
+.graph-containers h1{
+    font-size: 25px;
+    color: #4F657D;
+}
+
+
+
+
+
+.piehvr:hover{
+    fill: #4F657D;
+}
+
+.barhvr{
+    fill: #039e82
+}
+.barhvr:hover{
+    fill: #0e826d
 }

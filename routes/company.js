@@ -1844,8 +1844,8 @@ var returnRouter = function (io) {
 
 
 
-        Survey.findOne({ "theme.id": req.params.id }, function (err, surveyTheme) {
-            console.log(req.params.id);
+        Survey.findOne({ "theme": req.params.id }, function (err, surveyTheme) {
+            console.log(surveyTheme);
 
             if (surveyTheme) {
                 res.json({
@@ -3122,7 +3122,7 @@ var returnRouter = function (io) {
                             answeredUser.push({ email: eachanswer.email, date_time: eachanswer.date_time,answer :eachanswer.answer });
                            
                         })
-                        mainArray[i].ans.push({ value: 'Click Here ', "count": 1, answeredUser: answeredUser });
+                        mainArray[i].ans.push({ value: 'Descriptive', "count": 1, answeredUser: answeredUser });
 
                     }
 
