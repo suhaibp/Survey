@@ -35,10 +35,10 @@
                         Atleast one item required!
                       </div>
                       <div *ngIf="isError" class="alert alert-danger">
-                        {{errorMsg}}
+                        <!-- {{errorMsg}} -->
                      </div>
                      <div *ngIf="isSuccess" class="alert alert-danger">
-                         {{errorMsg}}
+                         <!-- {{errorMsg}} -->
                       </div>
                    <div class="modal-body">
                          <form  role="form"  #f="ngForm" (ngSubmit)="insertOrganizationType();">

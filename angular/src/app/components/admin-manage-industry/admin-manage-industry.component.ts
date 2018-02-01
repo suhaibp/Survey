@@ -19,7 +19,7 @@ export class AdminManageIndustryComponent implements OnInit {
   showSpinner :boolean = false;
   showSpinnerDelete :boolean = false;
   errorMsg :'';
-  existStatus :Boolean =false;
+  existStatus :Boolean =true;
   Updatechange:Boolean =false;
   Updaterequired :boolean = false;
   UpdatealreadyExist :boolean = false;

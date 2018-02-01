@@ -18,7 +18,7 @@ export class AdminManageOrganizationTypeComponent implements OnInit {
   isSuccess : boolean = false
   isError : Boolean = false;
   errorMsg :'';
-  existStatus : boolean= false
+  existStatus : boolean= true
   Updaterequired :boolean = false;
   Updatechange:boolean = false;
   UpdatealreadyExist :boolean = false;

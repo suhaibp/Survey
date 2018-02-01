@@ -18,7 +18,7 @@ export class AdminManageSurveyCategoryComponent implements OnInit {
       isSuccess : boolean = false
       isError : Boolean = false;
       errorMsg :'';
-      existStatus :Boolean =false;
+      existStatus :Boolean =true;
       Updatechange:Boolean =false;
       Updaterequired :boolean = false;
       UpdatealreadyExist :boolean = false;
