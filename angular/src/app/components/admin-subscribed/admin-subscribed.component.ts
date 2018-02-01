@@ -11,6 +11,7 @@ export class AdminSubscribedComponent implements OnInit {
   displayedColumns = [ 'companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  all_value=false;
   selected = 'all';
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -32,7 +33,11 @@ export class AdminSubscribedComponent implements OnInit {
         const company = [];
           if(this.selected == 'all'){
             this.adminService.getAllsubcompanies().subscribe(data=>{
+              if(data.length != 0){
+                this.all_value=true;
+              }
               this.loadToDataTable(data);
+
             });
           }
           if(this.selected == 'Active'){

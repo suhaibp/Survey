@@ -12,6 +12,7 @@ export class AdminExpiredComponent implements OnInit {
   displayedColumns = [ 'slno','companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  all_value = false;
   selected = 'all';
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -34,6 +35,9 @@ export class AdminExpiredComponent implements OnInit {
    const company = [];
      if(this.selected == 'all'){
        this.adminService.getAllexpiredcompanies().subscribe(data=>{
+        if(data.length != 0){
+          this.all_value=true;
+        }
          this.loadToDataTable(data);
        });
      }

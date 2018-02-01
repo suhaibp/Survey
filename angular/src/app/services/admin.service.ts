@@ -1028,7 +1028,7 @@ export class AdminService {
   // Params        : 
   // Returns       : 
   // Author        : sudha
-  // Date          : 03-04-2018
+  // Date          : 03-01-2018
   // Last Modified : 
   // Desc          : view status user notifcation
 
@@ -1104,5 +1104,109 @@ export class AdminService {
     localStorage.clear();
   }
   // ---------------------------------------End--------------------------------------------
+  // ---------------------------------Start-------------------------------------------
+  // Function      : Admin company management
+  // Params        : 
+  // Returns       : 
+  // Author        : sudha
+  // Date          : 25-01-2018
+  // Last Modified : 
+  // Desc          : getAllplans
 
+  getAllplans() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(this.serviceUrl + 'allplans', { headers: headers })
+      .map(res => res.json());
+
+  }
+  // -----------------------------------End------------------------------------------
+   //  ---------------------------------Start-------------------------------------------
+  // Function      : addplans
+  // Params        : id
+  // Returns       : 
+  // Author        : sudha
+  // Date          :25-01-2018
+  // Last Modified : 
+  // Desc          : addPlans
+
+  addPlan(data: any) {
+    // console.log(data)
+    let headers =  new Headers()
+    headers.append('Content-Type', 'application/json');
+    return this.http.post(this.serviceUrl + 'addplan', data, { headers: headers })
+      .map(res => res.json());
+  }
+  // < ----------------------------------End-------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
+  // Function      : deletePlan
+  // Params        : id
+  // Returns       : 
+  // Author        : sudha
+  // Date          : 29-01-2018
+  // Last Modified :
+  // Desc          : to delete a plan
+
+  deletePlan(plan_id: any) {
+   
+    let headers =  new Headers()
+    headers.append('Content-Type', 'application/json');
+    return this.http.delete(this.serviceUrl + "deleteplan/" + plan_id, { headers: headers})
+      .map(res => res.json())
+  }
+
+  // < ----------------------------------End------------------------------------------- 
+     //  ---------------------------------Start-------------------------------------------
+  // Function      : edit Plan
+  // Params        : id
+  // Returns       : 
+  // Author        : sudha
+  // Date          : 29-01-2018
+  // Last Modified :
+  // Desc          : to edite a plan
+
+  getSingleplan(plan_id: any) {
+    
+     let headers =  new Headers()
+     headers.append('Content-Type', 'application/json');
+     return this.http.get(this.serviceUrl + "getsingleplan/" + plan_id, { headers: headers})
+       .map(res => res.json())
+   }
+ 
+   // < ----------------------------------End------------------------------------------- 
+      //  ---------------------------------Start-------------------------------------------
+  // Function      : update Plan
+  // Params        : id
+  // Returns       : 
+  // Author        : sudha
+  // Date          : 29-01-2018
+  // Last Modified :
+  // Desc          : to update a plan
+
+  updatePlan(plan: any) {
+  // console.log(plan);
+     let headers =  new Headers()
+     headers.append('Content-Type', 'application/json');
+     return this.http.post(this.serviceUrl + "updateplan", plan, { headers: headers})
+       .map(res => res.json())
+   }
+ 
+   // < ----------------------------------End------------------------------------------- 
+     // ---------------------------------Start-------------------------------------------
+  // Function      : bestPlan
+  // Params        : 
+  // Returns       : 
+  // Author        : sudha
+  // Date          : 30-01-2018
+  // Last Modified : 
+  // Desc          : bestPlan
+
+  bestPlan(id, best) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    var data = { _id: id, value: best }
+    return this.http.post(this.serviceUrl + 'bestplan', data, { headers: headers })
+      .map(res => res.json());
+  }
+  // -----------------------------------End------------------------------------------
 }

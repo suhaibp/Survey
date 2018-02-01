@@ -61,6 +61,7 @@ import { AdminActiveUsersComponent } from './components/admin-active-users/admin
 import { AdminBlockedUsersComponent } from './components/admin-blocked-users/admin-blocked-users.component';
 import { AdminDeletedUsersComponent } from './components/admin-deleted-users/admin-deleted-users.component';
 import { AdminRequestUsersComponent } from './components/admin-request-users/admin-request-users.component';
+import { AdminPlanComponent } from './components/admin-plan/admin-plan.component';
 import { CompanyLoginComponent } from './components/company-login/company-login.component';
 import { CompanyRegistrationComponent } from './components/company-registration/company-registration.component';
 import { CompanyAdditnInfoComponent } from './components/company-additn-info/company-additn-info.component';
@@ -69,6 +70,7 @@ import { CompanyEmailVerificationComponent } from './components/company-email-ve
 import { CompanyProfileComponent } from './components/company-profile/company-profile.component';
 import { CompanyTopbarComponent } from './components/company-topbar/company-topbar.component';
 import { UserResponseEmailComponent } from './components/user-response-email/user-response-email.component';
+import { CompanyChart2Component } from './components/company-chart2/company-chart2.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { NewpieComponent } from './components/newpie/newpie.component';
@@ -84,6 +86,8 @@ import { UserSurveyClosedComponent } from './components/user-survey-closed/user-
 import { UserSurveyUpcomingComponent } from './components/user-survey-upcoming/user-survey-upcoming.component';
 import { CountDownTimerComponent } from './components/count-down-timer/count-down-timer.component';
 import { UserSurveyMultipleComponent } from './components/user-survey-multiple/user-survey-multiple.component';
+
+
 
 import {
   MatAutocompleteModule,
@@ -125,7 +129,7 @@ import { ReversePipe } from './pipe/reverse.pipe';
 import { StarRatingModule } from 'angular-star-rating';
 import {Component} from "@angular/core";
 import {RatingModule} from "ngx-rating";
-import { CompanyChart2Component } from './components/company-chart2/company-chart2.component';
+
 
 const appRoutes: Routes = [
   { path: '', component: CompanyLoginComponent },
@@ -160,6 +164,7 @@ const appRoutes: Routes = [
   {path:'admin-company-blocked', component:AdminCompanyBlockedComponent},
   {path:'admin-company-deleted', component:AdminCompanyDeletedComponent},
   {path:'admin-users', component:AdminUsersComponent},
+  {path:'admin-users/:id', component:AdminUsersComponent},
   {path:'admin-all-users', component:AdminAllUsersComponent},
   {path:'admin-blocked-users', component:AdminBlockedUsersComponent},
   {path:'admin-company-active', component:AdminCompanyActiveComponent},
@@ -183,7 +188,8 @@ const appRoutes: Routes = [
   {path:'company-create-survey', component:CompanyCreateSurveyComponent},
   {path:'company-list-survey', component:CompanyListSurveyComponent},
   {path:'company-edit-survey/:id', component:CompanyEditSurveyComponent},
-  {path:'preview', component:CompanySurveyPreviewComponent}
+  {path:'preview', component:CompanySurveyPreviewComponent},
+  {path:'admin-plan', component:AdminPlanComponent}
 ]
 @NgModule({
   exports: [
@@ -220,7 +226,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [],
+  
 })
 export class DemoMaterialModule {}
 @NgModule({
@@ -287,7 +293,8 @@ export class DemoMaterialModule {}
     UserRegistrationComponent,
     NewpieComponent,
     PageNotFoundComponent,
-    CompanyChart2Component
+    CompanyChart2Component,
+    AdminPlanComponent
   ],
   imports: [
     BrowserModule,

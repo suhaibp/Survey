@@ -1,17 +1,28 @@
-<mat-form-field class="filter" >
-    <mat-select  (change)="refresh()" [(value)]="selected">
-      <!-- <mat-option>None</mat-option> -->
-      <mat-option value="all">All</mat-option>
-      <mat-option value="Subscribed">Subscribed</mat-option>
-      <mat-option value="Trail">Trail</mat-option>
-      <mat-option value="Expired">Expired</mat-option>
-      <mat-option value="Not Verified">Not Verified</mat-option>
-    </mat-select>
-  </mat-form-field>
-<div class="example-header">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
+
+<div class="col-md-12">
+    <div class="row">
+      <div class="col-md-10">
+          <div class="example-header">
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              </mat-form-field>
+            </div>
+      </div>
+      <div class="col-md-2">
+       <div *ngIf="all_value">
+        <mat-form-field class="filter"> 
+            <mat-select  (change)="refresh()" [(value)]="selected">
+              <!-- <mat-option>None</mat-option> -->
+              <mat-option value="all">All</mat-option>
+              <mat-option value="Subscribed">Subscribed</mat-option>
+              <mat-option value="Trail">Trail</mat-option>
+              <mat-option value="Expired">Expired</mat-option>
+              <mat-option value="Not Verified">Not Verified</mat-option>
+            </mat-select>
+      </mat-form-field>
+    </div>
+</div>
+</div>
 </div>
   
   <div class="example-container mat-elevation-z8">

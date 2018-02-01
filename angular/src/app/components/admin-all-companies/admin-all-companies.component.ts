@@ -13,7 +13,8 @@ export class AdminAllCompaniesComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   notExist =false;
   selected = 'all';
-
+  all_value =false;
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
  
@@ -35,12 +36,16 @@ export class AdminAllCompaniesComponent implements OnInit {
             const company = [];
               if(this.selected == 'all'){
                 this.adminService.getAllcompanies().subscribe(data=>{
+                  if(data.length != 0){
+                    this.all_value=true;
+                  }
                   this.loadToDataTable(data);
                 });
               }
               if(this.selected == 'Active'){
                 this.adminService.getAllactivecompanies().subscribe(data=>{
                   this.loadToDataTable(data);
+                  
                 });
               }
               if(this.selected == 'Block'){

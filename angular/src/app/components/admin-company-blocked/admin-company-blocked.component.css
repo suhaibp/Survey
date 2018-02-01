@@ -19,7 +19,5 @@
     max-height: 500px;
   }
   .filter{
-    width: 10%;
-    float: right;
-    clear: left;
+    margin-top: 10px;
   }

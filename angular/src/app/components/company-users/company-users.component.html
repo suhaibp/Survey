@@ -117,12 +117,14 @@
                   <br>
                       <div class="col-md-7">
                           <div class="col-md-4 pull-right">
+                              <div *ngIf="userGroups.length > 0">
                               <mat-form-field class="filter">
                                   <mat-select   (change)="updateUserList()" name="xyz" [(ngModel)]="selectedUserGroup"  >
                                     <mat-option value="all">All</mat-option>
                                     <mat-option value="{{grp._id}}" *ngFor="let grp of userGroups">{{grp.name}}</mat-option>
                                   </mat-select>
                           </mat-form-field>
+                          </div>
                           </div>
                       <div class="example-header" >
                           <mat-form-field>

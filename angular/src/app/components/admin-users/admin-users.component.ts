@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService} from './../../services/admin.service';
-import {Router} from '@angular/router';
+import {Router,ActivatedRoute,Params} from '@angular/router';
 
 @Component({
   selector: 'admin-users',
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class AdminUsersComponent implements OnInit {
   viewComp : string='All';
   title : any;
-  constructor(private adminService : AdminService, private routes: Router) { }
+  constructor(private adminService : AdminService, private routes: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -46,6 +46,11 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
 });
 // ---------------------------------End-------------------------------------------
     console.log(this.viewComp);
+    this._activatedRoute.params.subscribe((params: Params) => {
+      this.viewComp = (params['id'] == 'block_request') ? 'Request': 'All';
+      
+    });
+
   }
 updateView(page){
     this.viewComp = page;
