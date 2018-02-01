@@ -3876,6 +3876,7 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
             var snackBarRef = this.snackBar.open('* Atleast one item required!', '', {
                 duration: 2000
             });
+            // console.log("test");
             setTimeout(function () {
                 _this.atleastOneitem = false;
             }, 2000);
