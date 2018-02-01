@@ -57,11 +57,21 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 });
 // ---------------------------------End-------------------------------------------
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : to show survey preview
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 18-01-2018
+// Last Modified : 18-01-2018, Yasir Poongadan
+// Desc          : copied from manu frontend ui
     this.theme = this.survey;
     this.progressBarWidth = (this.progNo/this.survey.questions.length)*100;
     
   }
 
+  
   backTosurvey(){
     this.onBackBtnClick.emit();
   }
@@ -88,4 +98,5 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.cardNo = this.cardNo+1
     
   }
+  // ---------------------------------End-------------------------------------------
 }

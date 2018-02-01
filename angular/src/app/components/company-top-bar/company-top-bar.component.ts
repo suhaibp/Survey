@@ -52,7 +52,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.routes.navigate(['/clogin']); 
   }
   this.company_name = info.organization;
-  console.log(this.company_name);
+  // console.log(this.company_name);
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -78,16 +78,17 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
   loadData(){
       this.companyService.getAcceptedNotification().subscribe(data => {
-          this.count = data.arr1.length;
-          console.log(this.count);
+        console.log(data);
+          this.count = data.length;
+          // console.log(this.count);
           this.dataArray= [];
-          data.arr1.forEach(element => {
+          data.forEach(element => {
               this.dataArray.push(element);
          });
      });
    }
   notifViewed(email,id){
-    // console.log(id);
+    console.log(id);
     // console.log(email);
     this.userData.userEmail = email;
     this.userData.userId = id

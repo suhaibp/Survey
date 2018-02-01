@@ -129,6 +129,7 @@ import { CompanyChart2Component } from './components/company-chart2/company-char
 import { UserSurveySuccessComponent } from './components/user-survey-success/user-survey-success.component';
 import { UserTestComponent } from './components/user-test/user-test.component';
 
+
 const appRoutes: Routes = [
   { path: '', component: CompanyLoginComponent },
   {path:'', redirectTo:'/clogin', pathMatch:'full'},
@@ -224,7 +225,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatTooltipModule,
   ],
-  declarations: [],
+
 })
 export class DemoMaterialModule {}
 @NgModule({

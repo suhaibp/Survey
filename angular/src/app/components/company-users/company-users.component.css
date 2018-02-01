@@ -309,3 +309,13 @@ a{outline:none; }
  .cdk-overlay-container {
     z-index: 1052 !important;
  }
+ .noItemFound{
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid lightgray;
+
+ }
+ .back-color{
+    color: #757575;
+    background-color: #ffffff;
+}

@@ -53,8 +53,8 @@
                                             </mat-select>
                                           </mat-form-field>
                                           <br>
-                                        <mat-form-field class="inputfileds">
-                                            <mat-select placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
+                                        <mat-form-field  class="inputfileds">
+                                            <mat-select [disabled]="!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic" placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
                                               <mat-option [value]="grp.value" *ngFor="let grp of displayType;" >{{grp.label}}</mat-option>
                                             </mat-select>
                                           </mat-form-field>
@@ -62,7 +62,7 @@
                                           <div  *ngIf="survey.display_type.ui == 'Multiple'">
                                           <section class="example-section">
                                              Dispaly Page Number
-                                              <mat-slide-toggle class="example-margin" name="pageno" [(ngModel)]="survey.display_type.pageno" [checked]="survey.display_type.pageno">
+                                              <mat-slide-toggle [disabled]="!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic" class="example-margin" name="pageno" [(ngModel)]="survey.display_type.pageno" [checked]="survey.display_type.pageno">
                                                  
                                                 </mat-slide-toggle>
                                                 
@@ -70,17 +70,17 @@
                                               <br>
                                              </div> 
                                                 
-                                          <section class="example-section">
+                                          <section  class="example-section">
                                               Random Question  
-                                              <mat-slide-toggle class="example-margin" name="randomization" [(ngModel)]="survey.display_type.randomization" [checked]="survey.display_type.randomization">
+                                              <mat-slide-toggle  [disabled]="!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic"  class="example-margin" name="randomization" [(ngModel)]="survey.display_type.randomization" [checked]="survey.display_type.randomization">
                                                  
                                                 </mat-slide-toggle>
                                               </section>
 
                                               <br>
-                                              <section class="example-section">
+                                              <section  class="example-section">
                                                   Skip Question  
-                                                  <mat-slide-toggle class="example-margin" name="skip" [(ngModel)]="survey.display_type.skip" [checked]="survey.display_type.skip">
+                                                  <mat-slide-toggle  [disabled]="!loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic"  class="example-margin" name="skip" [(ngModel)]="survey.display_type.skip" [checked]="survey.display_type.skip">
                                                      
                                                     </mat-slide-toggle>
                                                   </section>
@@ -161,6 +161,9 @@
                                                                 
                                                   </div> 
                                                 </div>
+                                                <div *ngIf="showSpinner" class="deletespinner">
+                                                    <mat-spinner></mat-spinner>
+                                                   </div>
                                                 <div class="col-md-12 ftr" *ngIf="survey.showFooter" [ngStyle]="{'background-color': survey.selectedTheme.f_bg_color || '#000'}" >
                                                     <a href="javascript:void(0)"  *ngIf="!survey.showFooterInput" (click)="showFooterInput()" title="Click here to set a footer">
                                                     <h6  [ngStyle]="{'color': '#fff'}">
@@ -173,12 +176,12 @@
                                                 <a class="btn btn-danger ourbutton"  [routerLink]="['/company-list-survey']" >Back</a>
                                                 <button  class="btn btn-danger ourbutton" type= "submit" (click)="showPreview();" >Preview</button>
                                                 <button  class="btn btn-danger ourbutton" type= "submit" [disabled]="saveBtnDisbled"  >Save & Continue</button>
-                                                <div *ngIf="isError2" class="text-danger text-left">
+                                                <!-- <div *ngIf="isError2" class="text-danger text-left">
                                                     {{msg2}}
                                                </div>
                                                 <div *ngIf="isSuccess2" class="text-success text-left">
                                                     {{msg2}}
-                                              </div>
+                                              </div> -->
                                               </div>
                                             </div>
                                           </div>
@@ -211,7 +214,7 @@
                                   
                               <!-- <form  role="form"  #finvite="ngForm" (ngSubmit)="finvite.form.valid && updateQuestion(finvite);" novalidate> -->
                               
-                                  <div class="form-group" >
+                                  <div class="form-group"  *ngIf="existStatus" >
                                       
                                   
                                   <mat-form-field class="filter">
@@ -260,6 +263,12 @@
                                                          (click)="selection.toggle(row)">
                                                 </mat-row>
                                               </mat-table>
+
+                                              <div class="col-md-12 noItemFound" *ngIf="existStatus">
+                                                <div class="col-md-4 col-md-offset-4">
+                                                    <mat-toolbar   class="back-color">No item found!</mat-toolbar>
+                                                </div>
+                                            </div>
                                               <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                                             </div>
                                         
@@ -277,12 +286,15 @@
                                   </div>
 
                                   <div style="clear: both;"></div>
-                                  <div *ngIf="isError3" class="text-danger text-left">
+                                  <div *ngIf="showSpinner" class="deletespinner">
+                                      <mat-spinner></mat-spinner>
+                                     </div>
+                                  <!-- <div *ngIf="isError3" class="text-danger text-left">
                                       {{msg3}}
                                  </div>
                                  <div *ngIf="isSuccess3" class="text-success text-left">
                                     {{msg3}}
-                              </div>
+                              </div> -->
                                   <!-- <button [disabled]="inviteBtnDisbled" class="btn btn-danger ourbutton" >Send Later</button> -->
                                   <a class="btn btn-danger ourbutton"  href="/company-list-survey" >Send Later</a>
                                   <button  [disabled]="inviteBtnDisbled" class="btn btn-danger ourbutton" (click)="inviteUser()" >Send Invitation</button>
@@ -320,12 +332,12 @@
                                   <div class="form-group" >
                                       <label > Question </label>
                                       <br>
-                                      <div *ngIf="isError1" class="text-danger text-left">
+                                      <!-- <div *ngIf="isError1" class="text-danger text-left">
                                           {{msg1}}
                                      </div>
                                      <div *ngIf="isSuccess1" class="text-success text-left">
                                         {{msg1}}
-                                  </div>
+                                  </div> -->
 
                                       <div class="inputitem">
                                           <mat-form-field class="inputfileds">
@@ -401,6 +413,9 @@
 
                                   </div>
                                   <div style="clear: both;"></div>
+                                  <div *ngIf="showSpinner" class="deletespinner">
+                                      <mat-spinner></mat-spinner>
+                                     </div>
                                   <button type= "submit" [disabled]="updateBtnDisbled" class="btn btn-danger ourbutton" >Update</button>
                                  
                               </form>
@@ -433,12 +448,12 @@
                                   <div class="form-group" >
                                       <label > Question </label>
                                       <br>
-                                      <div *ngIf="isError" class="text-danger text-left">
+                                      <!-- <div *ngIf="isError" class="text-danger text-left">
                                           {{msg}}
                                      </div>
                                      <div *ngIf="isSuccess" class="text-success text-left">
                                         {{msg}}
-                                  </div>
+                                  </div> -->
 
                                       <div class="inputitem">
                                           <mat-form-field class="inputfileds">
@@ -514,6 +529,9 @@
 
                                   </div>
                                   <div style="clear: both;"></div>
+                                  <div *ngIf="showSpinner" class="deletespinner">
+                                      <mat-spinner></mat-spinner>
+                                     </div>
                                   <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
                                  
                               </form>

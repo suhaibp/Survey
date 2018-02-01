@@ -4,6 +4,7 @@ import { AdminService } from '../../services/admin.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'admin-manage-survey-attender-type',
@@ -19,6 +20,8 @@ export class AdminManageSurveyAttenderTypeComponent implements OnInit {
   errorMsg :'';
   existStatus : boolean= false
   Updatechange:Boolean =false;
+  showSpinner :boolean = false;
+  showSpinnerDelete :boolean = false;
   Updaterequired :boolean = false;
   UpdatealreadyExist :boolean = false;
   attenderId :any;
@@ -42,7 +45,7 @@ export class AdminManageSurveyAttenderTypeComponent implements OnInit {
 }
 
 
-  constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute) { }
+  constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -110,13 +113,21 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   // Desc          : to get all survey survey attender type
 
   loadData(){
+    this.showSpinner = true
     const users: any[] = [];
     this._adminService.getAttenderType().subscribe(data1=>{
-        if(data1 != '')
+      if(data1 == '')
+      {
+        this.showSpinner = false
+        this.existStatus = false;
+      }
+        else if(data1 != '')
         {
+          this.showSpinner = false
           this.existStatus = true;
         }
           data1.forEach((item, index) => {
+            this.showSpinner = false
               users.push({
               name: item.name,
               id :item._id
@@ -155,11 +166,9 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   if(this.newAttender.length > 1){
         this.newAttender.splice(index, 1);
         }else{
-            this.atleastOneitem = true;
-            setTimeout(()=>{ 
-                this.atleastOneitem = false;
-            }, 2000);
-            return false;
+          let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
+            duration: 2000
+          });
         }
     }
 //  ---------------------------------end-----------------------------------------------
@@ -173,18 +182,18 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
  // Last Modified : 29-12-2017, Jooshifa 
  // Desc          : close a survey attender  type
  insertAttenderType(){
+  this.showSpinner = true
    this._adminService.addAttenderType(this.newAttender).subscribe(data => {
         if(!data.success){
-            this.isError = true;
-            this.errorMsg = data.msg;
-            this.btnDisbled = false
-            setTimeout(()=>{ 
-                this.isError = false;
-                this.errorMsg = '';
-            }, 2000);
+             this.btnDisbled = false
+            this.showSpinner = false
+            let snackBarRef =  this.snackBar.open(data.msg, '', {
+              duration: 2000
+          });
         }
              
         else if(data.success){
+         
             this.btnDisbled = true
             this.loadData();
             this.closeBtn.nativeElement.click();
@@ -195,7 +204,10 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
                 this.errorMsg = '';
                 this.btnDisbled = false
           }, 2000);
-            this._flashMessagesService.show('Add Survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open('Create  Category Successfully', '', {
+            duration: 2000
+          });
           // this.closeBtn.nativeElement.click();
             this.newAttender =  [{name: ''}];
       }
@@ -220,7 +232,7 @@ applyFilter(filterValue: string) {
 //  ---------------------------------end-----------------------------------------------
 addNew(){
   this.newAttender =  [{name: ''}];
-
+  this.showSpinner = false
 
  }
 
@@ -234,14 +246,22 @@ addNew(){
  // Desc          : delete survey survey attender type
 
  deleteattenderType(id){ 
+  this.showSpinnerDelete = true
    
         this._adminService.deleteAttenderType(id).subscribe(data2=>{
         if(data2.success==false){
-            this._flashMessagesService.show('Failed! This Servey attender type is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+          this.showSpinnerDelete = false
+            // this._flashMessagesService.show('Failed! This Servey attender type is currently used by a company ', { cssClass: 'alert-danger', timeout: 3000 });
+            let snackBarRef =  this.snackBar.open('Failed! This Industry is currently used by a company', '', {
+              duration: 2000
+          });
         }
         else{
             this.loadData();
-            this._flashMessagesService.show('Delete survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+            this.showSpinnerDelete = false
+            let snackBarRef =  this.snackBar.open('Delete Survey attender type Successfully', '', {
+              duration: 2000
+            });
         }
    });
 }
@@ -258,6 +278,7 @@ addNew(){
 
 
 getAttenderTypeId(id){
+  this.showSpinner = false
      this.attenderId = id;
      this.sub = this.route.params.subscribe(params => {
          this._adminService.getSingleAttenderType(this.attenderId).subscribe(data3 => {
@@ -278,34 +299,36 @@ getAttenderTypeId(id){
  // Desc          : update serevey attender type
 
 
- updateattenderType(attender){ 
+ updateattenderType(attender){
+  this.showSpinner = true 
     this._adminService.updateAttenderType(attender).subscribe(data4 => {
         if(data4.success==false && data4.msg == 'required'){
-              this.Updaterequired = true
-              setTimeout(()=>{ 
-                    this.Updaterequired = false;
-              }, 2000);
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open('* It is a required field!', '', {
+            duration: 2000
+          });
         }
         else{
         if(data4.success==false && data4.msg == 'alreadyexist'){
-                this.UpdatealreadyExist = true
-                setTimeout(()=>{ 
-                      this.UpdatealreadyExist = false;
-                }, 2000);
-              
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open('* This type is already exist!', '', {
+            duration: 2000
+          });
           }
           else{
             if(data4.success==false && data4.msg == 'nochange'){
-                this.Updatechange = true
-                setTimeout(()=>{ 
-                  this.Updatechange = false;
-                  }, 2000);
+              this.showSpinner = false
+              let snackBarRef =  this.snackBar.open('* No changes to update!', '', {
+                duration: 2000
+              });
             
             }
           else{
                 this.loadData();
                 this.closeBtn1.nativeElement.click();
-                this._flashMessagesService.show('Update survey attender type Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                let snackBarRef =  this.snackBar.open('Update Survey attender type Successfully', '', {
+                  duration: 2000
+                });
         }
       }
     }

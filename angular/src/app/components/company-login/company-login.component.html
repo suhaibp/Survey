@@ -15,11 +15,14 @@
 			<input type="password" placeholder="Password" class="styles1" required [(ngModel)]="newLogin.password" name="password" #password="ngModel"/>
 			<div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
 	  </div>
-     <br/>
+	 <br/>
+	 		<div *ngIf="showSpinner" class="deletespinner">
+			<mat-spinner></mat-spinner>
+		   </div>
 			<button [disabled]="btnDisbled" type="submit" class="btn btn-danger">Sign In</button>
 			<br>
 		 <div class="text-danger text-center">
-				{{msg}}
+				<!-- {{msg}} -->
 	 </div>
 		<br/>
 

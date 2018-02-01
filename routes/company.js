@@ -74,7 +74,7 @@ var returnRouter = function (io) {
     // Desc          : sample
 
     router.post('/add-user-group', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-        console.log(req.body);
+        // console.log(req.body);
 
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4), decoded;
@@ -83,10 +83,11 @@ var returnRouter = function (io) {
             var cmp_id = decoded._id;
             var isSuccess = false;
             msg = '';
+            req.body.group = myTrim(req.body.group); 
             UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
                 //  console.log(docs);
                 if (docs.length) {
-                    res.json({ success: false, msg: "Group Already Exists" });
+                    res.json({ success: false, msg: "* Group Already Exists!" });
                 } else {
 
                     var userGroup = new UserGroup();
@@ -94,7 +95,7 @@ var returnRouter = function (io) {
                     userGroup.cmp_id = cmp_id;
                     userGroup.save(function (err, insertedGroup) {
                         if (err) {
-                            res.json({ success: false, msg: "Failed, somthing went wrong " });
+                            res.json({ success: false, msg: "* Failed, somthing went wrong! " });
                         } else {
 
                             if (req.body.email=='' || req.body.email== null || !req.body.email) {
@@ -114,7 +115,7 @@ var returnRouter = function (io) {
                                                 // console.log(userGroup)
                                                 if (err) {
                                                     isSuccess = false;
-                                                    msg = 'Something went wrong';
+                                                    msg = '* Something went wrong!';
                                                 } else {
                                                     isSuccess = true;
                                                     msg = 'Add User group Successfully';
@@ -307,129 +308,146 @@ var returnRouter = function (io) {
             var authorization = req.headers.authorization.substring(4), decoded;
             //     try {
             decoded = jwt.verify(authorization, config.secret);
+            //console.log(decoded);
 
             var cmp_id = decoded._id;
             var organization = decoded.organization;
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
             isErr = false;
             start = '';
             end = '';
             errMsg = '';
 
-            if (req.body.start_date == '') {
-                errMsg = "Failed, Please Select Start Date";
-                isErr = true;
-            } else {
-                var start = new Date(req.body.start_date);
-                start.setHours(00, 00, 00, 000);
-            }
-
-            if (req.body.end_date == '') {
-                errMsg = "Failed, Please Select End Date";
-                isErr = true;
-            } else {
-                var end = new Date(req.body.end_date);
-                end.setHours(23, 59, 59, 999);
-            }
-
-            if (!isErr && end <= start) {
-                errMsg = "Failed, End Date shold be greater than start date";
-                isErr = true;
-            }
-
-
-            if (!isErr && myTrim(req.body.name) == '') {
-                errMsg = "Failed, Please Enter Survay Name";
-                isErr = true;
-            }
-            if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
-                errMsg = "Failed, Please Select Category";
-                isErr = true;
-            }
-            if (!isErr && !req.body.selectedTheme) {
-                errMsg = "Failed, Please Select Any Theme";
-                isErr = true;
-            }
-            if (!isErr && !req.body.display_type) {
-                errMsg = "Failed, Please Select Display Type";
-                isErr = true;
-            }
-            if (!isErr && !req.body.display_type) {
-                errMsg = "Failed, Please Select Display Type";
-                isErr = true;
-            }
-            if (!isErr && req.body.questions.length == 0) {
-                errMsg = "Failed, Please Add Atleast OneQuestion";
-                isErr = true;
-            }
-
-
-            var logoName = '';
-            if (req.body.logoSrc != '') {
-                ext = ['gif', 'png', 'jpg', 'jpeg']
-                var base64 = decodeBase64Image(req.body.logoSrc);
-
-                if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
-                    errMsg = "Failed, Invalid Logo";
+            Survey.find({company_id: cmp_id,cmp_plan_id: plans._id }, function (err, survey) {
+                // console.log(survey.length);
+                // console.log(plans.no_survey);
+                if(survey.length >= plans.no_survey){
+                    errMsg = "* Failed, Reached maximum survey limit of " + plans.no_survey ;
                     isErr = true;
                 }
-                if (!isErr) {
-                    console.log(base64.type);
-                    console.log(base64.ext);
-                    logoName = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000) + '.' + base64.ext);
-                    var images = new Images();
-                    var buf = new Buffer(base64.data, 'base64');
-                    images.file_name = logoName;
-                    images.logo.data = buf;
-                    images.logo.contentType = base64.type;
-                    images.save(function (err) {
-                    });
+         
+                if(req.body.questions.length > plans.no_question){
+                    errMsg = "* Failed, maximum allowed question  " + plans.no_question;
+                    isErr = true;
                 }
-            }
+         
 
-            if (!isErr) {
-                var survey = new Survey();
-                survey.name = req.body.name;
-                survey.category = { id: req.body.category._id, name: req.body.category.name };
-                survey.company_id = cmp_id;
-                survey.organization = organization;
-                survey.theme = req.body.selectedTheme._id;
-                survey.display_type = req.body.display_type;
+                if (req.body.start_date == '') {
+                    errMsg = "* Failed, Please Select Start Date!";
+                    isErr = true;
+                } else {
+                    var start = new Date(req.body.start_date);
+                    start.setHours(00, 00, 00, 000);
+                }
 
-                survey.start_datetime = start;
-                survey.end_datetime = end;
-                survey.logo = logoName;
+                if (req.body.end_date == '') {
+                    errMsg = "* Failed, Please Select End Date!";
+                    isErr = true;
+                } else {
+                    var end = new Date(req.body.end_date);
+                    end.setHours(23, 59, 59, 999);
+                }
 
-                survey.is_header = req.body.showHeader;
-                survey.is_footer = req.body.showFooter;
-                survey.header_title = req.body.header;
-                survey.footer_title = req.body.footer;
+                if (!isErr && end <= start) {
+                    errMsg = "* Failed, End Date shold be greater than start date!";
+                    isErr = true;
+                }
 
-                survey.header_title = req.body.header;
-                survey.header_title = req.body.header;
+                if (!isErr && myTrim(req.body.name) == '') {
+                    errMsg = "* Failed, Please Enter Survay Name!";
+                    isErr = true;
+                }
+                if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
+                    errMsg = "* Failed, Please Select Category!";
+                    isErr = true;
+                }
+                if (!isErr && !req.body.selectedTheme) {
+                    errMsg = "* Failed, Please Select Any Theme!";
+                    isErr = true;
+                }
+                if (!isErr && !req.body.display_type) {
+                    errMsg = "* Failed, Please Select Display Type!";
+                    isErr = true;
+                }
+            
+                if (!isErr && req.body.questions.length == 0) {
+                    errMsg = "* Failed, Please Add Atleast OneQuestion!";
+                    isErr = true;
+                }
 
-                req.body.questions.forEach((qtn, i) => {
-                    let question = {
-                        question: qtn.question,
-                        ans_type: qtn.answerType,
-                        show_star_label: qtn.showStarLabel,
+
+                var logoName = '';
+                if (req.body.logoSrc != '') {
+                    ext = ['gif', 'png', 'jpg', 'jpeg']
+                    var base64 = decodeBase64Image(req.body.logoSrc);
+
+                    if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
+                        errMsg = "Failed, Invalid Logo";
+                        isErr = true;
                     }
-                    if (qtn.answerType == 'Multiple choice') {
-                        question.options = qtn.opts
+                    if (!isErr) {
+                        console.log(base64.type);
+                        console.log(base64.ext);
+                        logoName = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000) + '.' + base64.ext);
+                        var images = new Images();
+                        var buf = new Buffer(base64.data, 'base64');
+                        images.file_name = logoName;
+                        images.logo.data = buf;
+                        images.logo.contentType = base64.type;
+                        images.save(function (err) {
+                        });
                     }
-                    if (qtn.answerType == 'star rating') {
-                        question.options = qtn.starOpts
-                    }
-                    survey.questions.push(question);
-                });
+                }
 
-                survey.save(function (err, newSurvey) {
-                    if (err) throw new Error(err);
-                    res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey });
-                });
+                if (!isErr) {
+                    var survey = new Survey();
+                    survey.name = req.body.name;
+                    survey.category = { id: req.body.category._id, name: req.body.category.name };
+                    survey.company_id = cmp_id;
+                    survey.organization = organization;
+                    survey.theme = req.body.selectedTheme._id;
+                    req.body.display_type = (plans.survey_logic) ? req.body.display_type : {ui: "Single", randomization: false, skip: false, pageno: false};
+                    survey.display_type = req.body.display_type;
 
-            } else {
-                res.json({ success: false, msg: errMsg });
-            }
+                    survey.start_datetime = start;
+                    survey.end_datetime = end;
+                    survey.logo = logoName;
+
+                    survey.is_header = req.body.showHeader;
+                    survey.is_footer = req.body.showFooter;
+                    survey.header_title = req.body.header;
+                    survey.footer_title = req.body.footer;
+
+                    survey.header_title = req.body.header;
+                    survey.header_title = req.body.header;
+
+                    survey.cmp_plan_id = plans._id;
+
+                    req.body.questions.forEach((qtn, i) => {
+                        let question = {
+                            question: qtn.question,
+                            ans_type: qtn.answerType,
+                            show_star_label: qtn.showStarLabel,
+                        }
+                        if (qtn.answerType == 'Multiple choice') {
+                            question.options = qtn.opts
+                        }
+                        if (qtn.answerType == 'star rating') {
+                            question.options = qtn.starOpts
+                        }
+                        survey.questions.push(question);
+                    });
+
+                    survey.save(function (err, newSurvey) {
+                        if (err) throw new Error(err);
+                        res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey });
+                    });
+
+                } else {
+                    res.json({ success: false, msg: errMsg });
+                }
+            });
+
             //      } catch (e) {
             //         return res.status(401).send('unauthorized 123');
             //     }
@@ -607,7 +625,7 @@ var returnRouter = function (io) {
             decoded = jwt.verify(authorization, config.secret);
             var cmp_id = decoded._id;
             companyName = decoded.organization
-
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
             //console.log(req.body);
             isErr = false;
             errMsg = '';
@@ -626,51 +644,61 @@ var returnRouter = function (io) {
 
             if (!isErr) {
 
-                let invUser = [];
-
-                req.body.users.forEach((user, index) => {
-
-                    imgCode = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000));
-                    info = {
-                        cmp_user_id: user.id,
-                        email: user.email,
-                        img_read_code: imgCode
+                Survey.findOne({ _id: req.body.survey._id, company_id: cmp_id }, (err, survey) => {
+                    if((survey.inv_users.length + req.body.users.length) > plans.no_survey_attenders){
+                        errMsg = "Failed, Maximum Allowed Survey Attenders " + plans.no_survey_attenders;
+                        isErr = true;
+                        res.json({ success: false, msg: errMsg });
+                    }else{
+                        let invUser = [];
+                        
+                        req.body.users.forEach((user, index) => {
+        
+                            imgCode = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000));
+                            info = {
+                                cmp_user_id: user.id,
+                                email: user.email,
+                                img_read_code: imgCode
+                            }
+                            invUser.push(info);
+        
+                        });
+        
+                        Survey.findOneAndUpdate({ "_id": req.body.survey._id },
+                            {
+                                $pushAll: { "inv_users": invUser }
+                            },
+                            { new: true },
+                            (err, survey) => {
+                                if (err) {
+                                    res.json({ success: false, msg: "Failed, somthing went wrong " });
+                                } else {
+                                    // res.json({success: true, msg : "User Updated successfully", company:company});
+                                    invUser.forEach(user => {
+                                        data = {
+                                            email: user.email,
+                                            company_name: companyName,
+                                            survey_name: survey.name,
+                                            start_date: formatDate(survey.start_datetime),
+                                            end_date: formatDate(survey.end_datetime),
+                                            link: config.siteUrl + 'user-response-email/' + survey._id + '/' + user.cmp_user_id,
+                                            imgeLink: config.siteUrl + 'company/show-mail-image/' + user.img_read_code
+                                        }
+                                        emailTemplate.sendInvitationMail(data);
+                                    });
+                                    io.sockets.emit("Invite Users", {
+        
+                                    });
+                                    res.json({ success: true, msg: "User Invited successfully" });
+        
+                                }
+                            });
+        
+                        console.log(invUser);    
                     }
-                    invUser.push(info);
-
                 });
 
-                Survey.findOneAndUpdate({ "_id": req.body.survey._id },
-                    {
-                        $pushAll: { "inv_users": invUser }
-                    },
-                    { new: true },
-                    (err, survey) => {
-                        if (err) {
-                            res.json({ success: false, msg: "Failed, somthing went wrong " });
-                        } else {
-                            // res.json({success: true, msg : "User Updated successfully", company:company});
-                            invUser.forEach(user => {
-                                data = {
-                                    email: user.email,
-                                    company_name: companyName,
-                                    survey_name: survey.name,
-                                    start_date: formatDate(survey.start_datetime),
-                                    end_date: formatDate(survey.end_datetime),
-                                    link: config.siteUrl + 'user-response-email/' + survey._id + '/' + user.cmp_user_id,
-                                    imgeLink: config.siteUrl + 'company/show-mail-image/' + user.img_read_code
-                                }
-                                emailTemplate.sendInvitationMail(data);
-                            });
-                            io.sockets.emit("Invite Users", {
-
-                            });
-                            res.json({ success: true, msg: "User Invited successfully" });
-
-                        }
-                    });
-
-                console.log(invUser);
+                
 
             } else {
                 res.json({ success: false, msg: errMsg });
@@ -697,8 +725,9 @@ var returnRouter = function (io) {
     router.get('/show-mail-image/:id', (req, res, next) => {
 
         // var ip = req.header['x-forwarded-for'] || req.connection.remoteAddress;
-        var ip = "59.92.233.134";
-        // console.log("ip:"+ip);
+        //var ip = "59.92.233.134";
+        var ip =  req.connection.remoteAddress;
+         console.log("ip:"+ip);
         var geo = geoip.lookup(ip);
         lat = geo.ll[0];
         long = geo.ll[1];
@@ -785,10 +814,10 @@ var returnRouter = function (io) {
 
             Survey.remove({ _id: req.params.id, "start_datetime": { "$gt": new Date() } }, function (err, removeResult) {
                 if (err) {
-                    res.json({ success: false, msg: "Failed, Somthing went wrong" });
+                    res.json({ success: false, msg: "* Failed, Somthing went wrong!" });
                 } else {
                     if (removeResult.result.n == 0) {
-                        res.json({ success: true, msg: "Failed, Survey already started" });
+                        res.json({ success: true, msg: "* Failed, Survey already started!" });
                     } else {
                         res.json({ success: true, msg: "Survey deleted successfully" });
                     }
@@ -914,8 +943,15 @@ var returnRouter = function (io) {
             end = '';
             errMsg = '';
 
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
+        
+            if(req.body.questions.length > plans.no_question){
+                errMsg = "Failed, maximum allowed question  " + plans.no_question;
+                isErr = true;
+            }
+
             if (req.body.start_date == '') {
-                errMsg = "Failed, Please Select Start Date";
+                errMsg = "* Failed, Please Select Start Date!";
                 isErr = true;
             } else {
                 var start = new Date(req.body.start_date);
@@ -923,7 +959,7 @@ var returnRouter = function (io) {
             }
 
             if (req.body.end_date == '') {
-                errMsg = "Failed, Please Select End Date";
+                errMsg = "* Failed, Please Select End Date!";
                 isErr = true;
             } else {
                 var end = new Date(req.body.end_date);
@@ -931,33 +967,33 @@ var returnRouter = function (io) {
             }
 
             if (!isErr && end <= start) {
-                errMsg = "Failed, End Date shold be greater than start date";
+                errMsg = "* Failed, End Date shold be greater than start date!";
                 isErr = true;
             }
 
 
             if (!isErr && myTrim(req.body.name) == '') {
-                errMsg = "Failed, Please Enter Survay Name";
+                errMsg = "* Failed, Please Enter Survay Name!";
                 isErr = true;
             }
             if (!isErr && myTrim(req.body.category.name) == '' || req.body.category._id == '') {
-                errMsg = "Failed, Please Select Category";
+                errMsg = "* Failed, Please Select Category!";
                 isErr = true;
             }
             if (!isErr && !req.body.selectedTheme) {
-                errMsg = "Failed, Please Select Any Theme";
+                errMsg = "* Failed, Please Select Any Theme!";
                 isErr = true;
             }
             if (!isErr && !req.body.display_type) {
-                errMsg = "Failed, Please Select Display Type";
+                errMsg = "* Failed, Please Select Display Type!";
                 isErr = true;
             }
             if (!isErr && !req.body.display_type) {
-                errMsg = "Failed, Please Select Display Type";
+                errMsg = "* Failed, Please Select Display Type! ";
                 isErr = true;
             }
             if (!isErr && req.body.questions.length == 0) {
-                errMsg = "Failed, Please Add Atleast OneQuestion";
+                errMsg = "* Failed, Please Add Atleast OneQuestion!";
                 isErr = true;
             }
 
@@ -968,7 +1004,7 @@ var returnRouter = function (io) {
                 var base64 = decodeBase64Image(req.body.logoSrc);
 
                 if (!isErr && ext.indexOf(base64.ext.toLowerCase()) < 0) {
-                    errMsg = "Failed, Invalid Logo";
+                    errMsg = "* Failed, Invalid Logo!";
                     isErr = true;
                 }
                 if (!isErr) {
@@ -1007,6 +1043,7 @@ var returnRouter = function (io) {
                 survey.company_id = cmp_id;
                 survey.organization = organization;
                 survey.theme = req.body.selectedTheme._id;
+                req.body.display_type = (plans.survey_logic) ? req.body.display_type : {ui: "Single", randomization: false, skip: false, pageno: false};
                 survey.display_type = req.body.display_type;
 
                 survey.start_datetime = start;
@@ -1045,7 +1082,7 @@ var returnRouter = function (io) {
                     { new: true },
                     (err, survey) => {
                         if (err) {
-                            res.json({ success: false, msg: "Failed, Somthing went wrong" });
+                            res.json({ success: false, msg: "* Failed, Somthing went wrong!" });
                         } else {
                             res.json({ success: true, msg: "Survey Updated Successfully" });
                         }
@@ -1565,17 +1602,20 @@ var returnRouter = function (io) {
     // Desc          : to update user groups
     router.put('/updateUserGroups', passport.authenticate('jwt', { session: false }), (req, res) => {
         // console.log(req.body.group)
+        var isSuccess = false;
+        msg = '';
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4),
                 decoded;
             decoded = jwt.verify(authorization, config.secret);
             cmp_id = decoded._id;
             if (req.body.group == '' || req.body.group == null) {
-                res.send({ success: false, msg: "group name is required" });
+                res.send({ success: false, msg: "* group name is required!" });
             } else {
+                req.body.group = myTrim(req.body.group); 
                 UserGroup.findOne({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
                     if (docs.length && docs._id != req.body.id) {
-                        res.json({ success: false, msg: "Group Already Exists" });
+                        res.json({ success: false, msg: "* Group Already Exists!" });
                     } else {
                         UserGroup.findOneAndUpdate({ _id: req.body.id },
                             {
@@ -1587,9 +1627,14 @@ var returnRouter = function (io) {
                             },
                             function (err, updateUsergroup) {
                                 if (err) {
-                                    res.send({ success: false, msg: "Failed, somthing went wrong " });
+                                    res.send({ success: false, msg: "* Failed, somthing went wrong! " });
                                 } else {
-
+                                    if (req.body.email=='' || req.body.email== null || !req.body.email) {
+                                        isSuccess = true;
+                                        msg = 'Update User group Successfully';
+                                        // res.json({ success: true, msg: "Group created Successfully", data: insertedGroup });
+        
+                                    }
 
                                     Company.findOne({ _id: cmp_id }, (err, allCompany) => {
                                         // var old = allCompany;
@@ -1612,7 +1657,7 @@ var returnRouter = function (io) {
                                             { new: true },
                                             (err, update) => {
                                                 if (err) {
-                                                    res.send({ success: false, msg: 'Something went wrong1' });
+                                                    res.send({ success: false, msg: '* Something went wrong!' });
                                                 }
                                                 else {
 
@@ -1630,7 +1675,7 @@ var returnRouter = function (io) {
                                                                     // console.log(userGroup)
                                                                     if (err) {
                                                                         isSuccess = false;
-                                                                        msg = 'Something went wrong2';
+                                                                        msg = '* Something went wrong!';
                                                                     } else {
                                                                         isSuccess = true;
                                                                         msg = 'Add User group Successfully';
@@ -1914,7 +1959,7 @@ var returnRouter = function (io) {
     // Desc          : routing used to updated details of a theme
 
     router.put('/update-theme/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
-
+        console.log(req.body);
         if (req.body.title != '') {
             if (req.headers && req.headers.authorization) {
                 var authorization = req.headers.authorization.substring(4), decoded;
@@ -1922,14 +1967,19 @@ var returnRouter = function (io) {
                 decoded = jwt.verify(authorization, config.secret);
                 var cmp_id = decoded._id;
                 Theme.findOne({ "cmp_id": cmp_id, title: req.body.title }, function (err, surveyTheme) {
-                    console.log(surveyTheme);
+                    // console.log(surveyTheme);
                     
-                    if (surveyTheme) {
-                        res.json({
-                            status: 4
-                        });
+                    if (surveyTheme && req.body._id != surveyTheme._id) {
+                    console.log(surveyTheme._id);
+                    console.log(req.body._id);
+
+                            res.json({
+                                status: 4 //already exist
+                            });
+                        
+                        
                     }
-                    else if (!surveyTheme) {
+                    else  {
                         Theme.findByIdAndUpdate(req.body._id,
                             {
                                 $set: {
@@ -2044,6 +2094,9 @@ var returnRouter = function (io) {
     // Desc          : delete a User
 
     router.put('/deleteuser/:id', (req, res) => {
+        // console.log(req.params.id +" params");
+        // console.log(req.body +" body");
+
 
         var compUserId = mongoose.Types.ObjectId(req.params.id);
         Survey.findOne({ $and: [{ "inv_users.cmp_user_id": compUserId }, { "inv_users.survey_complete": false }] }, function (err, userExist) {
@@ -2169,7 +2222,7 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
     router.put('/updateviewednotification', passport.authenticate('jwt', { session: false }), (req, res) => {
-        // console.log(req.body)
+        // console.log(req.body);
         if (req.headers && req.headers.authorization) {
             var authorization = req.headers.authorization.substring(4), decoded;
             // try {
@@ -2197,7 +2250,7 @@ var returnRouter = function (io) {
 
                         if (err) {
                             throw err;
-                            return res.json({ success: false, msg: 'Faild to fet accept notification ' });
+                            return res.json({ success: false, msg: 'Failed to fet accept notification ' });
                         } else {
 
                             return res.json({ success: true, msg: 'change company status  successfully' });
@@ -2214,6 +2267,7 @@ var returnRouter = function (io) {
     // ----------------------------------End-------------------------------------------
 
 
+  
     //  ---------------------------------Start-------------------------------------------
     // Function      : get notification to all companies that one company 
 
@@ -2224,58 +2278,54 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : get a single survey user inside a company
 
-    // router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-    //     if (req.headers && req.headers.authorization) {
-    //         var authorization = req.headers.authorization.substring(4), decoded;
-    //         decoded = jwt.verify(authorization, config.secret);
-    //         cmp_id = decoded._id;
-    //         arr1 = [];
-    //         arr2=[];
-    //         Users.find({},{ block_request: { $elemMatch: { action_status: "Accepted"}} }, (err, eachUsers) => {
-    //             if(eachUsers){
-    //                 eachUsers.forEach(eachElement => {
-    //                         eachElement.block_request.forEach(blockRequest => {
-    //                             //if(blockRequest){
-    //                                 // async.eachOfSeries(blockRequest.companies, function(blkCompany, key, callback) {
-                                        
-    //                                     blockRequest.companies.forEach(blkCompany => {
-    //                                         if (blkCompany.company_id == cmp_id && blkCompany.comp_is_viewed == false ) {
-    //                                             arr2.push(eachElement._id);
-                                                    
-    //                                                 //  console.log(arr1);
-    //                                         }
-    //                                      });
 
-    //                                 // },
-    //                                 // function (err, respemail) {
+    router.get('/getacceptednotification', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            decoded = jwt.verify(authorization, config.secret);
+            cmp_id = decoded._id;
+            arr1 = [];
+            arr2=[];
+            Users.find({},{ block_request: { $elemMatch: { action_status: "Accepted"}} }, (err, eachUsers) => {
+                if(eachUsers){
+                    eachUsers.forEach(eachElement => {
+                            eachElement.block_request.forEach(blockRequest => {
+                              
+                                        blockRequest.companies.forEach(blkCompany => {
+                                            if (blkCompany.company_id == cmp_id && blkCompany.comp_is_viewed == false ) {
+                                                arr2.push(eachElement._id);
+                                              
+                                            }
+                                         });
+        
+                            });
 
-    //                                 //     console.log(arr1);
-    //                                 // });
+                    });
 
-    //                            // }
-    //                         });
-
-    //                 });
-    //                 // Users.findById(eachElement._id, (err, doc)=> {
-    //                 //     // console.log(doc)
-    //                 //     arr1.push({ "email": doc.email, "id": doc._id});
-    //                 //     callback();
-    //                 // });
-                   
-    //                 // res.json( arr1 );
-    //             }
-    //         });
-    //     }
-    //      else {
-    //     return res.status(401).send('Invalid User');
-    //     }
-    // });
+                    Users.find({
+                        '_id': { $in: arr2}
+                    }, function(err, docs){
+                    docs.forEach(allEmail=>{
+                        arr1.push({email :allEmail.email, id : allEmail.id});
+                        
+                        
+                    })
+                    res.json(arr1); 
+                      
+                    });
+            
+                }
+            });
+        }
+         else {
+        return res.status(401).send('Invalid User');
+        }
+    });
     
 
 
 
     // ----------------------------------End-------------------------------------------
-
     //  ---------------------------------Start-------------------------------------------
     // Function      : delete function 
 
@@ -2295,7 +2345,7 @@ var returnRouter = function (io) {
             UserGroup.findOneAndRemove({ $and: [{ cmp_id: cmp_id }, { _id: req.params.id }] }, (err, removeUserGroup) => {
                 if (err) throw err;
                 if (!removeUserGroup) {
-                    return res.json({ success: false, msg: 'Faild to delete ' });
+                    return res.json({ success: false, msg: '* Failed to delete! ' });
                 } else {
 
                     Company.findOne({ _id: cmp_id }, (err, allCompany) => {
@@ -2474,21 +2524,28 @@ var returnRouter = function (io) {
             if (req.body.email.length == 0) {
                 res.json({ success: false, msg: "No item to insert" });
             } else {
+                emailArray = [];
                 req.body.email.forEach(function (val, key) {
                     if (!isErr) {
                         val = myTrim(val.toString());
                         if (!validateEmail(val) && !isErr) {
                             errMsg = val + " is not a valid email";
                             isErr = true;
+                        }else{
+                            if (emailArray.indexOf(val) > -1) {
+                                isErr = true;
+                                errMsg = 'Failed,  email ' + val + " Repeating" ;
+                            } 
+                            emailArray.push(val);
                         }
                     }
 
                 });
-
                 if (isErr) {
                     res.json({ success: false, msg: errMsg });
                 } else {
                     async.eachOfSeries(req.body.email, function (email, key, callback) {
+                        email = myTrim(email.toString());
                         Company.findOne({ _id: cmp_id}, { users: { $elemMatch: { email: email,delete_status: false} } }, function (err, respEmail) {
                             console.log(respEmail);
                         // Company.findOne({ "users.email": email, _id: cmp_id, "users.delete_status" : false }, function (err, respEmail) {
@@ -2531,6 +2588,7 @@ var returnRouter = function (io) {
                                 });
                             }
                             req.body.email.forEach(function (val, key) {
+                                val = myTrim(val.toString());
                                 users.push({ email: val, group: groups });
                             });
 
@@ -2677,9 +2735,10 @@ var returnRouter = function (io) {
 
                     async.parallel([
                         function (callback) {
-
+                            req.body.newEmail = myTrim(req.body.newEmail); 
                             if (req.body.newEmail != req.body.email) {
                                 // console.log('email changed');
+                                
                                 Company.findOne({ "users.email": req.body.newEmail, _id: cmp_id }, function (err, respEmail) {
                                     // console.log(respEmail);   
                                     if (respEmail && !isErr) { // Insert If user not exist
@@ -2694,7 +2753,8 @@ var returnRouter = function (io) {
                             }
                         },
                         function (callback) {
-                            // console.log('functon to check admin block');      
+                            // console.log('functon to check admin block'); 
+                            req.body.newEmail = myTrim(req.body.newEmail); 
                             Users.findOne(
                                 {
                                     $and: [
@@ -2719,6 +2779,7 @@ var returnRouter = function (io) {
                             res.json({ success: false, msg: errMsg });
                         } else {
                             var groups = [];
+                            req.body.newEmail = myTrim(req.body.newEmail); 
                             req.body.groups.forEach(function (val, key) {
                                 groups.push({ g_id: val._id, group_name: val.name });
                             });

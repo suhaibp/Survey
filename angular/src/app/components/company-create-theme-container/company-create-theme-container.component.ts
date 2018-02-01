@@ -1,5 +1,5 @@
 import {Component, ViewChild, OnInit, EventEmitter} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../services/company.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
@@ -42,6 +42,7 @@ titleFormControl = new FormControl('', [
 ]);
 fonts : any;
 fontSize: any;
+showSpinner :boolean = false
 // public colorx : string = "#ffffff";
 // public color2x : string = "#1f7a90";
 // public color3x : string = "#ffffff";
@@ -55,7 +56,8 @@ submitBtnDisabled = false;
 themeSaved = false;
   constructor(
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,
+    public snackBar: MatSnackBar) { }
   
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -96,27 +98,43 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
   submitTheme(){
+    this.showSpinner = true
     this.submitBtnDisabled = true;
     if(this.newTheme.title != ""){
       this._companyService.saveTheme(this.newTheme).subscribe(theme =>{
         if(theme.status == 0){
         this.submitBtnDisabled = false;
     
-          $('#myModal .modal-body h4').text("Theme name already exist!");
-          $('#myModal').modal('show'); 
+          // $('#myModal .modal-body h4').text("Theme name already exist!");
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open('* Theme name already exist!', '', {
+            duration: 2000
+          });
+          // $('#myModal').modal('show'); 
         }
         else if(theme.status == 1){
-          $('#myModal .modal-body h4').text("Error occured!");
-          $('#myModal').modal('show'); 
+          // $('#myModal .modal-body h4').text("Error occured!");
+          // $('#myModal').modal('show'); 
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open('* Error occured!', '', {
+            duration: 2000
+          });
           this.submitBtnDisabled = false;
         
         }
         else{
+          window.location.reload();
           // window.location.reload();
           // this.routes.navigate(['/create-theme']);
           this.themeSaved =true;
-          $('#myModal .modal-body h4').text("Theme saved!");
-          $('#myModal').modal('show'); 
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open('Theme Saved Successfully', '', {
+            duration: 2000
+            
+          });
+         
+          // $('#myModal .modal-body h4').text("Theme saved!");
+          // $('#myModal').modal('show'); 
         }
         
       });

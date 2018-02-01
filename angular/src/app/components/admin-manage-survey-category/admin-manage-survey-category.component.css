@@ -280,6 +280,28 @@ a{outline:none; }
      color :#d9534f;
      text-align: center
  }
- h4{
+
+ .noItemFound{
     text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid lightgray;
+
  }
+ .back-color{
+    color: #757575;
+    background-color: #ffffff;
+}
+::ng-deep snack-bar-container.custom-class {
+    background: yellow;
+  }
+  
+  ::ng-deep .custom-class .mat-simple-snackbar {
+    color: green;
+  }
+  .deletespinner{
+      background-color: white;
+      padding: 0px 100px 0px 280px;
+  }
+  .updatespinner{
+      margin-top: 50px;
+  }

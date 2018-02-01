@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef ,ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import { CompanyService } from '../../services/company.service';
 import {Validators, FormControl} from '@angular/forms';
-import {MatPaginator, MatSort} from '@angular/material';
+import { MatPaginator, MatSort, MatSnackBar } from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
 import { XlsxToJsonService} from './../../services/xlsx-to-json.service';
@@ -25,8 +25,11 @@ newBlock ={
   userData:any;
   userId :any;
   selectedUserGroup = 'all';
+  showSpinner :boolean = false;
+  showSpinnerDelete :boolean = false;
   userGroups :any;
   users :any;
+  existStatus : boolean= false
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
@@ -50,7 +53,7 @@ newBlock ={
   isError1 = false;
   isSuccess1 = false;
   msg1 = '';
-  existStatus :boolean = false;
+ 
   showAddGroup = false;
   newGroup = '';
   groups: any;
@@ -66,7 +69,8 @@ newBlock ={
   groupsObject : any;
   getSingleData : any;
   email :any;
-  constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router ) { 
+  loggedInCompany : any;
+  constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router,public snackBar: MatSnackBar ) { 
   }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -100,12 +104,15 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     if(info.is_profile_completed == false){
       this.routes.navigate(['/additnInfo', info._id]);
     }
+    this.loggedInCompany = info;
   }
 });
 // ---------------------------------End-------------------------------------------
    // this.selGroups = ['Symptots'];
    this.loadData();
    this.companyService.getAllUserGroup().subscribe(data=>{
+     console.log('getting all groups');
+     console.log(data);
     this.groups = data.group;
     this.groupsObject = data.groupById;
     });
@@ -125,7 +132,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 }
 
 loadGroup(){
+  this.showSpinnerDelete = true
   this.companyService.getAllUserGroup().subscribe(data=>{
+    this.showSpinnerDelete = false
     this.userGroups = data.group;;
      //  console.log(this.answerType);
   });
@@ -139,8 +148,18 @@ loadGroup(){
   // Last Modified : 04-12-2018, Jooshifa 
   // Desc          : to load saved user email
 loadData(){
+  this.showSpinnerDelete = true
     const users: any[] = [];
     this.companyService.getMyUsers().subscribe(data1=>{
+      this.showSpinnerDelete = false
+      if(data1 == '')
+      {
+        this.existStatus = false;
+      }
+        else if(data1 != '')
+        {
+          this.existStatus = true;
+        }
       // console.log('list users');
       // console.log(data1);
       this.userData = data1;
@@ -184,7 +203,8 @@ loadData(){
   // Last Modified : 29-12-2017, Jooshifa 
   // Desc          : pass id from modal and get it for the purpuse edit
   bindEditUser(data){
-   
+    this.showSpinnerDelete = false
+    this.showSpinner = false
        this.selUser.email = data.email;
        this.selUser.newEmail = data.email;
       this.selUser.is_registered = data.is_registered;
@@ -205,6 +225,8 @@ loadData(){
   // Last Modified : 29-12-2017, Jooshifa 
   // Desc          : pass id from modal and get it for the purpuse edit
  getUserId(id){
+  this.showSpinner = false
+  this.showSpinnerDelete = false
     this.userId = id;
     // console.log(this.userId)
 
@@ -212,6 +234,8 @@ loadData(){
 //  ---------------------------------end----------------------------------------------
 
 getUserEmail(id,email){
+  this.showSpinnerDelete = false
+  this.showSpinner = false
   this.newBlock.id = id;
   this.newBlock.email = email;
 }
@@ -226,15 +250,18 @@ getUserEmail(id,email){
   // Last Modified : 08-01-2018, Jooshifa 
   // Desc          : to filter based on groups
 filterGroup(groups){
+  this.showSpinnerDelete = true
     // console.log(groups)
      this.companyService.getUserByGroup(groups).subscribe(data2=>{
        if(data2.success ==false){
+        this.showSpinnerDelete = false
             //  console.log("data not exist")
              this.existStatus = true 
        }
        else{
-        console.log(data2)
+        // console.log(data2)
         if(data2){
+          this.showSpinnerDelete = false
           // console.log("data exist")
        this.userData = data2;
        this.comp_id1 = this.userData._id 
@@ -257,33 +284,63 @@ filterGroup(groups){
   // Last Modified : 04-01-2018, Jooshifa 
   // Desc          : Delete a user
 deleteUser(userId){
+  this.showSpinnerDelete = true
   this.companyService.deleteUser(userId).subscribe(deleteData=>{
-    console.log(deleteData)
+    // console.log(deleteData)
     if(deleteData.success==false){
-        this._flashMessagesService.show(' Survey invitation is  already sent, cant delete! ', { cssClass: 'alert-danger', timeout: 3000 });
+      this.showSpinnerDelete = false
+        // this._flashMessagesService.show(' Survey invitation is  already sent, cant delete! ', { cssClass: 'alert-danger', timeout: 3000 });
+        let snackBarRef =  this.snackBar.open('* Survey invitation is  already sent, cant delete!', '', {
+          duration: 2000
+        });
         // console.log("error")
     }
     else{
         this.loadData();
-        this._flashMessagesService.show('Delete User Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        this.showSpinnerDelete = false
+        // this._flashMessagesService.show('Delete User Successfully!', { cssClass: 'alert-success', timeout: 1000 });
+        let snackBarRef =  this.snackBar.open(' Delete User Successfully', '', {
+          duration: 2000
+        });
         // console.log("success")
     }
 });
 }
 // -----------------------------------end----------------------------------------------------
 
+//  ---------------------------------Start-------------------------------------------
+// Function      : addMoreOption
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For adding more emails in add user popup
+
   addMoreOption(){
     this.newUser.email.push('');
     return false;
   }
 
+ // -----------------------------------end---------------------------------------------------- 
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : removeOption
+// Params        : option index
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For remove emails in add user popup 
   removeOption(index){
 
       if(this.newUser.email.length > 1){
           this.newUser.email.splice(index, 1);
       }else{
           this.isError = true;
-          this.msg = "Atleast one item required";
+          let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
+            duration: 2000
+          });
           setTimeout(()=>{ 
 
               this.isError = false;
@@ -294,74 +351,131 @@ deleteUser(userId){
       return false;
 
   }
+// -----------------------------------end---------------------------------------------------- 
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : trackByIndex
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For multiple oprion email 
 
   trackByIndex(index: number, value: number) {
     return index;
   }
 
+// -----------------------------------end---------------------------------------------------- 
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : showGroupAddOption
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For adding groups in  add user popup
   showGroupAddOption(){
     this.showAddGroup = true;
     return false;
   }
+// -----------------------------------end---------------------------------------------------- 
 
+//  ---------------------------------Start-------------------------------------------
+// Function      : updateUsers
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For update user details and assigned groups
   updateUsers(form){
+    this.showSpinner = true
     this.updateBtnDisbled= true;
-    console.log(this.selUser.groups);
+    // console.log(this.selUser.groups);
     this.selUserGroups.forEach((val,key) => {
       this.selUser.groups[key] = this.groupsObject[val];
     });
-    console.log(this.selUser);
+    // console.log(this.selUser);
     this.companyService.updateUser(this.selUser).subscribe(data=>{
       if(data.success){
         this.selUser = {email: '', groups:[],newEmail:'',is_registered:false};
-        this.isSuccess1 = true;
+        // this.isSuccess1 = true;
         this.msg1 = data.msg;
+        this.showSpinner = false
+        let snackBarRef =  this.snackBar.open(this.msg1, '', {
+          duration: 2000
+        });
         form.resetForm();
         //update company = data.company
         this.loadData();
-        setTimeout(()=>{ 
+        // setTimeout(()=>{ 
           this.closeBtn1.nativeElement.click();
-          this.isSuccess1 = false;
-          this.msg1 = '';
+          // this.isSuccess1 = false;
+          // this.msg1 = '';
           this.updateBtnDisbled = false;
-        }, 2000);
+        // }, 2000);
       }else{
-        this.isError1 = true;
+        // this.isError1 = true;
         this.msg1 = data.msg;
+        this.showSpinner = false
+        let snackBarRef =  this.snackBar.open(this.msg1, '', {
+          duration: 2000
+        });
         this.updateBtnDisbled = false;
         setTimeout(()=>{ 
-          this.isError1 = false;
-          this.msg1 = '';
+          // this.isError1 = false;
+          // this.msg1 = '';
         }, 3000);
       }
     });
   }
+// -----------------------------------end---------------------------------------------------- 
+
+//  ---------------------------------Start-------------------------------------------
+// Function      : addUsers
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For add new user emails and assigned groups
 
   addUsers(form){
+    this.showSpinner = true
     this.btnDisbled = true;
     console.log(form);
     this.companyService.addUsers(this.newUser).subscribe(data=>{
         if(data.success){
           this.newUser =  {email: [''], groups:[]};
-          this.isSuccess = true;
+          // this.isSuccess = true;
           this.msg = data.msg;
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open(this.msg, '', {
+            duration: 2000
+          });
           form.resetForm();
           this.loadData();
           //update company = data.company
-          setTimeout(()=>{ 
+          // setTimeout(()=>{ 
             this.closeBtnAdd.nativeElement.click();
             this.closeBtn2.nativeElement.click();
-            this.isSuccess = false;
-            this.msg = '';
+            // this.isSuccess = false;
+            // this.msg = '';
             this.btnDisbled = false;
             this.updateBtnDisbled1 = false;
-          }, 2000);
+          // }, 2000);
         }else{
-          this.isError = true;
+          // this.isError = true;
           this.msg = data.msg;
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open(this.msg, '', {
+            duration: 2000
+          });
           this.btnDisbled = false;
           setTimeout(()=>{ 
-            this.isError = false;
+            // this.isError = false;
             this.updateBtnDisbled1 = false;
             this.msg = '';
           }, 3000);
@@ -370,32 +484,53 @@ deleteUser(userId){
     });
     
   }
+// -----------------------------------end---------------------------------------------------- 
 
+//  ---------------------------------Start-------------------------------------------
+// Function      : addGroup
+// Params        : 
+// Returns       : 
+// Author        : Yasir Poongadan
+// Date          : 01-01-2018
+// Last Modified : 01-01-2018, Yasir Poongadan
+// Desc          : For add new user group to db
   addGroup(){
+    this.showSpinner = true
       this.companyService.addUserGroup(this.newGroup).subscribe(data=>{
-        console.log(data);
+       
+        // console.log(data);
         if(data.success){
             this.showAddGroup = false;
             this.groups.push(data.data);
             this.newGroup = '';
-            this.isSuccess = true;
+            // this.isSuccess = true;
             this.msg = "Group Created Successfully";
+            this.showSpinner = false
+            let snackBarRef =  this.snackBar.open(this.msg, '', {
+              duration: 2000
+            });
             this.loadGroup();
             setTimeout(()=>{ 
                 this.isSuccess = false;
                 this.msg = '';
             }, 3000);
         }else{
-          this.isError = true;
-          this.msg = "Faild, Group Already Exists";
+          // this.isError = true;
+        
+          this.msg = "* Faild, Group Already Exists!";
+          this.showSpinner = false
+          let snackBarRef =  this.snackBar.open(this.msg, '', {
+            duration: 2000
+          });
           setTimeout(()=>{ 
-              this.isError = false;
-              this.msg = '';
+              // this.isError = false;
+              // this.msg = '';
           }, 3000);
         }
       });
       return false;
   }
+  // -----------------------------------end---------------------------------------------------- 
 
  //  ---------------------------------Start-------------------------------------------
   // Function      : sendBlockRequest
@@ -406,16 +541,21 @@ deleteUser(userId){
   // Last Modified : 04-12-2018, Jooshifa 
   // Desc          : send block request to admin to block a user
  sendBlockRequest(request){ 
+  this.showSpinner = true
    this.companyService.sendBlockRequest(request).subscribe(data4 => {
   if(!data4.success){
       console.log(data4);
-      this.isError = true;
+      // this.isError = true;
       this.errorMsg = data4.msg;
+      this.showSpinner = false
+      let snackBarRef =  this.snackBar.open(this.errorMsg, '', {
+        duration: 2000
+      });
       this.btnDisbled = false;
       this.newBlock.reason= '';
       setTimeout(()=>{ 
-            this.isError = false;
-            this.errorMsg = '';
+            // this.isError = false;
+            // this.errorMsg = '';
       }, 2000);
   }
   else if(data4.success){
@@ -424,13 +564,18 @@ deleteUser(userId){
       this.closeBtn.nativeElement.click();
       // this.isSuccess = true;
       this.errorMsg = data4.msg;
+    
       setTimeout(()=>{ 
-              this.isSuccess = false;
-              this.errorMsg = '';
+              // this.isSuccess = false;
+              // this.errorMsg = '';
               this.btnDisbled = false
       }, 2000);
       this.newBlock.reason= '';
-      this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+      this.showSpinner = false
+      // this._flashMessagesService.show('Sent Block request successfully!', { cssClass: 'alert-success', timeout: 1000 });
+      let snackBarRef =  this.snackBar.open('Sent Block request successfully!', '', {
+        duration: 2000
+      });
       
     // this.closeBtn.nativeElement.click();
    }
@@ -478,14 +623,27 @@ cnclImprt(){
   
 }
   openModal(){
+    this.showSpinner = false
+    this.showSpinner = false
     this.newUser.email =  [''];
     this.myInputVariable.nativeElement.value = "";
   }
   updateUserList() {
+    this.showSpinnerDelete = true
     console.log(this.selectedUserGroup);
     if(this.selectedUserGroup == 'all'){
          this.companyService.getMyUsers().subscribe(data=>{
-           console.log(data);
+          this.showSpinnerDelete = false
+          if(data == '')
+          {
+            this.existStatus = false;
+          }
+            else if(data != '')
+            {
+              this.existStatus = true;
+            }
+
+          //  console.log(data);
            this.users = data;
              this.dataSource = new MatTableDataSource(data);
              this.dataSource.paginator = this.paginator;
@@ -493,6 +651,15 @@ cnclImprt(){
        });
     }else{
        this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(data=>{
+        this.showSpinnerDelete = false
+        if(data == '')
+        {
+          this.existStatus = false;
+        }
+          else if(data != '')
+          {
+            this.existStatus = true;
+          }
          this.users = data;
          this.dataSource = new MatTableDataSource(this.users);
          this.dataSource.paginator = this.paginator;

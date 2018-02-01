@@ -90,3 +90,13 @@ rect:hover {  fill:blue; }
   .bar-gf{
     margin: 26px 0 0 0;
   }
+  .noItemFound{
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid lightgray;
+
+ }
+ .back-color{
+    color: #757575;
+    background-color: #ffffff;
+}

@@ -98,6 +98,9 @@
           <div class="clearfix"></div>
           <br>
           <br>
+          <div *ngIf="showSpinner" class="deletespinner">
+                <mat-spinner></mat-spinner>
+               </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="col-md-1 col-sm-2 col-xs-6"> 
             <button type="submit" class="btn btn-danger" (click)="updateProfile()">Update</button>

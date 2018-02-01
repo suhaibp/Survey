@@ -1,5 +1,7 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+
 .prev-img {
      /* background-color: #dd3;  */
     border-radius: 5px;
@@ -241,3 +243,71 @@ agm-map {
 .barhvr:hover{
     fill: #0e826d
 }
+
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  color: red;
+}
+
+.basic-container {
+   
+  padding: 5px;
+}
+
+.version-info {
+    
+  font-size: 8pt;
+  float: right;
+}
+.updatespinner{
+    margin-top: 50%;
+}
+.deletespinner{
+    background-color: white;
+    /* padding: 0px 100px 0px 280px; */
+    margin-left: 40%;
+}
+.mat-simple-snackbar {
+    /* display: initial;
+    justify-content: space-between;
+    line-height: 60px !important;
+    opacity: 1;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 16px;
+    background-color: #d9534f;
+    border-radius: 15px */
+}
+
+.mat-snack-bar-container {
+    /* background: #da524f;
+    color: #fff;
+    border-radius: 15px */
+}
+.cdk-global-overlay-wrapper {
+    align-items: flex-start !important;
+    justify-content: flex-center !important
+  }
+  /* .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #db514f;
+} */
+
+.preloader2{
+    text-align: center;
+    background-color: #00000045;
+    border-bottom: 1px solid lightgray;
+    height: 100%;
+    padding-top: 13%;
+    position: absolute;
+    z-index: 1000;}
+    .buttonleft>li{
+        border:none !important;
+        text-align: center;
+        padding: 4px;
+    } 
+    
+    .ourbutton2{    border-radius: 20px;
+            padding: 7px 40px;}
+    .buttonleft{padding:2em 0;min-height:300px;}
+    
+    

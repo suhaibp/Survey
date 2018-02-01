@@ -10,6 +10,7 @@ import { CanActivate, Router, ActivatedRoute } from '@angular/router';
 export class CompanyCreateThemeComponent implements OnInit {
 
   viewComp = "list"
+  showSpinner :Boolean = false
   constructor(private companyService : CompanyService, private routes: Router) { }
 
   ngOnInit() {

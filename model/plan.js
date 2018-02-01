@@ -3,38 +3,38 @@ const config = require("../config/database");
 var Schema = mongoose.Schema;
 
 const PlanSchema = mongoose.Schema({
-    plan_name : { 
+    plan_name:{
         type: String
     },
-    plan_price : {
+    plan_price:{
         type: String
     },
-    no_survey : {
+    no_survey:{
         type: String
     },
-    no_question : {
+    no_question:{
         type: String
     },
-    excel_import : {
+    excel_import:{
         type: Boolean,
         default: false,
     },
-    skip_logic : {
+    survey_logic:{
         type: Boolean,
         default: false,
     },
-    no_survey_attenders : {
+    no_survey_attenders:{
         type: String
     },
-    is_best_value  : {
+    is_best_value:{
         type: Boolean,
         default: false,
     },
-    is_default_plan  : {
+    is_default_plan:{
         type: Boolean,
         default: false,
     },
-    delete_status  : {
+    delete_status:{
         type: Boolean,
         default: false, 
     }

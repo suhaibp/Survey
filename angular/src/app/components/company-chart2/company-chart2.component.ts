@@ -467,6 +467,7 @@ setTimeout(restOfTheData,2000);
   pierefresh() {
 
     this.companyService.getSurveyQuestions(this.surveyid).subscribe(data => {
+      
      
       // this.initSvg();
       // this.drawPie();
