@@ -76,12 +76,17 @@
               </td>
             </tr>
   
-  
+            <tr>
+                <div *ngIf="showSpinner" class="deletespinner">
+                    <mat-spinner></mat-spinner>
+                   </div>
+            </tr>
             <tr>
               <td>
                 <h4>Question</h4>
               </td>
             </tr>
+          
             <tr>
               <td>
                 <label  class="col-sm-12 control-label">Font Color</label>

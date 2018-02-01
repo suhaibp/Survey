@@ -87,6 +87,9 @@
     <div class="btn btn-danger">
       <button mat-button matStepperPrevious>Back</button>
     </div>
+    <div *ngIf="showSpinner" class="deletespinner">
+      <mat-spinner></mat-spinner>
+   </div>
     <div class="btn btn-danger">
       <button type="submit" mat-button >Finish</button>
     </div>

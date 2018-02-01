@@ -439,7 +439,7 @@ var returnRouter = function (io) {
             if (!company) {
                 return res.json({ success: false, msg: 'Faild to delete company' });
             } else {
-                return res.json({ success: true, msg: 'deleted successfully' });
+                return res.json({ success: true, msg: 'Deleted successfully' });
             }
         })
     });
@@ -460,7 +460,7 @@ var returnRouter = function (io) {
             if (!company) {
                 return res.json({ success: false, msg: 'Faild to block company' });
             } else {
-                return res.json({ success: true, msg: 'block successfully' });
+                return res.json({ success: true, msg: 'Blocked Successfully' });
             }
         })
     });
@@ -479,9 +479,9 @@ var returnRouter = function (io) {
         Company.unblockCompany(req.params.id, (err, company) => {
             if (err) throw err;
             if (!company) {
-                return res.json({ success: false, msg: 'Faild to unblock company' });
+                return res.json({ success: false, msg: 'Failded to unblock company' });
             } else {
-                return res.json({ success: true, msg: 'unblock successfully' });
+                return res.json({ success: true, msg: 'Unblocked Successfully' });
             }
         })
     });
@@ -576,7 +576,7 @@ var returnRouter = function (io) {
                             res.json({ success: false, msg: "Failed to delete user " });
                         } else {
 
-                            res.json({ success: true, msg: "successfully deleted" });
+                            res.json({ success: true, msg: "Successfully deleted" });
 
                         }
                     });
@@ -611,10 +611,10 @@ var returnRouter = function (io) {
 
                         if (err) {
                             throw err;
-                            res.json({ success: false, msg: "Failed to admin Block user " });
+                            res.json({ success: false, msg: "Failed to Block user " });
                         } else {
 
-                            res.json({ success: true, msg: "successfully admin blocked" });
+                            res.json({ success: true, msg: "Blocked Successfully" });
 
                         }
                     });
@@ -648,10 +648,10 @@ var returnRouter = function (io) {
 
                         if (err) {
                             throw err;
-                            res.json({ success: false, msg: "Failed to admin unBlock user " });
+                            res.json({ success: false, msg: "Failed to unblock user " });
                         } else {
 
-                            res.json({ success: true, msg: "successfully admin unblocked" });
+                            res.json({ success: true, msg: "Unblocked Successfully" });
 
                         }
                     });
@@ -884,12 +884,9 @@ var returnRouter = function (io) {
             function (callback) {
 
                 Company.getAdminchart1notverified((err, count) => {
-                    if(count!=0){
-                        retData.push({ Count: count, label: "notverified:" + count });
-                        callback();
-                    }
-
-                   
+                    
+                    retData.push({ Count: count, label: "notverified:" + count });
+                    callback();
                 })
             },
             function (callback) {
@@ -984,11 +981,11 @@ var returnRouter = function (io) {
 
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
-                errMsg = 'All field required';
+                errMsg = '* All fields are required!';
             }else{
                 if (catgArray.indexOf(element.name) > -1) {
                     isSuccess = false;
-                    errMsg = 'Failed,  category name ' + element.name + " Repeating" ;
+                    errMsg = '* Failed,  category name ' + element.name + " Repeating!" ;
                 } 
                 catgArray.push(element.name);
             }
@@ -1004,7 +1001,7 @@ var returnRouter = function (io) {
                     if (singlecat) {
                         isSuccess = false;
 
-                        errMsg = 'Failed, ' + element.name + ' Already Exist';
+                        errMsg = '* Failed, ' + element.name + ' Already Exist!';
                     }
                     callback();
                 })
@@ -1065,13 +1062,13 @@ var returnRouter = function (io) {
         element.name =myTrim(element.name);
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
-                errMsg = 'All field required';
+                errMsg = '* All fields are required!';
 
             }
             else{
                 if (industryArray.indexOf(element.name) > -1) {
                     isSuccess = false;
-                    errMsg = 'Failed,  Industry name ' + element.name + " Repeating" ;
+                    errMsg = '* Failed,  Industry name ' + element.name + " Repeating!" ;
                 } 
                 industryArray.push(element.name);
             }
@@ -1084,7 +1081,7 @@ var returnRouter = function (io) {
                     if (single) {
                         isSuccess = false;
 
-                        errMsg = 'Failed, ' + element.name + ' Already Exist';
+                        errMsg = '* Failed, ' + element.name + ' Already Exist!';
                     }
                     callback();
                 })
@@ -1144,13 +1141,13 @@ var returnRouter = function (io) {
         element.name = myTrim(element.name)
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
-                errMsg = 'All field required';
+                errMsg = '* All fields are required!';
 
             }
             else{
                 if (orgArray.indexOf(element.name) > -1) {
                     isSuccess = false;
-                    errMsg = 'Failed,  Organization type ' + element.name + " Repeating" ;
+                    errMsg = '* Failed,  Organization type ' + element.name + " Repeating!" ;
                 } 
                 orgArray.push(element.name);
             }
@@ -1163,7 +1160,7 @@ var returnRouter = function (io) {
                     if (single) {
                         isSuccess = false;
 
-                        errMsg = 'Failed, ' + element.name + ' Already Exist';
+                        errMsg = '* Failed, ' + element.name + ' Already Exist!';
                     }
                     callback();
                 })
@@ -1220,13 +1217,13 @@ var returnRouter = function (io) {
             element.name = myTrim(element.name);
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
-                errMsg = 'All field required';
+                errMsg = '* All fields are required!';
 
             }
             else{
                 if (attenderArray.indexOf(element.name) > -1) {
                     isSuccess = false;
-                    errMsg = 'Failed,  attender type ' + element.name + " Repeating" ;
+                    errMsg = '* Failed,  attender type ' + element.name + " Repeating!" ;
                 } 
                 attenderArray.push(element.name);
             }
@@ -1239,7 +1236,7 @@ var returnRouter = function (io) {
                     if (single) {
                         isSuccess = false;
 
-                        errMsg = 'Failed, ' + element.name + ' Already Exist';
+                        errMsg = '* Failed, ' + element.name + ' Already Exist!';
                     }
                     callback();
                 })
@@ -1372,7 +1369,7 @@ var returnRouter = function (io) {
                     if (!catg) {
                         return res.json({ success: false, msg: 'Faild to delete category' });
                     } else {
-                        return res.json({ success: true, msg: 'deleted successfully' });
+                        return res.json({ success: true, msg: 'Deleted successfully' });
                     }
                 });
             }
@@ -1401,7 +1398,7 @@ var returnRouter = function (io) {
 
                         return res.json({ success: false, msg: 'Faild to delete Industry' });
                     } else {
-                        return res.json({ success: true, msg: 'deleted successfully' });
+                        return res.json({ success: true, msg: 'Deleted successfully' });
                     }
                 });
             }
@@ -1431,7 +1428,7 @@ var returnRouter = function (io) {
                     if (!org) {
                         return res.json({ success: false, msg: 'Faild to delete Organization type' });
                     } else {
-                        return res.json({ success: true, msg: 'deleted successfully' });
+                        return res.json({ success: true, msg: 'Deleted successfully' });
                     }
                 });
             }
@@ -1460,7 +1457,7 @@ var returnRouter = function (io) {
 
                         return res.json({ success: false, msg: 'Faild to delete survey attender type' });
                     } else {
-                        return res.json({ success: true, msg: 'deleted successfully' });
+                        return res.json({ success: true, msg: 'Deleted successfully' });
                     }
                 });
             }

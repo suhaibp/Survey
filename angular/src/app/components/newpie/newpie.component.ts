@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import * as d3 from 'd3-selection';
-import * as d3Scale from 'd3-scale';
-import * as d3Shape from 'd3-shape';
+// import * as d3 from 'd3-selection';
+// import * as d3Scale from 'd3-scale';
+// import * as d3Shape from 'd3-shape';
 import { CompanyService} from './../../services/company.service';
 import { CanActivate,ActivatedRoute, Router } from '@angular/router';
 import * as socketIo from 'socket.io-client';
@@ -117,20 +117,20 @@ if(this.list.survey != ''){
   }
 // ---------------------------------End-------------------------------------------
   private initSvgDia() {
-    this.color1 = d3Scale.scaleOrdinal()
-                        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
-    this.arc1 = d3Shape.arc()
-                      .outerRadius(this.radius1 - 10)
-                      .innerRadius(0);
-    this.labelArc1 = d3Shape.arc()
-                           .outerRadius(this.radius1 - 40)
-                           .innerRadius(this.radius1 - 40);
-    this.pie1 = d3Shape.pie()
-                      .sort(null)
-                      .value((d: any) => d.count);
-    this.svg2 = d3.select("svg")
-                 .append("g")
-                 .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
+    // this.color1 = d3Scale.scaleOrdinal()
+    //                     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
+    // this.arc1 = d3Shape.arc()
+    //                   .outerRadius(this.radius1 - 10)
+    //                   .innerRadius(0);
+    // this.labelArc1 = d3Shape.arc()
+    //                        .outerRadius(this.radius1 - 40)
+    //                        .innerRadius(this.radius1 - 40);
+    // this.pie1 = d3Shape.pie()
+    //                   .sort(null)
+    //                   .value((d: any) => d.count);
+    // this.svg2 = d3.select("svg")
+    //              .append("g")
+    //              .attr("transform", "translate(" + this.width1 / 2 + "," + this.height1 / 2 + ")");
   }
 
   private drawPieDia() {
@@ -146,10 +146,10 @@ if(this.list.survey != ''){
   }
 
   refreshDia(){
-    d3.select("svg").remove(); 
-    var svg = d3.select("body").append("svg").attr("width1","960").attr("height1", "500"),
-    inner = svg.append("g");
-    this.loadData();
+    // d3.select("svg").remove(); 
+    // var svg = d3.select("body").append("svg").attr("width1","960").attr("height1", "500"),
+    // inner = svg.append("g");
+    // this.loadData();
   }
 
 }

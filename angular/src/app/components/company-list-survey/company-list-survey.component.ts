@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef ,ViewChild  } from '@angular/core';
 import { CompanyService } from '../../services/company.service';
-import {MatTableDataSource,MatPaginator, MatSort} from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatSnackBar } from '@angular/material';
 import { CanActivate, Router } from '@angular/router';
 declare var $:any;
 @Component({
@@ -16,8 +16,9 @@ export class CompanyListSurveyComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   dateNow = new Date();
   editId = '';
-
-  constructor(private companyService: CompanyService, private routes: Router) { }
+  existStatus: boolean = false;
+  showSpinnerDelete :boolean = false;
+  constructor(private companyService: CompanyService, private routes: Router,  public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -67,11 +68,21 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
   loadSurvey(){
+    this.showSpinnerDelete = true
     this.companyService.getAllSurvey().subscribe(data=>{
-      console.log(data);
+      this.showSpinnerDelete = false
+      if(data.length <= 0 ){
+        // console.log("theme is empty");
+        this.existStatus = true;
+      }
+      else{
+        this.existStatus = false;
+      }
+      // console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+       
     });
   }
 
@@ -81,19 +92,29 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.dataSource.filter = filterValue;
   }
   deleteSurvey(){
+    this.showSpinnerDelete = true
     this.companyService.deleteSurvey(this.editId).subscribe(data=>{
       console.log(data);
       if(data.success){
+        this.showSpinnerDelete = false
         this.loadSurvey();
-        $('#myModal .modal-body h4').text(data.msg)
-        $('#myModal').modal('show');
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
+        // $('#myModal .modal-body h4').text(data.msg)
+        // $('#myModal').modal('show');
       }else{
-        $('#myModal .modal-body h4').text(data.msg)
-        $('#myModal').modal('show'); 
+        this.showSpinnerDelete = false
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
+        // $('#myModal .modal-body h4').text(data.msg)
+        // $('#myModal').modal('show'); 
       }
     });
   }
   setEditId(id){
+    this.showSpinnerDelete = false
     this.editId = id;
   }
 // ---------------------------------End-------------------------------------------

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService} from './../../services/user.service';
 import { CanActivate, Router, ActivatedRoute} from '@angular/router';
-
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'user-login',
   templateUrl: './user-login.component.html',
@@ -18,7 +18,7 @@ export class UserLoginComponent implements OnInit {
   }
   msg : any;
   showError : Boolean = false;
-  constructor(private route: ActivatedRoute, private userService : UserService, private routes: Router) { }
+  constructor(private route: ActivatedRoute, private userService : UserService, private routes: Router,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -84,6 +84,9 @@ this.userService.getLoggedUSerDetails().subscribe(info =>{
     if(data.success==false){
       this.showError = true;
       this.msg = data.msg;
+      let snackBarRef =  this.snackBar.open(this.msg, '', {
+        duration: 2000
+      });
     }
     if(data.success){
       this.showError = false;

@@ -18,6 +18,17 @@
     overflow: auto;
     max-height: 500px;
   }
-  .filter{
+  
+    wi.filter{
     margin-top: 10px;
   }
+  .noItemFound{
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid lightgray;
+
+ }
+ .back-color{
+    color: #757575;
+    background-color: #ffffff;
+}

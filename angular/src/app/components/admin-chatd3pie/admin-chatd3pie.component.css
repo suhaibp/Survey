@@ -6,3 +6,22 @@
 .arc path {
   stroke: #fff;
 }
+.no-g-data{
+  padding: 72px 0 55px 0;
+  text-align: center;
+  min-height: 550px;
+}
+.no-g-data h4{
+  font-size: 30px;
+  font-weight: 800;
+  color: #4F657D
+}
+.no-g-data img{
+
+  width: 62px;
+  margin: 100px 0 0 0;
+}
+.pie-chart-admin{
+  padding-top: 50px;
+  padding-bottom: 75px;
+}

@@ -8,12 +8,11 @@
 
       <!-- <div *ngFor="let item of locations" >{{item.lat}} {{item.long}}</div> -->
       <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-12 bg-white">
-            <div class="row">
+          <div class="col-md-12 ">    
               <div class="col-md-12 ">
                 <div class="row">
-                  <div class="map-fltr">
+                  <div *ngIf="!noPositionAvailable" class="map-fltr">
+                      <!-- <div  class="map-fltr"> -->
                     <mat-form-field>
                       <mat-select placeholder="Select Survey" [(ngModel)]="surveyId" name="survey" (change)="getMapPositionsforId();refreshDia();">
 
@@ -30,27 +29,42 @@
 
                     </mat-form-field>
                   </div>
-                  <h2>Survey Attenders</h2>
+                  <div class="col-md-12 graph-containers">
+                      <h1>Survey Attenders</h1>
+                      <div class="row">
+                          <div *ngIf="!noPositionAvailable; else empty">
+                              <agm-map [latitude]="13.026017" [longitude]="75.354847" [zoom]="6">
+                                  
+                                <ng-container *ngFor="let item of locations; let i=index">
+            
+                                  <ng-container *ngFor="let elem of item.questions">
+                                    <ng-container *ngFor="let elemx of elem.answers">
+                                      <!-- {{elemx.latitude}} -->
+                                      <agm-marker [latitude]="ConvertString(elemx.latitude)" [longitude]="ConvertString(elemx.longitude)"></agm-marker>
+            
+                                    </ng-container>
+            
+                                  </ng-container>
+                                </ng-container>
+                                <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                                                <agm-marker [latitude]="27.56" [longitude]="-82.68"></agm-marker>
+                                                <agm-marker [latitude]="42.05" [longitude]="-119.47"></agm-marker> -->
+            
+                              </agm-map>
+                                  
+                            </div>
+                      </div>
+                      
+                  </div>
                   
-                  <agm-map [latitude]="13.026017" [longitude]="75.354847" [zoom]="6">
+                  
 
-                    <ng-container *ngFor="let item of locations; let i=index">
-
-                      <ng-container *ngFor="let elem of item.questions">
-                        <ng-container *ngFor="let elemx of elem.answers">
-                          <!-- {{elemx.latitude}} -->
-                          <agm-marker [latitude]="ConvertString(elemx.latitude)" [longitude]="ConvertString(elemx.longitude)"></agm-marker>
-
-                        </ng-container>
-
-                      </ng-container>
-                    </ng-container>
-                    <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                                    <agm-marker [latitude]="27.56" [longitude]="-82.68"></agm-marker>
-                                    <agm-marker [latitude]="42.05" [longitude]="-119.47"></agm-marker> -->
-
-                  </agm-map>
-
+                  <ng-template #empty>
+                      <div class="col-md-12 no-g-data">
+                          <img src="assets/images/sad.png" alt="sad">
+                          <h4>No Data Available!</h4>
+                      </div>
+                  </ng-template>
 
                 </div>
 
@@ -59,25 +73,40 @@
 
 
 
-            </div>
-            <!-- <div class="modal-footer"></div> -->
-            <h2>Survey Response</h2>
             
-            <div class="col-md-8 col-md-offset-2 svg-div">
-<!-- pie diagram start -->
-  <svg id="piedia" width="960" height="500"></svg>
-<!-- pie diagram end -->
+            <!-- <div class="modal-footer"></div> -->
+            <div class="col-md-12 graph-containers">
+                <h1>Survey Response</h1>
+                
+                <div *ngIf="!noPositionAvailable; else empty" class="col-md-8 col-md-offset-2 svg-div no-g-data">
+                <!-- pie diagram start -->
+                  <!-- <svg id="piedia" width="960" height="500"></svg> -->
+                <!-- pie diagram end -->
+                <div id="chart"></div>
+                
+                </div>
             </div>
+            
             <!-- <div class="col-md-12"></div> -->
 
-            <div class="col-md-12" *ngIf="surveyId != 'all'">
+            <div class="col-md-12 graph-containers " *ngIf="surveyId != undefined; else empty2">
               <company-chart2  [surveyid]="surveyId"></company-chart2>
             </div>
 
+
+            <ng-template #empty2>
+                <div class="col-md-12 graph-containers">
+                  <h1>Survey Response</h1>
+                  <div class="col-md-12 no-g-data">
+                      <img src="assets/images/sad.png" alt="sad">
+                      <h4>No Data Available!</h4>
+                  </div>
+                </div>
+            </ng-template>
             
           </div>
 
-        </div>
+        
       </div>
     </div>
 

@@ -130,6 +130,10 @@ const CompanySchema = mongoose.Schema({
             default: false,
         },
     }],
+    is_plan_completed:{
+        type: Boolean,
+        default: false,
+    },
     plans: [{
         upgraded_date_time: {
             type: Date,

@@ -341,7 +341,12 @@
     stroke-width: 1.5px;
   }
   .map-fltr{
-    margin: 2px 0px 0px 10px;
+    /* margin: 2px 0px 0px 10px; */
+    background-color: #fff;
+    box-shadow: 1px 6px 19px 0px #ccc;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    padding: 14px 20px 9px 20px;    
   }
   path {  stroke: #fff; }
 path:hover {  opacity:0.9; }
@@ -478,5 +483,28 @@ rect:hover {  fill:blue; }
       
       .arc path {
         stroke: #fff;
+      }
+      
+
+      .no-g-data{
+        text-align: center;
+        min-height: 550px;
+        padding: 72px 0 55px 0;
+      }
+      .no-g-data h4{
+        font-size: 30px;
+        font-weight: 800;
+        color: #4F657D;
+      }
+      .no-g-data img{
+      
+        width: 62px;
+        margin: 100px 0 0 0;
+      }
+      .graph-containers h4{
+        padding: 0 0px 0 18px;
+        font-size: 25px;
+        color: #4F657D;
+        
       }
       

@@ -6,6 +6,7 @@ import {ReversePipe } from './../../pipe/reverse.pipe'
 declare var $:any;
 import {RatingModule} from "ngx-rating";
 import {Config} from '../../config/config';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-user-survey-multiple',
@@ -14,7 +15,7 @@ import {Config} from '../../config/config';
   inputs:['survey']
 })
 export class UserSurveyMultipleComponent implements OnInit {
-
+  showSpinner :boolean = false
   cardNo = 0;
   incDisp = false;
   survey: any;
@@ -30,11 +31,11 @@ export class UserSurveyMultipleComponent implements OnInit {
   progressBarWidthString = '';
   serviceUrl :string;
   userIdx:any;
-  
+  err = false;
   constructor(private _activatedRoute: ActivatedRoute,
     private _userService: UserService,
     private _companyService: CompanyService,
-    private routes: Router,private config: Config,private route: ActivatedRoute) {
+    private routes: Router,private config: Config,private route: ActivatedRoute, public snackBar: MatSnackBar) {
       this.serviceUrl = config.siteUrl + '/company/';
      }
 
@@ -125,8 +126,10 @@ getTheme(){
 // Last Modified : 28-12-2017, Manu Prasad, Desc:
 // Desc          : Submit survey answrs
 submitAns(){
+  this.showSpinner = true
   console.log(this.survey);
   if(this.skip == false){
+    this.showSpinner = false
     this.survey.questions.forEach(element => {
       if(element.ans == '' || !element.ans){
         this.blankAns = true;
@@ -135,6 +138,7 @@ submitAns(){
     
   }
   if(!this.blankAns){
+    this.showSpinner = false
     this._userService.submitSurvey(this.survey, this.survey._id).subscribe(res =>{
   console.log(res);
   
@@ -142,12 +146,27 @@ submitAns(){
         this.blankAns = true;
       }
       else if(res.status == 1||res.status == 3){
-        $('#myModal .modal-body h4').text("Somthing went wrong!");
-        $('#myModal').modal('show'); 
+        this.err = true;        
+      //   $('#myModal .modal-body h4').text("Somthing went wrong!");
+      //   $('#myModal').modal('show'); 
+      // } 
+      // else if(res.status == 4){
+      //   this.err = false;                
+      //   $('#myModal .modal-body h4').text("Successfully submitted!");
+      //   $('#myModal').modal('show'); 
+        let snackBarRef =  this.snackBar.open('* Somthing went wrong!!', '', {
+          duration: 2000
+        });
+        // $('#myModal .modal-body h4').text("Somthing went wrong!");
+        // $('#myModal').modal('show'); 
       } 
       else if(res.status == 4){
-        $('#myModal .modal-body h4').text("Successfully submitted!");
-        $('#myModal').modal('show'); 
+        this.routes.navigate(['/survey-success']);
+        let snackBarRef =  this.snackBar.open('* Successfully submitted', '', {
+          duration: 2000
+        });
+        // $('#myModal .modal-body h4').text("Successfully submitted!");
+        // $('#myModal').modal('show'); 
       } 
       });
   }
@@ -216,11 +235,26 @@ skipQuestion(){
 // Last Modified : 28-12-2017, Manu Prasad, Desc:
 // Desc          : reload survey after submission
 closed(){
-  window.location.reload();
+  // window.location.reload();
+  this.routes.navigate(['/survey-success']);
   
 }
 // -----------------------------------End------------------------------------------
 
+
+// ---------------------------------Start-------------------------------------------
+// Function      : closed()
+// Params        : 
+// Returns       : 
+// Author        : Manu Prasad
+// Date          : 29-1-2018
+// Last Modified : 29-1-2018, Manu Prasad, Desc:
+// Desc          : reload survey after submission
+closedErr(){
+  window.location.reload();  
+
+}
+//  ---------------------------------end-----------------------------------------------
 
 // ---------------------------------Start-------------------------------------------
 // Function      : timeOver()
@@ -233,13 +267,18 @@ closed(){
 timeOver(){
   console.log("h");
   if(this.skip == false){
-  $('#myModalx .modal-body h4').text("Surevey TimeOut!");
-  $('#myModalx').modal('show'); 
+    let snackBarRef =  this.snackBar.open('* Survey TimeOut'!, '', {
+      duration: 2000
+    });
+  // $('#myModalx .modal-body h4').text("Surevey TimeOut!");
+  // $('#myModalx').modal('show'); 
   }
   else{
-    
-    $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
-    $('#myModaly').modal('show');
+    let snackBarRef =  this.snackBar.open('* Survey TimeOut! Do you want to submit?!', '', {
+      duration: 2000
+    });
+    // $('#myModaly .modal-body h4').text("Surevey TimeOut! Do you want to submit?");
+    // $('#myModaly').modal('show');
   }
 }
 // -----------------------------------End------------------------------------------
