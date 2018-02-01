@@ -1,10 +1,6 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
-<<<<<<< HEAD
-=======
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
-
->>>>>>> 1749fd9c21ad8efa768ca3d89a04a3d10217d733
 .prev-img {
      /* background-color: #dd3;  */
     border-radius: 5px;
@@ -294,14 +290,17 @@ body {
   /* .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #db514f;
 } */
-
+/* svg path,
+svg rect{
+  fill: #EC0C0C;
+} */
 .preloader2{
     text-align: center;
     background-color: #00000045;
     border-bottom: 1px solid lightgray;
     height: 100%;
     padding-top: 13%;
-    position: absolute;
+    position: absolute !important;
     z-index: 1000;}
     .buttonleft>li{
         border:none !important;
@@ -309,8 +308,11 @@ body {
         padding: 4px;
     } 
     
-    .ourbutton2{    border-radius: 20px;
+    .ourbutton2{  border-radius: 20px;
             padding: 7px 40px;}
     .buttonleft{padding:2em 0;min-height:300px;}
     
-    
+    .svgclass path,.svgclass rect{
+        fill: #EC0C0C;
+    }
+

@@ -106,9 +106,9 @@ this.userService.getLoggedUSerDetails().subscribe(info =>{
       let snackBarRef =  this.snackBar.open('Account created successfully', '', {
         duration: 2000
       });
-      //  setTimeout(() => {
+       setTimeout(() => {
          this.routes.navigate(['/survey', this.surveyId]);
-      //  }, 4000);
+       }, 2000);
      } else {
       this.showSpinner = false;
       // this.msg = data.msg;
@@ -118,7 +118,7 @@ this.userService.getLoggedUSerDetails().subscribe(info =>{
       });
        setTimeout(() => {  
          this.routes.navigate(['/404']);
-       }, 4000);
+       }, 2000);
      }
     });
   }

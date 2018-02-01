@@ -126,3 +126,7 @@
     color: #5d5d5d !important;
     float: left;
   }
+  svg path,
+  svg rect{
+    fill: #EC0C0C;
+  }

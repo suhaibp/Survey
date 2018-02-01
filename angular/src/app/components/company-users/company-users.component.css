@@ -319,3 +319,10 @@ a{outline:none; }
     color: #757575;
     background-color: #ffffff;
 }
+.svgclass path,.svgclass rect{
+    fill: #EC0C0C;
+}
+/* svg path,
+svg {
+  
+} */

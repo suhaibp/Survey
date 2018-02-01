@@ -86,6 +86,8 @@ import { UserSurveyClosedComponent } from './components/user-survey-closed/user-
 import { UserSurveyUpcomingComponent } from './components/user-survey-upcoming/user-survey-upcoming.component';
 import { CountDownTimerComponent } from './components/count-down-timer/count-down-timer.component';
 import { UserSurveyMultipleComponent } from './components/user-survey-multiple/user-survey-multiple.component';
+import { CompanyUpgradeComponent } from './components/company-upgrade/company-upgrade.component';
+import { CompanyPaymentComponent } from './components/company-payment/company-payment.component';
 
 
 
@@ -179,7 +181,7 @@ const appRoutes: Routes = [
   {path:'creg', component:CompanyRegistrationComponent},
   {path:'additnInfo/:id', component:CompanyAdditnInfoComponent},
   {path:'email-verification/:id', component:CompanyEmailVerificationComponent},
-  {path:'expired', component:CompanyExpiredPageComponent},
+  {path:'expired', component:CompanyUpgradeComponent},
   {path:'profile', component:CompanyProfileComponent},
   {path:'company-users', component:CompanyUsersComponent},
   {path:'user-response-email/:id1/:id2', component:UserResponseEmailComponent},
@@ -192,6 +194,9 @@ const appRoutes: Routes = [
   {path:'company-list-survey', component:CompanyListSurveyComponent},
   {path:'company-edit-survey/:id', component:CompanyEditSurveyComponent},
   {path:'preview', component:CompanySurveyPreviewComponent},
+  {path:'creg/:id', component:CompanyRegistrationComponent},
+  {path:'payment/:id', component:CompanyPaymentComponent},
+  {path:'upgrade', component:CompanyUpgradeComponent},
   {path:'admin-plan', component:AdminPlanComponent},
   {path:'survey-success', component:UserSurveySuccessComponent},
   {path:'test', component:UserTestComponent},
@@ -298,6 +303,8 @@ export class DemoMaterialModule {}
     NewpieComponent,
     PageNotFoundComponent,
     CompanyChart2Component,
+    CompanyUpgradeComponent,
+    CompanyPaymentComponent,
     AdminPlanComponent,
     UserSurveySuccessComponent,
     UserTestComponent
