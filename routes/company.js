@@ -1637,7 +1637,20 @@ var returnRouter = function (io) {
                         return res.json({ success: false, msg: 'Cant update Company' });
                     }
                     else {
-                        return res.json({ success: true, msg: 'Update Company' });
+                        // return res.json({ success: true, msg: 'Update Company' });
+                        const token = jwt.sign(company.toJSON(), config.secret, {
+                            expiresIn: 60400 // sec 1 week
+                        });
+                        return res.json({
+                            success: true,
+                            msg: "Update Company",
+                            token: 'JWT ' + token,
+                            company: {
+                                id: company._id,
+                                role: company.role,
+                                // status: company.cmp_status
+                            }
+                        });
                     }
                 });
         } else {

@@ -11140,6 +11140,7 @@ var CompanyProfileComponent = /** @class */ (function () {
         });
         this.companyService.updateCompany(this.newReg).subscribe(function (info) {
             if (info.success) {
+                _this.companyService.storeUserData(info.token, info.company);
                 _this.showSpinner = false;
                 var snackBarRef = _this.snackBar.open('Profile updated Successfully', '', {
                     duration: 2000
@@ -11461,21 +11462,20 @@ var CompanyRegistrationComponent = /** @class */ (function () {
         this.thirdForm = this.newReg.survey_attenders;
         this.result = Object.assign(this.firstForm, this.secondForm, this.planForm);
         // console.log(this.result);
-        this.companyService.registration(this.result).subscribe(function (data) {
-            // console.log(data);
-            if (data.success == true) {
-                _this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
-                setTimeout(function () {
-                    _this.routes.navigate(['/clogin']);
-                }, 4000);
-            }
-            else {
-                _this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
-                setTimeout(function () {
-                    _this.routes.navigate(['/clogin']);
-                }, 4000);
-            }
-        });
+        // this.companyService.registration(this.result).subscribe(data => {
+        //   // console.log(data);
+        //   if (data.success == true) {
+        //     this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
+        //     setTimeout(() => {
+        //       this.routes.navigate(['/clogin']);
+        //     }, 4000);
+        //   } else {
+        //     this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
+        //     setTimeout(() => {
+        //       this.routes.navigate(['/clogin']);
+        //     }, 4000);
+        //   }
+        // });
         this.thirdForm = this.newReg.survey_attenders;
         this.result = Object.assign(this.firstForm, this.secondForm);
         this.companyService.registration(this.result).subscribe(function (data) {

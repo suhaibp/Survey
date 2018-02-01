@@ -213,6 +213,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     });
     this.companyService.updateCompany(this.newReg).subscribe(info => {
       if(info.success){
+        this.companyService.storeUserData(info.token, info.company);
         this.showSpinner =false
         let snackBarRef =  this.snackBar.open('Profile updated Successfully', '', {
           duration: 2000
