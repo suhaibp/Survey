@@ -24,9 +24,14 @@
       <a routerLink="/admin-users"><i class="fa fa-users"></i> Users</a>
  
 </li>
-<li [routerLinkActive]="['open']" [routerLinkActiveOptions] = "{exact:true}" [ngClass]="{'open': open}">
-  <a  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs"></i> Master Settings <span class="caret"></span></a> 
-  <ul class="dropdown-menu" role="menu">
+<li  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+  <a routerLink="/admin-plan"><i class="fa fa-pencil-square-o"></i> Plans</a>
+
+</li>
+<li>
+  
+  <a  class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-cogs"></i> Master Settings <span class="caret"></span></a> 
+  <ul class="dropdown-menu" role="menu" [ngClass]="{'sd-block': open=='open'}">
       <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/manage-survey-category">Manage Survey Category</a></li>
       <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/admin-manage-organization-type">Manage Organization Type</a></li>
       <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/admin-manage-industry">Manage Industry</a></li>
@@ -37,4 +42,4 @@
 </li>
 </ul>
 
-<!-- ----------------------------------End------------------------------------------- -->
+<!------------------------------------End--------------------------------------------->

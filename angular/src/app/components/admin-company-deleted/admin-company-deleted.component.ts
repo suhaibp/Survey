@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { AdminService} from './../../services/admin.service';
 import {Router} from '@angular/router';
 
@@ -13,11 +13,13 @@ export class AdminCompanyDeletedComponent implements OnInit {
   displayedColumns = ['slno','companyname','email','contactperson','contactnumber','companystatus'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  showSpinner :Boolean =false
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(
     private adminService : AdminService,
-    private routes: Router
+    private routes: Router,
+    public snackBar: MatSnackBar
   ) { }
 
  // ---------------------------------Start-------------------------------------------
@@ -30,8 +32,11 @@ export class AdminCompanyDeletedComponent implements OnInit {
 // Desc          : All deleted companieslist
 // -----------------------------------
 refresh(){
+  this.showSpinner =true
   const company = [];
       this.adminService.getAlldeletedcompanies().subscribe(data=>{
+        this.showSpinner =false
+        this.showSpinner =false
         if(data.length == 0){
           this.notExist = true;
         }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService} from './../../services/company.service';
 import { CanActivate, Router } from '@angular/router';
-
+import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'company-login',
   templateUrl: './company-login.component.html',
@@ -9,13 +9,14 @@ import { CanActivate, Router } from '@angular/router';
 })
 export class CompanyLoginComponent implements OnInit {
   btnDisbled:boolean = false;
+  showSpinner :boolean = false;
   msg : any;
   newLogin = {
     contact_person_email : '',
     password : '',
   }
 
-  constructor(private companyService : CompanyService, private routes: Router) { }
+  constructor(private companyService : CompanyService, private routes: Router,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -64,9 +65,11 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 01-1-2018, Rinsha
 // Desc          : CHeck whether company is expired. If expired, it redirect to expired page, otherwise dashboard
   login(){
+  this.showSpinner = true;
   this.btnDisbled = true;
   this.companyService.authenticateCompany(this.newLogin).subscribe(data => {
     if(data.success){
+      this.showSpinner = false;
       this.btnDisbled = false;
       if(data.company.status == "Expired"){
          var json = data.company;
@@ -83,8 +86,12 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
          this.routes.navigate(['/dashboard']);
       }
     } else {
+      this.showSpinner = false;
       this.btnDisbled = false;
       this.msg = data.msg;
+      let snackBarRef =  this.snackBar.open(this.msg, '', {
+        duration: 2000
+      });
     }
   });
   }

@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { AdminService} from './../../services/admin.service';
 import {Router} from '@angular/router';
 
@@ -12,12 +12,15 @@ export class AdminAllUsersComponent implements OnInit {
   displayedColumns = [ 'slno','username','email','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  showSpinner :Boolean =false
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   position = 'before';
   constructor(
     private adminService : AdminService,
-    private routes: Router
+    private routes: Router,
+    public snackBar: MatSnackBar
+   
   ) { }
 // ---------------------------------Start-------------------------------------------
 // Function      : Admin user management
@@ -29,8 +32,10 @@ export class AdminAllUsersComponent implements OnInit {
 // Desc          : All users, delete,block,unblock
 
   refresh(){
+    this.showSpinner =true
     const users = [];
         this.adminService.getAllusers().subscribe(data=>{
+          this.showSpinner =false
           if(data.length == 0){
             this.notExist = true;
           }
@@ -84,12 +89,21 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
   }
 //delete user
 deleteUser(id){  
+  this.showSpinner =true
     this.adminService.deleteUser(id).subscribe(data=>{
-      console.log(data);
+      // console.log(data);
       if(data.success){
+        this.showSpinner =false
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
         this.refresh();
            }
            else{
+            this.showSpinner =false
+            let snackBarRef =  this.snackBar.open(data.msg, '', {
+              duration: 2000
+            });
           }
           
     });
@@ -98,12 +112,21 @@ deleteUser(id){
 
 //block User
 blockUser(id){  
+  this.showSpinner =true
   this.adminService.blockUser(id).subscribe(data=>{
     console.log(data);
     if(data.success){
+      this.showSpinner =false
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
       this.refresh();
     
     }else{
+      this.showSpinner =false
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
      
     }
   });
@@ -111,13 +134,21 @@ blockUser(id){
 }  
 //unblock User
 unblockUser(id){
+  this.showSpinner =true
   this.adminService.unblockUser(id).subscribe(data=>{
     console.log(data);
     if(data.success){
+      this.showSpinner =false
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
       this.refresh();
    
     }else{
-     
+      this.showSpinner =false
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
     }
   });
 

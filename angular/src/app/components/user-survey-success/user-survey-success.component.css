@@ -1,0 +1,16 @@
+.txt-align{
+    margin: 321px 0 0 0;
+    text-align: center;
+}
+.txt-align h4{
+    font-size: 25px;
+    font-weight: 700;
+    color: #1b4666;
+    margin: 30px 0 0 0;
+}
+.txt-align img{
+    width: 100px;
+}
+/* .whte{
+    background-color: #fff !important;
+} */

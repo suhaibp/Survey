@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService} from './../../services/user.service';
 import { CanActivate, Router, ActivatedRoute} from '@angular/router';
-
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'user-login',
   templateUrl: './user-login.component.html',
@@ -12,13 +12,14 @@ export class UserLoginComponent implements OnInit {
   userId : any;
   surveyId : any;
   userEmail : any;
+  showSpinner :boolean = false
   newLogin = {
     email : '',
     password : '',
   }
   msg : any;
   showError : Boolean = false;
-  constructor(private route: ActivatedRoute, private userService : UserService, private routes: Router) { }
+  constructor(private route: ActivatedRoute, private userService : UserService, private routes: Router,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -80,12 +81,18 @@ this.userService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
   login(){
+    this.showSpinner = true
     this.userService.userLogin(this.newLogin, this.surveyId).subscribe(data => {
     if(data.success==false){
+      this.showSpinner = false
       this.showError = true;
       this.msg = data.msg;
+      let snackBarRef =  this.snackBar.open(this.msg, '', {
+        duration: 2000
+      });
     }
     if(data.success){
+      this.showSpinner = true
       this.showError = false;
       this.userService.storeUserData(data.token, data.user);
       this.routes.navigate(['/survey', this.surveyId]);

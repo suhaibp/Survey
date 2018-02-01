@@ -321,6 +321,7 @@ export class CompanyService {
   // Desc          : function used to get details of a theme from database
   updateTheme(id, theme) {
     let headers = this.setHeaderWithAuthorization();
+    console.log("exe");
     return this.http.put(this.serviceUrl + 'update-theme/' + id, theme, { headers: headers })
       .map(res => res.json());
   }
@@ -461,7 +462,6 @@ export class CompanyService {
   // Desc          : gto update company is viewed to true when the notification is viewed by user
 
   updateNotifViewed(view: any) {
-    // console.log(view);
     let h = this.setHeaderWithAuthorization();
     return this.http.put(this.serviceUrl + "updateviewednotification", (view), { headers: h })
       .map(res => res.json());
@@ -479,7 +479,7 @@ export class CompanyService {
   // Desc          : to delete a user group
 
   deleteUserGroup(userGroupId: any) {
-    console.log(userGroupId)
+   
     let h = this.setHeaderWithAuthorization();
     return this.http.delete(this.serviceUrl + "deleteusergroups/" + userGroupId, { headers: h })
       .map(res => res.json())
@@ -497,7 +497,6 @@ export class CompanyService {
   // Desc          : to delete a user group
 
   addUserGroupsInCompany(data: any) {
-    // console.log(data)
     let headers = this.setHeaderWithAuthorization();
     return this.http.post(this.serviceUrl + 'add-user-group', data, { headers: headers })
       .map(res => res.json());

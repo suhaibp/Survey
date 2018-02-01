@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgF
 import { CompanyService} from './../../services/company.service';
 import { CanActivate, Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class CompanyProfileComponent implements OnInit {
   industryId : any;
   surveyattendersId : any;
   checked = false;
+  showSpinner :boolean = false
   surveyattenderss : any;
   modelArr : any;
   showSubscribe : Boolean = false;
@@ -37,7 +39,7 @@ export class CompanyProfileComponent implements OnInit {
   surveyattenders : any;
   company : any;
   t =true;
-  constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService) { }  
+  constructor(private _formBuilder: FormBuilder, private companyService : CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService,public snackBar: MatSnackBar) { }  
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -163,16 +165,25 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 04-1-2018, Rinsha
 // Desc          : Company can subscribe app by clicking the subscribe button
   subscribe(){
+    this.showSpinner =true
     this.companyService.subscribeCompany().subscribe(data => {
       if(data.success){
-        this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
-        setTimeout(() => {  
-          this.routes.navigate(['/profile']);
-          location.reload();
-        }, 4000);
+        this.showSpinner =false
+        // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+        let snackBarRef =  this.snackBar.open('Subscribed successfully', '', {
+          duration: 2000
+        });
+        // setTimeout(() => {  
+          this.routes.navigate(['/dashboard']);
+          // location.reload();
+        // }, 4000);
       }
       else{
-        this._flashMessagesService.show('Some error occured, Please try again', { cssClass: 'alert-danger', timeout: 4000 });
+        this.showSpinner =false
+        // this._flashMessagesService.show('* Some error occured, Please try again!', { cssClass: 'alert-danger', timeout: 4000 });
+        let snackBarRef =  this.snackBar.open('* Some error occured, Please try again!', '', {
+          duration: 2000
+        });
         setTimeout(() => {  
           this.routes.navigate(['/profile']);
         }, 4000);
@@ -190,6 +201,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 03-1-2018, Rinsha
 // Desc          : Company can update all the details except email and name
   updateProfile(){
+    this.showSpinner =true
     this.newReg.survey_attenders = [];
     this.surveyattenders.forEach(element => {
       if(element.check == true){
@@ -201,13 +213,21 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     });
     this.companyService.updateCompany(this.newReg).subscribe(info => {
       if(info.success){
-        this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+        this.showSpinner =false
+        let snackBarRef =  this.snackBar.open('Profile updated Successfully', '', {
+          duration: 2000
+        });
+        // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
         setTimeout(() => {  
           this.routes.navigate(['/profile']);
         }, 4000);
       }
       else{
-        this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+        this.showSpinner =false
+        // this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
+        let snackBarRef =  this.snackBar.open('* Error!', '', {
+          duration: 2000
+        });
         setTimeout(() => {  
           this.routes.navigate(['/profile']);
         }, 4000);

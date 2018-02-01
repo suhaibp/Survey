@@ -1,5 +1,5 @@
 import {Component, ViewChild, OnInit, ElementRef} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { CompanyService } from './../../services/company.service';
 import {Router} from '@angular/router';
 declare var $:any;
@@ -14,11 +14,14 @@ export class CompanyManageThemesComponent implements OnInit {
   displatStat = false;
   themeId: string;
   showErr = false;
+  existStatus: boolean = false;
+  showSpinner :boolean = false
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(
     private _companyService: CompanyService,
-    private routes: Router) { }
+    private routes: Router,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -78,15 +81,27 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
 
 
 getThemes(){
+  this.showSpinner =true
   this._companyService.getThemes().subscribe(themes =>{
-    console.log(themes);
-    if(themes){
+    this.showSpinner =false
+      // console.log(themes);
+    if(themes.length <= 0 ){
+      // console.log("theme is empty");
+      this.existStatus = true;
+    }
+    else{
+      this.existStatus = false;
+    }
+    //  else {
+    // console.log(themes);
+    // console.log("theme is not empty");
+    //  console.log(this.existStatus);
       this.displatStat = true;
       this.dataSource = new MatTableDataSource(themes);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    }
     
+  // }  
   });
 
   }
@@ -103,6 +118,7 @@ getThemes(){
 
 
 getThemeId(id){
+  this.showSpinner =false
   this.themeId = id;
   console.log(id)
 
@@ -122,20 +138,33 @@ getThemeId(id){
 
 
   deleteTheme(id){
-  console.log(id)
+    this.showSpinner =true
+  // console.log(id)
   
     this._companyService.deleteTheme(id).subscribe(res =>{
       console.log(res);
       if(res.status == 2){
+        this.showSpinner =false
+        let snackBarRef =  this.snackBar.open('Deleted Successfully', '', {
+          duration: 2000
+       });
         this.getThemes();
       }
       else if(res.status == 0){
-        $('#myModal .modal-body h4').text('Theme is currently used for a survey!')
-        $('#myModal').modal('show')    
+        this.showSpinner =false
+        let snackBarRef =  this.snackBar.open('Cant delete, This theme is currently used for in a survey!', '', {
+          duration: 2000
+       });
+        // $('#myModal .modal-body h4').text('Theme is currently used for a survey!')
+        // $('#myModal').modal('show')    
       }
       else{
-        $('#myModal .modal-body h4').text('Error in deleting theme!')
-        $('#myModal').modal('show')    
+        this.showSpinner =false
+        let snackBarRef =  this.snackBar.open('* Error in deleting theme!', '', {
+          duration: 2000
+       });
+        // $('#myModal .modal-body h4').text('Error in deleting theme!')
+        // $('#myModal').modal('show')    
       }
     });
   

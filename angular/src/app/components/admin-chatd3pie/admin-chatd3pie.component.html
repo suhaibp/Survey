@@ -1,6 +1,26 @@
 
 
 <h1>{{title}}</h1>
-<!-- <h2>{{subtitle}}</h2> -->
 
-<svg id="sd" width="960" height="500" ></svg>
+<div *ngIf="graphData; else empty">
+        <div   class="col-md-12 no-g-data">
+    
+                <!-- <svg  id="sd" width="960" height="500" ></svg> -->
+                <div class="col-md-12 pie-chart-admin">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div id="chart"></div>
+            
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+</div>
+
+<ng-template #empty>
+    <div class="col-md-12 no-g-data">
+            <img src="assets/images/sad.png" alt="sad">
+        <h4>No Data Available!</h4>
+    </div>
+</ng-template>

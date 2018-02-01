@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $:any;
 @Component({
   selector: 'admin-side-bar',
   templateUrl: './admin-side-bar.component.html',
@@ -12,7 +12,7 @@ export class AdminSideBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.open)
+    
   }
 
 }

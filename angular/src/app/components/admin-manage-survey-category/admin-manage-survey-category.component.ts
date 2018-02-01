@@ -4,6 +4,7 @@ import { AdminService } from '../../services/admin.service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'manage-survey-category',
@@ -12,7 +13,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AdminManageSurveyCategoryComponent implements OnInit {
       displayedColumns = [ 'id','name','action'];
-      btnDisbled:boolean = false;
       catgId :any;
       atleastOneitem :boolean = false;
       isSuccess : boolean = false
@@ -22,6 +22,8 @@ export class AdminManageSurveyCategoryComponent implements OnInit {
       Updatechange:Boolean =false;
       Updaterequired :boolean = false;
       UpdatealreadyExist :boolean = false;
+      showSpinner :boolean = false;
+      showSpinnerDelete :boolean = false;
       private sub: any;
       dataSource: MatTableDataSource<any>;
       @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -40,7 +42,7 @@ export class AdminManageSurveyCategoryComponent implements OnInit {
       trackByIndex(index: number, value: number) {
       return index;
   }
-  constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute) {}
+  constructor(private _adminService : AdminService,private _flashMessagesService: FlashMessagesService,private routes : Router,private route: ActivatedRoute,public snackBar: MatSnackBar) {}
 
   ngOnInit( ) {
 // ---------------------------------Start-------------------------------------------
@@ -79,6 +81,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   }
   addNew(){
     this.newCategory =  [{name: ''}];
+    this.showSpinner = false;
 
 
    }
@@ -92,7 +95,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
   // Desc          : to avoid space and special characters in name field
 
 _keyPress(event: any) {
-      const pattern = /[a-z A-Z1-9]/;
+      const pattern = /[a-z A-Z]/;
       let inputChar = String.fromCharCode(event.charCode);
       if (!pattern.test(inputChar) && event.charCode != 0) {
             // invalid character, prevent input
@@ -111,13 +114,22 @@ _keyPress(event: any) {
   // Desc          : to get all survey category
 
   loadData(){
+    this.showSpinnerDelete =true
      const users: any[] = [];
      this._adminService.getCategory().subscribe(data1=>{
-          if(data1 != '')
+       
+         if(data1 == '')
           {
+            this.showSpinnerDelete =false
+              this.existStatus = false;
+          }
+         else if(data1 != '')
+          {
+            this.showSpinnerDelete =false
               this.existStatus = true;
           }
             data1.forEach((item, index) => {
+              this.showSpinnerDelete =false
                     users.push({
                     name: item.name,
                     id :item._id
@@ -156,11 +168,15 @@ _keyPress(event: any) {
         if(this.newCategory.length > 1){
             this.newCategory.splice(index, 1);
         }else{
-              this.atleastOneitem = true;
-              setTimeout(()=>{ 
-                      this.atleastOneitem = false;
-              }, 3000);
-                // this._flashMessagesService.show('Atleast one item required!', { cssClass: 'alert-danger', timeout: 1000 });
+              // this.atleastOneitem = true;
+              
+              // setTimeout(()=>{ 
+              //         this.atleastOneitem = false;
+              // }, 3000);
+              
+              let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
+                duration: 2000
+              });
               return false;
         }
     }
@@ -176,28 +192,27 @@ _keyPress(event: any) {
   // Desc          : close a category
 
 insertCategory(){
+  this.showSpinner = true;
       this._adminService.addCategory(this.newCategory).subscribe(data => {
+        // console.log(data);
             if(!data.success){
-                this.isError = true;
-                this.errorMsg = data.msg;
-                this.btnDisbled = false
-                setTimeout(()=>{ 
-                      this.isError = false;
-                      this.errorMsg = '';
-                }, 2000);
+              this.showSpinner =false
+              let snackBarRef =  this.snackBar.open(data.msg, '', {
+                duration: 2000
+              });
             }
             else if(data.success){
-                this.btnDisbled = true
                 this.loadData();
                 this.closeBtn.nativeElement.click();
-                // this.isSuccess = true;
-                this.errorMsg = data.msg;
-                setTimeout(()=>{ 
-                        this.isSuccess = false;
-                        this.errorMsg = '';
-                        this.btnDisbled = false
-                }, 2000);
-                this._flashMessagesService.show('Add Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+          
+              //   setTimeout(()=>{ 
+              //     this.showSpinner = false;
+              //  }, 2000);
+              this.showSpinner = false;
+                  let snackBarRef =  this.snackBar.open('Create Survey Category Successfully', '', {
+                    duration: 2000
+                  });
+                
               // this.closeBtn.nativeElement.click();
                 this.newCategory =  [{name: ''}];
             }
@@ -230,13 +245,21 @@ applyFilter(filterValue: string) {
   // Desc          : delete survey category
 
   deleteCategory(id){ 
+    this.showSpinnerDelete =true
           this._adminService.deleteCategory(id).subscribe(data2=>{
                 if(data2.success==false){
-                    this._flashMessagesService.show('Failed! This survey category is currently used in a survey ', { cssClass: 'alert-danger', timeout: 3000 });
+                  this.showSpinnerDelete =false
+                    // this._flashMessagesService.show('Failed! This survey category is currently used in a survey ', { cssClass: 'alert-danger', timeout: 3000 });
+                    let snackBarRef =  this.snackBar.open('Failed! This Industry is currently used by a company', '', {
+                      duration: 2000
+                  });
                 }
                 else{
                     this.loadData();
-                    this._flashMessagesService.show('Delete Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                    this.showSpinnerDelete =false
+                    let snackBarRef =  this.snackBar.open('Delete Survey category Successfully', '', {
+                      duration: 2000
+                    });
                 }
           });
     }
@@ -252,6 +275,7 @@ applyFilter(filterValue: string) {
   // Last Modified : 29-12-2017, Jooshifa 
   // Desc          : pass id from modal and get it for the purpuse edit
 getCategoryId(id){
+  this.showSpinner = false;
       this.catgId = id;
         this.sub = this.route.params.subscribe(params => {
               this._adminService.getSinglecategory(this.catgId).subscribe(data3 => {
@@ -275,33 +299,37 @@ getCategoryId(id){
   // Desc          : Update Category
 
 updateCategory(category){ 
+  this.showSpinner = true;
         this._adminService.updateCategory(category).subscribe(data4 => {
           if(data4.success==false && data4.msg == 'required'){
-                this.Updaterequired = true
-                setTimeout(()=>{ 
-                    this.Updaterequired = false;
-                  }, 3000);
+            this.showSpinner =false
+            let snackBarRef =  this.snackBar.open('* It is a required field!', '', {
+              duration: 2000
+            });
             }
             else{
                 if(data4.success==false && data4.msg == 'alreadyexist'){
-                    this.UpdatealreadyExist = true
-                    setTimeout(()=>{ 
-                      this.UpdatealreadyExist = false;
-                      }, 3000);
+                  this.showSpinner =false
+                  let snackBarRef =  this.snackBar.open('* This category already exist!', '', {
+                    duration: 2000
+                  });
                 
                 }
                 else{
                   if(data4.success==false && data4.msg == 'nochange'){
-                      this.Updatechange = true
-                      setTimeout(()=>{ 
-                        this.Updatechange = false;
-                        }, 3000);
+                    this.showSpinner =false
+                    let snackBarRef =  this.snackBar.open('* No changes to update!', '', {
+                      duration: 2000
+                    });
                   
                   }
                 else{
                     this.loadData();
                     this.closeBtn1.nativeElement.click();
-                    this._flashMessagesService.show('Update Category Successfully!', { cssClass: 'alert-success', timeout: 2000 });
+                    this.showSpinner = false;
+                    let snackBarRef =  this.snackBar.open('Update Survey category successfully', '', {
+                      duration: 2000
+                    });
                   
               }
           }
@@ -310,5 +338,8 @@ updateCategory(category){
       });
 }
    //  ---------------------------------end-----------------------------------------------
+ 
+
+
   
 }

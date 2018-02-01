@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, Ng
 import { CompanyService } from './../../services/company.service';
 import { CanActivate, Router, ActivatedRoute } from '@angular/router';
 import { PasswordValidation } from './password-validation';
-import { MatStepper } from '@angular/material';
+import { MatStepper, MatSnackBar } from '@angular/material';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
@@ -14,7 +14,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 
 
 export class CompanyRegistrationComponent implements OnInit {
-
+  showSpinner :boolean = false;
   isLinear = true;
   sub: any;
   plan_id: any;
@@ -22,6 +22,7 @@ export class CompanyRegistrationComponent implements OnInit {
   showPlanStepper: Boolean = false;
   showMonth: Boolean = true;
   hide = true;
+  
   timestamp = new Date().getTime().toString();
   firstFormGroup: FormGroup;
   planFormGroup: FormGroup;
@@ -74,7 +75,7 @@ export class CompanyRegistrationComponent implements OnInit {
   planForm: any;
   result: any;
 
-  constructor(private _formBuilder: FormBuilder, private companyService: CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService, private route: ActivatedRoute) { }
+  constructor(private _formBuilder: FormBuilder, private companyService: CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService, private route: ActivatedRoute ,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     // ---------------------------------Start-------------------------------------------
@@ -249,6 +250,7 @@ export class CompanyRegistrationComponent implements OnInit {
   // Last Modified : 29-01-2017, Rinsha
   // Desc          : 
   register() {
+    this.showSpinner = true
     this.thirdForm = '';
     this.newReg.survey_attenders = [];
     this.surveyattenders.forEach(element => {
@@ -276,6 +278,31 @@ export class CompanyRegistrationComponent implements OnInit {
         }, 4000);
       }
     });
+   this.thirdForm = this.newReg.survey_attenders;
+   this.result =Object.assign(this.firstForm, this.secondForm);
+
+   this.companyService.registration(this.result).subscribe(data => {
+     console.log(data);
+     if(data.success==true){
+      this.showSpinner = false
+      // this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
+      let snackBarRef =  this.snackBar.open('Account created successfully, Please verify your Email address', '', {
+        duration: 3000
+      });
+      setTimeout(() => {  
+        this.routes.navigate(['/clogin']);
+      }, 3000);
+    } else {
+      this.showSpinner = false
+      // this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
+      let snackBarRef =  this.snackBar.open('The email address you specified is already in use. Please login to continue', '', {
+        duration: 3000
+      });
+      setTimeout(() => {  
+        this.routes.navigate(['/clogin']);
+      }, 3000);
+    }
+   });
   }
   // -----------------------------------End------------------------------------------
 

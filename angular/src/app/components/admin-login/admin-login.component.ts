@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
  import { AdminService} from './../../services/admin.service';
 import { CanActivate, Router } from '@angular/router';
-
+import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'admin-login',
   templateUrl: './admin-login.component.html',
@@ -13,8 +13,8 @@ export class AdminLoginComponent implements OnInit {
     password : '',
   }
   showError : Boolean = false;
-
-  constructor(private adminService : AdminService, private routes: Router) { }
+  showSpinner :Boolean =false
+  constructor(private adminService : AdminService, private routes: Router,public snackBar: MatSnackBar) { }
 
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -64,12 +64,18 @@ export class AdminLoginComponent implements OnInit {
 // Desc          : Admin login
 
   login(){
+    this.showSpinner =true
      this.adminService.adminLogin(this.newLogin).subscribe(data => {
       if(data.success==false){
-        this.showError = true;
+        this.showSpinner =false
+        let snackBarRef =  this.snackBar.open('* User Not Found...!', '', {
+          duration: 2000
+      });
+        // this.showError = true;
       }
       if(data.success){
-        this.showError = false;
+        this.showSpinner =false
+        // this.showError = false;
         this.adminService.storeUserData(data.token, data.admin);
         this.routes.navigate(['/admin-dashboard']);
       }

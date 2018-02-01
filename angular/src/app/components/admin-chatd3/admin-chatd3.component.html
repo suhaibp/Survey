@@ -1,5 +1,15 @@
 
 <h1>{{title}}</h1>
 <!-- <h2>{{subtitle}}</h2> -->
-    <svg  width="960" height="500"></svg>
+<div *ngIf="!graphData; else empty"  class="col-md-12 no-g-data">
+    <!-- <svg  width="960" height="500"></svg> -->
+    <div id="bchart"></div> 
+
+</div>
     
+<ng-template #empty>
+    <div class="col-md-12 no-g-data">
+        <img src="assets/images/sad.png" alt="sad">
+        <h4>No Data Available!</h4>
+    </div>
+</ng-template>

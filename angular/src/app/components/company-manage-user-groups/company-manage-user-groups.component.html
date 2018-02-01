@@ -8,29 +8,55 @@
         <app-company-sidebar></app-company-sidebar>
             
                     <div id="">
-                        <div class="container-fluid">
+                        <!-- <div class="container-fluid"> -->
                                 
-                                            <!-- Page Heading -->
-                                          
-                                      
-                                            <!-- /.row -->
+                            <div class="col-md-2">
+                                <nav class="nav-sidebar">
+                                    <ul class="nav tabs buttonleft">
+                                          <li >
+                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-backdrop="static">+Add New</button>
+                                    
+                                         
+                                          <!-- <li [ngClass]="{'active1': viewComp == 'Active'}"><a (click)="updateView('Active')" href="#tab4" data-toggle="tab">Active Users</a></li> 
+                                          <li [ngClass]="{'active1': viewComp == 'Blocked'}"><a (click)="updateView('Blocked')" href="#tab2" data-toggle="tab">Blocked Users</a></li>
+                                          <li [ngClass]="{'active1': viewComp == 'Delete'}"><a (click)="updateView('Delete')" href="#tab3" data-toggle="tab">Delete Users</a></li>   -->
+                                                                       
+                                    </ul>
+                                  </nav>
+                          </div>
                             
-                                        </div>
+                                        <!-- </div> -->
                                   
-<div class="col-md-6 col-md-offset-3">
-    <flash-messages></flash-messages>
-  
-  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-backdrop="static">+Add New</button>
-        <div class="example-header" >
-            <mat-form-field>
-              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-            </mat-form-field>
-        </div>
-        
-          <div class="noitem" *ngIf="!existStatus"><h4>No item Found!</h4></div>
-        
-        <br>
-  <div class="example-container mat-elevation-z8 ">
+<div class="col-md-10">
+  <!-- <flash-messages></flash-messages> -->
+
+
+  <div class="row">
+      <div class="col-md-12 preloader2" *ngIf="showSpinnerDelete">
+          <div class=""  >
+              <svg class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              width="50%" height="59px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+          <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+            <animateTransform attributeType="xml"
+              attributeName="transform"
+              type="rotate"
+              from="0 25 25"
+              to="360 25 25"
+              dur="0.6s"
+              repeatCount="indefinite"/>
+            </path>
+          </svg>
+      </div>
+      </div>
+      <!-- <flash-messages></flash-messages> -->
+    
+            <div class="example-header" >
+                <mat-form-field>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+            </div>
+          
+      <div class="example-container mat-elevation-z8 ">
       <mat-table [dataSource]="dataSource" matSort>
            <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>
@@ -62,11 +88,23 @@
                  <mat-row *matRowDef="let row; columns: displayedColumns;">
                  </mat-row>
                 </mat-table>
-  
-            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                <!-- <div class="col-md-15 "> -->
+                      <!-- <div *ngIf="showSpinnerDelete" class="deletespinner">
+                          <mat-spinner></mat-spinner>
+                       </div> -->
+                      
+                  <!-- </div> -->
+           
+                  <div class="col-md-12 noItemFound" *ngIf="existStatus">
+                      <div class="col-md-4 col-md-offset-4">
+                          <mat-toolbar   class="back-color">No item found!</mat-toolbar>
+                      </div>
+                      </div>
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
       </div>
-    </div>
-
+   </div>
+    
     <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->
     <div id="deleteModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -109,10 +147,10 @@
         <div class="form-group" >
             <label> Group name </label>
             <br>
-            <div *ngIf="isError" class="alert alert-danger">
+            <!-- <div *ngIf="isError" class="alert alert-danger">
                 {{errorMsg}}
            </div>
-          
+           -->
            <div class="col-md-7">
             <div>
               <div class="inputitem">
@@ -143,8 +181,33 @@
               </div>
               
         </div>
+        <!-- <div *ngIf="showSpinner">
+            <mat-spinner></mat-spinner>
+           </div> -->
         <br>
-        <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
+        
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
+                  </div>
+                  <div class="col-md-8" *ngIf="showSpinner" >
+                         <svg class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                     <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                       <animateTransform attributeType="xml"
+                         attributeName="transform"
+                         type="rotate"
+                         from="0 25 25"
+                         to="360 25 25"
+                         dur="0.6s"
+                         repeatCount="indefinite"/>
+                       </path>
+                     </svg>
+                  </div>
+                   
+                </div>
        
     </form>
       </div>
@@ -172,10 +235,10 @@
           <div class="form-group" >
               <label> Group name </label>
               <br>
-              <div *ngIf="isError" class="alert alert-danger">
+              <!-- <div *ngIf="isError" class="alert alert-danger">
                   {{errorMsg}}
              </div>
-            
+             -->
              <div class="col-md-7">
               <div>
                 <div class="inputitem">
@@ -209,8 +272,32 @@
                 </div>
                 
           </div>
+          <!-- <div *ngIf="showSpinner">
+              <mat-spinner></mat-spinner>
+             </div> -->
           <br>
-          <button type= "submit"  class="btn btn-danger ourbutton" >Submit</button>
+        
+
+          <div class="row">
+              <div class="col-md-4">
+                  <button type= "submit"  class="btn btn-danger ourbutton" >Submit</button>
+                    </div>
+                    <div class="col-md-8" *ngIf="showSpinner" >
+                           <svg class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                           width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                       <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                         <animateTransform attributeType="xml"
+                           attributeName="transform"
+                           type="rotate"
+                           from="0 25 25"
+                           to="360 25 25"
+                           dur="0.6s"
+                           repeatCount="indefinite"/>
+                         </path>
+                       </svg>
+                    </div>
+                     
+                  </div>
          
       </form>
         </div>

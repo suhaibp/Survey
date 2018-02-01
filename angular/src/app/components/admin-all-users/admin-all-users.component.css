@@ -27,3 +27,17 @@
   .example-select {
     margin: 0 10px;
   }
+  .noItemFound{
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid lightgray;
+
+ }
+ .back-color{
+    color: #757575;
+    background-color: #ffffff;
+}
+svg path,
+svg rect{
+  fill: #EC0C0C;
+}

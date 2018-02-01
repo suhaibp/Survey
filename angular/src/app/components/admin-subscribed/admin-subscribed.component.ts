@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { MatPaginator, MatSort, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { AdminService} from './../../services/admin.service';
 import {Router} from '@angular/router';
 @Component({
@@ -11,12 +11,14 @@ export class AdminSubscribedComponent implements OnInit {
   displayedColumns = [ 'companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  all_value=false;
   selected = 'all';
+  showSpinner :boolean = false;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   constructor(
     private adminService : AdminService,
-    private routes: Router
+    private routes: Router,public snackBar: MatSnackBar
   ) { }
 // ---------------------------------Start-------------------------------------------
 // Function      : Admin company management
@@ -28,26 +30,35 @@ export class AdminSubscribedComponent implements OnInit {
 // Desc          : All subscribed companieslist
 // -----------------------------------
         refresh(){
+          this.showSpinner= true;
           console.log(this.selected);
         const company = [];
           if(this.selected == 'all'){
             this.adminService.getAllsubcompanies().subscribe(data=>{
+              if(data.length != 0){
+                this.all_value=true;
+              }
               this.loadToDataTable(data);
+
+              this.showSpinner= false;
             });
           }
           if(this.selected == 'Active'){
             this.adminService.getAllsubactivecompanies().subscribe(data=>{
               this.loadToDataTable(data);
+              this.showSpinner= false;
             });
           }
           if(this.selected == 'Block'){
             this.adminService.getAllsubblockcompanies().subscribe(data=>{
               this.loadToDataTable(data);
+              this.showSpinner= false;
             });
           }
           if(this.selected == 'Delete'){
             this.adminService.getAllsubdeletecompanies().subscribe(data=>{
               this.loadToDataTable(data);
+              this.showSpinner= false;
             });
           }
         }
@@ -130,12 +141,21 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
 
 //delete company
 deleteCompany(id){  
+  this.showSpinner= true;
     this.adminService.deleteCompany(id).subscribe(data=>{
-      console.log(data);
+      // console.log(data);
       if(data.success){
+        this.showSpinner= false;
+        let snackBarRef =  this.snackBar.open(data.msg, '', {
+          duration: 2000
+        });
         this.refresh();
            }
            else{
+            this.showSpinner= false;
+            let snackBarRef =  this.snackBar.open(data.msg, '', {
+              duration: 2000
+            });
           }
           
     });
@@ -144,12 +164,21 @@ deleteCompany(id){
 
 //block company
 blockCompany(id){  
+  this.showSpinner= true;
   this.adminService.blockCompany(id).subscribe(data=>{
-    console.log(data);
+    // console.log(data);
     if(data.success){
+      this.showSpinner= false;
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
       this.refresh();
     
     }else{
+      this.showSpinner= false;
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
      
     }
   });
@@ -157,12 +186,21 @@ blockCompany(id){
 }  
 //unblock company
 unblockCompany(id){
+  this.showSpinner= true;
   this.adminService.unblockCompany(id).subscribe(data=>{
-    console.log(data);
+    // console.log(data);
     if(data.success){
+      this.showSpinner= false;
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
       this.refresh();
    
     }else{
+      this.showSpinner= false;
+      let snackBarRef =  this.snackBar.open(data.msg, '', {
+        duration: 2000
+      });
      
     }
   });
