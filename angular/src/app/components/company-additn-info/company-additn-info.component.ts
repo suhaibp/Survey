@@ -18,6 +18,7 @@ export class CompanyAdditnInfoComponent implements OnInit {
   contact_person_fname : any;
   contact_person_lname : any;
   id : any;
+  display : Boolean = false;
   timestamp = new Date().getTime().toString();
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -56,9 +57,9 @@ export class CompanyAdditnInfoComponent implements OnInit {
 // Last Modified : 16-1-2018, Rinsha
 // Desc          :
 this.companyService.getLoggedUSerDetails().subscribe(info =>{
-  if(info == null || info == ''){
-    this.routes.navigate(['/clogin']); 
-  }
+  // if(info == null || info == ''){
+  //   this.routes.navigate(['/clogin']); 
+  // }
   if(info.role == "admin"){
     this.routes.navigate(['/admin-dashboard']);
   }
@@ -109,6 +110,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
           if(data.cmp_status == "Expired"){
             this.routes.navigate(['/expired']);
           }else{
+            this.display = true;
             this.companyService.generateToken(params.id).subscribe(data3 => {
               if(data3.success){
                 this.companyService.storeUserData(data3.token, data3.company);

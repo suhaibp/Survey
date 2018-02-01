@@ -1,5 +1,5 @@
 <div class="padd-top"></div>
-<div class="container">
+<div class="container" *ngIf="display">
 
 <flash-messages></flash-messages>
 <mat-horizontal-stepper [linear]="isLinear">
@@ -94,4 +94,5 @@
       </div>
   </mat-step>
 </mat-horizontal-stepper>
+</div>
 

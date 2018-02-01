@@ -164,6 +164,8 @@ var user_survey_closed_component_1 = __webpack_require__("../../../../../src/app
 var user_survey_upcoming_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.ts");
 var count_down_timer_component_1 = __webpack_require__("../../../../../src/app/components/count-down-timer/count-down-timer.component.ts");
 var user_survey_multiple_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.ts");
+var company_upgrade_component_1 = __webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.ts");
+var company_payment_component_1 = __webpack_require__("../../../../../src/app/components/company-payment/company-payment.component.ts");
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
 var table_1 = __webpack_require__("../../../cdk/esm5/table.es5.js");
 var core_2 = __webpack_require__("../../../../@agm/core/index.js");
@@ -215,7 +217,7 @@ var appRoutes = [
     { path: 'creg', component: company_registration_component_1.CompanyRegistrationComponent },
     { path: 'additnInfo/:id', component: company_additn_info_component_1.CompanyAdditnInfoComponent },
     { path: 'email-verification/:id', component: company_email_verification_component_1.CompanyEmailVerificationComponent },
-    { path: 'expired', component: company_expired_page_component_1.CompanyExpiredPageComponent },
+    { path: 'expired', component: company_upgrade_component_1.CompanyUpgradeComponent },
     { path: 'profile', component: company_profile_component_1.CompanyProfileComponent },
     { path: 'company-users', component: company_users_component_1.CompanyUsersComponent },
     { path: 'user-response-email/:id1/:id2', component: user_response_email_component_1.UserResponseEmailComponent },
@@ -227,7 +229,10 @@ var appRoutes = [
     { path: 'company-create-survey', component: company_create_survey_component_1.CompanyCreateSurveyComponent },
     { path: 'company-list-survey', component: company_list_survey_component_1.CompanyListSurveyComponent },
     { path: 'company-edit-survey/:id', component: company_edit_survey_component_1.CompanyEditSurveyComponent },
-    { path: 'preview', component: company_survey_preview_component_1.CompanySurveyPreviewComponent }
+    { path: 'preview', component: company_survey_preview_component_1.CompanySurveyPreviewComponent },
+    { path: 'creg/:id', component: company_registration_component_1.CompanyRegistrationComponent },
+    { path: 'payment/:id', component: company_payment_component_1.CompanyPaymentComponent },
+    { path: 'upgrade', component: company_upgrade_component_1.CompanyUpgradeComponent },
 ];
 var DemoMaterialModule = /** @class */ (function () {
     function DemoMaterialModule() {
@@ -268,7 +273,6 @@ var DemoMaterialModule = /** @class */ (function () {
                 material_1.MatToolbarModule,
                 material_1.MatTooltipModule,
             ],
-            declarations: [],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -342,7 +346,9 @@ var AppModule = /** @class */ (function () {
                 user_registration_component_1.UserRegistrationComponent,
                 newpie_component_1.NewpieComponent,
                 page_not_found_component_1.PageNotFoundComponent,
-                company_chart2_component_1.CompanyChart2Component
+                company_chart2_component_1.CompanyChart2Component,
+                company_upgrade_component_1.CompanyUpgradeComponent,
+                company_payment_component_1.CompanyPaymentComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -5306,7 +5312,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-additn-info/company-additn-info.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\">\r\n\r\n<flash-messages></flash-messages>\r\n<mat-horizontal-stepper [linear]=\"isLinear\">\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm1()\" >\r\n      <ng-template matStepLabel>Step 1</ng-template>\r\n      <h5>Email : {{contact_person_email}}</h5>\r\n      <h5>Contact Name : {{contact_person_fname}} {{contact_person_lname}}</h5>\r\n      <h4>Tell us about your job to get a sense of how many responses to expect</h4>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\" placeholder=\"Your Organization\" required formControlName=\"orgValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <mat-select placeholder=\"Organization Type\" [(ngModel)]=\"newReg.organization_type\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n          <mat-option *ngFor=\"let type of orgType\" [value]=\"type\" > \r\n            {{ type.name }}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n\t  \r\n          <mat-select placeholder=\"Industry\" [(ngModel)]=\"newReg.industry\" name=\"industry\" required formControlName=\"industryValidation\">\r\n              <mat-option *ngFor=\"let item of industry\" [value]=\"item\">\r\n                {{ item.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" placeholder=\"Location\" required formControlName=\"locationValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" placeholder=\"Company Strength\"  required formControlName=\"strengthValidation\">\r\n        </mat-form-field>\r\n        <br/>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm2()\" >\r\n      <ng-template matStepLabel>Step 2</ng-template>\r\n      <h4>Tell us about yourself</h4>\r\n       <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" placeholder=\"Phone Number\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n        <mat-error>Not a valid phone number</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" placeholder=\"Job Role\" required formControlName=\"jobRoleValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n   <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" placeholder=\"Job Level\" required formControlName=\"jobLevelValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperPrevious>Back</button>\r\n      </div>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n    </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"thirdFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"register()\">\r\n    <ng-template matStepLabel>Step 3</ng-template>\r\n    <h4>Tell us who you are looking to get answers from</h4>\r\n    <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n        <mat-checkbox class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n      \r\n    </section>\r\n    <div class=\"btn btn-danger\">\r\n      <button mat-button matStepperPrevious>Back</button>\r\n    </div>\r\n    <div class=\"btn btn-danger\">\r\n      <button type=\"submit\" mat-button >Finish</button>\r\n    </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n</mat-horizontal-stepper>\r\n\r\n"
+module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\" *ngIf=\"display\">\r\n\r\n<flash-messages></flash-messages>\r\n<mat-horizontal-stepper [linear]=\"isLinear\">\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm1()\" >\r\n      <ng-template matStepLabel>Step 1</ng-template>\r\n      <h5>Email : {{contact_person_email}}</h5>\r\n      <h5>Contact Name : {{contact_person_fname}} {{contact_person_lname}}</h5>\r\n      <h4>Tell us about your job to get a sense of how many responses to expect</h4>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\" placeholder=\"Your Organization\" required formControlName=\"orgValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <mat-select placeholder=\"Organization Type\" [(ngModel)]=\"newReg.organization_type\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n          <mat-option *ngFor=\"let type of orgType\" [value]=\"type\" > \r\n            {{ type.name }}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n\t  \r\n          <mat-select placeholder=\"Industry\" [(ngModel)]=\"newReg.industry\" name=\"industry\" required formControlName=\"industryValidation\">\r\n              <mat-option *ngFor=\"let item of industry\" [value]=\"item\">\r\n                {{ item.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" placeholder=\"Location\" required formControlName=\"locationValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" placeholder=\"Company Strength\"  required formControlName=\"strengthValidation\">\r\n        </mat-form-field>\r\n        <br/>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm2()\" >\r\n      <ng-template matStepLabel>Step 2</ng-template>\r\n      <h4>Tell us about yourself</h4>\r\n       <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" placeholder=\"Phone Number\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n        <mat-error>Not a valid phone number</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" placeholder=\"Job Role\" required formControlName=\"jobRoleValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n   <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" placeholder=\"Job Level\" required formControlName=\"jobLevelValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperPrevious>Back</button>\r\n      </div>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n    </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"thirdFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"register()\">\r\n    <ng-template matStepLabel>Step 3</ng-template>\r\n    <h4>Tell us who you are looking to get answers from</h4>\r\n    <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n        <mat-checkbox class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n      \r\n    </section>\r\n    <div class=\"btn btn-danger\">\r\n      <button mat-button matStepperPrevious>Back</button>\r\n    </div>\r\n    <div class=\"btn btn-danger\">\r\n      <button type=\"submit\" mat-button >Finish</button>\r\n    </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n</mat-horizontal-stepper>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -5338,6 +5344,7 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
         this._flashMessagesService = _flashMessagesService;
         this.route = route;
         this.isLinear = true;
+        this.display = false;
         this.timestamp = new Date().getTime().toString();
         this.newReg = {
             organization: '',
@@ -5364,9 +5371,9 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
         // Last Modified : 16-1-2018, Rinsha
         // Desc          :
         this.companyService.getLoggedUSerDetails().subscribe(function (info) {
-            if (info == null || info == '') {
-                _this.routes.navigate(['/clogin']);
-            }
+            // if(info == null || info == ''){
+            //   this.routes.navigate(['/clogin']); 
+            // }
             if (info.role == "admin") {
                 _this.routes.navigate(['/admin-dashboard']);
             }
@@ -5418,6 +5425,7 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
                         _this.routes.navigate(['/expired']);
                     }
                     else {
+                        _this.display = true;
                         _this.companyService.generateToken(params.id).subscribe(function (data3) {
                             if (data3.success) {
                                 _this.companyService.storeUserData(data3.token, data3.company);
@@ -8870,6 +8878,67 @@ exports.CompanyManageUserGroupsComponent = CompanyManageUserGroupsComponent;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/company-payment/company-payment.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-payment/company-payment.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  company-payment works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-payment/company-payment.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var CompanyPaymentComponent = /** @class */ (function () {
+    function CompanyPaymentComponent() {
+    }
+    CompanyPaymentComponent.prototype.ngOnInit = function () {
+    };
+    CompanyPaymentComponent = __decorate([
+        core_1.Component({
+            selector: 'app-company-payment',
+            template: __webpack_require__("../../../../../src/app/components/company-payment/company-payment.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-payment/company-payment.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CompanyPaymentComponent);
+    return CompanyPaymentComponent;
+}());
+exports.CompanyPaymentComponent = CompanyPaymentComponent;
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/company-profile/company-profile.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8891,7 +8960,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-profile/company-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n          <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>   \r\n\r\n\r\n<br>\r\n<div class=\"container\">\r\n        <flash-messages></flash-messages>\r\n  <div class=\"panel panel-default panel-primary\">\r\n    <div class=\"panel-body\">\r\n      \r\n      <div class=\"form-group example-container\">\r\n          <div class=\"col-md-12 names\">\r\n            <label class=\"col-xs-12\">Email : {{company?.contact_person_email}}</label><br>\r\n            <label class=\"col-xs-12\">Name : {{company?.contact_person_fname}} {{company?.contact_person_lname}}</label><br/>\r\n          </div>\r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Organization </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\"  required formControlName=\"orgValidation\">\r\n              </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Organization Type</label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <mat-select [ngModel]=\"typeId\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n                      <mat-option *ngFor=\"let type of orgType\" [value]=\"type._id\" (click)=\"getOrgType(type)\">\r\n                        {{ type.name }}\r\n                      </mat-option>\r\n                    </mat-select>\r\n              </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Industry </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\"> \r\n                        <mat-select [(ngModel)]=\"industryId\" name=\"industry\" required formControlName=\"industryValidation\">\r\n                            <mat-option *ngFor=\"let item of industry\" [value]=\"item._id\" (click)=\"getIndustry(item)\" >\r\n                              {{ item.name }}\r\n                            </mat-option>\r\n                          </mat-select>\r\n                    </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Location </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" required formControlName=\"locationValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Company Strength </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" required formControlName=\"strengthValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Phone Number </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n                  <mat-error>Not a valid phone number</mat-error>\r\n                </mat-form-field> \r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Job Role </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" required formControlName=\"jobRoleValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Job Level </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" required formControlName=\"jobLevelValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Survey Attenders </label>\r\n              <div class=\"col-md-6\">\r\n                  <br>\r\n                  <div class=\"row\">\r\n                  <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n                  <mat-checkbox [checked]=\"modelArr && modelArr.includes(data._id)\" class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n                </section>\r\n                </div>\r\n              </div>\r\n          </div>\r\n         \r\n          <div class=\"clearfix\"></div>\r\n          <br>\r\n          <br>\r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <div class=\"col-md-1 col-sm-2 col-xs-6\"> \r\n            <button type=\"submit\" class=\"btn btn-danger\" (click)=\"updateProfile()\">Update</button>\r\n            </div>\r\n            <div class=\"col-md-1 col-sm-2 col-xs-6\"> \r\n            <div *ngIf=\"showSubscribe\">\r\n            <button type=\"button\" (click)=\"subscribe()\" class=\"btn btn-danger\">Subscribe</button>\r\n            </div>\r\n            </div>\r\n          </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</body>"
+module.exports = "<body>\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n          <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>   \r\n\r\n\r\n<br>\r\n<div class=\"container\">\r\n        <flash-messages></flash-messages>\r\n  <div class=\"panel panel-default panel-primary\">\r\n    <div class=\"panel-body\">\r\n      \r\n      <div class=\"form-group example-container\">\r\n          <div class=\"col-md-12 names\">\r\n            <label class=\"col-xs-12\">Email : {{company?.contact_person_email}}</label><br>\r\n            <label class=\"col-xs-12\">Name : {{company?.contact_person_fname}} {{company?.contact_person_lname}}</label><br/>\r\n          </div>\r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Organization </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\"  required formControlName=\"orgValidation\">\r\n              </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Organization Type</label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <mat-select [ngModel]=\"typeId\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n                      <mat-option *ngFor=\"let type of orgType\" [value]=\"type._id\" (click)=\"getOrgType(type)\">\r\n                        {{ type.name }}\r\n                      </mat-option>\r\n                    </mat-select>\r\n              </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Industry </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\"> \r\n                        <mat-select [(ngModel)]=\"industryId\" name=\"industry\" required formControlName=\"industryValidation\">\r\n                            <mat-option *ngFor=\"let item of industry\" [value]=\"item._id\" (click)=\"getIndustry(item)\" >\r\n                              {{ item.name }}\r\n                            </mat-option>\r\n                          </mat-select>\r\n                    </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Location </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" required formControlName=\"locationValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Company Strength </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" required formControlName=\"strengthValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Phone Number </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n                  <mat-error>Not a valid phone number</mat-error>\r\n                </mat-form-field> \r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Job Role </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" required formControlName=\"jobRoleValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Job Level </label>\r\n              <mat-form-field [formGroup]=\"ProfileFormGroup\">\r\n                  <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" required formControlName=\"jobLevelValidation\">\r\n                </mat-form-field>\r\n          </div>\r\n        \r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n              <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" >Survey Attenders </label>\r\n              <div class=\"col-md-6\">\r\n                  <br>\r\n                  <div class=\"row\">\r\n                  <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n                  <mat-checkbox [checked]=\"modelArr && modelArr.includes(data._id)\" class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n                </section>\r\n                </div>\r\n              </div>\r\n          </div>\r\n         \r\n          <div class=\"clearfix\"></div>\r\n          <br>\r\n          <br>\r\n          <div class=\"col-md-6 col-sm-6 col-xs-12\">\r\n            <div class=\"col-md-1 col-sm-2 col-xs-6\"> \r\n            <button type=\"submit\" class=\"btn btn-danger\" (click)=\"updateProfile()\">Update</button>\r\n            </div>\r\n            <!-- <div class=\"col-md-1 col-sm-2 col-xs-6\"> \r\n            <div *ngIf=\"showSubscribe\">\r\n            <button type=\"button\" (click)=\"subscribe()\" class=\"btn btn-danger\">Subscribe</button>\r\n            </div>\r\n            </div> -->\r\n          </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n</body>"
 
 /***/ }),
 
@@ -9146,7 +9215,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-registration/company-registration.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\">\r\n  \r\n<flash-messages></flash-messages>\r\n<mat-horizontal-stepper [linear]=\"isLinear\">\r\n\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm1()\" >\r\n      <ng-template matStepLabel>Step 1</ng-template>\r\n      <h4>Tell us about your job to get a sense of how many responses to expect</h4>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\" placeholder=\"Your Organization\"  required formControlName=\"orgValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <mat-select placeholder=\"Organization Type\" [(ngModel)]=\"newReg.organization_type\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n              <mat-option *ngFor=\"let type of orgType\" [value]=\"type\">\r\n                {{ type.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n\t  \r\n          <mat-select placeholder=\"Industry\" [(ngModel)]=\"newReg.industry\" name=\"industry\" required formControlName=\"industryValidation\">\r\n              <mat-option *ngFor=\"let item of industry\" [value]=\"item\">\r\n                {{ item.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" placeholder=\"Location\" required formControlName=\"locationValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"firstFormGroup\">\r\n          <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" placeholder=\"Company Strength\"  required formControlName=\"strengthValidation\">\r\n        </mat-form-field>\r\n        <br/>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"appendForm2()\" >\r\n      <ng-template matStepLabel>Step 2</ng-template>\r\n      <h4>Tell us about yourself</h4>\r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_fname\" name=\"contact_person_fname\" placeholder=\"First Name\" required formControlName=\"fnameValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_lname\" name=\"contact_person_lname\" placeholder=\"Last Name\" required formControlName=\"lnameValidation\">\r\n      </mat-form-field>\r\n      <br/> \r\n      <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_person_email\" name=\"contact_person_email\" placeholder=\"Email\" required formControlName=\"email\">\r\n        <mat-error>Not a valid email</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n       <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" placeholder=\"Phone Number\" maxlength=\"10\" minlength=\"10\" required formControlName=\"number\">\r\n        <mat-error>Not a valid phone number</mat-error>\r\n      </mat-form-field> \r\n      <br/> \r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" placeholder=\"Job Role\" required formControlName=\"jobRoleValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n   <mat-form-field [formGroup]=\"secondFormGroup\">\r\n        <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" placeholder=\"Job Level\" required formControlName=\"jobLevelValidation\">\r\n      </mat-form-field>\r\n      <br/>\r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n      <input matInput [(ngModel)]=\"newReg.password\" id=\"password\" placeholder=\"Password\" name=\"password\" [type]=\"hide ? 'password' : 'text'\"  required formControlName=\"password\" validateEqual=\"confirmPassword\" reverse=\"true\">\r\n      <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n      <mat-error>Password contain atleast 6 characters and should contain one number,one character and one special character</mat-error>\r\n    </mat-form-field>\r\n      <br/>\r\n     <mat-form-field [formGroup]=\"secondFormGroup\">\r\n      <input type=\"password\" matInput [(ngModel)]=\"Reg.confirmPassword\" reverse=\"false\" validateEqual=\"password\" placeholder=\"Confirm Password\" name=\"confirmPassword\" required formControlName=\"confirmPassword\" id=\"confirmPassword\">\r\n      <mat-error>Password Not Match</mat-error>\r\n    </mat-form-field>\r\n      <br/>\r\n\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperPrevious>Back</button>\r\n      </div>\r\n      <div class=\"btn btn-danger\">\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n      </div>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"thirdFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n    <form (ngSubmit)=\"register()\">\r\n    <ng-template matStepLabel>Step 3</ng-template>\r\n    <h4>Tell us who you are looking to get answers from</h4>\r\n    <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n        <mat-checkbox class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\" >{{data.name}}</mat-checkbox>\r\n      \r\n      </section>\r\n    <div class=\"btn btn-danger\">\r\n      <!-- <button mat-button matStepperPrevious>Back</button> -->\r\n      <button type=\"submit\" mat-button >Finish</button>\r\n    </div>\r\n    </form>\r\n    </div>\r\n  </mat-step>\r\n\r\n</mat-horizontal-stepper>\r\n\r\n</div>"
+module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\">\r\n\r\n  <flash-messages></flash-messages>\r\n  <mat-horizontal-stepper [linear]=\"isLinear\">\r\n\r\n    <mat-step [stepControl]=\"firstFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n        <form (ngSubmit)=\"appendForm1()\">\r\n          <ng-template matStepLabel>Step 1</ng-template>\r\n          <h4>Tell us about your job to get a sense of how many responses to expect</h4>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"firstFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.organization\" name=\"organization\" placeholder=\"Your Organization\" required formControlName=\"orgValidation\">\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"firstFormGroup\">\r\n            <mat-select placeholder=\"Organization Type\" [(ngModel)]=\"newReg.organization_type\" name=\"organization_type\" required formControlName=\"organization_typeValidation\">\r\n              <mat-option *ngFor=\"let type of orgType\" [value]=\"type\">\r\n                {{ type.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"firstFormGroup\">\r\n\r\n            <mat-select placeholder=\"Industry\" [(ngModel)]=\"newReg.industry\" name=\"industry\" required formControlName=\"industryValidation\">\r\n              <mat-option *ngFor=\"let item of industry\" [value]=\"item\">\r\n                {{ item.name }}\r\n              </mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"firstFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.location\" name=\"location\" placeholder=\"Location\" required formControlName=\"locationValidation\">\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"firstFormGroup\">\r\n            <input type=\"number\" matInput [(ngModel)]=\"newReg.company_strength\" name=\"company_strength\" placeholder=\"Company Strength\"\r\n              required formControlName=\"strengthValidation\">\r\n          </mat-form-field>\r\n          <br/>\r\n          <div class=\"btn btn-danger\">\r\n            <button mat-button matStepperNext>Next</button>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </mat-step>\r\n\r\n    <mat-step [stepControl]=\"secondFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n        <form (ngSubmit)=\"appendForm2()\">\r\n          <ng-template matStepLabel>Step 2</ng-template>\r\n          <h4>Tell us about yourself</h4>\r\n          <mat-form-field [formGroup]=\"secondFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.contact_person_fname\" name=\"contact_person_fname\" placeholder=\"First Name\" required formControlName=\"fnameValidation\">\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"secondFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.contact_person_lname\" name=\"contact_person_lname\" placeholder=\"Last Name\" required formControlName=\"lnameValidation\">\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"secondFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.contact_person_email\" name=\"contact_person_email\" placeholder=\"Email\" required formControlName=\"email\">\r\n            <mat-error>Not a valid email</mat-error>\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"secondFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.contact_no\" name=\"contact_no\" placeholder=\"Phone Number\" maxlength=\"10\" minlength=\"10\"\r\n              required formControlName=\"number\">\r\n            <mat-error>Not a valid phone number</mat-error>\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"secondFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.job_role\" name=\"job_role\" placeholder=\"Job Role\" required formControlName=\"jobRoleValidation\">\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"secondFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.job_level\" name=\"job_level\" placeholder=\"Job Level\" required formControlName=\"jobLevelValidation\">\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"secondFormGroup\">\r\n            <input matInput [(ngModel)]=\"newReg.password\" id=\"password\" placeholder=\"Password\" name=\"password\" [type]=\"hide ? 'password' : 'text'\"\r\n              required formControlName=\"password\" validateEqual=\"confirmPassword\" reverse=\"true\">\r\n            <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n            <mat-error>Password contain atleast 6 characters and should contain one number,one character and one special character</mat-error>\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field [formGroup]=\"secondFormGroup\">\r\n            <input type=\"password\" matInput [(ngModel)]=\"Reg.confirmPassword\" reverse=\"false\" validateEqual=\"password\" placeholder=\"Confirm Password\"\r\n              name=\"confirmPassword\" required formControlName=\"confirmPassword\" id=\"confirmPassword\">\r\n            <mat-error>Password Not Match</mat-error>\r\n          </mat-form-field>\r\n          <br/>\r\n\r\n          <div class=\"btn btn-danger\">\r\n            <button mat-button matStepperPrevious>Back</button>\r\n          </div>\r\n          <div class=\"btn btn-danger\">\r\n            <button mat-button matStepperNext>Next</button>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </mat-step>\r\n\r\n    <mat-step *ngIf=\"showPlanStepper\" [stepControl]=\"planFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n        <form (ngSubmit)=\"appendPlanForm()\">\r\n          <ng-template matStepLabel>Step 3</ng-template>\r\n          <h4>Choose your plan. Get started now with the survey platform that adapts to your needs</h4>\r\n          <mat-form-field [formGroup]=\"planFormGroup\">\r\n            <!-- <input matInput [(ngModel)]=\"newReg.plans\" name=\"plans\" placeholder=\"Plan\" required formControlName=\"planNameValidation\"> -->\r\n            <mat-select placeholder=\"Plan\" [(ngModel)]=\"planId\" name=\"plans\" required formControlName=\"planNameValidation\">\r\n              <mat-option *ngFor=\"let item of plans\" [value]=\"item._id\" (click)=\"getPlan(item)\">\r\n                {{ item.plan_name }}\r\n              </mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n          <br/>\r\n          <mat-form-field *ngIf=\"showMonth\" [formGroup]=\"planFormGroup\">\r\n              <input matInput [(ngModel)]=\"payment.cardnum\" name=\"cardnum\" placeholder=\"Card Number\" required formControlName=\"cardnumValidation\">\r\n            </mat-form-field>\r\n            <br>\r\n            <mat-form-field *ngIf=\"showMonth\" [formGroup]=\"planFormGroup\">\r\n              <input matInput [(ngModel)]=\"payment.cardname\" name=\"cardname\" placeholder=\"Name on Card\" required formControlName=\"cardnameValidation\">\r\n            </mat-form-field>\r\n            <br>\r\n            <mat-form-field *ngIf=\"showMonth\" [formGroup]=\"planFormGroup\">\r\n              <input type=\"number\" matInput [(ngModel)]=\"payment.cvv\" name=\"cvv\" placeholder=\"CVV\" required formControlName=\"cvvValidation\">\r\n            </mat-form-field>\r\n            <br>\r\n            <mat-form-field *ngIf=\"showMonth\" [formGroup]=\"planFormGroup\">\r\n                <input type=\"number\" matInput [(ngModel)]=\"newReg.plans.no_month\" name=\"no_month\" placeholder=\"No.of Months\" required formControlName=\"planMonthValidation\">\r\n              </mat-form-field>\r\n          \r\n              <br/>\r\n          <div class=\"btn btn-danger\">\r\n            <button mat-button matStepperPrevious>Back</button>\r\n          </div>\r\n          <div class=\"btn btn-danger\">\r\n            <button mat-button matStepperNext>Next</button>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </mat-step>\r\n\r\n    <mat-step [stepControl]=\"thirdFormGroup\">\r\n      <div class=\"col-md-6 col-md-offset-3\">\r\n        <form (ngSubmit)=\"register()\">\r\n          <ng-template matStepLabel>\r\n            <div *ngIf=\"showPlanStepper\">Step 4</div>\r\n            <div *ngIf=\"!showPlanStepper\">Step 3</div>\r\n          </ng-template>\r\n          <h4>Tell us who you are looking to get answers from</h4>\r\n          <section class=\"example-section\" *ngFor=\"let data of surveyattenders; let i = index;\">\r\n            <mat-checkbox class=\"example-margin\" name=\"data_{{i}}\" [(ngModel)]=\"surveyattenders[i].check\">{{data.name}}</mat-checkbox>\r\n\r\n          </section>\r\n          <div class=\"btn btn-danger\">\r\n            <!-- <button mat-button matStepperPrevious>Back</button> -->\r\n            <button type=\"submit\" mat-button>Finish</button>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </mat-step>\r\n\r\n\r\n  </mat-horizontal-stepper>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -9172,14 +9241,22 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var password_validation_1 = __webpack_require__("../../../../../src/app/components/company-registration/password-validation.ts");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var CompanyRegistrationComponent = /** @class */ (function () {
-    function CompanyRegistrationComponent(_formBuilder, companyService, routes, _flashMessagesService) {
+    function CompanyRegistrationComponent(_formBuilder, companyService, routes, _flashMessagesService, route) {
         this._formBuilder = _formBuilder;
         this.companyService = companyService;
         this.routes = routes;
         this._flashMessagesService = _flashMessagesService;
+        this.route = route;
         this.isLinear = true;
+        this.showPlanStepper = false;
+        this.showMonth = true;
         this.hide = true;
         this.timestamp = new Date().getTime().toString();
+        this.payment = {
+            cardnum: '',
+            cardname: '',
+            cvv: ''
+        };
         this.newReg = {
             organization: '',
             location: '',
@@ -9195,6 +9272,18 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             survey_attenders: [],
             password: '',
             verification_code: this.timestamp + Math.floor(100000 + Math.random() * 900000),
+            plans: {
+                plan_id: '',
+                no_month: '',
+                plan_name: '',
+                plan_price: '',
+                no_survey: '',
+                no_question: '',
+                excel_import: '',
+                survey_logic: '',
+                no_survey_attenders: '',
+                is_default_plan: '',
+            }
         };
         this.Reg = { confirmPassword: '' };
         this.data = [];
@@ -9232,6 +9321,56 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             }
         });
         // ---------------------------------End-------------------------------------------
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.plan_id = params.id;
+        });
+        if (this.plan_id) {
+            this.showPlanStepper = true;
+            // ---------------------------------Start-------------------------------------------
+            // Function      : get plan details using id
+            // Params        : 
+            // Returns       : plan details
+            // Author        : Rinsha
+            // Date          : 29-1-2018
+            // Last Modified : 29-1-2018, Rinsha
+            // Desc          :
+            this.companyService.getPlanById(this.plan_id).subscribe(function (info1) {
+                // console.log(info1);
+                _this.planId = _this.plan_id;
+                _this.newReg = {
+                    organization: '',
+                    location: '',
+                    contact_person_fname: '',
+                    contact_person_lname: '',
+                    contact_no: '',
+                    contact_person_email: '',
+                    job_role: '',
+                    job_level: '',
+                    company_strength: '',
+                    organization_type: { _id: '', name: '' },
+                    industry: { _id: '', name: '', },
+                    survey_attenders: [],
+                    password: '',
+                    verification_code: _this.timestamp + Math.floor(100000 + Math.random() * 900000),
+                    plans: {
+                        plan_id: info1._id,
+                        no_month: '',
+                        plan_name: info1.plan_name,
+                        plan_price: info1.plan_price,
+                        no_survey: info1.no_survey,
+                        no_question: info1.no_question,
+                        excel_import: info1.excel_import,
+                        survey_logic: info1.survey_logic,
+                        no_survey_attenders: info1.no_survey_attenders,
+                        is_default_plan: info1.is_default_plan,
+                    }
+                };
+                if (_this.newReg.plans.is_default_plan) {
+                    _this.showMonth = false;
+                }
+            });
+            // ---------------------------------End-------------------------------------------
+        }
         this.isLinear = true;
         this.firstFormGroup = this._formBuilder.group({
             orgValidation: ['', forms_1.Validators.required],
@@ -9239,6 +9378,13 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             industryValidation: ['', forms_1.Validators.required],
             locationValidation: ['', forms_1.Validators.required],
             strengthValidation: ['', forms_1.Validators.required],
+        });
+        this.planFormGroup = this._formBuilder.group({
+            planNameValidation: ['', forms_1.Validators.required],
+            planMonthValidation: ['', forms_1.Validators.required],
+            cardnumValidation: ['', forms_1.Validators.required],
+            cardnameValidation: ['', forms_1.Validators.required],
+            cvvValidation: ['', forms_1.Validators.required],
         });
         this.secondFormGroup = this._formBuilder.group({
             fnameValidation: ['', forms_1.Validators.required],
@@ -9253,7 +9399,7 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             validator: password_validation_1.PasswordValidation.MatchPassword
         });
         // ---------------------------------Start-------------------------------------------
-        // Function      : Get All organization type, industry and survey attenders
+        // Function      : Get All organization type, industry and survey attenders, plans
         // Params        : 
         // Returns       : All organization type, industry and survey attenders
         // Author        : Rinsha
@@ -9271,6 +9417,9 @@ var CompanyRegistrationComponent = /** @class */ (function () {
         this.companyService.getAllSurveyAttenders().subscribe(function (res) {
             _this.surveyattenders = res;
         });
+        this.companyService.getAllPlans().subscribe(function (res) {
+            _this.plans = res;
+        });
         // -----------------------------------End------------------------------------------
     };
     CompanyRegistrationComponent.prototype.appendForm1 = function () {
@@ -9279,13 +9428,30 @@ var CompanyRegistrationComponent = /** @class */ (function () {
     CompanyRegistrationComponent.prototype.appendForm2 = function () {
         this.secondForm = this.newReg;
     };
+    CompanyRegistrationComponent.prototype.getPlan = function (type) {
+        this.showMonth = true;
+        this.newReg.plans = type;
+        console.log(type);
+        if (type.is_default_plan == true) {
+            this.showMonth = false;
+            // this.newReg.plans[0].no_month = type.no_month;
+        }
+    };
+    CompanyRegistrationComponent.prototype.appendPlanForm = function () {
+        this.planForm = this.newReg;
+        // console.log("_____________");
+        // console.log(this.planForm.plans.no_month);
+        // console.log(this.planForm.plans);
+        // this.planForm.plans[0].no_month = this.planForm.plans.no_month;
+        // console.log(this.planForm);
+    };
     // ---------------------------------Start-------------------------------------------
     // Function      : Register company
     // Params        : Company data from the form
     // Returns       : 
     // Author        : Rinsha
     // Date          : 29-12-2017
-    // Last Modified : 29-12-2017, Rinsha
+    // Last Modified : 29-01-2017, Rinsha
     // Desc          : 
     CompanyRegistrationComponent.prototype.register = function () {
         var _this = this;
@@ -9300,9 +9466,10 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             }
         });
         this.thirdForm = this.newReg.survey_attenders;
-        this.result = Object.assign(this.firstForm, this.secondForm);
+        this.result = Object.assign(this.firstForm, this.secondForm, this.planForm);
+        // console.log(this.result);
         this.companyService.registration(this.result).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             if (data.success == true) {
                 _this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
                 setTimeout(function () {
@@ -9323,7 +9490,7 @@ var CompanyRegistrationComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService])
+        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute])
     ], CompanyRegistrationComponent);
     return CompanyRegistrationComponent;
 }());
@@ -9721,6 +9888,215 @@ var CompanyTopBarComponent = /** @class */ (function () {
     return CompanyTopBarComponent;
 }());
 exports.CompanyTopBarComponent = CompanyTopBarComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-upgrade/company-upgrade.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-upgrade/company-upgrade.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<body>\n  <div id=\"wrapper\">\n    <!-- Navigation -->\n    <app-company-top-bar></app-company-top-bar>\n    <app-company-sidebar></app-company-sidebar>\n    <br>\n    <div class=\"container\">\n      <div *ngIf=\"!showPaymentInfo\">\n        <ul *ngFor=\"let plan of plans\">\n          <li>\n            {{plan?.plan_name}}\n            <button class=\"btn btn-danger ourbutton\" (click)=\"upgrade(plan._id)\">Upgrade</button>\n          </li>\n        </ul>\n      </div>\n      <div *ngIf=\"showPaymentInfo\">\n        <!-- {{selectedId}} -->\n        <!-- <legend>Payment Method</legend> -->\n        <div class=\"container\">\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">Payment Method</div>\n            <div class=\"panel-body\">\n              <mat-form-field [formGroup]=\"formGroup\">\n                <input matInput [(ngModel)]=\"payment.cardnum\" name=\"cardnum\" autofocus placeholder=\"Card Number\" required formControlName=\"cardnumValidation\">\n              </mat-form-field>\n              <br>\n              <mat-form-field [formGroup]=\"formGroup\">\n                <input matInput [(ngModel)]=\"payment.cardname\" name=\"cardname\" placeholder=\"Name on Card\" required formControlName=\"cardnameValidation\">\n              </mat-form-field>\n              <br>\n              <mat-form-field [formGroup]=\"formGroup\">\n                <input type=\"number\" matInput [(ngModel)]=\"payment.cvv\" name=\"cvv\" placeholder=\"CVV\" required formControlName=\"cvvValidation\">\n              </mat-form-field>\n              <br>\n            </div>\n          </div>\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">Billing Details</div>\n            <div class=\"panel-body\">\n              <mat-form-field [formGroup]=\"formGroup\">\n                <input matInput [(ngModel)]=\"payment.fname\" name=\"fname\" placeholder=\"First Name\" required formControlName=\"fnameValidation\">\n              </mat-form-field>\n              <br>\n              <mat-form-field [formGroup]=\"formGroup\">\n                <input matInput [(ngModel)]=\"payment.lname\" name=\"lname\" placeholder=\"Last Name\" required formControlName=\"lnameValidation\">\n              </mat-form-field>\n              <br>\n              <mat-form-field [formGroup]=\"formGroup\">\n                <input matInput [(ngModel)]=\"payment.addr\" name=\"addr\" placeholder=\"Address\" required formControlName=\"addrValidation\">\n              </mat-form-field>\n              <br>\n              <mat-form-field [formGroup]=\"formGroup\">\n                <input matInput [(ngModel)]=\"payment.no\" name=\"no\" placeholder=\"Phone Number\" required formControlName=\"noValidation\">\n              </mat-form-field>\n              <br>\n            </div>\n          </div>\n          <div class=\"panel panel-default\">\n            <div class=\"panel-heading\">Review and Confirm</div>\n            <div class=\"panel-body\">\n              <table>\n                <tr>\n                  <td>Plan  </td>\n                  <td>:</td>\n                  <td><b>{{selectedPlan?.plan_name}}</b></td>\n                </tr>\n                <br>\n                <tr>\n                  <td>No. of Months  </td>\n                  <td>:</td>\n                  <td>\n                    <mat-form-field [formGroup]=\"formGroup\"><input type=\"number\" matInput [(ngModel)]=\"payment.no_months\" name=\"no_months\" required formControlName=\"no_monthsValidation\">\n                    </mat-form-field>\n                  </td>\n                </tr>\n                <br>\n                <tr>\n                  <td>Price  </td>\n                  <td>:</td>\n                  <td><b>{{selectedPlan?.plan_price}}</b></td>\n                </tr>\n                <br>\n                <tr>\n                  <td>Amount  </td>\n                  <td>:</td>\n                  <td><b>{{selectedPlan?.plan_price * payment.no_months}} </b></td>\n                </tr>\n                <br>\n              </table>\n           \n              <div class=\"row\">\n                <div class=\"col-md-3\">\n                  <button type=\"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"confirm(selectedId)\">Confirm</button>\n        \n                      </div>\n                      <div class=\"col-md-8\"  *ngIf=\"showSpinner\">\n                             <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                             width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\n                         <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\n                           <animateTransform attributeType=\"xml\"\n                             attributeName=\"transform\"\n                             type=\"rotate\"\n                             from=\"0 25 25\"\n                             to=\"360 25 25\"\n                             dur=\"0.6s\"\n                             repeatCount=\"indefinite\"/>\n                           </path>\n                         </svg>\n                      </div>\n                       \n                    </div>\n              <br>\n              <!-- <div class=\"text-danger text-left\">\n                  {{msg}}\n             </div> -->\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</body>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/company-upgrade/company-upgrade.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+var CompanyUpgradeComponent = /** @class */ (function () {
+    function CompanyUpgradeComponent(_formBuilder, companyService, routes, _flashMessagesService, snackBar) {
+        this._formBuilder = _formBuilder;
+        this.companyService = companyService;
+        this.routes = routes;
+        this._flashMessagesService = _flashMessagesService;
+        this.snackBar = snackBar;
+        this.showPaymentInfo = false;
+        this.updateBtnDisbled = false;
+        this.showSpinner = false;
+        this.payment = {
+            cardnum: '',
+            cardname: '',
+            cvv: '',
+            fname: '',
+            lname: '',
+            addr: '',
+            no: '',
+            no_months: ''
+        };
+    }
+    CompanyUpgradeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // ---------------------------------Start-------------------------------------------
+        // Function      : get logged company details
+        // Params        : 
+        // Returns       : company details
+        // Author        : Rinsha
+        // Date          : 16-1-2018
+        // Last Modified : 16-1-2018, Rinsha
+        // Desc          :
+        this.companyService.getLoggedUSerDetails().subscribe(function (info) {
+            if (info == null || info == '') {
+                _this.routes.navigate(['/clogin']);
+            }
+            if (info.role == "admin") {
+                _this.routes.navigate(['/admin-dashboard']);
+            }
+            if (info.role == "user") {
+                if (info.delete_status == true || info.block_status == true) {
+                    _this.routes.navigate(['/404']);
+                }
+                _this.routes.navigate(['/survey', info.surveyId]);
+            }
+            if (info.role == "company") {
+                if (info.delete_status == true || info.block_status == true || info.cmp_status == "Not Verified") {
+                    _this.routes.navigate(['/clogin']);
+                }
+                if (info.cmp_status == "Expired") {
+                    _this.routes.navigate(['/expired']);
+                }
+                if (info.is_profile_completed == false) {
+                    _this.routes.navigate(['/additnInfo', info._id]);
+                }
+            }
+        });
+        // ---------------------------------End-------------------------------------------
+        this.formGroup = this._formBuilder.group({
+            cardnumValidation: ['', forms_1.Validators.required],
+            cardnameValidation: ['', forms_1.Validators.required],
+            cvvValidation: ['', forms_1.Validators.required],
+            fnameValidation: ['', forms_1.Validators.required],
+            lnameValidation: ['', forms_1.Validators.required],
+            addrValidation: ['', forms_1.Validators.required],
+            noValidation: new forms_1.FormControl('', forms_1.Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
+            no_monthsValidation: ['', forms_1.Validators.required],
+        });
+        // ---------------------------------Start-------------------------------------------
+        // Function      : Get All  plans
+        // Params        : 
+        // Returns       : All plans
+        // Author        : Rinsha
+        // Date          : 28-12-2017
+        // Last Modified : 28-12-2017, Rinsha
+        // Desc          :  
+        this.companyService.getAllPlans().subscribe(function (res) {
+            // console.log(res);
+            _this.plans = [];
+            res.forEach(function (element) {
+                if (element.is_default_plan == false) {
+                    _this.plans.push(element);
+                }
+            });
+            // console.log(this.plans);
+        });
+    };
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Upgrade
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 30-1-2018
+    // Last Modified : 30-1-2018, Rinsha
+    // Desc          : If the trial period of company expired, they can upgrade the app by clicking corresponding upgrade button
+    CompanyUpgradeComponent.prototype.upgrade = function (id) {
+        var _this = this;
+        this.showPaymentInfo = true;
+        this.selectedId = id;
+        this.plans.forEach(function (element) {
+            if (element._id == id) {
+                _this.selectedPlan = element;
+            }
+        });
+    };
+    CompanyUpgradeComponent.prototype.confirm = function (id) {
+        var _this = this;
+        this.showSpinner = true;
+        this.updateBtnDisbled = false;
+        if (this.payment.cardnum == '' || this.payment.cardname == '' || this.payment.cvv == '' || this.payment.fname == '' || this.payment.lname == '' || this.payment.addr == '' || this.payment.no == '' || this.payment.no_months == '') {
+            // this.msg = "All the fields are required";
+            this.showSpinner = false;
+            var snackBarRef = this.snackBar.open('* All the fields are required!', '', {
+                duration: 3000
+            });
+            this.updateBtnDisbled = false;
+        }
+        else {
+            // this.msg = "";
+            // console.log(id);
+            // console.log(this.payment.no_months);
+            // console.log(this.plans);
+            this.companyService.upgradeCompany(id, this.payment.no_months).subscribe(function (data) {
+                // console.log(data);
+                _this.updateBtnDisbled = true;
+                if (data.success) {
+                    _this.companyService.storeUserData(data.token, data.company);
+                    _this.showSpinner = false;
+                    // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 2000 });
+                    var snackBarRef = _this.snackBar.open('Success...', '', {
+                        duration: 3000
+                    });
+                    setTimeout(function () {
+                        _this.routes.navigate(['/dashboard']);
+                    }, 3000);
+                }
+                else {
+                    _this.showSpinner = false;
+                    // this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 2000 });
+                    var snackBarRef = _this.snackBar.open('* Error...!', '', {
+                        duration: 3000
+                    });
+                    setTimeout(function () {
+                        _this.routes.navigate(['/upgrade']);
+                    }, 3000);
+                }
+            });
+        }
+    };
+    CompanyUpgradeComponent = __decorate([
+        core_1.Component({
+            selector: 'company-upgrade',
+            template: __webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.css")]
+        }),
+        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
+    ], CompanyUpgradeComponent);
+    return CompanyUpgradeComponent;
+}());
+exports.CompanyUpgradeComponent = CompanyUpgradeComponent;
 
 
 /***/ }),
@@ -14004,7 +14380,7 @@ var CompanyService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : survey question
     CompanyService.prototype.getSurveyQuestions = function (surveyId) {
-        console.log(surveyId);
+        // console.log(surveyId);
         var headers = this.setHeaderWithAuthorization();
         return this.http.get(this.serviceUrl + 'getAllQuestions/' + surveyId, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -14021,6 +14397,51 @@ var CompanyService = /** @class */ (function () {
     CompanyService.prototype.getAllsurveyDashboard = function () {
         var headers = this.setHeaderWithAuthorization();
         return this.http.get(this.serviceUrl + 'getAllSurveys', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ----------------------------------End-------------------------------------------
+    // ---------------------------------Start-----------------------------------------------
+    // Function      : Get all plans
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 29-01-2018
+    // Last Modified : 29-01-2018, Rinsha
+    // Desc          : 
+    CompanyService.prototype.getAllPlans = function () {
+        var h = this.setHeader();
+        return this.http.get(this.serviceUrl + "getAllPlans", { headers: h })
+            .map(function (res) { return res.json(); });
+    };
+    // ---------------------------------------End--------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : get plan details using id
+    // Params        : 
+    // Returns       : plan details
+    // Author        : Rinsha
+    // Date          : 29-1-2018
+    // Last Modified : 29-1-2018, Rinsha
+    // Desc          :
+    CompanyService.prototype.getPlanById = function (planId) {
+        // console.log(planId);
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.get(this.serviceUrl + 'getPlanById/' + planId, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // ---------------------------------End-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
+    // Function      : upgrade company
+    // Params        : plan id
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 30-1-2018
+    // Last Modified : 30-1-2018, Rinsha
+    // Desc          :
+    CompanyService.prototype.upgradeCompany = function (planId, no) {
+        // console.log(no);
+        // console.log(planId);
+        var headers = this.setHeaderWithAuthorization();
+        return this.http.post(this.serviceUrl + 'upgrade/' + planId, JSON.stringify({ "no": no }), { headers: headers })
             .map(function (res) { return res.json(); });
     };
     CompanyService = __decorate([
