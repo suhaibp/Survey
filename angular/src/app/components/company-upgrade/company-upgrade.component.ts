@@ -13,6 +13,7 @@ import {MatSnackBar} from '@angular/material';
 export class CompanyUpgradeComponent implements OnInit {
 
   plans : any;
+  sliced_array : any;
   showPaymentInfo : Boolean = false;
   updateBtnDisbled : Boolean = false;
   selectedId : any;
@@ -92,10 +93,12 @@ export class CompanyUpgradeComponent implements OnInit {
       res.forEach(element => {
         if(element.is_default_plan == false){
           this.plans.push(element);
+          // this.sliced_array = this.plans.slice(0, 4);
         }
       });
       // console.log(this.plans);
     });
+    // ---------------------------------End-------------------------------------------
   }
 
   // ---------------------------------Start-------------------------------------------

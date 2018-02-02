@@ -138,8 +138,8 @@ import { PlansComponent } from './components/plans/plans.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: CompanyLoginComponent },
-  {path:'', redirectTo:'/clogin', pathMatch:'full'},
+  { path: '', component: HomeComponent },
+  {path:'', redirectTo:'/home', pathMatch:'full'},
   {path:'top-bar', component:TopBarComponent},
   {path:'side-bar', component:SideBarComponent},
   {path:'admin-side-bar', component:AdminSideBarComponent},
