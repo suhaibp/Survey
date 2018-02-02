@@ -8,16 +8,26 @@
               
                       <div id="">
                           <div class="container-fluid">
+                          </div>     
+                            <div class="col-md-2">
+                              <nav class="nav-sidebar">
+                                  <ul class="nav tabs buttonleft">
+                                        <li >
+                                          <a class="btn btn-danger"  [routerLink]="['/company-create-survey']" >Create Survey</a>
                                   
-                                              <!-- Page Heading -->
-                                            
-                                        
-                                              <!-- /.row -->
+                                       
+                                        <!-- <li [ngClass]="{'active1': viewComp == 'Active'}"><a (click)="updateView('Active')" href="#tab4" data-toggle="tab">Active Users</a></li> 
+                                        <li [ngClass]="{'active1': viewComp == 'Blocked'}"><a (click)="updateView('Blocked')" href="#tab2" data-toggle="tab">Blocked Users</a></li>
+                                        <li [ngClass]="{'active1': viewComp == 'Delete'}"><a (click)="updateView('Delete')" href="#tab3" data-toggle="tab">Delete Users</a></li>   -->
+                                                                     
+                                  </ul>
+                                </nav>
+                        </div>
                               
-                                          </div>
+                                        
                
-                          <div class="col-md-2"></div>
-                          <div class="col-md-10">
+                      
+                          <div class="col-md-8">
                                 <!-- <p>You selected: {{selected}} </p> -->
   <div class="col-md-12 preloader2" *ngIf="showSpinnerDelete">
       <div class=""  >
@@ -39,7 +49,7 @@
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
-    <a class="btn btn-danger ourbutton filter"  [routerLink]="['/company-create-survey']" >Create Survey</a>
+ 
   </div>
     
     <div class="example-container mat-elevation-z8">
@@ -122,7 +132,7 @@
                             
                           </div>
                           
-                        </div>
+                     
                         <!-- /#page-wrapper -->
                         
                         <div id="myModal3" class="modal fade" role="dialog">
@@ -174,7 +184,7 @@
                         
   
   
-                        
+                      </div>
   
                         <footer></footer> 
                           
