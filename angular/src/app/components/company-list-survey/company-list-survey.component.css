@@ -11,7 +11,7 @@
   
   .mat-form-field {
     font-size: 14px;
-    width: 50%;
+    width: 100%;
   }
   
   .mat-table {
@@ -74,3 +74,6 @@
           padding: 10px;
       }
   }
+  .ourbutton2{    border-radius: 20px;
+    padding: 7px 40px;}
+.buttonleft{padding:2em 0;min-height: 300px;}

@@ -90,8 +90,8 @@ body{background-color:#f0f0ef !important;margin-top:0 !important; }
 .navbar-inverse{    background-color: #fff !important;
     border:none !important;}
     .profilz>li{background-color: #f3f3f3 !important;}
-.profilz .dropdown-menu .divider{ margin: 0px 0;padding: 0px;}
-.profilz .dropdown-menu li a{padding:14px 10px;}
+.profilz .dropdown-menu .divider{ margin: 0px 0;padding: 0px; right:0px;}
+.profilz .dropdown-menu li a{padding:14px 10px; }
 .tabs>li>a:focus, .tabs>li>a:hover {
     text-decoration: none;
     background-color: #fff !important;
@@ -106,7 +106,7 @@ body{background-color:#f0f0ef !important;margin-top:0 !important; }
     }
     .profilz>li>a{color: #102663 !important;}
     .navbar-inverse .navbar-nav>.open>a{background-color:#ea5a5a !important;color:#fff !important;}
-.side-nav .dropdown-menu{background-color:#0b060c;    min-width:auto !important;width:100% !important;position:relative !important;}
+.side-nav .dropdown-menu{background-color:#0b060c;    min-width:auto !important;width:100% !important;position:relative !important; }
 
 
 
@@ -475,7 +475,7 @@ background: #3b3b3b;
 
 body {
   font: 16px/28px "Roboto";
-  font-weight: lighter;
+
   background-color: #90a4ae;
 }
 
@@ -591,4 +591,9 @@ h1, h2, h3, h4, h5, h6 {
 
     .back-color{
         margin-left: 17% !important
+    }
+    .addnewbtn{
+        border-radius: 22px !important;
+        width :80%;
+        color :white !important;
     }
