@@ -22,6 +22,7 @@ newBlock ={
   groups : ''
 }
   displayedColumns = ['id','email','action'];
+  excelImport : Boolean ;
   dataSource: MatTableDataSource<any>;
   selection = new SelectionModel<Element>(true, []);
   userData:any;
@@ -109,14 +110,16 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       this.routes.navigate(['/additnInfo', info._id]);
     }
     this.loggedInCompany = info;
+    this.excelImport = this.loggedInCompany.plans[this.loggedInCompany.plans.length-1].excel_import
+    // console.log(this.loggedInCompany.plans[this.loggedInCompany.plans.length-1].excel_import);
   }
 });
 // ---------------------------------End-------------------------------------------
    // this.selGroups = ['Symptots'];
    this.loadData();
    this.companyService.getAllUserGroup().subscribe(data=>{
-     console.log('getting all groups');
-     console.log(data);
+    //  console.log('getting all groups');
+    //  console.log(data);
     this.groups = data.group;
     this.groupsObject = data.groupById;
     });
@@ -452,7 +455,7 @@ deleteUser(userId){
   addUsers(form){
     this.showSpinner = true
     this.btnDisbled = true;
-    console.log(form);
+    // console.log(form);
     this.companyService.addUsers(this.newUser).subscribe(data=>{
         if(data.success){
           this.newUser =  {email: [''], groups:[]};
@@ -551,7 +554,7 @@ deleteUser(userId){
   this.showSpinner = true
    this.companyService.sendBlockRequest(request).subscribe(data4 => {
   if(!data4.success){
-      console.log(data4);
+      // console.log(data4);
       // this.isError = true;
       this.errorMsg = data4.msg;
       this.showSpinner = false
@@ -637,7 +640,7 @@ cnclImprt(){
   }
   updateUserList() {
     this.showSpinnerDelete = true
-    console.log(this.selectedUserGroup);
+    // console.log(this.selectedUserGroup);
     if(this.selectedUserGroup == 'all'){
          this.companyService.getMyUsers().subscribe(data=>{
           this.showSpinnerDelete = false
