@@ -493,7 +493,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-table .plan {
   box-sizing: border-box;
-  width: 300px;
+  width: 100%;
+  max-width: 224px;
   background-color: #fff;
   float: left;
   text-align: center;
