@@ -7,6 +7,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute } from '@angular/router';
 import { XlsxToJsonService} from './../../services/xlsx-to-json.service';
 import {SelectionModel} from '@angular/cdk/collections';
+import { Config } from './../../config/config';
+import * as socketIo from 'socket.io-client';
 @Component({
   selector: 'company-users',
   templateUrl: './company-users.component.html',
@@ -70,7 +72,9 @@ newBlock ={
   getSingleData : any;
   email :any;
   loggedInCompany : any;
-  constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router,public snackBar: MatSnackBar ) { 
+  private socket:any;
+  constructor(private companyService: CompanyService, private _flashMessagesService: FlashMessagesService, private routes: Router,public snackBar: MatSnackBar,private config: Config ) { 
+    this.socket = socketIo(config.siteUrl);
   }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
@@ -128,6 +132,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     //   });
     // });
     this.loadGroup();
+    this.socket.on('rejectuser', (data) => {
+      this.loadData();
+     });
 
 }
 
