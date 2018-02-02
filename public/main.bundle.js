@@ -11943,12 +11943,15 @@ var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var xlsx_to_json_service_1 = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
 var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
+var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
 var CompanyUsersComponent = /** @class */ (function () {
-    function CompanyUsersComponent(companyService, _flashMessagesService, routes, snackBar) {
+    function CompanyUsersComponent(companyService, _flashMessagesService, routes, snackBar, config) {
         this.companyService = companyService;
         this._flashMessagesService = _flashMessagesService;
         this.routes = routes;
         this.snackBar = snackBar;
+        this.config = config;
         this.newBlock = {
             id: String,
             email: String,
@@ -11977,6 +11980,7 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.updateBtnDisbled1 = false;
         this.selUser = { email: '', groups: [], newEmail: '', is_registered: false };
         this.selUserGroups = [];
+        this.socket = socketIo(config.siteUrl);
     }
     CompanyUsersComponent.prototype.applyFilter = function (filterValue) {
         filterValue = filterValue.trim(); // Remove whitespace
@@ -12039,6 +12043,9 @@ var CompanyUsersComponent = /** @class */ (function () {
         //   });
         // });
         this.loadGroup();
+        this.socket.on('rejectuser', function (data) {
+            _this.loadData();
+        });
     };
     CompanyUsersComponent.prototype.loadGroup = function () {
         var _this = this;
@@ -12586,7 +12593,7 @@ var CompanyUsersComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-users/company-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-users/company-users.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, material_2.MatSnackBar])
+        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, material_2.MatSnackBar, config_1.Config])
     ], CompanyUsersComponent);
     return CompanyUsersComponent;
 }());
