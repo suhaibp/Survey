@@ -21,7 +21,7 @@
                                           <li >
                                             <button  class="btn btn-danger ourbutton2" (click)="openModal()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal">Add New</button>
                                           </li>
-                                          <li *ngIf="loggedInCompany.plans[loggedInCompany.plans.length-1].excel_import">
+                                          <li *ngIf="loggedInCompany && loggedInCompany.plans[loggedInCompany.plans.length-1].excel_import">
                                             <button  class="btn btn-danger ourbutton2" (click)="openModal()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#importModal" >Import from Excel</button>
                                           </li>
                                           <!-- <li [ngClass]="{'active1': viewComp == 'Active'}"><a (click)="updateView('Active')" href="#tab4" data-toggle="tab">Active Users</a></li> 
