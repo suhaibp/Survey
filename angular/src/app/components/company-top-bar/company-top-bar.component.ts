@@ -10,18 +10,19 @@ import * as socketIo from 'socket.io-client';
   styleUrls: ['./company-top-bar.component.css']
 })
 export class CompanyTopBarComponent implements OnInit {
-
-  dataEmail: any;
-  count: any;
-  dataArray = [];
-  userData = {
-    userEmail: '',
-    userId: ''
-  }
-  company_name: any;
-  userId: any;
-  viewNotification: Boolean = false;
-  private socket: any;
+showHeading :Boolean = false;
+noData :Boolean =false;
+dataEmail :any;
+count :any;
+dataArray =[];
+userData ={
+  userEmail : '',
+  userId : ''
+}
+company_name : any;
+userId: any;
+viewNotification :Boolean = false;
+private socket:any;
   constructor(private companyService: CompanyService, private config: Config, private routes: Router) { this.socket = socketIo(config.siteUrl); }
 
   ngOnInit() {
@@ -77,19 +78,28 @@ export class CompanyTopBarComponent implements OnInit {
     });
     // ---------------------------------End-------------------------------------------
   }
-  loadData() {
-    this.companyService.getAcceptedNotification().subscribe(data => {
-      // console.log(data);
-      this.count = data.length;
-      // console.log(this.count);
-      this.dataArray = [];
-      data.forEach(element => {
-        this.dataArray.push(element);
-      });
-    });
-  }
-  notifViewed(email, id) {
-    // console.log(id);
+  
+  loadData(){
+      this.companyService.getAcceptedNotification().subscribe(data => {
+       // console.log(data);
+          this.count = data.length;
+          if(data.length){
+            this.showHeading =true
+            this.noData =false
+          }
+          if(!data.length){
+            this.noData =true
+            this.showHeading =false
+          }
+          // console.log(this.count);
+          this.dataArray= [];
+          data.forEach(element => {
+              this.dataArray.push(element);
+         });
+     });
+   }
+  notifViewed(email,id){
+   // console.log(id);
     // console.log(email);
     this.userData.userEmail = email;
     this.userData.userId = id
