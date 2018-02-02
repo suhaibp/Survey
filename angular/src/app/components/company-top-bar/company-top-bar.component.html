@@ -16,7 +16,7 @@
         </div>
    
         <ul class="nav navbar-nav pull-right profilz">
-        <li><button class="btn btn-danger upgrade" (click)="upgrade()" >Upgrade</button></li>
+            
                 <li class="dropdown notification">
                      
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -29,7 +29,7 @@
                                 <h5>Blocked Users</h5>
                             </div>
                             <div *ngIf="noData">
-                                <h5>No blocked users</h5>
+                                <h5 >No blocked users</h5>
                             </div>
                           <li id='item_notification_1' *ngFor="let users of dataArray;" >
                               <div class="media" >
