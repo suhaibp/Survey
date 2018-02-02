@@ -71,10 +71,12 @@ body {
     background-color: #fff;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
+   
 }
 
 .top-nav>.open>.dropdown-menu>li>a {
     white-space: normal;
+   
 }
 
 ul.message-dropdown {
@@ -286,7 +288,7 @@ ul.alert-dropdown {
       width: 40px;
       height: 40px;
       float:left;
-      margin-right: 10px;
+      margin-right: 0px;
   }
   
   .badgeAlert {
@@ -308,4 +310,9 @@ ul.alert-dropdown {
     margin-left: -6px;
     z-index: 10;
   }
+  .prfl .dropdown-menu{left:inherit;right:0;}
   .notification{background-color:#fff !important;}
+  /* .dropdown-menu{
+    right: 0px !important;
+  }
+   */

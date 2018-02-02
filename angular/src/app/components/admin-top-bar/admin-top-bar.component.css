@@ -286,7 +286,7 @@ ul.alert-dropdown {
       width: 40px;
       height: 40px;
       float:left;
-      margin-right: 10px;
+      margin-right: 0px;
   }
   
   .badgeAlert {
@@ -303,7 +303,9 @@ ul.alert-dropdown {
     background-color: #d9534f;
     border-radius: 50%;
     position: absolute;
-    margin-top: -32px;
-    margin-left: 5px;
+   top:0px;
+   right: 4px;
+    margin-left: -6px;
+    z-index: 10;
   }
   .notification{background-color:#fff !important;}

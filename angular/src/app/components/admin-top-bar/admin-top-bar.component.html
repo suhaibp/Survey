@@ -29,7 +29,7 @@
                                         <li>
                                             <div class="media">
                                                         
-                                                <div class="media-body" >
+                                                <div class="media-body" (click)="viewstatusUser(item._id,cmpy.company_id)" >
                                                     <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs button_exclusao' id='1'(click)="viewstatusUser(item._id,cmpy.company_id)" >x</button>
                                                      </div>
                                                         <h4 class="media-heading"  >{{item.name}}</h4>

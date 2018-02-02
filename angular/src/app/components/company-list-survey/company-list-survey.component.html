@@ -13,9 +13,9 @@
                               <nav class="nav-sidebar">
                                   <ul class="nav tabs buttonleft">
                                         <li >
-                                          <a class="btn btn-danger"  [routerLink]="['/company-create-survey']" >Create Survey</a>
+                                          <!-- <a class="btn btn-danger addnewbtn"  [routerLink]="['/company-create-survey']" >Create Survey</a> -->
                                   
-                                       
+                                          <button type="button" class="btn btn-danger addnewbtn" [routerLink]="['/company-create-survey']"  data-backdrop="static">Create Survey</button>
                                         <!-- <li [ngClass]="{'active1': viewComp == 'Active'}"><a (click)="updateView('Active')" href="#tab4" data-toggle="tab">Active Users</a></li> 
                                         <li [ngClass]="{'active1': viewComp == 'Blocked'}"><a (click)="updateView('Blocked')" href="#tab2" data-toggle="tab">Blocked Users</a></li>
                                         <li [ngClass]="{'active1': viewComp == 'Delete'}"><a (click)="updateView('Delete')" href="#tab3" data-toggle="tab">Delete Users</a></li>   -->
@@ -27,7 +27,7 @@
                                         
                
                       
-                          <div class="col-md-8">
+                          <div class="col-md-9">
                                 <!-- <p>You selected: {{selected}} </p> -->
   <div class="col-md-12 preloader2" *ngIf="showSpinnerDelete">
       <div class=""  >
