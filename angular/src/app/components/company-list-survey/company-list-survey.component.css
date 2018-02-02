@@ -49,3 +49,28 @@
         color: #757575;
         background-color: #ffffff;
     }
+
+    #wrapper {
+      padding-left: 0;
+  }
+  
+  #page-wrapper {
+      width: 100%;
+      padding: 0;
+      background-color: #fff;
+  }
+  
+  .huge {
+      font-size: 50px;
+      line-height: normal;
+  }
+  
+  @media(min-width:768px) {
+      #wrapper {
+          padding-left: 225px;
+      }
+  
+      #page-wrapper {
+          padding: 10px;
+      }
+  }

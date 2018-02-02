@@ -1,0 +1,185 @@
+<nav class="navbar navbar-default hm-navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="./assets/images/brand.png" alt=""></a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        
+        <ul class="nav navbar-nav navbar-right hm-navbar-nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#Services">Services</a></li>
+          <li><a href="#plan">Plans & Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li class="btn-login"><a [routerLink]="['/clogin']">Login</a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+<body class="hm-body">
+    <section id="home">
+      <div class="col-md-12 hm-land">
+        <div class="row">
+            <img src="./assets/images/banner.jpg" alt="survey master">
+            <h4>Lets
+                Build Your 
+                Business
+                With Us</h4>
+        </div>
+          
+      </div>
+      </section>
+    
+      <section id="Services">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-7">
+                    <img class="serv-img" src="./assets/images/serv-1.jpg" alt="">
+                  </div>
+                  <div class="col-md-5">
+                    <div class="serv-cont">
+                        <h4>Services</h4>
+                        <p>Survey Master is an easy to use online survey and questionnaire building software. We give you all the essential features to create surveys, distribute them and analyze the data you receive. </p>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+        </div>
+         
+      </section>
+
+
+      <section id="plan">
+        <div class="col-md-12 plan-bg">
+            <div class="container">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3">
+                     
+                      <h4 class="plan-hd">Plans & Pricing</h4>
+                      <ul class="lim-hd">
+                        
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of  Surveys</li>
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of Questions per Survey</li>
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of Survey Attenders</li>
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Survey Logic</li>
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Excel import</li>
+                          </ul>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="wrap">
+                            <div class="pricing-table">
+                              <ng-container *ngFor="let plan of sliced_array">
+                                  <div class="plan">
+                                      <h3 class="name">{{plan?.plan_name}}</h3>
+                                      <h4 class="price">${{plan?.plan_price}}</h4>
+                                      <h3 class="mnth">per month</h3>
+                                      <ul class="details">
+                                        <li>{{plan?.no_survey}}</li>                                        
+                                        <li>{{plan?.no_question}}</li>
+                                        <li>{{plan?.no_survey_attenders}}</li>
+                                        <li><div *ngIf="plan?.survey_logic"><i class="fa fa-check"></i></div>
+                                          <div *ngIf="!plan?.survey_logic"><i class="fa fa-times"></i></div>
+                                        </li>
+                                        <li><div *ngIf="plan?.excel_import"><i class="fa fa-check"></i></div>
+                                          <div *ngIf="!plan?.excel_import"><i class="fa fa-times"></i></div>
+                                        </li>
+                                      </ul>
+                                
+                                      <h5 class="order"><a [routerLink]="['/creg', plan._id]">Order Now</a></h5>
+                                    </div>
+                              </ng-container>
+                              <!-- <div class="plan">
+                                <h3 class="name">Basic</h3>
+                                <h4 class="price">$10</h4>
+                                <h3 class="mnth">per month</h3>
+                                <ul class="details">
+                                  <li>10</li>
+                                  <li>10</li>
+                                  <li>20</li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-times"></i></li>
+                                </ul>
+                          
+                                <h5 class="order"><a href="#">Order Now</a></h5>
+                              </div>
+                          
+                              <div class="plan">
+                                <h3 class="name">Standard</h3>
+                                <h4 class="price">$20</h4>
+                                <h3 class="mnth">per month</h3>
+                          
+                                <ul class="details">
+                                  <li>50</li>
+                                  <li>30</li>
+                                  <li>100</li>
+                                  <li><i class="fa fa-times"></i></li>
+                                  <li><i class="fa fa-check"></i></li>                                  
+                                </ul>
+                          
+                                <h5 class="order"><a href="#">Order Now</a></h5>
+                              </div>
+                          
+                              <div class="plan">
+                                <h3 class="name">Premium</h3>
+                                <h4 class="price">$30</h4>
+                                <h3 class="mnth">per month</h3>
+                          
+                                <ul class="details">
+                                  <li>Unlimited</li>
+                                  <li>Unlimited</li>
+                                  <li>Unlimited</li>
+                                  <li><i class="fa fa-check"></i></li>                                  
+                                  <li><i class="fa fa-check"></i></li>                                  
+                                  
+                                </ul>
+                          
+                                <h5 class="order"><a href="#">Order Now</a></h5>
+                              </div> -->
+                            </div><!--.pricing-table-->
+                          </div><!--.wrap-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        
+      </section>
+      <section id="about">
+        <div class="col-md-12 abt-bg">
+          <div class="container">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-7 tb-hd">
+                  <img src="./assets/images/abt.jpg" alt="">
+                </div>
+                <div class="col-md-5">
+                  <h4>About Us</h4>
+                  <p>Cyber Samana always paid significance to service areas which are best for the customer. We have been providing the full spectrum of Information Technology Services, including Business Process Automation, Software Development, Web Application, Web Sites, Open Source Solutions and Mobile Applications.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer id="hm-footer">
+        <div class="container">
+          <div class="col-md-12">
+              <h4>Copyright © 1999-2018 SurveyMaster</h4>
+
+          </div>
+
+        </div>
+      </footer>
+</body>

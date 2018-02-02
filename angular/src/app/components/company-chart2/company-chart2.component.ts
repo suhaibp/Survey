@@ -236,28 +236,30 @@ export class CompanyChart2Component implements OnChanges {
     // this.svg1.remove()
     
     this.getAllsurvey();
-    this.companyService.getSurveyQuestions(this.surveyid).subscribe(data => {
-      // this.surveyQuestion = data;
-      this.quest = data;
-      // console.log(data + " data");
-      this.barchart = [];
+    if(this.surveyid != 'all'){
+        this.companyService.getSurveyQuestions(this.surveyid).subscribe(data => {
+          // this.surveyQuestion = data;
+          this.quest = data;
+          // console.log(data + " data");
+          this.barchart = [];
 
-      data.forEach((element,index) => {
-        let i = index+1
-        this.barchart.push({ company: element.question, count: element.totalCount, id: element.id, surveyid: this.sId, ind:"Q"+i});
+          data.forEach((element,index) => {
+            let i = index+1
+            this.barchart.push({ company: element.question, count: element.totalCount, id: element.id, surveyid: this.sId, ind:"Q"+i});
 
-      });
+          });
 
-      // this.initSvg1();
-      // this.initAxis();
-      // this.drawAxis();
-      // this.drawBars();
-      if(this.barchart.length > 0){
-    this.drawBar()
-    
-      }
-      console.log(this.barchart);
-    });
+          // this.initSvg1();
+          // this.initAxis();
+          // this.drawAxis();
+          // this.drawBars();
+          if(this.barchart.length > 0){
+        this.drawBar()
+        
+          }
+        // console.log(this.barchart);
+        });
+    }
 
   }
 
@@ -464,16 +466,7 @@ setTimeout(restOfTheData,2000);
 
 
 
-  pierefresh() {
 
-    this.companyService.getSurveyQuestions(this.surveyid).subscribe(data => {
-      
-     
-      // this.initSvg();
-      // this.drawPie();
-    });
-
-  }
 
 
   

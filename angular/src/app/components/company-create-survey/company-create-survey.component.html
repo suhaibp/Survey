@@ -244,7 +244,7 @@
                               
                                   <div class="form-group"  >
                                       
-                                      <div *ngIf="userGroups.length > 0">
+                                      <div *ngIf="userGroups && userGroups.length > 0">
                                   <mat-form-field class="filter">
                                       
                                         <mat-select  (change)="updateUserList()" name="xyz" [(ngModel)]="selectedUserGroup"  >

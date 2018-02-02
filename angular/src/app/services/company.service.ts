@@ -1044,4 +1044,20 @@ export class CompanyService {
         .map(res => res.json());
     }
 // ---------------------------------End-------------------------------------------
+
+// ---------------------------------Start-------------------------------------------
+    // Function      : jwt token update
+    // Params        : 
+    // Returns       : 
+    // Author        : Rinsha
+    // Date          : 02-02-2018
+    // Last Modified : 02-02-2018, Rinsha
+    // Desc          :
+    tokenUpdate(){
+      // console.log(planId);
+      let headers = this.setHeaderWithAuthorization();
+      return this.http.get(this.serviceUrl + 'tokenUpdate',  {headers: headers})
+        .map(res => res.json());
+    }
+// ---------------------------------End-------------------------------------------
 }

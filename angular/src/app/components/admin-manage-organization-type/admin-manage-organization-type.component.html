@@ -5,8 +5,7 @@
        <!-- Navigation -->
           <admin-top-bar></admin-top-bar>            
           <admin-side-bar [open]="'open'"></admin-side-bar>
-          <h3 class="heading">Manage Survey Organization type</h3>
-          <br> 
+      
          <div id="">
             <div class="col-md-2">
                 <nav class="nav-sidebar">
@@ -36,10 +35,10 @@
                         Atleast one item required!
                       </div>
                       <div *ngIf="isError" class="alert alert-danger">
-                        {{errorMsg}}
+                        <!-- {{errorMsg}} -->
                      </div>
                      <div *ngIf="isSuccess" class="alert alert-danger">
-                         {{errorMsg}}
+                         <!-- {{errorMsg}} -->
                       </div>
                    <div class="modal-body">
                          <form  role="form"  #f="ngForm" (ngSubmit)="insertOrganizationType();">
