@@ -19,6 +19,7 @@ export class AdminPlanComponent implements OnInit {
   disablePrice:boolean =false;
   showSpinner :boolean = false;
   showSpinnerDelete :boolean = false;
+
   plan ={
 
     plan_name: '',

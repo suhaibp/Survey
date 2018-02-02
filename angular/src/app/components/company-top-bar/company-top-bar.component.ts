@@ -78,7 +78,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
   loadData(){
       this.companyService.getAcceptedNotification().subscribe(data => {
-        console.log(data);
+       // console.log(data);
           this.count = data.length;
           // console.log(this.count);
           this.dataArray= [];
@@ -88,7 +88,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
      });
    }
   notifViewed(email,id){
-    console.log(id);
+   // console.log(id);
     // console.log(email);
     this.userData.userEmail = email;
     this.userData.userId = id
