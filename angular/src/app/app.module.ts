@@ -128,6 +128,9 @@ import {RatingModule} from "ngx-rating";
 import { CompanyChart2Component } from './components/company-chart2/company-chart2.component';
 import { UserSurveySuccessComponent } from './components/user-survey-success/user-survey-success.component';
 import { UserTestComponent } from './components/user-test/user-test.component';
+import { HomeComponent } from './components/home/home.component';
+import { HomeNavComponent } from './components/home-nav/home-nav.component';
+import { PlansComponent } from './components/plans/plans.component';
 
 
 const appRoutes: Routes = [
@@ -189,6 +192,7 @@ const appRoutes: Routes = [
   {path:'preview', component:CompanySurveyPreviewComponent},
   {path:'survey-success', component:UserSurveySuccessComponent},
   {path:'test', component:UserTestComponent},
+  {path:'home', component:HomeComponent},
 ]
 @NgModule({
   exports: [
@@ -224,7 +228,7 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-  ],
+  ]
 
 })
 export class DemoMaterialModule {}
@@ -294,7 +298,10 @@ export class DemoMaterialModule {}
     PageNotFoundComponent,
     CompanyChart2Component,
     UserSurveySuccessComponent,
-    UserTestComponent
+    UserTestComponent,
+    HomeComponent,
+    HomeNavComponent,
+    PlansComponent
   ],
   imports: [
     BrowserModule,

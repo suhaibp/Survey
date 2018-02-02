@@ -174,6 +174,9 @@ var ngx_rating_1 = __webpack_require__("../../../../ngx-rating/index.js");
 var company_chart2_component_1 = __webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.ts");
 var user_survey_success_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-success/user-survey-success.component.ts");
 var user_test_component_1 = __webpack_require__("../../../../../src/app/components/user-test/user-test.component.ts");
+var home_component_1 = __webpack_require__("../../../../../src/app/components/home/home.component.ts");
+var home_nav_component_1 = __webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.ts");
+var plans_component_1 = __webpack_require__("../../../../../src/app/components/plans/plans.component.ts");
 var appRoutes = [
     { path: '', component: company_login_component_1.CompanyLoginComponent },
     { path: '', redirectTo: '/clogin', pathMatch: 'full' },
@@ -233,6 +236,7 @@ var appRoutes = [
     { path: 'preview', component: company_survey_preview_component_1.CompanySurveyPreviewComponent },
     { path: 'survey-success', component: user_survey_success_component_1.UserSurveySuccessComponent },
     { path: 'test', component: user_test_component_1.UserTestComponent },
+    { path: 'home', component: home_component_1.HomeComponent },
 ];
 var DemoMaterialModule = /** @class */ (function () {
     function DemoMaterialModule() {
@@ -272,7 +276,7 @@ var DemoMaterialModule = /** @class */ (function () {
                 material_1.MatTabsModule,
                 material_1.MatToolbarModule,
                 material_1.MatTooltipModule,
-            ],
+            ]
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
@@ -348,7 +352,10 @@ var AppModule = /** @class */ (function () {
                 page_not_found_component_1.PageNotFoundComponent,
                 company_chart2_component_1.CompanyChart2Component,
                 user_survey_success_component_1.UserSurveySuccessComponent,
-                user_test_component_1.UserTestComponent
+                user_test_component_1.UserTestComponent,
+                home_component_1.HomeComponent,
+                home_nav_component_1.HomeNavComponent,
+                plans_component_1.PlansComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -11955,6 +11962,128 @@ exports.CountDownTimerComponent = CountDownTimerComponent;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/home-nav/home-nav.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/home-nav/home-nav.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-default hm-navbar\">\n    <div class=\"container\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand\" href=\"#\"><img src=\"./assets/images/brand.png\" alt=\"\"></a>\n      </div>\n  \n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n        \n        <ul class=\"nav navbar-nav navbar-right hm-navbar-nav\">\n          <li><a href=\"#home\">Home</a></li>\n          <li><a href=\"#Services\">Services</a></li>\n          <li><a href=\"#plan\">Plans & Pricing</a></li>\n          <li><a href=\"#about\">About</a></li>\n          <li class=\"btn-login\"><a href=\"#\">Login</a></li>\n          \n        </ul>\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n<body class=\"hm-body\">\n    <section id=\"home\">\n      <div class=\"col-md-12 hm-land\">\n        <div class=\"row\">\n            <img src=\"./assets/images/banner.jpg\" alt=\"survey master\">\n            <h4>Lets\n                Build Your \n                Business\n                With Us</h4>\n        </div>\n          \n      </div>\n      </section>\n    \n      <section id=\"Services\">\n        <div class=\"container\">\n            <div class=\"col-md-12\">\n                <div class=\"row\">\n                  <div class=\"col-md-7\">\n                    <img class=\"serv-img\" src=\"./assets/images/serv-1.jpg\" alt=\"\">\n                  </div>\n                  <div class=\"col-md-5\">\n                    <div class=\"serv-cont\">\n                        <h4>Services</h4>\n                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>\n                    </div>\n                    \n                  </div>\n                </div>\n              </div>\n        </div>\n         \n      </section>\n\n\n      <section id=\"plan\">\n        <div class=\"col-md-12 plan-bg\">\n            <div class=\"container\">\n                <div class=\"col-md-12\">\n                  <div class=\"row\">\n                    <div class=\"col-md-3\">\n                     \n                      <h4 class=\"plan-hd\">Plans & Pricing</h4>\n                      <ul class=\"lim-hd\">\n                        \n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of  surveys</li>\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of questions per survey</li>\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of survey attenders</li>\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;Skip Logic</li>\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;Excel import</li>\n                          </ul>\n                    </div>\n                    <div class=\"col-md-9\">\n                        <div class=\"wrap\">\n                            <div class=\"pricing-table\">\n                              <!-- <ng-container *ngFor=\"\">\n                                  <div class=\"plan\">\n                                      <h3 class=\"name\">Basic</h3>\n                                      <h4 class=\"price\">$10</h4>\n                                      <h3 class=\"mnth\">per month</h3>\n                                      <ul class=\"details\">\n                                        <li>10</li>\n                                        <li>10</li>\n                                        <li>20</li>\n                                        <li><i class=\"fa fa-times\"></i></li>\n                                        <li><i class=\"fa fa-times\"></i></li>\n                                      </ul>\n                                \n                                      <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\n                                    </div>\n                              </ng-container> -->\n                              <div class=\"plan\">\n                                <h3 class=\"name\">Basic</h3>\n                                <h4 class=\"price\">$10</h4>\n                                <h3 class=\"mnth\">per month</h3>\n                                <ul class=\"details\">\n                                  <li>10</li>\n                                  <li>10</li>\n                                  <li>20</li>\n                                  <li><i class=\"fa fa-times\"></i></li>\n                                  <li><i class=\"fa fa-times\"></i></li>\n                                </ul>\n                          \n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\n                              </div><!--.plan-->\n                          \n                              <div class=\"plan\">\n                                <h3 class=\"name\">Standard</h3>\n                                <h4 class=\"price\">$20</h4>\n                                <h3 class=\"mnth\">per month</h3>\n                          \n                                <ul class=\"details\">\n                                  <li>50</li>\n                                  <li>30</li>\n                                  <li>100</li>\n                                  <li><i class=\"fa fa-times\"></i></li>\n                                  <li><i class=\"fa fa-check\"></i></li>                                  \n                                </ul>\n                          \n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\n                              </div><!--.plan-->\n                          \n                              <div class=\"plan\">\n                                <h3 class=\"name\">Premium</h3>\n                                <h4 class=\"price\">$30</h4>\n                                <h3 class=\"mnth\">per month</h3>\n                          \n                                <ul class=\"details\">\n                                  <li>Unlimited</li>\n                                  <li>Unlimited</li>\n                                  <li>Unlimited</li>\n                                  <li><i class=\"fa fa-check\"></i></li>                                  \n                                  <li><i class=\"fa fa-check\"></i></li>                                  \n                                  \n                                </ul>\n                          \n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\n                              </div><!--.plan-->\n                            </div><!--.pricing-table-->\n                          </div><!--.wrap-->\n                    </div>\n                  </div>\n                </div>\n              </div>\n        </div>\n        \n      </section>\n      <section id=\"about\">\n        <div class=\"col-md-12 abt-bg\">\n          <div class=\"container\">\n            <div class=\"col-md-12\">\n              <div class=\"row\">\n                <div class=\"col-md-7 tb-hd\">\n                  <img src=\"./assets/images/abt.jpg\" alt=\"\">\n                </div>\n                <div class=\"col-md-5\">\n                  <h4>About Us</h4>\n                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </section>\n      <footer id=\"hm-footer\">\n        <div class=\"container\">\n          <div class=\"col-md-12\">\n              <h4>Copyright © 1999-2018 SurveyMaster</h4>\n\n          </div>\n\n        </div>\n      </footer>\n</body>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/home-nav/home-nav.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var HomeNavComponent = /** @class */ (function () {
+    function HomeNavComponent() {
+    }
+    HomeNavComponent.prototype.ngOnInit = function () {
+    };
+    HomeNavComponent = __decorate([
+        core_1.Component({
+            selector: 'app-home-nav',
+            template: __webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomeNavComponent);
+    return HomeNavComponent;
+}());
+exports.HomeNavComponent = HomeNavComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/home/home.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/home/home.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-home-nav></app-home-nav>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/home/home.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+    };
+    HomeComponent = __decorate([
+        core_1.Component({
+            selector: 'app-home',
+            template: __webpack_require__("../../../../../src/app/components/home/home.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/home/home.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomeComponent);
+    return HomeComponent;
+}());
+exports.HomeComponent = HomeComponent;
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/newpie/newpie.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12200,6 +12329,67 @@ var PageNotFoundComponent = /** @class */ (function () {
     return PageNotFoundComponent;
 }());
 exports.PageNotFoundComponent = PageNotFoundComponent;
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/plans/plans.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/plans/plans.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"plan\">\n    <h3 class=\"name\">Basic</h3>\n    <h4 class=\"price\">$10</h4>\n    <h3 class=\"mnth\">per month</h3>\n    <ul class=\"details\">\n      <li>10</li>\n      <li>10</li>\n      <li>20</li>\n      <li><i class=\"fa fa-times\"></i></li>\n      <li><i class=\"fa fa-times\"></i></li>\n    </ul>\n\n    <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\n  </div><!--.plan-->"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/plans/plans.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../../../core/esm5/core.js");
+var PlansComponent = /** @class */ (function () {
+    function PlansComponent() {
+    }
+    PlansComponent.prototype.ngOnInit = function () {
+    };
+    PlansComponent = __decorate([
+        core_1.Component({
+            selector: 'app-plans',
+            template: __webpack_require__("../../../../../src/app/components/plans/plans.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/plans/plans.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PlansComponent);
+    return PlansComponent;
+}());
+exports.PlansComponent = PlansComponent;
 
 
 /***/ }),
