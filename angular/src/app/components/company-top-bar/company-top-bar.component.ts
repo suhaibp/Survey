@@ -10,7 +10,8 @@ import * as socketIo from 'socket.io-client';
   styleUrls: ['./company-top-bar.component.css']
 })
 export class CompanyTopBarComponent implements OnInit {
-
+showHeading :Boolean = false;
+noData :Boolean =false;
 dataEmail :any;
 count :any;
 dataArray =[];
@@ -80,6 +81,14 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       this.companyService.getAcceptedNotification().subscribe(data => {
        // console.log(data);
           this.count = data.length;
+          if(data.length){
+            this.showHeading =true
+            this.noData =false
+          }
+          if(!data.length){
+            this.noData =true
+            this.showHeading =false
+          }
           // console.log(this.count);
           this.dataArray= [];
           data.forEach(element => {

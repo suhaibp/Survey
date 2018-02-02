@@ -25,7 +25,12 @@
                           <span class=""></span></a>
                          
                         <ul class="list-notificacao dropdown-menu" >
-                              <h5>Blocked Users</h5>
+                            <div *ngIf="showHeading">
+                                <h5>Blocked Users</h5>
+                            </div>
+                            <div *ngIf="noData">
+                                <h5>No blocked users</h5>
+                            </div>
                           <li id='item_notification_1' *ngFor="let users of dataArray;" >
                               <div class="media" >
                             
@@ -34,7 +39,7 @@
                                     </div>
                                     <h4 class="media-heading"></h4>
                                    
-                                    <h5>Admin has blocked the user {{users.email}}</h5>
+                                    <h5>{{users.email}}</h5>
                                   </div>
                            </div>
                            </li>    
