@@ -11,6 +11,7 @@ export class AdminNotVerifiedComponent implements OnInit {
   displayedColumns = [ 'slno','companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  all_value = false;
   showSpinner :boolean = false;
   selected = 'all';
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,6 +38,9 @@ export class AdminNotVerifiedComponent implements OnInit {
    const company = [];
      if(this.selected == 'all'){
        this.adminService.getAllnotverficompanies().subscribe(data=>{
+        if(data.length != 0){
+          this.all_value=true;
+        }
          this.loadToDataTable(data);
          this.showSpinner = false;
        });

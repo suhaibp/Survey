@@ -12,6 +12,7 @@ export class UserLoginComponent implements OnInit {
   userId : any;
   surveyId : any;
   userEmail : any;
+  showSpinner :boolean = false
   newLogin = {
     email : '',
     password : '',
@@ -80,8 +81,10 @@ this.userService.getLoggedUSerDetails().subscribe(info =>{
 // Last Modified : 08-01-2018, Rinsha
 // Desc          : 
   login(){
+    this.showSpinner = true
     this.userService.userLogin(this.newLogin, this.surveyId).subscribe(data => {
     if(data.success==false){
+      this.showSpinner = false
       this.showError = true;
       this.msg = data.msg;
       let snackBarRef =  this.snackBar.open(this.msg, '', {
@@ -89,6 +92,7 @@ this.userService.getLoggedUSerDetails().subscribe(info =>{
       });
     }
     if(data.success){
+      this.showSpinner = true
       this.showError = false;
       this.userService.storeUserData(data.token, data.user);
       this.routes.navigate(['/survey', this.surveyId]);

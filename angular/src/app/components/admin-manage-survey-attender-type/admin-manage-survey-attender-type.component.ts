@@ -18,7 +18,7 @@ export class AdminManageSurveyAttenderTypeComponent implements OnInit {
   isSuccess : boolean = false
   isError : Boolean = false;
   errorMsg :'';
-  existStatus : boolean= false
+  existStatus : boolean= true;
   Updatechange:Boolean =false;
   showSpinner :boolean = false;
   showSpinnerDelete :boolean = false;

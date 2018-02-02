@@ -18,7 +18,7 @@ export class AdminManageOrganizationTypeComponent implements OnInit {
   isSuccess : boolean = false
   isError : Boolean = false;
   errorMsg :'';
-  existStatus : boolean= false
+  existStatus : boolean= true
   Updaterequired :boolean = false;
   Updatechange:boolean = false;
   UpdatealreadyExist :boolean = false;
@@ -170,6 +170,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
         let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
             duration: 2000
         });
+        // console.log("test");
           setTimeout(()=>{ 
               this.atleastOneitem = false;
           }, 2000);

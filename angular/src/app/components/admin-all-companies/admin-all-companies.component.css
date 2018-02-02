@@ -28,9 +28,12 @@
     margin: 0 10px;
   }
   .filter{
-    width: 5%;
-    float: right;
-    clear: left;
+    /* width: 5%; */
+    /* float: right;
+    clear: left; */
+    /* padding-bottom: 25px; */
+    margin-top: 10px;
+   
   }
   h4{
     text-align: center;
@@ -44,4 +47,8 @@
 .back-color{
   color: #757575;
   background-color: #ffffff;
+}
+svg path,
+svg rect{
+  fill: #EC0C0C;
 }

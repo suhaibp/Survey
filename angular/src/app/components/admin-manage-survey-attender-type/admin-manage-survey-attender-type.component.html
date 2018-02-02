@@ -5,8 +5,7 @@
        <!-- Navigation -->
           <admin-top-bar></admin-top-bar>            
           <admin-side-bar  [open]="'open'"></admin-side-bar>
-          <h3 class="heading">Manage Survey Attender type</h3>
-          <br>
+      
          <div id="">
             <div class="col-md-2">
                 <nav class="nav-sidebar">
@@ -36,10 +35,10 @@
                         Atleast one item required!
                       </div>
                       <div *ngIf="isError" class="alert alert-danger">
-                        {{errorMsg}}
+                        <!-- {{errorMsg}} -->
                      </div>
                      <div *ngIf="isSuccess" class="alert alert-danger">
-                         {{errorMsg}}
+                         <!-- {{errorMsg}} -->
                       </div>
                    <div class="modal-body">
                          <form  role="form"  #f="ngForm" (ngSubmit)="insertAttenderType();">
@@ -189,7 +188,7 @@
   
     <div class="col-md-9">
         <div class="row">
-        <div class="col-md-12 preloader2" *ngIf="showSpinnerDelete">
+        <div class="col-md-12 preloader2" *ngIf="showSpinner">
             <div class=""  >
                 <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 width="50%" height="59px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">

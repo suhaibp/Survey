@@ -18,7 +18,7 @@ export class AdminManageSurveyCategoryComponent implements OnInit {
       isSuccess : boolean = false
       isError : Boolean = false;
       errorMsg :'';
-      existStatus :Boolean =false;
+      existStatus :Boolean =true;
       Updatechange:Boolean =false;
       Updaterequired :boolean = false;
       UpdatealreadyExist :boolean = false;
@@ -170,9 +170,9 @@ _keyPress(event: any) {
         }else{
               // this.atleastOneitem = true;
               
-              setTimeout(()=>{ 
-                      this.atleastOneitem = false;
-              }, 3000);
+              // setTimeout(()=>{ 
+              //         this.atleastOneitem = false;
+              // }, 3000);
               
               let snackBarRef =  this.snackBar.open('* Atleast one item required!', '', {
                 duration: 2000

@@ -61,7 +61,9 @@ refresh(){
   this.adminService.viewstatusUser(id,cmpid).subscribe(data=>{
     console.log(data);
     if(data.success){
-      this.refresh();
+      // http://localhost:3000/#tab5
+      this.router.navigate(['admin-users/block_request']);
+     
          }
          else{
         }

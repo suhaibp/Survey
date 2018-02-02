@@ -45,3 +45,7 @@ padding:22px 0px 0px 0px;
 font-size: 13px;}
 .text-cnrt{text-align:center;}
 .btn-danger{border-radius: 29px;padding: 9px 24px;}
+svg path,
+svg rect{
+  fill: #EC0C0C;
+}

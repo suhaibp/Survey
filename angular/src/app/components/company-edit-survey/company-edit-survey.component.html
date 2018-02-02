@@ -171,15 +171,39 @@
                                                   </a>
                                                 <input type="text" (focusout)="updateFooterText()" name="footertitle" *ngIf="survey.showFooterInput" [(ngModel)]="survey.footer" >
                                                 
-                                                    <div *ngIf="showSpinner" class="deletespinner">
+                                                    <!-- <div *ngIf="showSpinner" class="deletespinner">
                                                         <mat-spinner></mat-spinner>
-                                                       </div>
+                                                       </div> -->
                                                 
                                               </div>
-                                                <a class="btn btn-danger ourbutton"  [routerLink]="['/company-list-survey']" >Back</a>
-                                               
-                                                <button  class="btn btn-danger ourbutton" type= "submit" (click)="showPreview();" >Preview</button>
-                                                <button  class="btn btn-danger ourbutton" type= "submit" [disabled]="saveBtnDisbled"  >Update</button>
+                                            
+
+
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                      
+                                                         
+                                                    <a class="btn btn-danger ourbutton"  [routerLink]="['/company-list-survey']" >Back</a>
+                                                    <button  class="btn btn-danger ourbutton" type= "submit" (click)="showPreview();" >Preview</button>
+                                                  <button  class="btn btn-danger ourbutton" type= "submit" [disabled]="saveBtnDisbled"  >Update</button>
+                                                            
+                                                      </div>
+                                                      <div class="col-md-3" *ngIf="showSpinner"  >
+                                                             <svg  class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                             width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                                         <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                                           <animateTransform attributeType="xml"
+                                                             attributeName="transform"
+                                                             type="rotate"
+                                                             from="0 25 25"
+                                                             to="360 25 25"
+                                                             dur="0.6s"
+                                                             repeatCount="indefinite"/>
+                                                           </path>
+                                                         </svg>
+                                                      </div>
+                                                       
+                                                    </div>
                                                 <!-- <div *ngIf="isError2" class="text-danger text-left">
                                                     {{msg2}}
                                                </div>
@@ -291,10 +315,33 @@
                                  <div *ngIf="isSuccess3" class="text-success text-left">
                                     {{msg3}}
                               </div> -->
-                              <div *ngIf="showSpinner" class="deletespinner">
+                              <!-- <div *ngIf="showSpinner" class="deletespinner">
                                   <mat-spinner></mat-spinner>
-                                 </div>
-                                  <button  [disabled]="inviteBtnDisbled" class="btn btn-danger ourbutton" (click)="inviteUser()" >Send Invitation</button>
+                                 </div> -->
+                                 
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                        
+                                          <button  [disabled]="inviteBtnDisbled" class="btn btn-danger ourbutton" (click)="inviteUser()" >Send Invitation</button>
+                                          
+                                         
+                                        </div>
+                                        <div class="col-md-5" *ngIf="showSpinner" >
+                                               <svg class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                               width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                           <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                             <animateTransform attributeType="xml"
+                                               attributeName="transform"
+                                               type="rotate"
+                                               from="0 25 25"
+                                               to="360 25 25"
+                                               dur="0.6s"
+                                               repeatCount="indefinite"/>
+                                             </path>
+                                           </svg>
+                                        </div>
+                                         
+                                      </div>
                                   
                                  
                               <!-- </form> -->
@@ -410,10 +457,33 @@
 
                                   </div>
                                   <div style="clear: both;"></div>
-                                  <div *ngIf="showSpinner" class="deletespinner">
+                                  <!-- <div *ngIf="showSpinner" class="deletespinner">
                                       <mat-spinner></mat-spinner>
-                                     </div>
-                                  <button type= "submit" [disabled]="updateBtnDisbled" class="btn btn-danger ourbutton" >Update</button>
+                                     </div> -->
+                                  
+                                     <div class="row">
+                                        <div class="col-md-4">
+                                          
+                                               <button type= "submit" [disabled]="updateBtnDisbled" class="btn btn-danger ourbutton" >Update</button>
+                                           
+                                          </div>
+                                          <div class="col-md-6" *ngIf="showSpinner">
+                                                 <svg class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                 width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                             <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                               <animateTransform attributeType="xml"
+                                                 attributeName="transform"
+                                                 type="rotate"
+                                                 from="0 25 25"
+                                                 to="360 25 25"
+                                                 dur="0.6s"
+                                                 repeatCount="indefinite"/>
+                                               </path>
+                                             </svg>
+                                          </div>
+                                           
+                                        </div>
+                                
                                  
                               </form>
                                 </div>
@@ -527,11 +597,34 @@
                                   </div>
                                   <div style="clear: both;"></div>
                                
-                                      <div *ngIf="showSpinner" class="deletespinner">
+                                      <!-- <div *ngIf="showSpinner" class="deletespinner">
                                           <mat-spinner></mat-spinner>
-                                         </div>
+                                         </div> -->
+
+                                         <div class="row">
+                                            <div class="col-md-4">
+                                              
+                                                <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
+                                               
+                                              </div>
+                                              <div class="col-md-8" *ngIf="showSpinner" >
+                                                     <svg  class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                     width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                                 <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                                   <animateTransform attributeType="xml"
+                                                     attributeName="transform"
+                                                     type="rotate"
+                                                     from="0 25 25"
+                                                     to="360 25 25"
+                                                     dur="0.6s"
+                                                     repeatCount="indefinite"/>
+                                                   </path>
+                                                 </svg>
+                                              </div>
+                                               
+                                            </div>
                                   
-                                  <button type= "submit" [disabled]="btnDisbled" class="btn btn-danger ourbutton" >Submit</button>
+                                 
                                  
                               </form>
                                 </div>

@@ -293,3 +293,7 @@ h4{
     color: #757575;
     background-color: #ffffff;
 }
+svg path,
+svg rect{
+  fill: #EC0C0C;
+}

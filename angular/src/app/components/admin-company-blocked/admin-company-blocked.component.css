@@ -19,10 +19,9 @@
     max-height: 500px;
   }
   .filter{
-    width: 10%;
-    float: right;
-    clear: left;
+    margin-top: 10px;
   }
+  
   .noItemFound{
     text-align: center;
     background-color: #ffffff;
@@ -32,4 +31,8 @@
  .back-color{
     color: #757575;
     background-color: #ffffff;
+}
+svg path,
+svg rect{
+  fill: #EC0C0C;
 }

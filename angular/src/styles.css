@@ -1,7 +1,6 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
-
 .prev-img {
      /* background-color: #dd3;  */
     border-radius: 5px;
@@ -268,7 +267,7 @@ body {
     /* padding: 0px 100px 0px 280px; */
     margin-left: 40%;
 }
-.mat-simple-snackbar {
+/* .mat-simple-snackbar { */
     /* display: initial;
     justify-content: space-between;
     line-height: 60px !important;
@@ -277,13 +276,13 @@ body {
     font-size: 16px;
     background-color: #d9534f;
     border-radius: 15px */
-}
+/* } */
 
-.mat-snack-bar-container {
+/* .mat-snack-bar-container {
     /* background: #da524f;
     color: #fff;
     border-radius: 15px */
-}
+/* } */ 
 .cdk-global-overlay-wrapper {
     align-items: flex-start !important;
     justify-content: flex-center !important
@@ -291,14 +290,17 @@ body {
   /* .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #db514f;
 } */
-
+/* svg path,
+svg rect{
+  fill: #EC0C0C;
+} */
 .preloader2{
     text-align: center;
     background-color: #00000045;
     border-bottom: 1px solid lightgray;
     height: 100%;
     padding-top: 13%;
-    position: absolute;
+    position: absolute !important;
     z-index: 1000;}
     .buttonleft>li{
         border:none !important;
@@ -306,7 +308,7 @@ body {
         padding: 4px;
     } 
     
-    .ourbutton2{    border-radius: 20px;
+    .ourbutton2{  border-radius: 20px;
             padding: 7px 40px;}
     .buttonleft{padding:2em 0;min-height:300px;}
     
@@ -390,8 +392,8 @@ font-size: 16px;
     color: #fff;
     font-weight: 700;
 }
-.plan-sub{
-}
+/* .plan-sub{
+} */
 
 .lim-hd{
     margin-top: 20px;
@@ -541,18 +543,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 20px;
   border-radius: 3px;
 }
-.pricing-table .plan:first-child h4.price {
+/* .pricing-table .plan:first-child h4.price {
   /* background-color: #0EC0A5; */
-}
-.pricing-table .plan:first-child h5.order a {
+/* } */
+/* .pricing-table .plan:first-child h5.order a { */
   /* background-color: #0EC0A5; */
-}
-.pricing-table .plan:last-child h4.price {
+/* } */
+/* .pricing-table .plan:last-child h4.price { */
   /* background-color: #F22D47; */
-}
-.pricing-table .plan:last-child h5.order a {
-  background-color: #F22D47;
-}
+/* } */ */
+/* .pricing-table .plan:last-child h5.order a { */
+  /* background-color: #F22D47; */
+/* } */
 .pricing-table .plan:nth-child(2n) {
   box-shadow: 0px 0px 10px #424242;
   z-index: 100;
@@ -583,3 +585,10 @@ h1, h2, h3, h4, h5, h6 {
     
 }
 /*___________________________________________________________________________*/
+    .svgclass path,.svgclass rect{
+        fill: #EC0C0C;
+    }
+
+    .back-color{
+        margin-left: 17% !important
+    }

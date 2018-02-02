@@ -217,10 +217,10 @@ export class CompanyDashboardComponent implements OnInit {
 
 
   getMapPositionsforId() {
-    console.log("reee"+this.surveyId)
+   // console.log("reee"+this.surveyId)
     if (this.surveyId == 'all' || typeof(this.surveyId)  == undefined || this.surveyId == null || this.surveyId == '') {
       this.getMapPositions();
-      console.log("ff");
+  //    console.log("ff");
     }
     else {
       // console.log("poooooo"); 
