@@ -1,37 +1,4 @@
 <body>
-    
-                  <div id="wrapper">
-              
-                      <!-- Navigation -->
-          <app-company-top-bar></app-company-top-bar>            
-          <app-company-sidebar></app-company-sidebar>
-              
-                      <div id="">
-                          <div class="container-fluid">
-                                  
-                                              <!-- Page Heading -->
-                                            
-                                        
-                                              <!-- /.row -->
-                              
-                                          </div>
-                          <div class="col-md-2">
-                                <nav class="nav-sidebar">
-                                    <ul class="nav tabs buttonleft">
-                                          <li >
-                                            <button  class="btn btn-danger ourbutton2" (click)="openModal()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal">Add New</button>
-                                          </li>
-                                          <li *ngIf="loggedInCompany && loggedInCompany.plans[loggedInCompany.plans.length-1].excel_import">
-                                            <button  class="btn btn-danger ourbutton2" (click)="openModal()" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#importModal" >Import from Excel</button>
-                                          </li>
-                                          <!-- <li [ngClass]="{'active1': viewComp == 'Active'}"><a (click)="updateView('Active')" href="#tab4" data-toggle="tab">Active Users</a></li> 
-                                          <li [ngClass]="{'active1': viewComp == 'Blocked'}"><a (click)="updateView('Blocked')" href="#tab2" data-toggle="tab">Blocked Users</a></li>
-                                          <li [ngClass]="{'active1': viewComp == 'Delete'}"><a (click)="updateView('Delete')" href="#tab3" data-toggle="tab">Delete Users</a></li>   -->
-                                                                       
-                                    </ul>
-                                  </nav>
-                          </div>
-                          <div class="col-md-10">
   
                 <div id="wrapper">
             
