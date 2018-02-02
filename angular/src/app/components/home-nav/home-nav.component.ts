@@ -24,10 +24,10 @@ export class HomeNavComponent implements OnInit {
       // console.log(res);
       this.plans = [];
       res.forEach(element => {
-        if(element.is_default_plan == false){
+        // if(element.is_default_plan == false){
           this.plans.push(element);
-          this.sliced_array = this.plans.slice(0, 3);
-        }
+          this.sliced_array = this.plans.slice(0, 4);
+        // }
       });
       // console.log(this.plans);
       // console.log(this.sliced_array)

@@ -110,7 +110,7 @@ export class CompanyUsersComponent implements OnInit {
           this.routes.navigate(['/additnInfo', info._id]);
         }
         this.loggedInCompany = info;
-        this.excelImport = this.loggedInCompany.plans[this.loggedInCompany.plans.length - 1].excel_import
+        // this.excelImport = this.loggedInCompany.plans[this.loggedInCompany.plans.length - 1].excel_import
         // console.log(this.loggedInCompany.plans[this.loggedInCompany.plans.length-1].excel_import);
       }
     });

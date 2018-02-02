@@ -114,7 +114,7 @@ export class CompanyRegistrationComponent implements OnInit {
       this.plan_id = params.id;
     });
     if (this.plan_id) {
-      this.showPlanStepper = true;
+      // this.showPlanStepper = true;
       // ---------------------------------Start-------------------------------------------
       // Function      : get plan details using id
       // Params        : 
@@ -124,6 +124,7 @@ export class CompanyRegistrationComponent implements OnInit {
       // Last Modified : 29-1-2018, Rinsha
       // Desc          :
       this.companyService.getPlanById(this.plan_id).subscribe(info1 => {
+        this.showPlanStepper = true;
         // console.log(info1);
         this.planId = this.plan_id;
         this.newReg = {
@@ -156,6 +157,7 @@ export class CompanyRegistrationComponent implements OnInit {
         }
         if (this.newReg.plans.is_default_plan) {
           this.showMonth = false;
+          this.showPlanStepper = false;
         }
       });
       // ---------------------------------End-------------------------------------------

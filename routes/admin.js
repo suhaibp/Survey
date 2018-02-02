@@ -55,7 +55,7 @@ var returnRouter = function (io) {
     });
 
     // ----------------------------------End-------------------------------------------
-    
+
     // ---------------------------------Start-------------------------------------------
     // Function      : myTrim
     // Params        : string
@@ -70,7 +70,7 @@ var returnRouter = function (io) {
     }
 
     // ----------------------------------End-------------------------------------------
-  
+
 
     // ---------------------------------Start-------------------------------------------
     // Function      : Allcompanies
@@ -701,24 +701,24 @@ var returnRouter = function (io) {
                 return res.json({ success: false, msg: 'Faild to reject user' });
             } else {
                 Company.update({ "users.email": req.params.id },
-                {
-                    $set: { "users.$.block_req_status": false }
-                }, { multi: true },
-                (err, getdata) => {
+                    {
+                        $set: { "users.$.block_req_status": false }
+                    }, { multi: true },
+                    (err, getdata) => {
 
-                    if (err) {
-                        throw err;
-                        res.json({ success: false, msg: "Failed to reject request" });
-                    } else {
-                        io.sockets.emit("rejectuser", {
-                            //user_id : req.params.id
+                        if (err) {
+                            throw err;
+                            res.json({ success: false, msg: "Failed to reject request" });
+                        } else {
+                            io.sockets.emit("rejectuser", {
+                                //user_id : req.params.id
                             });
-                        res.json({ success: true, msg: "successfully reject request " });
+                            res.json({ success: true, msg: "successfully reject request " });
 
-                    }
-                });
-              
-               // return res.json({ success: true, msg: 'rejected successfully' });
+                        }
+                    });
+
+                // return res.json({ success: true, msg: 'rejected successfully' });
             }
         })
     });
@@ -884,7 +884,7 @@ var returnRouter = function (io) {
             function (callback) {
 
                 Company.getAdminchart1notverified((err, count) => {
-                    
+
                     retData.push({ Count: count, label: "notverified:" + count });
                     callback();
                 })
@@ -974,28 +974,28 @@ var returnRouter = function (io) {
     router.post('/addsurveycategory', function (req, res) {
         var isSuccess = true;
         var errMsg = '';
-        catgArray=[];
-       
+        catgArray = [];
+
         req.body.forEach((element) => {
-            element.name= myTrim(element.name);
+            element.name = myTrim(element.name);
 
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
                 errMsg = '* All fields are required!';
-            }else{
+            } else {
                 if (catgArray.indexOf(element.name) > -1) {
                     isSuccess = false;
-                    errMsg = '* Failed,  category name ' + element.name + " Repeating!" ;
-                } 
+                    errMsg = '* Failed,  category name ' + element.name + " Repeating!";
+                }
                 catgArray.push(element.name);
             }
         });
-        
+
 
         if (!isSuccess) {
             res.json({ success: isSuccess, msg: errMsg });
         } else {
-           
+
             async.eachOfSeries(req.body, function (element, key, callback) {
                 Category.findOne({ name: myTrim(element.name) }, (err, singlecat) => {
                     if (singlecat) {
@@ -1055,21 +1055,21 @@ var returnRouter = function (io) {
     // Desc          : post function for add Industry
 
     router.post('/addindustry', function (req, res) {
-        industryArray=[];
+        industryArray = [];
         var isSuccess = true;
         var errMsg = '';
         req.body.forEach((element) => {
-        element.name =myTrim(element.name);
+            element.name = myTrim(element.name);
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
                 errMsg = '* All fields are required!';
 
             }
-            else{
+            else {
                 if (industryArray.indexOf(element.name) > -1) {
                     isSuccess = false;
-                    errMsg = '* Failed,  Industry name ' + element.name + " Repeating!" ;
-                } 
+                    errMsg = '* Failed,  Industry name ' + element.name + " Repeating!";
+                }
                 industryArray.push(element.name);
             }
         });
@@ -1136,19 +1136,19 @@ var returnRouter = function (io) {
     router.post('/addorganizationtype', function (req, res) {
         var isSuccess = true;
         var errMsg = '';
-        orgArray=[];
+        orgArray = [];
         req.body.forEach((element) => {
-        element.name = myTrim(element.name)
+            element.name = myTrim(element.name)
             if (element.name == '' || element.name == null) {
                 isSuccess = false;
                 errMsg = '* All fields are required!';
 
             }
-            else{
+            else {
                 if (orgArray.indexOf(element.name) > -1) {
                     isSuccess = false;
-                    errMsg = '* Failed,  Organization type ' + element.name + " Repeating!" ;
-                } 
+                    errMsg = '* Failed,  Organization type ' + element.name + " Repeating!";
+                }
                 orgArray.push(element.name);
             }
         });
@@ -1212,7 +1212,7 @@ var returnRouter = function (io) {
     router.post('/addattendertype', function (req, res) {
         var isSuccess = true;
         var errMsg = '';
-        attenderArray=[];
+        attenderArray = [];
         req.body.forEach((element) => {
             element.name = myTrim(element.name);
             if (element.name == '' || element.name == null) {
@@ -1220,11 +1220,11 @@ var returnRouter = function (io) {
                 errMsg = '* All fields are required!';
 
             }
-            else{
+            else {
                 if (attenderArray.indexOf(element.name) > -1) {
                     isSuccess = false;
-                    errMsg = '* Failed,  attender type ' + element.name + " Repeating!" ;
-                } 
+                    errMsg = '* Failed,  attender type ' + element.name + " Repeating!";
+                }
                 attenderArray.push(element.name);
             }
         });
@@ -1915,7 +1915,7 @@ var returnRouter = function (io) {
         // console.log(req.body.name);
     });
     // ----------------------------------End-------------------------------------------
-      // ---------------------------------Start-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
     // Function      : Allplan
     // Params        : 
     // Returns       : 
@@ -1927,22 +1927,22 @@ var returnRouter = function (io) {
 
     router.get('/allplans', (req, res, next) => {
 
-       
-        Plan.find({ delete_status:false }, (err, plan) => {
+
+        Plan.find({ delete_status: false }, (err, plan) => {
             if (err) {
                 throw err;
             } else {
-        
+
                 async.eachOfSeries(plan, function (elm, i, callback) {
-                  
-                    Company.findOne({plans:{$elemMatch : { plan_id: elm._id}  }}, function (err, docs) {
-                      //  console.log(docs);
-                        if (docs!=null) {
+
+                    Company.findOne({ plans: { $elemMatch: { plan_id: elm._id } } }, function (err, docs) {
+                        //  console.log(docs);
+                        if (docs != null) {
 
                             plan[i].status = false;
-                        
-                        } else {  
-                        
+
+                        } else {
+
                             plan[i].status = true;
 
                         }
@@ -1951,10 +1951,10 @@ var returnRouter = function (io) {
                 }, function (err) {
                     return res.json(plan);
                 });
-            } 
+            }
 
-         }).lean();
-   
+        }).lean();
+
     });
     // ----------------------------------End-------------------------------------------
     // ---------------------------------Start-------------------------------------------
@@ -1967,93 +1967,114 @@ var returnRouter = function (io) {
     // Desc          : addplan
 
     router.post('/addplan', (req, res, next) => {
-      //  var regex  = /^\d+(?:\.\d{0,2})$/;
+        //  var regex  = /^\d+(?:\.\d{0,2})$/;
         // console.log(req.body);
-        var isError =false;
+        var isError = false;
         errMsg = '';
-       if (req.body.planname == '' || req.body.planname == null) {
-        errMsg = "Plan Name Required";
-        isError = true;
-            
+        if (req.body.planname == '' || req.body.planname == null) {
+            errMsg = "Plan Name Required";
+            isError = true;
+
         }
-        if(!isError && (req.body.planname.length > 10 || req.body.planname.length < 3)){
+        if (!isError && (req.body.planname.length > 10 || req.body.planname.length < 3)) {
             errMsg = "Plan Name  between 3-10 characters";
-            isError =true;
-            
+            isError = true;
+
         }
-        if (!isError && (req.body.planprice == '' || req.body.planprice == null) ) {
+        if (!isError && (req.body.planprice == '' || req.body.planprice == null)) {
             errMsg = "Plan Price Required";
-            isError =true;
-          
+            isError = true;
+
         }
         if (!isError && (req.body.surveyno == '' || req.body.surveyno == null)) {
             errMsg = " No of Survey Required";
-            isError =true;
-           
+            isError = true;
+
         }
         if (!isError && (req.body.surveyqtno == '' || req.body.surveyqtno == null)) {
             errMsg = "No of Survey Question Required";
-            isError =true;
-           
+            isError = true;
+
         }
         if (!isError && (req.body.surveyattno == '' || req.body.surveyattno == null)) {
             errMsg = "No of Survey Attenders Required";
-            isError =true;
-            
+            isError = true;
+
         }
-            
-        if(!isError){
-            Plan.findOne({ plan_name: req.body.planname,delete_status:false}, function (err, docs) {
-                // console.log(docs);
-              if (!isError && (docs!=null)) {
-                    errMsg = "Plan Name Already Exists";
-                    isError =true;
-                    res.json({ success: false, msg: errMsg });
+        async.series([
+            function (callback) {
+                Plan.find({ delete_status: false }).
+                    exec(function (err, AllPlan) {
+                        if (err) {
+                            // console.log("Error on Find");
+                        }
+                        else {
+                            // console.log(AllPlan.length);
+                            if (AllPlan.length >= 4) {
+                                errMsg = "Cant Add, Maximum number of plan reached";
+                                isError = true;
+                            }
+                            callback();
+                        }
+                    });
+            },
+            function (callback) {
+                if (!isError) {
+                    Plan.findOne({ plan_name: req.body.planname, delete_status: false }, function (err, docs) {
+                        // console.log(docs);
+                        if (!isError && (docs != null)) {
+                            errMsg = "Plan Name Already Exists";
+                            isError = true;
+                            res.json({ success: false, msg: errMsg });
+                        } else {
+                            var newPlan = new Plan();
+
+                            newPlan.plan_name = myTrim(req.body.planname);
+
+                            newPlan.plan_price = parseFloat(req.body.planprice).toFixed(2);
+
+
+                            if (req.body.surveyno == 'Unlimited') {
+                                newPlan.no_survey = req.body.surveyno;
+                            } else {
+                                newPlan.no_survey = req.body.value1;
+                            }
+                            if (req.body.surveyqtno == 'Unlimited') {
+                                newPlan.no_question = req.body.surveyqtno;
+                            } else {
+                                newPlan.no_question = req.body.value2;
+                            }
+                            if (req.body.surveyattno == 'Unlimited') {
+                                newPlan.no_survey_attenders = req.body.surveyattno;
+                            } else {
+                                newPlan.no_survey_attenders = req.body.value3;
+                            }
+
+                            newPlan.excel_import = req.body.eximport;
+                            newPlan.survey_logic = req.body.skip;
+                            newPlan.save(function (err, insertedPlan) {
+                                if (err) throw new Error(err);
+                                res.json({ success: true, msg: "Plan Created Successfully", plan: insertedPlan });
+                            });
+                        }
+                        // num.toFixed(2)
+                    });
+
                 } else {
-                    var newPlan = new Plan();
-                    
-                      newPlan.plan_name = myTrim(req.body.planname);
-                   
-                      newPlan.plan_price = parseFloat(req.body.planprice).toFixed(2);
-                    
-  
-                      if(req.body.surveyno=='Unlimited'){
-                          newPlan.no_survey = req.body.surveyno;
-                      }else{
-                          newPlan.no_survey = req.body.value1;
-                      }
-                      if(req.body.surveyqtno=='Unlimited'){
-                          newPlan.no_question = req.body.surveyqtno; 
-                      }else{
-                          newPlan.no_question = req.body.value2; 
-                      }
-                      if(req.body.surveyattno=='Unlimited'){
-                          newPlan.no_survey_attenders = req.body.surveyattno;
-                      }else{
-                          newPlan.no_survey_attenders = req.body.value3;
-                      }
-                     
-                      newPlan.excel_import = req.body.eximport;
-                      newPlan.survey_logic = req.body.skip;
-                      newPlan.save(function (err, insertedPlan) {
-                          if (err) throw new Error(err);
-                          res.json({ success: true, msg: "Plan Created Successfully", plan: insertedPlan });
-                      });
+                    res.json({ success: false, msg: errMsg });
                 }
-                // num.toFixed(2)
-              });
-                    
-        } else {
-            res.json({ success: false, msg: errMsg });
-        }
-              
-              
+            }
+        ],
+            function (err) {
+                res.json({ success: false, msg: "Failed" });
+            });
+
     });
 
 
 
     // ----------------------------------End-------------------------------------------
-//  ---------------------------------Start-------------------------------------------
+    //  ---------------------------------Start-------------------------------------------
     // Function      : delete plan 
 
     // Params        : id
@@ -2064,10 +2085,10 @@ var returnRouter = function (io) {
     // Desc          : to delet a plan
     router.delete('/deleteplan/:id', (req, res) => {
         //console.log(req.params.id);
-        Plan.findOne({ _id: req.params.id,is_default_plan:true}, function (err, docs) {
+        Plan.findOne({ _id: req.params.id, is_default_plan: true }, function (err, docs) {
             // console.log(docs);
-          if (docs) {
-                res.json({ success: false, msg: "Is a default plan cannot delete " });
+            if (docs) {
+                res.json({ success: false, msg: "Default plan can't delete " });
             } else {
                 Plan.findByIdAndUpdate(req.params.id,
                     {
@@ -2085,11 +2106,11 @@ var returnRouter = function (io) {
                             res.json({ success: true, msg: "Plan deleted Successfully", data });
                         }
                     })
-       }
+            }
+        });
     });
-});
     // ----------------------------------End-------------------------------------------
- // ---------------------------------Start-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
     // Function      : getsingleplan
     // Params        : 
     // Returns       : 
@@ -2100,17 +2121,17 @@ var returnRouter = function (io) {
 
 
     router.get('/getsingleplan/:id', (req, res, next) => {
-        
-        Plan.findOne({_id: req.params.id}).exec(function (err, plan) {
+
+        Plan.findOne({ _id: req.params.id }).exec(function (err, plan) {
             if (err) throw err;
             //console.log(plan);
             return res.json(plan);
         })
         // }
-  // });
-});
+        // });
+    });
     // ----------------------------------End-------------------------------------------
-     // ---------------------------------Start-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
     // Function      : updateplan
     // Params        : 
     // Returns       : 
@@ -2121,88 +2142,88 @@ var returnRouter = function (io) {
 
 
     router.post('/updateplan', (req, res, next) => {
-       // console.log(req.body);
-       // var regex  = /^\d+(?:\.\d{0,2})$/;
-    
-       var isError =false;
-       errMsg = '';
+        // console.log(req.body);
+        // var regex  = /^\d+(?:\.\d{0,2})$/;
 
-         if (req.body.plan_name == '' || req.body.plan_name == null ) {
-            errMsg ="Plan Name Required";
-            isError =true;
-          
+        var isError = false;
+        errMsg = '';
+
+        if (req.body.plan_name == '' || req.body.plan_name == null) {
+            errMsg = "Plan Name Required";
+            isError = true;
+
         }
-        if(!isError && (req.body.plan_name.length > 10 || req.body.plan_name.length < 3)){
-            errMsg ="Plan Name  between 3-10 characters";
-            isError =true;
-            
+        if (!isError && (req.body.plan_name.length > 10 || req.body.plan_name.length < 3)) {
+            errMsg = "Plan Name  between 3-10 characters";
+            isError = true;
+
         }
-        if(req.body.is_default_plan == false){
-            if (!isError && (req.body.plan_price == '' || req.body.plan_price == null) ) {
-                errMsg ="Plan Price Required";
-                isError =true;
-               
+        if (req.body.is_default_plan == false) {
+            if (!isError && (req.body.plan_price == '' || req.body.plan_price == null)) {
+                errMsg = "Plan Price Required";
+                isError = true;
+
             }
         }
-      
-                 if(!isError) {
-                    Plan.findOne({ plan_name: req.body.plan_name,delete_status:false}, function (err, singleplan) {
-                        // console.log(docs);
-                        if (!isError && (singleplan && singleplan._id != req.body._id)) {
-                            errMsg = "Plan Name Already Exists";
-                            isError =true;
-                            res.json({ success: false, msg: errMsg });
-                        } else {
-       
-                var plan = {};
-               
-                plan.plan_name = myTrim(req.body.plan_name);
-               
-                plan.plan_price = parseFloat(req.body.plan_price).toFixed(2);
-                
 
-                  if(req.body.numofsurvey == 'Unlimited'){
-                    plan.no_survey = req.body.numofsurvey;
-                  }else{
-                    plan.no_survey = req.body.no_survey;
-                  }
-                  if(req.body.numofqtn=='Unlimited'){
-                    plan.no_question = req.body.numofqtn; 
-                  }else{
-                    plan.no_question = req.body.no_question; 
-                  }
-                  if(req.body.numofsurveyattn=='Unlimited'){
-                    plan.no_survey_attenders = req.body.numofsurveyattn;
-                  }else{
-                    plan.no_survey_attenders = req.body.no_survey_attenders;
-                  }
-                 
-                  plan.excel_import = req.body.excel_import;
-                  plan.survey_logic = req.body.survey_logic;
+        if (!isError) {
+            Plan.findOne({ plan_name: req.body.plan_name, delete_status: false }, function (err, singleplan) {
+                // console.log(docs);
+                if (!isError && (singleplan && singleplan._id != req.body._id)) {
+                    errMsg = "Plan Name Already Exists";
+                    isError = true;
+                    res.json({ success: false, msg: errMsg });
+                } else {
 
-                  Plan.findOneAndUpdate({ _id: req.body._id },
-                    {
-                        $set: plan
-                    },
-                    { new: true },
-                    (err, plan) => {
-                        if (err) throw new Error(err);
-                        res.json({ success: true, msg: "Plan Update Successfully" });
-                    });
-    
+                    var plan = {};
+
+                    plan.plan_name = myTrim(req.body.plan_name);
+
+                    plan.plan_price = parseFloat(req.body.plan_price).toFixed(2);
+
+
+                    if (req.body.numofsurvey == 'Unlimited') {
+                        plan.no_survey = req.body.numofsurvey;
+                    } else {
+                        plan.no_survey = req.body.no_survey;
+                    }
+                    if (req.body.numofqtn == 'Unlimited') {
+                        plan.no_question = req.body.numofqtn;
+                    } else {
+                        plan.no_question = req.body.no_question;
+                    }
+                    if (req.body.numofsurveyattn == 'Unlimited') {
+                        plan.no_survey_attenders = req.body.numofsurveyattn;
+                    } else {
+                        plan.no_survey_attenders = req.body.no_survey_attenders;
+                    }
+
+                    plan.excel_import = req.body.excel_import;
+                    plan.survey_logic = req.body.survey_logic;
+
+                    Plan.findOneAndUpdate({ _id: req.body._id },
+                        {
+                            $set: plan
+                        },
+                        { new: true },
+                        (err, plan) => {
+                            if (err) throw new Error(err);
+                            res.json({ success: true, msg: "Plan Update Successfully" });
+                        });
+
                 }
                 // num.toFixed(2)
-              });
-                    
+            });
+
         } else {
             res.json({ success: false, msg: errMsg });
         }
-    
-  
-});
-    
+
+
+    });
+
     // ----------------------------------End-------------------------------------------
-         // ---------------------------------Start-------------------------------------------
+    // ---------------------------------Start-------------------------------------------
     // Function      : bestplan
     // Params        : 
     // Returns       : 
@@ -2213,50 +2234,51 @@ var returnRouter = function (io) {
 
 
     router.post('/bestplan', (req, res, next) => {
-       // console.log(req.body);
-        
-        Plan.find({delete_status:false}).exec(function (err, plan) {
+        // console.log(req.body);
+
+        Plan.find({ delete_status: false }).exec(function (err, plan) {
             async.eachOfSeries(plan, function (elm, i, callback) {
-           // plan.forEach((elm) => {
-            if (elm._id != req.body._id) {
-                
-                Plan.findOneAndUpdate({ _id: elm._id },
-                    {
-                        $set: { is_best_value: false }
-                    }, { multi: true },
-                    (err, getdata) => {
-                        callback();
-                       
-                    });
+                // plan.forEach((elm) => {
+                if (elm._id != req.body._id) {
 
-            }else{
-                Plan.findOneAndUpdate({ _id: req.body._id },
-                    {
-                        $set: { is_best_value: req.body.value }
-                    }, { multi: true },
-                    (err, getdata) => {
-                        callback();
-                        
-                    });
-            }
-        }, function (err) {
-            
-            if (err) {
-                throw err;
-                return res.json({ success: false, msg: 'Faild to best value assign ' });
-            } else {
-                return res.json({ success: true, msg: 'best value add  successfully' });
-            }
+                    Plan.findOneAndUpdate({ _id: elm._id },
+                        {
+                            $set: { is_best_value: false }
+                        }, { multi: true },
+                        (err, getdata) => {
+                            callback();
 
-        });    
-        // })
+                        });
+
+                } else {
+                    Plan.findOneAndUpdate({ _id: req.body._id },
+                        {
+                            $set: { is_best_value: req.body.value }
+                        }, { multi: true },
+                        (err, getdata) => {
+                            callback();
+
+                        });
+                }
+            }, function (err) {
+
+                if (err) {
+                    throw err;
+                    return res.json({ success: false, msg: 'Faild to best value assign ' });
+                } else {
+                    return res.json({ success: true, msg: 'best value add  successfully' });
+                }
+
+            });
+            // })
+        });
+
+
+
     });
-    
-  
-   
-    });
-    
+
     // ----------------------------------End-------------------------------------------
+
     module.exports = router;
     return router;
 }
