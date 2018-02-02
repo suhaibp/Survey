@@ -1189,7 +1189,9 @@ updateUserList() {
       this.showSpinnerDelete = false
       if(data == '')
       {
+        console.log("here");
         this.existStatus = false;
+        
       }
         else if(data != '')
         {
