@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from './../../services/company.service';
 import { CanActivate, Router } from '@angular/router';
+import * as socketIo from 'socket.io-client';
+import { Config } from './../../config/config';
 
 @Component({
   selector: 'app-home-nav',
@@ -9,8 +11,11 @@ import { CanActivate, Router } from '@angular/router';
 })
 export class HomeNavComponent implements OnInit {
   plans : any;
+  private socket: any;
   sliced_array : any;
-  constructor(private companyService: CompanyService,private routes: Router) { }
+  constructor(private config: Config,private companyService: CompanyService,private routes: Router) { 
+    this.socket = socketIo(config.socketURL);
+  }
 
   ngOnInit() {
     // ---------------------------------Start-------------------------------------------
@@ -47,8 +52,24 @@ export class HomeNavComponent implements OnInit {
         this.routes.navigate(['/dashboard']);
       }
     });
+    this.getPlans();
+    this.socket.on('addplan', (data) => {
+      this.getPlans();
+    });
+    this.socket.on('updateplan', (data) => {
+      this.getPlans();
+    });
+    this.socket.on('deleteplan', (data) => {
+      this.getPlans();
+    });
+    this.socket.on('bestvalue', (data) => {
+      this.getPlans();
+    });
     // ---------------------------------End-------------------------------------------
-    // ---------------------------------Start-------------------------------------------
+    
+  }
+  getPlans(){
+// ---------------------------------Start-------------------------------------------
     // Function      : Get All  plans
     // Params        : 
     // Returns       : All plans

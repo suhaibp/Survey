@@ -11760,8 +11760,11 @@ var router_1 = __webpack_require__("../../../router/esm5/router.js");
 var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
 var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
 var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var CompanyUpgradeComponent = /** @class */ (function () {
-    function CompanyUpgradeComponent(_formBuilder, companyService, routes, _flashMessagesService, snackBar) {
+    function CompanyUpgradeComponent(config, _formBuilder, companyService, routes, _flashMessagesService, snackBar) {
+        this.config = config;
         this._formBuilder = _formBuilder;
         this.companyService = companyService;
         this.routes = routes;
@@ -11780,6 +11783,7 @@ var CompanyUpgradeComponent = /** @class */ (function () {
             no: '',
             no_months: ''
         };
+        this.socket = socketIo(config.socketURL);
     }
     CompanyUpgradeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -11827,6 +11831,22 @@ var CompanyUpgradeComponent = /** @class */ (function () {
             noValidation: new forms_1.FormControl('', forms_1.Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
             no_monthsValidation: ['', forms_1.Validators.required],
         });
+        this.getPlans();
+        this.socket.on('addplan', function (data) {
+            _this.getPlans();
+        });
+        this.socket.on('updateplan', function (data) {
+            _this.getPlans();
+        });
+        this.socket.on('deleteplan', function (data) {
+            _this.getPlans();
+        });
+        this.socket.on('bestvalue', function (data) {
+            _this.getPlans();
+        });
+    };
+    CompanyUpgradeComponent.prototype.getPlans = function () {
+        var _this = this;
         // ---------------------------------Start-------------------------------------------
         // Function      : Get All  plans
         // Params        : 
@@ -11916,7 +11936,7 @@ var CompanyUpgradeComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [config_1.Config, forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
     ], CompanyUpgradeComponent);
     return CompanyUpgradeComponent;
 }());
@@ -12760,10 +12780,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("../../../core/esm5/core.js");
 var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
 var router_1 = __webpack_require__("../../../router/esm5/router.js");
+var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
 var HomeNavComponent = /** @class */ (function () {
-    function HomeNavComponent(companyService, routes) {
+    function HomeNavComponent(config, companyService, routes) {
+        this.config = config;
         this.companyService = companyService;
         this.routes = routes;
+        this.socket = socketIo(config.socketURL);
     }
     HomeNavComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -12801,7 +12825,23 @@ var HomeNavComponent = /** @class */ (function () {
                 _this.routes.navigate(['/dashboard']);
             }
         });
+        this.getPlans();
+        this.socket.on('addplan', function (data) {
+            _this.getPlans();
+        });
+        this.socket.on('updateplan', function (data) {
+            _this.getPlans();
+        });
+        this.socket.on('deleteplan', function (data) {
+            _this.getPlans();
+        });
+        this.socket.on('bestvalue', function (data) {
+            _this.getPlans();
+        });
         // ---------------------------------End-------------------------------------------
+    };
+    HomeNavComponent.prototype.getPlans = function () {
+        var _this = this;
         // ---------------------------------Start-------------------------------------------
         // Function      : Get All  plans
         // Params        : 
@@ -12830,7 +12870,7 @@ var HomeNavComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router])
+        __metadata("design:paramtypes", [config_1.Config, company_service_1.CompanyService, router_1.Router])
     ], HomeNavComponent);
     return HomeNavComponent;
 }());
