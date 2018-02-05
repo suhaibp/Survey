@@ -1,6 +1,10 @@
 <h1>{{title}}</h1>
 <!-- <h2>{{subtitle}}</h2> -->
 <div class="no-g-data">
+  <div *ngIf="totalResponse == 0">
+      <img src="assets/images/sad.png" alt="sad">
+      <h4>No Response Found !</h4>
+  </div>
   <div class="col-md-8 bar-gf">
       <!-- <svg  id="br-1"width="600" height="300"></svg> -->
       <div id="bchart"></div> 
