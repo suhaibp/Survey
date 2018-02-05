@@ -89,7 +89,7 @@
             
             <!-- <div class="col-md-12"></div> -->
 
-            <div class="col-md-12 graph-containers " *ngIf="surveyId != undefined; else empty2">
+            <div class="col-md-12 graph-containers " *ngIf="surveyId != undefined && surveyId != 'all'; else empty2">
               <company-chart2  [surveyid]="surveyId"></company-chart2>
             </div>
 
@@ -99,7 +99,7 @@
                   <h1>Survey Response</h1>
                   <div class="col-md-12 no-g-data">
                       <img src="assets/images/sad.png" alt="sad">
-                      <h4>No Data Available!</h4>
+                      <h4>No Survey Selected</h4>
                   </div>
                 </div>
             </ng-template>
