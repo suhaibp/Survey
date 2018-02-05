@@ -7518,7 +7518,7 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
     CompanyCreateSurveyComponent.prototype.addQuestion = function (form) {
         this.showSpinner = true;
         // console.log(this.quest);
-        if (this.survey.questions.length < this.loggedInCompany.plans[this.loggedInCompany.plans.length - 1].no_question) {
+        if (this.loggedInCompany.plans[this.loggedInCompany.plans.length - 1].no_question.toLowerCase() == 'unlimted' || this.survey.questions.length < this.loggedInCompany.plans[this.loggedInCompany.plans.length - 1].no_question) {
             this.btnDisbled = true;
             //this.isSuccess = true;
             if (this.quest.answerType == 'star rating' && !this.quest.showStarLabel) {
