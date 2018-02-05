@@ -49,3 +49,5 @@ svg path,
 svg rect{
   fill: #EC0C0C;
 }
+.pspinner{text-align:center;}
+.pspinner svg:not(:root){margin: 0 auto;}

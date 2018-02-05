@@ -253,3 +253,8 @@ ul li{
     background-color:  #bd0c2b !important;
     color: #fff !important;
 }
+.logo-main{
+    max-width: 193px;
+    overflow: hidden;
+}
+.navbar-brand{height:80px;}
