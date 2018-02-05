@@ -138,6 +138,9 @@ export class CompanyUsersComponent implements OnInit {
     this.socket.on('rejectuser', (data) => {
       this.loadData();
     });
+    this.socket.on('acceptuser', (data) => {
+      this.loadData();
+    });
 
   }
 
