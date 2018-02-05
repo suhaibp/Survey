@@ -83,7 +83,7 @@
                               <ng-container *ngFor="let plan of sliced_array">
                                   <div class="plan" [ngClass]="{'bst-plan': plan.is_best_value}">
                                       <h3 class="name">{{plan?.plan_name}}</h3>
-                                      <h4 class="price">${{plan?.plan_price}}</h4>
+                                      <h4 class="price">₹&nbsp;{{plan?.plan_price}}</h4>
                                       <h3 class="mnth">per month</h3>
                                       <ul class="details">
                                         <li>{{plan?.no_survey}}</li>                                        

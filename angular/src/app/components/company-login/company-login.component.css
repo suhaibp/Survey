@@ -88,23 +88,32 @@
   } */
   .input-group{margin-bottom:15px;}
   .login-body .styles1 {
-      border: 0;
-      border-bottom: 1px solid #dbdbdb;
-      /* font-family: "Roboto-Regular"; */
-      background: none;
-      padding: 10px 0px;
-      font-size: 13px;
-      max-width: 400px;
-      width: 100%;
-         color: #5d5d5d !important;
-      float: left;
+    border: 0;
+    border-bottom: 1px solid #dbdbdb;
+    background: none;
+    padding: 10px 0px;
+    font-size: 13px;
+    max-width: 450px;
+    width: 89%;
+    color: #5d5d5d !important;
+    float: left;
   }
+  .help-block{text-align:left;}
+  .login-body .input-group{display:block;}
   .login-body h2{text-align:center;color:#111;font-size:30px;    padding: 0;
       line-height: 30px;}
   
   .login-body .input-group-addon{border-radius:0 !important;}
   .login-body{background-color:#242833;}
-  .login-body .input-group-addon{background-color:inherit !important;border:none !important;border-bottom: 1px solid #ccc !important;border-radius:0;padding-left:0 !important;}
+  .login-body .input-group-addon{    background-color: inherit !important;
+    border: none !important;
+    border-bottom: 1px solid #ccc !important;
+    border-radius: 0;
+    padding-left: 0 !important;
+    float: left;
+    margin-top: 5px;
+    padding-bottom: 13px;
+    padding-right: 20px;}
   .btn{    border-radius: 16px !important;    padding: 6px 22px !important;}
   .omb_btn-facebook {background: #3b5998;width:100%;float:left;}
   

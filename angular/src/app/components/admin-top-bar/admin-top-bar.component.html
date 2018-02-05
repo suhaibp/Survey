@@ -22,10 +22,11 @@
                  <span class=""></span></a>
                  
                     <ul class="list-notificacao dropdown-menu">
+                            <div *ngIf="notif.count">
                         <h5 style="padding: 15px;">Block Requests</h5>
                         <div *ngFor="let item of notif.users">
                             
-                                <div *ngIf="notif.count">
+                              
                             <div *ngFor="let cmp of item.block_request"> 
                                 <div *ngFor="let cmpy of cmp.companies"> 
                                     <div *ngIf="cmpy.is_viewed==false">
@@ -49,8 +50,8 @@
                            
                         </div>
                         <div *ngIf="notif.count == 0">
-                            <hr>
-                                <h5 style="padding: 0px; color:brown">No Request users</h5>
+                           
+                                <h5 style="color : red; margin-left:20px; ">No Request users</h5>
                                 </div>
                     </ul>
                   
@@ -61,10 +62,7 @@
                     <ul class="dropdown-menu">
                     
                     <li class="divider"></li>
-                    <li>
-                        <a  (click)="logout()" ><span class="glyphicon glyphicon-log-out pull-right"></span> LogOut </a>
-                        
-                    </li>
+                    <li><a href="#" (click)="logout()" ><span class="glyphicon glyphicon-log-out pull-right"></span> LogOut </a></li>
                     </ul>
             </li>
 

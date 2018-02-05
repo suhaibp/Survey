@@ -508,7 +508,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 15px;
   color: #424242;
 }
-.pricing-table .plan h4.price {
+.pricing-table .plan h4.price h5.price {
   font-size: 49px;
   color: #424242;
   /* padding: 30px; */
@@ -517,7 +517,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700
 }
 
-.pricing-table .plan h4.price span {
+.pricing-table .plan h4.price h5.price span {
   font-size: 16px;
   font-style: italic;
 }
@@ -615,9 +615,7 @@ section{
 .nav-no-b-margin{
     margin-bottom: 0 !important;
 }
-.dx{
-    margin-top: -20px;
-}
+
 .bk-btn{
     margin-top: 40px;
     background-color: #fff;

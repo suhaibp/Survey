@@ -5,6 +5,9 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm, } from '@angular/forms';
 import { DragulaService } from 'ng2-dragula/ng2-dragula';
 import {MatSnackBar} from '@angular/material';
+import * as socketIo from 'socket.io-client';
+import { Config } from './../../config/config';
+
 @Component({
   selector: 'company-upgrade',
   templateUrl: './company-upgrade.component.html',
@@ -12,6 +15,7 @@ import {MatSnackBar} from '@angular/material';
 })
 export class CompanyUpgradeComponent implements OnInit {
 
+  private socket: any;
   plans : any;
   sliced_array : any;
   showPaymentInfo : Boolean = false;
@@ -32,7 +36,9 @@ export class CompanyUpgradeComponent implements OnInit {
     no_months : ''
   }
 
-  constructor(private _formBuilder: FormBuilder, private companyService: CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService,public snackBar: MatSnackBar) { }
+  constructor(private config: Config,private _formBuilder: FormBuilder, private companyService: CompanyService, private routes: Router, private _flashMessagesService: FlashMessagesService,public snackBar: MatSnackBar) {
+    this.socket = socketIo(config.socketURL);
+   }
 
   ngOnInit() {
     // ---------------------------------Start-------------------------------------------
@@ -79,7 +85,22 @@ export class CompanyUpgradeComponent implements OnInit {
       noValidation : new FormControl('', Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
       no_monthsValidation : ['', Validators.required],
     });
-    // ---------------------------------Start-------------------------------------------
+    this.getPlans();
+    this.socket.on('addplan', (data) => {
+      this.getPlans();
+    });
+    this.socket.on('updateplan', (data) => {
+      this.getPlans();
+    });
+    this.socket.on('deleteplan', (data) => {
+      this.getPlans();
+    });
+    this.socket.on('bestvalue', (data) => {
+      this.getPlans();
+    });
+  }
+  getPlans(){
+// ---------------------------------Start-------------------------------------------
     // Function      : Get All  plans
     // Params        : 
     // Returns       : All plans
@@ -100,7 +121,6 @@ export class CompanyUpgradeComponent implements OnInit {
     });
     // ---------------------------------End-------------------------------------------
   }
-
   // ---------------------------------Start-------------------------------------------
   // Function      : Upgrade
   // Params        : 

@@ -322,12 +322,12 @@ var returnRouter = function (io) {
             Survey.find({ company_id: cmp_id, cmp_plan_id: plans._id }, function (err, survey) {
                 // console.log(survey.length);
                 // console.log(plans.no_survey);
-                if (plans.no_survey != 'unlimited' && survey.length >= plans.no_survey) {
+                if (plans.no_survey.toLowerCase() != 'unlimited' && survey.length >= plans.no_survey) {
                     errMsg = "* Failed, Reached maximum survey limit of " + plans.no_survey;
                     isErr = true;
                 }
 
-                if ( plans.no_question != 'unlimited' && req.body.questions.length > plans.no_question) {
+                if ( plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                     errMsg = "* Failed, maximum allowed question  " + plans.no_question;
                     isErr = true;
                 }
@@ -646,7 +646,7 @@ var returnRouter = function (io) {
             if (!isErr) {
 
                 Survey.findOne({ _id: req.body.survey._id, company_id: cmp_id }, (err, survey) => {
-                    if (plans.no_survey_attenders != "unlimited" && (survey.inv_users.length + req.body.users.length) > plans.no_survey_attenders) {
+                    if (plans.no_survey_attenders.toLowerCase() != "unlimited" && (survey.inv_users.length + req.body.users.length) > plans.no_survey_attenders) {
                         errMsg = "Failed, Maximum Allowed Survey Attenders " + plans.no_survey_attenders;
                         isErr = true;
                         res.json({ success: false, msg: errMsg });
@@ -946,7 +946,7 @@ var returnRouter = function (io) {
 
             var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length - 1] : [];
 
-            if (req.body.questions.length > plans.no_question) {
+            if ( plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                 errMsg = "Failed, maximum allowed question  " + plans.no_question;
                 isErr = true;
             }
@@ -957,6 +957,13 @@ var returnRouter = function (io) {
             } else {
                 var start = new Date(req.body.start_date);
                 start.setHours(00, 00, 00, 000);
+            }
+            let now = new Date();
+            now.setHours(00, 00, 00, 000);
+
+            if(req.body.start_date < now){
+                errMsg = "* Failed, Start Date already over!";
+                isErr = true;
             }
 
             if (req.body.end_date == '') {

@@ -50,13 +50,13 @@ export class CompanyCreateSurveyComponent implements OnInit {
   saveBtnDisbled:boolean = false;
   addUserBtnDisbled:boolean = false;
   inviteBtnDisbled:boolean = false;
-
+  minstartDate = new Date();
   survey ={
     name: '',
     category:'',
     display_type : {ui :'Single', randomization  :  false ,skip :false, pageno : false},
-    start_date : '',
-    end_date : '',
+    start_date : this.minstartDate,
+    end_date : this.minstartDate,
     logo:'',
     showHeader:true,
     showFooter:true,
@@ -319,7 +319,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   addQuestion(form){
     this.showSpinner = true
     // console.log(this.quest);
-    if(this.survey.questions.length < this.loggedInCompany.plans[this.loggedInCompany.plans.length-1].no_question){
+    if(this.loggedInCompany.plans[this.loggedInCompany.plans.length-1].no_question.toLowerCase() == 'unlimited' || this.survey.questions.length < this.loggedInCompany.plans[this.loggedInCompany.plans.length-1].no_question){
 
         this.btnDisbled = true;
         //this.isSuccess = true;
