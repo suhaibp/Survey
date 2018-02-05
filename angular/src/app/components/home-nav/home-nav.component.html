@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default hm-navbar">
+<nav class="navbar navbar-default navbar-fixed-top hm-navbar">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -15,10 +15,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         
         <ul class="nav navbar-nav navbar-right hm-navbar-nav">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#Services">Services</a></li>
-          <li><a href="#plan">Plans & Pricing</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a scrollTo href="#home">Home</a></li>
+          <li><a scrollTo href="#Services">Services</a></li>
+          <li><a scrollTo href="#plan">Plans & Pricing</a></li>
+          <li><a scrollTo href="#about">About</a></li>
           <li class="btn-login"><a [routerLink]="['/clogin']">Login</a></li>
           
         </ul>
@@ -40,22 +40,22 @@
       </section>
     
       <section id="Services">
-        <div class="container">
-            <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-7">
-                    <img class="serv-img" src="./assets/images/serv-1.jpg" alt="">
-                  </div>
-                  <div class="col-md-5">
-                    <div class="serv-cont">
-                        <h4>Services</h4>
-                        <p>Survey Master is an easy to use online survey and questionnaire building software. We give you all the essential features to create surveys, distribute them and analyze the data you receive. </p>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-7">
+                        <img class="serv-img" src="./assets/images/serv-1.jpg" alt="">
+                      </div>
+                      <div class="col-md-5">
+                        <div class="serv-cont">
+                            <h4>Services</h4>
+                            <p>Survey Master is an easy to use online survey and questionnaire building software. We give you all the essential features to create surveys, distribute them and analyze the data you receive. </p>
+                        </div>
+                        
+                      </div>
                     </div>
-                    
                   </div>
-                </div>
-              </div>
-        </div>
+            </div>
          
       </section>
 
@@ -81,7 +81,7 @@
                         <div class="wrap">
                             <div class="pricing-table">
                               <ng-container *ngFor="let plan of sliced_array">
-                                  <div class="plan">
+                                  <div class="plan" [ngClass]="{'bst-plan': plan.is_best_value}">
                                       <h3 class="name">{{plan?.plan_name}}</h3>
                                       <h4 class="price">${{plan?.plan_price}}</h4>
                                       <h3 class="mnth">per month</h3>
@@ -97,7 +97,7 @@
                                         </li>
                                       </ul>
                                 
-                                      <h5 class="order"><a [routerLink]="['/creg', plan._id]">Order Now</a></h5>
+                                      <h5 class="order" [ngClass]="{'bst-order': plan.is_best_value}"><a [routerLink]="['/creg', plan._id]">Order Now</a></h5>
                                     </div>
                               </ng-container>
                               <!-- <div class="plan">

@@ -1,10 +1,8 @@
 <body>
   <div id="wrapper">
     <!-- Navigation -->
-    <app-company-top-bar></app-company-top-bar>
-    <app-company-sidebar></app-company-sidebar>
-    <br>
-    <div class="container">
+    <app-company-top-bar [open]="'open'" ></app-company-top-bar>
+    <div class="dx">
       <div *ngIf="!showPaymentInfo">
         <!-- <ul *ngFor="let plan of plans">
           <li>
@@ -19,7 +17,7 @@
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-3">
-                           
+                              <button [routerLink]="['/dashboard']" class="bk-btn"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Dashboard </button>
                             <h4 class="plan-hd">Plans & Pricing</h4>
                             <ul class="lim-hd">
                               
@@ -34,7 +32,7 @@
                               <div class="wrap">
                                   <div class="pricing-table">
                                     <ng-container *ngFor="let plan of plans">
-                                        <div class="plan">
+                                        <div class="plan" [ngClass]="{'bst-plan': plan.is_best_value}">
                                             <h3 class="name">{{plan?.plan_name}}</h3>
                                             <h4 class="price">${{plan?.plan_price}}</h4>
                                             <h3 class="mnth">per month</h3>
@@ -50,7 +48,7 @@
                                               </li>
                                             </ul>
                                       
-                                            <h5 class="order"><button (click)="upgrade(plan._id)"> Upgrade</button></h5>
+                                            <h5 class="order" [ngClass]="{'bst-order': plan.is_best_value}"><button (click)="upgrade(plan._id)"> Upgrade</button></h5>
                                           </div>
                                     </ng-container>
                                     <!-- <div class="plan">

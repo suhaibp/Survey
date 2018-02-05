@@ -553,13 +553,17 @@ h1, h2, h3, h4, h5, h6 {
 /* .pricing-table .plan:last-child h5.order a { */
   /* background-color: #F22D47; */
 /* } */
-.pricing-table .plan:nth-child(2n) {
-  box-shadow: 0px 0px 10px #424242;
+
+.pricing-table .bst-plan{
+    box-shadow: 0px 0px 10px #424242;
   z-index: 100;
   top: -14px
 }
-.pricing-table .plan:nth-child(2n) .order{
-    padding: 45px;
+.pricing-table .plan:nth-child(2n) {
+  
+}
+.bst-order{
+    padding: 45px !important;
 
 }
 .pricing-table .mnth{
@@ -596,9 +600,34 @@ h1, h2, h3, h4, h5, h6 {
         background-color: #F22D47;
         padding: 10px 20px;
         border-radius: 3px;
+        border: none;
       }
     .addnewbtn{
         border-radius: 22px !important;
         width :80%;
         color :white !important;
     }
+section{
+    overflow: hidden;
+    width: 100%;
+}
+
+.nav-no-b-margin{
+    margin-bottom: 0 !important;
+}
+.dx{
+    margin-top: -20px;
+}
+.bk-btn{
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 13px 10px;
+    border-radius: 50px;
+    color: #fe3c47;
+    border: none;
+}
+.bk-btn:hover{
+    color: #fff;
+    background-color: #fe3c47;
+    border: 1px solid #fff
+}
