@@ -240,7 +240,7 @@ export class CompanyChart2Component implements OnChanges {
         this.companyService.getSurveyQuestions(this.surveyid).subscribe(data => {
           // this.surveyQuestion = data;
           this.quest = data;
-          // console.log(data + " data");
+           console.log(data);
           this.barchart = [];
 
           data.forEach((element,index) => {
