@@ -64,6 +64,7 @@ export class CompanyChart2Component implements OnChanges {
   piechart = [];
   surveyid:any;
   undefnd = false;
+  totalResponse = 0;
   constructor(public companyService: CompanyService,
     router: Router, config: Config) {
     this.socket = socketIo(config.siteUrl);
@@ -242,18 +243,18 @@ export class CompanyChart2Component implements OnChanges {
           this.quest = data;
            console.log(data);
           this.barchart = [];
-
+          this.totalResponse = 0;
           data.forEach((element,index) => {
             let i = index+1
             this.barchart.push({ company: element.question, count: element.totalCount, id: element.id, surveyid: this.sId, ind:"Q"+i});
-
+            this.totalResponse += element.totalCount;
           });
 
           // this.initSvg1();
           // this.initAxis();
           // this.drawAxis();
           // this.drawBars();
-          if(this.barchart.length > 0){
+          if(this.barchart.length > 0 && this.totalResponse >0){
         this.drawBar()
         
           }
