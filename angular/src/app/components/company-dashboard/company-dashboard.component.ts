@@ -505,7 +505,9 @@ export class CompanyDashboardComponent implements OnInit {
             // console.log(this.Stats);
             // this.initSvgDia();
             // this.drawPieDia();
-            this.setgraph();
+            if(this.Stats.length > 0){
+              this.setgraph();
+            }
             
           });
         });
