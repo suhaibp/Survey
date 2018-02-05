@@ -67,15 +67,15 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item  (click)="getThemeId(row._id)" data-toggle="modal" data-target="#myModal3"> 
-                <mat-icon><i class="material-icons">delete</i></mat-icon>
-                <span>Delete</span>
-              </button>
+              
               <button mat-menu-item [routerLink]="['/edit-theme/',row._id]">
                 <mat-icon>mode_edit</mat-icon>
                 <span>Edit</span>
               </button>
-              
+              <button mat-menu-item  (click)="getThemeId(row._id)" data-toggle="modal" data-target="#myModal3"> 
+                  <mat-icon><i class="material-icons">delete</i></mat-icon>
+                  <span>Delete</span>
+                </button>
             </mat-menu>
              </mat-cell>
           </ng-container>

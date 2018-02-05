@@ -123,9 +123,10 @@ this._companyService.getLoggedUSerDetails().subscribe(info =>{
         
         }
         else{
-          window.location.reload();
+          // window.location.reload();
           // window.location.reload();
           // this.routes.navigate(['/create-theme']);
+          this.thmSaved()
           this.themeSaved =true;
           this.showSpinner = false
           let snackBarRef =  this.snackBar.open('Theme Saved Successfully', '', {
