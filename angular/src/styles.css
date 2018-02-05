@@ -229,9 +229,6 @@ agm-map {
 }
 
 
-
-
-
 .piehvr:hover{
     fill: #4F657D;
 }
@@ -496,7 +493,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-table .plan {
   box-sizing: border-box;
-  width: 300px;
+  width: 100%;
+  max-width: 224px;
   background-color: #fff;
   float: left;
   text-align: center;
@@ -551,7 +549,7 @@ h1, h2, h3, h4, h5, h6 {
 /* } */
 /* .pricing-table .plan:last-child h4.price { */
   /* background-color: #F22D47; */
-/* } */ */
+/* } */ 
 /* .pricing-table .plan:last-child h5.order a { */
   /* background-color: #F22D47; */
 /* } */
@@ -592,6 +590,13 @@ h1, h2, h3, h4, h5, h6 {
     .back-color{
         margin-left: 17% !important
     }
+    .pricing-table .plan h5.order button {
+        text-decoration: none;
+        color: #fff;
+        background-color: #F22D47;
+        padding: 10px 20px;
+        border-radius: 3px;
+      }
     .addnewbtn{
         border-radius: 22px !important;
         width :80%;

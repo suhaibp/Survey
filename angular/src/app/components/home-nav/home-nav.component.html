@@ -19,7 +19,7 @@
           <li><a href="#Services">Services</a></li>
           <li><a href="#plan">Plans & Pricing</a></li>
           <li><a href="#about">About</a></li>
-          <li class="btn-login"><a href="#">Login</a></li>
+          <li class="btn-login"><a [routerLink]="['/clogin']">Login</a></li>
           
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -49,7 +49,7 @@
                   <div class="col-md-5">
                     <div class="serv-cont">
                         <h4>Services</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                        <p>Survey Master is an easy to use online survey and questionnaire building software. We give you all the essential features to create surveys, distribute them and analyze the data you receive. </p>
                     </div>
                     
                   </div>
@@ -70,33 +70,37 @@
                       <h4 class="plan-hd">Plans & Pricing</h4>
                       <ul class="lim-hd">
                         
-                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of  surveys</li>
-                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of questions per survey</li>
-                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of survey attenders</li>
-                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Skip Logic</li>
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of  Surveys</li>
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of Questions per Survey</li>
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;No of Survey Attenders</li>
+                          <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Survey Logic</li>
                           <li><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Excel import</li>
                           </ul>
                     </div>
                     <div class="col-md-9">
                         <div class="wrap">
                             <div class="pricing-table">
-                              <!-- <ng-container *ngFor="">
+                              <ng-container *ngFor="let plan of sliced_array">
                                   <div class="plan">
-                                      <h3 class="name">Basic</h3>
-                                      <h4 class="price">$10</h4>
+                                      <h3 class="name">{{plan?.plan_name}}</h3>
+                                      <h4 class="price">${{plan?.plan_price}}</h4>
                                       <h3 class="mnth">per month</h3>
                                       <ul class="details">
-                                        <li>10</li>
-                                        <li>10</li>
-                                        <li>20</li>
-                                        <li><i class="fa fa-times"></i></li>
-                                        <li><i class="fa fa-times"></i></li>
+                                        <li>{{plan?.no_survey}}</li>                                        
+                                        <li>{{plan?.no_question}}</li>
+                                        <li>{{plan?.no_survey_attenders}}</li>
+                                        <li><div *ngIf="plan?.survey_logic"><i class="fa fa-check"></i></div>
+                                          <div *ngIf="!plan?.survey_logic"><i class="fa fa-times"></i></div>
+                                        </li>
+                                        <li><div *ngIf="plan?.excel_import"><i class="fa fa-check"></i></div>
+                                          <div *ngIf="!plan?.excel_import"><i class="fa fa-times"></i></div>
+                                        </li>
                                       </ul>
                                 
-                                      <h5 class="order"><a href="#">Order Now</a></h5>
+                                      <h5 class="order"><a [routerLink]="['/creg', plan._id]">Order Now</a></h5>
                                     </div>
-                              </ng-container> -->
-                              <div class="plan">
+                              </ng-container>
+                              <!-- <div class="plan">
                                 <h3 class="name">Basic</h3>
                                 <h4 class="price">$10</h4>
                                 <h3 class="mnth">per month</h3>
@@ -109,7 +113,7 @@
                                 </ul>
                           
                                 <h5 class="order"><a href="#">Order Now</a></h5>
-                              </div><!--.plan-->
+                              </div>
                           
                               <div class="plan">
                                 <h3 class="name">Standard</h3>
@@ -125,7 +129,7 @@
                                 </ul>
                           
                                 <h5 class="order"><a href="#">Order Now</a></h5>
-                              </div><!--.plan-->
+                              </div>
                           
                               <div class="plan">
                                 <h3 class="name">Premium</h3>
@@ -142,7 +146,7 @@
                                 </ul>
                           
                                 <h5 class="order"><a href="#">Order Now</a></h5>
-                              </div><!--.plan-->
+                              </div> -->
                             </div><!--.pricing-table-->
                           </div><!--.wrap-->
                     </div>
@@ -162,7 +166,7 @@
                 </div>
                 <div class="col-md-5">
                   <h4>About Us</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                  <p>Cyber Samana always paid significance to service areas which are best for the customer. We have been providing the full spectrum of Information Technology Services, including Business Process Automation, Software Development, Web Application, Web Sites, Open Source Solutions and Mobile Applications.</p>
                 </div>
               </div>
             </div>

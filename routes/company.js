@@ -84,7 +84,7 @@ var returnRouter = function (io) {
             var cmp_id = decoded._id;
             var isSuccess = false;
             msg = '';
-            req.body.group = myTrim(req.body.group); 
+            req.body.group = myTrim(req.body.group);
             UserGroup.find({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
                 //  console.log(docs);
                 if (docs.length) {
@@ -313,25 +313,25 @@ var returnRouter = function (io) {
 
             var cmp_id = decoded._id;
             var organization = decoded.organization;
-            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length - 1] : [];
             isErr = false;
             start = '';
             end = '';
             errMsg = '';
 
-            Survey.find({company_id: cmp_id,cmp_plan_id: plans._id }, function (err, survey) {
+            Survey.find({ company_id: cmp_id, cmp_plan_id: plans._id }, function (err, survey) {
                 // console.log(survey.length);
                 // console.log(plans.no_survey);
-                if(survey.length >= plans.no_survey){
-                    errMsg = "* Failed, Reached maximum survey limit of " + plans.no_survey ;
+                if (survey.length >= plans.no_survey) {
+                    errMsg = "* Failed, Reached maximum survey limit of " + plans.no_survey;
                     isErr = true;
                 }
-         
-                if(req.body.questions.length > plans.no_question){
+
+                if (req.body.questions.length > plans.no_question) {
                     errMsg = "* Failed, maximum allowed question  " + plans.no_question;
                     isErr = true;
                 }
-         
+
 
                 if (req.body.start_date == '') {
                     errMsg = "* Failed, Please Select Start Date!";
@@ -370,7 +370,7 @@ var returnRouter = function (io) {
                     errMsg = "* Failed, Please Select Display Type!";
                     isErr = true;
                 }
-            
+
                 if (!isErr && req.body.questions.length == 0) {
                     errMsg = "* Failed, Please Add Atleast OneQuestion!";
                     isErr = true;
@@ -407,7 +407,7 @@ var returnRouter = function (io) {
                     survey.company_id = cmp_id;
                     survey.organization = organization;
                     survey.theme = req.body.selectedTheme._id;
-                    req.body.display_type = (plans.survey_logic) ? req.body.display_type : {ui: "Single", randomization: false, skip: false, pageno: false};
+                    req.body.display_type = (plans.survey_logic) ? req.body.display_type : { ui: "Single", randomization: false, skip: false, pageno: false };
                     survey.display_type = req.body.display_type;
 
                     survey.start_datetime = start;
@@ -626,7 +626,7 @@ var returnRouter = function (io) {
             decoded = jwt.verify(authorization, config.secret);
             var cmp_id = decoded._id;
             companyName = decoded.organization
-            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length - 1] : [];
             //console.log(req.body);
             isErr = false;
             errMsg = '';
@@ -646,15 +646,15 @@ var returnRouter = function (io) {
             if (!isErr) {
 
                 Survey.findOne({ _id: req.body.survey._id, company_id: cmp_id }, (err, survey) => {
-                    if((survey.inv_users.length + req.body.users.length) > plans.no_survey_attenders){
+                    if ((survey.inv_users.length + req.body.users.length) > plans.no_survey_attenders) {
                         errMsg = "Failed, Maximum Allowed Survey Attenders " + plans.no_survey_attenders;
                         isErr = true;
                         res.json({ success: false, msg: errMsg });
-                    }else{
+                    } else {
                         let invUser = [];
-                        
+
                         req.body.users.forEach((user, index) => {
-        
+
                             imgCode = new String(new Date().getTime()) + '_' + (Math.floor(100000 + Math.random() * 900000));
                             info = {
                                 cmp_user_id: user.id,
@@ -662,9 +662,9 @@ var returnRouter = function (io) {
                                 img_read_code: imgCode
                             }
                             invUser.push(info);
-        
+
                         });
-        
+
                         Survey.findOneAndUpdate({ "_id": req.body.survey._id },
                             {
                                 $pushAll: { "inv_users": invUser }
@@ -688,18 +688,18 @@ var returnRouter = function (io) {
                                         emailTemplate.sendInvitationMail(data);
                                     });
                                     io.sockets.emit("Invite Users", {
-        
+
                                     });
                                     res.json({ success: true, msg: "User Invited successfully" });
-        
+
                                 }
                             });
-        
-                        console.log(invUser);    
+
+                        console.log(invUser);
                     }
                 });
 
-                
+
 
             } else {
                 res.json({ success: false, msg: errMsg });
@@ -727,8 +727,8 @@ var returnRouter = function (io) {
 
         // var ip = req.header['x-forwarded-for'] || req.connection.remoteAddress;
         //var ip = "59.92.233.134";
-        var ip =  req.connection.remoteAddress;
-         console.log("ip:"+ip);
+        var ip = req.connection.remoteAddress;
+        console.log("ip:" + ip);
         var geo = geoip.lookup(ip);
         lat = geo.ll[0];
         long = geo.ll[1];
@@ -944,9 +944,9 @@ var returnRouter = function (io) {
             end = '';
             errMsg = '';
 
-            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length-1] : [];
-        
-            if(req.body.questions.length > plans.no_question){
+            var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length - 1] : [];
+
+            if (req.body.questions.length > plans.no_question) {
                 errMsg = "Failed, maximum allowed question  " + plans.no_question;
                 isErr = true;
             }
@@ -1044,7 +1044,7 @@ var returnRouter = function (io) {
                 survey.company_id = cmp_id;
                 survey.organization = organization;
                 survey.theme = req.body.selectedTheme._id;
-                req.body.display_type = (plans.survey_logic) ? req.body.display_type : {ui: "Single", randomization: false, skip: false, pageno: false};
+                req.body.display_type = (plans.survey_logic) ? req.body.display_type : { ui: "Single", randomization: false, skip: false, pageno: false };
                 survey.display_type = req.body.display_type;
 
                 survey.start_datetime = start;
@@ -1637,7 +1637,20 @@ var returnRouter = function (io) {
                         return res.json({ success: false, msg: 'Cant update Company' });
                     }
                     else {
-                        return res.json({ success: true, msg: 'Update Company' });
+                        // return res.json({ success: true, msg: 'Update Company' });
+                        const token = jwt.sign(company.toJSON(), config.secret, {
+                            expiresIn: 60400 // sec 1 week
+                        });
+                        return res.json({
+                            success: true,
+                            msg: "Update Company",
+                            token: 'JWT ' + token,
+                            company: {
+                                id: company._id,
+                                role: company.role,
+                                // status: company.cmp_status
+                            }
+                        });
                     }
                 });
         } else {
@@ -1713,9 +1726,9 @@ var returnRouter = function (io) {
             if (req.body.group == '' || req.body.group == null) {
                 res.send({ success: false, msg: "* group name is required!" });
             } else {
-                req.body.group = myTrim(req.body.group); 
+                req.body.group = myTrim(req.body.group);
                 UserGroup.findOne({ name: req.body.group, cmp_id: cmp_id }, function (err, docs) {
-                    if (docs&& docs._id != req.body.id) {
+                    if (docs && docs._id != req.body.id) {
                         res.json({ success: false, msg: "* Group Already Exists!" });
                     } else {
                         UserGroup.findOneAndUpdate({ _id: req.body.id },
@@ -1730,11 +1743,11 @@ var returnRouter = function (io) {
                                 if (err) {
                                     res.send({ success: false, msg: "* Failed, somthing went wrong! " });
                                 } else {
-                                    if (req.body.email=='' || req.body.email== null || !req.body.email) {
+                                    if (req.body.email == '' || req.body.email == null || !req.body.email) {
                                         isSuccess = true;
                                         msg = 'Update User group Successfully';
                                         // res.json({ success: true, msg: "Group created Successfully", data: insertedGroup });
-        
+
                                     }
 
                                     Company.findOne({ _id: cmp_id }, (err, allCompany) => {
@@ -2069,18 +2082,18 @@ var returnRouter = function (io) {
                 var cmp_id = decoded._id;
                 Theme.findOne({ "cmp_id": cmp_id, title: req.body.title }, function (err, surveyTheme) {
                     // console.log(surveyTheme);
-                    
-                    if (surveyTheme && req.body._id != surveyTheme._id) {
-                    console.log(surveyTheme._id);
-                    console.log(req.body._id);
 
-                            res.json({
-                                status: 4 //already exist
-                            });
-                        
-                        
+                    if (surveyTheme && req.body._id != surveyTheme._id) {
+                        console.log(surveyTheme._id);
+                        console.log(req.body._id);
+
+                        res.json({
+                            status: 4 //already exist
+                        });
+
+
                     }
-                    else  {
+                    else {
                         Theme.findByIdAndUpdate(req.body._id,
                             {
                                 $set: {
@@ -2368,7 +2381,7 @@ var returnRouter = function (io) {
     // ----------------------------------End-------------------------------------------
 
 
-  
+
     //  ---------------------------------Start-------------------------------------------
     // Function      : get notification to all companies that one company 
 
@@ -2386,43 +2399,43 @@ var returnRouter = function (io) {
             decoded = jwt.verify(authorization, config.secret);
             cmp_id = decoded._id;
             arr1 = [];
-            arr2=[];
-            Users.find({},{ block_request: { $elemMatch: { action_status: "Accepted"}} }, (err, eachUsers) => {
-                if(eachUsers){
+            arr2 = [];
+            Users.find({}, { block_request: { $elemMatch: { action_status: "Accepted" } } }, (err, eachUsers) => {
+                if (eachUsers) {
                     eachUsers.forEach(eachElement => {
-                            eachElement.block_request.forEach(blockRequest => {
-                              
-                                        blockRequest.companies.forEach(blkCompany => {
-                                            if (blkCompany.company_id == cmp_id && blkCompany.comp_is_viewed == false ) {
-                                                arr2.push(eachElement._id);
-                                              
-                                            }
-                                         });
-        
+                        eachElement.block_request.forEach(blockRequest => {
+
+                            blockRequest.companies.forEach(blkCompany => {
+                                if (blkCompany.company_id == cmp_id && blkCompany.comp_is_viewed == false) {
+                                    arr2.push(eachElement._id);
+
+                                }
                             });
+
+                        });
 
                     });
 
                     Users.find({
-                        '_id': { $in: arr2}
-                    }, function(err, docs){
-                    docs.forEach(allEmail=>{
-                        arr1.push({email :allEmail.email, id : allEmail.id});
-                        
-                        
-                    })
-                    res.json(arr1); 
-                      
+                        '_id': { $in: arr2 }
+                    }, function (err, docs) {
+                        docs.forEach(allEmail => {
+                            arr1.push({ email: allEmail.email, id: allEmail.id });
+
+
+                        })
+                        res.json(arr1);
+
                     });
-            
+
                 }
             });
         }
-         else {
-        return res.status(401).send('Invalid User');
+        else {
+            return res.status(401).send('Invalid User');
         }
     });
-    
+
 
 
 
@@ -2632,11 +2645,11 @@ var returnRouter = function (io) {
                         if (!validateEmail(val) && !isErr) {
                             errMsg = val + " is not a valid email";
                             isErr = true;
-                        }else{
+                        } else {
                             if (emailArray.indexOf(val) > -1) {
                                 isErr = true;
-                                errMsg = 'Failed,  email ' + val + " Repeating" ;
-                            } 
+                                errMsg = 'Failed,  email ' + val + " Repeating";
+                            }
                             emailArray.push(val);
                         }
                     }
@@ -2647,7 +2660,7 @@ var returnRouter = function (io) {
                 } else {
                     async.eachOfSeries(req.body.email, function (email, key, callback) {
                         email = myTrim(email.toString());
-                        Company.findOne({ _id: cmp_id}, { users: { $elemMatch: { email: email,delete_status: false} } }, function (err, respEmail) {
+                        Company.findOne({ _id: cmp_id }, { users: { $elemMatch: { email: email, delete_status: false } } }, function (err, respEmail) {
                             console.log(respEmail);
                             // Company.findOne({ "users.email": email, _id: cmp_id, "users.delete_status" : false }, function (err, respEmail) {
                             if (respEmail.users.length != 0 && !isErr) { // Insert If user not exist
@@ -2814,104 +2827,104 @@ var returnRouter = function (io) {
     // Last Modified : 03-01-2018, Yasir Poongadan
     // Desc          : update user and groups
     router.put('/update-users', passport.authenticate('jwt', { session: false }), (req, res, next) => {
-        
-                if (req.headers && req.headers.authorization) {
-                    var authorization = req.headers.authorization.substring(4), decoded;
-                    //try {
-                        decoded = jwt.verify(authorization, config.secret);
-                        // cmp_id = "5a4b61e2a2f0028c1a46274a";
-                        var cmp_id = decoded._id;
-                        var isErr = false;
-                        var errMsg = '';
-                        if (req.body.is_registered == false) {
-                            if (!validateEmail(req.body.newEmail) && !isErr) {
-                                errMsg = val + " is not a valid email";
-                                isErr = true;
-                            }
-                        }
-        
-                        if (isErr) {
-                            res.json({ success: false, msg: errMsg });
-                        } else {
-        
-                            async.parallel([
-                                function (callback) {
-                                    req.body.newEmail = myTrim(req.body.newEmail); 
-                                    if (req.body.newEmail != req.body.email) {
-                                        // console.log('email changed');
-                                        
-                                        Company.findOne({ "users.email": req.body.newEmail, _id: cmp_id }, function (err, respEmail) {
-                                            // console.log(respEmail);   
-                                            if (respEmail && !isErr) { // Insert If user not exist
-                                                // console.log('in already exists if');
-                                                errMsg = req.body.newEmail + " Already Exists";
-                                                isErr = true;
-                                            }
-                                            callback();
-                                        });
-                                    } else {
-                                        callback();
-                                    }
-                                },
-                                function (callback) {
-                                    // console.log('functon to check admin block'); 
-                                    req.body.newEmail = myTrim(req.body.newEmail); 
-                                    Users.findOne(
-                                        {
-                                            $and: [
-                                                { email: req.body.newEmail },
-                                                { $or: [{ block_status: true }, { delete_status: true }] }
-                                            ]
-                                        },
-                                        function (err, respemail) {
-                                            //  console.log(respEmail);   
-                                            if (respemail) { // Insert If user not exist
-                                                // console.log('in admin block if');
-                                                errMsg = 'Failed, ' + req.body.newEmail + " blocked by admin";
-                                                isErr = true;
-                                            }
-                                            callback();
-        
-                                        });
+
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4), decoded;
+            //try {
+            decoded = jwt.verify(authorization, config.secret);
+            // cmp_id = "5a4b61e2a2f0028c1a46274a";
+            var cmp_id = decoded._id;
+            var isErr = false;
+            var errMsg = '';
+            if (req.body.is_registered == false) {
+                if (!validateEmail(req.body.newEmail) && !isErr) {
+                    errMsg = val + " is not a valid email";
+                    isErr = true;
+                }
+            }
+
+            if (isErr) {
+                res.json({ success: false, msg: errMsg });
+            } else {
+
+                async.parallel([
+                    function (callback) {
+                        req.body.newEmail = myTrim(req.body.newEmail);
+                        if (req.body.newEmail != req.body.email) {
+                            // console.log('email changed');
+
+                            Company.findOne({ "users.email": req.body.newEmail, _id: cmp_id }, function (err, respEmail) {
+                                // console.log(respEmail);   
+                                if (respEmail && !isErr) { // Insert If user not exist
+                                    // console.log('in already exists if');
+                                    errMsg = req.body.newEmail + " Already Exists";
+                                    isErr = true;
                                 }
-                                // } 
-                            ], function (err) { //This is the final callback
-                                if (isErr) {
-                                    res.json({ success: false, msg: errMsg });
+                                callback();
+                            });
+                        } else {
+                            callback();
+                        }
+                    },
+                    function (callback) {
+                        // console.log('functon to check admin block'); 
+                        req.body.newEmail = myTrim(req.body.newEmail);
+                        Users.findOne(
+                            {
+                                $and: [
+                                    { email: req.body.newEmail },
+                                    { $or: [{ block_status: true }, { delete_status: true }] }
+                                ]
+                            },
+                            function (err, respemail) {
+                                //  console.log(respEmail);   
+                                if (respemail) { // Insert If user not exist
+                                    // console.log('in admin block if');
+                                    errMsg = 'Failed, ' + req.body.newEmail + " blocked by admin";
+                                    isErr = true;
+                                }
+                                callback();
+
+                            });
+                    }
+                    // } 
+                ], function (err) { //This is the final callback
+                    if (isErr) {
+                        res.json({ success: false, msg: errMsg });
+                    } else {
+                        var groups = [];
+                        req.body.newEmail = myTrim(req.body.newEmail);
+                        req.body.groups.forEach(function (val, key) {
+                            groups.push({ g_id: val._id, group_name: val.name });
+                        });
+                        Company.findOneAndUpdate({ "_id": cmp_id, "users.email": req.body.email },
+                            {
+                                $set: { "users.$.email": req.body.newEmail, "users.$.group": groups }
+                            },
+                            { new: true },
+                            (err, company) => {
+                                if (err) {
+                                    res.json({ success: false, msg: "Failed, somthing went wrong " });
                                 } else {
-                                    var groups = [];
-                                    req.body.newEmail = myTrim(req.body.newEmail); 
-                                    req.body.groups.forEach(function (val, key) {
-                                        groups.push({ g_id: val._id, group_name: val.name });
-                                    });
-                                    Company.findOneAndUpdate({ "_id": cmp_id, "users.email": req.body.email },
-                                        {
-                                            $set: { "users.$.email": req.body.newEmail, "users.$.group": groups }
-                                        },
-                                        { new: true },
-                                        (err, company) => {
-                                            if (err) {
-                                                res.json({ success: false, msg: "Failed, somthing went wrong " });
-                                            } else {
-                                                res.json({ success: true, msg: "User Updated successfully", company: company });
-                                            }
-                                        });
+                                    res.json({ success: true, msg: "User Updated successfully", company: company });
                                 }
                             });
-        
-        
-                        }
-        
-                    // } catch (e) {
-                    //     return res.status(401).send('unauthorized 123');
-                    // }
-                } else {
-                    return res.status(401).send('Invalid User');
-                }
-        
-        
-            });
-            // ----------------------------------End-------------------------------------------
+                    }
+                });
+
+
+            }
+
+            // } catch (e) {
+            //     return res.status(401).send('unauthorized 123');
+            // }
+        } else {
+            return res.status(401).send('Invalid User');
+        }
+
+
+    });
+    // ----------------------------------End-------------------------------------------
 
     // ---------------------------------Start-------------------------------------------
     // Function      : Get user email 
@@ -3445,6 +3458,43 @@ var returnRouter = function (io) {
             return res.status(401).send('Invalid User');
         }
     });
+    // ----------------------------------End-------------------------------------------
+
+    // ---------------------------------Start-------------------------------------------
+    // Function      : Generate token
+    // Params        : company id
+    // Returns       : jwt token
+    // Author        : Rinsha
+    // Date          : 28-12-2017
+    // Last Modified : 28-12-2017, Rinsha
+    // Desc          : 
+
+    router.get('/tokenUpdate', function (req, res) {
+        if (req.headers && req.headers.authorization) {
+            var authorization = req.headers.authorization.substring(4),
+                decoded;
+            decoded = jwt.verify(authorization, config.secret);
+            Company.findOne({ "_id": decoded._id }, function (err, company) {
+                if (err) {
+                    throw err;
+                }
+                const token = jwt.sign(company, config.secret, {
+                    expiresIn: 60400 // sec 1 week
+                });
+                return res.json({
+                    success: true,
+                    token: 'JWT ' + token,
+                    company: {
+                        id: company._id,
+                        role: company.role,
+                    }
+                });
+            }).lean();
+        } else {
+            return res.status(401).send('Invalid User');
+        }
+    });
+
     // ----------------------------------End-------------------------------------------
 
     module.exports = router;

@@ -310,9 +310,9 @@ ul.alert-dropdown {
     margin-left: -6px;
     z-index: 10;
   }
-  .prfl .dropdown-menu{left:inherit;right:0;}
   .notification{background-color:#fff !important;}
-  /* .dropdown-menu{
-    right: 0px !important;
+
+  .upgrade{
+      margin-top: 7px;
   }
-   */
+  .prfl .dropdown-menu{left:inherit;right:0;}

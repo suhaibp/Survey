@@ -114,7 +114,7 @@ export class CompanyRegistrationComponent implements OnInit {
       this.plan_id = params.id;
     });
     if (this.plan_id) {
-      this.showPlanStepper = true;
+      // this.showPlanStepper = true;
       // ---------------------------------Start-------------------------------------------
       // Function      : get plan details using id
       // Params        : 
@@ -124,6 +124,7 @@ export class CompanyRegistrationComponent implements OnInit {
       // Last Modified : 29-1-2018, Rinsha
       // Desc          :
       this.companyService.getPlanById(this.plan_id).subscribe(info1 => {
+        this.showPlanStepper = true;
         // console.log(info1);
         this.planId = this.plan_id;
         this.newReg = {
@@ -156,6 +157,7 @@ export class CompanyRegistrationComponent implements OnInit {
         }
         if (this.newReg.plans.is_default_plan) {
           this.showMonth = false;
+          this.showPlanStepper = false;
         }
       });
       // ---------------------------------End-------------------------------------------
@@ -264,20 +266,20 @@ export class CompanyRegistrationComponent implements OnInit {
     this.thirdForm = this.newReg.survey_attenders;
     this.result = Object.assign(this.firstForm, this.secondForm, this.planForm);
     // console.log(this.result);
-    this.companyService.registration(this.result).subscribe(data => {
-      // console.log(data);
-      if (data.success == true) {
-        this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
-        setTimeout(() => {
-          this.routes.navigate(['/clogin']);
-        }, 4000);
-      } else {
-        this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
-        setTimeout(() => {
-          this.routes.navigate(['/clogin']);
-        }, 4000);
-      }
-    });
+    // this.companyService.registration(this.result).subscribe(data => {
+    //   // console.log(data);
+    //   if (data.success == true) {
+    //     this._flashMessagesService.show('Account created successfully, Please verify your Email address', { cssClass: 'alert-success', timeout: 4000 });
+    //     setTimeout(() => {
+    //       this.routes.navigate(['/clogin']);
+    //     }, 4000);
+    //   } else {
+    //     this._flashMessagesService.show('The email address you specified is already in use. Please login to continue', { cssClass: 'alert-danger', timeout: 4000 });
+    //     setTimeout(() => {
+    //       this.routes.navigate(['/clogin']);
+    //     }, 4000);
+    //   }
+    // });
    this.thirdForm = this.newReg.survey_attenders;
    this.result =Object.assign(this.firstForm, this.secondForm);
 

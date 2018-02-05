@@ -223,3 +223,8 @@ ul.alert-dropdown {
     background-color: #ea5a5a;
     border-color: #337ab7;
 }
+.logo-main{
+    max-width: 193px;
+    overflow: hidden;
+}
+.navbar-brand{height:80px;}
