@@ -34,10 +34,11 @@ export class AdminAllCompaniesComponent implements OnInit {
     
            refresh(){
             this.showSpinner =true
-             console.log(this.selected);
+            //  console.log(this.selected);
             const company = [];
               if(this.selected == 'all'){
                 this.adminService.getAllcompanies().subscribe(data=>{
+                  console.log(data);
                   if(data.length != 0){
                     this.all_value=true;
                   }
@@ -74,7 +75,7 @@ export class AdminAllCompaniesComponent implements OnInit {
               this.notExist = true;
             }
             this.dataSource = new MatTableDataSource(data);
-            console.log(this.dataSource);
+            // console.log(this.dataSource);
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
           }

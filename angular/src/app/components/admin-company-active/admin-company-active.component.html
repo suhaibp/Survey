@@ -65,17 +65,17 @@
    <!-- Name Column -->
    <ng-container matColumnDef="email">
     <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.contact_email}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.contact_person_email}} </mat-cell>
   </ng-container>
     <!-- Progress Column -->
     <ng-container matColumnDef="contactperson">
       <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.contact_first_name}}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.contact_person_fname}}</mat-cell>
     </ng-container>
      <!-- Progress Column -->
      <ng-container matColumnDef="contactnumber">
       <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.contact_number}}</mat-cell>
+      <mat-cell *matCellDef="let row"> {{row.contact_no}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="companystatus">
       <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>
