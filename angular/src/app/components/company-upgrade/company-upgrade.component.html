@@ -173,7 +173,7 @@
                   <td>No. of Months  </td>
                   <td>:</td>
                   <td>
-                    <mat-form-field [formGroup]="formGroup"><input type="number" matInput [(ngModel)]="payment.no_months" name="no_months" required formControlName="no_monthsValidation">
+                    <mat-form-field [formGroup]="formGroup"><input type="number"  min="1" matInput [(ngModel)]="payment.no_months" name="no_months" required formControlName="no_monthsValidation">
                     </mat-form-field>
                   </td>
                 </tr>

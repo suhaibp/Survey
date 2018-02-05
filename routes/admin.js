@@ -439,6 +439,9 @@ var returnRouter = function (io) {
             if (!company) {
                 return res.json({ success: false, msg: 'Faild to delete company' });
             } else {
+                io.sockets.emit("deletecompany", {
+                    //user_id : req.params.id
+                });
                 return res.json({ success: true, msg: 'Deleted successfully' });
             }
         })
@@ -460,6 +463,9 @@ var returnRouter = function (io) {
             if (!company) {
                 return res.json({ success: false, msg: 'Faild to block company' });
             } else {
+                io.sockets.emit("blockcompany", {
+                    //user_id : req.params.id
+                });
                 return res.json({ success: true, msg: 'Blocked Successfully' });
             }
         })
@@ -481,6 +487,9 @@ var returnRouter = function (io) {
             if (!company) {
                 return res.json({ success: false, msg: 'Failded to unblock company' });
             } else {
+                io.sockets.emit("unblockcompany", {
+                    //user_id : req.params.id
+                });
                 return res.json({ success: true, msg: 'Unblocked Successfully' });
             }
         })
@@ -575,7 +584,9 @@ var returnRouter = function (io) {
                             throw err;
                             res.json({ success: false, msg: "Failed to delete user " });
                         } else {
-
+                            io.sockets.emit("deleteuser", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Successfully deleted" });
 
                         }
@@ -613,7 +624,9 @@ var returnRouter = function (io) {
                             throw err;
                             res.json({ success: false, msg: "Failed to Block user " });
                         } else {
-
+                            io.sockets.emit("blockuser", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Blocked Successfully" });
 
                         }
@@ -650,7 +663,9 @@ var returnRouter = function (io) {
                             throw err;
                             res.json({ success: false, msg: "Failed to unblock user " });
                         } else {
-
+                            io.sockets.emit("unblockuser", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Unblocked Successfully" });
 
                         }
@@ -2054,6 +2069,9 @@ var returnRouter = function (io) {
                             newPlan.survey_logic = req.body.skip;
                             newPlan.save(function (err, insertedPlan) {
                                 if (err) throw new Error(err);
+                                io.sockets.emit("addplan", {
+                                    //user_id : req.params.id
+                                });
                                 res.json({ success: true, msg: "Plan Created Successfully", plan: insertedPlan });
                             });
                         }
@@ -2103,6 +2121,9 @@ var returnRouter = function (io) {
                             res.json({ success: false, msg: "Failed, somthing went wrong " });
                         } else {
                             // res.json(data);
+                            io.sockets.emit("deleteplan", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Plan deleted Successfully", data });
                         }
                     })
@@ -2208,6 +2229,9 @@ var returnRouter = function (io) {
                         { new: true },
                         (err, plan) => {
                             if (err) throw new Error(err);
+                            io.sockets.emit("updateplan", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Plan Update Successfully" });
                         });
 
@@ -2266,6 +2290,9 @@ var returnRouter = function (io) {
                     throw err;
                     return res.json({ success: false, msg: 'Faild to best value assign ' });
                 } else {
+                    io.sockets.emit("bestvalue", {
+                        //user_id : req.params.id
+                    });
                     return res.json({ success: true, msg: 'best value add  successfully' });
                 }
 
