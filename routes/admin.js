@@ -885,7 +885,7 @@ var returnRouter = function (io) {
 
                 Company.getAdminchart1notverified((err, count) => {
 
-                    retData.push({ Count: count, label: "notverified:" + count });
+                    retData.push({ Count: count, label: "Not Verified:" + count });
                     callback();
                 })
             },
@@ -893,7 +893,7 @@ var returnRouter = function (io) {
 
                 Company.getAdminchart1Trail((err, count) => {
 
-                    retData.push({ Count: count, label: "trail:" + count });
+                    retData.push({ Count: count, label: "Trail:" + count });
                     callback();
                 })
             },
@@ -901,7 +901,7 @@ var returnRouter = function (io) {
 
                 Company.getAdminchart1Subscribed((err, count) => {
 
-                    retData.push({ Count: count, label: "subscribed:" + count });
+                    retData.push({ Count: count, label: "Subscribed:" + count });
                     callback();
                 })
             },
@@ -909,7 +909,7 @@ var returnRouter = function (io) {
 
                 Company.getAdminchart1Expired((err, count) => {
 
-                    retData.push({ Count: count, label: "expired:" + count });
+                    retData.push({ Count: count, label: "Expired:" + count });
                     callback();
                 })
             }

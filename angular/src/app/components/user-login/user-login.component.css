@@ -88,16 +88,31 @@
       padding: 10px 0px;
       font-size: 13px;
       max-width: 400px;
-      width: 100%;
+      width: 77%;
          color: #5d5d5d !important;
       float: left;
+      text-align:left;
   }
   .login-body h2{font-family: "Roboto-Bold";text-align:center;color:#111;font-size:30px;    padding: 0;
       line-height: 30px;}
   
   .login-body .input-group-addon{border-radius:0 !important;}
   .login-body{background-color:#242833 !important;    height: 100vh;}
-  .login-body .input-group-addon{background-color:inherit !important;border:none !important;border-bottom: 1px solid #ccc !important;border-radius:0;padding-left:0 !important;}
+  .login-body .input-group-addon{ background-color: inherit !important;
+    border: none !important;
+        border-bottom-width: medium;
+        border-bottom-style: none;
+        border-bottom-color: currentcolor;
+    border-bottom: 1px solid #ccc !important;
+    border-radius: 0;
+    padding-left: 0 !important;
+    float: left;
+    margin-top: 5px;
+    padding-bottom: 13px;
+    padding-right: 19px;
+    padding-left: 8px;
+    margin-left: 5px;
+  }
   .btn{    border-radius: 16px !important;    padding: 6px 22px !important;}
   .omb_btn-facebook {background: #3b5998;width:100%;float:left;}
   
@@ -115,18 +130,23 @@
   .login-body .input-group-addon{    padding-left: 10px !important;}
   .login-body .styles2 {
     border: 0;
-    text-align: left;
-    border-bottom: 1px solid #dbdbdb;
-    font-family: "Roboto-Regular";
-    background: none;
-    padding: 10px 0px;
-    font-size: 13px;
-    max-width: 400px;
-    width: 100%;
-    color: #5d5d5d !important;
-    float: left;
+    border-bottom-width: 0px;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+border-bottom: 1px solid #dbdbdb;
+background: none;
+padding: 10px 0px;
+font-size: 13px;
+max-width: 450px;
+width: 88%;
+color: #5d5d5d !important;
+float: left;
   }
   svg path,
   svg rect{
     fill: #EC0C0C;
   }
+  .login-body .input-group{display:block; }
+  .login-body .form-control{box-shadow:none;}
+  .help-block{text-align:left;}
+  .mrg-top{margin-top: 5px !important;margin-bottom: 20px !important;}
