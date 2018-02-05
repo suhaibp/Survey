@@ -946,7 +946,7 @@ var returnRouter = function (io) {
 
             var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length - 1] : [];
 
-            if (req.body.questions.length > plans.no_question) {
+            if ( plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                 errMsg = "Failed, maximum allowed question  " + plans.no_question;
                 isErr = true;
             }
@@ -957,6 +957,13 @@ var returnRouter = function (io) {
             } else {
                 var start = new Date(req.body.start_date);
                 start.setHours(00, 00, 00, 000);
+            }
+            let now = new Date();
+            now.setHours(00, 00, 00, 000);
+
+            if(req.body.start_date < now){
+                errMsg = "* Failed, Start Date already over!";
+                isErr = true;
             }
 
             if (req.body.end_date == '') {

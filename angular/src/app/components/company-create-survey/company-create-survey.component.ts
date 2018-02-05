@@ -50,13 +50,13 @@ export class CompanyCreateSurveyComponent implements OnInit {
   saveBtnDisbled:boolean = false;
   addUserBtnDisbled:boolean = false;
   inviteBtnDisbled:boolean = false;
-
+  minstartDate = new Date();
   survey ={
     name: '',
     category:'',
     display_type : {ui :'Single', randomization  :  false ,skip :false, pageno : false},
-    start_date : '',
-    end_date : '',
+    start_date : this.minstartDate,
+    end_date : this.minstartDate,
     logo:'',
     showHeader:true,
     showFooter:true,

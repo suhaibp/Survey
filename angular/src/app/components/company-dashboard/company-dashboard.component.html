@@ -78,7 +78,11 @@
             <div class="col-md-12 graph-containers">
                 <h1>Survey Response</h1>
                 <!-- {{noPositionAvailable}} -->
-                <div *ngIf="!noPositionAvailable; else empty" class="col-md-8 col-md-offset-2 svg-div no-g-data">
+                <div  class="col-md-8 col-md-offset-2 svg-div no-g-data">
+                  <div *ngIf="this.Stats.length == 0">
+                      <img src="assets/images/sad.png" alt="sad">
+                      <h4>No Response Found!</h4>
+                  </div>
                 <!-- pie diagram start -->
                   <!-- <svg id="piedia" width="960" height="500"></svg> -->
                 <!-- pie diagram end -->
