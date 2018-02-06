@@ -8180,6 +8180,12 @@ var CompanyDashboardComponent = /** @class */ (function () {
     }
     CompanyDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.route.params.subscribe(function (params) {
+            if (params['id'] == '' || params['id'] == null) {
+                _this.surveyId = 'all';
+                // console.log(this.surveyId + "surveyid");
+            }
+        });
         // console.log('surveyId');
         // console.log(this.surveyId);
         // ---------------------------------Start-------------------------------------------

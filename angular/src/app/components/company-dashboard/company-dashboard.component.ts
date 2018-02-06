@@ -27,6 +27,7 @@ export class CompanyDashboardComponent implements OnInit {
   locations = [];
   allSurveys: any;
   surveyId:any;
+  
   //chart2 start
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -108,7 +109,13 @@ export class CompanyDashboardComponent implements OnInit {
  
 
   ngOnInit() {
-
+    this.route.params.subscribe(params => {
+      if(params['id'] == '' || params['id'] == null){
+        this.surveyId = 'all';
+        // console.log(this.surveyId + "surveyid");
+      }
+    });
+    
     // console.log('surveyId');
     // console.log(this.surveyId);
     // ---------------------------------Start-------------------------------------------
