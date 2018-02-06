@@ -38,6 +38,7 @@ export class AdminExpiredComponent implements OnInit {
    const company = [];
      if(this.selected == 'all'){
        this.adminService.getAllexpiredcompanies().subscribe(data=>{
+         console.log(data);
         if(data.length != 0){
           this.all_value=true;
         }

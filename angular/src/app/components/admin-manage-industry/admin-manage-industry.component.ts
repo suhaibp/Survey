@@ -183,7 +183,9 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
     this.showSpinner = true;
       this._adminService.addIndustry(this.newIndustry).subscribe(data => {
           if(!data.success){
+            this.showSpinner = false;
               this.btnDisbled = false
+              this.showSpinner = false;
               let snackBarRef =  this.snackBar.open(data.msg, '', {
                 duration: 2000
             });
@@ -194,7 +196,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
               this.loadData();
               this.closeBtn.nativeElement.click();
                           // this.isSuccess = true;
-              this.errorMsg = data.msg;
+            //   this.errorMsg = data.msg;
               setTimeout(()=>{ 
                 //   this.isSuccess = false;
                 //   this.errorMsg = '';

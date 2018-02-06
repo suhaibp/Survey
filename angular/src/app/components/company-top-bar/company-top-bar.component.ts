@@ -7,7 +7,8 @@ import * as socketIo from 'socket.io-client';
 @Component({
   selector: 'app-company-top-bar',
   templateUrl: './company-top-bar.component.html',
-  styleUrls: ['./company-top-bar.component.css']
+  styleUrls: ['./company-top-bar.component.css'],
+  inputs:['open']
 })
 export class CompanyTopBarComponent implements OnInit {
 showHeading :Boolean = false;

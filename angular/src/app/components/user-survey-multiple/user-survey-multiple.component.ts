@@ -236,7 +236,11 @@ skipQuestion(){
 // Desc          : reload survey after submission
 closed(){
   // window.location.reload();
-  this.routes.navigate(['/survey-success']);
+  let surveyIdx:any
+  this.route.params.subscribe(params => {
+    surveyIdx = params['id'];
+ });
+  this.routes.navigate(['/survey-success',surveyIdx]);
   
 }
 // -----------------------------------End------------------------------------------

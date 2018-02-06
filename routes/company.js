@@ -327,7 +327,7 @@ var returnRouter = function (io) {
                     isErr = true;
                 }
 
-                if ( plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
+                if (plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                     errMsg = "* Failed, maximum allowed question  " + plans.no_question;
                     isErr = true;
                 }
@@ -946,7 +946,7 @@ var returnRouter = function (io) {
 
             var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length - 1] : [];
 
-            if (req.body.questions.length > plans.no_question) {
+            if (plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                 errMsg = "Failed, maximum allowed question  " + plans.no_question;
                 isErr = true;
             }
@@ -957,6 +957,13 @@ var returnRouter = function (io) {
             } else {
                 var start = new Date(req.body.start_date);
                 start.setHours(00, 00, 00, 000);
+            }
+            let now = new Date();
+            now.setHours(00, 00, 00, 000);
+
+            if (req.body.start_date < now) {
+                errMsg = "* Failed, Start Date already over!";
+                isErr = true;
             }
 
             if (req.body.end_date == '') {
@@ -1318,6 +1325,7 @@ var returnRouter = function (io) {
             { $set: { cmp_status: "Subscribed" } },
             { new: true },
             function (err, doc) {
+                console.log(doc);
                 if (err) {
                     return res.json({ success: false, msg: 'Company Not verified' });
                 }
@@ -1420,6 +1428,7 @@ var returnRouter = function (io) {
             job_level: req.body.job_level,
             survey_attenders: req.body.survey_attenders,
             is_profile_completed: true,
+            cmp_status: "Subscribed",
         };
         async.series([
             function (callback) {
@@ -2850,7 +2859,7 @@ var returnRouter = function (io) {
             var errMsg = '';
             if (req.body.is_registered == false) {
                 if (!validateEmail(req.body.newEmail) && !isErr) {
-                    errMsg = val + " is not a valid email";
+                    errMsg = req.body.newEmail + " is not a valid email";
                     isErr = true;
                 }
             }

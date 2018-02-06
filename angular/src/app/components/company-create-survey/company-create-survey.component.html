@@ -36,13 +36,13 @@
                                           </mat-form-field>
                                           <br>
                                           <mat-form-field>
-                                            <input matInput [matDatepicker]="picker" required name="start_date" [(ngModel)]="survey.start_date" placeholder="Start Date" >
+                                            <input matInput [matDatepicker]="picker"  required name="start_date" [(ngModel)]="survey.start_date" [min]="minstartDate" placeholder="Start Date" disabled >
                                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                             <mat-datepicker #picker disabled="false"></mat-datepicker>
                                           </mat-form-field>
                                           <br>
                                           <mat-form-field>
-                                            <input matInput [matDatepicker]="picker1" required name="end_date" [(ngModel)]="survey.end_date" placeholder="End Date" >
+                                            <input matInput [matDatepicker]="picker1" required name="end_date" [(ngModel)]="survey.end_date" [min]="survey.start_date" placeholder="End Date" disabled>
                                             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                             <mat-datepicker #picker1 disabled="false"></mat-datepicker>
                                           </mat-form-field>
@@ -54,7 +54,7 @@
                                           </mat-form-field>
                                           <br>
                                         <mat-form-field  class="inputfileds">
-                                            <mat-select [disabled]="loggedInCompany && !loggedInCompany?.plans[loggedInCompany?.plans.length-1].survey_logic" placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
+                                            <mat-select [disabled]="loggedInCompany && !loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic" placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
                                               <mat-option [value]="grp.value" *ngFor="let grp of displayType;" >{{grp.label}}</mat-option>
                                             </mat-select>
                                           </mat-form-field>
@@ -644,16 +644,18 @@
 
                           <!-- Delete Popup Start -->
 
-                          <div id="deleteModal" class="modal fade" role="dialog">
+                          <!-- <div id="deleteModal" class="modal fade" role="dialog">
                             <div class="modal-dialog">
                           
-                              <!-- Modal content-->
+                          
                               <div class="modal-content">
-                                <!-- <div class="modal-header"> -->
-                                  <!-- <h4 class="modal-title">Are you sure to delete?</h4> -->
-                                <!-- </div> -->
+                                  <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Message </h4>
+                                 </div>
+                               
                                 <div class="modal-body">
-                                    <h4>Are you sure ?</h4>
+                                    <h4>Are you sure to delete?</h4>
                                 
                                 </div>
                               
@@ -664,7 +666,36 @@
                               </div>
                           
                             </div>
-                          </div>
+                          </div> -->
+
+
+
+
+                          <div id="deleteModal" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+                            
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Message </h4>
+                                   </div>
+                                  <!-- <div class="modal-header"> -->
+                                    <!-- <h4 class="modal-title">Are you sure to delete?</h4> -->
+                                  <!-- </div> -->
+                                  <div class="modal-body">
+                                      <h4 class="textalign">Are you sure to delete?</h4>
+                                  
+                                  </div>
+                                
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger"  data-dismiss="modal">Close</button>
+                                      <button type="button" (click)="deleteQuestion()" class="btn btn-danger"  data-dismiss="modal">Delete</button>
+                                  </div>
+                                </div>
+                            
+                              </div>
+                            </div>
 
                           <!-- Delete Popup End -->
                 

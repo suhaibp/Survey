@@ -439,6 +439,9 @@ var returnRouter = function (io) {
             if (!company) {
                 return res.json({ success: false, msg: 'Failed to delete company' });
             } else {
+                io.sockets.emit("deletecompany", {
+                    //user_id : req.params.id
+                });
                 return res.json({ success: true, msg: 'Deleted successfully' });
             }
         })
@@ -460,6 +463,9 @@ var returnRouter = function (io) {
             if (!company) {
                 return res.json({ success: false, msg: 'Failed to block company' });
             } else {
+                io.sockets.emit("blockcompany", {
+                    //user_id : req.params.id
+                });
                 return res.json({ success: true, msg: 'Blocked Successfully' });
             }
         })
@@ -481,6 +487,9 @@ var returnRouter = function (io) {
             if (!company) {
                 return res.json({ success: false, msg: 'Faileded to unblock company' });
             } else {
+                io.sockets.emit("unblockcompany", {
+                    //user_id : req.params.id
+                });
                 return res.json({ success: true, msg: 'Unblocked Successfully' });
             }
         })
@@ -575,7 +584,9 @@ var returnRouter = function (io) {
                             throw err;
                             res.json({ success: false, msg: "Failed to delete user " });
                         } else {
-
+                            io.sockets.emit("deleteuser", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Successfully deleted" });
 
                         }
@@ -613,7 +624,9 @@ var returnRouter = function (io) {
                             throw err;
                             res.json({ success: false, msg: "Failed to Block user " });
                         } else {
-
+                            io.sockets.emit("blockuser", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Blocked Successfully" });
 
                         }
@@ -650,7 +663,9 @@ var returnRouter = function (io) {
                             throw err;
                             res.json({ success: false, msg: "Failed to unblock user " });
                         } else {
-
+                            io.sockets.emit("unblockuser", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Unblocked Successfully" });
 
                         }
@@ -1550,6 +1565,7 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : update function for edit surver category
     router.put('/updatesurveycategory/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1642,6 +1658,7 @@ var returnRouter = function (io) {
 
 
     router.put('/updateindustry/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1736,6 +1753,7 @@ var returnRouter = function (io) {
     // Desc          : update function for an edit Organization type
 
     router.put('/updateorganizationtype/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1831,6 +1849,7 @@ var returnRouter = function (io) {
     // Desc          : update function for an edit survey attender type
 
     router.put('/updateattendertype/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1971,12 +1990,13 @@ var returnRouter = function (io) {
         // console.log(req.body);
         var isError = false;
         errMsg = '';
-        if (req.body.planname == '' || req.body.planname == null) {
+        planname = myTrim(req.body.planname);
+        if (planname == '' || planname == null) {
             errMsg = "Plan Name Required";
             isError = true;
 
         }
-        if (!isError && (req.body.planname.length > 10 || req.body.planname.length < 3)) {
+        if (!isError && (planname.length > 10 || planname.length < 3)) {
             errMsg = "Plan Name  between 3-10 characters";
             isError = true;
 
@@ -2020,7 +2040,7 @@ var returnRouter = function (io) {
             },
             function (callback) {
                 if (!isError) {
-                    Plan.findOne({ plan_name: req.body.planname, delete_status: false }, function (err, docs) {
+                    Plan.findOne({ plan_name: planname, delete_status: false }, function (err, docs) {
                         // console.log(docs);
                         if (!isError && (docs != null)) {
                             errMsg = "Plan Name Already Exists";
@@ -2054,6 +2074,9 @@ var returnRouter = function (io) {
                             newPlan.survey_logic = req.body.skip;
                             newPlan.save(function (err, insertedPlan) {
                                 if (err) throw new Error(err);
+                                io.sockets.emit("addplan", {
+                                    //user_id : req.params.id
+                                });
                                 res.json({ success: true, msg: "Plan Created Successfully", plan: insertedPlan });
                             });
                         }
@@ -2103,6 +2126,9 @@ var returnRouter = function (io) {
                             res.json({ success: false, msg: "Failed, somthing went wrong " });
                         } else {
                             // res.json(data);
+                            io.sockets.emit("deleteplan", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Plan deleted Successfully", data });
                         }
                     })
@@ -2147,13 +2173,13 @@ var returnRouter = function (io) {
 
         var isError = false;
         errMsg = '';
-
-        if (req.body.plan_name == '' || req.body.plan_name == null) {
+       plan_name = myTrim(req.body.plan_name);
+        if (plan_name == '' || plan_name == null) {
             errMsg = "Plan Name Required";
             isError = true;
 
         }
-        if (!isError && (req.body.plan_name.length > 10 || req.body.plan_name.length < 3)) {
+        if (!isError && (plan_name.length > 10 || plan_name.length < 3)) {
             errMsg = "Plan Name  between 3-10 characters";
             isError = true;
 
@@ -2167,7 +2193,7 @@ var returnRouter = function (io) {
         }
 
         if (!isError) {
-            Plan.findOne({ plan_name: req.body.plan_name, delete_status: false }, function (err, singleplan) {
+            Plan.findOne({ plan_name: plan_name, delete_status: false }, function (err, singleplan) {
                 // console.log(docs);
                 if (!isError && (singleplan && singleplan._id != req.body._id)) {
                     errMsg = "Plan Name Already Exists";
@@ -2208,6 +2234,9 @@ var returnRouter = function (io) {
                         { new: true },
                         (err, plan) => {
                             if (err) throw new Error(err);
+                            io.sockets.emit("updateplan", {
+                                //user_id : req.params.id
+                            });
                             res.json({ success: true, msg: "Plan Update Successfully" });
                         });
 
@@ -2266,6 +2295,9 @@ var returnRouter = function (io) {
                     throw err;
                     return res.json({ success: false, msg: 'Failed to best value assign ' });
                 } else {
+                    io.sockets.emit("bestvalue", {
+                        //user_id : req.params.id
+                    });
                     return res.json({ success: true, msg: 'best value add  successfully' });
                 }
 

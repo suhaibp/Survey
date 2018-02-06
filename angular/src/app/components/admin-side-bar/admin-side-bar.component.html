@@ -15,7 +15,7 @@
  Desc          : Sidebar for master setttings -->
  
  <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-  <a routerLink="/admin-dashboard"><i class="fa fa-tachometer"></i> Dashboard</a>
+  <a routerLink="/admin-dashboard"><i class="fa fa-pie-chart"></i> Dashboard</a>
 
 </li>
 <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
@@ -31,7 +31,7 @@
 
 </li>
 <li>
-  
+  <!-- <sd -->
   <a  class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-cogs"></i> Master Settings <span class="caret"></span></a> 
   <ul class="dropdown-menu" role="menu" [ngClass]="{'sd-block': open=='open'}">
       <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/manage-survey-category">Manage Survey Category</a></li>

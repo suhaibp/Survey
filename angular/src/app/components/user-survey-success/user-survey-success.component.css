@@ -14,3 +14,15 @@
 /* .whte{
     background-color: #fff !important;
 } */
+.lg-out{
+    background-color: #FE3C47;
+border-color: #d43f3a;
+border-radius: 47px;
+min-width: 140px;
+margin-top: 25px;
+border: none !important;
+}
+.lg-out:hover{
+    background-color: #CF1B25;
+
+}

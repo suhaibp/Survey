@@ -180,7 +180,11 @@ submitAns(){
         let snackBarRef =  this.snackBar.open('Successfully submitted', '', {
           duration: 2000
         });
-       this.routes.navigate(['/survey-success']);
+        let surveyIdx:any
+        this.route.params.subscribe(params => {
+          surveyIdx = params['id'];
+       }); 
+       this.routes.navigate(['/survey-success', surveyIdx]);
   // window.location.reload();  
         // $('#myModal .modal-body h4').text("Successfully submitted!");
         // $('#myModal').modal('show'); 
@@ -203,7 +207,11 @@ submitAns(){
 // Desc          : redirect to success message
 closed(){
   // window.location.reload();  
-  this.routes.navigate(['/survey-success']);
+  let surveyIdx:any
+        this.route.params.subscribe(params => {
+          surveyIdx = params['id'];
+       }); 
+  this.routes.navigate(['/survey-success',surveyIdx]);
   
   
 }
