@@ -19,12 +19,12 @@
           
       </li>
     <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a [routerLink]="['/create-theme']"><i class="fa fa-fw fa-arrows-v"></i> Themes </a>
+        <a [routerLink]="['/create-theme']"><i class="fa fa-paint-brush"></i> Themes </a>
        
     </li>
 
     <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [ngClass]="{'active': router.url == '/company-create-survey'}" class="/company-create-survey">
-        <a [routerLink]="['/company-list-survey']" ><i class="fa fa-fw fa-arrows-v"></i> Survey </a>
+        <a [routerLink]="['/company-list-survey']" ><i class="fa fa-list-alt"></i> Survey </a>
        
     </li>
 </ul>
