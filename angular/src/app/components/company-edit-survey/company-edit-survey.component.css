@@ -146,3 +146,9 @@
       float: right;
       clear: left;
     }
+    .modal-footer .btn+.btn {
+      margin-bottom: 12px;
+  }
+  textalign{
+    text-align: center;
+  }

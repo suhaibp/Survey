@@ -61,6 +61,10 @@
 
       <!-- Modal content-->
       <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Message </h4>
+         </div>
         <!-- <div class="modal-header"> -->
         <!-- <h4 class="modal-title">Are you sure to delete?</h4> -->
         <!-- </div> -->
@@ -70,8 +74,8 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" (click)="deleteUser(userId)" class="btn btn-default" data-dismiss="modal">Delete</button>
+          <button type="button" class="btn btn-danger"  data-dismiss="modal">Close</button>
+          <button type="button" (click)="deleteUser(userId)" class="btn btn-danger"  data-dismiss="modal">Delete</button>
         </div>
       </div>
 
@@ -190,28 +194,26 @@
                   <div>
 
                     <button *ngIf="row.block_req_status==false" mat-menu-item (click)="getUserEmail(row.id,row.email)" data-toggle="modal" data-target="#myModal2">
-                                                  <mat-icon><i class="material-icons">block</i></mat-icon>
-                                                  <span>Sent Block Request</span>
-                                                  </button>
+                    <mat-icon><i class="material-icons">block</i></mat-icon>
+                    <span>Sent Block Request</span>
+                    </button>
                     <button *ngIf="row.block_req_status==true" mat-menu-item>
-                                                      <mat-icon><i class="material-icons">block</i></mat-icon>
-                                                      <span>Already sent Block request</span>
-                                                      </button>
+                    <mat-icon><i class="material-icons">block</i></mat-icon>
+                    <span>Already sent Block request</span>
+                    </button>
                   </div>
                   <button mat-menu-item (click)="bindEditUser(row.item)" data-toggle="modal" data-target="#editModal">
-                                                    <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
-                                                    <span>Edit</span>
-                                                    </button>
+                  <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
+                  <span>Edit</span>
+                  </button>
                   <button mat-menu-item (click)="getUserId(row.id)" data-toggle="modal" data-target="#deleteModal"> 
-                                                    <mat-icon><i class="material-icons">delete</i></mat-icon>
-                                                    <span>Delete</span>
-                                                </button>
+                  <mat-icon><i class="material-icons">delete</i></mat-icon>
+                  <span>Delete</span>
+                </button>
                 </mat-menu>
               </mat-cell>
 
             </ng-container>
-
-
 
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;">
@@ -375,7 +377,7 @@
 
             <div class="row">
               <div class="col-md-4">
-                <button type="submit" [disabled]="updateBtnDisbled1" class="btn btn-danger ourbutton">Update</button>
+                <button type="submit" [disabled]="updateBtnDisbled1" class="btn btn-danger ourbutton">Submit</button>
               </div>
               <div class="col-md-8" *ngIf="showSpinner">
                 <svg class="svgclass" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
