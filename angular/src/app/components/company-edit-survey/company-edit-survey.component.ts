@@ -25,7 +25,7 @@ export class CompanyEditSurveyComponent implements OnInit {
   surveyCategory : any;
   themes : any;
   answerType : any;
-  showSpinner :boolean = false
+  showSpinner :boolean = false;
   isError = false;
   isSuccess = false;
   msg = '';
@@ -267,7 +267,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
 
  updateAlreadyInvitedUsers(data){
-  this.showSpinner = true;
+  // this.showSpinner = true;
    console.log(data);
    data.forEach((user,i)=>{
     this.showSpinner = false;

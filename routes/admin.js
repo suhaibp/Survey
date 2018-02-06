@@ -1565,6 +1565,7 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : update function for edit surver category
     router.put('/updatesurveycategory/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1657,6 +1658,7 @@ var returnRouter = function (io) {
 
 
     router.put('/updateindustry/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1751,6 +1753,7 @@ var returnRouter = function (io) {
     // Desc          : update function for an edit Organization type
 
     router.put('/updateorganizationtype/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1846,6 +1849,7 @@ var returnRouter = function (io) {
     // Desc          : update function for an edit survey attender type
 
     router.put('/updateattendertype/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
