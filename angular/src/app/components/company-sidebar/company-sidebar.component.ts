@@ -12,7 +12,7 @@ export class CompanySidebarComponent implements OnInit {
 
   ngOnInit() {
     //let currentUrl = this.router.url;
-    console.log(this.router.url)
+    // console.log(this.router.url)
   }
 
 }
