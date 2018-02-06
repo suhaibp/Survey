@@ -280,9 +280,9 @@ a{outline:none; }
     color :#d9534f;
     text-align: center
 }
-h4{
+/* h4{
     text-align: center;
- }
+ } */
  .noItemFound{
     text-align: center;
     background-color: #ffffff;

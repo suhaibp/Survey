@@ -95,11 +95,11 @@
                     <i class="material-icons">delete</i>
                   <span>Delete</span>
                 </button>
-                <a *ngIf="row.status=='Upcoming'" href="/company-edit-survey/{{row._id}}" mat-menu-item>
+                <a *ngIf="row.status=='Upcoming'" [routerLink]="['/company-edit-survey', row._id]" mat-menu-item>
                     <i class="material-icons">edit</i>
                   <span>Edit</span>
                 </a>
-                <a *ngIf="row.status != 'Upcoming'" href="/dashboard/{{row._id}}" mat-menu-item>
+                <a *ngIf="row.status != 'Upcoming'" [routerLink]="['/dashboard', row._id]"  mat-menu-item>
                     <i class="material-icons">dashboard</i>
                   <span>Report</span>
                 </a>
@@ -140,17 +140,18 @@
                           
                               <!-- Modal content-->
                               <div class="modal-content">
-                                <div class="modal-header">
-                                  <h4 class="modal-title">Delete</h4>
-                                </div>
+                                  <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Message </h4>
+                                 </div>
                                 <div class="modal-body">
-                                    <h4>Are you sure to delete?</h4>
+                                    <h4 class="textalign">Are you sure to delete?</h4>
                                 
                                 </div>
                               
                                 <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  <button type="button" (click)="deleteSurvey()" class="btn btn-default" data-dismiss="modal">Delete</button>
+                                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                  <button type="button" (click)="deleteSurvey()" class="btn btn-danger"  data-dismiss="modal">Delete</button>
                                 </div>
                               </div>
                           

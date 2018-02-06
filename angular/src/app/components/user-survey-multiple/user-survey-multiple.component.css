@@ -158,7 +158,7 @@ p {
 
 .progress {
     position: relative;
-    height: 25px;
+    /* height: 25px; */
 }
 
 .progress > .progress-type {
