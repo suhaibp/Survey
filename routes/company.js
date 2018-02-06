@@ -1225,7 +1225,7 @@ var returnRouter = function (io) {
             password: req.body.password,
             survey_attenders: req.body.survey_attenders,
             is_profile_completed: true,
-            cmp_status: "Subscribed",
+            cmp_status: "Not Verified",
             plans: [{
                 plan_id: req.body.plans._id,
                 no_month: req.body.plans.no_month,
@@ -1315,19 +1315,31 @@ var returnRouter = function (io) {
 
     router.get('/companyVerification/:id', function (req, res) {
         Company.findOneAndUpdate({ verification_code: req.params.id, cmp_status: "Not Verified" },
-            { $set: { cmp_status: "Trail" } },
+            { $set: { cmp_status: "Subscribed" } },
             { new: true },
             function (err, doc) {
                 if (err) {
                     return res.json({ success: false, msg: 'Company Not verified' });
                 }
                 if (doc == null) {
-                    return res.json({ success: true, msg: 'Company verified' });
+                    // return res.json({ success: true, msg: 'Company verified' });
+                    return res.json({ success: false, msg: 'Company Not verified' });
                 }
                 else {
-                    io.sockets.emit("Trail", {
+                    io.sockets.emit("Subscribed", {
                     });
-                    return res.json({ success: true, msg: 'Company verified' });
+                    // return res.json({ success: true, msg: 'Company verified' });
+                    const token = jwt.sign(doc.toJSON(), config.secret, {
+                        expiresIn: 60400 // sec 1 week
+                    });
+                    return res.json({
+                        success: true,
+                        token: 'JWT ' + token,
+                        company: {
+                            id: doc._id,
+                            role: doc.role,
+                        }
+                    });
                 }
 
             });

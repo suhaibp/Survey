@@ -437,7 +437,7 @@ var returnRouter = function (io) {
         Company.deleteCompany(req.params.id, (err, company) => {
             if (err) throw err;
             if (!company) {
-                return res.json({ success: false, msg: 'Faild to delete company' });
+                return res.json({ success: false, msg: 'Failed to delete company' });
             } else {
                 return res.json({ success: true, msg: 'Deleted successfully' });
             }
@@ -458,7 +458,7 @@ var returnRouter = function (io) {
         Company.blockCompany(req.params.id, (err, company) => {
             if (err) throw err;
             if (!company) {
-                return res.json({ success: false, msg: 'Faild to block company' });
+                return res.json({ success: false, msg: 'Failed to block company' });
             } else {
                 return res.json({ success: true, msg: 'Blocked Successfully' });
             }
@@ -479,7 +479,7 @@ var returnRouter = function (io) {
         Company.unblockCompany(req.params.id, (err, company) => {
             if (err) throw err;
             if (!company) {
-                return res.json({ success: false, msg: 'Failded to unblock company' });
+                return res.json({ success: false, msg: 'Faileded to unblock company' });
             } else {
                 return res.json({ success: true, msg: 'Unblocked Successfully' });
             }
@@ -563,7 +563,7 @@ var returnRouter = function (io) {
         User.deleteUser(req.params.id, (err, user) => {
             if (err) throw err;
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to delete user' });
+                return res.json({ success: false, msg: 'Failed to delete user' });
             } else {
                 Company.update({ "users.email": req.params.id },
                     {
@@ -600,7 +600,7 @@ var returnRouter = function (io) {
         User.blockUser(req.params.id, (err, user) => {
 
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to block user' });
+                return res.json({ success: false, msg: 'Failed to block user' });
             } else {
 
                 Company.update({ "users.email": req.params.id },
@@ -638,7 +638,7 @@ var returnRouter = function (io) {
         User.unblockUser(req.params.id, (err, user) => {
             if (err) throw err;
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to unblock user' });
+                return res.json({ success: false, msg: 'Failed to unblock user' });
             } else {
                 Company.update({ "users.email": req.params.id },
                     {
@@ -698,7 +698,7 @@ var returnRouter = function (io) {
             // console.log(user);
             if (err) throw err;
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to reject user' });
+                return res.json({ success: false, msg: 'Failed to reject user' });
             } else {
                 Company.update({ "users.email": req.params.id },
                     {
@@ -738,7 +738,7 @@ var returnRouter = function (io) {
             // console.log(user);
             if (err) throw err;
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to accept user' });
+                return res.json({ success: false, msg: 'Failed to accept user' });
             } else {
 
                 Company.update({ "users.email": req.params.id },
@@ -853,7 +853,7 @@ var returnRouter = function (io) {
 
                     if (err) {
                         throw err;
-                        return res.json({ success: false, msg: 'Faild to viewstatususer ' });
+                        return res.json({ success: false, msg: 'Failed to viewstatususer ' });
                     } else {
 
                         return res.json({ success: true, msg: 'view status  successfully' });
@@ -1367,7 +1367,7 @@ var returnRouter = function (io) {
                 Category.findByIdAndRemove(req.params.id, (err, catg) => {
                     if (err) throw err;
                     if (!catg) {
-                        return res.json({ success: false, msg: 'Faild to delete category' });
+                        return res.json({ success: false, msg: 'Failed to delete category' });
                     } else {
                         return res.json({ success: true, msg: 'Deleted successfully' });
                     }
@@ -1396,7 +1396,7 @@ var returnRouter = function (io) {
                     if (err) throw err;
                     if (!indus) {
 
-                        return res.json({ success: false, msg: 'Faild to delete Industry' });
+                        return res.json({ success: false, msg: 'Failed to delete Industry' });
                     } else {
                         return res.json({ success: true, msg: 'Deleted successfully' });
                     }
@@ -1426,7 +1426,7 @@ var returnRouter = function (io) {
                 Organization.findByIdAndRemove(req.params.id, (err, org) => {
                     if (err) throw err;
                     if (!org) {
-                        return res.json({ success: false, msg: 'Faild to delete Organization type' });
+                        return res.json({ success: false, msg: 'Failed to delete Organization type' });
                     } else {
                         return res.json({ success: true, msg: 'Deleted successfully' });
                     }
@@ -1455,7 +1455,7 @@ var returnRouter = function (io) {
                     if (err) throw err;
                     if (!org) {
 
-                        return res.json({ success: false, msg: 'Faild to delete survey attender type' });
+                        return res.json({ success: false, msg: 'Failed to delete survey attender type' });
                     } else {
                         return res.json({ success: true, msg: 'Deleted successfully' });
                     }
@@ -2264,7 +2264,7 @@ var returnRouter = function (io) {
 
                 if (err) {
                     throw err;
-                    return res.json({ success: false, msg: 'Faild to best value assign ' });
+                    return res.json({ success: false, msg: 'Failed to best value assign ' });
                 } else {
                     return res.json({ success: true, msg: 'best value add  successfully' });
                 }

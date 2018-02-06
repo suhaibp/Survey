@@ -14,10 +14,19 @@
     <div class="panel-body">
       
       <div class="form-group example-container">
-          <div class="col-md-12 names">
-            <label class="col-xs-12">Email : {{company?.contact_person_email}}</label><br>
-            <label class="col-xs-12">Name : {{company?.contact_person_fname}} {{company?.contact_person_lname}}</label><br/>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6 names">
+                <label class="col-xs-12">Email : {{company?.contact_person_email}}</label><br>
+                <label class="col-xs-12">Name : {{company?.contact_person_fname}} {{company?.contact_person_lname}}</label><br/>
+              </div>
+              <div class="col-md-6 names">
+              <label class="pull-right">Current Plan : {{currentPlanName}}</label><br>
+              <div class="clearfix"></div>
+              <label class="pull-right">Plan Expiry Date :<span style="color:#d9534f;">{{dateofExpire}}</span> </label><br>
+            </div>
           </div>
+         </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" >Organization </label>
               <mat-form-field [formGroup]="ProfileFormGroup">
