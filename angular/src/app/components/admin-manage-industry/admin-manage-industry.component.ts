@@ -183,6 +183,7 @@ this._adminService.getLoggedUSerDetails().subscribe(info =>{
     this.showSpinner = true;
       this._adminService.addIndustry(this.newIndustry).subscribe(data => {
           if(!data.success){
+            this.showSpinner = false;
               this.btnDisbled = false
               this.showSpinner = false;
               let snackBarRef =  this.snackBar.open(data.msg, '', {

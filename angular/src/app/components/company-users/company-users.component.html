@@ -194,28 +194,26 @@
                   <div>
 
                     <button *ngIf="row.block_req_status==false" mat-menu-item (click)="getUserEmail(row.id,row.email)" data-toggle="modal" data-target="#myModal2">
-                                                  <mat-icon><i class="material-icons">block</i></mat-icon>
-                                                  <span>Sent Block Request</span>
-                                                  </button>
+                    <mat-icon><i class="material-icons">block</i></mat-icon>
+                    <span>Sent Block Request</span>
+                    </button>
                     <button *ngIf="row.block_req_status==true" mat-menu-item>
-                                                      <mat-icon><i class="material-icons">block</i></mat-icon>
-                                                      <span>Already sent Block request</span>
-                                                      </button>
+                    <mat-icon><i class="material-icons">block</i></mat-icon>
+                    <span>Already sent Block request</span>
+                    </button>
                   </div>
                   <button mat-menu-item (click)="bindEditUser(row.item)" data-toggle="modal" data-target="#editModal">
-                                                    <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
-                                                    <span>Edit</span>
-                                                    </button>
+                  <mat-icon><i class="material-icons">mode_edit</i></mat-icon>
+                  <span>Edit</span>
+                  </button>
                   <button mat-menu-item (click)="getUserId(row.id)" data-toggle="modal" data-target="#deleteModal"> 
-                                                    <mat-icon><i class="material-icons">delete</i></mat-icon>
-                                                    <span>Delete</span>
-                                                </button>
+                  <mat-icon><i class="material-icons">delete</i></mat-icon>
+                  <span>Delete</span>
+                </button>
                 </mat-menu>
               </mat-cell>
 
             </ng-container>
-
-
 
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;">
