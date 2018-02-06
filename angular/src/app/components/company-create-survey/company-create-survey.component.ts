@@ -479,7 +479,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
         // setTimeout(()=>{ 
           // this.isSuccess3 = false;
           // this.msg3 = '';
-          // this.routes.navigate(['./company-list-survey']);
+          //this.routes.navigate(['./company-list-survey']);
           window.location.href="./company-list-survey";
         // }, 2000);
       }else{
