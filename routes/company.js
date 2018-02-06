@@ -2845,7 +2845,7 @@ var returnRouter = function (io) {
             var errMsg = '';
             if (req.body.is_registered == false) {
                 if (!validateEmail(req.body.newEmail) && !isErr) {
-                    errMsg = val + " is not a valid email";
+                    errMsg = req.body.newEmail + " is not a valid email";
                     isErr = true;
                 }
             }

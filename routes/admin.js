@@ -1986,12 +1986,13 @@ var returnRouter = function (io) {
         // console.log(req.body);
         var isError = false;
         errMsg = '';
-        if (req.body.planname == '' || req.body.planname == null) {
+        planname = myTrim(req.body.planname);
+        if (planname == '' || planname == null) {
             errMsg = "Plan Name Required";
             isError = true;
 
         }
-        if (!isError && (req.body.planname.length > 10 || req.body.planname.length < 3)) {
+        if (!isError && (planname.length > 10 || planname.length < 3)) {
             errMsg = "Plan Name  between 3-10 characters";
             isError = true;
 
@@ -2035,7 +2036,7 @@ var returnRouter = function (io) {
             },
             function (callback) {
                 if (!isError) {
-                    Plan.findOne({ plan_name: req.body.planname, delete_status: false }, function (err, docs) {
+                    Plan.findOne({ plan_name: planname, delete_status: false }, function (err, docs) {
                         // console.log(docs);
                         if (!isError && (docs != null)) {
                             errMsg = "Plan Name Already Exists";
@@ -2168,13 +2169,13 @@ var returnRouter = function (io) {
 
         var isError = false;
         errMsg = '';
-
-        if (req.body.plan_name == '' || req.body.plan_name == null) {
+       plan_name = myTrim(req.body.plan_name);
+        if (plan_name == '' || plan_name == null) {
             errMsg = "Plan Name Required";
             isError = true;
 
         }
-        if (!isError && (req.body.plan_name.length > 10 || req.body.plan_name.length < 3)) {
+        if (!isError && (plan_name.length > 10 || plan_name.length < 3)) {
             errMsg = "Plan Name  between 3-10 characters";
             isError = true;
 
@@ -2188,7 +2189,7 @@ var returnRouter = function (io) {
         }
 
         if (!isError) {
-            Plan.findOne({ plan_name: req.body.plan_name, delete_status: false }, function (err, singleplan) {
+            Plan.findOne({ plan_name: plan_name, delete_status: false }, function (err, singleplan) {
                 // console.log(docs);
                 if (!isError && (singleplan && singleplan._id != req.body._id)) {
                     errMsg = "Plan Name Already Exists";

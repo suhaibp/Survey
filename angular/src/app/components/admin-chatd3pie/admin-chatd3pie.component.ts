@@ -24,7 +24,7 @@ declare var $:any;
 
 export class AdminChatd3pieComponent implements OnInit {
 
-  title: string = 'Company vs Status';
+  title: string = 'Company vs Subscription Status';
  // subtitle: string = 'Pie Chart';
  private socket: any;
  
