@@ -154,3 +154,10 @@
       margin-top: 24px;
      
     }
+    
+    .modal-footer .btn+.btn {
+      margin-bottom: 12px;
+  }
+  textalign{
+    text-align: center;
+  }

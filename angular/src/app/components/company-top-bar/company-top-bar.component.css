@@ -316,3 +316,20 @@ ul.alert-dropdown {
       margin-top: 7px;
   }
   .prfl .dropdown-menu{left:inherit;right:0;}
+
+  .profilz li{
+      background-color: #ffffff !important;
+  }
+  .profilz .upgrade{
+      margin-right: 15px;
+      background-color: #545454;
+    border: 2px solid #e9cd00;
+    color: #ffd800;
+    font-weight: 700;
+    
+  }
+  .profilz .upgrade:hover{
+    background-color: #ffe949;
+    border: 2px solid #545454;
+    color: #545454;
+  }

@@ -12,6 +12,7 @@ export class AdminCompanyActiveComponent implements OnInit {
 
   displayedColumns = ['slno','companyname','email','contactperson','contactnumber','companystatus','action'];
   dataSource: MatTableDataSource<any>;
+  id :any;
   notExist =false;
   all_value=false;
   selected = 'all';
@@ -148,7 +149,12 @@ deleteCompany(id){
   });
 
 }
-
+getId(id){
+  // this.showSpinner =false
+  // this.showSpinnerDelete =false
+  this.id = id
+ //  console.log(this.id)
+}
 //block company
 blockCompany(id){  
   this.showSpinner =true

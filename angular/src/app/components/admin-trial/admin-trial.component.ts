@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class AdminTrialComponent implements OnInit {
   displayedColumns = [ 'slno','companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
+  id :any;
   notExist =false;
   all_value = false;
   selected = 'all';
@@ -111,6 +112,12 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
 });
 // ---------------------------------End-------------------------------------------
     this.refresh();
+  }
+  getId(id){
+    // this.showSpinner =false
+    // this.showSpinnerDelete =false
+    this.id = id
+   //  console.log(this.id)
   }
 // -----------------------------------End------------------------------------------
     // ---------------------------------Start-------------------------------------------

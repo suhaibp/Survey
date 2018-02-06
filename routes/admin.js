@@ -437,7 +437,7 @@ var returnRouter = function (io) {
         Company.deleteCompany(req.params.id, (err, company) => {
             if (err) throw err;
             if (!company) {
-                return res.json({ success: false, msg: 'Faild to delete company' });
+                return res.json({ success: false, msg: 'Failed to delete company' });
             } else {
                 io.sockets.emit("deletecompany", {
                     //user_id : req.params.id
@@ -461,7 +461,7 @@ var returnRouter = function (io) {
         Company.blockCompany(req.params.id, (err, company) => {
             if (err) throw err;
             if (!company) {
-                return res.json({ success: false, msg: 'Faild to block company' });
+                return res.json({ success: false, msg: 'Failed to block company' });
             } else {
                 io.sockets.emit("blockcompany", {
                     //user_id : req.params.id
@@ -485,7 +485,7 @@ var returnRouter = function (io) {
         Company.unblockCompany(req.params.id, (err, company) => {
             if (err) throw err;
             if (!company) {
-                return res.json({ success: false, msg: 'Failded to unblock company' });
+                return res.json({ success: false, msg: 'Faileded to unblock company' });
             } else {
                 io.sockets.emit("unblockcompany", {
                     //user_id : req.params.id
@@ -572,7 +572,7 @@ var returnRouter = function (io) {
         User.deleteUser(req.params.id, (err, user) => {
             if (err) throw err;
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to delete user' });
+                return res.json({ success: false, msg: 'Failed to delete user' });
             } else {
                 Company.update({ "users.email": req.params.id },
                     {
@@ -611,7 +611,7 @@ var returnRouter = function (io) {
         User.blockUser(req.params.id, (err, user) => {
 
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to block user' });
+                return res.json({ success: false, msg: 'Failed to block user' });
             } else {
 
                 Company.update({ "users.email": req.params.id },
@@ -651,7 +651,7 @@ var returnRouter = function (io) {
         User.unblockUser(req.params.id, (err, user) => {
             if (err) throw err;
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to unblock user' });
+                return res.json({ success: false, msg: 'Failed to unblock user' });
             } else {
                 Company.update({ "users.email": req.params.id },
                     {
@@ -713,7 +713,7 @@ var returnRouter = function (io) {
             // console.log(user);
             if (err) throw err;
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to reject user' });
+                return res.json({ success: false, msg: 'Failed to reject user' });
             } else {
                 Company.update({ "users.email": req.params.id },
                     {
@@ -753,7 +753,7 @@ var returnRouter = function (io) {
             // console.log(user);
             if (err) throw err;
             if (!user) {
-                return res.json({ success: false, msg: 'Faild to accept user' });
+                return res.json({ success: false, msg: 'Failed to accept user' });
             } else {
 
                 Company.update({ "users.email": req.params.id },
@@ -868,7 +868,7 @@ var returnRouter = function (io) {
 
                     if (err) {
                         throw err;
-                        return res.json({ success: false, msg: 'Faild to viewstatususer ' });
+                        return res.json({ success: false, msg: 'Failed to viewstatususer ' });
                     } else {
 
                         return res.json({ success: true, msg: 'view status  successfully' });
@@ -1382,7 +1382,7 @@ var returnRouter = function (io) {
                 Category.findByIdAndRemove(req.params.id, (err, catg) => {
                     if (err) throw err;
                     if (!catg) {
-                        return res.json({ success: false, msg: 'Faild to delete category' });
+                        return res.json({ success: false, msg: 'Failed to delete category' });
                     } else {
                         return res.json({ success: true, msg: 'Deleted successfully' });
                     }
@@ -1411,7 +1411,7 @@ var returnRouter = function (io) {
                     if (err) throw err;
                     if (!indus) {
 
-                        return res.json({ success: false, msg: 'Faild to delete Industry' });
+                        return res.json({ success: false, msg: 'Failed to delete Industry' });
                     } else {
                         return res.json({ success: true, msg: 'Deleted successfully' });
                     }
@@ -1441,7 +1441,7 @@ var returnRouter = function (io) {
                 Organization.findByIdAndRemove(req.params.id, (err, org) => {
                     if (err) throw err;
                     if (!org) {
-                        return res.json({ success: false, msg: 'Faild to delete Organization type' });
+                        return res.json({ success: false, msg: 'Failed to delete Organization type' });
                     } else {
                         return res.json({ success: true, msg: 'Deleted successfully' });
                     }
@@ -1470,7 +1470,7 @@ var returnRouter = function (io) {
                     if (err) throw err;
                     if (!org) {
 
-                        return res.json({ success: false, msg: 'Faild to delete survey attender type' });
+                        return res.json({ success: false, msg: 'Failed to delete survey attender type' });
                     } else {
                         return res.json({ success: true, msg: 'Deleted successfully' });
                     }
@@ -1565,6 +1565,7 @@ var returnRouter = function (io) {
     // Last Modified : 29-12-2017, Jooshifa 
     // Desc          : update function for edit surver category
     router.put('/updatesurveycategory/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1657,6 +1658,7 @@ var returnRouter = function (io) {
 
 
     router.put('/updateindustry/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1751,6 +1753,7 @@ var returnRouter = function (io) {
     // Desc          : update function for an edit Organization type
 
     router.put('/updateorganizationtype/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1846,6 +1849,7 @@ var returnRouter = function (io) {
     // Desc          : update function for an edit survey attender type
 
     router.put('/updateattendertype/:id', function (req, res) {
+        req.body.name = myTrim(req.body.name);
         if (req.body.name == '' || req.body.name == null) {
             return res.send({ success: false, msg: 'required' });
         }
@@ -1986,12 +1990,13 @@ var returnRouter = function (io) {
         // console.log(req.body);
         var isError = false;
         errMsg = '';
-        if (req.body.planname == '' || req.body.planname == null) {
+        planname = myTrim(req.body.planname);
+        if (planname == '' || planname == null) {
             errMsg = "Plan Name Required";
             isError = true;
 
         }
-        if (!isError && (req.body.planname.length > 10 || req.body.planname.length < 3)) {
+        if (!isError && (planname.length > 10 || planname.length < 3)) {
             errMsg = "Plan Name  between 3-10 characters";
             isError = true;
 
@@ -2035,7 +2040,7 @@ var returnRouter = function (io) {
             },
             function (callback) {
                 if (!isError) {
-                    Plan.findOne({ plan_name: req.body.planname, delete_status: false }, function (err, docs) {
+                    Plan.findOne({ plan_name: planname, delete_status: false }, function (err, docs) {
                         // console.log(docs);
                         if (!isError && (docs != null)) {
                             errMsg = "Plan Name Already Exists";
@@ -2168,13 +2173,13 @@ var returnRouter = function (io) {
 
         var isError = false;
         errMsg = '';
-
-        if (req.body.plan_name == '' || req.body.plan_name == null) {
+       plan_name = myTrim(req.body.plan_name);
+        if (plan_name == '' || plan_name == null) {
             errMsg = "Plan Name Required";
             isError = true;
 
         }
-        if (!isError && (req.body.plan_name.length > 10 || req.body.plan_name.length < 3)) {
+        if (!isError && (plan_name.length > 10 || plan_name.length < 3)) {
             errMsg = "Plan Name  between 3-10 characters";
             isError = true;
 
@@ -2188,7 +2193,7 @@ var returnRouter = function (io) {
         }
 
         if (!isError) {
-            Plan.findOne({ plan_name: req.body.plan_name, delete_status: false }, function (err, singleplan) {
+            Plan.findOne({ plan_name: plan_name, delete_status: false }, function (err, singleplan) {
                 // console.log(docs);
                 if (!isError && (singleplan && singleplan._id != req.body._id)) {
                     errMsg = "Plan Name Already Exists";
@@ -2288,7 +2293,7 @@ var returnRouter = function (io) {
 
                 if (err) {
                     throw err;
-                    return res.json({ success: false, msg: 'Faild to best value assign ' });
+                    return res.json({ success: false, msg: 'Failed to best value assign ' });
                 } else {
                     io.sockets.emit("bestvalue", {
                         //user_id : req.params.id

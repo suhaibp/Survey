@@ -327,7 +327,7 @@ var returnRouter = function (io) {
                     isErr = true;
                 }
 
-                if ( plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
+                if (plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                     errMsg = "* Failed, maximum allowed question  " + plans.no_question;
                     isErr = true;
                 }
@@ -743,8 +743,8 @@ var returnRouter = function (io) {
     router.get('/show-mail-image/:id', (req, res, next) => {
 
         // var ip = req.header['x-forwarded-for'] || req.connection.remoteAddress;
-        //var ip = "59.92.233.134";
-        var ip = req.connection.remoteAddress;
+        var ip = "59.92.233.134";
+        // var ip = req.connection.remoteAddress;
         console.log("ip:" + ip);
         var geo = geoip.lookup(ip);
         lat = geo.ll[0];
@@ -963,7 +963,7 @@ var returnRouter = function (io) {
 
             var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length - 1] : [];
 
-            if ( plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
+            if (plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                 errMsg = "Failed, maximum allowed question  " + plans.no_question;
                 isErr = true;
             }
@@ -978,7 +978,7 @@ var returnRouter = function (io) {
             let now = new Date();
             now.setHours(00, 00, 00, 000);
 
-            if(req.body.start_date < now){
+            if (req.body.start_date < now) {
                 errMsg = "* Failed, Start Date already over!";
                 isErr = true;
             }
@@ -1262,7 +1262,7 @@ var returnRouter = function (io) {
             password: req.body.password,
             survey_attenders: req.body.survey_attenders,
             is_profile_completed: true,
-            cmp_status: "Subscribed",
+            cmp_status: "Not Verified",
             plans: [{
                 plan_id: req.body.plans._id,
                 no_month: req.body.plans.no_month,
@@ -1352,7 +1352,7 @@ var returnRouter = function (io) {
 
     router.get('/companyVerification/:id', function (req, res) {
         Company.findOneAndUpdate({ verification_code: req.params.id, cmp_status: "Not Verified" },
-            { $set: { cmp_status: "Trail" } },
+            { $set: { cmp_status: "Subscribed" } },
             { new: true },
             function (err, doc) {
                 console.log(doc);
@@ -1360,12 +1360,24 @@ var returnRouter = function (io) {
                     return res.json({ success: false, msg: 'Company Not verified' });
                 }
                 if (doc == null) {
-                    return res.json({ success: true, msg: 'Company verified' });
+                    // return res.json({ success: true, msg: 'Company verified' });
+                    return res.json({ success: false, msg: 'Company Not verified' });
                 }
                 else {
-                    io.sockets.emit("Trail", {
+                    io.sockets.emit("Subscribed", {
                     });
-                    return res.json({ success: true, msg: 'Company verified' });
+                    // return res.json({ success: true, msg: 'Company verified' });
+                    const token = jwt.sign(doc.toJSON(), config.secret, {
+                        expiresIn: 60400 // sec 1 week
+                    });
+                    return res.json({
+                        success: true,
+                        token: 'JWT ' + token,
+                        company: {
+                            id: doc._id,
+                            role: doc.role,
+                        }
+                    });
                 }
 
             });
@@ -1446,6 +1458,7 @@ var returnRouter = function (io) {
             job_level: req.body.job_level,
             survey_attenders: req.body.survey_attenders,
             is_profile_completed: true,
+            cmp_status: "Subscribed",
         };
         async.series([
             function (callback) {
@@ -2266,9 +2279,11 @@ var returnRouter = function (io) {
                     },
                     function (err, deleteUser) {
                         if (err) {
-                            res.send("error deleting User");
+                            // res.send("error deleting User");
+                            return res.json({ success: false, msg: 'Failedtodelete' });
                         } else {
-                            res.json(deleteUser);
+                            // res.json(deleteUser);
+                            return res.json({ success: true, msg: 'successfully deleted' });
                         }
                     })
             }
