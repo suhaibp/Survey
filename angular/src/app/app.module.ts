@@ -135,7 +135,7 @@ import { UserTestComponent } from './components/user-test/user-test.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeNavComponent } from './components/home-nav/home-nav.component';
 import { PlansComponent } from './components/plans/plans.component';
-
+import {ScrollToModule} from 'ng2-scroll-to';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -199,7 +199,7 @@ const appRoutes: Routes = [
   {path:'payment/:id', component:CompanyPaymentComponent},
   {path:'upgrade', component:CompanyUpgradeComponent},
   {path:'admin-plan', component:AdminPlanComponent},
-  {path:'survey-success', component:UserSurveySuccessComponent},
+  {path:'survey-success/:id1', component:UserSurveySuccessComponent},
   {path:'test', component:UserTestComponent},
   {path:'home', component:HomeComponent},
 ]
@@ -333,7 +333,8 @@ export class DemoMaterialModule {}
       apiKey: 'AIzaSyCTu2njB-RY-TxKiuWx-O7yqYcfNT31k_8'
     }),
     StarRatingModule.forRoot(),
-    RatingModule
+    RatingModule,
+    ScrollToModule.forRoot(),
   ],
   providers: [Config, AdminService, CompanyService, XlsxToJsonService, UserService],
   bootstrap: [AppComponent]

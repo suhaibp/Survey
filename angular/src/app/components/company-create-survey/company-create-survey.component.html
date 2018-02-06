@@ -54,7 +54,7 @@
                                           </mat-form-field>
                                           <br>
                                         <mat-form-field  class="inputfileds">
-                                            <mat-select [disabled]="loggedInCompany && !loggedInCompany?.plans[loggedInCompany?.plans.length-1].survey_logic" placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
+                                            <mat-select [disabled]="loggedInCompany && !loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic" placeholder="Display Type" required name="ui" [(ngModel)]="survey.display_type.ui" >
                                               <mat-option [value]="grp.value" *ngFor="let grp of displayType;" >{{grp.label}}</mat-option>
                                             </mat-select>
                                           </mat-form-field>

@@ -1325,6 +1325,7 @@ var returnRouter = function (io) {
             { $set: { cmp_status: "Trail" } },
             { new: true },
             function (err, doc) {
+                console.log(doc);
                 if (err) {
                     return res.json({ success: false, msg: 'Company Not verified' });
                 }

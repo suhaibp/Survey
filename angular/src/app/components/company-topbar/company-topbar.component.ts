@@ -5,13 +5,16 @@ import { CanActivate, Router } from '@angular/router';
 @Component({
   selector: 'app-company-topbar',
   templateUrl: './company-topbar.component.html',
-  styleUrls: ['./company-topbar.component.css']
+  styleUrls: ['./company-topbar.component.css'],
+  inputs:['open']
 })
 export class CompanyTopbarComponent implements OnInit {
-
+  upgradex:any;
   constructor(private companyService : CompanyService, private routes: Router,) { }
 
   ngOnInit() {
+  console.log(this.upgradex)
+    
   }
 
 // ---------------------------------Start-------------------------------------------
