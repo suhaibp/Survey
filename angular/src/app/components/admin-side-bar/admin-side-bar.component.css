@@ -75,7 +75,7 @@ body {
 .dropdown-menu{
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-}
+} 
 .top-nav>.open>.dropdown-menu>li>a {
     white-space: normal; 
 }

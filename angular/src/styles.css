@@ -491,7 +491,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .wrap {
   width: 900px;
-  margin: 215px auto;
+  margin: 215px 0;
   color: #607d8b;
   /* box-shadow: 1px 1px 10px #424242; */
 }
@@ -499,7 +499,7 @@ h1, h2, h3, h4, h5, h6 {
 .pricing-table .plan {
   box-sizing: border-box;
   width: 100%;
-  max-width: 224px;
+  max-width: 210px;
   background-color: #fff;
   float: left;
   text-align: center;
@@ -568,7 +568,8 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 100;
   top: -22px;
   margin-left: -3px;
-  max-width: 254px;
+  max-width: 244px;
+  margin-right: -3px;
 }
 .bst-plan .details{
     margin-top: 62px;
