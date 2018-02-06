@@ -14,6 +14,7 @@ declare var $:any
 export class CompanyCreateSurveyComponent implements OnInit {
   @ViewChild('closeBtn1') closeBtn1: ElementRef;
   @ViewChild('invitePopUp') invitePopUp : ElementRef;
+  @ViewChild('closeBtnInvt') closeBtnInvt : ElementRef;
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -478,15 +479,15 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       if(data.success){
         // this.isSuccess3 = true;
         this.msg3 = data.msg;
-        
+        this.closeBtnInvt.nativeElement.click();
         let snackBarRef =  this.snackBar.open(this.msg3, '', {
           duration: 2000
         });
         // setTimeout(()=>{ 
           // this.isSuccess3 = false;
           // this.msg3 = '';
-          //this.routes.navigate(['./company-list-survey']);
-          window.location.href="./company-list-survey";
+          this.routes.navigate(['./company-list-survey']);
+          // window.location.href="./company-list-survey";
         // }, 2000);
       }else{
         // this.isError3 = true;
@@ -509,6 +510,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
   onBackToSurevyClick(){
     this.preview = false;
+  }
+  closeInvitePopup(){
+    this.closeBtnInvt.nativeElement.click();
   }
   
  // ---------------------------------End-------------------------------------------
