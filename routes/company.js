@@ -726,8 +726,8 @@ var returnRouter = function (io) {
     router.get('/show-mail-image/:id', (req, res, next) => {
 
         // var ip = req.header['x-forwarded-for'] || req.connection.remoteAddress;
-        //var ip = "59.92.233.134";
-        var ip = req.connection.remoteAddress;
+        var ip = "59.92.233.134";
+        // var ip = req.connection.remoteAddress;
         console.log("ip:" + ip);
         var geo = geoip.lookup(ip);
         lat = geo.ll[0];

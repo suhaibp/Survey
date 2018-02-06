@@ -43,24 +43,24 @@ module.exports = "\r\n <router-outlet></router-outlet>"
 /***/ }),
 
 /***/ "../../../../../src/app/app.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'app';
     }
     AppComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -68,336 +68,434 @@ var AppComponent = /** @class */ (function () {
     ], AppComponent);
     return AppComponent;
 }());
-exports.AppComponent = AppComponent;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/app.module.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* unused harmony export DemoMaterialModule */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_dragula_ng2_dragula__ = __webpack_require__("../../../../ng2-dragula/ng2-dragula.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_dragula_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_dragula_ng2_dragula__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_xlsx_to_json_service__ = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_top_bar_top_bar_component__ = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_side_bar_side_bar_component__ = __webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_reference_component_reference_component_component__ = __webpack_require__("../../../../../src/app/components/reference-component/reference-component.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_company_create_survey_company_create_survey_component__ = __webpack_require__("../../../../../src/app/components/company-create-survey/company-create-survey.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_company_list_survey_company_list_survey_component__ = __webpack_require__("../../../../../src/app/components/company-list-survey/company-list-survey.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_company_edit_survey_company_edit_survey_component__ = __webpack_require__("../../../../../src/app/components/company-edit-survey/company-edit-survey.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_company_survey_preview_company_survey_preview_component__ = __webpack_require__("../../../../../src/app/components/company-survey-preview/company-survey-preview.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_company_sidebar_company_sidebar_component__ = __webpack_require__("../../../../../src/app/components/company-sidebar/company-sidebar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_company_top_bar_company_top_bar_component__ = __webpack_require__("../../../../../src/app/components/company-top-bar/company-top-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_company_create_theme_company_create_theme_component__ = __webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_company_create_theme_container_company_create_theme_container_component__ = __webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_admin_side_bar_admin_side_bar_component__ = __webpack_require__("../../../../../src/app/components/admin-side-bar/admin-side-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_admin_top_bar_admin_top_bar_component__ = __webpack_require__("../../../../../src/app/components/admin-top-bar/admin-top-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_admin_manage_survey_category_admin_manage_survey_category_component__ = __webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_admin_manage_organization_type_admin_manage_organization_type_component__ = __webpack_require__("../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_admin_manage_industry_admin_manage_industry_component__ = __webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_admin_manage_survey_attender_type_admin_manage_survey_attender_type_component__ = __webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_company_users_company_users_component__ = __webpack_require__("../../../../../src/app/components/company-users/company-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_company_manage_user_groups_company_manage_user_groups_component__ = __webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_admin_login_admin_login_component__ = __webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_admin_chatd3_admin_chatd3_component__ = __webpack_require__("../../../../../src/app/components/admin-chatd3/admin-chatd3.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_admin_chatd3pie_admin_chatd3pie_component__ = __webpack_require__("../../../../../src/app/components/admin-chatd3pie/admin-chatd3pie.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_admin_users_admin_users_component__ = __webpack_require__("../../../../../src/app/components/admin-users/admin-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_admin_dashboard_admin_dashboard_component__ = __webpack_require__("../../../../../src/app/components/admin-dashboard/admin-dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_admin_company_admin_company_component__ = __webpack_require__("../../../../../src/app/components/admin-company/admin-company.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_admin_all_companies_admin_all_companies_component__ = __webpack_require__("../../../../../src/app/components/admin-all-companies/admin-all-companies.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_admin_subscribed_admin_subscribed_component__ = __webpack_require__("../../../../../src/app/components/admin-subscribed/admin-subscribed.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_admin_trial_admin_trial_component__ = __webpack_require__("../../../../../src/app/components/admin-trial/admin-trial.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_admin_not_verified_admin_not_verified_component__ = __webpack_require__("../../../../../src/app/components/admin-not-verified/admin-not-verified.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_admin_expired_admin_expired_component__ = __webpack_require__("../../../../../src/app/components/admin-expired/admin-expired.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__components_admin_company_active_admin_company_active_component__ = __webpack_require__("../../../../../src/app/components/admin-company-active/admin-company-active.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__components_admin_company_blocked_admin_company_blocked_component__ = __webpack_require__("../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__components_admin_company_deleted_admin_company_deleted_component__ = __webpack_require__("../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__components_admin_header_title_admin_header_title_component__ = __webpack_require__("../../../../../src/app/components/admin-header-title/admin-header-title.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__components_admin_all_users_admin_all_users_component__ = __webpack_require__("../../../../../src/app/components/admin-all-users/admin-all-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__components_admin_active_users_admin_active_users_component__ = __webpack_require__("../../../../../src/app/components/admin-active-users/admin-active-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__components_admin_blocked_users_admin_blocked_users_component__ = __webpack_require__("../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_admin_deleted_users_admin_deleted_users_component__ = __webpack_require__("../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_admin_request_users_admin_request_users_component__ = __webpack_require__("../../../../../src/app/components/admin-request-users/admin-request-users.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_admin_plan_admin_plan_component__ = __webpack_require__("../../../../../src/app/components/admin-plan/admin-plan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_company_login_company_login_component__ = __webpack_require__("../../../../../src/app/components/company-login/company-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_company_registration_company_registration_component__ = __webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__components_company_additn_info_company_additn_info_component__ = __webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__components_company_expired_page_company_expired_page_component__ = __webpack_require__("../../../../../src/app/components/company-expired-page/company-expired-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__components_company_email_verification_company_email_verification_component__ = __webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__components_company_profile_company_profile_component__ = __webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__components_user_response_email_user_response_email_component__ = __webpack_require__("../../../../../src/app/components/user-response-email/user-response-email.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__components_company_chart2_company_chart2_component__ = __webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__components_user_login_user_login_component__ = __webpack_require__("../../../../../src/app/components/user-login/user-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__components_user_registration_user_registration_component__ = __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__components_newpie_newpie_component__ = __webpack_require__("../../../../../src/app/components/newpie/newpie.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__components_page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/components/page-not-found/page-not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__components_company_manage_themes_company_manage_themes_component__ = __webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68_ngx_color_picker__ = __webpack_require__("../../../../ngx-color-picker/dist/ngx-color-picker.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__components_company_edit_theme_company_edit_theme_component__ = __webpack_require__("../../../../../src/app/components/company-edit-theme/company-edit-theme.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_company_edit_theme_container_company_edit_theme_container_component__ = __webpack_require__("../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__components_company_dashboard_company_dashboard_component__ = __webpack_require__("../../../../../src/app/components/company-dashboard/company-dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__components_user_survey_user_survey_component__ = __webpack_require__("../../../../../src/app/components/user-survey/user-survey.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_73__components_user_survey_singlepage_user_survey_singlepage_component__ = __webpack_require__("../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_74__components_user_survey_closed_user_survey_closed_component__ = __webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_75__components_user_survey_upcoming_user_survey_upcoming_component__ = __webpack_require__("../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_76__components_count_down_timer_count_down_timer_component__ = __webpack_require__("../../../../../src/app/components/count-down-timer/count-down-timer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_77__components_user_survey_multiple_user_survey_multiple_component__ = __webpack_require__("../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_78__components_company_upgrade_company_upgrade_component__ = __webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_79__components_company_payment_company_payment_component__ = __webpack_require__("../../../../../src/app/components/company-payment/company-payment.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_80__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_81__angular_cdk_table__ = __webpack_require__("../../../cdk/esm5/table.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_82__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_83__pipe_reverse_pipe__ = __webpack_require__("../../../../../src/app/pipe/reverse.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84_angular_star_rating__ = __webpack_require__("../../../../angular-star-rating/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_84_angular_star_rating___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_84_angular_star_rating__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85_ngx_rating__ = __webpack_require__("../../../../ngx-rating/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_85_ngx_rating___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_85_ngx_rating__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_86__components_user_survey_success_user_survey_success_component__ = __webpack_require__("../../../../../src/app/components/user-survey-success/user-survey-success.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_87__components_user_test_user_test_component__ = __webpack_require__("../../../../../src/app/components/user-test/user-test.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_88__components_home_home_component__ = __webpack_require__("../../../../../src/app/components/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_89__components_home_nav_home_nav_component__ = __webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_90__components_plans_plans_component__ = __webpack_require__("../../../../../src/app/components/plans/plans.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91_ng2_scroll_to__ = __webpack_require__("../../../../ng2-scroll-to/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_91_ng2_scroll_to___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_91_ng2_scroll_to__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var platform_browser_1 = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
-var animations_1 = __webpack_require__("../../../platform-browser/esm5/animations.js");
-var animations_2 = __webpack_require__("../../../platform-browser/esm5/animations.js");
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var http_1 = __webpack_require__("../../../http/esm5/http.js");
-var ng2_dragula_1 = __webpack_require__("../../../../ng2-dragula/ng2-dragula.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-__webpack_require__("../../../../hammerjs/hammer.js");
+
+
+
+
+
+
+
+
+
+
+
 // import {scaleLinear} from "d3-scale";
 // import * as d3 from "d3";
-var xlsx_to_json_service_1 = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+
+
+
+
 // import { D3Service } from 'd3-ng2-service';
-var app_component_1 = __webpack_require__("../../../../../src/app/app.component.ts");
-var top_bar_component_1 = __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.ts");
-var side_bar_component_1 = __webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.ts");
-var reference_component_component_1 = __webpack_require__("../../../../../src/app/components/reference-component/reference-component.component.ts");
-var company_create_survey_component_1 = __webpack_require__("../../../../../src/app/components/company-create-survey/company-create-survey.component.ts");
-var company_list_survey_component_1 = __webpack_require__("../../../../../src/app/components/company-list-survey/company-list-survey.component.ts");
-var company_edit_survey_component_1 = __webpack_require__("../../../../../src/app/components/company-edit-survey/company-edit-survey.component.ts");
-var company_survey_preview_component_1 = __webpack_require__("../../../../../src/app/components/company-survey-preview/company-survey-preview.component.ts");
-var company_sidebar_component_1 = __webpack_require__("../../../../../src/app/components/company-sidebar/company-sidebar.component.ts");
-var company_top_bar_component_1 = __webpack_require__("../../../../../src/app/components/company-top-bar/company-top-bar.component.ts");
-var company_create_theme_component_1 = __webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.ts");
-var company_create_theme_container_component_1 = __webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.ts");
-var admin_side_bar_component_1 = __webpack_require__("../../../../../src/app/components/admin-side-bar/admin-side-bar.component.ts");
-var admin_top_bar_component_1 = __webpack_require__("../../../../../src/app/components/admin-top-bar/admin-top-bar.component.ts");
-var admin_manage_survey_category_component_1 = __webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.ts");
-var admin_manage_organization_type_component_1 = __webpack_require__("../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.ts");
-var admin_manage_industry_component_1 = __webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.ts");
-var admin_manage_survey_attender_type_component_1 = __webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.ts");
-var company_users_component_1 = __webpack_require__("../../../../../src/app/components/company-users/company-users.component.ts");
-var company_manage_user_groups_component_1 = __webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.ts");
-var admin_login_component_1 = __webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.ts");
-var admin_chatd3_component_1 = __webpack_require__("../../../../../src/app/components/admin-chatd3/admin-chatd3.component.ts");
-var admin_chatd3pie_component_1 = __webpack_require__("../../../../../src/app/components/admin-chatd3pie/admin-chatd3pie.component.ts");
-var admin_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-users/admin-users.component.ts");
-var admin_dashboard_component_1 = __webpack_require__("../../../../../src/app/components/admin-dashboard/admin-dashboard.component.ts");
-var admin_company_component_1 = __webpack_require__("../../../../../src/app/components/admin-company/admin-company.component.ts");
-var admin_all_companies_component_1 = __webpack_require__("../../../../../src/app/components/admin-all-companies/admin-all-companies.component.ts");
-var admin_subscribed_component_1 = __webpack_require__("../../../../../src/app/components/admin-subscribed/admin-subscribed.component.ts");
-var admin_trial_component_1 = __webpack_require__("../../../../../src/app/components/admin-trial/admin-trial.component.ts");
-var admin_not_verified_component_1 = __webpack_require__("../../../../../src/app/components/admin-not-verified/admin-not-verified.component.ts");
-var admin_expired_component_1 = __webpack_require__("../../../../../src/app/components/admin-expired/admin-expired.component.ts");
-var admin_company_active_component_1 = __webpack_require__("../../../../../src/app/components/admin-company-active/admin-company-active.component.ts");
-var admin_company_blocked_component_1 = __webpack_require__("../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.ts");
-var admin_company_deleted_component_1 = __webpack_require__("../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.ts");
-var admin_header_title_component_1 = __webpack_require__("../../../../../src/app/components/admin-header-title/admin-header-title.component.ts");
-var admin_all_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-all-users/admin-all-users.component.ts");
-var admin_active_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-active-users/admin-active-users.component.ts");
-var admin_blocked_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.ts");
-var admin_deleted_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.ts");
-var admin_request_users_component_1 = __webpack_require__("../../../../../src/app/components/admin-request-users/admin-request-users.component.ts");
-var admin_plan_component_1 = __webpack_require__("../../../../../src/app/components/admin-plan/admin-plan.component.ts");
-var company_login_component_1 = __webpack_require__("../../../../../src/app/components/company-login/company-login.component.ts");
-var company_registration_component_1 = __webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.ts");
-var company_additn_info_component_1 = __webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.ts");
-var company_expired_page_component_1 = __webpack_require__("../../../../../src/app/components/company-expired-page/company-expired-page.component.ts");
-var company_email_verification_component_1 = __webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.ts");
-var company_profile_component_1 = __webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.ts");
-var user_response_email_component_1 = __webpack_require__("../../../../../src/app/components/user-response-email/user-response-email.component.ts");
-var company_chart2_component_1 = __webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.ts");
-var user_login_component_1 = __webpack_require__("../../../../../src/app/components/user-login/user-login.component.ts");
-var user_registration_component_1 = __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.ts");
-var newpie_component_1 = __webpack_require__("../../../../../src/app/components/newpie/newpie.component.ts");
-var page_not_found_component_1 = __webpack_require__("../../../../../src/app/components/page-not-found/page-not-found.component.ts");
-var company_manage_themes_component_1 = __webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.ts");
-var ngx_color_picker_1 = __webpack_require__("../../../../ngx-color-picker/dist/ngx-color-picker.es5.js");
-var company_edit_theme_component_1 = __webpack_require__("../../../../../src/app/components/company-edit-theme/company-edit-theme.component.ts");
-var company_edit_theme_container_component_1 = __webpack_require__("../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.ts");
-var company_dashboard_component_1 = __webpack_require__("../../../../../src/app/components/company-dashboard/company-dashboard.component.ts");
-var user_survey_component_1 = __webpack_require__("../../../../../src/app/components/user-survey/user-survey.component.ts");
-var user_survey_singlepage_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.ts");
-var user_survey_closed_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.ts");
-var user_survey_upcoming_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.ts");
-var count_down_timer_component_1 = __webpack_require__("../../../../../src/app/components/count-down-timer/count-down-timer.component.ts");
-var user_survey_multiple_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.ts");
-var company_upgrade_component_1 = __webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.ts");
-var company_payment_component_1 = __webpack_require__("../../../../../src/app/components/company-payment/company-payment.component.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var table_1 = __webpack_require__("../../../cdk/esm5/table.es5.js");
-var core_2 = __webpack_require__("../../../../@agm/core/index.js");
-var reverse_pipe_1 = __webpack_require__("../../../../../src/app/pipe/reverse.pipe.ts");
-var angular_star_rating_1 = __webpack_require__("../../../../angular-star-rating/dist/index.js");
-var ngx_rating_1 = __webpack_require__("../../../../ngx-rating/index.js");
-var user_survey_success_component_1 = __webpack_require__("../../../../../src/app/components/user-survey-success/user-survey-success.component.ts");
-var user_test_component_1 = __webpack_require__("../../../../../src/app/components/user-test/user-test.component.ts");
-var home_component_1 = __webpack_require__("../../../../../src/app/components/home/home.component.ts");
-var home_nav_component_1 = __webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.ts");
-var plans_component_1 = __webpack_require__("../../../../../src/app/components/plans/plans.component.ts");
-var ng2_scroll_to_1 = __webpack_require__("../../../../ng2-scroll-to/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var appRoutes = [
-    { path: '', component: home_component_1.HomeComponent },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_88__components_home_home_component__["a" /* HomeComponent */] },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'top-bar', component: top_bar_component_1.TopBarComponent },
-    { path: 'side-bar', component: side_bar_component_1.SideBarComponent },
-    { path: 'admin-side-bar', component: admin_side_bar_component_1.AdminSideBarComponent },
-    { path: 'admin-top-bar', component: admin_top_bar_component_1.AdminTopBarComponent },
-    { path: 'app-company-sidebar', component: company_sidebar_component_1.CompanySidebarComponent },
-    { path: 'app-company-top-bar', component: company_top_bar_component_1.CompanyTopBarComponent },
-    { path: 'manage-survey-category', component: admin_manage_survey_category_component_1.AdminManageSurveyCategoryComponent },
-    { path: 'admin-manage-industry', component: admin_manage_industry_component_1.AdminManageIndustryComponent },
-    { path: 'admin-manage-organization-type', component: admin_manage_organization_type_component_1.AdminManageOrganizationTypeComponent },
-    { path: 'admin-manage-survey-attender-type', component: admin_manage_survey_attender_type_component_1.AdminManageSurveyAttenderTypeComponent },
-    { path: 'company-users', component: company_users_component_1.CompanyUsersComponent },
-    { path: 'company-manage-user-groups', component: company_manage_user_groups_component_1.CompanyManageUserGroupsComponent },
-    { path: 'reference', component: reference_component_component_1.ReferenceComponentComponent },
-    { path: 'create-theme', component: company_create_theme_component_1.CompanyCreateThemeComponent },
-    { path: 'edit-theme/:id', component: company_edit_theme_component_1.CompanyEditThemeComponent },
-    { path: 'dashboard', component: company_dashboard_component_1.CompanyDashboardComponent },
-    { path: 'dashboard/:id', component: company_dashboard_component_1.CompanyDashboardComponent },
-    { path: 'survey/:id', component: user_survey_component_1.UserSurveyComponent },
-    { path: 'testing', component: company_edit_theme_container_component_1.CompanyEditThemeContainerComponent },
-    { path: 'admin-login', component: admin_login_component_1.AdminLoginComponent },
-    { path: 'admin-dashboard', component: admin_dashboard_component_1.AdminDashboardComponent },
-    { path: 'admin-company', component: admin_company_component_1.AdminCompanyComponent },
-    { path: 'admin-all-companies', component: admin_all_companies_component_1.AdminAllCompaniesComponent },
-    { path: 'admin-subscribed', component: admin_subscribed_component_1.AdminSubscribedComponent },
-    { path: 'admin-trial', component: admin_trial_component_1.AdminTrialComponent },
-    { path: 'admin-not-verified', component: admin_not_verified_component_1.AdminNotVerifiedComponent },
-    { path: 'admin-expired', component: admin_expired_component_1.AdminExpiredComponent },
-    { path: 'admin-company-blocked', component: admin_company_blocked_component_1.AdminCompanyBlockedComponent },
-    { path: 'admin-company-deleted', component: admin_company_deleted_component_1.AdminCompanyDeletedComponent },
-    { path: 'admin-users', component: admin_users_component_1.AdminUsersComponent },
-    { path: 'admin-users/:id', component: admin_users_component_1.AdminUsersComponent },
-    { path: 'admin-all-users', component: admin_all_users_component_1.AdminAllUsersComponent },
-    { path: 'admin-blocked-users', component: admin_blocked_users_component_1.AdminBlockedUsersComponent },
-    { path: 'admin-company-active', component: admin_company_active_component_1.AdminCompanyActiveComponent },
-    { path: 'admin-deleted-users', component: admin_deleted_users_component_1.AdminDeletedUsersComponent },
-    { path: 'admin-request-users', component: admin_request_users_component_1.AdminRequestUsersComponent },
-    { path: 'admin-chartd3', component: admin_chatd3_component_1.AdminChatd3Component },
-    { path: 'admin-chatd3pie', component: admin_chatd3_component_1.AdminChatd3Component },
-    { path: 'clogin', component: company_login_component_1.CompanyLoginComponent },
-    { path: 'creg', component: company_registration_component_1.CompanyRegistrationComponent },
-    { path: 'additnInfo/:id', component: company_additn_info_component_1.CompanyAdditnInfoComponent },
-    { path: 'email-verification/:id', component: company_email_verification_component_1.CompanyEmailVerificationComponent },
-    { path: 'expired', component: company_upgrade_component_1.CompanyUpgradeComponent },
-    { path: 'profile', component: company_profile_component_1.CompanyProfileComponent },
-    { path: 'company-users', component: company_users_component_1.CompanyUsersComponent },
-    { path: 'user-response-email/:id1/:id2', component: user_response_email_component_1.UserResponseEmailComponent },
-    { path: 'user-login/:id1/:id2', component: user_login_component_1.UserLoginComponent },
-    { path: 'user-register/:id1/:id2', component: user_registration_component_1.UserRegistrationComponent },
-    { path: 'pie', component: newpie_component_1.NewpieComponent },
-    { path: 'pie/:id', component: newpie_component_1.NewpieComponent },
-    { path: '404', component: page_not_found_component_1.PageNotFoundComponent },
-    { path: 'company-create-survey', component: company_create_survey_component_1.CompanyCreateSurveyComponent },
-    { path: 'company-list-survey', component: company_list_survey_component_1.CompanyListSurveyComponent },
-    { path: 'company-edit-survey/:id', component: company_edit_survey_component_1.CompanyEditSurveyComponent },
-    { path: 'preview', component: company_survey_preview_component_1.CompanySurveyPreviewComponent },
-    { path: 'creg/:id', component: company_registration_component_1.CompanyRegistrationComponent },
-    { path: 'payment/:id', component: company_payment_component_1.CompanyPaymentComponent },
-    { path: 'upgrade', component: company_upgrade_component_1.CompanyUpgradeComponent },
-    { path: 'admin-plan', component: admin_plan_component_1.AdminPlanComponent },
-    { path: 'survey-success/:id1', component: user_survey_success_component_1.UserSurveySuccessComponent },
-    { path: 'test', component: user_test_component_1.UserTestComponent },
-    { path: 'home', component: home_component_1.HomeComponent },
+    { path: 'top-bar', component: __WEBPACK_IMPORTED_MODULE_15__components_top_bar_top_bar_component__["a" /* TopBarComponent */] },
+    { path: 'side-bar', component: __WEBPACK_IMPORTED_MODULE_16__components_side_bar_side_bar_component__["a" /* SideBarComponent */] },
+    { path: 'admin-side-bar', component: __WEBPACK_IMPORTED_MODULE_26__components_admin_side_bar_admin_side_bar_component__["a" /* AdminSideBarComponent */] },
+    { path: 'admin-top-bar', component: __WEBPACK_IMPORTED_MODULE_27__components_admin_top_bar_admin_top_bar_component__["a" /* AdminTopBarComponent */] },
+    { path: 'app-company-sidebar', component: __WEBPACK_IMPORTED_MODULE_22__components_company_sidebar_company_sidebar_component__["a" /* CompanySidebarComponent */] },
+    { path: 'app-company-top-bar', component: __WEBPACK_IMPORTED_MODULE_23__components_company_top_bar_company_top_bar_component__["a" /* CompanyTopBarComponent */] },
+    { path: 'manage-survey-category', component: __WEBPACK_IMPORTED_MODULE_28__components_admin_manage_survey_category_admin_manage_survey_category_component__["a" /* AdminManageSurveyCategoryComponent */] },
+    { path: 'admin-manage-industry', component: __WEBPACK_IMPORTED_MODULE_30__components_admin_manage_industry_admin_manage_industry_component__["a" /* AdminManageIndustryComponent */] },
+    { path: 'admin-manage-organization-type', component: __WEBPACK_IMPORTED_MODULE_29__components_admin_manage_organization_type_admin_manage_organization_type_component__["a" /* AdminManageOrganizationTypeComponent */] },
+    { path: 'admin-manage-survey-attender-type', component: __WEBPACK_IMPORTED_MODULE_31__components_admin_manage_survey_attender_type_admin_manage_survey_attender_type_component__["a" /* AdminManageSurveyAttenderTypeComponent */] },
+    { path: 'company-users', component: __WEBPACK_IMPORTED_MODULE_32__components_company_users_company_users_component__["a" /* CompanyUsersComponent */] },
+    { path: 'company-manage-user-groups', component: __WEBPACK_IMPORTED_MODULE_33__components_company_manage_user_groups_company_manage_user_groups_component__["a" /* CompanyManageUserGroupsComponent */] },
+    { path: 'reference', component: __WEBPACK_IMPORTED_MODULE_17__components_reference_component_reference_component_component__["a" /* ReferenceComponentComponent */] },
+    { path: 'create-theme', component: __WEBPACK_IMPORTED_MODULE_24__components_company_create_theme_company_create_theme_component__["a" /* CompanyCreateThemeComponent */] },
+    { path: 'edit-theme/:id', component: __WEBPACK_IMPORTED_MODULE_69__components_company_edit_theme_company_edit_theme_component__["a" /* CompanyEditThemeComponent */] },
+    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_71__components_company_dashboard_company_dashboard_component__["a" /* CompanyDashboardComponent */] },
+    { path: 'dashboard/:id', component: __WEBPACK_IMPORTED_MODULE_71__components_company_dashboard_company_dashboard_component__["a" /* CompanyDashboardComponent */] },
+    { path: 'survey/:id', component: __WEBPACK_IMPORTED_MODULE_72__components_user_survey_user_survey_component__["a" /* UserSurveyComponent */] },
+    { path: 'testing', component: __WEBPACK_IMPORTED_MODULE_70__components_company_edit_theme_container_company_edit_theme_container_component__["a" /* CompanyEditThemeContainerComponent */] },
+    { path: 'admin-login', component: __WEBPACK_IMPORTED_MODULE_34__components_admin_login_admin_login_component__["a" /* AdminLoginComponent */] },
+    { path: 'admin-dashboard', component: __WEBPACK_IMPORTED_MODULE_38__components_admin_dashboard_admin_dashboard_component__["a" /* AdminDashboardComponent */] },
+    { path: 'admin-company', component: __WEBPACK_IMPORTED_MODULE_39__components_admin_company_admin_company_component__["a" /* AdminCompanyComponent */] },
+    { path: 'admin-all-companies', component: __WEBPACK_IMPORTED_MODULE_40__components_admin_all_companies_admin_all_companies_component__["a" /* AdminAllCompaniesComponent */] },
+    { path: 'admin-subscribed', component: __WEBPACK_IMPORTED_MODULE_41__components_admin_subscribed_admin_subscribed_component__["a" /* AdminSubscribedComponent */] },
+    { path: 'admin-trial', component: __WEBPACK_IMPORTED_MODULE_42__components_admin_trial_admin_trial_component__["a" /* AdminTrialComponent */] },
+    { path: 'admin-not-verified', component: __WEBPACK_IMPORTED_MODULE_43__components_admin_not_verified_admin_not_verified_component__["a" /* AdminNotVerifiedComponent */] },
+    { path: 'admin-expired', component: __WEBPACK_IMPORTED_MODULE_44__components_admin_expired_admin_expired_component__["a" /* AdminExpiredComponent */] },
+    { path: 'admin-company-blocked', component: __WEBPACK_IMPORTED_MODULE_46__components_admin_company_blocked_admin_company_blocked_component__["a" /* AdminCompanyBlockedComponent */] },
+    { path: 'admin-company-deleted', component: __WEBPACK_IMPORTED_MODULE_47__components_admin_company_deleted_admin_company_deleted_component__["a" /* AdminCompanyDeletedComponent */] },
+    { path: 'admin-users', component: __WEBPACK_IMPORTED_MODULE_37__components_admin_users_admin_users_component__["a" /* AdminUsersComponent */] },
+    { path: 'admin-users/:id', component: __WEBPACK_IMPORTED_MODULE_37__components_admin_users_admin_users_component__["a" /* AdminUsersComponent */] },
+    { path: 'admin-all-users', component: __WEBPACK_IMPORTED_MODULE_49__components_admin_all_users_admin_all_users_component__["a" /* AdminAllUsersComponent */] },
+    { path: 'admin-blocked-users', component: __WEBPACK_IMPORTED_MODULE_51__components_admin_blocked_users_admin_blocked_users_component__["a" /* AdminBlockedUsersComponent */] },
+    { path: 'admin-company-active', component: __WEBPACK_IMPORTED_MODULE_45__components_admin_company_active_admin_company_active_component__["a" /* AdminCompanyActiveComponent */] },
+    { path: 'admin-deleted-users', component: __WEBPACK_IMPORTED_MODULE_52__components_admin_deleted_users_admin_deleted_users_component__["a" /* AdminDeletedUsersComponent */] },
+    { path: 'admin-request-users', component: __WEBPACK_IMPORTED_MODULE_53__components_admin_request_users_admin_request_users_component__["a" /* AdminRequestUsersComponent */] },
+    { path: 'admin-chartd3', component: __WEBPACK_IMPORTED_MODULE_35__components_admin_chatd3_admin_chatd3_component__["a" /* AdminChatd3Component */] },
+    { path: 'admin-chatd3pie', component: __WEBPACK_IMPORTED_MODULE_35__components_admin_chatd3_admin_chatd3_component__["a" /* AdminChatd3Component */] },
+    { path: 'clogin', component: __WEBPACK_IMPORTED_MODULE_55__components_company_login_company_login_component__["a" /* CompanyLoginComponent */] },
+    { path: 'creg', component: __WEBPACK_IMPORTED_MODULE_56__components_company_registration_company_registration_component__["a" /* CompanyRegistrationComponent */] },
+    { path: 'additnInfo/:id', component: __WEBPACK_IMPORTED_MODULE_57__components_company_additn_info_company_additn_info_component__["a" /* CompanyAdditnInfoComponent */] },
+    { path: 'email-verification/:id', component: __WEBPACK_IMPORTED_MODULE_59__components_company_email_verification_company_email_verification_component__["a" /* CompanyEmailVerificationComponent */] },
+    { path: 'expired', component: __WEBPACK_IMPORTED_MODULE_78__components_company_upgrade_company_upgrade_component__["a" /* CompanyUpgradeComponent */] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_60__components_company_profile_company_profile_component__["a" /* CompanyProfileComponent */] },
+    { path: 'company-users', component: __WEBPACK_IMPORTED_MODULE_32__components_company_users_company_users_component__["a" /* CompanyUsersComponent */] },
+    { path: 'user-response-email/:id1/:id2', component: __WEBPACK_IMPORTED_MODULE_61__components_user_response_email_user_response_email_component__["a" /* UserResponseEmailComponent */] },
+    { path: 'user-login/:id1/:id2', component: __WEBPACK_IMPORTED_MODULE_63__components_user_login_user_login_component__["a" /* UserLoginComponent */] },
+    { path: 'user-register/:id1/:id2', component: __WEBPACK_IMPORTED_MODULE_64__components_user_registration_user_registration_component__["a" /* UserRegistrationComponent */] },
+    { path: 'pie', component: __WEBPACK_IMPORTED_MODULE_65__components_newpie_newpie_component__["a" /* NewpieComponent */] },
+    { path: 'pie/:id', component: __WEBPACK_IMPORTED_MODULE_65__components_newpie_newpie_component__["a" /* NewpieComponent */] },
+    { path: '404', component: __WEBPACK_IMPORTED_MODULE_66__components_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */] },
+    { path: 'company-create-survey', component: __WEBPACK_IMPORTED_MODULE_18__components_company_create_survey_company_create_survey_component__["a" /* CompanyCreateSurveyComponent */] },
+    { path: 'company-list-survey', component: __WEBPACK_IMPORTED_MODULE_19__components_company_list_survey_company_list_survey_component__["a" /* CompanyListSurveyComponent */] },
+    { path: 'company-edit-survey/:id', component: __WEBPACK_IMPORTED_MODULE_20__components_company_edit_survey_company_edit_survey_component__["a" /* CompanyEditSurveyComponent */] },
+    { path: 'preview', component: __WEBPACK_IMPORTED_MODULE_21__components_company_survey_preview_company_survey_preview_component__["a" /* CompanySurveyPreviewComponent */] },
+    { path: 'creg/:id', component: __WEBPACK_IMPORTED_MODULE_56__components_company_registration_company_registration_component__["a" /* CompanyRegistrationComponent */] },
+    { path: 'payment/:id', component: __WEBPACK_IMPORTED_MODULE_79__components_company_payment_company_payment_component__["a" /* CompanyPaymentComponent */] },
+    { path: 'upgrade', component: __WEBPACK_IMPORTED_MODULE_78__components_company_upgrade_company_upgrade_component__["a" /* CompanyUpgradeComponent */] },
+    { path: 'admin-plan', component: __WEBPACK_IMPORTED_MODULE_54__components_admin_plan_admin_plan_component__["a" /* AdminPlanComponent */] },
+    { path: 'survey-success/:id1', component: __WEBPACK_IMPORTED_MODULE_86__components_user_survey_success_user_survey_success_component__["a" /* UserSurveySuccessComponent */] },
+    { path: 'test', component: __WEBPACK_IMPORTED_MODULE_87__components_user_test_user_test_component__["a" /* UserTestComponent */] },
+    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_88__components_home_home_component__["a" /* HomeComponent */] },
 ];
 var DemoMaterialModule = /** @class */ (function () {
     function DemoMaterialModule() {
     }
     DemoMaterialModule = __decorate([
-        core_1.NgModule({
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             exports: [
-                table_1.CdkTableModule,
-                material_1.MatAutocompleteModule,
-                material_1.MatButtonModule,
-                material_1.MatButtonToggleModule,
-                material_1.MatCardModule,
-                material_1.MatCheckboxModule,
-                material_1.MatChipsModule,
-                material_1.MatStepperModule,
-                material_1.MatDatepickerModule,
-                material_1.MatDialogModule,
-                material_1.MatExpansionModule,
-                material_1.MatGridListModule,
-                material_1.MatIconModule,
-                material_1.MatInputModule,
-                material_1.MatListModule,
-                material_1.MatMenuModule,
-                material_1.MatNativeDateModule,
-                material_1.MatPaginatorModule,
-                material_1.MatProgressBarModule,
-                material_1.MatProgressSpinnerModule,
-                material_1.MatRadioModule,
-                material_1.MatRippleModule,
-                material_1.MatSelectModule,
-                material_1.MatSidenavModule,
-                material_1.MatSliderModule,
-                material_1.MatSlideToggleModule,
-                material_1.MatSnackBarModule,
-                material_1.MatSortModule,
-                material_1.MatTableModule,
-                material_1.MatTabsModule,
-                material_1.MatToolbarModule,
-                material_1.MatTooltipModule,
+                __WEBPACK_IMPORTED_MODULE_81__angular_cdk_table__["m" /* CdkTableModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["a" /* MatAutocompleteModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["b" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["c" /* MatButtonToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["d" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["e" /* MatCheckboxModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["f" /* MatChipsModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["D" /* MatStepperModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["g" /* MatDatepickerModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["h" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["i" /* MatExpansionModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["j" /* MatGridListModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["k" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["l" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["m" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["n" /* MatMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["o" /* MatNativeDateModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["q" /* MatPaginatorModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["r" /* MatProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["s" /* MatProgressSpinnerModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["t" /* MatRadioModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["u" /* MatRippleModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["v" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["w" /* MatSidenavModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["y" /* MatSliderModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["x" /* MatSlideToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["A" /* MatSnackBarModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["C" /* MatSortModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["F" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["G" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["H" /* MatToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["I" /* MatTooltipModule */],
             ],
         })
     ], DemoMaterialModule);
     return DemoMaterialModule;
 }());
-exports.DemoMaterialModule = DemoMaterialModule;
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        core_1.NgModule({
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             declarations: [
-                app_component_1.AppComponent,
-                top_bar_component_1.TopBarComponent,
-                side_bar_component_1.SideBarComponent,
-                reference_component_component_1.ReferenceComponentComponent,
-                company_create_survey_component_1.CompanyCreateSurveyComponent,
-                company_list_survey_component_1.CompanyListSurveyComponent,
-                company_edit_survey_component_1.CompanyEditSurveyComponent,
-                company_survey_preview_component_1.CompanySurveyPreviewComponent,
-                company_sidebar_component_1.CompanySidebarComponent,
-                company_create_theme_component_1.CompanyCreateThemeComponent,
-                company_create_theme_container_component_1.CompanyCreateThemeContainerComponent,
-                company_manage_themes_component_1.CompanyManageThemesComponent,
-                company_edit_theme_component_1.CompanyEditThemeComponent,
-                company_edit_theme_container_component_1.CompanyEditThemeContainerComponent,
-                company_dashboard_component_1.CompanyDashboardComponent,
-                user_survey_component_1.UserSurveyComponent,
-                user_survey_singlepage_component_1.UserSurveySinglepageComponent,
-                user_survey_closed_component_1.UserSurveyClosedComponent,
-                user_survey_upcoming_component_1.UserSurveyUpcomingComponent,
-                count_down_timer_component_1.CountDownTimerComponent,
-                user_survey_multiple_component_1.UserSurveyMultipleComponent,
-                reverse_pipe_1.ReversePipe,
-                admin_side_bar_component_1.AdminSideBarComponent,
-                admin_top_bar_component_1.AdminTopBarComponent,
-                admin_manage_survey_category_component_1.AdminManageSurveyCategoryComponent,
-                admin_manage_organization_type_component_1.AdminManageOrganizationTypeComponent,
-                admin_manage_industry_component_1.AdminManageIndustryComponent,
-                admin_manage_survey_attender_type_component_1.AdminManageSurveyAttenderTypeComponent,
-                company_users_component_1.CompanyUsersComponent,
-                company_top_bar_component_1.CompanyTopBarComponent,
-                company_manage_user_groups_component_1.CompanyManageUserGroupsComponent,
-                admin_login_component_1.AdminLoginComponent,
-                admin_users_component_1.AdminUsersComponent,
-                admin_dashboard_component_1.AdminDashboardComponent,
-                admin_company_component_1.AdminCompanyComponent,
-                admin_all_companies_component_1.AdminAllCompaniesComponent,
-                admin_subscribed_component_1.AdminSubscribedComponent,
-                admin_trial_component_1.AdminTrialComponent,
-                admin_not_verified_component_1.AdminNotVerifiedComponent,
-                admin_expired_component_1.AdminExpiredComponent,
-                admin_company_blocked_component_1.AdminCompanyBlockedComponent,
-                admin_company_deleted_component_1.AdminCompanyDeletedComponent,
-                admin_company_active_component_1.AdminCompanyActiveComponent,
-                admin_header_title_component_1.AdminHeaderTitleComponent,
-                admin_all_users_component_1.AdminAllUsersComponent,
-                admin_active_users_component_1.AdminActiveUsersComponent,
-                admin_blocked_users_component_1.AdminBlockedUsersComponent,
-                admin_deleted_users_component_1.AdminDeletedUsersComponent,
-                admin_request_users_component_1.AdminRequestUsersComponent,
-                admin_chatd3_component_1.AdminChatd3Component,
-                admin_chatd3pie_component_1.AdminChatd3pieComponent,
-                company_login_component_1.CompanyLoginComponent,
-                company_registration_component_1.CompanyRegistrationComponent,
-                company_additn_info_component_1.CompanyAdditnInfoComponent,
-                company_expired_page_component_1.CompanyExpiredPageComponent,
-                company_email_verification_component_1.CompanyEmailVerificationComponent,
-                company_profile_component_1.CompanyProfileComponent,
-                user_response_email_component_1.UserResponseEmailComponent,
-                user_login_component_1.UserLoginComponent,
-                user_registration_component_1.UserRegistrationComponent,
-                newpie_component_1.NewpieComponent,
-                page_not_found_component_1.PageNotFoundComponent,
-                company_chart2_component_1.CompanyChart2Component,
-                company_upgrade_component_1.CompanyUpgradeComponent,
-                company_payment_component_1.CompanyPaymentComponent,
-                admin_plan_component_1.AdminPlanComponent,
-                user_survey_success_component_1.UserSurveySuccessComponent,
-                user_test_component_1.UserTestComponent,
-                home_component_1.HomeComponent,
-                home_nav_component_1.HomeNavComponent,
-                plans_component_1.PlansComponent
+                __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__components_top_bar_top_bar_component__["a" /* TopBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__components_side_bar_side_bar_component__["a" /* SideBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_reference_component_reference_component_component__["a" /* ReferenceComponentComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__components_company_create_survey_company_create_survey_component__["a" /* CompanyCreateSurveyComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__components_company_list_survey_company_list_survey_component__["a" /* CompanyListSurveyComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__components_company_edit_survey_company_edit_survey_component__["a" /* CompanyEditSurveyComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__components_company_survey_preview_company_survey_preview_component__["a" /* CompanySurveyPreviewComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__components_company_sidebar_company_sidebar_component__["a" /* CompanySidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__components_company_create_theme_company_create_theme_component__["a" /* CompanyCreateThemeComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__components_company_create_theme_container_company_create_theme_container_component__["a" /* CompanyCreateThemeContainerComponent */],
+                __WEBPACK_IMPORTED_MODULE_67__components_company_manage_themes_company_manage_themes_component__["a" /* CompanyManageThemesComponent */],
+                __WEBPACK_IMPORTED_MODULE_69__components_company_edit_theme_company_edit_theme_component__["a" /* CompanyEditThemeComponent */],
+                __WEBPACK_IMPORTED_MODULE_70__components_company_edit_theme_container_company_edit_theme_container_component__["a" /* CompanyEditThemeContainerComponent */],
+                __WEBPACK_IMPORTED_MODULE_71__components_company_dashboard_company_dashboard_component__["a" /* CompanyDashboardComponent */],
+                __WEBPACK_IMPORTED_MODULE_72__components_user_survey_user_survey_component__["a" /* UserSurveyComponent */],
+                __WEBPACK_IMPORTED_MODULE_73__components_user_survey_singlepage_user_survey_singlepage_component__["a" /* UserSurveySinglepageComponent */],
+                __WEBPACK_IMPORTED_MODULE_74__components_user_survey_closed_user_survey_closed_component__["a" /* UserSurveyClosedComponent */],
+                __WEBPACK_IMPORTED_MODULE_75__components_user_survey_upcoming_user_survey_upcoming_component__["a" /* UserSurveyUpcomingComponent */],
+                __WEBPACK_IMPORTED_MODULE_76__components_count_down_timer_count_down_timer_component__["a" /* CountDownTimerComponent */],
+                __WEBPACK_IMPORTED_MODULE_77__components_user_survey_multiple_user_survey_multiple_component__["a" /* UserSurveyMultipleComponent */],
+                __WEBPACK_IMPORTED_MODULE_83__pipe_reverse_pipe__["a" /* ReversePipe */],
+                __WEBPACK_IMPORTED_MODULE_26__components_admin_side_bar_admin_side_bar_component__["a" /* AdminSideBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_27__components_admin_top_bar_admin_top_bar_component__["a" /* AdminTopBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__components_admin_manage_survey_category_admin_manage_survey_category_component__["a" /* AdminManageSurveyCategoryComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__components_admin_manage_organization_type_admin_manage_organization_type_component__["a" /* AdminManageOrganizationTypeComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__components_admin_manage_industry_admin_manage_industry_component__["a" /* AdminManageIndustryComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__components_admin_manage_survey_attender_type_admin_manage_survey_attender_type_component__["a" /* AdminManageSurveyAttenderTypeComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__components_company_users_company_users_component__["a" /* CompanyUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__components_company_top_bar_company_top_bar_component__["a" /* CompanyTopBarComponent */],
+                __WEBPACK_IMPORTED_MODULE_33__components_company_manage_user_groups_company_manage_user_groups_component__["a" /* CompanyManageUserGroupsComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__components_admin_login_admin_login_component__["a" /* AdminLoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_37__components_admin_users_admin_users_component__["a" /* AdminUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_admin_dashboard_admin_dashboard_component__["a" /* AdminDashboardComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_admin_company_admin_company_component__["a" /* AdminCompanyComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_admin_all_companies_admin_all_companies_component__["a" /* AdminAllCompaniesComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_admin_subscribed_admin_subscribed_component__["a" /* AdminSubscribedComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_admin_trial_admin_trial_component__["a" /* AdminTrialComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__components_admin_not_verified_admin_not_verified_component__["a" /* AdminNotVerifiedComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__components_admin_expired_admin_expired_component__["a" /* AdminExpiredComponent */],
+                __WEBPACK_IMPORTED_MODULE_46__components_admin_company_blocked_admin_company_blocked_component__["a" /* AdminCompanyBlockedComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__components_admin_company_deleted_admin_company_deleted_component__["a" /* AdminCompanyDeletedComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__components_admin_company_active_admin_company_active_component__["a" /* AdminCompanyActiveComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__components_admin_header_title_admin_header_title_component__["a" /* AdminHeaderTitleComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__components_admin_all_users_admin_all_users_component__["a" /* AdminAllUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__components_admin_active_users_admin_active_users_component__["a" /* AdminActiveUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__components_admin_blocked_users_admin_blocked_users_component__["a" /* AdminBlockedUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__components_admin_deleted_users_admin_deleted_users_component__["a" /* AdminDeletedUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__components_admin_request_users_admin_request_users_component__["a" /* AdminRequestUsersComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__components_admin_chatd3_admin_chatd3_component__["a" /* AdminChatd3Component */],
+                __WEBPACK_IMPORTED_MODULE_36__components_admin_chatd3pie_admin_chatd3pie_component__["a" /* AdminChatd3pieComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__components_company_login_company_login_component__["a" /* CompanyLoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__components_company_registration_company_registration_component__["a" /* CompanyRegistrationComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__components_company_additn_info_company_additn_info_component__["a" /* CompanyAdditnInfoComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__components_company_expired_page_company_expired_page_component__["a" /* CompanyExpiredPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__components_company_email_verification_company_email_verification_component__["a" /* CompanyEmailVerificationComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__components_company_profile_company_profile_component__["a" /* CompanyProfileComponent */],
+                __WEBPACK_IMPORTED_MODULE_61__components_user_response_email_user_response_email_component__["a" /* UserResponseEmailComponent */],
+                __WEBPACK_IMPORTED_MODULE_63__components_user_login_user_login_component__["a" /* UserLoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_64__components_user_registration_user_registration_component__["a" /* UserRegistrationComponent */],
+                __WEBPACK_IMPORTED_MODULE_65__components_newpie_newpie_component__["a" /* NewpieComponent */],
+                __WEBPACK_IMPORTED_MODULE_66__components_page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */],
+                __WEBPACK_IMPORTED_MODULE_62__components_company_chart2_company_chart2_component__["a" /* CompanyChart2Component */],
+                __WEBPACK_IMPORTED_MODULE_78__components_company_upgrade_company_upgrade_component__["a" /* CompanyUpgradeComponent */],
+                __WEBPACK_IMPORTED_MODULE_79__components_company_payment_company_payment_component__["a" /* CompanyPaymentComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__components_admin_plan_admin_plan_component__["a" /* AdminPlanComponent */],
+                __WEBPACK_IMPORTED_MODULE_86__components_user_survey_success_user_survey_success_component__["a" /* UserSurveySuccessComponent */],
+                __WEBPACK_IMPORTED_MODULE_87__components_user_test_user_test_component__["a" /* UserTestComponent */],
+                __WEBPACK_IMPORTED_MODULE_88__components_home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_89__components_home_nav_home_nav_component__["a" /* HomeNavComponent */],
+                __WEBPACK_IMPORTED_MODULE_90__components_plans_plans_component__["a" /* PlansComponent */]
             ],
             imports: [
-                platform_browser_1.BrowserModule,
-                forms_1.FormsModule,
-                forms_1.ReactiveFormsModule,
-                http_1.HttpModule,
-                animations_1.BrowserAnimationsModule,
-                animations_2.NoopAnimationsModule,
-                material_1.MatButtonModule,
-                material_1.MatCheckboxModule,
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormsModule"],
+                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["ReactiveFormsModule"],
+                __WEBPACK_IMPORTED_MODULE_5__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["b" /* NoopAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["b" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["e" /* MatCheckboxModule */],
                 DemoMaterialModule,
-                material_1.MatNativeDateModule,
-                ng2_dragula_1.DragulaModule,
-                angular2_flash_messages_1.FlashMessagesModule.forRoot(),
-                router_1.RouterModule.forRoot(appRoutes),
-                ngx_color_picker_1.ColorPickerModule,
-                core_2.AgmCoreModule.forRoot({
+                __WEBPACK_IMPORTED_MODULE_80__angular_material__["o" /* MatNativeDateModule */],
+                __WEBPACK_IMPORTED_MODULE_6_ng2_dragula_ng2_dragula__["DragulaModule"],
+                __WEBPACK_IMPORTED_MODULE_8_angular2_flash_messages__["FlashMessagesModule"].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* RouterModule */].forRoot(appRoutes),
+                __WEBPACK_IMPORTED_MODULE_68_ngx_color_picker__["a" /* ColorPickerModule */],
+                __WEBPACK_IMPORTED_MODULE_82__agm_core__["a" /* AgmCoreModule */].forRoot({
                     apiKey: 'AIzaSyCTu2njB-RY-TxKiuWx-O7yqYcfNT31k_8'
                 }),
-                angular_star_rating_1.StarRatingModule.forRoot(),
-                ngx_rating_1.RatingModule,
-                ng2_scroll_to_1.ScrollToModule.forRoot(),
+                __WEBPACK_IMPORTED_MODULE_84_angular_star_rating__["StarRatingModule"].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_85_ngx_rating__["RatingModule"],
+                __WEBPACK_IMPORTED_MODULE_91_ng2_scroll_to__["ScrollToModule"].forRoot(),
             ],
-            providers: [config_1.Config, admin_service_1.AdminService, company_service_1.CompanyService, xlsx_to_json_service_1.XlsxToJsonService, user_service_1.UserService],
-            bootstrap: [app_component_1.AppComponent]
+            providers: [__WEBPACK_IMPORTED_MODULE_7__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_12__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_13__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_10__services_xlsx_to_json_service__["a" /* XlsxToJsonService */], __WEBPACK_IMPORTED_MODULE_11__services_user_service__["a" /* UserService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
 }());
-exports.AppModule = AppModule;
+
 // platformBrowserDynamic().bootstrapModule(AppModule); 
 
 
@@ -411,7 +509,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}", ""]);
 
 // exports
 
@@ -424,15 +522,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-active-users/admin-active-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"col-md-10\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n   \r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n  "
+module.exports = "\r\n\r\n<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n   \r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"getId(row.email)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n   <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n   <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteUser(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>\r\n\r\n\r\n\r\n\r\n        \r\n                               \r\n          "
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-active-users/admin-active-users.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminActiveUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -442,11 +544,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminActiveUsersComponent = /** @class */ (function () {
     function AdminActiveUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -473,11 +574,17 @@ var AdminActiveUsersComponent = /** @class */ (function () {
             if (data.length == 0) {
                 _this.notExist = true;
             }
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
             console.log(_this.dataSource);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
+    };
+    AdminActiveUsersComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
     };
     AdminActiveUsersComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -584,26 +691,26 @@ var AdminActiveUsersComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminActiveUsersComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminActiveUsersComponent.prototype, "sort", void 0);
     AdminActiveUsersComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-active-users',
             template: __webpack_require__("../../../../../src/app/components/admin-active-users/admin-active-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-active-users/admin-active-users.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminActiveUsersComponent);
     return AdminActiveUsersComponent;
 }());
-exports.AdminActiveUsersComponent = AdminActiveUsersComponent;
+
 
 
 /***/ }),
@@ -616,7 +723,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .filter{\r\n    /* width: 5%; */\r\n    /* float: right;\r\n    clear: left; */\r\n    /* padding-bottom: 25px; */\r\n    margin-top: 10px;\r\n   \r\n  }\r\n  \r\n  h4{\r\n    text-align: center;\r\n}\r\n  \r\n  .noItemFound{\r\n  text-align: center;\r\n  background-color: #ffffff;\r\n  border-bottom: 1px solid lightgray;\r\n\r\n}\r\n  \r\n  .back-color{\r\n  color: #757575;\r\n  background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .filter{\r\n    /* width: 5%; */\r\n    /* float: right;\r\n    clear: left; */\r\n    /* padding-bottom: 25px; */\r\n    margin-top: 10px;\r\n   \r\n  }\r\n  \r\n  /* h4{\r\n    text-align: center;\r\n} */\r\n  \r\n  .noItemFound{\r\n  text-align: center;\r\n  background-color: #ffffff;\r\n  border-bottom: 1px solid lightgray;\r\n\r\n}\r\n  \r\n  .back-color{\r\n  color: #757575;\r\n  background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}", ""]);
 
 // exports
 
@@ -629,15 +736,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-all-companies/admin-all-companies.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-10\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\" >\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n\r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n\r\n<!--    \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div> -->\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n  "
+module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\" >\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n\r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n\r\n<!--    \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div> -->\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item >\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n  <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n  <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n   \r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                <h4 class=\"modal-title\">Message </h4>\r\n           </div>\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4>Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n            <button type=\"button\" (click)=\"deleteCompany(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-all-companies/admin-all-companies.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminAllCompaniesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -647,11 +758,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminAllCompaniesComponent = /** @class */ (function () {
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin user management
@@ -710,7 +820,7 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
         if (data.length == 0) {
             this.notExist = true;
         }
-        this.dataSource = new material_1.MatTableDataSource(data);
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
         // console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -755,6 +865,12 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
         filterValue = filterValue.trim(); // Remove whitespace
         filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
         this.dataSource.filter = filterValue;
+    };
+    AdminAllCompaniesComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
     };
     //delete company
     AdminAllCompaniesComponent.prototype.deleteCompany = function (id) {
@@ -814,25 +930,25 @@ var AdminAllCompaniesComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminAllCompaniesComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminAllCompaniesComponent.prototype, "sort", void 0);
     AdminAllCompaniesComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-all-companies',
             template: __webpack_require__("../../../../../src/app/components/admin-all-companies/admin-all-companies.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-all-companies/admin-all-companies.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminAllCompaniesComponent);
     return AdminAllCompaniesComponent;
 }());
-exports.AdminAllCompaniesComponent = AdminAllCompaniesComponent;
+
 
 
 /***/ }),
@@ -845,7 +961,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .example-tooltip-host {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    margin: 50px;\r\n  }\r\n  \r\n  .example-select {\r\n    margin: 0 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}", ""]);
 
 // exports
 
@@ -858,15 +974,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-all-users/admin-all-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"col-md-10\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n        \r\n                               \r\n          "
+module.exports = "\r\n\r\n<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"getId(row.email)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n  <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteUser(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>\r\n\r\n\r\n\r\n\r\n        \r\n                               \r\n          "
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-all-users/admin-all-users.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminAllUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -876,11 +996,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminAllUsersComponent = /** @class */ (function () {
     function AdminAllUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -908,11 +1027,17 @@ var AdminAllUsersComponent = /** @class */ (function () {
             if (data.length == 0) {
                 _this.notExist = true;
             }
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
             console.log(_this.dataSource);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
+    };
+    AdminAllUsersComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
     };
     AdminAllUsersComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1019,26 +1144,26 @@ var AdminAllUsersComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminAllUsersComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminAllUsersComponent.prototype, "sort", void 0);
     AdminAllUsersComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-all-users',
             template: __webpack_require__("../../../../../src/app/components/admin-all-users/admin-all-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-all-users/admin-all-users.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminAllUsersComponent);
     return AdminAllUsersComponent;
 }());
-exports.AdminAllUsersComponent = AdminAllUsersComponent;
+
 
 
 /***/ }),
@@ -1051,7 +1176,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n  \r\n  }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n  }\r\n  \r\n  svg path,\r\n  svg rect{\r\n    fill: #EC0C0C;\r\n  }", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n  \r\n  }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n  }\r\n  \r\n  svg path,\r\n  svg rect{\r\n    fill: #EC0C0C;\r\n  }\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n      padding: 7px 15px;\r\n      border-bottom: 1px solid #e5e5e5;\r\n      background: #da524f;\r\n  }\r\n  \r\n  .modal-title {\r\n      margin: 0;\r\n      line-height: 26px;\r\n      font-size: 15px;\r\n      color: #fff;\r\n  }\r\n  \r\n  .close {\r\n     \r\n      font-size: 21px;\r\n      font-weight: 400;\r\n      line-height: 28px;\r\n      color: #fff;\r\n      text-shadow: none;\r\n      filter: alpha(opacity=20);\r\n      opacity: inherit;\r\n      padding-top:0px;\r\n  }", ""]);
 
 // exports
 
@@ -1064,15 +1189,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"col-md-10\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              \r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  \r\n  \r\n  "
+module.exports = "\r\n<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n      <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"getId(row.email)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              \r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockUser(row.email)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  \r\n  \r\n  <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n  <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteUser(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>\r\n\r\n\r\n\r\n\r\n        \r\n                               \r\n          "
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminBlockedUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1082,11 +1211,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminBlockedUsersComponent = /** @class */ (function () {
     function AdminBlockedUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -1114,11 +1242,17 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
             if (data.length == 0) {
                 _this.notExist = true;
             }
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
             console.log(_this.dataSource);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
+    };
+    AdminBlockedUsersComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
     };
     AdminBlockedUsersComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1204,26 +1338,26 @@ var AdminBlockedUsersComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminBlockedUsersComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminBlockedUsersComponent.prototype, "sort", void 0);
     AdminBlockedUsersComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-blocked-users',
             template: __webpack_require__("../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-blocked-users/admin-blocked-users.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminBlockedUsersComponent);
     return AdminBlockedUsersComponent;
 }());
-exports.AdminBlockedUsersComponent = AdminBlockedUsersComponent;
+
 
 
 /***/ }),
@@ -1254,10 +1388,16 @@ module.exports = "\r\n<h1>{{title}}</h1>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n<d
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-chatd3/admin-chatd3.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminChatd3Component; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_socket_io_client__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1267,16 +1407,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 // import * as d3 from 'd3-selection';
 // import * as d3Scale from 'd3-scale';
 // import * as d3Array from 'd3-array';
 // import * as d3Axis from 'd3-axis';
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+
+
+
+
 var AdminChatd3Component = /** @class */ (function () {
     function AdminChatd3Component(adminService, routes, config) {
         this.adminService = adminService;
@@ -1287,7 +1426,7 @@ var AdminChatd3Component = /** @class */ (function () {
         this.barchart = [];
         this.margin = { top: 20, right: 20, bottom: 30, left: 40 };
         this.graphData = false;
-        this.socket = socketIo(config.siteUrl);
+        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__(config.siteUrl);
     }
     AdminChatd3Component.prototype.refresh = function () {
         var _this = this;
@@ -1533,7 +1672,7 @@ var AdminChatd3Component = /** @class */ (function () {
         //       .attr("height", (d) => this.height - this.y(d.count) );
     };
     AdminChatd3Component = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-chatd3',
             template: __webpack_require__("../../../../../src/app/components/admin-chatd3/admin-chatd3.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-chatd3/admin-chatd3.component.css")]
@@ -1547,12 +1686,12 @@ var AdminChatd3Component = /** @class */ (function () {
         // Last Modified : 11-01-2018
         // Desc          : company vs survey
         ,
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router, config_1.Config])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__config_config__["a" /* Config */]])
     ], AdminChatd3Component);
     return AdminChatd3Component;
 }());
-exports.AdminChatd3Component = AdminChatd3Component;
+
 // -----------------------------------End------------------------------------------ 
 
 
@@ -1584,10 +1723,16 @@ module.exports = "\r\n\r\n<h1>{{title}}</h1>\r\n\r\n<div *ngIf=\"graphData; else
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-chatd3pie/admin-chatd3pie.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminChatd3pieComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_socket_io_client__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1597,15 +1742,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 // import * as d3 from 'd3-selection';
 // import * as d3Scale from 'd3-scale';
 // import * as d3Shape from 'd3-shape';
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+
+
+
+
 var AdminChatd3pieComponent = /** @class */ (function () {
     function AdminChatd3pieComponent(adminService, routes, config) {
         this.adminService = adminService;
@@ -1615,7 +1759,7 @@ var AdminChatd3pieComponent = /** @class */ (function () {
         this.margin = { top: 80, right: 20, bottom: 30, left: 50 };
         this.piechart = [];
         this.graphData = true;
-        this.socket = socketIo(config.siteUrl);
+        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__(config.siteUrl);
         this.width = 900 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
         this.radius = Math.min(this.width, this.height) / 2;
@@ -1872,7 +2016,7 @@ var AdminChatd3pieComponent = /** @class */ (function () {
         //                   .text((d: any) => d.data.status);
     };
     AdminChatd3pieComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-chatd3pie',
             template: __webpack_require__("../../../../../src/app/components/admin-chatd3pie/admin-chatd3pie.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-chatd3pie/admin-chatd3pie.component.css")]
@@ -1886,12 +2030,12 @@ var AdminChatd3pieComponent = /** @class */ (function () {
         // Last Modified : 11-01-2018
         // Desc          : company vs status
         ,
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router, config_1.Config])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__config_config__["a" /* Config */]])
     ], AdminChatd3pieComponent);
     return AdminChatd3pieComponent;
 }());
-exports.AdminChatd3pieComponent = AdminChatd3pieComponent;
+
 // -----------------------------------End------------------------------------------ 
 
 
@@ -1905,7 +2049,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}", ""]);
 
 // exports
 
@@ -1918,15 +2062,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-company-active/admin-company-active.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-10\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Subscribed\">Subscribed</mat-option>\r\n                        <mat-option value=\"Trail\">Trail</mat-option>\r\n                        <mat-option value=\"Expired\">Expired</mat-option>\r\n                        <mat-option value=\"Not Verified\">Not Verified</mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n        \r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <!-- <button *ngIf=\"row.block_status==true && row.delete_status==false\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span><a  (click)=\"unblockCompany(row._id)\">Unblock</a></span>\r\n              </button> -->\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  "
+module.exports = "\r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Subscribed\">Subscribed</mat-option>\r\n                        <mat-option value=\"Trail\">Trail</mat-option>\r\n                        <mat-option value=\"Expired\">Expired</mat-option>\r\n                        <mat-option value=\"Not Verified\">Not Verified</mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n        \r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n     <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n  \r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"   (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <!-- <button *ngIf=\"row.block_status==true && row.delete_status==false\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span><a  (click)=\"unblockCompany(row._id)\">Unblock</a></span>\r\n              </button> -->\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n   <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n   <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteCompany(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-company-active/admin-company-active.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminCompanyActiveComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1936,11 +2084,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminCompanyActiveComponent = /** @class */ (function () {
     function AdminCompanyActiveComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -2005,7 +2152,7 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
         if (data.length == 0) {
             this.notExist = true;
         }
-        this.dataSource = new material_1.MatTableDataSource(data);
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
         console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -2072,6 +2219,12 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
             }
         });
     };
+    AdminCompanyActiveComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
+    };
     //block company
     AdminCompanyActiveComponent.prototype.blockCompany = function (id) {
         var _this = this;
@@ -2094,26 +2247,26 @@ var AdminCompanyActiveComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminCompanyActiveComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminCompanyActiveComponent.prototype, "sort", void 0);
     AdminCompanyActiveComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-company-active',
             template: __webpack_require__("../../../../../src/app/components/admin-company-active/admin-company-active.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-active/admin-company-active.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminCompanyActiveComponent);
     return AdminCompanyActiveComponent;
 }());
-exports.AdminCompanyActiveComponent = AdminCompanyActiveComponent;
+
 
 
 /***/ }),
@@ -2126,7 +2279,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}", ""]);
 
 // exports
 
@@ -2139,15 +2292,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-10\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Subscribed\">Subscribed</mat-option>\r\n                        <mat-option value=\"Trail\">Trail</mat-option>\r\n                        <mat-option value=\"Expired\">Expired</mat-option>\r\n                        <mat-option value=\"Not Verified\">Not Verified</mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <!-- <button *ngIf=\"row.block_status==false && row.delete_status==false\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span><a  (click)=\"blockCompany(row._id)\">Block</a></span>\r\n              </button> -->\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  \r\n  \r\n  "
+module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Subscribed\">Subscribed</mat-option>\r\n                        <mat-option value=\"Trail\">Trail</mat-option>\r\n                        <mat-option value=\"Expired\">Expired</mat-option>\r\n                        <mat-option value=\"Not Verified\">Not Verified</mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <!-- <button *ngIf=\"row.block_status==false && row.delete_status==false\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span><a  (click)=\"blockCompany(row._id)\">Block</a></span>\r\n              </button> -->\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  \r\n  \r\n  <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n  <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteCompany(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminCompanyBlockedComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2157,11 +2314,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminCompanyBlockedComponent = /** @class */ (function () {
     function AdminCompanyBlockedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -2226,7 +2382,7 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         if (data.length == 0) {
             this.notExist = true;
         }
-        this.dataSource = new material_1.MatTableDataSource(data);
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
         console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -2266,6 +2422,12 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         });
         // ---------------------------------End-------------------------------------------
         this.refresh();
+    };
+    AdminCompanyBlockedComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
     };
     // -----------------------------------End------------------------------------------
     // ---------------------------------Start-------------------------------------------
@@ -2333,26 +2495,26 @@ var AdminCompanyBlockedComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminCompanyBlockedComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminCompanyBlockedComponent.prototype, "sort", void 0);
     AdminCompanyBlockedComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-company-blocked',
             template: __webpack_require__("../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-blocked/admin-company-blocked.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminCompanyBlockedComponent);
     return AdminCompanyBlockedComponent;
 }());
-exports.AdminCompanyBlockedComponent = AdminCompanyBlockedComponent;
+
 
 
 /***/ }),
@@ -2378,15 +2540,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n\r\n  <div class=\"col-md-10\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n   \r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  "
+module.exports = "\r\n\r\n\r\n  <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n      <flash-messages></flash-messages>\r\n   \r\n            <div class=\"example-header\" >\r\n                <mat-form-field>\r\n                  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                </mat-form-field>\r\n            </div>\r\n         \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"companystatus\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> COMPANY STATUS </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.cmp_status}}</mat-cell>\r\n    </ng-container>\r\n   \r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  "
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminCompanyDeletedComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2396,11 +2562,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminCompanyDeletedComponent = /** @class */ (function () {
     function AdminCompanyDeletedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -2429,7 +2594,7 @@ var AdminCompanyDeletedComponent = /** @class */ (function () {
             if (data.length == 0) {
                 _this.notExist = true;
             }
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
             console.log(_this.dataSource);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
@@ -2486,26 +2651,26 @@ var AdminCompanyDeletedComponent = /** @class */ (function () {
         this.dataSource.filter = filterValue;
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminCompanyDeletedComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminCompanyDeletedComponent.prototype, "sort", void 0);
     AdminCompanyDeletedComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-company-deleted',
             template: __webpack_require__("../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-company-deleted/admin-company-deleted.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminCompanyDeletedComponent);
     return AdminCompanyDeletedComponent;
 }());
-exports.AdminCompanyDeletedComponent = AdminCompanyDeletedComponent;
+
 
 
 /***/ }),
@@ -2536,10 +2701,13 @@ module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n  
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-company/admin-company.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminCompanyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2549,10 +2717,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+
+
+
 var AdminCompanyComponent = /** @class */ (function () {
     function AdminCompanyComponent(adminService, routes) {
         this.adminService = adminService;
@@ -2602,16 +2769,16 @@ var AdminCompanyComponent = /** @class */ (function () {
         this.title = page + ' Users List';
     };
     AdminCompanyComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-admin-company',
             template: __webpack_require__("../../../../../src/app/components/admin-company/admin-company.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-company/admin-company.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], AdminCompanyComponent);
     return AdminCompanyComponent;
 }());
-exports.AdminCompanyComponent = AdminCompanyComponent;
+
 
 
 /***/ }),
@@ -2642,10 +2809,13 @@ module.exports = "<body>\r\n\r\n    <div id=\"wrapper\">\r\n\r\n        <!-- Nav
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-dashboard/admin-dashboard.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminDashboardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2655,10 +2825,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
 var AdminDashboardComponent = /** @class */ (function () {
     function AdminDashboardComponent(adminService, routes) {
         this.adminService = adminService;
@@ -2700,16 +2869,16 @@ var AdminDashboardComponent = /** @class */ (function () {
         // ---------------------------------End-------------------------------------------
     };
     AdminDashboardComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-dashboard',
             template: __webpack_require__("../../../../../src/app/components/admin-dashboard/admin-dashboard.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-dashboard/admin-dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], AdminDashboardComponent);
     return AdminDashboardComponent;
 }());
-exports.AdminDashboardComponent = AdminDashboardComponent;
+
 
 
 /***/ }),
@@ -2735,15 +2904,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"col-md-10\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n  \r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  "
+module.exports = "\r\n<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"username\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n  </ng-container>\r\n  \r\n  \r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  "
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminDeletedUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2753,11 +2926,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminDeletedUsersComponent = /** @class */ (function () {
     function AdminDeletedUsersComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -2785,7 +2957,7 @@ var AdminDeletedUsersComponent = /** @class */ (function () {
             if (data.length == 0) {
                 _this.notExist = true;
             }
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
             console.log(_this.dataSource);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
@@ -2828,26 +3000,26 @@ var AdminDeletedUsersComponent = /** @class */ (function () {
         this.refresh();
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminDeletedUsersComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminDeletedUsersComponent.prototype, "sort", void 0);
     AdminDeletedUsersComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-deleted-users',
             template: __webpack_require__("../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-deleted-users/admin-deleted-users.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminDeletedUsersComponent);
     return AdminDeletedUsersComponent;
 }());
-exports.AdminDeletedUsersComponent = AdminDeletedUsersComponent;
+
 
 
 /***/ }),
@@ -2860,7 +3032,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  wi.filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  wi.filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}", ""]);
 
 // exports
 
@@ -2873,15 +3045,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-expired/admin-expired.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-10\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n\r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n        \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n  "
+module.exports = "\r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n\r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n        \r\n      <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n   <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n   <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteCompany(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-expired/admin-expired.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminExpiredComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2891,11 +3067,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminExpiredComponent = /** @class */ (function () {
     function AdminExpiredComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -2950,12 +3125,18 @@ var AdminExpiredComponent = /** @class */ (function () {
             });
         }
     };
+    AdminExpiredComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
+    };
     AdminExpiredComponent.prototype.loadToDataTable = function (data) {
         this.notExist = false;
         if (data.length == 0) {
             this.notExist = true;
         }
-        this.dataSource = new material_1.MatTableDataSource(data);
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
         console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -3083,26 +3264,26 @@ var AdminExpiredComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminExpiredComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminExpiredComponent.prototype, "sort", void 0);
     AdminExpiredComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-expired',
             template: __webpack_require__("../../../../../src/app/components/admin-expired/admin-expired.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-expired/admin-expired.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminExpiredComponent);
     return AdminExpiredComponent;
 }());
-exports.AdminExpiredComponent = AdminExpiredComponent;
+
 
 
 /***/ }),
@@ -3133,10 +3314,11 @@ module.exports = "<div class=\"row\">\r\n  <div class=\"col-lg-10\">\r\n      <h
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-header-title/admin-header-title.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminHeaderTitleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3146,15 +3328,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var AdminHeaderTitleComponent = /** @class */ (function () {
     function AdminHeaderTitleComponent() {
     }
     AdminHeaderTitleComponent.prototype.ngOnInit = function () {
     };
     AdminHeaderTitleComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-header-title',
             template: __webpack_require__("../../../../../src/app/components/admin-header-title/admin-header-title.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-header-title/admin-header-title.component.css")],
@@ -3174,7 +3355,7 @@ var AdminHeaderTitleComponent = /** @class */ (function () {
     ], AdminHeaderTitleComponent);
     return AdminHeaderTitleComponent;
 }());
-exports.AdminHeaderTitleComponent = AdminHeaderTitleComponent;
+
 
 
 /***/ }),
@@ -3205,10 +3386,14 @@ module.exports = "<body class=\"login-body\">\r\n   <div class=\"login-page\">\r
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-login/admin-login.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminLoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3218,11 +3403,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
 var AdminLoginComponent = /** @class */ (function () {
     function AdminLoginComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -3301,16 +3485,16 @@ var AdminLoginComponent = /** @class */ (function () {
         });
     };
     AdminLoginComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-login',
             template: __webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-login/admin-login.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["z" /* MatSnackBar */]])
     ], AdminLoginComponent);
     return AdminLoginComponent;
 }());
-exports.AdminLoginComponent = AdminLoginComponent;
+
 
 
 /***/ }),
@@ -3341,10 +3525,16 @@ module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n    
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminManageIndustryComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3354,12 +3544,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
+
 var AdminManageIndustryComponent = /** @class */ (function () {
     function AdminManageIndustryComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
@@ -3466,7 +3655,7 @@ var AdminManageIndustryComponent = /** @class */ (function () {
                     id: item._id
                 });
             });
-            _this.dataSource = new material_1.MatTableDataSource(users);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["E" /* MatTableDataSource */](users);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -3658,40 +3847,40 @@ var AdminManageIndustryComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */])
     ], AdminManageIndustryComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */])
     ], AdminManageIndustryComponent.prototype, "sort", void 0);
     __decorate([
-        core_1.ViewChild('f'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f'),
         __metadata("design:type", Object)
     ], AdminManageIndustryComponent.prototype, "f", void 0);
     __decorate([
-        core_1.ViewChild('f1'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f1'),
         __metadata("design:type", Object)
     ], AdminManageIndustryComponent.prototype, "f1", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminManageIndustryComponent.prototype, "closeBtn", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminManageIndustryComponent.prototype, "closeBtn1", void 0);
     AdminManageIndustryComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-manage-industry',
             template: __webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-industry/admin-manage-industry.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["z" /* MatSnackBar */]])
     ], AdminManageIndustryComponent);
     return AdminManageIndustryComponent;
 }());
-exports.AdminManageIndustryComponent = AdminManageIndustryComponent;
+
 
 
 /***/ }),
@@ -3722,10 +3911,16 @@ module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminManageOrganizationTypeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3735,13 +3930,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
+
 var AdminManageOrganizationTypeComponent = /** @class */ (function () {
     function AdminManageOrganizationTypeComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
@@ -3854,7 +4048,7 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
                     id: item._id
                 });
             });
-            _this.dataSource = new material_1.MatTableDataSource(users);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["E" /* MatTableDataSource */](users);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -4050,40 +4244,40 @@ var AdminManageOrganizationTypeComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */])
     ], AdminManageOrganizationTypeComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */])
     ], AdminManageOrganizationTypeComponent.prototype, "sort", void 0);
     __decorate([
-        core_1.ViewChild('f'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f'),
         __metadata("design:type", Object)
     ], AdminManageOrganizationTypeComponent.prototype, "f", void 0);
     __decorate([
-        core_1.ViewChild('f1'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f1'),
         __metadata("design:type", Object)
     ], AdminManageOrganizationTypeComponent.prototype, "f1", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminManageOrganizationTypeComponent.prototype, "closeBtn", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminManageOrganizationTypeComponent.prototype, "closeBtn1", void 0);
     AdminManageOrganizationTypeComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-manage-organization-type',
             template: __webpack_require__("../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-organization-type/admin-manage-organization-type.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["z" /* MatSnackBar */]])
     ], AdminManageOrganizationTypeComponent);
     return AdminManageOrganizationTypeComponent;
 }());
-exports.AdminManageOrganizationTypeComponent = AdminManageOrganizationTypeComponent;
+
 
 
 /***/ }),
@@ -4114,10 +4308,16 @@ module.exports = "<body>\r\n    \r\n    <div id=\"wrapper\">\r\n              \r
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminManageSurveyAttenderTypeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4127,13 +4327,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
+
 var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
     function AdminManageSurveyAttenderTypeComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
@@ -4242,7 +4441,7 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
                     id: item._id
                 });
             });
-            _this.dataSource = new material_1.MatTableDataSource(users);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["E" /* MatTableDataSource */](users);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -4429,40 +4628,40 @@ var AdminManageSurveyAttenderTypeComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */])
     ], AdminManageSurveyAttenderTypeComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */])
     ], AdminManageSurveyAttenderTypeComponent.prototype, "sort", void 0);
     __decorate([
-        core_1.ViewChild('f'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f'),
         __metadata("design:type", Object)
     ], AdminManageSurveyAttenderTypeComponent.prototype, "f", void 0);
     __decorate([
-        core_1.ViewChild('f1'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f1'),
         __metadata("design:type", Object)
     ], AdminManageSurveyAttenderTypeComponent.prototype, "f1", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminManageSurveyAttenderTypeComponent.prototype, "closeBtn", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminManageSurveyAttenderTypeComponent.prototype, "closeBtn1", void 0);
     AdminManageSurveyAttenderTypeComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-manage-survey-attender-type',
             template: __webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-survey-attender-type/admin-manage-survey-attender-type.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["z" /* MatSnackBar */]])
     ], AdminManageSurveyAttenderTypeComponent);
     return AdminManageSurveyAttenderTypeComponent;
 }());
-exports.AdminManageSurveyAttenderTypeComponent = AdminManageSurveyAttenderTypeComponent;
+
 
 
 /***/ }),
@@ -4493,10 +4692,16 @@ module.exports = "<body>\r\n  \r\n  <div id=\"wrapper\">\r\n            \r\n    
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminManageSurveyCategoryComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4506,13 +4711,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
+
 var AdminManageSurveyCategoryComponent = /** @class */ (function () {
     function AdminManageSurveyCategoryComponent(_adminService, _flashMessagesService, routes, route, snackBar) {
         this._adminService = _adminService;
@@ -4624,7 +4828,7 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
                     id: item._id
                 });
             });
-            _this.dataSource = new material_1.MatTableDataSource(users);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["E" /* MatTableDataSource */](users);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -4809,40 +5013,40 @@ var AdminManageSurveyCategoryComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */])
     ], AdminManageSurveyCategoryComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */])
     ], AdminManageSurveyCategoryComponent.prototype, "sort", void 0);
     __decorate([
-        core_1.ViewChild('f'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f'),
         __metadata("design:type", Object)
     ], AdminManageSurveyCategoryComponent.prototype, "f", void 0);
     __decorate([
-        core_1.ViewChild('f1'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f1'),
         __metadata("design:type", Object)
     ], AdminManageSurveyCategoryComponent.prototype, "f1", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminManageSurveyCategoryComponent.prototype, "closeBtn", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminManageSurveyCategoryComponent.prototype, "closeBtn1", void 0);
     AdminManageSurveyCategoryComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'manage-survey-category',
             template: __webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-manage-survey-category/admin-manage-survey-category.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, router_1.ActivatedRoute, material_2.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["z" /* MatSnackBar */]])
     ], AdminManageSurveyCategoryComponent);
     return AdminManageSurveyCategoryComponent;
 }());
-exports.AdminManageSurveyCategoryComponent = AdminManageSurveyCategoryComponent;
+
 
 
 /***/ }),
@@ -4855,7 +5059,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -4868,15 +5072,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-not-verified/admin-not-verified.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-10\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n   \r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  "
+module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n   \r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n   \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"    (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n   <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n   <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteCompany(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-not-verified/admin-not-verified.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminNotVerifiedComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4886,11 +5094,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminNotVerifiedComponent = /** @class */ (function () {
     function AdminNotVerifiedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -4948,7 +5155,7 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
         if (data.length == 0) {
             this.notExist = true;
         }
-        this.dataSource = new material_1.MatTableDataSource(data);
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
         console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -4988,6 +5195,12 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
         });
         // ---------------------------------End-------------------------------------------    
         this.refresh();
+    };
+    AdminNotVerifiedComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
     };
     // -----------------------------------End------------------------------------------  
     // ---------------------------------Start-------------------------------------------
@@ -5076,26 +5289,26 @@ var AdminNotVerifiedComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminNotVerifiedComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminNotVerifiedComponent.prototype, "sort", void 0);
     AdminNotVerifiedComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-not-verified',
             template: __webpack_require__("../../../../../src/app/components/admin-not-verified/admin-not-verified.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-not-verified/admin-not-verified.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminNotVerifiedComponent);
     return AdminNotVerifiedComponent;
 }());
-exports.AdminNotVerifiedComponent = AdminNotVerifiedComponent;
+
 
 
 /***/ }),
@@ -5121,15 +5334,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-plan/admin-plan.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n                    <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar></admin-side-bar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                                        <div class=\"col-md-2\">\r\n                                          <nav class=\"nav-sidebar\">\r\n                                              <ul class=\"nav tabs buttonleft\">\r\n                                                    <li >\r\n                                                      <button  class=\"btn btn-danger addnewbtn\" (click)=\"addNewplan()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New Plan</button>\r\n                                                    </li>\r\n                                              \r\n                                                                    \r\n                                              </ul>\r\n                                            </nav>\r\n                                    </div>\r\n                                    <div class=\"col-md-8\">\r\n                                        <div class=\"row\">\r\n                                        <div class=\"col-md-11 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n                                            <div class=\"\"  >\r\n                                                <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                            <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                              <animateTransform attributeType=\"xml\"\r\n                                                attributeName=\"transform\"\r\n                                                type=\"rotate\"\r\n                                                from=\"0 25 25\"\r\n                                                to=\"360 25 25\"\r\n                                                dur=\"0.6s\"\r\n                                                repeatCount=\"indefinite\"/>\r\n                                              </path>\r\n                                            </svg>\r\n                                        </div>\r\n                                        </div>\r\n                                        <flash-messages></flash-messages>\r\n                                     \r\n                                              <div class=\"example-header\" >\r\n                                                  <mat-form-field>\r\n                                                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                                  </mat-form-field>\r\n                                              </div>\r\n                                           \r\n                                        <div class=\"example-container mat-elevation-z8 \">\r\n                                        <mat-table [dataSource]=\"dataSource\" matSort>\r\n                                         <ng-container matColumnDef=\"slno\">\r\n                                         <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                                         <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                                        </ng-container>\r\n                                                <ng-container matColumnDef=\"planname\">\r\n                                                   <mat-header-cell *matHeaderCellDef mat-sort-header> PLAN NAME</mat-header-cell>\r\n                                                     <mat-cell *matCellDef=\"let row\"> {{row.plan_name}}</mat-cell>\r\n                                                 </ng-container>\r\n                                                 <ng-container matColumnDef=\"price\">\r\n                                                    <mat-header-cell *matHeaderCellDef mat-sort-header> PRICE</mat-header-cell>\r\n                                                      <mat-cell *matCellDef=\"let row\"> {{row.plan_price}}</mat-cell>\r\n                                                  </ng-container>\r\n                                                  <ng-container matColumnDef=\"bestvalue\">\r\n                                                      <mat-header-cell *matHeaderCellDef mat-sort-header> BEST VALUE</mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let row\"> \r\n                                                         \r\n                                                           <mat-slide-toggle   class=\"example-margin\" name=\"best\" [(ngModel)]=\"row.is_best_value\"  (change)=\"onChange(row._id,row.is_best_value)\"   [checked]=\"row.is_best_value\" >\r\n\r\n                                                      </mat-slide-toggle></mat-cell>\r\n                                                    </ng-container>\r\n                                                  <ng-container  matColumnDef=\"action\">\r\n                                                      <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                                        <mat-menu #menu=\"matMenu\">\r\n                                                            <button  mat-menu-item disabled  *ngIf=\"row.status==false\"(click)=\"getEditId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                                <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                                <span>Edit</span>\r\n                                                                </button>\r\n                                                          <button  mat-menu-item  *ngIf=\"row.status==true\"(click)=\"getEditId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                            <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                            <span>Edit</span>\r\n                                                            </button>\r\n\r\n                                                          \r\n                                                        <button mat-menu-item *ngIf=\"row.status==true || row.status==false \"  (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                            <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                            <span>Delete</span>\r\n                                                        </button>\r\n                                                        </mat-menu> </mat-cell>\r\n                                              \r\n                                                     </ng-container>\r\n                                       \r\n                                    \r\n                                \r\n                                                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                                   </mat-row>\r\n                                                  </mat-table>\r\n                                                   <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n\r\n                      <!-- -------------------------Modal -add plan------------------------------ -->\r\n\r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                              <h4 class=\"modal-title\">Add New Plan</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"addPlan(newPlan);\" novalidate >\r\n                          \r\n                              <div class=\"form-group\" >\r\n                                <div class=\"example-container\">\r\n                                  <mat-form-field>\r\n                                    <input matInput placeholder=\"Plan Name\"  name =\"planname\" [(ngModel)]=\"newPlan.planname\"  required>\r\n                                  </mat-form-field>\r\n                                \r\n                                  <mat-form-field>\r\n                                    <input matInput placeholder=\"Price\" type=\"number\" min=\"1\"  class=\"example-right-align\"  name =\"planprice\" [(ngModel)]=\"newPlan.planprice\"  required>\r\n                                    <span matPrefix>₹&nbsp;</span>\r\n                                    <!-- <span matSuffix>.00</span> -->\r\n                                  </mat-form-field>\r\n                                \r\n                                  <mat-form-field>\r\n\r\n                                    <mat-select placeholder=\"No of survey\"  name=\"surveyno\"  [(ngModel)]=\"newPlan.surveyno\" required>\r\n\r\n                                      <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                      <mat-option value=\"limited\">limited</mat-option>\r\n                                    \r\n                                    </mat-select>\r\n                                  </mat-form-field>\r\n\r\n                                  \r\n                                    \r\n                                  <mat-form-field *ngIf=\"newPlan.surveyno == 'limited'\" >\r\n                                      <input  matInput placeholder=\"value\" type=\"number\" name=\"value1\"  [(ngModel)]=\"newPlan.value1\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                    </mat-form-field>\r\n                                  \r\n                                  <mat-form-field>\r\n                                    <mat-select placeholder=\"No of Question\"  name=\"surveyqtno\"  [(ngModel)]=\"newPlan.surveyqtno\" required>\r\n                                      <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                      <mat-option value=\"limited\">limited</mat-option>\r\n                                    \r\n                                    </mat-select>\r\n      \r\n                                  </mat-form-field>\r\n                                  <mat-form-field *ngIf=\"newPlan.surveyqtno == 'limited'\" >\r\n                                      <input  matInput placeholder=\"value\" type=\"number\"name=\"value2\"  [(ngModel)]=\"newPlan.value2\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                    </mat-form-field>\r\n                                  <mat-form-field>\r\n                                      <mat-select placeholder=\"No of Survey Attenders\"   name=\"surveyattno\"  [(ngModel)]=\"newPlan.surveyattno\" required>\r\n                                        <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                        <mat-option value=\"limited\">limited</mat-option>\r\n                                      \r\n                                      </mat-select>\r\n                                    </mat-form-field>\r\n                                    <mat-form-field *ngIf=\"newPlan.surveyattno == 'limited'\" >\r\n                                        <input  matInput placeholder=\"value\" type=\"number\" name=\"value3\"  [(ngModel)]=\"newPlan.value3\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                      </mat-form-field>\r\n                                  <section class=\"example-section\">\r\n                                    Excel import\r\n                                    <mat-slide-toggle class=\"example-margin\" name=\"eximport\" [(ngModel)]=\"newPlan.eximport\" [checked]=\"newPlan.eximport\"></mat-slide-toggle>\r\n                                        \r\n                                       \r\n                                    \r\n                                  </section>\r\n                                  <section class=\"example-section\">\r\n                                      Survey Logic \r\n                                      <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"newPlan.skip\" [checked]=\"newPlan.skip\">\r\n                                          \r\n                                         </mat-slide-toggle>\r\n                                    </section>\r\n\r\n                                </div>\r\n                                    \r\n                              </div>\r\n                              <br>\r\n                              <!-- <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                             \r\n\r\n\r\n                              <div class=\"row\">\r\n                                  <div class=\"col-md-4\">\r\n                                      <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                          \r\n                                        </div>\r\n                                        <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                               <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                               width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                           <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                             <animateTransform attributeType=\"xml\"\r\n                                               attributeName=\"transform\"\r\n                                               type=\"rotate\"\r\n                                               from=\"0 25 25\"\r\n                                               to=\"360 25 25\"\r\n                                               dur=\"0.6s\"\r\n                                               repeatCount=\"indefinite\"/>\r\n                                             </path>\r\n                                           </svg>\r\n                                        </div>\r\n                                         \r\n                                      </div>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n\r\n <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n    <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                <h4 class=\"modal-title\">Message </h4>\r\n           </div>\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4 class=\"textalign\">Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" >Close</button>\r\n            <button type=\"button\" (click)=\"deletePlan(id)\" class=\"btn btn-danger\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n\r\n    \r\n\r\n<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->\r\n<div id=\"myModal2\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">update plan</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n    <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && updatePlan(plan);\" novalidate>\r\n    \r\n      <div class=\"form-group\" >\r\n        <div class=\"example-container\">\r\n                 \r\n                <mat-form-field>\r\n                  <input matInput placeholder=\"Plan Name\"  name =\"plan_name\" [(ngModel)]=\"plan.plan_name\"  required>\r\n                </mat-form-field>\r\n           <div *ngIf=\"!disablePrice\">\r\n                <mat-form-field class=\"inputfileds\">\r\n          \r\n                    <input matInput placeholder=\"Price\" type=\"number\" min=\"1\"  class=\"example-right-align\"  name =\"plan_price\" [(ngModel)]=\"plan.plan_price\"  required>\r\n                    <span matPrefix>₹&nbsp;</span>\r\n                    <!-- <span matSuffix>.00</span> -->\r\n                 \r\n                </mat-form-field>\r\n              </div>\r\n              <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"No of survey\"  name=\"no_survey\"  [(ngModel)]=\"plan.numofsurvey\" required>\r\n                    \r\n                    <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                    <mat-option value=\"limited\">limited</mat-option>\r\n                                                        \r\n                  </mat-select>\r\n              </mat-form-field>\r\n              <mat-form-field *ngIf=\"plan.numofsurvey == 'limited'\" >\r\n                    <input  matInput placeholder=\"value\" type=\"number\" name=\"value1\"  [(ngModel)]=\"plan.no_survey\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n              </mat-form-field>\r\n\r\n\r\n              <mat-form-field class=\"inputfileds\">\r\n                <mat-select placeholder=\"No of survey Question\"  name=\"no_question\"  [(ngModel)]=\"plan.numofqtn\" required>\r\n                  \r\n                  <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                  <mat-option value=\"limited\">limited</mat-option>\r\n                                                      \r\n                </mat-select>\r\n            </mat-form-field>\r\n            <mat-form-field *ngIf=\"plan.numofqtn == 'limited'\" >\r\n                  <input  matInput placeholder=\"value\" type=\"number\" name=\"value2\"  [(ngModel)]=\"plan.no_question\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n            </mat-form-field>\r\n            \r\n            <mat-form-field class=\"inputfileds\">\r\n              <mat-select placeholder=\"No of Survey Attenders\"   name=\"no_survey_attenders\"   [(ngModel)]=\"plan.numofsurveyattn\" required>\r\n                \r\n                <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                <mat-option value=\"limited\">limited</mat-option>\r\n                                                    \r\n              </mat-select>\r\n          </mat-form-field>\r\n          <mat-form-field *ngIf=\"plan.numofsurveyattn == 'limited'\" >\r\n                <input  matInput placeholder=\"value\" type=\"number\" name=\"value3\"  [(ngModel)]=\"plan.no_survey_attenders\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n          </mat-form-field>\r\n\r\n          <section class=\"example-section\">\r\n            Excel import\r\n            <mat-slide-toggle class=\"example-margin\" name=\"eximport\" [(ngModel)]=\"plan.excel_import\" [checked]=\"plan.excel_import\"></mat-slide-toggle>\r\n                \r\n               \r\n            \r\n          </section>\r\n          <section class=\"example-section\">\r\n              Survey Logic \r\n              <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"plan.survey_logic\" [checked]=\"plan.survey_logic\">\r\n                  \r\n                 </mat-slide-toggle>\r\n            </section>\r\n          \r\n              </div>\r\n        </div>\r\n        <!-- <div *ngIf=\"showSpinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n        <br>\r\n     \r\n      \r\n        <div class=\"row\">\r\n            <div class=\"col-md-4\">\r\n                <button type= \"submit\"  class=\"btn btn-danger ourbutton\" >Update</button>\r\n    \r\n                  </div>\r\n                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                         <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                       <animateTransform attributeType=\"xml\"\r\n                         attributeName=\"transform\"\r\n                         type=\"rotate\"\r\n                         from=\"0 25 25\"\r\n                         to=\"360 25 25\"\r\n                         dur=\"0.6s\"\r\n                         repeatCount=\"indefinite\"/>\r\n                       </path>\r\n                     </svg>\r\n                  </div>\r\n                   \r\n                </div>\r\n       \r\n    </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>    \r\n\r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
+module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n            \r\n                    <!-- Navigation -->\r\n                    <admin-top-bar></admin-top-bar>            \r\n        <admin-side-bar></admin-side-bar>\r\n            \r\n                    <div id=\"\">\r\n                        <div class=\"container-fluid\">\r\n                                \r\n                                            <!-- Page Heading -->\r\n                                          \r\n                                      \r\n                                            <!-- /.row -->\r\n                            \r\n                                        </div>\r\n                                        <div class=\"col-md-2\">\r\n                                          <nav class=\"nav-sidebar\">\r\n                                              <ul class=\"nav tabs buttonleft\">\r\n                                                    <li >\r\n                                                      <button  class=\"btn btn-danger addnewbtn\" (click)=\"addNewplan()\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#myModal\">Add New Plan</button>\r\n                                                    </li>\r\n                                              \r\n                                                                    \r\n                                              </ul>\r\n                                            </nav>\r\n                                    </div>\r\n                                    <div class=\"col-md-9\">\r\n                                        <div class=\"row\">\r\n                                        <div class=\"col-md-11 preloader2\" *ngIf=\"showSpinnerDelete\">\r\n                                            <div class=\"\"  >\r\n                                                <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                            <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                              <animateTransform attributeType=\"xml\"\r\n                                                attributeName=\"transform\"\r\n                                                type=\"rotate\"\r\n                                                from=\"0 25 25\"\r\n                                                to=\"360 25 25\"\r\n                                                dur=\"0.6s\"\r\n                                                repeatCount=\"indefinite\"/>\r\n                                              </path>\r\n                                            </svg>\r\n                                        </div>\r\n                                        </div>\r\n                                        <flash-messages></flash-messages>\r\n                                     \r\n                                              <div class=\"example-header\" >\r\n                                                  <mat-form-field>\r\n                                                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                                  </mat-form-field>\r\n                                              </div>\r\n                                           \r\n                                        <div class=\"example-container mat-elevation-z8 \">\r\n                                        <mat-table [dataSource]=\"dataSource\" matSort>\r\n                                         <ng-container matColumnDef=\"slno\">\r\n                                         <mat-header-cell *matHeaderCellDef mat-sort-header> SL NO. </mat-header-cell>\r\n                                         <mat-cell *matCellDef=\"let row; let i = index\"> {{i+1}} </mat-cell>\r\n                                        </ng-container>\r\n                                                <ng-container matColumnDef=\"planname\">\r\n                                                   <mat-header-cell *matHeaderCellDef mat-sort-header> PLAN NAME</mat-header-cell>\r\n                                                     <mat-cell *matCellDef=\"let row\"> {{row.plan_name}}</mat-cell>\r\n                                                 </ng-container>\r\n                                                 <ng-container matColumnDef=\"price\">\r\n                                                    <mat-header-cell *matHeaderCellDef mat-sort-header> PRICE</mat-header-cell>\r\n                                                      <mat-cell *matCellDef=\"let row\"> {{row.plan_price}}</mat-cell>\r\n                                                  </ng-container>\r\n                                                  <ng-container matColumnDef=\"bestvalue\">\r\n                                                      <mat-header-cell *matHeaderCellDef mat-sort-header> BEST VALUE</mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let row\"> \r\n                                                         \r\n                                                           <mat-slide-toggle   class=\"example-margin\" name=\"best\" [(ngModel)]=\"row.is_best_value\"  (change)=\"onChange(row._id,row.is_best_value)\"   [checked]=\"row.is_best_value\" >\r\n\r\n                                                      </mat-slide-toggle></mat-cell>\r\n                                                    </ng-container>\r\n                                                  <ng-container  matColumnDef=\"action\">\r\n                                                      <mat-header-cell *matHeaderCellDef mat-sort-header > ACTION</mat-header-cell>\r\n                                                      <mat-cell *matCellDef=\"let row\"><button mat-icon-button [matMenuTriggerFor]=\"menu\" ><mat-icon>more_vert</mat-icon> </button>\r\n                                                        <mat-menu #menu=\"matMenu\">\r\n                                                            <button  mat-menu-item disabled  *ngIf=\"row.status==false\"(click)=\"getEditId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                                <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                                <span>Edit</span>\r\n                                                                </button>\r\n                                                          <button  mat-menu-item  *ngIf=\"row.status==true\"(click)=\"getEditId(row._id)\" data-toggle=\"modal\" data-target=\"#myModal2\">\r\n                                                            <mat-icon><i class=\"material-icons\">mode_edit</i></mat-icon>\r\n                                                            <span>Edit</span>\r\n                                                            </button>\r\n\r\n                                                          \r\n                                                        <button mat-menu-item *ngIf=\"row.status==true || row.status==false \"  (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"> \r\n                                                            <mat-icon><i class=\"material-icons\">delete</i></mat-icon>\r\n                                                            <span>Delete</span>\r\n                                                        </button>\r\n                                                        </mat-menu> </mat-cell>\r\n                                              \r\n                                                     </ng-container>\r\n                                       \r\n                                    \r\n                                \r\n                                                  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                   <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                                   </mat-row>\r\n                                                  </mat-table>\r\n                                                   <!-- <div class=\"col-md-15 \"> -->\r\n                      <!-- <div *ngIf=\"showSpinnerDelete\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                       </div> -->\r\n                      \r\n                  <!-- </div> -->\r\n           \r\n                  <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n                      <div class=\"col-md-4 col-md-offset-4\">\r\n                          <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                      </div>\r\n                      </div>\r\n              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n \r\n\r\n                      <!-- -------------------------Modal -add plan------------------------------ -->\r\n\r\n                      <div id=\"myModal\"  class=\"modal fade\">\r\n                        <div class=\"modal-dialog\">\r\n                        \r\n                          <!-- Modal content-->\r\n                          <div class=\"modal-content\">\r\n                            <div class=\"modal-header\">\r\n                              <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                              <h4 class=\"modal-title\">Add New Plan</h4>\r\n                            </div>\r\n                            <div class=\"modal-body\">\r\n                              \r\n                          <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"addPlan(newPlan);\" novalidate >\r\n                          \r\n                              <div class=\"form-group\" >\r\n                                <div class=\"example-container\">\r\n                                  <mat-form-field>\r\n                                    <input matInput placeholder=\"Plan Name\"  name =\"planname\" [(ngModel)]=\"newPlan.planname\"  required>\r\n                                  </mat-form-field>\r\n                                \r\n                                  <mat-form-field>\r\n                                    <input matInput placeholder=\"Price\" type=\"number\" min=\"1\"  class=\"example-right-align\"  name =\"planprice\" [(ngModel)]=\"newPlan.planprice\"  required>\r\n                                    <span matPrefix>₹&nbsp;</span>\r\n                                    <!-- <span matSuffix>.00</span> -->\r\n                                  </mat-form-field>\r\n                                \r\n                                  <mat-form-field>\r\n\r\n                                    <mat-select placeholder=\"No of survey\"  name=\"surveyno\"  [(ngModel)]=\"newPlan.surveyno\" required>\r\n\r\n                                      <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                      <mat-option value=\"limited\">limited</mat-option>\r\n                                    \r\n                                    </mat-select>\r\n                                  </mat-form-field>\r\n\r\n                                  \r\n                                    \r\n                                  <mat-form-field *ngIf=\"newPlan.surveyno == 'limited'\" >\r\n                                      <input  matInput placeholder=\"value\" type=\"number\" name=\"value1\"  [(ngModel)]=\"newPlan.value1\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                    </mat-form-field>\r\n                                  \r\n                                  <mat-form-field>\r\n                                    <mat-select placeholder=\"No of Question\"  name=\"surveyqtno\"  [(ngModel)]=\"newPlan.surveyqtno\" required>\r\n                                      <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                      <mat-option value=\"limited\">limited</mat-option>\r\n                                    \r\n                                    </mat-select>\r\n      \r\n                                  </mat-form-field>\r\n                                  <mat-form-field *ngIf=\"newPlan.surveyqtno == 'limited'\" >\r\n                                      <input  matInput placeholder=\"value\" type=\"number\"name=\"value2\"  [(ngModel)]=\"newPlan.value2\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                    </mat-form-field>\r\n                                  <mat-form-field>\r\n                                      <mat-select placeholder=\"No of Survey Attenders\"   name=\"surveyattno\"  [(ngModel)]=\"newPlan.surveyattno\" required>\r\n                                        <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                                        <mat-option value=\"limited\">limited</mat-option>\r\n                                      \r\n                                      </mat-select>\r\n                                    </mat-form-field>\r\n                                    <mat-form-field *ngIf=\"newPlan.surveyattno == 'limited'\" >\r\n                                        <input  matInput placeholder=\"value\" type=\"number\" name=\"value3\"  [(ngModel)]=\"newPlan.value3\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n                                      </mat-form-field>\r\n                                  <section class=\"example-section\">\r\n                                    Excel import\r\n                                    <mat-slide-toggle class=\"example-margin\" name=\"eximport\" [(ngModel)]=\"newPlan.eximport\" [checked]=\"newPlan.eximport\"></mat-slide-toggle>\r\n                                        \r\n                                       \r\n                                    \r\n                                  </section>\r\n                                  <section class=\"example-section\">\r\n                                      Survey Logic \r\n                                      <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"newPlan.skip\" [checked]=\"newPlan.skip\">\r\n                                          \r\n                                         </mat-slide-toggle>\r\n                                    </section>\r\n\r\n                                </div>\r\n                                    \r\n                              </div>\r\n                              <br>\r\n                              <!-- <div *ngIf=\"showSpinner\">\r\n                                  <mat-spinner></mat-spinner>\r\n                                 </div> -->\r\n                             \r\n\r\n\r\n                              <div class=\"row\">\r\n                                  <div class=\"col-md-4\">\r\n                                      <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                          \r\n                                        </div>\r\n                                        <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                               <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                               width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                           <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                             <animateTransform attributeType=\"xml\"\r\n                                               attributeName=\"transform\"\r\n                                               type=\"rotate\"\r\n                                               from=\"0 25 25\"\r\n                                               to=\"360 25 25\"\r\n                                               dur=\"0.6s\"\r\n                                               repeatCount=\"indefinite\"/>\r\n                                             </path>\r\n                                           </svg>\r\n                                        </div>\r\n                                         \r\n                                      </div>\r\n                             \r\n                          </form>\r\n                            </div>\r\n                            <div class=\"modal-footer\">\r\n                            </div>\r\n                          </div>\r\n                          \r\n                        </div>\r\n                      </div>\r\n\r\n\r\n <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n    <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n    \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                <h4 class=\"modal-title\">Message </h4>\r\n           </div>\r\n          <!-- <div class=\"modal-header\"> -->\r\n            <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n          <!-- </div> -->\r\n          <div class=\"modal-body\">\r\n              <h4 class=\"textalign\">Are you sure to delete?</h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" >Close</button>\r\n            <button type=\"button\" (click)=\"deletePlan(id)\" class=\"btn btn-danger\" data-dismiss=\"modal\">Delete</button>\r\n          </div>\r\n        </div>\r\n    \r\n      </div>\r\n    </div>\r\n\r\n    \r\n\r\n<!-- ----------------------------------------------------------------------Edit modal-------------------------------------------------------------------------- -->\r\n<div id=\"myModal2\"  class=\"modal fade\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n        <h4 class=\"modal-title\">update plan</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        \r\n    <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && updatePlan(plan);\" novalidate>\r\n    \r\n      <div class=\"form-group\" >\r\n        <div class=\"example-container\">\r\n                 \r\n                <mat-form-field>\r\n                  <input matInput placeholder=\"Plan Name\"  name =\"plan_name\" [(ngModel)]=\"plan.plan_name\"  required>\r\n                </mat-form-field>\r\n           <div *ngIf=\"!disablePrice\">\r\n                <mat-form-field class=\"inputfileds\">\r\n          \r\n                    <input matInput placeholder=\"Price\" type=\"number\" min=\"1\"  class=\"example-right-align\"  name =\"plan_price\" [(ngModel)]=\"plan.plan_price\"  required>\r\n                    <span matPrefix>₹&nbsp;</span>\r\n                    <!-- <span matSuffix>.00</span> -->\r\n                 \r\n                </mat-form-field>\r\n              </div>\r\n              <mat-form-field class=\"inputfileds\">\r\n                  <mat-select placeholder=\"No of survey\"  name=\"no_survey\"  [(ngModel)]=\"plan.numofsurvey\" required>\r\n                    \r\n                    <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                    <mat-option value=\"limited\">limited</mat-option>\r\n                                                        \r\n                  </mat-select>\r\n              </mat-form-field>\r\n              <mat-form-field *ngIf=\"plan.numofsurvey == 'limited'\" >\r\n                    <input  matInput placeholder=\"value\" type=\"number\" name=\"value1\"  [(ngModel)]=\"plan.no_survey\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n              </mat-form-field>\r\n\r\n\r\n              <mat-form-field class=\"inputfileds\">\r\n                <mat-select placeholder=\"No of survey Question\"  name=\"no_question\"  [(ngModel)]=\"plan.numofqtn\" required>\r\n                  \r\n                  <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                  <mat-option value=\"limited\">limited</mat-option>\r\n                                                      \r\n                </mat-select>\r\n            </mat-form-field>\r\n            <mat-form-field *ngIf=\"plan.numofqtn == 'limited'\" >\r\n                  <input  matInput placeholder=\"value\" type=\"number\" name=\"value2\"  [(ngModel)]=\"plan.no_question\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n            </mat-form-field>\r\n            \r\n            <mat-form-field class=\"inputfileds\">\r\n              <mat-select placeholder=\"No of Survey Attenders\"   name=\"no_survey_attenders\"   [(ngModel)]=\"plan.numofsurveyattn\" required>\r\n                \r\n                <mat-option value=\"Unlimited\">Unlimited</mat-option>\r\n                <mat-option value=\"limited\">limited</mat-option>\r\n                                                    \r\n              </mat-select>\r\n          </mat-form-field>\r\n          <mat-form-field *ngIf=\"plan.numofsurveyattn == 'limited'\" >\r\n                <input  matInput placeholder=\"value\" type=\"number\" name=\"value3\"  [(ngModel)]=\"plan.no_survey_attenders\" min=\"1\" oninput=\"validity.valid||(value='');\">\r\n          </mat-form-field>\r\n\r\n          <section class=\"example-section\">\r\n            Excel import\r\n            <mat-slide-toggle class=\"example-margin\" name=\"eximport\" [(ngModel)]=\"plan.excel_import\" [checked]=\"plan.excel_import\"></mat-slide-toggle>\r\n                \r\n               \r\n            \r\n          </section>\r\n          <section class=\"example-section\">\r\n              Survey Logic \r\n              <mat-slide-toggle class=\"example-margin\" name=\"skip\" [(ngModel)]=\"plan.survey_logic\" [checked]=\"plan.survey_logic\">\r\n                  \r\n                 </mat-slide-toggle>\r\n            </section>\r\n          \r\n              </div>\r\n        </div>\r\n        <!-- <div *ngIf=\"showSpinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n        <br>\r\n     \r\n      \r\n        <div class=\"row\">\r\n            <div class=\"col-md-4\">\r\n                <button type= \"submit\"  class=\"btn btn-danger ourbutton\" >Update</button>\r\n    \r\n                  </div>\r\n                  <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                         <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                         width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                     <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                       <animateTransform attributeType=\"xml\"\r\n                         attributeName=\"transform\"\r\n                         type=\"rotate\"\r\n                         from=\"0 25 25\"\r\n                         to=\"360 25 25\"\r\n                         dur=\"0.6s\"\r\n                         repeatCount=\"indefinite\"/>\r\n                       </path>\r\n                     </svg>\r\n                  </div>\r\n                   \r\n                </div>\r\n       \r\n    </form>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n</div>    \r\n\r\n                      \r\n                      <footer></footer> \r\n                        \r\n                      </body>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-plan/admin-plan.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminPlanComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5139,12 +5356,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
 var AdminPlanComponent = /** @class */ (function () {
     function AdminPlanComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -5223,7 +5439,7 @@ var AdminPlanComponent = /** @class */ (function () {
             if (data.length == 0) {
                 _this.notExist = true;
             }
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
             console.log(_this.dataSource);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
@@ -5356,32 +5572,32 @@ var AdminPlanComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild('closeBtn'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminPlanComponent.prototype, "closeBtn", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], AdminPlanComponent.prototype, "closeBtn1", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminPlanComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminPlanComponent.prototype, "sort", void 0);
     AdminPlanComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-plan',
             template: __webpack_require__("../../../../../src/app/components/admin-plan/admin-plan.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-plan/admin-plan.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router, material_2.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminPlanComponent);
     return AdminPlanComponent;
 }());
-exports.AdminPlanComponent = AdminPlanComponent;
+
 
 
 /***/ }),
@@ -5407,15 +5623,22 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-request-users/admin-request-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"col-md-10\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n  \r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n        <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n        <!-- Name Column -->\r\n        <ng-container matColumnDef=\"username\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n        </ng-container>\r\n    \r\n     <!-- Name Column -->\r\n     <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"requestedcompanies\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> REQUESTED COMPANIES </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> <i class=\"material-icons\" (click)=\"getCompany(row)\" data-toggle=\"modal\" data-target=\"#myModal\" data-id={{row._id}}  >visibility</i> \r\n     \r\n      </mat-cell>\r\n    </ng-container>\r\n      <ng-container matColumnDef=\"status\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\">{{row.block_request[row.block_request.length-1].action_status}}\r\n          </mat-cell>\r\n        </ng-container>\r\n         <!-- Name Column -->\r\n     \r\n      \r\n      <ng-container matColumnDef=\"action\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n            <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n                <mat-icon>more_vert</mat-icon>\r\n              </button>\r\n              <mat-menu #menu=\"matMenu\">\r\n               \r\n                <button  (click)=\"acceptUser(row.email)\" mat-menu-item>\r\n                   \r\n                  <span>Accept</span>\r\n                </button>\r\n                <button  (click)=\"rejectUser(row.email)\" mat-menu-item>\r\n                   \r\n                  <span>Reject</span>\r\n                </button>\r\n              </mat-menu>\r\n           \r\n          </mat-cell>\r\n      </ng-container>\r\n    \r\n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n        </mat-row>\r\n      </mat-table>\r\n      <!-- <div class=\"col-md-15 \">\r\n          <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n              <mat-spinner></mat-spinner>\r\n             </div>\r\n      </div> -->\r\n      <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n          <div class=\"col-md-4 col-md-offset-4\">\r\n              <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n          </div>\r\n      </div>\r\n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n    </div>\r\n    \r\n    \r\n     <!-- Modal -->\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n        <h4 class=\"modal-title\">Requested Companies</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <table class=\"table\">\r\n          <thead>\r\n            <tr>\r\n              <th>Sl.No</th>\r\n              <th>COMPANY NAME</th>\r\n              <th>REQUESTED DATE</th>\r\n              <th>REASON</th>\r\n            </tr>\r\n          </thead>\r\n          <!-- <tbody *ngIf=\"involvedCompany.block_request.length ==0\">\r\n            <tr >\r\n                  <td colspan=\"4\" class=\"text-center\">No Company Involved</td>\r\n            </tr>\r\n        </tbody> -->\r\n          <tbody>\r\n            <tr *ngFor=\"let cmp of complaintCompanies;let i = index\">\r\n                <td >{{i+1}}</td>\r\n              <td>{{cmp.organization}}</td>\r\n              <td>{{cmp.date | date: 'dd-MM-yyyy'}}</td>\r\n              <td>{{cmp.reason}}</td>\r\n            </tr>\r\n           \r\n            \r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n     <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n"
+module.exports = "\r\n<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n    <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n        <div class=\"\"  >\r\n            <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n        <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n          <animateTransform attributeType=\"xml\"\r\n            attributeName=\"transform\"\r\n            type=\"rotate\"\r\n            from=\"0 25 25\"\r\n            to=\"360 25 25\"\r\n            dur=\"0.6s\"\r\n            repeatCount=\"indefinite\"/>\r\n          </path>\r\n        </svg>\r\n    </div>\r\n    </div>\r\n    <flash-messages></flash-messages>\r\n \r\n          <div class=\"example-header\" >\r\n              <mat-form-field>\r\n                <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n              </mat-form-field>\r\n          </div>\r\n       \r\n    <div class=\"example-container mat-elevation-z8 \">\r\n  \r\n      <mat-table [dataSource]=\"dataSource\" matSort>\r\n        <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n        <!-- Name Column -->\r\n        <ng-container matColumnDef=\"username\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header>USER NAME </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\"> {{row.name}} </mat-cell>\r\n        </ng-container>\r\n    \r\n     <!-- Name Column -->\r\n     <ng-container matColumnDef=\"email\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.email}} </mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"requestedcompanies\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> REQUESTED COMPANIES </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> <i class=\"material-icons\" (click)=\"getCompany(row)\" data-toggle=\"modal\" data-target=\"#myModal\" data-id={{row._id}}  >visibility</i> \r\n     \r\n      </mat-cell>\r\n    </ng-container>\r\n      <ng-container matColumnDef=\"status\">\r\n          <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n          <mat-cell *matCellDef=\"let row\">{{row.block_request[row.block_request.length-1].action_status}}\r\n          </mat-cell>\r\n        </ng-container>\r\n         <!-- Name Column -->\r\n     \r\n      \r\n      <ng-container matColumnDef=\"action\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n            <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n                <mat-icon>more_vert</mat-icon>\r\n              </button>\r\n              <mat-menu #menu=\"matMenu\">\r\n               \r\n                <button  (click)=\"acceptUser(row.email)\" mat-menu-item>\r\n                   \r\n                  <span>Accept</span>\r\n                </button>\r\n                <button  (click)=\"rejectUser(row.email)\" mat-menu-item>\r\n                   \r\n                  <span>Reject</span>\r\n                </button>\r\n              </mat-menu>\r\n           \r\n          </mat-cell>\r\n      </ng-container>\r\n    \r\n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n        </mat-row>\r\n      </mat-table>\r\n      <!-- <div class=\"col-md-15 \">\r\n          <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n              <mat-spinner></mat-spinner>\r\n             </div>\r\n      </div> -->\r\n      <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n          <div class=\"col-md-4 col-md-offset-4\">\r\n              <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n          </div>\r\n      </div>\r\n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n    </div>\r\n    \r\n    \r\n     <!-- Modal -->\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n        <h4 class=\"modal-title\">Requested Companies</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <table class=\"table\">\r\n          <thead>\r\n            <tr>\r\n              <th>Sl.No</th>\r\n              <th>COMPANY NAME</th>\r\n              <th>REQUESTED DATE</th>\r\n              <th>REASON</th>\r\n            </tr>\r\n          </thead>\r\n          <!-- <tbody *ngIf=\"involvedCompany.block_request.length ==0\">\r\n            <tr >\r\n                  <td colspan=\"4\" class=\"text-center\">No Company Involved</td>\r\n            </tr>\r\n        </tbody> -->\r\n          <tbody>\r\n            <tr *ngFor=\"let cmp of complaintCompanies;let i = index\">\r\n                <td >{{i+1}}</td>\r\n              <td>{{cmp.organization}}</td>\r\n              <td>{{cmp.date | date: 'dd-MM-yyyy'}}</td>\r\n              <td>{{cmp.reason}}</td>\r\n            </tr>\r\n           \r\n            \r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n     <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-request-users/admin-request-users.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminRequestUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5425,13 +5648,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+
+
+
+
+
+
 var AdminRequestUsersComponent = /** @class */ (function () {
     function AdminRequestUsersComponent(adminService, routes, config, snackBar) {
         this.adminService = adminService;
@@ -5442,7 +5664,7 @@ var AdminRequestUsersComponent = /** @class */ (function () {
         this.notExist = false;
         this.showSpinner = false;
         this.involvedCompany = [];
-        this.socket = socketIo(config.siteUrl);
+        this.socket = __WEBPACK_IMPORTED_MODULE_5_socket_io_client__(config.siteUrl);
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin user management
@@ -5462,7 +5684,7 @@ var AdminRequestUsersComponent = /** @class */ (function () {
             if (data.length == 0) {
                 _this.notExist = true;
             }
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
             console.log(_this.dataSource);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
@@ -5560,27 +5782,27 @@ var AdminRequestUsersComponent = /** @class */ (function () {
         this.complaintCompanies = company.block_request[company.block_request.length - 1].companies;
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminRequestUsersComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminRequestUsersComponent.prototype, "sort", void 0);
     AdminRequestUsersComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-request-users',
             template: __webpack_require__("../../../../../src/app/components/admin-request-users/admin-request-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-request-users/admin-request-users.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            config_1.Config,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminRequestUsersComponent);
     return AdminRequestUsersComponent;
 }());
-exports.AdminRequestUsersComponent = AdminRequestUsersComponent;
+
 
 
 /***/ }),
@@ -5593,7 +5815,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 0px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #282c37;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n        padding-top: 20px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #ea5a5a !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 15px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {\r\n    background-color: #ea5a5a;\r\n    border-color: #337ab7;\r\n}\r\n\r\n.dropdown-menu>li>a.active2{background-color: #a71b1c;\r\n    color: #fff !important;}\r\n\r\n.sd-block{\r\n    display: block;\r\n}\r\n\r\nul li{\r\n    cursor: pointer\r\n}\r\n\r\n.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {\r\n    \r\n    background-color: #d9534f;\r\n    color: #ffffff !important;\r\n    \r\n}\r\n\r\n.side-nav .dropdown-menu {\r\n    background-color: #212f3e;\r\n}\r\n\r\n.side-nav > li > ul > li > a {\r\n    padding: 13px 16px 13px 54px;\r\n    font-size: 12px;\r\n}\r\n\r\n.side-nav > li > ul {\r\n    border: none;\r\n    border-radius: 0;\r\n}\r\n\r\n.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {\r\n    background-color:  #bd0c2b !important;\r\n    color: #fff !important;\r\n}\r\n\r\n.logo-main{\r\n    max-width: 193px;\r\n    overflow: hidden;\r\n}\r\n\r\n.navbar-brand{height:80px;}\r\n", ""]);
+exports.push([module.i, "body {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.dropdown-menu{\r\n    -webkit-box-shadow: none !important;\r\n    box-shadow: none !important;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal; \r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 0px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #282c37;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n        padding-top: 20px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #ea5a5a !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 15px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {\r\n    background-color: #ea5a5a;\r\n    border-color: #337ab7;\r\n}\r\n\r\n.dropdown-menu>li>a.active2{background-color: #a71b1c;\r\n    color: #fff !important;}\r\n\r\n.sd-block{\r\n    display: block;\r\n}\r\n\r\nul li{\r\n    cursor: pointer\r\n}\r\n\r\n.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {\r\n    \r\n    background-color: #d9534f;\r\n    color: #ffffff !important;\r\n    \r\n}\r\n\r\n.side-nav .dropdown-menu {\r\n    background-color: #212f3e;\r\n}\r\n\r\n.side-nav > li > ul > li > a {\r\n    padding: 13px 16px 13px 54px;\r\n    font-size: 12px;\r\n}\r\n\r\n.side-nav > li > ul {\r\n    border: none;\r\n    border-radius: 0;\r\n}\r\n\r\n.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {\r\n    background-color:  #bb2a44 !important;\r\n    color: #fff !important;\r\n}\r\n\r\n.logo-main{\r\n    max-width: 193px;\r\n    overflow: hidden;\r\n}\r\n\r\n.navbar-brand{height:80px;}\r\n", ""]);
 
 // exports
 
@@ -5606,15 +5828,16 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-side-bar/admin-side-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <!-- <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a> -->\r\n  <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> <img src=\"./assets/images/brand.png\" class=\"logo-main\" alt=\"\"></a>\r\n  \r\n  <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-pie-chart\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-plan\"><i class=\"fa fa-pencil-square-o\"></i> Plans</a>\r\n\r\n</li>\r\n<li>\r\n  <!-- <sd -->\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\" ><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\" [ngClass]=\"{'sd-block': open=='open'}\">\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!------------------------------------End--------------------------------------------->\r\n"
+module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n  <!-- <li> -->\r\n      <!-- <a routerLink=\"/dashboard\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a> -->\r\n  <!-- </li> -->\r\n  <!-- <img style=\"float: left\" > <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> Survey</a> -->\r\n  <a class=\"navbar-brand\" routerLink=\"/admin-dashboard\"> <img src=\"./assets/images/brand.png\" class=\"logo-main\" alt=\"\"></a>\r\n  \r\n  <!-- ---------------------------------Start-------------------------------------------\r\n Function      : \r\n Params        : \r\n Returns       : \r\n Author        : Jooshifa\r\n Date          : 26-12-2017\r\n Last Modified : 26-12-2017, Jooshifa ,28-01-2018 sudha\r\n Desc          : Sidebar for master setttings -->\r\n \r\n <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-dashboard\"><i class=\"fa fa-pie-chart\"></i> Dashboard</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n<a routerLink=\"/admin-company\"><i class=\"fa fa-building\"></i> Company</a>\r\n\r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n      <a routerLink=\"/admin-users\"><i class=\"fa fa-users\"></i> Users</a>\r\n \r\n</li>\r\n<li  [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <a routerLink=\"/admin-plan\"><i class=\"fa fa-pencil-square-o\"></i> Plans</a>\r\n\r\n</li>\r\n<li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\">\r\n  <!-- <sd -->\r\n  <a  class=\"dropdown-toggle\" data-toggle=\"dropdown\" ><i class=\"fa fa-cogs\"></i> Master Settings <span class=\"caret\"></span></a> \r\n  <ul class=\"dropdown-menu\" role=\"menu\" [ngClass]=\"{'sd-block': open=='open'}\">\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/manage-survey-category\">Manage Survey Category</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-organization-type\">Manage Organization Type</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-industry\">Manage Industry</a></li>\r\n      <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a routerLink=\"/admin-manage-survey-attender-type\">Manage Survey attender type</a></li>\r\n\r\n\r\n </ul>\r\n</li>\r\n</ul>\r\n\r\n<!------------------------------------End--------------------------------------------->\r\n"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-side-bar/admin-side-bar.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminSideBarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5624,15 +5847,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var AdminSideBarComponent = /** @class */ (function () {
     function AdminSideBarComponent() {
     }
     AdminSideBarComponent.prototype.ngOnInit = function () {
     };
     AdminSideBarComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-side-bar',
             template: __webpack_require__("../../../../../src/app/components/admin-side-bar/admin-side-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-side-bar/admin-side-bar.component.css")],
@@ -5642,7 +5864,7 @@ var AdminSideBarComponent = /** @class */ (function () {
     ], AdminSideBarComponent);
     return AdminSideBarComponent;
 }());
-exports.AdminSideBarComponent = AdminSideBarComponent;
+
 
 
 /***/ }),
@@ -5655,7 +5877,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .noItemFound{\r\n  text-align: center;\r\n  background-color: #ffffff;\r\n  border-bottom: 1px solid lightgray;\r\n\r\n}\r\n  \r\n  .back-color{\r\n  color: #757575;\r\n  background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -5668,15 +5890,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-subscribed/admin-subscribed.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-10\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n   \r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n  \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  \r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  "
+module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n   \r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n  \r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n  \r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\"mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\"  (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\"  (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n\r\n  <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n  <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteCompany(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-subscribed/admin-subscribed.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminSubscribedComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5686,11 +5912,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminSubscribedComponent = /** @class */ (function () {
     function AdminSubscribedComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -5749,7 +5974,7 @@ var AdminSubscribedComponent = /** @class */ (function () {
         if (data.length == 0) {
             this.notExist = true;
         }
-        this.dataSource = new material_1.MatTableDataSource(data);
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
         console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -5805,6 +6030,12 @@ var AdminSubscribedComponent = /** @class */ (function () {
         this.dataSource.filter = filterValue;
     };
     // -----------------------------------End------------------------------------------
+    AdminSubscribedComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
+    };
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin company management
     // Params        : id
@@ -5877,25 +6108,25 @@ var AdminSubscribedComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminSubscribedComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminSubscribedComponent.prototype, "sort", void 0);
     AdminSubscribedComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-subscribed',
             template: __webpack_require__("../../../../../src/app/components/admin-subscribed/admin-subscribed.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-subscribed/admin-subscribed.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminSubscribedComponent);
     return AdminSubscribedComponent;
 }());
-exports.AdminSubscribedComponent = AdminSubscribedComponent;
+
 
 
 /***/ }),
@@ -5926,10 +6157,16 @@ module.exports = "<nav class=\"navbar navbar-inverse\" role=\"navigation\">\r\n 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-top-bar/admin-top-bar.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminTopBarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_socket_io_client__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5939,12 +6176,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+
+
+
+
+
 var AdminTopBarComponent = /** @class */ (function () {
     function AdminTopBarComponent(adminService, router, config) {
         this.adminService = adminService;
@@ -5952,7 +6188,7 @@ var AdminTopBarComponent = /** @class */ (function () {
         this.config = config;
         // notExist =false;
         this.notif = Object;
-        this.socket = socketIo(config.siteUrl);
+        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__(config.siteUrl);
     }
     // ---------------------------------Start-------------------------------------------
     // Function      : Admin user management
@@ -6012,18 +6248,18 @@ var AdminTopBarComponent = /** @class */ (function () {
         return false;
     };
     AdminTopBarComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-top-bar',
             template: __webpack_require__("../../../../../src/app/components/admin-top-bar/admin-top-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-top-bar/admin-top-bar.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            config_1.Config])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3__config_config__["a" /* Config */]])
     ], AdminTopBarComponent);
     return AdminTopBarComponent;
 }());
-exports.AdminTopBarComponent = AdminTopBarComponent;
+
 
 
 /***/ }),
@@ -6036,7 +6272,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n", ""]);
+exports.push([module.i, ".example-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-width: 300px;\r\n  }\r\n  \r\n  .example-header {\r\n    min-height: 64px;\r\n    padding: 8px 24px 0;\r\n  }\r\n  \r\n  .mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n  }\r\n  \r\n  .mat-table {\r\n    overflow: auto;\r\n    max-height: 500px;\r\n  }\r\n  \r\n  .filter{\r\n    margin-top: 10px;\r\n  }\r\n  \r\n  .noItemFound{\r\n    text-align: center;\r\n    background-color: #ffffff;\r\n    border-bottom: 1px solid lightgray;\r\n\r\n }\r\n  \r\n  .back-color{\r\n    color: #757575;\r\n    background-color: #ffffff;\r\n}\r\n  \r\n  svg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}\r\n  \r\n  .modal-content{border-radius:0;-webkit-box-shadow:none;box-shadow:none;}\r\n  \r\n  .modal-header {\r\n    padding: 7px 15px;\r\n    border-bottom: 1px solid #e5e5e5;\r\n    background: #da524f;\r\n}\r\n  \r\n  .modal-title {\r\n    margin: 0;\r\n    line-height: 26px;\r\n    font-size: 15px;\r\n    color: #fff;\r\n}\r\n  \r\n  .close {\r\n   \r\n    font-size: 21px;\r\n    font-weight: 400;\r\n    line-height: 28px;\r\n    color: #fff;\r\n    text-shadow: none;\r\n    filter: alpha(opacity=20);\r\n    opacity: inherit;\r\n    padding-top:0px;\r\n}\r\n", ""]);
 
 // exports
 
@@ -6049,15 +6285,19 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin-trial/admin-trial.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-10\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n   \r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\" (click)=\"deleteCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n  "
+module.exports = "\r\n  \r\n  <!-- <p>You selected: {{selected}} </p> -->\r\n\r\n  <div class=\"col-md-12\">\r\n      <div class=\"row\">\r\n      <div class=\"col-md-12 preloader2\" *ngIf=\"showSpinner\">\r\n          <div class=\"\"  >\r\n              <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n              width=\"50%\" height=\"59px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n          <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n            <animateTransform attributeType=\"xml\"\r\n              attributeName=\"transform\"\r\n              type=\"rotate\"\r\n              from=\"0 25 25\"\r\n              to=\"360 25 25\"\r\n              dur=\"0.6s\"\r\n              repeatCount=\"indefinite\"/>\r\n            </path>\r\n          </svg>\r\n      </div>\r\n      </div>\r\n   \r\n      <div class=\"col-md-12\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-10\">\r\n                <div class=\"example-header\">\r\n                    <mat-form-field>\r\n                      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                    </mat-form-field>\r\n                  </div>\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n                <div *ngIf=\"all_value\">\r\n                <mat-form-field class=\"filter\"> \r\n                    \r\n                      <mat-select  (change)=\"refresh()\" [(value)]=\"selected\">\r\n                        <!-- <mat-option>None</mat-option> -->\r\n                        <mat-option value=\"all\">All</mat-option>\r\n                        <mat-option value=\"Active\">Active</mat-option>\r\n                        <mat-option value=\"Block\">Block</mat-option>\r\n                        <mat-option value=\"Delete\">Delete </mat-option>\r\n                      </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"example-container mat-elevation-z8 \">\r\n\r\n    <mat-table [dataSource]=\"dataSource\" matSort>\r\n      <!-- Name Column -->\r\n   <ng-container matColumnDef=\"slno\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header>Sl_No </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row;let i = index\"> {{i+1}} </mat-cell>\r\n    </ng-container>\r\n      <!-- Name Column -->\r\n      <ng-container matColumnDef=\"companyname\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header>COMPANY NAME </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\"> {{row.organization}} </mat-cell>\r\n      </ng-container>\r\n  \r\n   <!-- Name Column -->\r\n   <ng-container matColumnDef=\"email\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let row\"> {{row.contact_person_email}} </mat-cell>\r\n  </ng-container>\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"contactperson\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT PERSON </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_person_fname}}</mat-cell>\r\n    </ng-container>\r\n     <!-- Progress Column -->\r\n     <ng-container matColumnDef=\"contactnumber\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> CONTACT NUMBER </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.contact_no}}</mat-cell>\r\n    </ng-container>\r\n    \r\n    <ng-container matColumnDef=\"status\">\r\n        <mat-header-cell *matHeaderCellDef mat-sort-header> STATUS </mat-header-cell>\r\n        <mat-cell *matCellDef=\"let row\">\r\n          <div *ngIf=\"row.block_status==false && row.delete_status==false\"> Active</div>\r\n          <div *ngIf=\"row.block_status==true && row.delete_status==false\"> Blocked</div>\r\n          <div *ngIf=\" row.delete_status==true\"> Deleted</div>\r\n        </mat-cell>\r\n      </ng-container>\r\n    <ng-container matColumnDef=\"action\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n          <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n              <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n              <button *ngIf=\"row.delete_status==false\"  (click)=\"getId(row._id)\" data-toggle=\"modal\" data-target=\"#deleteModal\" mat-menu-item>\r\n                  <i class=\"material-icons\">delete</i>\r\n                <span>Delete</span>\r\n              </button>\r\n              <button *ngIf=\"row.delete_status==true\" mat-menu-item disabled>\r\n                <i class=\"material-icons\">delete_forever</i>\r\n              <span>Deleted</span>\r\n            </button>\r\n              <button *ngIf=\"row.block_status==false && row.delete_status==false\" (click)=\"blockCompany(row._id)\"mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Block</span>\r\n              </button>\r\n              <button *ngIf=\"row.block_status==true && row.delete_status==false\" (click)=\"unblockCompany(row._id)\" mat-menu-item>\r\n                  <i class=\"material-icons\">block</i>\r\n                <span>Unblock</span>\r\n              </button>\r\n            </mat-menu>\r\n         \r\n        </mat-cell>\r\n    </ng-container>\r\n  \r\n      <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n      <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n      </mat-row>\r\n    </mat-table>\r\n    <div class=\"col-md-15 \">\r\n        <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n            <mat-spinner></mat-spinner>\r\n           </div> -->\r\n    </div>\r\n    <div class=\"col-md-12 noItemFound\" *ngIf=\"notExist\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n        </div>\r\n      </div>\r\n    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  </div>\r\n  \r\n  \r\n</div>\r\n</div>\r\n  \r\n   <!-- --------------------------------------------- delete modal ----------------------------------------------------------------- -->\r\n  \r\n   <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n    \r\n       <div class=\"modal-dialog\">\r\n     \r\n         <!-- Modal content-->\r\n         <div class=\"modal-content\">\r\n             <div class=\"modal-header\">\r\n                 <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                 <h4 class=\"modal-title\">Message </h4>\r\n            </div>\r\n           <!-- <div class=\"modal-header\"> -->\r\n             <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n           <!-- </div> -->\r\n           <div class=\"modal-body\">\r\n               <h4>Are you sure to delete?</h4>\r\n           \r\n           </div>\r\n         \r\n           <div class=\"modal-footer\">\r\n             <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n             <button type=\"button\" (click)=\"deleteCompany(id)\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n           </div>\r\n         </div>\r\n     \r\n       </div>\r\n     </div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-trial/admin-trial.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminTrialComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6067,11 +6307,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var AdminTrialComponent = /** @class */ (function () {
     function AdminTrialComponent(adminService, routes, snackBar) {
         this.adminService = adminService;
@@ -6129,7 +6368,7 @@ var AdminTrialComponent = /** @class */ (function () {
         if (data.length == 0) {
             this.notExist = true;
         }
-        this.dataSource = new material_1.MatTableDataSource(data);
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
         console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -6169,6 +6408,12 @@ var AdminTrialComponent = /** @class */ (function () {
         });
         // ---------------------------------End-------------------------------------------
         this.refresh();
+    };
+    AdminTrialComponent.prototype.getId = function (id) {
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id;
+        //  console.log(this.id)
     };
     // -----------------------------------End------------------------------------------
     // ---------------------------------Start-------------------------------------------
@@ -6257,26 +6502,26 @@ var AdminTrialComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], AdminTrialComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], AdminTrialComponent.prototype, "sort", void 0);
     AdminTrialComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-trial',
             template: __webpack_require__("../../../../../src/app/components/admin-trial/admin-trial.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-trial/admin-trial.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], AdminTrialComponent);
     return AdminTrialComponent;
 }());
-exports.AdminTrialComponent = AdminTrialComponent;
+
 
 
 /***/ }),
@@ -6307,10 +6552,13 @@ module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n  
 /***/ }),
 
 /***/ "../../../../../src/app/components/admin-users/admin-users.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6320,10 +6568,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var admin_service_1 = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
 var AdminUsersComponent = /** @class */ (function () {
     function AdminUsersComponent(adminService, routes, _activatedRoute) {
         this.adminService = adminService;
@@ -6375,16 +6622,16 @@ var AdminUsersComponent = /** @class */ (function () {
         this.title = page + ' Users List';
     };
     AdminUsersComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'admin-users',
             template: __webpack_require__("../../../../../src/app/components/admin-users/admin-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/admin-users/admin-users.component.css")]
         }),
-        __metadata("design:paramtypes", [admin_service_1.AdminService, router_1.Router, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_admin_service__["a" /* AdminService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
     ], AdminUsersComponent);
     return AdminUsersComponent;
 }());
-exports.AdminUsersComponent = AdminUsersComponent;
+
 
 
 /***/ }),
@@ -6415,10 +6662,17 @@ module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\" *ng
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-additn-info/company-additn-info.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyAdditnInfoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_angular2_flash_messages__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6428,13 +6682,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+
+
+
+
+
+
 var CompanyAdditnInfoComponent = /** @class */ (function () {
     function CompanyAdditnInfoComponent(_formBuilder, companyService, routes, _flashMessagesService, route, snackBar) {
         this._formBuilder = _formBuilder;
@@ -6542,16 +6795,16 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
         // -----------------------------------End------------------------------------------
         this.isLinear = true;
         this.firstFormGroup = this._formBuilder.group({
-            orgValidation: ['', forms_1.Validators.required],
-            organization_typeValidation: ['', forms_1.Validators.required],
-            industryValidation: ['', forms_1.Validators.required],
-            locationValidation: ['', forms_1.Validators.required],
-            strengthValidation: ['', forms_1.Validators.required],
+            orgValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            organization_typeValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            industryValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            locationValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            strengthValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
         });
         this.secondFormGroup = this._formBuilder.group({
-            jobRoleValidation: ['', forms_1.Validators.required],
-            jobLevelValidation: ['', forms_1.Validators.required],
-            number: new forms_1.FormControl('', forms_1.Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
+            jobRoleValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            jobLevelValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            number: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
         });
         // ---------------------------------Start-------------------------------------------
         // Function      : Get All organization type, industry and survey attenders
@@ -6633,16 +6886,16 @@ var CompanyAdditnInfoComponent = /** @class */ (function () {
         // -----------------------------------End------------------------------------------
     };
     CompanyAdditnInfoComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-additn-info',
             template: __webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-additn-info/company-additn-info.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"], __WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_5_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_4__angular_material__["z" /* MatSnackBar */]])
     ], CompanyAdditnInfoComponent);
     return CompanyAdditnInfoComponent;
 }());
-exports.CompanyAdditnInfoComponent = CompanyAdditnInfoComponent;
+
 
 
 /***/ }),
@@ -6673,10 +6926,17 @@ module.exports = "<h1>{{title}}</h1>\r\n<!-- <h2>{{subtitle}}</h2> -->\r\n<div c
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-chart2/company-chart2.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyChart2Component; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6686,18 +6946,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 // import * as d3 from 'd3-selection';
 // import * as d3Scale from 'd3-scale';
 // import * as d3Array from 'd3-array';
 // import * as d3Axis from 'd3-axis';
 // import * as d3Shape from 'd3-shape';
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
 var CompanyChart2Component = /** @class */ (function () {
     function CompanyChart2Component(companyService, router, config) {
         this.companyService = companyService;
@@ -6710,7 +6969,7 @@ var CompanyChart2Component = /** @class */ (function () {
         this.piechart = [];
         this.undefnd = false;
         this.totalResponse = 0;
-        this.socket = socketIo(config.siteUrl);
+        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__(config.siteUrl);
         this.width = 400 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
         this.radius = Math.min(this.width, this.height) / 2;
@@ -6977,7 +7236,7 @@ var CompanyChart2Component = /** @class */ (function () {
                 if (_this.answer_type != "Descriptive") {
                     _this.displayedColumns = ['slno', 'email', 'date_time'];
                 }
-                _this.dataSource = new material_1.MatTableDataSource(dataset.data.answeredUser);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_5__angular_material__["E" /* MatTableDataSource */](dataset.data.answeredUser);
                 _this.dataSource.paginator = _this.paginator;
                 _this.dataSource.sort = _this.sort;
                 $('#answeredUsers').modal('show');
@@ -7179,15 +7438,15 @@ var CompanyChart2Component = /** @class */ (function () {
         //   .text((d: any) => d.data.status)
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MatPaginator */])
     ], CompanyChart2Component.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_5__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__angular_material__["B" /* MatSort */])
     ], CompanyChart2Component.prototype, "sort", void 0);
     CompanyChart2Component = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-chart2',
             template: __webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-chart2/company-chart2.component.css")],
@@ -7202,12 +7461,12 @@ var CompanyChart2Component = /** @class */ (function () {
         // Last Modified : 11-01-2018
         // Desc          : company vs survey
         ,
-        __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router, config_1.Config])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__config_config__["a" /* Config */]])
     ], CompanyChart2Component);
     return CompanyChart2Component;
 }());
-exports.CompanyChart2Component = CompanyChart2Component;
+
 // -----------------------------------End------------------------------------------
 
 
@@ -7234,15 +7493,22 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-create-survey/company-create-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Create Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\"  required name=\"start_date\" [(ngModel)]=\"survey.start_date\" [min]=\"minstartDate\" placeholder=\"Start Date\" disabled >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" [min]=\"survey.start_date\" placeholder=\"End Date\" disabled>\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field  class=\"inputfileds\">\r\n                                            <mat-select [disabled]=\"loggedInCompany && !loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle [disabled]=\"loggedInCompany && !loggedInCompany?.plans[loggedInCompany?.plans.length-1].survey_logic\" class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section  class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle  [disabled]=\"loggedInCompany && !loggedInCompany?.plans[loggedInCompany?.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section  class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle  [disabled]=\"loggedInCompany && !loggedInCompany?.plans[loggedInCompany?.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\" style=\"display: none;\"></a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 shdw\">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                                    <mat-spinner></mat-spinner>\r\n                                                   </div> -->\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n\r\n                                              \r\n                                         \r\n\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-6\">\r\n                                               \r\n                                                        <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                        <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                        <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button>\r\n                                                      \r\n                                                      </div>\r\n                                                      <div class=\"col-md-3\" *ngIf=\"showSpinner\">\r\n                                                             <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                             width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                         <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                           <animateTransform attributeType=\"xml\"\r\n                                                             attributeName=\"transform\"\r\n                                                             type=\"rotate\"\r\n                                                             from=\"0 25 25\"\r\n                                                             to=\"360 25 25\"\r\n                                                             dur=\"0.6s\"\r\n                                                             repeatCount=\"indefinite\"/>\r\n                                                           </path>\r\n                                                         </svg>\r\n                                                      </div>\r\n                                                       \r\n                                                    </div>\r\n                                                <!-- <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button> -->\r\n                                                <!-- <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div> -->\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <!-- <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button> -->\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\"  >\r\n                                      \r\n                                      <div *ngIf=\"userGroups && userGroups.length > 0\">\r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [checked]=\"selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n\r\n                                              <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                                                <div class=\"col-md-4 col-md-offset-4\">\r\n                                                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                                </div>\r\n                                            </div>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n                                  <!-- <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div> -->\r\n                                  <!-- <button [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" >Send Later</button> -->\r\n                                  \r\n\r\n                                  <div class=\"row\">\r\n                                    <div class=\"col-md-6\">\r\n                                        <a class=\"btn btn-danger ourbutton\" href=\"/company-list-survey\" >Send Later</a>\r\n                                        <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                          </div>\r\n                                          <div class=\"col-md-3\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n\r\n                                    \r\n                                     <div class=\"row\">\r\n                                      <div class=\"col-md-4\">\r\n                                         \r\n                                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                           \r\n                                            </div>\r\n                                            <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                   <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                   width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                               <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                 <animateTransform attributeType=\"xml\"\r\n                                                   attributeName=\"transform\"\r\n                                                   type=\"rotate\"\r\n                                                   from=\"0 25 25\"\r\n                                                   to=\"360 25 25\"\r\n                                                   dur=\"0.6s\"\r\n                                                   repeatCount=\"indefinite\"/>\r\n                                                 </path>\r\n                                               </svg>\r\n                                            </div>\r\n                                             \r\n                                          </div>\r\n                                  \r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n                                 \r\n                                     <div>\r\n                                        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                      </div>\r\n                                  <div class=\"row\">\r\n                                    <div class=\"col-md-4\">\r\n                                    \r\n                                          </div>\r\n                                          <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <!-- <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                          \r\n                              <div class=\"modal-content\">\r\n                                  <div class=\"modal-header\">\r\n                                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                                      <h4 class=\"modal-title\">Message </h4>\r\n                                 </div>\r\n                               \r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure to delete?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div> -->\r\n\r\n\r\n\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                              <div class=\"modal-dialog\">\r\n                            \r\n                                <!-- Modal content-->\r\n                                <div class=\"modal-content\">\r\n                                    <div class=\"modal-header\">\r\n                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                                        <h4 class=\"modal-title\">Message </h4>\r\n                                   </div>\r\n                                  <!-- <div class=\"modal-header\"> -->\r\n                                    <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                  <!-- </div> -->\r\n                                  <div class=\"modal-body\">\r\n                                      <h4 class=\"textalign\">Are you sure to delete?</h4>\r\n                                  \r\n                                  </div>\r\n                                \r\n                                  <div class=\"modal-footer\">\r\n                                      <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n                                      <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n                                  </div>\r\n                                </div>\r\n                            \r\n                              </div>\r\n                            </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n  <div *ngIf=\"preview\">\r\n                            <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n    </div>                          "
+module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id=\"wrapper\">\r\n              \r\n                      <!-- Navigation -->\r\n                      <app-company-top-bar></app-company-top-bar>            \r\n          <app-company-sidebar></app-company-sidebar>\r\n              \r\n                      <div id=\"\">\r\n                          <div class=\"container-fluid\">\r\n                                  \r\n                                              <!-- Page Heading -->\r\n                                            \r\n                                        \r\n                                              <!-- /.row -->\r\n                              \r\n                                          </div>\r\n                          <div class=\"row\">\r\n                            <div class=\"col-md-2\"> </div>    \r\n                            <form  role=\"form\"  #fs=\"ngForm\" (ngSubmit)=\"fs.form.valid && saveBtnClick(fs);\" novalidate>        \r\n                            <div class=\"col-md-10\">\r\n                              \r\n                                <div class=\"col-md-4\">\r\n                                    <div style=\"background-color: #fff;padding: 10px\">\r\n                                      <h3>Create Survey</h3>\r\n\r\n\r\n                                      <mat-form-field  class=\"inputfileds\">\r\n                                          <input matInput placeholder=\"Survey Name\" required name=\"surName\" [(ngModel)]=\"survey.name\"  >\r\n                                        </mat-form-field>\r\n                                        <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Survey Category\" required name=\"surCategory\" [(ngModel)]=\"survey.category\"  >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of surveyCategory;\" >{{grp.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker\"  required name=\"start_date\" [(ngModel)]=\"survey.start_date\" [min]=\"minstartDate\" placeholder=\"Start Date\" disabled >\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <mat-form-field>\r\n                                            <input matInput [matDatepicker]=\"picker1\" required name=\"end_date\" [(ngModel)]=\"survey.end_date\" [min]=\"survey.start_date\" placeholder=\"End Date\" disabled>\r\n                                            <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n                                            <mat-datepicker #picker1 disabled=\"false\"></mat-datepicker>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Theme\" required name=\"theme\" [(ngModel)]=\"survey.selectedTheme\" >\r\n                                              <mat-option [value]=\"grp\" *ngFor=\"let grp of themes;\" >{{grp.title}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                        <mat-form-field  class=\"inputfileds\">\r\n                                            <mat-select [disabled]=\"loggedInCompany && !loggedInCompany.plans[loggedInCompany.plans.length-1].survey_logic\" placeholder=\"Display Type\" required name=\"ui\" [(ngModel)]=\"survey.display_type.ui\" >\r\n                                              <mat-option [value]=\"grp.value\" *ngFor=\"let grp of displayType;\" >{{grp.label}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                          <br>\r\n                                          <div  *ngIf=\"survey.display_type.ui == 'Multiple'\">\r\n                                          <section class=\"example-section\">\r\n                                             Dispaly Page Number\r\n                                              <mat-slide-toggle [disabled]=\"loggedInCompany && !loggedInCompany?.plans[loggedInCompany?.plans.length-1].survey_logic\" class=\"example-margin\" name=\"pageno\" [(ngModel)]=\"survey.display_type.pageno\" [checked]=\"survey.display_type.pageno\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                                \r\n                                              </section>\r\n                                              <br>\r\n                                             </div> \r\n                                                \r\n                                          <section  class=\"example-section\">\r\n                                              Random Question  \r\n                                              <mat-slide-toggle  [disabled]=\"loggedInCompany && !loggedInCompany?.plans[loggedInCompany?.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"randomization\" [(ngModel)]=\"survey.display_type.randomization\" [checked]=\"survey.display_type.randomization\">\r\n                                                 \r\n                                                </mat-slide-toggle>\r\n                                              </section>\r\n\r\n                                              <br>\r\n                                              <section  class=\"example-section\">\r\n                                                  Skip Question  \r\n                                                  <mat-slide-toggle  [disabled]=\"loggedInCompany && !loggedInCompany?.plans[loggedInCompany?.plans.length-1].survey_logic\"  class=\"example-margin\" name=\"skip\" [(ngModel)]=\"survey.display_type.skip\" [checked]=\"survey.display_type.skip\">\r\n                                                     \r\n                                                    </mat-slide-toggle>\r\n                                                  </section>\r\n                                         <br>\r\n                                          <section class=\"example-section\">\r\n                                            Header  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showHeader\" name=\"showheader\" [(ngModel)]=\"survey.showHeader\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                          <br>\r\n                                          \r\n                                          <section class=\"example-section\">\r\n                                            Footer  \r\n                                            <mat-slide-toggle class=\"example-margin\" [checked]=\"survey.showFooter\" name=\"showfooter\" [(ngModel)]=\"survey.showFooter\">\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                           \r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"col-md-8\">\r\n                                    <div style=\"background-color: #fff\">\r\n                                        <div class=\"col-md-10 col-md-offset-1 relaive\">\r\n                                            <div class=\"overlayz\"></div>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#addQuestion\">Add Question</a>\r\n                                            <a href=\"javascript:void(0)\" class=\"btn btn-danger ourbutton\"  #invitePopUp data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#inviteUser\" style=\"display: none;\"></a>\r\n                                        <br>\r\n                                        <br>\r\n                                            <div class=\"col-md-12 \">\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-12 hdr\" *ngIf=\"survey.showHeader\" [ngStyle]=\"{'background-color': survey.selectedTheme.h_bg_color || '#000'}\">\r\n                                                  <div class=\"col-md-2\">\r\n                                                  <div class=\"image-upload\">\r\n\r\n                                                      <label for=\"file-input\">\r\n                                                          <h6 *ngIf=\"!survey.logoSrc\"  [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff'}\">Click here to set logo</h6>\r\n                                                          <img *ngIf=\"survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc\" title=\"Click here to change logo\">\r\n                                                      </label>\r\n                                                  \r\n                                                      <input style=\"display: none;\" (change)=\"displayPhoto($event)\" accept=\".png,.jpeg,.jpg,.bmp,.gif\" id=\"file-input\" type=\"file\"/>\r\n                                                  </div>\r\n                                                </div>\r\n                                                  <div class=\"col-md-10\">\r\n                                                  <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showTitleInput\" (click)=\"showTitleInput()\" title=\"Click here to set a header\">\r\n                                                    <h5   [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.h_font_color || '#fff','font-size':survey.selectedTheme.h_font_size || '', 'font-family':survey.selectedTheme.h_font_family || ''}\" >\r\n                                                    <span *ngIf=\"survey.header\">{{survey.header}}</span>\r\n                                                    <span  *ngIf=\"!survey.header\" >Click here to set a header</span>\r\n                                                  </h5></a>\r\n                                                  <input type=\"text\" (focusout)=\"updateHeaderText()\" name=\"headertitle\" *ngIf=\"survey.showTitleInput\" [(ngModel)]=\"survey.header\" >\r\n                                                </div>\r\n                                                </div>\r\n                                                <div class=\"col-md-12 bdy\" [ngStyle]=\"{'background-color': survey.selectedTheme.b_bg_color || '#fff'}\" >\r\n                                                  <div class=\"row\">\r\n                                                        <div [dragula]='\"third-bag\"' [dragulaModel]='survey.questions' >\r\n                                                          <div class=\"quest\" [ngStyle]=\"{'background-color': survey.selectedTheme.q_bg_color || '#f1e8e8'}\" *ngFor=\"let item of survey.questions; let j = index;\" >\r\n                                                                <h4 [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.q_font_color || '#000','font-size':survey.selectedTheme.q_font_size || '', 'font-family':survey.selectedTheme.q_font_family || ''}\">\r\n                                                                  {{item.question}}\r\n                                                                </h4>\r\n                                                                <div class=\"edit-iconz\">\r\n                                                                <a href=\"javascript:void(0)\"  (click)=\"editQuestion(j)\" data-backdrop=\"static\" data-keyboard=\"false\" data-toggle=\"modal\" data-target=\"#editQuestion\" ><i class=\"fa fa-pencil\"></i></a>\r\n                                                                <a href=\"javascript:void(0)\" (click)=\"deleteQuestionConfirm(j)\" data-toggle=\"modal\" data-target=\"#deleteModal\"><i class=\"fa fa-trash-o\"></i></a>\r\n                                                                </div>\r\n                                                          </div>\r\n                                                        </div>\r\n                                                  </div>\r\n                                                  \r\n                                                  <div>\r\n                                                    <div *ngIf=\"survey.display_type.ui == 'Multiple Page'\" class=\"col-md-6 progrs\">\r\n                                                        <h5 *ngIf=\"survey.display_type.pageno\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color || '#000'}\">Page No. 4 of 10</h5>\r\n                                                        <div class=\"progress\" >\r\n                                                            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                                            aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:40%\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_color || ''}\">\r\n                                                              <span class=\"sr-only\">70% Complete</span>\r\n                                                            </div>\r\n                                                          </div> \r\n                                                    </div>\r\n                                                                \r\n                                                  </div> \r\n                                                </div>\r\n                                                <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                                    <mat-spinner></mat-spinner>\r\n                                                   </div> -->\r\n                                                <div class=\"col-md-12 ftr\" *ngIf=\"survey.showFooter\" [ngStyle]=\"{'background-color': survey.selectedTheme.f_bg_color || '#000'}\" >\r\n                                                    <a href=\"javascript:void(0)\"  *ngIf=\"!survey.showFooterInput\" (click)=\"showFooterInput()\" title=\"Click here to set a footer\">\r\n                                                    <h6  [ngStyle]=\"{'color': '#fff'}\">\r\n                                                    <span *ngIf=\"survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >{{survey.footer}}</span>\r\n                                                    <span  *ngIf=\"!survey.footer\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.f_font_italic, 'bld': survey.selectedTheme.f_font_bold}\" [ngStyle]=\"{'color': survey.selectedTheme.f_font_color || '#fff','font-size':survey.selectedTheme.f_font_size || '', 'font-family':survey.selectedTheme.f_font_family || ''}\" >Click here to set a footer</span>\r\n                                                  </h6>\r\n                                                  </a>\r\n                                                <input type=\"text\" (focusout)=\"updateFooterText()\" name=\"footertitle\" *ngIf=\"survey.showFooterInput\" [(ngModel)]=\"survey.footer\" >\r\n                                              </div>\r\n\r\n                                              \r\n                                         \r\n\r\n                                              <div class=\"row\">\r\n                                                <div class=\"col-md-6\">\r\n                                               \r\n                                                        <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                        <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                        <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button>\r\n                                                      \r\n                                                      </div>\r\n                                                      <div class=\"col-md-3\" *ngIf=\"showSpinner\">\r\n                                                             <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                             width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                                         <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                           <animateTransform attributeType=\"xml\"\r\n                                                             attributeName=\"transform\"\r\n                                                             type=\"rotate\"\r\n                                                             from=\"0 25 25\"\r\n                                                             to=\"360 25 25\"\r\n                                                             dur=\"0.6s\"\r\n                                                             repeatCount=\"indefinite\"/>\r\n                                                           </path>\r\n                                                         </svg>\r\n                                                      </div>\r\n                                                       \r\n                                                    </div>\r\n                                                <!-- <a class=\"btn btn-danger ourbutton\"  [routerLink]=\"['/company-list-survey']\" >Back</a>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" (click)=\"showPreview();\" >Preview</button>\r\n                                                <button  class=\"btn btn-danger ourbutton\" type= \"submit\" [disabled]=\"saveBtnDisbled\"  >Save & Continue</button> -->\r\n                                                <!-- <div *ngIf=\"isError2\" class=\"text-danger text-left\">\r\n                                                    {{msg2}}\r\n                                               </div>\r\n                                                <div *ngIf=\"isSuccess2\" class=\"text-success text-left\">\r\n                                                    {{msg2}}\r\n                                              </div> -->\r\n                                              </div>\r\n                                            </div>\r\n                                          </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            </form> \r\n                          </div>\r\n                          \r\n                        </div>\r\n                        <!-- /#page-wrapper -->\r\n                        \r\n                                   \r\n                        </div>\r\n                    \r\n                        \r\n\r\n                      <!-- User Invite Popup start   -->\r\n\r\n                        <div id=\"inviteUser\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <!-- <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button> -->\r\n                                  <h4 class=\"modal-title\">Email Invitation</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <!-- <form  role=\"form\"  #finvite=\"ngForm\" (ngSubmit)=\"finvite.form.valid && updateQuestion(finvite);\" novalidate> -->\r\n                              \r\n                                  <div class=\"form-group\"  >\r\n                                      \r\n                                      <div *ngIf=\"userGroups && userGroups.length > 0\">\r\n                                  <mat-form-field class=\"filter\">\r\n                                      \r\n                                        <mat-select  (change)=\"updateUserList()\" name=\"xyz\" [(ngModel)]=\"selectedUserGroup\"  >\r\n                                          <mat-option value=\"all\">All</mat-option>\r\n                                          <mat-option value=\"{{grp._id}}\" *ngFor=\"let grp of userGroups\">{{grp.name}}</mat-option>\r\n                                        </mat-select>\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      <!-- <p>You selected: {{selected}} </p> -->\r\n                                    <div class=\"example-header\">\r\n                                      <mat-form-field>\r\n                                        <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n                                      </mat-form-field>\r\n                                    </div>\r\n                                      \r\n                                      <div class=\"example-container mat-elevation-z8\">\r\n\r\n                                          <div class=\"example-container mat-elevation-z8\">\r\n                                              <mat-table #table [dataSource]=\"dataSource\">\r\n                                            \r\n                                                <!-- Checkbox Column -->\r\n                                                <ng-container matColumnDef=\"select\">\r\n                                                  <mat-header-cell *matHeaderCellDef>\r\n                                                    <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                                                                  [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                                                                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-header-cell>\r\n                                                  <mat-cell *matCellDef=\"let row\">\r\n                                                    <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                                                                  (change)=\"$event ? selection.toggle(row) : null\"\r\n                                                                  [checked]=\"selection.isSelected(row)\">\r\n                                                    </mat-checkbox>\r\n                                                  </mat-cell>\r\n                                                </ng-container>\r\n                                            \r\n                                                    <ng-container matColumnDef=\"email\">\r\n                                                        <mat-header-cell *matHeaderCellDef><b>Email</b></mat-header-cell>\r\n                                                        <mat-cell *matCellDef=\"let element\">{{element.email}}</mat-cell>\r\n                                                      </ng-container>\r\n                                            \r\n                                                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                                                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n                                                         (click)=\"selection.toggle(row)\">\r\n                                                </mat-row>\r\n                                              </mat-table>\r\n\r\n                                              <div class=\"col-md-12 noItemFound\" *ngIf=\"existStatus\">\r\n                                                <div class=\"col-md-4 col-md-offset-4\">\r\n                                                    <mat-toolbar   class=\"back-color\">No item found!</mat-toolbar>\r\n                                                </div>\r\n                                            </div>\r\n                                              <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n                                            </div>\r\n                                        \r\n                                      </div>\r\n                                      <br>\r\n                                      {{selection.selected.length}} User Selected\r\n                                      <br>\r\n\r\n                                      <div >\r\n                                          <mat-form-field class=\"inputfileds\" >\r\n                                              <input matInput placeholder=\"Email\" [(ngModel)]=\"newUser\" name=\"newUser\" >\r\n                                            </mat-form-field>\r\n                                            <button  [disabled]=\"addUserBtnDisbled\"  class=\"btn btn-danger ourbutton\" (click)=\"addUser()\">Add New User</button>\r\n                                      </div>\r\n                                  </div>\r\n\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n                                  <!-- <div *ngIf=\"isError3\" class=\"text-danger text-left\">\r\n                                      {{msg3}}\r\n                                 </div>\r\n                                 <div *ngIf=\"isSuccess3\" class=\"text-success text-left\">\r\n                                    {{msg3}}\r\n                              </div> -->\r\n                                  <!-- <button [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" >Send Later</button> -->\r\n                                  \r\n\r\n                                  <div class=\"row\">\r\n                                    <div class=\"col-md-6\">\r\n                                        <a class=\"btn btn-danger ourbutton\" href=\"/company-list-survey\" >Send Later</a>\r\n                                        <button  [disabled]=\"inviteBtnDisbled\" class=\"btn btn-danger ourbutton\" (click)=\"inviteUser()\" >Send Invitation</button>\r\n                                          </div>\r\n                                          <div class=\"col-md-3\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                                  \r\n                                 \r\n                              <!-- </form> -->\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- user ivite Popup End   -->\r\n\r\n\r\n\r\n\r\n                      <!-- Edit Popup start   -->\r\n\r\n                        <div id=\"editQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn1>&times;</button>\r\n                                  <h4 class=\"modal-title\">Update Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f1=\"ngForm\" (ngSubmit)=\"f1.form.valid && updateQuestion(f1);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError1\" class=\"text-danger text-left\">\r\n                                          {{msg1}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess1\" class=\"text-success text-left\">\r\n                                        {{msg1}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"editQuest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='edittype' #questionType=\"ngModel\" [(ngModel)]=\"editQuest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of editQuest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" [value]=\"editQuest.opts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOptionEdit(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOptionEdit()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"editQuest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"editQuest.showStarLabel\" [(ngModel)]=\"editQuest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"editQuest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" [value]=\"editQuest.starOpts[i]\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"editQuest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n\r\n                                    \r\n                                     <div class=\"row\">\r\n                                      <div class=\"col-md-4\">\r\n                                         \r\n                                              <button type= \"submit\" [disabled]=\"updateBtnDisbled\" class=\"btn btn-danger ourbutton\" >Update</button>\r\n                                           \r\n                                            </div>\r\n                                            <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                   <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                   width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                               <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                                 <animateTransform attributeType=\"xml\"\r\n                                                   attributeName=\"transform\"\r\n                                                   type=\"rotate\"\r\n                                                   from=\"0 25 25\"\r\n                                                   to=\"360 25 25\"\r\n                                                   dur=\"0.6s\"\r\n                                                   repeatCount=\"indefinite\"/>\r\n                                                 </path>\r\n                                               </svg>\r\n                                            </div>\r\n                                             \r\n                                          </div>\r\n                                  \r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                          <!-- Edit Popup End   -->\r\n\r\n\r\n                        <!-- Add Popup Start   -->\r\n\r\n                        <div id=\"addQuestion\"  class=\"modal fade\">\r\n                            <div class=\"modal-dialog\">\r\n                            \r\n                              <!-- Modal content-->\r\n                              <div class=\"modal-content\">\r\n                                <div class=\"modal-header\">\r\n                                  <button type=\"button\" class=\"close\" data-dismiss=\"modal\" #closeBtn>&times;</button>\r\n                                  <h4 class=\"modal-title\">Create Question</h4>\r\n                                </div>\r\n                                <div class=\"modal-body\">\r\n                                  \r\n                              <form  role=\"form\"  #f=\"ngForm\" (ngSubmit)=\"f.form.valid && addQuestion(f);\" novalidate>\r\n                              \r\n                                  <div class=\"form-group\" >\r\n                                      <label > Question </label>\r\n                                      <br>\r\n                                      <!-- <div *ngIf=\"isError\" class=\"text-danger text-left\">\r\n                                          {{msg}}\r\n                                     </div>\r\n                                     <div *ngIf=\"isSuccess\" class=\"text-success text-left\">\r\n                                        {{msg}}\r\n                                  </div> -->\r\n\r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <input matInput placeholder=\"Question here\" required   #question=\"ngModel\" name=\"question\" [(ngModel)]=\"quest.question\" >\r\n                                          </mat-form-field>\r\n                                        \r\n                                        </div>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                      <br>\r\n                                 \r\n                                      <div class=\"inputitem\">\r\n                                          <mat-form-field class=\"inputfileds\">\r\n                                            <mat-select placeholder=\"Question Type\" required name='type' #questionType=\"ngModel\" [(ngModel)]=\"quest.answerType\" >\r\n                                              <mat-option [value]=\"val.name\" *ngFor=\"let val of answerType;\"  >{{val.name}}</mat-option>\r\n                                            </mat-select>\r\n                                          </mat-form-field>\r\n                                      </div>\r\n                                     \r\n                                      <div style=\"clear: both;\"></div>\r\n\r\n                                      <!-- multiple choice Start -->\r\n                                      <div *ngIf=\"quest.answerType=='Multiple choice'\">\r\n                                          <div   *ngFor=\"let item of quest.opts; let i = index; trackBy:trackByIndex\" >\r\n                                              <div class=\"inputitem\">\r\n                                                  <div class=\"row\">\r\n                                                      <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Option\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.opts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                      <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                          <button class=\"btn-danger\" (click)=\"removeOption(i)\" style=\"float: left;\" >X</button>\r\n                                                      </div>  \r\n                                              </div>\r\n                                              <!-- <div style=\"float: left;padding-top: 14px;width:220px;\">\r\n                                                 \r\n                                              </div> -->\r\n                                            </div>\r\n                                      </div>\r\n                                      <div style=\"clear: both;\"></div>\r\n                                      <button  class=\"btn btn-danger ourbutton\" (click)=\"addMoreOption()\" >Add More</button>\r\n                                      </div>\r\n                                       <!-- multiple choice  End -->\r\n\r\n                                      <!-- Start Rating Start -->\r\n                                      <div *ngIf=\"quest.answerType=='star rating'\"  >\r\n                                          <br>\r\n                                          <section class=\"example-section\">\r\n                                            Show Label  \r\n                                            <mat-slide-toggle class=\"example-margin\" name=\"showStartlabel\" [checked]=\"quest.showStarLabel\" [(ngModel)]=\"quest.showStarLabel\" >\r\n                                               \r\n                                              </mat-slide-toggle>\r\n                                            </section>\r\n                                            <div *ngIf=\"quest.showStarLabel\">\r\n                                              <div class=\"inputitem\" *ngFor=\"let item of counter(5); let i = index; trackBy:trackByIndex\" >\r\n                                                <div class=\"row\">\r\n                                                    <div class=\"col-md-7\">\r\n                                                        <mat-form-field class=\"inputfileds\">\r\n                                                          <input matInput placeholder=\"Label For {{i+1}} Star\" required #opt{{i}}=\"ngModel\" name=\"opt_{{i}}\" [(ngModel)]=\"quest.starOpts[i]\" >\r\n                                                        </mat-form-field>\r\n                                                      </div>  \r\n                                                  <div class=\"col-md-5\" style=\"padding-top: 25px;\">\r\n                                                    <mat-icon class=\"example-icon\" *ngFor=\"let item of counter(i+1);let j = index;\" >star</mat-icon>\r\n                                                  </div>\r\n                                                  \r\n                                                </div>\r\n                                              </div>\r\n                                            </div>\r\n                                      </div>\r\n                                       <!-- Star Rating  End -->\r\n\r\n                                  </div>\r\n                                  <div style=\"clear: both;\"></div>\r\n                                  <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                                      <mat-spinner></mat-spinner>\r\n                                     </div> -->\r\n                                 \r\n                                     <div>\r\n                                        <button type= \"submit\" [disabled]=\"btnDisbled\" class=\"btn btn-danger ourbutton\" >Submit</button>\r\n                                      </div>\r\n                                  <div class=\"row\">\r\n                                    <div class=\"col-md-4\">\r\n                                    \r\n                                          </div>\r\n                                          <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                                 <svg class=\"svgclass\" version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                                 width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                             <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                               <animateTransform attributeType=\"xml\"\r\n                                                 attributeName=\"transform\"\r\n                                                 type=\"rotate\"\r\n                                                 from=\"0 25 25\"\r\n                                                 to=\"360 25 25\"\r\n                                                 dur=\"0.6s\"\r\n                                                 repeatCount=\"indefinite\"/>\r\n                                               </path>\r\n                                             </svg>\r\n                                          </div>\r\n                                           \r\n                                        </div>\r\n                                 \r\n                              </form>\r\n                                </div>\r\n                                <div class=\"modal-footer\">\r\n                                </div>\r\n                              </div>\r\n                              \r\n                            </div>\r\n                          </div>\r\n\r\n                            <!-- Add Popup End   -->\r\n\r\n\r\n                          <!-- Delete Popup Start -->\r\n\r\n                          <!-- <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                            <div class=\"modal-dialog\">\r\n                          \r\n                          \r\n                              <div class=\"modal-content\">\r\n                                  <div class=\"modal-header\">\r\n                                      <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                                      <h4 class=\"modal-title\">Message </h4>\r\n                                 </div>\r\n                               \r\n                                <div class=\"modal-body\">\r\n                                    <h4>Are you sure to delete?</h4>\r\n                                \r\n                                </div>\r\n                              \r\n                                <div class=\"modal-footer\">\r\n                                  <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n                                  <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-default\" data-dismiss=\"modal\">Delete</button>\r\n                                </div>\r\n                              </div>\r\n                          \r\n                            </div>\r\n                          </div> -->\r\n\r\n\r\n\r\n\r\n                          <div id=\"deleteModal\" class=\"modal fade\" role=\"dialog\">\r\n                              <div class=\"modal-dialog\">\r\n                            \r\n                                <!-- Modal content-->\r\n                                <div class=\"modal-content\">\r\n                                    <div class=\"modal-header\">\r\n                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n                                        <h4 class=\"modal-title\">Message </h4>\r\n                                   </div>\r\n                                  <!-- <div class=\"modal-header\"> -->\r\n                                    <!-- <h4 class=\"modal-title\">Are you sure to delete?</h4> -->\r\n                                  <!-- </div> -->\r\n                                  <div class=\"modal-body\">\r\n                                      <h4 class=\"textalign\">Are you sure to delete?</h4>\r\n                                  \r\n                                  </div>\r\n                                \r\n                                  <div class=\"modal-footer\">\r\n                                      <button type=\"button\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Close</button>\r\n                                      <button type=\"button\" (click)=\"deleteQuestion()\" class=\"btn btn-danger\"  data-dismiss=\"modal\">Delete</button>\r\n                                  </div>\r\n                                </div>\r\n                            \r\n                              </div>\r\n                            </div>\r\n\r\n                          <!-- Delete Popup End -->\r\n                \r\n                        <footer></footer> \r\n                          \r\n                        </body>\r\n  <div *ngIf=\"preview\">\r\n                            <app-company-survey-preview (onBackBtnClick)=\"onBackToSurevyClick()\"  [survey]=\"survey\"></app-company-survey-preview>    \r\n    </div>                          "
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-create-survey/company-create-survey.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyCreateSurveyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula_ng2_dragula__ = __webpack_require__("../../../../ng2-dragula/ng2-dragula.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_dragula_ng2_dragula__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_cdk_collections__ = __webpack_require__("../../../cdk/esm5/collections.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7252,13 +7518,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var ng2_dragula_1 = __webpack_require__("../../../../ng2-dragula/ng2-dragula.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
+
+
 var CompanyCreateSurveyComponent = /** @class */ (function () {
     function CompanyCreateSurveyComponent(companyService, dragulaService, routes, snackBar) {
         this.companyService = companyService;
@@ -7313,7 +7578,7 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         this.editIndex = 0;
         this.deleteIndex = 0;
         this.displayedColumns = ['select', 'email'];
-        this.selection = new collections_1.SelectionModel(true, []);
+        this.selection = new __WEBPACK_IMPORTED_MODULE_4__angular_cdk_collections__["a" /* SelectionModel */](true, []);
     }
     CompanyCreateSurveyComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -7379,7 +7644,7 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         this.companyService.getMyUsers().subscribe(function (data) {
             _this.users = data;
             //    console.log(this.users);
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["E" /* MatTableDataSource */](data);
             _this.dataSource.paginator = _this.paginator;
         });
         this.updateUserList();
@@ -7416,7 +7681,7 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
                     _this.existStatus = false;
                 }
                 _this.users = data;
-                _this.dataSource = new material_1.MatTableDataSource(data);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["E" /* MatTableDataSource */](data);
                 _this.dataSource.paginator = _this.paginator;
                 _this.selection.clear();
             });
@@ -7431,7 +7696,7 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
                     _this.existStatus = false;
                 }
                 _this.users = data;
-                _this.dataSource = new material_1.MatTableDataSource(_this.users);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["E" /* MatTableDataSource */](_this.users);
                 _this.dataSource.paginator = _this.paginator;
                 _this.selection.clear();
             });
@@ -7707,32 +7972,32 @@ var CompanyCreateSurveyComponent = /** @class */ (function () {
         this.preview = false;
     };
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyCreateSurveyComponent.prototype, "closeBtn1", void 0);
     __decorate([
-        core_1.ViewChild('invitePopUp'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('invitePopUp'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyCreateSurveyComponent.prototype, "invitePopUp", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_material__["p" /* MatPaginator */])
     ], CompanyCreateSurveyComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_material__["B" /* MatSort */])
     ], CompanyCreateSurveyComponent.prototype, "sort", void 0);
     CompanyCreateSurveyComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-create-survey',
             template: __webpack_require__("../../../../../src/app/components/company-create-survey/company-create-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-create-survey/company-create-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2_ng2_dragula_ng2_dragula__["DragulaService"], __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["z" /* MatSnackBar */]])
     ], CompanyCreateSurveyComponent);
     return CompanyCreateSurveyComponent;
 }());
-exports.CompanyCreateSurveyComponent = CompanyCreateSurveyComponent;
+
 
 
 /***/ }),
@@ -7763,10 +8028,15 @@ module.exports = "<div class=\"col-md-12 bg-white\">\r\n  <div class=\"col-md-6 
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyCreateThemeContainerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7776,18 +8046,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+
+
+
+
+
 var CompanyCreateThemeContainerComponent = /** @class */ (function () {
     function CompanyCreateThemeContainerComponent(_companyService, routes, snackBar) {
         this._companyService = _companyService;
         this.routes = routes;
         this.snackBar = snackBar;
-        this.themeCreated = new core_1.EventEmitter();
+        this.themeCreated = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.newTheme = {
             title: "",
             h_font_color: "#ffffff",
@@ -7812,8 +8081,8 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
             q_font_bold: false,
             q_font_italic: false
         };
-        this.titleFormControl = new forms_1.FormControl('', [
-            forms_1.Validators.required,
+        this.titleFormControl = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [
+            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required,
         ]);
         this.showSpinner = false;
         // public colorx : string = "#ffffff";
@@ -7937,19 +8206,19 @@ var CompanyCreateThemeContainerComponent = /** @class */ (function () {
         // this.routes.navigate(['/create-theme'], { queryParams: { 'refresh': 1 } });
     };
     CompanyCreateThemeContainerComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-create-theme-container',
             template: __webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-create-theme-container/company-create-theme-container.component.css")],
             outputs: ['themeCreated']
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], CompanyCreateThemeContainerComponent);
     return CompanyCreateThemeContainerComponent;
 }());
-exports.CompanyCreateThemeContainerComponent = CompanyCreateThemeContainerComponent;
+
 
 
 /***/ }),
@@ -7962,7 +8231,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.active1{\r\n    background-color: #eee;\r\n}", ""]);
+exports.push([module.i, ".test:after {\r\n    content: '\\2807';\r\n    font-size:25px;\r\n    }\r\n\r\nbody {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.active1{\r\n    background-color: #eee;\r\n}\r\n\r\n.active1 a{\r\n    color: #d9534f;\r\n}", ""]);
 
 // exports
 
@@ -7975,15 +8244,18 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-create-theme/company-create-theme.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n    <div id=\"wrapper\">\r\n      <!-- Navigation -->\r\n      <app-company-top-bar></app-company-top-bar>            \r\n      <app-company-sidebar></app-company-sidebar>\r\n      <div id=\"\">\r\n        <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n    \r\n          <!-- /.row -->\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n          <nav class=\"nav-sidebar\">\r\n            <ul class=\"nav tabs\">\r\n              <li [ngClass]=\"{'active1': viewComp == 'All'}\"><a (click)=\"updateView('list')\" href=\"#tab1\" data-toggle=\"tab\">Manage Themes</a></li>\r\n              <li [ngClass]=\"{'active1': viewComp == 'Active'}\"><a (click)=\"updateView('create')\" href=\"#tab4\" data-toggle=\"tab\">Create Themes</a></li> \r\n            </ul>\r\n          </nav>\r\n                                                       \r\n        </div>\r\n        <div class=\"col-md-10\">\r\n          <div *ngIf=\"viewComp == 'list'\">\r\n            <app-company-manage-themes></app-company-manage-themes>\r\n            <!-- <all-users></all-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'create'\">\r\n            <app-company-create-theme-container (themeCreated)=\"themeCreated($event)\"></app-company-create-theme-container>\r\n              <!-- <active-users></active-users> -->\r\n            </div>\r\n          <div *ngIf=\"viewComp == 'Blocked'\">\r\n            <!-- <disabled-users></disabled-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'Delete'\">\r\n            <!-- <deleted-users></deleted-users> -->\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /#page-wrapper -->\r\n    </div>\r\n    <footer></footer> \r\n    \r\n  </body>"
+module.exports = "<body>\r\n    <div id=\"wrapper\">\r\n      <!-- Navigation -->\r\n      <app-company-top-bar></app-company-top-bar>            \r\n      <app-company-sidebar></app-company-sidebar>\r\n      <div id=\"\">\r\n        <div class=\"container-fluid\">\r\n          <!-- Page Heading -->\r\n        \r\n    \r\n          <!-- /.row -->\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n          <nav class=\"nav-sidebar\">\r\n            <ul class=\"nav tabs\">\r\n              <li [ngClass]=\"{'active1': viewComp == 'list'}\"><a (click)=\"updateView('list')\" href=\"#tab1\" data-toggle=\"tab\">Manage Themes</a></li>\r\n              <li [ngClass]=\"{'active1': viewComp == 'create'}\"><a (click)=\"updateView('create')\" href=\"#tab4\" data-toggle=\"tab\">Create Themes</a></li> \r\n            </ul>\r\n          </nav>\r\n                                                       \r\n        </div>\r\n        <div class=\"col-md-10\">\r\n          <div *ngIf=\"viewComp == 'list'\">\r\n            <app-company-manage-themes></app-company-manage-themes>\r\n            <!-- <all-users></all-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'create'\">\r\n            <app-company-create-theme-container (themeCreated)=\"themeCreated($event)\"></app-company-create-theme-container>\r\n              <!-- <active-users></active-users> -->\r\n            </div>\r\n          <div *ngIf=\"viewComp == 'Blocked'\">\r\n            <!-- <disabled-users></disabled-users> -->\r\n          </div>\r\n          <div *ngIf=\"viewComp == 'Delete'\">\r\n            <!-- <deleted-users></deleted-users> -->\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /#page-wrapper -->\r\n    </div>\r\n    <footer></footer> \r\n    \r\n  </body>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-create-theme/company-create-theme.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyCreateThemeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7993,10 +8265,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
 var CompanyCreateThemeComponent = /** @class */ (function () {
     function CompanyCreateThemeComponent(companyService, routes) {
         this.companyService = companyService;
@@ -8067,16 +8338,16 @@ var CompanyCreateThemeComponent = /** @class */ (function () {
         }
     };
     CompanyCreateThemeComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-create-theme',
             template: __webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-create-theme/company-create-theme.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], CompanyCreateThemeComponent);
     return CompanyCreateThemeComponent;
 }());
-exports.CompanyCreateThemeComponent = CompanyCreateThemeComponent;
+
 
 
 /***/ }),
@@ -8107,10 +8378,17 @@ module.exports = "<div id=\"wrapper\">\r\n  <!-- Navigation -->\r\n  <app-compan
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-dashboard/company-dashboard.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyDashboardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8120,19 +8398,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 // import { AgmCoreModule, MapsAPILoader } from '@agm/core';
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
+
+
 // import * as d3 from 'd3-selection';
 // import * as d3Scale from 'd3-scale';
 // import * as d3Array from 'd3-array';
 // import * as d3Axis from 'd3-axis';
 // import * as d3Shape from 'd3-shape';
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
 var CompanyDashboardComponent = /** @class */ (function () {
     function CompanyDashboardComponent(_companyService, routes, config, route) {
         var _this = this;
@@ -8164,7 +8441,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
         this.timeout = setTimeout(function () {
         }, 2000);
         this.surveyId = 'all';
-        this.socket = socketIo(config.socketURL);
+        this.socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__(config.socketURL);
         // this.socket = socketIo(config.siteUrl);
         this.width = 900 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
@@ -8314,7 +8591,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
                 .value(function (d) { return d.percent; })
                 .sort(null)
                 .padAngle(.03);
-            var w = 500, h = 500;
+            var w = 370, h = 370;
             var outerRadius = w / 2;
             var innerRadius = w / 3;
             var color = d3.scale.category10();
@@ -8408,7 +8685,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
                     class: 'legend',
                     transform: function (d, i) {
                         //Just a calculation for x & y position
-                        return 'translate(-35,' + ((i * legendHeight) - 65) + ')';
+                        return 'translate(-60,' + ((i * legendHeight) - 65) + ')';
                     }
                 });
                 legend.append('rect')
@@ -8424,7 +8701,7 @@ var CompanyDashboardComponent = /** @class */ (function () {
                 });
                 legend.append('text')
                     .attr({
-                    x: 30,
+                    x: 25,
                     y: 15
                 })
                     .text(function (d) {
@@ -8532,27 +8809,27 @@ var CompanyDashboardComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MatPaginator */])
     ], CompanyDashboardComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_5__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__angular_material__["B" /* MatSort */])
     ], CompanyDashboardComponent.prototype, "sort", void 0);
     CompanyDashboardComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-dashboard',
             template: __webpack_require__("../../../../../src/app/components/company-dashboard/company-dashboard.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-dashboard/company-dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router,
-            config_1.Config,
-            router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
     ], CompanyDashboardComponent);
     return CompanyDashboardComponent;
 }());
-exports.CompanyDashboardComponent = CompanyDashboardComponent;
+
 
 
 /***/ }),
@@ -8583,10 +8860,18 @@ module.exports = "<body *ngIf=\"!preview\">\r\n    \r\n                  <div id
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-edit-survey/company-edit-survey.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyEditSurveyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula_ng2_dragula__ = __webpack_require__("../../../../ng2-dragula/ng2-dragula.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_dragula_ng2_dragula__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_cdk_collections__ = __webpack_require__("../../../cdk/esm5/collections.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8596,14 +8881,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var ng2_dragula_1 = __webpack_require__("../../../../ng2-dragula/ng2-dragula.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
+
+
+
+
+
 var CompanyEditSurveyComponent = /** @class */ (function () {
     function CompanyEditSurveyComponent(companyService, dragulaService, routes, route, config, snackBar) {
         this.companyService = companyService;
@@ -8659,7 +8943,7 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         this.editIndex = 0;
         this.deleteIndex = 0;
         this.displayedColumns = ['select', 'email'];
-        this.selection = new collections_1.SelectionModel(true, []);
+        this.selection = new __WEBPACK_IMPORTED_MODULE_4__angular_cdk_collections__["a" /* SelectionModel */](true, []);
         this.invitedEmailds = [];
     }
     CompanyEditSurveyComponent.prototype.ngOnInit = function () {
@@ -8817,7 +9101,7 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
             this.companyService.getMyUsers().subscribe(function (data) {
                 _this.users = _this.updateAlreadyInvitedUsers(data);
                 console.log(_this.users);
-                _this.dataSource = new material_1.MatTableDataSource(_this.users);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["E" /* MatTableDataSource */](_this.users);
                 _this.dataSource.paginator = _this.paginator;
                 _this.selection.clear();
             });
@@ -8827,7 +9111,7 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
             this.companyService.getUsersInAGroups(this.selectedUserGroup).subscribe(function (data) {
                 _this.users = _this.updateAlreadyInvitedUsers(data);
                 console.log(_this.users);
-                _this.dataSource = new material_1.MatTableDataSource(_this.users);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material__["E" /* MatTableDataSource */](_this.users);
                 _this.dataSource.paginator = _this.paginator;
                 _this.selection.clear();
             });
@@ -9113,36 +9397,36 @@ var CompanyEditSurveyComponent = /** @class */ (function () {
         this.preview = false;
     };
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyEditSurveyComponent.prototype, "closeBtn1", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn2'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn2'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyEditSurveyComponent.prototype, "closeBtn2", void 0);
     __decorate([
-        core_1.ViewChild('invitePopUp'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('invitePopUp'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyEditSurveyComponent.prototype, "invitePopUp", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_material__["p" /* MatPaginator */])
     ], CompanyEditSurveyComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_material__["B" /* MatSort */])
     ], CompanyEditSurveyComponent.prototype, "sort", void 0);
     CompanyEditSurveyComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-edit-survey',
             template: __webpack_require__("../../../../../src/app/components/company-edit-survey/company-edit-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-edit-survey/company-edit-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, ng2_dragula_1.DragulaService, router_1.Router, router_1.ActivatedRoute, config_1.Config, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2_ng2_dragula_ng2_dragula__["DragulaService"], __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_6__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["z" /* MatSnackBar */]])
     ], CompanyEditSurveyComponent);
     return CompanyEditSurveyComponent;
 }());
-exports.CompanyEditSurveyComponent = CompanyEditSurveyComponent;
+
 
 
 /***/ }),
@@ -9173,10 +9457,13 @@ module.exports = "\r\n<div class=\"rating\" *ngIf=\"options !=[]\">\r\n    <ng-c
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyEditThemeContainerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9186,10 +9473,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
 var CompanyEditThemeContainerComponent = /** @class */ (function () {
     function CompanyEditThemeContainerComponent(_companyService, routes) {
         this._companyService = _companyService;
@@ -9241,18 +9527,18 @@ var CompanyEditThemeContainerComponent = /** @class */ (function () {
         $(".rating label").css({ "float": "right", "position": "relative", "width": "40px", "height": "40px", "cursor": "pointer", });
     };
     CompanyEditThemeContainerComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-edit-theme-container',
             template: __webpack_require__("../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-edit-theme-container/company-edit-theme-container.component.css")],
             inputs: ["options", 'classz'],
             template: "\n  <div class=\"container\">\n  \n      <!-- regular rating -->\n      <rating [(ngModel)]=\"starsCount\"></rating>\n      <br/><br/>\n  \n      <!-- rating with 10 stars -->\n      <rating [(ngModel)]=\"starsCount\"\n              [max]=\"10\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with custom icons -->\n      <rating [(ngModel)]=\"starsCount\"\n              fullIcon=\"\u25C6\"\n              emptyIcon=\"\u25C7\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating readonly -->\n      <rating [(ngModel)]=\"starsCount\"\n              [readonly]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating disabled -->\n      <rating [(ngModel)]=\"starsCount\"\n              [disabled]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating required -->\n      <rating [(ngModel)]=\"starsCount\"\n              [required]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with half stars -->\n      <rating [(ngModel)]=\"starsCount\"\n              [float]=\"true\">\n      </rating>\n      <br/><br/>\n  \n      <!-- rating with custom titles -->\n      <rating [(ngModel)]=\"starsCount\"\n              [titles]=\"['one', 'two', 'three', 'four', 'five']\">\n      </rating>\n      <br/><br/>\n  \n  </div>\n  ",
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], CompanyEditThemeContainerComponent);
     return CompanyEditThemeContainerComponent;
 }());
-exports.CompanyEditThemeContainerComponent = CompanyEditThemeContainerComponent;
+
 
 
 /***/ }),
@@ -9283,10 +9569,15 @@ module.exports = "\r\n  <div id=\"wrapper\">\r\n    <!-- Navigation -->\r\n    <
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-edit-theme/company-edit-theme.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyEditThemeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9296,12 +9587,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
+
+
+
+
+
 var CompanyEditThemeComponent = /** @class */ (function () {
     function CompanyEditThemeComponent(_activatedRoute, _companyService, routes, snackBar) {
         this._activatedRoute = _activatedRoute;
@@ -9309,8 +9599,8 @@ var CompanyEditThemeComponent = /** @class */ (function () {
         this.routes = routes;
         this.snackBar = snackBar;
         this.displatStat = false;
-        this.titleFormControl = new forms_1.FormControl('', [
-            forms_1.Validators.required,
+        this.titleFormControl = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [
+            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required,
         ]);
         this.submitBtnDisabled = false;
         this.showSpinner = false;
@@ -9485,19 +9775,19 @@ var CompanyEditThemeComponent = /** @class */ (function () {
         this.routes.navigate(['./create-theme']);
     };
     CompanyEditThemeComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-edit-theme',
             template: __webpack_require__("../../../../../src/app/components/company-edit-theme/company-edit-theme.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-edit-theme/company-edit-theme.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            company_service_1.CompanyService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], CompanyEditThemeComponent);
     return CompanyEditThemeComponent;
 }());
-exports.CompanyEditThemeComponent = CompanyEditThemeComponent;
+
 
 
 /***/ }),
@@ -9528,10 +9818,16 @@ module.exports = "<flash-messages></flash-messages>"
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-email-verification/company-email-verification.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyEmailVerificationComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9541,12 +9837,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
 var CompanyEmailVerificationComponent = /** @class */ (function () {
     function CompanyEmailVerificationComponent(companyService, routes, _flashMessagesService, route, snackBar) {
         this.companyService = companyService;
@@ -9591,16 +9886,16 @@ var CompanyEmailVerificationComponent = /** @class */ (function () {
         // -----------------------------------End------------------------------------------
     };
     CompanyEmailVerificationComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-email-verification',
             template: __webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-email-verification/company-email-verification.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_4__angular_material__["z" /* MatSnackBar */]])
     ], CompanyEmailVerificationComponent);
     return CompanyEmailVerificationComponent;
 }());
-exports.CompanyEmailVerificationComponent = CompanyEmailVerificationComponent;
+
 
 
 /***/ }),
@@ -9631,10 +9926,15 @@ module.exports = "<flash-messages></flash-messages>\r\n<br>\r\n<div class=\"cont
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-expired-page/company-expired-page.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyExpiredPageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9644,11 +9944,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+
+
+
+
 var CompanyExpiredPageComponent = /** @class */ (function () {
     function CompanyExpiredPageComponent(companyService, routes, _flashMessagesService) {
         this.companyService = companyService;
@@ -9732,16 +10031,16 @@ var CompanyExpiredPageComponent = /** @class */ (function () {
         return false;
     };
     CompanyExpiredPageComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-expired-page',
             template: __webpack_require__("../../../../../src/app/components/company-expired-page/company-expired-page.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-expired-page/company-expired-page.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]])
     ], CompanyExpiredPageComponent);
     return CompanyExpiredPageComponent;
 }());
-exports.CompanyExpiredPageComponent = CompanyExpiredPageComponent;
+
 
 
 /***/ }),
@@ -9772,10 +10071,14 @@ module.exports = "<body>\r\n    \r\n                  <div id=\"wrapper\">\r\n  
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-list-survey/company-list-survey.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyListSurveyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9785,11 +10088,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var CompanyListSurveyComponent = /** @class */ (function () {
     function CompanyListSurveyComponent(companyService, routes, snackBar) {
         this.companyService = companyService;
@@ -9860,7 +10162,7 @@ var CompanyListSurveyComponent = /** @class */ (function () {
                 _this.existStatus = false;
             }
             // console.log(data);
-            _this.dataSource = new material_1.MatTableDataSource(data);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["E" /* MatTableDataSource */](data);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -9899,24 +10201,24 @@ var CompanyListSurveyComponent = /** @class */ (function () {
         this.editId = id;
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */])
     ], CompanyListSurveyComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */])
     ], CompanyListSurveyComponent.prototype, "sort", void 0);
     CompanyListSurveyComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-list-survey',
             template: __webpack_require__("../../../../../src/app/components/company-list-survey/company-list-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-list-survey/company-list-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["z" /* MatSnackBar */]])
     ], CompanyListSurveyComponent);
     return CompanyListSurveyComponent;
 }());
-exports.CompanyListSurveyComponent = CompanyListSurveyComponent;
+
 
 
 /***/ }),
@@ -9947,10 +10249,14 @@ module.exports = "<body class=\"login-body\">\r\n   \r\n\t<div class=\"login-pag
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-login/company-login.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyLoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9960,11 +10266,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
 var CompanyLoginComponent = /** @class */ (function () {
     function CompanyLoginComponent(companyService, routes, snackBar) {
         this.companyService = companyService;
@@ -10057,16 +10362,16 @@ var CompanyLoginComponent = /** @class */ (function () {
         });
     };
     CompanyLoginComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-login',
             template: __webpack_require__("../../../../../src/app/components/company-login/company-login.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-login/company-login.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.Router, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["z" /* MatSnackBar */]])
     ], CompanyLoginComponent);
     return CompanyLoginComponent;
 }());
-exports.CompanyLoginComponent = CompanyLoginComponent;
+
 
 
 /***/ }),
@@ -10097,10 +10402,14 @@ module.exports = "<div class=\"col-md-11\">\r\n    <!-- <flash-messages></flash-
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-manage-themes/company-manage-themes.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyManageThemesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10110,11 +10419,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
 var CompanyManageThemesComponent = /** @class */ (function () {
     function CompanyManageThemesComponent(_companyService, routes, snackBar) {
         this._companyService = _companyService;
@@ -10195,7 +10503,7 @@ var CompanyManageThemesComponent = /** @class */ (function () {
             // console.log("theme is not empty");
             //  console.log(this.existStatus);
             _this.displatStat = true;
-            _this.dataSource = new material_1.MatTableDataSource(themes);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](themes);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
             // }  
@@ -10256,26 +10564,26 @@ var CompanyManageThemesComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], CompanyManageThemesComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], CompanyManageThemesComponent.prototype, "sort", void 0);
     CompanyManageThemesComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-manage-themes',
             template: __webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-manage-themes/company-manage-themes.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router,
-            material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */]])
     ], CompanyManageThemesComponent);
     return CompanyManageThemesComponent;
 }());
-exports.CompanyManageThemesComponent = CompanyManageThemesComponent;
+
 
 
 /***/ }),
@@ -10306,10 +10614,16 @@ module.exports = "\r\n<body>\r\n  \r\n                <div id=\"wrapper\">\r\n  
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyManageUserGroupsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10319,12 +10633,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
+
+
+
 var CompanyManageUserGroupsComponent = /** @class */ (function () {
     function CompanyManageUserGroupsComponent(companyService, _flashMessagesService, routes, snackBar) {
         this.companyService = companyService;
@@ -10426,7 +10739,7 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
                     id: item._id
                 });
             });
-            _this.dataSource = new material_1.MatTableDataSource(users);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_2__angular_material__["E" /* MatTableDataSource */](users);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -10595,40 +10908,40 @@ var CompanyManageUserGroupsComponent = /** @class */ (function () {
         //  console.log(newGroup);
     };
     __decorate([
-        core_1.ViewChild('f'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f'),
         __metadata("design:type", Object)
     ], CompanyManageUserGroupsComponent.prototype, "f", void 0);
     __decorate([
-        core_1.ViewChild('f1'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f1'),
         __metadata("design:type", Object)
     ], CompanyManageUserGroupsComponent.prototype, "f1", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyManageUserGroupsComponent.prototype, "closeBtn", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyManageUserGroupsComponent.prototype, "closeBtn1", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["p" /* MatPaginator */])
     ], CompanyManageUserGroupsComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["B" /* MatSort */])
     ], CompanyManageUserGroupsComponent.prototype, "sort", void 0);
     CompanyManageUserGroupsComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-manage-user-groups',
             template: __webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-manage-user-groups/company-manage-user-groups.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["z" /* MatSnackBar */]])
     ], CompanyManageUserGroupsComponent);
     return CompanyManageUserGroupsComponent;
 }());
-exports.CompanyManageUserGroupsComponent = CompanyManageUserGroupsComponent;
+
 
 
 /***/ }),
@@ -10659,10 +10972,11 @@ module.exports = "<p>\n  company-payment works!\n</p>\n"
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-payment/company-payment.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyPaymentComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10672,15 +10986,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var CompanyPaymentComponent = /** @class */ (function () {
     function CompanyPaymentComponent() {
     }
     CompanyPaymentComponent.prototype.ngOnInit = function () {
     };
     CompanyPaymentComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-payment',
             template: __webpack_require__("../../../../../src/app/components/company-payment/company-payment.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-payment/company-payment.component.css")]
@@ -10689,7 +11002,7 @@ var CompanyPaymentComponent = /** @class */ (function () {
     ], CompanyPaymentComponent);
     return CompanyPaymentComponent;
 }());
-exports.CompanyPaymentComponent = CompanyPaymentComponent;
+
 
 
 /***/ }),
@@ -10720,10 +11033,17 @@ module.exports = "<body>\r\n    \r\n                  <div id=\"wrapper\">\r\n  
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-profile/company-profile.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyProfileComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10733,13 +11053,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
+
 var CompanyProfileComponent = /** @class */ (function () {
     function CompanyProfileComponent(_formBuilder, companyService, routes, _flashMessagesService, snackBar) {
         this._formBuilder = _formBuilder;
@@ -10800,14 +11119,14 @@ var CompanyProfileComponent = /** @class */ (function () {
         });
         // ---------------------------------End-------------------------------------------
         this.ProfileFormGroup = this._formBuilder.group({
-            orgValidation: ['', forms_1.Validators.required],
-            organization_typeValidation: ['', forms_1.Validators.required],
-            industryValidation: ['', forms_1.Validators.required],
-            locationValidation: ['', forms_1.Validators.required],
-            strengthValidation: ['', forms_1.Validators.required],
-            jobRoleValidation: ['', forms_1.Validators.required],
-            jobLevelValidation: ['', forms_1.Validators.required],
-            number: ['', forms_1.Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)],
+            orgValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            organization_typeValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            industryValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            locationValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            strengthValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            jobRoleValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            jobLevelValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            number: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)],
         });
         // ---------------------------------Start-------------------------------------------
         // Function      : Get All organization type, industry and survey attenders
@@ -10971,16 +11290,16 @@ var CompanyProfileComponent = /** @class */ (function () {
         });
     };
     CompanyProfileComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-profile',
             template: __webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-profile/company-profile.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"], __WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_5__angular_material__["z" /* MatSnackBar */]])
     ], CompanyProfileComponent);
     return CompanyProfileComponent;
 }());
-exports.CompanyProfileComponent = CompanyProfileComponent;
+
 
 
 /***/ }),
@@ -11011,10 +11330,18 @@ module.exports = "<div class=\"padd-top\"></div>\r\n<div class=\"container\">\r\
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-registration/company-registration.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyRegistrationComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__password_validation__ = __webpack_require__("../../../../../src/app/components/company-registration/password-validation.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11024,14 +11351,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var password_validation_1 = __webpack_require__("../../../../../src/app/components/company-registration/password-validation.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+
+
+
+
+
+
+
 var CompanyRegistrationComponent = /** @class */ (function () {
     function CompanyRegistrationComponent(_formBuilder, companyService, routes, _flashMessagesService, route, snackBar) {
         this._formBuilder = _formBuilder;
@@ -11169,30 +11495,30 @@ var CompanyRegistrationComponent = /** @class */ (function () {
         }
         this.isLinear = true;
         this.firstFormGroup = this._formBuilder.group({
-            orgValidation: ['', forms_1.Validators.required],
-            organization_typeValidation: ['', forms_1.Validators.required],
-            industryValidation: ['', forms_1.Validators.required],
-            locationValidation: ['', forms_1.Validators.required],
-            strengthValidation: ['', forms_1.Validators.required],
+            orgValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            organization_typeValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            industryValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            locationValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            strengthValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
         });
         this.planFormGroup = this._formBuilder.group({
-            planNameValidation: ['', forms_1.Validators.required],
-            planMonthValidation: ['', forms_1.Validators.required],
-            cardnumValidation: ['', forms_1.Validators.required],
-            cardnameValidation: ['', forms_1.Validators.required],
-            cvvValidation: ['', forms_1.Validators.required],
+            planNameValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            planMonthValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            cardnumValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            cardnameValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            cvvValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
         });
         this.secondFormGroup = this._formBuilder.group({
-            fnameValidation: ['', forms_1.Validators.required],
-            lnameValidation: ['', forms_1.Validators.required],
-            jobRoleValidation: ['', forms_1.Validators.required],
-            jobLevelValidation: ['', forms_1.Validators.required],
-            email: new forms_1.FormControl('', [forms_1.Validators.required, forms_1.Validators.email]),
-            number: new forms_1.FormControl('', forms_1.Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
-            password: new forms_1.FormControl('', forms_1.Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/)),
-            confirmPassword: ['', forms_1.Validators.required],
+            fnameValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            lnameValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            jobRoleValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            jobLevelValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].email]),
+            number: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
+            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/)),
+            confirmPassword: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
         }, {
-            validator: password_validation_1.PasswordValidation.MatchPassword
+            validator: __WEBPACK_IMPORTED_MODULE_4__password_validation__["a" /* PasswordValidation */].MatchPassword
         });
         // ---------------------------------Start-------------------------------------------
         // Function      : Get All organization type, industry and survey attenders, plans
@@ -11306,26 +11632,25 @@ var CompanyRegistrationComponent = /** @class */ (function () {
         });
     };
     CompanyRegistrationComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-registration',
             template: __webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-registration/company-registration.component.css")]
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, router_1.ActivatedRoute, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"], __WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_5__angular_material__["z" /* MatSnackBar */]])
     ], CompanyRegistrationComponent);
     return CompanyRegistrationComponent;
 }());
-exports.CompanyRegistrationComponent = CompanyRegistrationComponent;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-registration/password-validation.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordValidation; });
 var PasswordValidation = /** @class */ (function () {
     function PasswordValidation() {
     }
@@ -11343,7 +11668,7 @@ var PasswordValidation = /** @class */ (function () {
     };
     return PasswordValidation;
 }());
-exports.PasswordValidation = PasswordValidation;
+
 
 
 /***/ }),
@@ -11374,10 +11699,12 @@ module.exports = "<ul class=\"nav navbar-nav side-nav\" >\r\n    <!-- <li> -->\r
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-sidebar/company-sidebar.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanySidebarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11387,9 +11714,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
 var CompanySidebarComponent = /** @class */ (function () {
     function CompanySidebarComponent(router) {
         this.router = router;
@@ -11399,16 +11725,16 @@ var CompanySidebarComponent = /** @class */ (function () {
         // console.log(this.router.url)
     };
     CompanySidebarComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-sidebar',
             template: __webpack_require__("../../../../../src/app/components/company-sidebar/company-sidebar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-sidebar/company-sidebar.component.css")],
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], CompanySidebarComponent);
     return CompanySidebarComponent;
 }());
-exports.CompanySidebarComponent = CompanySidebarComponent;
+
 
 
 /***/ }),
@@ -11434,15 +11760,20 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/company-survey-preview/company-survey-preview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-layout\" *ngIf=\"survey.display_type.ui != 'Multiple'\">\r\n    \r\n    <nav *ngIf=\"survey.showHeader\"  class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':survey.selectedTheme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            \r\n          <div class=\"col-md-4\">\r\n             \r\n              <img *ngIf=\"survey.logo || survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)\" >\r\n               <!-- <a *ngIf=\"!survey.logo\" class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family}\">logo</h2></a> -->\r\n          </div>\r\n          <div class=\"col-md-8\">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\">{{survey.header}}</h1>\r\n             \r\n              \r\n          </div>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n   \r\n    <div style=\"padding-top:20px;\"  [ngStyle]=\"{'background-color':survey.selectedTheme.b_bg_color }\">\r\n        <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-left lg-out\" >Back To Survey</button>\r\n    <div class=\"container\">\r\n        \r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\"  class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <!-- <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-right lg-out\" >Back To Survey</button> -->\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_date\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                    <div class=\"col-md-12\"  *ngFor=\"let item of survey.questions; let i=index\">\r\n                     \r\n                      <div class=\"qtnContainer\" [ngStyle]=\"{'background-color':survey.selectedTheme.q_bg_color }\"> \r\n                      <p [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.answerType == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.opts\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.answerType === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.starOpts\" name=\"answer\" [max]=\"item.starOpts.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                        </div>\r\n                      </div>\r\n                      <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                      \r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n    </div>\r\n\r\n         \r\n    <footer *ngIf=\"survey.showFooter\"  [ngStyle]=\"{'background-color':survey.selectedTheme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}\">{{survey.footer}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n  <!-- multiple page preview -->\r\n\r\n\r\n\r\n\r\n<div class=\"user-layout\" *ngIf=\"survey.display_type.ui == 'Multiple'\"  >\r\n    <nav *ngIf=\"survey.showHeader\"  class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':survey.selectedTheme.h_bg_color }\">\r\n        <div class=\"container\">\r\n          <div class=\"col-md-8 col-md-offset-2\">\r\n              \r\n            <div class=\"col-md-4\">\r\n               \r\n                <img *ngIf=\"survey.logo || survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)\" >\r\n            </div>\r\n            <div class=\"col-md-8\">\r\n                <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\">{{survey.header}}</h1>\r\n               \r\n                \r\n            </div>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n      <div style=\"padding-top:20px;\"  [ngStyle]=\"{'background-color':survey.selectedTheme.b_bg_color }\">\r\n          <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-left lg-out\" >Back To Survey</button>\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n           \r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_date\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\">\r\n                      \r\n                      <div *ngIf=\"cardNo == i\">\r\n                          <div class=\"qtnContainer\" [ngStyle]=\"{'background-color':survey.selectedTheme.q_bg_color }\"> \r\n                          <p [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                          <div *ngIf=\"item.answerType == 'Multiple choice'; else star\">\r\n                              <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                  <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.opts\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                    <span [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{choice}}</span>\r\n                                  </mat-radio-button>\r\n                                </mat-radio-group>\r\n                          </div>\r\n                          \r\n                              \r\n                            \r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                            <div class=\"col-md-6 progrs \">\r\n                              <h5 *ngIf=\"!survey.display_type.pageno\">&nbsp;</h5>\r\n                                <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color}\">\r\n                                  Page No. {{cardNo+1}} of {{survey.questions.length}}\r\n                                </h5>\r\n                                <div class=\"progress\" >\r\n                                    <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                    aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_bar_color}\">\r\n                                    </div>\r\n                                  </div> \r\n                            </div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Back</button> \r\n                            \r\n                            <button *ngIf=\"cardNo < survey.questions.length-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Next</button> \r\n                            <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < survey.questions.length-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Skip</button> </div>\r\n                        </div>\r\n                      </div>\r\n                       \r\n                      \r\n\r\n                        <ng-template #star >\r\n                            <div *ngIf=\"cardNo == i\">\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.answerType === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                                      <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                                      <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.starOpts\" name=\"answer\" [max]=\"item.starOpts.length\" ></rating>\r\n                                      \r\n                                    <!-- </ng-container> -->\r\n                        \r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                        \r\n                              </div>\r\n                              \r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        \r\n                        </ng-template>\r\n                        \r\n                      </div>\r\n                      \r\n                      <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\" >Submit</button> \r\n                      \r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n    </div>\r\n         \r\n    <footer *ngIf=\"survey.showFooter\"  [ngStyle]=\"{'background-color':survey.selectedTheme.f_bg_color}\">\r\n        <p [ngStyle]=\"{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}\">{{survey.footer}}</p>\r\n      </footer>\r\n              \r\n  </div>\r\n\r\n\r\n\r\n  "
+module.exports = "<div class=\"user-layout\" *ngIf=\"survey.display_type.ui != 'Multiple'\">\r\n    \r\n    <nav *ngIf=\"survey.showHeader\"  class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':survey.selectedTheme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            \r\n          <div class=\"col-md-4\">\r\n             \r\n              <img *ngIf=\"survey.logo || survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)\" >\r\n               <!-- <a *ngIf=\"!survey.logo\" class=\"navbar-brand\" href=\"#\"><h2 [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family}\">logo</h2></a> -->\r\n          </div>\r\n          <div class=\"col-md-8\">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\">{{survey.header}}</h1>\r\n             \r\n              \r\n          </div>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n   \r\n    <div style=\"padding-top:20px;\"  [ngStyle]=\"{'background-color':survey.selectedTheme.b_bg_color }\">\r\n        \r\n    <div class=\"container\">\r\n        <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-left lg-out\" >Back To Survey</button>\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\"  class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <!-- <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-right lg-out\" >Back To Survey</button> -->\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_date\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                    <div class=\"col-md-12\"  *ngFor=\"let item of survey.questions; let i=index\">\r\n                     \r\n                      <div class=\"qtnContainer\" [ngStyle]=\"{'background-color':survey.selectedTheme.q_bg_color }\"> \r\n                      <p [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.answerType == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.opts\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.answerType === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.starOpts\" name=\"answer\" [max]=\"item.starOpts.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                        </div>\r\n                      </div>\r\n                      <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Submit</button> \r\n                      \r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n    </div>\r\n\r\n         \r\n    <footer *ngIf=\"survey.showFooter\"  [ngStyle]=\"{'background-color':survey.selectedTheme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}\">{{survey.footer}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n  <!-- multiple page preview -->\r\n\r\n\r\n\r\n\r\n<div class=\"user-layout\" *ngIf=\"survey.display_type.ui == 'Multiple'\"  >\r\n    <nav *ngIf=\"survey.showHeader\"  class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':survey.selectedTheme.h_bg_color }\">\r\n        <div class=\"container\">\r\n          <div class=\"col-md-8 col-md-offset-2\">\r\n              \r\n            <div class=\"col-md-4\">\r\n               \r\n                <img *ngIf=\"survey.logo || survey.logoSrc\" height=\"100\" [src]=\"survey.logoSrc || (config.siteUrl + '/company/logo/'+ survey.logo)\" >\r\n            </div>\r\n            <div class=\"col-md-8\">\r\n                <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':survey.selectedTheme.h_font_size, 'font-family':survey.selectedTheme.h_font_family, 'color':survey.selectedTheme.h_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.h_font_italic, 'bld': survey.selectedTheme.h_font_bold}\">{{survey.header}}</h1>\r\n               \r\n                \r\n            </div>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n      <div style=\"padding-top:20px;\"  [ngStyle]=\"{'background-color':survey.selectedTheme.b_bg_color }\">\r\n          <button type=\"submit\" (click)=\"backTosurvey()\" class=\"btn btn-danger pull-left lg-out\" >Back To Survey</button>\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n           \r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_date\" [addClass]=\"'timer-survey'\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\">\r\n                      \r\n                      <div *ngIf=\"cardNo == i\">\r\n                          <div class=\"qtnContainer\" [ngStyle]=\"{'background-color':survey.selectedTheme.q_bg_color }\"> \r\n                          <p [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                          <div *ngIf=\"item.answerType == 'Multiple choice'; else star\">\r\n                              <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                  <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.opts\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                    <span [ngStyle]=\"{'font-size': survey.selectedTheme.q_font_size, 'font-family':survey.selectedTheme.q_font_family, 'color':survey.selectedTheme.q_font_color}\" [ngClass]=\"{ 'itlc' : survey.selectedTheme.q_font_italic, 'bld': survey.selectedTheme.q_font_bold}\">{{choice}}</span>\r\n                                  </mat-radio-button>\r\n                                </mat-radio-group>\r\n                          </div>\r\n                          \r\n                              \r\n                            \r\n                        </div>\r\n                        <div class=\"col-md-12\">\r\n                          <div class=\"row\">\r\n                              <div class=\"col-md-6 progrs \">\r\n                                  <h5 *ngIf=\"!survey.display_type.pageno\">&nbsp;</h5>\r\n                                    <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': survey.selectedTheme.progress_text_color}\">\r\n                                      Page No. {{cardNo+1}} of {{survey.questions.length}}\r\n                                    </h5>\r\n                                    <div class=\"progress\" >\r\n                                        <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                        aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\" [ngStyle]=\"{'background-color': survey.selectedTheme.progress_bar_color}\">\r\n                                        </div>\r\n                                      </div> \r\n                                </div>\r\n                          </div>\r\n                           \r\n                        <div class=\"col-md-6 progrs\">\r\n                            <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Back</button> \r\n                            \r\n                            <button *ngIf=\"cardNo < survey.questions.length-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Next</button> \r\n                            <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < survey.questions.length-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Skip</button> </div>\r\n                        </div>\r\n                      </div>\r\n                       \r\n                      \r\n\r\n                        <ng-template #star >\r\n                            <div *ngIf=\"cardNo == i\">\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.answerType === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                                      <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                                      <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.starOpts\" name=\"answer\" [max]=\"item.starOpts.length\" ></rating>\r\n                                      \r\n                                    <!-- </ng-container> -->\r\n                        \r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                        \r\n                              </div>\r\n                              \r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        \r\n                        </ng-template>\r\n                        \r\n                      </div>\r\n                      <!-- <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\" >Submit</button>  -->\r\n                      \r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n    </div>\r\n         \r\n    <footer *ngIf=\"survey.showFooter\"  [ngStyle]=\"{'background-color':survey.selectedTheme.f_bg_color}\">\r\n        <p [ngStyle]=\"{'font-size':survey.selectedTheme.f_font_size, 'font-family':survey.selectedTheme.f_font_family,'color':survey.selectedTheme.f_font_color}\">{{survey.footer}}</p>\r\n      </footer>\r\n              \r\n  </div>\r\n\r\n\r\n\r\n  "
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-survey-preview/company-survey-preview.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanySurveyPreviewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11452,22 +11783,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
+
+
 // // import { UserService } from './../../services/user.service';
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
+
 // declare var $:any;
 // import {RatingModule} from "ngx-rating";
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
 var CompanySurveyPreviewComponent = /** @class */ (function () {
-    function CompanySurveyPreviewComponent(companyService, config, routes) {
+    function CompanySurveyPreviewComponent(companyService, config, routes, snackBar) {
         this.companyService = companyService;
         this.config = config;
         this.routes = routes;
+        this.snackBar = snackBar;
         this.cardNo = 0;
         this.progNo = 1;
-        this.onBackBtnClick = new core_1.EventEmitter();
+        this.onBackBtnClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     CompanySurveyPreviewComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -11520,13 +11852,10 @@ var CompanySurveyPreviewComponent = /** @class */ (function () {
         this.onBackBtnClick.emit();
     };
     CompanySurveyPreviewComponent.prototype.next = function (i) {
-        var _this = this;
         if (this.survey.questions[i].ans == '' || !this.survey.questions[i].ans) {
-            this.blankAns = true;
-            setTimeout(function () {
-                _this.blankAns = true;
-                ;
-            }, 2000);
+            var snackBarRef = this.snackBar.open('* Fill answer!', '', {
+                duration: 2000
+            });
         }
         else {
             this.cardNo = this.cardNo + 1;
@@ -11536,25 +11865,29 @@ var CompanySurveyPreviewComponent = /** @class */ (function () {
             console.log(this.cardNo);
         }
     };
-    CompanySurveyPreviewComponent.prototype.back = function () {
+    CompanySurveyPreviewComponent.prototype.back = function (crd) {
         this.cardNo = this.cardNo - 1;
+        this.progNo = this.progNo - 1;
+        this.progressBarWidth = (this.progNo / this.survey.questions.length) * 100;
     };
     CompanySurveyPreviewComponent.prototype.skipQuestion = function () {
         this.cardNo = this.cardNo + 1;
+        this.progNo = this.progNo + 1;
+        this.progressBarWidth = (this.progNo / this.survey.questions.length) * 100;
     };
     CompanySurveyPreviewComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-survey-preview',
             template: __webpack_require__("../../../../../src/app/components/company-survey-preview/company-survey-preview.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-survey-preview/company-survey-preview.component.css")],
             inputs: ["survey"],
             outputs: ['onBackBtnClick']
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, config_1.Config, router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_3__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__angular_material__["z" /* MatSnackBar */]])
     ], CompanySurveyPreviewComponent);
     return CompanySurveyPreviewComponent;
 }());
-exports.CompanySurveyPreviewComponent = CompanySurveyPreviewComponent;
+
 
 
 /***/ }),
@@ -11567,7 +11900,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "body {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n   \r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n   \r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.notify {\r\n    width: 20px;\r\n    height: 20px;\r\n    background-color: #2882f7;\r\n    text-align: center;\r\n    font-size: 13px;\r\n    border-radius: 50%;\r\n    position: relative;\r\n}\r\n\r\n.notify-count{\r\n    position: absolute;\r\n    top: -9px;\r\n    right: -8px;\r\n    background: #DE2413;\r\n    height: 15px;\r\n    width: 15px;\r\n    border-radius: 50%;\r\n    font-size: 10px;\r\n    color: #ffffff;\r\n    text-align: center;\r\n    line-height: 14px;\r\n}\r\n\r\n.fa-bell{position:relative;}\r\n\r\n.media-object{width:100%;}\r\n\r\n.list-notificacao{\r\n    min-width: 400px;\r\n    background: #ffffff;\r\n    left:inherit;\r\n    right:0;\r\n  }\r\n\r\n.list-notificacao li{\r\n     border-bottom : 1px #d8d8d8 solid;\r\n     text-align    : justify;\r\n     padding       : 5px 10px 5px 10px;\r\n     cursor: pointer;\r\n     font-size: 12px;\r\n  }\r\n\r\n.list-notificacao li:hover{\r\n  background: #f1eeee;\r\n  }\r\n\r\n.list-notificacao li:hover .exclusaoNotificacao{\r\n  display: block;\r\n  }\r\n\r\n.list-notificacao li  p{\r\n   color: black;\r\n   width: 305px;\r\n  }\r\n\r\n.list-notificacao li .exclusaoNotificacao{\r\n      width: 25px;\r\n      min-height: 40px;\r\n      position: absolute;\r\n      right: 0;\r\n      display: none;\r\n  }\r\n\r\n.list-notificacao .media img{\r\n      width: 40px;\r\n      height: 40px;\r\n      float:left;\r\n      margin-right: 0px;\r\n  }\r\n\r\n.badgeAlert {\r\n    display: inline-block;\r\n    min-width: 10px;\r\n    padding: 3px 5px;\r\n    font-size: 12px;\r\n    font-weight: 700;\r\n    color: #fff;\r\n    line-height: 1;\r\n    vertical-align: baseline;\r\n    white-space: nowrap;\r\n    text-align: center;\r\n    background-color: #d9534f;\r\n    border-radius: 50%;\r\n    position: absolute;\r\n   top:0px;\r\n   right: 4px;\r\n    margin-left: -6px;\r\n    z-index: 10;\r\n  }\r\n\r\n.notification{background-color:#fff !important;}\r\n\r\n.upgrade{\r\n      margin-top: 7px;\r\n  }\r\n\r\n.prfl .dropdown-menu{left:inherit;right:0;}\r\n", ""]);
+exports.push([module.i, "body {\r\n    margin-top: 100px;\r\n    background-color: #222;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    body {\r\n        margin-top: 50px;\r\n    }\r\n}\r\n\r\n#wrapper {\r\n    padding-left: 0;\r\n}\r\n\r\n#page-wrapper {\r\n    width: 100%;\r\n    padding: 0;\r\n    background-color: #fff;\r\n}\r\n\r\n.huge {\r\n    font-size: 50px;\r\n    line-height: normal;\r\n}\r\n\r\n@media(min-width:768px) {\r\n    #wrapper {\r\n        padding-left: 225px;\r\n    }\r\n\r\n    #page-wrapper {\r\n        padding: 10px;\r\n    }\r\n}\r\n\r\n/* Top Navigation */\r\n\r\n.top-nav {\r\n    padding: 0 15px;\r\n}\r\n\r\n.top-nav>li {\r\n    display: inline-block;\r\n    float: left;\r\n}\r\n\r\n.top-nav>li>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n    line-height: 20px;\r\n    color: #999;\r\n}\r\n\r\n.top-nav>li>a:hover,\r\n.top-nav>li>a:focus,\r\n.top-nav>.open>a,\r\n.top-nav>.open>a:hover,\r\n.top-nav>.open>a:focus {\r\n    color: #fff;\r\n    background-color: #000;\r\n}\r\n\r\n.top-nav>.open>.dropdown-menu {\r\n    float: left;\r\n    position: absolute;\r\n    margin-top: 0;\r\n    border: 1px solid rgba(0,0,0,.15);\r\n    border-top-left-radius: 0;\r\n    border-top-right-radius: 0;\r\n    background-color: #fff;\r\n    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n    box-shadow: 0 6px 12px rgba(0,0,0,.175);\r\n   \r\n}\r\n\r\n.top-nav>.open>.dropdown-menu>li>a {\r\n    white-space: normal;\r\n   \r\n}\r\n\r\nul.message-dropdown {\r\n    padding: 0;\r\n    max-height: 250px;\r\n    overflow-x: hidden;\r\n    overflow-y: auto;\r\n}\r\n\r\nli.message-preview {\r\n    width: 275px;\r\n    border-bottom: 1px solid rgba(0,0,0,.15);\r\n}\r\n\r\nli.message-preview>a {\r\n    padding-top: 15px;\r\n    padding-bottom: 15px;\r\n}\r\n\r\nli.message-footer {\r\n    margin: 5px 0;\r\n}\r\n\r\nul.alert-dropdown {\r\n    width: 200px;\r\n}\r\n\r\n/* Side Navigation */\r\n\r\n@media(min-width:768px) {\r\n    .side-nav {\r\n        position: fixed;\r\n        top: 51px;\r\n        left: 225px;\r\n        width: 225px;\r\n        margin-left: -225px;\r\n        border: none;\r\n        border-radius: 0;\r\n        overflow-y: auto;\r\n        background-color: #222;\r\n        bottom: 0;\r\n        overflow-x: hidden;\r\n        padding-bottom: 40px;\r\n    }\r\n\r\n    .side-nav>li>a {\r\n        width: 225px;\r\n    }\r\n\r\n    .side-nav li a:hover,\r\n    .side-nav li a:focus {\r\n        outline: none;\r\n        background-color: #000 !important;\r\n    }\r\n}\r\n\r\n.side-nav>li>ul {\r\n    padding: 0;\r\n}\r\n\r\n.side-nav>li>ul>li>a {\r\n    display: block;\r\n    padding: 10px 15px 10px 38px;\r\n    text-decoration: none;\r\n    color: #999;\r\n}\r\n\r\n.side-nav>li>ul>li>a:hover {\r\n    color: #fff;\r\n}\r\n\r\n/* Flot Chart Containers */\r\n\r\n.flot-chart {\r\n    display: block;\r\n    height: 400px;\r\n}\r\n\r\n.flot-chart-content {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n/* Custom Colored Panels */\r\n\r\n.huge {\r\n    font-size: 40px;\r\n}\r\n\r\n.panel-green {\r\n    border-color: #5cb85c;\r\n}\r\n\r\n.panel-green > .panel-heading {\r\n    border-color: #5cb85c;\r\n    color: #fff;\r\n    background-color: #5cb85c;\r\n}\r\n\r\n.panel-green > a {\r\n    color: #5cb85c;\r\n}\r\n\r\n.panel-green > a:hover {\r\n    color: #3d8b3d;\r\n}\r\n\r\n.panel-red {\r\n    border-color: #d9534f;\r\n}\r\n\r\n.panel-red > .panel-heading {\r\n    border-color: #d9534f;\r\n    color: #fff;\r\n    background-color: #d9534f;\r\n}\r\n\r\n.panel-red > a {\r\n    color: #d9534f;\r\n}\r\n\r\n.panel-red > a:hover {\r\n    color: #b52b27;\r\n}\r\n\r\n.panel-yellow {\r\n    border-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > .panel-heading {\r\n    border-color: #f0ad4e;\r\n    color: #fff;\r\n    background-color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a {\r\n    color: #f0ad4e;\r\n}\r\n\r\n.panel-yellow > a:hover {\r\n    color: #df8a13;\r\n}\r\n\r\n.notify {\r\n    width: 20px;\r\n    height: 20px;\r\n    background-color: #2882f7;\r\n    text-align: center;\r\n    font-size: 13px;\r\n    border-radius: 50%;\r\n    position: relative;\r\n}\r\n\r\n.notify-count{\r\n    position: absolute;\r\n    top: -9px;\r\n    right: -8px;\r\n    background: #DE2413;\r\n    height: 15px;\r\n    width: 15px;\r\n    border-radius: 50%;\r\n    font-size: 10px;\r\n    color: #ffffff;\r\n    text-align: center;\r\n    line-height: 14px;\r\n}\r\n\r\n.fa-bell{position:relative;}\r\n\r\n.media-object{width:100%;}\r\n\r\n.list-notificacao{\r\n    min-width: 400px;\r\n    background: #ffffff;\r\n    left:inherit;\r\n    right:0;\r\n  }\r\n\r\n.list-notificacao li{\r\n     border-bottom : 1px #d8d8d8 solid;\r\n     text-align    : justify;\r\n     padding       : 5px 10px 5px 10px;\r\n     cursor: pointer;\r\n     font-size: 12px;\r\n  }\r\n\r\n.list-notificacao li:hover{\r\n  background: #f1eeee;\r\n  }\r\n\r\n.list-notificacao li:hover .exclusaoNotificacao{\r\n  display: block;\r\n  }\r\n\r\n.list-notificacao li  p{\r\n   color: black;\r\n   width: 305px;\r\n  }\r\n\r\n.list-notificacao li .exclusaoNotificacao{\r\n      width: 25px;\r\n      min-height: 40px;\r\n      position: absolute;\r\n      right: 0;\r\n      display: none;\r\n  }\r\n\r\n.list-notificacao .media img{\r\n      width: 40px;\r\n      height: 40px;\r\n      float:left;\r\n      margin-right: 0px;\r\n  }\r\n\r\n.badgeAlert {\r\n    display: inline-block;\r\n    min-width: 10px;\r\n    padding: 3px 5px;\r\n    font-size: 12px;\r\n    font-weight: 700;\r\n    color: #fff;\r\n    line-height: 1;\r\n    vertical-align: baseline;\r\n    white-space: nowrap;\r\n    text-align: center;\r\n    background-color: #d9534f;\r\n    border-radius: 50%;\r\n    position: absolute;\r\n   top:0px;\r\n   right: 4px;\r\n    margin-left: -6px;\r\n    z-index: 10;\r\n  }\r\n\r\n.notification{background-color:#fff !important;}\r\n\r\n.upgrade{\r\n      margin-top: 7px;\r\n  }\r\n\r\n.prfl .dropdown-menu{left:inherit;right:0;}\r\n\r\n.profilz li{\r\n      background-color: #ffffff !important;\r\n  }\r\n\r\n.profilz .upgrade{\r\n      margin-right: 15px;\r\n      background-color: #545454;\r\n    border: 2px solid #e9cd00;\r\n    color: #ffd800;\r\n    font-weight: 700;\r\n    \r\n  }\r\n\r\n.profilz .upgrade:hover{\r\n    background-color: #ffe949;\r\n    border: 2px solid #545454;\r\n    color: #545454;\r\n  }", ""]);
 
 // exports
 
@@ -11585,10 +11918,16 @@ module.exports = "<nav class=\"navbar navbar-inverse\" role=\"navigation\" [ngCl
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-top-bar/company-top-bar.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyTopBarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_socket_io_client__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11598,12 +11937,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+
+
+
+
+
 var CompanyTopBarComponent = /** @class */ (function () {
     function CompanyTopBarComponent(companyService, config, routes) {
         this.companyService = companyService;
@@ -11617,7 +11955,7 @@ var CompanyTopBarComponent = /** @class */ (function () {
             userId: ''
         };
         this.viewNotification = false;
-        this.socket = socketIo(config.siteUrl);
+        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__(config.siteUrl);
     }
     CompanyTopBarComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -11734,17 +12072,17 @@ var CompanyTopBarComponent = /** @class */ (function () {
         this.logChecking();
     };
     CompanyTopBarComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company-top-bar',
             template: __webpack_require__("../../../../../src/app/components/company-top-bar/company-top-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-top-bar/company-top-bar.component.css")],
             inputs: ['open']
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, config_1.Config, router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], CompanyTopBarComponent);
     return CompanyTopBarComponent;
 }());
-exports.CompanyTopBarComponent = CompanyTopBarComponent;
+
 
 
 /***/ }),
@@ -11775,10 +12113,20 @@ module.exports = "<body>\r\n  <div id=\"wrapper\">\r\n    <!-- Navigation -->\r\
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-upgrade/company-upgrade.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyUpgradeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11788,15 +12136,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
+
+
+
+
+
+
 var CompanyUpgradeComponent = /** @class */ (function () {
     function CompanyUpgradeComponent(config, _formBuilder, companyService, routes, _flashMessagesService, snackBar) {
         this.config = config;
@@ -11818,7 +12165,7 @@ var CompanyUpgradeComponent = /** @class */ (function () {
             no: '',
             no_months: ''
         };
-        this.socket = socketIo(config.socketURL);
+        this.socket = __WEBPACK_IMPORTED_MODULE_6_socket_io_client__(config.socketURL);
     }
     CompanyUpgradeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -11857,14 +12204,14 @@ var CompanyUpgradeComponent = /** @class */ (function () {
         });
         // ---------------------------------End-------------------------------------------
         this.formGroup = this._formBuilder.group({
-            cardnumValidation: ['', forms_1.Validators.required],
-            cardnameValidation: ['', forms_1.Validators.required],
-            cvvValidation: ['', forms_1.Validators.required],
-            fnameValidation: ['', forms_1.Validators.required],
-            lnameValidation: ['', forms_1.Validators.required],
-            addrValidation: ['', forms_1.Validators.required],
-            noValidation: new forms_1.FormControl('', forms_1.Validators.pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
-            no_monthsValidation: ['', forms_1.Validators.required],
+            cardnumValidation: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required],
+            cardnameValidation: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required],
+            cvvValidation: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required],
+            fnameValidation: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required],
+            lnameValidation: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required],
+            addrValidation: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required],
+            noValidation: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].pattern(/^\d{9}|^\d{3}-\d{3}-\d{3}|^\d{3}\s\d{3}\s\d{3}$/)),
+            no_monthsValidation: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required],
         });
         this.getPlans();
         this.socket.on('addplan', function (data) {
@@ -11966,16 +12313,16 @@ var CompanyUpgradeComponent = /** @class */ (function () {
         }
     };
     CompanyUpgradeComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-upgrade',
             template: __webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-upgrade/company-upgrade.component.css")]
         }),
-        __metadata("design:paramtypes", [config_1.Config, forms_1.FormBuilder, company_service_1.CompanyService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormBuilder"], __WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_5__angular_material__["z" /* MatSnackBar */]])
     ], CompanyUpgradeComponent);
     return CompanyUpgradeComponent;
 }());
-exports.CompanyUpgradeComponent = CompanyUpgradeComponent;
+
 
 
 /***/ }),
@@ -12006,10 +12353,21 @@ module.exports = "<body>\r\n\r\n  <div id=\"wrapper\">\r\n\r\n    <!-- Navigatio
 /***/ }),
 
 /***/ "../../../../../src/app/components/company-users/company-users.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyUsersComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_xlsx_to_json_service__ = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_cdk_collections__ = __webpack_require__("../../../cdk/esm5/collections.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_socket_io_client__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12019,17 +12377,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var material_2 = __webpack_require__("../../../material/esm5/material.es5.js");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var xlsx_to_json_service_1 = __webpack_require__("../../../../../src/app/services/xlsx-to-json.service.ts");
-var collections_1 = __webpack_require__("../../../cdk/esm5/collections.es5.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
+
+
+
+
+
+
+
+
+
+
 var CompanyUsersComponent = /** @class */ (function () {
     function CompanyUsersComponent(companyService, _flashMessagesService, routes, snackBar, config) {
         this.companyService = companyService;
@@ -12044,7 +12401,7 @@ var CompanyUsersComponent = /** @class */ (function () {
             groups: ''
         };
         this.displayedColumns = ['id', 'email', 'action'];
-        this.selection = new collections_1.SelectionModel(true, []);
+        this.selection = new __WEBPACK_IMPORTED_MODULE_6__angular_cdk_collections__["a" /* SelectionModel */](true, []);
         this.selectedUserGroup = 'all';
         this.showSpinner = false;
         this.showSpinnerDelete = false;
@@ -12059,13 +12416,13 @@ var CompanyUsersComponent = /** @class */ (function () {
         this.msg1 = '';
         this.showAddGroup = false;
         this.newGroup = '';
-        this.xlsxToJsonService = new xlsx_to_json_service_1.XlsxToJsonService();
+        this.xlsxToJsonService = new __WEBPACK_IMPORTED_MODULE_5__services_xlsx_to_json_service__["a" /* XlsxToJsonService */]();
         this.btnDisbled = false;
         this.updateBtnDisbled = false;
         this.updateBtnDisbled1 = false;
         this.selUser = { email: '', groups: [], newEmail: '', is_registered: false };
         this.selUserGroups = [];
-        this.socket = socketIo(config.siteUrl);
+        this.socket = __WEBPACK_IMPORTED_MODULE_8_socket_io_client__(config.siteUrl);
     }
     CompanyUsersComponent.prototype.applyFilter = function (filterValue) {
         filterValue = filterValue.trim(); // Remove whitespace
@@ -12191,7 +12548,7 @@ var CompanyUsersComponent = /** @class */ (function () {
             //           });
             //   });
             // });
-            _this.dataSource = new material_1.MatTableDataSource(data1);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data1);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -12267,7 +12624,7 @@ var CompanyUsersComponent = /** @class */ (function () {
                     // console.log("data exist")
                     _this.userData = data2;
                     _this.comp_id1 = _this.userData._id;
-                    _this.dataSource = new material_1.MatTableDataSource(data2);
+                    _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data2);
                     _this.dataSource.paginator = _this.paginator;
                     _this.dataSource.sort = _this.sort;
                 }
@@ -12624,7 +12981,7 @@ var CompanyUsersComponent = /** @class */ (function () {
                 }
                 //  console.log(data);
                 _this.users = data;
-                _this.dataSource = new material_1.MatTableDataSource(data);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](data);
                 _this.dataSource.paginator = _this.paginator;
                 _this.selection.clear();
             });
@@ -12639,64 +12996,66 @@ var CompanyUsersComponent = /** @class */ (function () {
                     _this.existStatus = true;
                 }
                 _this.users = data;
-                _this.dataSource = new material_1.MatTableDataSource(_this.users);
+                _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTableDataSource */](_this.users);
                 _this.dataSource.paginator = _this.paginator;
                 _this.selection.clear();
             });
         }
     };
     __decorate([
-        core_1.ViewChild(material_2.MatPaginator),
-        __metadata("design:type", material_2.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatPaginator */])
     ], CompanyUsersComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_2.MatSort),
-        __metadata("design:type", material_2.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatSort */])
     ], CompanyUsersComponent.prototype, "sort", void 0);
     __decorate([
-        core_1.ViewChild('f'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('f'),
         __metadata("design:type", Object)
     ], CompanyUsersComponent.prototype, "f", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyUsersComponent.prototype, "closeBtn", void 0);
     __decorate([
-        core_1.ViewChild('closeBtnAdd'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtnAdd'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyUsersComponent.prototype, "closeBtnAdd", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn1'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn1'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyUsersComponent.prototype, "closeBtn1", void 0);
     __decorate([
-        core_1.ViewChild('closeBtn2'),
-        __metadata("design:type", core_1.ElementRef)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('closeBtn2'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
     ], CompanyUsersComponent.prototype, "closeBtn2", void 0);
     __decorate([
-        core_1.ViewChild('myInput'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('myInput'),
         __metadata("design:type", Object)
     ], CompanyUsersComponent.prototype, "myInputVariable", void 0);
     CompanyUsersComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'company-users',
             template: __webpack_require__("../../../../../src/app/components/company-users/company-users.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/company-users/company-users.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, angular2_flash_messages_1.FlashMessagesService, router_1.Router, material_2.MatSnackBar, config_1.Config])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSnackBar */], __WEBPACK_IMPORTED_MODULE_7__config_config__["a" /* Config */]])
     ], CompanyUsersComponent);
     return CompanyUsersComponent;
 }());
-exports.CompanyUsersComponent = CompanyUsersComponent;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/count-down-timer/count-down-timer.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CountDownTimerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("../../../../rxjs/_esm5/Rx.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12706,12 +13065,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var Rx_1 = __webpack_require__("../../../../rxjs/_esm5/Rx.js");
+
+
 var CountDownTimerComponent = /** @class */ (function () {
     function CountDownTimerComponent(elm) {
-        this.onTimeOver = new core_1.EventEmitter();
+        this.onTimeOver = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.futureString = elm.nativeElement.getAttribute('inputDate');
     }
     CountDownTimerComponent.prototype.dhms = function (t) {
@@ -12747,7 +13105,7 @@ var CountDownTimerComponent = /** @class */ (function () {
         var _this = this;
         console.log(this.addClass);
         this.future = new Date(this.inputDate);
-        this.$counter = Rx_1.Observable.interval(1000).map(function (x) {
+        this.$counter = __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["a" /* Observable */].interval(1000).map(function (x) {
             _this.diff = Math.floor((_this.future.getTime() - new Date().getTime()) / 1000);
             return x;
         });
@@ -12757,17 +13115,17 @@ var CountDownTimerComponent = /** @class */ (function () {
         this.subscription.unsubscribe();
     };
     CountDownTimerComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-count-down-timer',
             template: "\n  <div [ngClass]=\"addClass\">\n    {{message}}\n  </div>\n",
             inputs: ["inputDate", "addClass"],
             outputs: ['onTimeOver']
         }),
-        __metadata("design:paramtypes", [core_1.ElementRef])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]])
     ], CountDownTimerComponent);
     return CountDownTimerComponent;
 }());
-exports.CountDownTimerComponent = CountDownTimerComponent;
+
 
 
 /***/ }),
@@ -12793,15 +13151,21 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home-nav/home-nav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top hm-navbar\">\r\n    <div class=\"container\">\r\n      <!-- Brand and toggle get grouped for better mobile display -->\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\r\n          <span class=\"sr-only\">Toggle navigation</span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n        </button>\r\n        <a class=\"navbar-brand\" href=\"#\"><img src=\"./assets/images/brand.png\" alt=\"\"></a>\r\n      </div>\r\n  \r\n      <!-- Collect the nav links, forms, and other content for toggling -->\r\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n        \r\n        <ul class=\"nav navbar-nav navbar-right hm-navbar-nav\">\r\n          <li><a scrollTo href=\"#home\">Home</a></li>\r\n          <li><a scrollTo href=\"#Services\">Services</a></li>\r\n          <li><a scrollTo href=\"#plan\">Plans & Pricing</a></li>\r\n          <li><a scrollTo href=\"#about\">About</a></li>\r\n          <li class=\"btn-login\"><a [routerLink]=\"['/clogin']\">Login</a></li>\r\n          \r\n        </ul>\r\n      </div><!-- /.navbar-collapse -->\r\n    </div><!-- /.container-fluid -->\r\n  </nav>\r\n<body class=\"hm-body\">\r\n    <section id=\"home\">\r\n      <div class=\"col-md-12 hm-land\">\r\n        <div class=\"row\">\r\n            <img src=\"./assets/images/banner.jpg\" alt=\"survey master\">\r\n            <h4>Lets\r\n                Build Your \r\n                Business\r\n                With Us</h4>\r\n        </div>\r\n          \r\n      </div>\r\n      </section>\r\n    \r\n      <section id=\"Services\">\r\n            <div class=\"container\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"row\">\r\n                      <div class=\"col-md-7\">\r\n                        <img class=\"serv-img\" src=\"./assets/images/serv-1.jpg\" alt=\"\">\r\n                      </div>\r\n                      <div class=\"col-md-5\">\r\n                        <div class=\"serv-cont\">\r\n                            <h4>Services</h4>\r\n                            <p>Survey Master is an easy to use online survey and questionnaire building software. We give you all the essential features to create surveys, distribute them and analyze the data you receive. </p>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n            </div>\r\n         \r\n      </section>\r\n\r\n\r\n      <section id=\"plan\">\r\n        <div class=\"col-md-12 plan-bg\">\r\n            <div class=\"container\">\r\n                <div class=\"col-md-12\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-md-3\">\r\n                     \r\n                      <h4 class=\"plan-hd\">Plans & Pricing</h4>\r\n                      <ul class=\"lim-hd\">\r\n                        \r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of  Surveys</li>\r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of Questions per Survey</li>\r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of Survey Attenders</li>\r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;Survey Logic</li>\r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;Excel import</li>\r\n                          </ul>\r\n                    </div>\r\n                    <div class=\"col-md-9\">\r\n                        <div class=\"wrap\">\r\n                            <div class=\"pricing-table\">\r\n                              <ng-container *ngFor=\"let plan of sliced_array\">\r\n                                  <div class=\"plan\" [ngClass]=\"{'bst-plan': plan.is_best_value}\">\r\n                                      <h3 class=\"name\">{{plan?.plan_name}}</h3>\r\n                                      <h4 class=\"price\">₹&nbsp;{{plan?.plan_price}}</h4>\r\n                                      <h3 class=\"mnth\">per month</h3>\r\n                                      <ul class=\"details\">\r\n                                        <li>{{plan?.no_survey}}</li>                                        \r\n                                        <li>{{plan?.no_question}}</li>\r\n                                        <li>{{plan?.no_survey_attenders}}</li>\r\n                                        <li><div *ngIf=\"plan?.survey_logic\"><i class=\"fa fa-check\"></i></div>\r\n                                          <div *ngIf=\"!plan?.survey_logic\"><i class=\"fa fa-times\"></i></div>\r\n                                        </li>\r\n                                        <li><div *ngIf=\"plan?.excel_import\"><i class=\"fa fa-check\"></i></div>\r\n                                          <div *ngIf=\"!plan?.excel_import\"><i class=\"fa fa-times\"></i></div>\r\n                                        </li>\r\n                                      </ul>\r\n                                \r\n                                      <h5 class=\"order\" [ngClass]=\"{'bst-order': plan.is_best_value}\"><a [routerLink]=\"['/creg', plan._id]\">SignUp</a></h5>\r\n                                    </div>\r\n                              </ng-container>\r\n                              <!-- <div class=\"plan\">\r\n                                <h3 class=\"name\">Basic</h3>\r\n                                <h4 class=\"price\">$10</h4>\r\n                                <h3 class=\"mnth\">per month</h3>\r\n                                <ul class=\"details\">\r\n                                  <li>10</li>\r\n                                  <li>10</li>\r\n                                  <li>20</li>\r\n                                  <li><i class=\"fa fa-times\"></i></li>\r\n                                  <li><i class=\"fa fa-times\"></i></li>\r\n                                </ul>\r\n                          \r\n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\r\n                              </div>\r\n                          \r\n                              <div class=\"plan\">\r\n                                <h3 class=\"name\">Standard</h3>\r\n                                <h4 class=\"price\">$20</h4>\r\n                                <h3 class=\"mnth\">per month</h3>\r\n                          \r\n                                <ul class=\"details\">\r\n                                  <li>50</li>\r\n                                  <li>30</li>\r\n                                  <li>100</li>\r\n                                  <li><i class=\"fa fa-times\"></i></li>\r\n                                  <li><i class=\"fa fa-check\"></i></li>                                  \r\n                                </ul>\r\n                          \r\n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\r\n                              </div>\r\n                          \r\n                              <div class=\"plan\">\r\n                                <h3 class=\"name\">Premium</h3>\r\n                                <h4 class=\"price\">$30</h4>\r\n                                <h3 class=\"mnth\">per month</h3>\r\n                          \r\n                                <ul class=\"details\">\r\n                                  <li>Unlimited</li>\r\n                                  <li>Unlimited</li>\r\n                                  <li>Unlimited</li>\r\n                                  <li><i class=\"fa fa-check\"></i></li>                                  \r\n                                  <li><i class=\"fa fa-check\"></i></li>                                  \r\n                                  \r\n                                </ul>\r\n                          \r\n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\r\n                              </div> -->\r\n                            </div><!--.pricing-table-->\r\n                          </div><!--.wrap-->\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n        </div>\r\n        \r\n      </section>\r\n      <section id=\"about\">\r\n        <div class=\"col-md-12 abt-bg\">\r\n          <div class=\"container\">\r\n            <div class=\"col-md-12\">\r\n              <div class=\"row\">\r\n                <div class=\"col-md-7 tb-hd\">\r\n                  <img src=\"./assets/images/abt.jpg\" alt=\"\">\r\n                </div>\r\n                <div class=\"col-md-5\">\r\n                  <h4>About Us</h4>\r\n                  <p>Cyber Samana always paid significance to service areas which are best for the customer. We have been providing the full spectrum of Information Technology Services, including Business Process Automation, Software Development, Web Application, Web Sites, Open Source Solutions and Mobile Applications.</p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </section>\r\n      <footer id=\"hm-footer\">\r\n        <div class=\"container\">\r\n          <div class=\"col-md-12\">\r\n              <h4>Copyright © 1999-2018 SurveyMaster</h4>\r\n\r\n          </div>\r\n\r\n        </div>\r\n      </footer>\r\n</body>\r\n"
+module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top hm-navbar\">\r\n    <div class=\"container\">\r\n      <!-- Brand and toggle get grouped for better mobile display -->\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\r\n          <span class=\"sr-only\">Toggle navigation</span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n        </button>\r\n        <a class=\"navbar-brand\" href=\"#\"><img src=\"./assets/images/brand.png\" alt=\"\"></a>\r\n      </div>\r\n  \r\n      <!-- Collect the nav links, forms, and other content for toggling -->\r\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n        \r\n        <ul class=\"nav navbar-nav navbar-right hm-navbar-nav\">\r\n          <li><a scrollTo href=\"#home\">Home</a></li>\r\n          <li><a scrollTo href=\"#Services\">Services</a></li>\r\n          <li><a scrollTo href=\"#plan\">Plans & Pricing</a></li>\r\n          <li><a scrollTo href=\"#about\">About</a></li>\r\n          <li class=\"btn-login\"><a [routerLink]=\"['/clogin']\">Login</a></li>\r\n          \r\n        </ul>\r\n      </div><!-- /.navbar-collapse -->\r\n    </div><!-- /.container-fluid -->\r\n  </nav>\r\n<body class=\"hm-body\">\r\n    <section id=\"home\">\r\n      <div class=\"col-md-12 hm-land\">\r\n        <div class=\"row\">\r\n            <img src=\"./assets/images/banner.jpg\" alt=\"survey master\">\r\n            <h4>Lets\r\n                Build Your \r\n                Business\r\n                With Us</h4>\r\n        </div>\r\n          \r\n      </div>\r\n      </section>\r\n    \r\n      <section id=\"Services\">\r\n            <div class=\"container\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"row\">\r\n                      <div class=\"col-md-7\">\r\n                        <img class=\"serv-img\" src=\"./assets/images/serv-1.jpg\" alt=\"\">\r\n                      </div>\r\n                      <div class=\"col-md-5\">\r\n                        <div class=\"serv-cont\">\r\n                            <h4>Services</h4>\r\n                            <p>Survey Master is an easy to use online survey and questionnaire building software. We give you all the essential features to create surveys, distribute them and analyze the data you receive. </p>\r\n                        </div>\r\n                        \r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n            </div>\r\n         \r\n      </section>\r\n\r\n\r\n      <section id=\"plan\">\r\n        <div class=\"col-md-12 plan-bg\">\r\n                <div class=\"col-md-12\">\r\n                  <div class=\"row\">\r\n                    <div class=\"col-md-2 col-md-offset-2\">\r\n                     \r\n                      <h4 class=\"plan-hd\">Plans & Pricing</h4>\r\n                      <ul class=\"lim-hd\">\r\n                        \r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of  Surveys</li>\r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of Questions per Survey</li>\r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;No of Survey Attenders</li>\r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;Survey Logic</li>\r\n                          <li><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>&nbsp;&nbsp;&nbsp;Excel import</li>\r\n                          </ul>\r\n                    </div>\r\n                    <div class=\"col-md-6\">\r\n                        <div class=\"wrap\">\r\n                            <div class=\"pricing-table\">\r\n                              <ng-container *ngFor=\"let plan of sliced_array\">\r\n                                  <div class=\"plan\" [ngClass]=\"{'bst-plan': plan.is_best_value}\">\r\n                                      <h3 class=\"name\">{{plan?.plan_name}}</h3>\r\n                                      <h4 class=\"price\">₹&nbsp;{{plan?.plan_price}}</h4>\r\n                                      <h3 class=\"mnth\">per month</h3>\r\n                                      <ul class=\"details\">\r\n                                        <li>{{plan?.no_survey}}</li>                                        \r\n                                        <li>{{plan?.no_question}}</li>\r\n                                        <li>{{plan?.no_survey_attenders}}</li>\r\n                                        <li><div *ngIf=\"plan?.survey_logic\"><i class=\"fa fa-check\"></i></div>\r\n                                          <div *ngIf=\"!plan?.survey_logic\"><i class=\"fa fa-times\"></i></div>\r\n                                        </li>\r\n                                        <li><div *ngIf=\"plan?.excel_import\"><i class=\"fa fa-check\"></i></div>\r\n                                          <div *ngIf=\"!plan?.excel_import\"><i class=\"fa fa-times\"></i></div>\r\n                                        </li>\r\n                                      </ul>\r\n                                \r\n                                      <h5 class=\"order\" [ngClass]=\"{'bst-order': plan.is_best_value}\"><a [routerLink]=\"['/creg', plan._id]\">SignUp</a></h5>\r\n                                    </div>\r\n                              </ng-container>\r\n                              <!-- <div class=\"plan\">\r\n                                <h3 class=\"name\">Basic</h3>\r\n                                <h4 class=\"price\">$10</h4>\r\n                                <h3 class=\"mnth\">per month</h3>\r\n                                <ul class=\"details\">\r\n                                  <li>10</li>\r\n                                  <li>10</li>\r\n                                  <li>20</li>\r\n                                  <li><i class=\"fa fa-times\"></i></li>\r\n                                  <li><i class=\"fa fa-times\"></i></li>\r\n                                </ul>\r\n                          \r\n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\r\n                              </div>\r\n                          \r\n                              <div class=\"plan\">\r\n                                <h3 class=\"name\">Standard</h3>\r\n                                <h4 class=\"price\">$20</h4>\r\n                                <h3 class=\"mnth\">per month</h3>\r\n                          \r\n                                <ul class=\"details\">\r\n                                  <li>50</li>\r\n                                  <li>30</li>\r\n                                  <li>100</li>\r\n                                  <li><i class=\"fa fa-times\"></i></li>\r\n                                  <li><i class=\"fa fa-check\"></i></li>                                  \r\n                                </ul>\r\n                          \r\n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\r\n                              </div>\r\n                          \r\n                              <div class=\"plan\">\r\n                                <h3 class=\"name\">Premium</h3>\r\n                                <h4 class=\"price\">$30</h4>\r\n                                <h3 class=\"mnth\">per month</h3>\r\n                          \r\n                                <ul class=\"details\">\r\n                                  <li>Unlimited</li>\r\n                                  <li>Unlimited</li>\r\n                                  <li>Unlimited</li>\r\n                                  <li><i class=\"fa fa-check\"></i></li>                                  \r\n                                  <li><i class=\"fa fa-check\"></i></li>                                  \r\n                                  \r\n                                </ul>\r\n                          \r\n                                <h5 class=\"order\"><a href=\"#\">Order Now</a></h5>\r\n                              </div> -->\r\n                            </div><!--.pricing-table-->\r\n                          </div><!--.wrap-->\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              \r\n        </div>\r\n        \r\n      </section>\r\n      <section id=\"about\">\r\n        <div class=\"col-md-12 abt-bg\">\r\n          <div class=\"container\">\r\n            <div class=\"col-md-12\">\r\n              <div class=\"row\">\r\n                <div class=\"col-md-7 tb-hd\">\r\n                  <img src=\"./assets/images/abt.jpg\" alt=\"\">\r\n                </div>\r\n                <div class=\"col-md-5\">\r\n                  <h4>About Us</h4>\r\n                  <p>Cyber Samana always paid significance to service areas which are best for the customer. We have been providing the full spectrum of Information Technology Services, including Business Process Automation, Software Development, Web Application, Web Sites, Open Source Solutions and Mobile Applications.</p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </section>\r\n      <footer id=\"hm-footer\">\r\n        <div class=\"container\">\r\n          <div class=\"col-md-12\">\r\n              <h4>Copyright © 1999-2018 SurveyMaster</h4>\r\n\r\n          </div>\r\n\r\n        </div>\r\n      </footer>\r\n</body>\r\n"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/home-nav/home-nav.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeNavComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12811,18 +13175,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
+
+
+
 var HomeNavComponent = /** @class */ (function () {
     function HomeNavComponent(config, companyService, routes) {
         this.config = config;
         this.companyService = companyService;
         this.routes = routes;
-        this.socket = socketIo(config.socketURL);
+        this.socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__(config.socketURL);
     }
     HomeNavComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -12900,16 +13263,16 @@ var HomeNavComponent = /** @class */ (function () {
         // ---------------------------------End-------------------------------------------
     };
     HomeNavComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home-nav',
             template: __webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/home-nav/home-nav.component.css")]
         }),
-        __metadata("design:paramtypes", [config_1.Config, company_service_1.CompanyService, router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], HomeNavComponent);
     return HomeNavComponent;
 }());
-exports.HomeNavComponent = HomeNavComponent;
+
 
 
 /***/ }),
@@ -12940,10 +13303,11 @@ module.exports = "<app-home-nav></app-home-nav>"
 /***/ }),
 
 /***/ "../../../../../src/app/components/home/home.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12953,15 +13317,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
     HomeComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
             template: __webpack_require__("../../../../../src/app/components/home/home.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/home/home.component.css")]
@@ -12970,7 +13333,7 @@ var HomeComponent = /** @class */ (function () {
     ], HomeComponent);
     return HomeComponent;
 }());
-exports.HomeComponent = HomeComponent;
+
 
 
 /***/ }),
@@ -13001,10 +13364,16 @@ module.exports = "<mat-form-field >\r\n    <mat-select placeholder=\"Select Surv
 /***/ }),
 
 /***/ "../../../../../src/app/components/newpie/newpie.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewpieComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13014,15 +13383,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 // import * as d3 from 'd3-selection';
 // import * as d3Scale from 'd3-scale';
 // import * as d3Shape from 'd3-shape';
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
+
+
 var NewpieComponent = /** @class */ (function () {
     function NewpieComponent(companyService, route, config) {
         this.companyService = companyService;
@@ -13043,7 +13411,7 @@ var NewpieComponent = /** @class */ (function () {
         this.width1 = 900 - this.margin1.left - this.margin1.right;
         this.height1 = 500 - this.margin1.top - this.margin1.bottom;
         this.radius1 = Math.min(this.width1, this.height1) / 2;
-        this.socket = socketIo(config.siteUrl);
+        this.socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__(config.siteUrl);
     }
     NewpieComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -13149,16 +13517,16 @@ var NewpieComponent = /** @class */ (function () {
         // this.loadData();
     };
     NewpieComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'newpie',
             template: __webpack_require__("../../../../../src/app/components/newpie/newpie.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/newpie/newpie.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService, router_1.ActivatedRoute, config_1.Config])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */]])
     ], NewpieComponent);
     return NewpieComponent;
 }());
-exports.NewpieComponent = NewpieComponent;
+
 
 
 /***/ }),
@@ -13189,10 +13557,11 @@ module.exports = "<div class=\"wrapper row2\">\r\n  <div id=\"container\" class=
 /***/ }),
 
 /***/ "../../../../../src/app/components/page-not-found/page-not-found.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageNotFoundComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13202,15 +13571,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var PageNotFoundComponent = /** @class */ (function () {
     function PageNotFoundComponent() {
     }
     PageNotFoundComponent.prototype.ngOnInit = function () {
     };
     PageNotFoundComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-page-not-found',
             template: __webpack_require__("../../../../../src/app/components/page-not-found/page-not-found.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/page-not-found/page-not-found.component.css")]
@@ -13219,7 +13587,7 @@ var PageNotFoundComponent = /** @class */ (function () {
     ], PageNotFoundComponent);
     return PageNotFoundComponent;
 }());
-exports.PageNotFoundComponent = PageNotFoundComponent;
+
 
 
 /***/ }),
@@ -13250,10 +13618,11 @@ module.exports = "<div class=\"plan\">\r\n    <h3 class=\"name\">Basic</h3>\r\n 
 /***/ }),
 
 /***/ "../../../../../src/app/components/plans/plans.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlansComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13263,15 +13632,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var PlansComponent = /** @class */ (function () {
     function PlansComponent() {
     }
     PlansComponent.prototype.ngOnInit = function () {
     };
     PlansComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-plans',
             template: __webpack_require__("../../../../../src/app/components/plans/plans.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/plans/plans.component.css")]
@@ -13280,7 +13648,7 @@ var PlansComponent = /** @class */ (function () {
     ], PlansComponent);
     return PlansComponent;
 }());
-exports.PlansComponent = PlansComponent;
+
 
 
 /***/ }),
@@ -13311,10 +13679,11 @@ module.exports = "<body>\r\n  <div id=\"wrapper\">\r\n    <!-- Navigation -->\r\
 /***/ }),
 
 /***/ "../../../../../src/app/components/reference-component/reference-component.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReferenceComponentComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13324,15 +13693,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var ReferenceComponentComponent = /** @class */ (function () {
     function ReferenceComponentComponent() {
     }
     ReferenceComponentComponent.prototype.ngOnInit = function () {
     };
     ReferenceComponentComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'reference-component',
             template: __webpack_require__("../../../../../src/app/components/reference-component/reference-component.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/reference-component/reference-component.component.css")]
@@ -13341,7 +13709,7 @@ var ReferenceComponentComponent = /** @class */ (function () {
     ], ReferenceComponentComponent);
     return ReferenceComponentComponent;
 }());
-exports.ReferenceComponentComponent = ReferenceComponentComponent;
+
 
 
 /***/ }),
@@ -13372,10 +13740,11 @@ module.exports = "<ul class=\"nav navbar-nav side-nav\">\r\n    <!-- <li> -->\r\
 /***/ }),
 
 /***/ "../../../../../src/app/components/side-bar/side-bar.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SideBarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13385,15 +13754,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var SideBarComponent = /** @class */ (function () {
     function SideBarComponent() {
     }
     SideBarComponent.prototype.ngOnInit = function () {
     };
     SideBarComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'side-bar',
             template: __webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/side-bar/side-bar.component.css")]
@@ -13402,7 +13770,7 @@ var SideBarComponent = /** @class */ (function () {
     ], SideBarComponent);
     return SideBarComponent;
 }());
-exports.SideBarComponent = SideBarComponent;
+
 
 
 /***/ }),
@@ -13433,10 +13801,11 @@ module.exports = "<nav class=\"navbar navbar-inverse\" role=\"navigation\">\r\n 
 /***/ }),
 
 /***/ "../../../../../src/app/components/top-bar/top-bar.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TopBarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13446,15 +13815,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var TopBarComponent = /** @class */ (function () {
     function TopBarComponent() {
     }
     TopBarComponent.prototype.ngOnInit = function () {
     };
     TopBarComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'top-bar',
             template: __webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/top-bar/top-bar.component.css")]
@@ -13463,7 +13831,7 @@ var TopBarComponent = /** @class */ (function () {
     ], TopBarComponent);
     return TopBarComponent;
 }());
-exports.TopBarComponent = TopBarComponent;
+
 
 
 /***/ }),
@@ -13494,10 +13862,14 @@ module.exports = "<body class=\"login-body\">\r\n    <div class=\"login-page\">\
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-login/user-login.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserLoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13507,11 +13879,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
 var UserLoginComponent = /** @class */ (function () {
     function UserLoginComponent(route, userService, routes, snackBar) {
         this.route = route;
@@ -13605,26 +13976,25 @@ var UserLoginComponent = /** @class */ (function () {
         });
     };
     UserLoginComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'user-login',
             template: __webpack_require__("../../../../../src/app/components/user-login/user-login.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-login/user-login.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute, user_service_1.UserService, router_1.Router, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["z" /* MatSnackBar */]])
     ], UserLoginComponent);
     return UserLoginComponent;
 }());
-exports.UserLoginComponent = UserLoginComponent;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-registration/password-validation.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasswordValidation; });
 var PasswordValidation = /** @class */ (function () {
     function PasswordValidation() {
     }
@@ -13642,7 +14012,7 @@ var PasswordValidation = /** @class */ (function () {
     };
     return PasswordValidation;
 }());
-exports.PasswordValidation = PasswordValidation;
+
 
 
 /***/ }),
@@ -13673,10 +14043,19 @@ module.exports = "<div class=\"login-body\">\r\n<div class=\"form\">\r\n    <fla
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-registration/user-registration.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserRegistrationComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__password_validation__ = __webpack_require__("../../../../../src/app/components/user-registration/password-validation.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13686,15 +14065,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var forms_1 = __webpack_require__("../../../forms/esm5/forms.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var password_validation_1 = __webpack_require__("../../../../../src/app/components/user-registration/password-validation.ts");
-var angular2_flash_messages_1 = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
+
+
+
 var UserRegistrationComponent = /** @class */ (function () {
     function UserRegistrationComponent(route, _formBuilder, userService, routes, _flashMessagesService, companyService, snackBar) {
         this.route = route;
@@ -13747,11 +14125,11 @@ var UserRegistrationComponent = /** @class */ (function () {
         });
         // ---------------------------------End-------------------------------------------
         this.regFormGroup = this._formBuilder.group({
-            nameValidation: ['', forms_1.Validators.required],
-            password: ['', forms_1.Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/)],
-            confirmPassword: ['', forms_1.Validators.required]
+            nameValidation: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            password: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/)],
+            confirmPassword: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]
         }, {
-            validator: password_validation_1.PasswordValidation.MatchPassword
+            validator: __WEBPACK_IMPORTED_MODULE_5__password_validation__["a" /* PasswordValidation */].MatchPassword
         });
         this.sub = this.route.params.subscribe(function (params) {
             _this.surveyId = params['id2'];
@@ -13808,16 +14186,16 @@ var UserRegistrationComponent = /** @class */ (function () {
         });
     };
     UserRegistrationComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'user-registration',
             template: __webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-registration/user-registration.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute, forms_1.FormBuilder, user_service_1.UserService, router_1.Router, angular2_flash_messages_1.FlashMessagesService, company_service_1.CompanyService, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"], __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__["FlashMessagesService"], __WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_7__angular_material__["z" /* MatSnackBar */]])
     ], UserRegistrationComponent);
     return UserRegistrationComponent;
 }());
-exports.UserRegistrationComponent = UserRegistrationComponent;
+
 
 
 /***/ }),
@@ -13848,10 +14226,14 @@ module.exports = ""
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-response-email/user-response-email.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserResponseEmailComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13861,11 +14243,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+
+
+
+
 var UserResponseEmailComponent = /** @class */ (function () {
     function UserResponseEmailComponent(route, companyService, userService, routes) {
         this.route = route;
@@ -13922,16 +14303,16 @@ var UserResponseEmailComponent = /** @class */ (function () {
         // -----------------------------------End------------------------------------------
     };
     UserResponseEmailComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'user-response-email',
             template: __webpack_require__("../../../../../src/app/components/user-response-email/user-response-email.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-response-email/user-response-email.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute, company_service_1.CompanyService, user_service_1.UserService, router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */], __WEBPACK_IMPORTED_MODULE_3__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], UserResponseEmailComponent);
     return UserResponseEmailComponent;
 }());
-exports.UserResponseEmailComponent = UserResponseEmailComponent;
+
 
 
 /***/ }),
@@ -13962,10 +14343,15 @@ module.exports = "<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-survey-closed/user-survey-closed.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserSurveyClosedComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13975,12 +14361,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
+
+
+
 var UserSurveyClosedComponent = /** @class */ (function () {
     function UserSurveyClosedComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
         this._activatedRoute = _activatedRoute;
@@ -14101,20 +14486,20 @@ var UserSurveyClosedComponent = /** @class */ (function () {
         return false;
     };
     UserSurveyClosedComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user-survey-closed',
             template: __webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-survey-closed/user-survey-closed.component.css")],
             inputs: ['survey', 'attended', 'exp']
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            user_service_1.UserService,
-            company_service_1.CompanyService,
-            router_1.Router, config_1.Config, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], UserSurveyClosedComponent);
     return UserSurveyClosedComponent;
 }());
-exports.UserSurveyClosedComponent = UserSurveyClosedComponent;
+
 
 
 /***/ }),
@@ -14127,7 +14512,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".survey-close {\r\n    text-align: center;\r\n    padding-top: 20%;\r\n}\r\n\r\n.user-layout .navbar-brand {\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    float: none;\r\n}\r\n\r\n.user-layout {}\r\n\r\n.navbar {\r\n    border-radius: 0;\r\n}\r\n\r\n.user-layout h2 {\r\n    font-family: \"Roboto-Regular\";\r\n    text-align: left;\r\n    font-size: 20px;\r\n    color: #111;\r\n}\r\n\r\n.checkbox,\r\n.radio {\r\n    text-align: left;\r\n}\r\n\r\n.radio label {\r\n    padding-left: 11px;\r\n}\r\n\r\n.radio input[type=radio] {\r\n    margin-left: -14px;\r\n}\r\n\r\n.example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    margin:  0 0 0 5px;\r\n}\r\n\r\n.example-radio-button {\r\n    margin: 5px;\r\n}\r\n\r\n.example-selected-value {\r\n    margin: 15px 0;\r\n}\r\n\r\n.checked {\r\n    color: #ea5a5a;\r\n}\r\n\r\n.user-layout .styles1 {\r\n    border: 0;\r\n    border-bottom: 1px solid #dbdbdb;\r\n    font-family: \"Roboto-Regular\";\r\n    background: none;\r\n    padding: 10px 0px;\r\n    font-size: 13px;\r\n    max-width: 400px;\r\n    width: 100%;\r\n    color: #5d5d5d !important;\r\n    float: left;\r\n}\r\n\r\n.input-group {\r\n    position: relative;\r\n    display: table;\r\n    border-collapse: separate;\r\n    width: 100%;\r\n}\r\n\r\n.navbar-brand {}\r\n\r\n.btn {\r\n    border-radius: 16px !important;\r\n    padding: 6px 22px !important;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n    font-size: 18px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n}\r\n\r\n.navbar-brand h2 {\r\n    color: #fff !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n    font-size: 40px !important;\r\n}\r\n\r\n.x-new {\r\n    background-color: #5d3c3c;\r\n    border: none;\r\n    min-height: 80px;\r\n    margin-bottom: 0;\r\n}\r\n\r\n.user-layout footer {\r\n    background: #111;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 20px 0;\r\n    /* position: absolute; */\r\n    bottom: 0;\r\n    width: 100%;\r\n}\r\n\r\n.mrgrght {\r\n    margin-right: 10px;\r\n}\r\n\r\n.bg-color {\r\n    background: #f6e8e8;\r\n    padding: 20px 10px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\np {\r\n    font-family: \"Roboto-Regular\";\r\n}\r\n\r\n.survey-close .fa-exclamation-triangle {\r\n    color: #fba21b;\r\n    text-align: center;\r\n    font-size: 148px;\r\n}\r\n\r\n.survey-close h2 {\r\n    text-align: center;\r\n    font-family: \"Roboto-Bold\";\r\n    font-size: 50px;\r\n}\r\n\r\n.survey-close h3 {\r\n    text-align: center;\r\n    font-family: \"Roboto-Bold\";\r\n    font-size: 50px;\r\n    color: #d9534f;\r\n}\r\n\r\n.survey-close {\r\n    text-align: center;\r\n    padding-top: 9%;\r\n}\r\n\r\n.progress {\r\n    position: relative;\r\n    height: 25px;\r\n}\r\n\r\n.progress > .progress-type {\r\n    position: absolute;\r\n    left: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 30px 2px 10px;\r\n    color: rgb(255, 255, 255);\r\n    background-color: rgba(25, 25, 25, 0.2);\r\n}\r\n\r\n.progress > .progress-completed {\r\n    position: absolute;\r\n    right: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 10px 2px;\r\n}\r\n\r\n.progress-bar {\r\n    background-color: #da524f;\r\n}\r\n\r\n.bs-wizard {\r\n    margin-top: 14px;\r\n}\r\n\r\n/*Form Wizard*/\r\n\r\n.bs-wizard {\r\n    border-bottom: solid 1px #e0e0e0;\r\n    padding: 0 0 10px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step {\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step + .bs-wizard-step {}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {\r\n    color: #595959;\r\n    font-size: 16px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-info {\r\n    color: #999;\r\n    font-size: 14px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot {\r\n    position: absolute;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: block;\r\n    background: #da524f94;\r\n    top: 45px;\r\n    left: 50%;\r\n    margin-top: -15px;\r\n    margin-left: -15px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {\r\n    content: ' ';\r\n    width: 14px;\r\n    height: 14px;\r\n    background: #da524f;\r\n    border-radius: 50px;\r\n    position: absolute;\r\n    top: 8px;\r\n    left: 8px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress {\r\n    position: relative;\r\n    border-radius: 0px;\r\n    height: 8px;\r\n    -webkit-box-shadow: none;\r\n            box-shadow: none;\r\n    margin: 20px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress > .progress-bar {\r\n    width: 0px;\r\n    -webkit-box-shadow: none;\r\n            box-shadow: none;\r\n    background: #efc9c9;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {\r\n    width: 0%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {\r\n    opacity: 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child > .progress {\r\n    left: 50%;\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child > .progress {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {\r\n    pointer-events: none;\r\n}\r\n\r\n/******survey**********/\r\n\r\n.survey {}\r\n\r\n.survey header {\r\n    background: #4c7e9a;\r\n    width: 100%;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey header h2 {\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey header h4 {\r\n    color: #fff;\r\n    font-size: 12px;\r\n}\r\n\r\n.survey .logo {\r\n    margin: 0 auto;\r\n    max-width: 200px;\r\n    width: 100%;\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey footer {\r\n    background: #111;\r\n    width: 100%;\r\n    padding: 10px 0;\r\n    text-align: center;\r\n    color: #fff;\r\n    text-align: center;\r\n    font-size: 12px;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey label {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #616161;\r\n    font-size: 13px;\r\n}\r\n\r\n.survey h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #111;\r\n    margin-bottom: 0;\r\n    font-size: 16px;\r\n}\r\n\r\n.survey .question {\r\n    color: #31708f;\r\n    background-color: #d9edf7;\r\n    border-color: #bce8f1;\r\n    padding: 11px;\r\n    margin-bottom: 20px;\r\n    border: 1px solid transparent;\r\n    border-radius: 4px;\r\n    overflow: hidden;\r\n}\r\n\r\n.survey .question h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #000;\r\n    margin-top: 0;\r\n}\r\n\r\n.survey .question .fa {\r\n    padding: 4px;\r\n}\r\n\r\n.survey .question .fa:hover {\r\n    opacity: 0.6;\r\n}\r\n\r\n.srvey-hd{\r\n    margin-top: 28px;\r\n}\r\n\r\n.bld{\r\n    font-weight: 700 !important\r\n  }\r\n\r\n.itlc{\r\n    font-style: italic !important;\r\n  }\r\n\r\n.star-container{\r\n    width: 104px\r\n}\r\n\r\n.rating label {\r\n    float: right;\r\n    position: relative;\r\n    width: 25px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n  }\r\n\r\n.rating label:not(:first-of-type) {\r\n    padding-right: 2px;\r\n  }\r\n\r\n.rating label:before {\r\n    content: \"\\2605\";\r\n    font-size: 25px;\r\n    color: #CCCCCC;\r\n    line-height: 1;\r\n  }\r\n\r\n.rating input {\r\n    display: none;\r\n  }\r\n\r\n.rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before {\r\n    color: #F9DF4A;\r\n  }\r\n\r\n.progrs{\r\n    margin: 62px 0px 0 0;\r\n  }\r\n\r\n.progress {\r\n    position: relative;\r\n    height: 25px;\r\n}\r\n\r\n.progress[_ngcontent-c5] {\r\n    height: 5px;\r\n    border-radius: 0;\r\n}\r\n\r\n.progress {\r\n    height: 20px;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    background-color: #f5f5f5;\r\n    border-radius: 4px;\r\n    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);\r\n            box-shadow: inset 0 1px 2px rgba(0,0,0,.1);\r\n}\r\n\r\n.progress-bar {\r\n    float: left;\r\n    width: 0;\r\n    height: 100%;\r\n    font-size: 12px;\r\n    line-height: 20px;\r\n    color: #fff;\r\n    text-align: center;\r\n    background-color: #337ab7;\r\n    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);\r\n            box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);\r\n    -webkit-transition: width .6s ease;\r\n    transition: width .6s ease;\r\n}\r\n\r\n.mrgn-50{\r\n    margin: 0 0 50px 0;\r\n}\r\n\r\nlg-out{\r\n    margin: 0px 43px 9px 0;\r\n}\r\n\r\n.questn-container{\r\n    min-height: 800px;\r\n}\r\n\r\n.btn-mrgn{\r\n    margin: 14px 0 0 0;\r\n}\r\n\r\nsvg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
+exports.push([module.i, ".survey-close {\r\n    text-align: center;\r\n    padding-top: 20%;\r\n}\r\n\r\n.user-layout .navbar-brand {\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    float: none;\r\n}\r\n\r\n.user-layout {}\r\n\r\n.navbar {\r\n    border-radius: 0;\r\n}\r\n\r\n.user-layout h2 {\r\n    font-family: \"Roboto-Regular\";\r\n    text-align: left;\r\n    font-size: 20px;\r\n    color: #111;\r\n}\r\n\r\n.checkbox,\r\n.radio {\r\n    text-align: left;\r\n}\r\n\r\n.radio label {\r\n    padding-left: 11px;\r\n}\r\n\r\n.radio input[type=radio] {\r\n    margin-left: -14px;\r\n}\r\n\r\n.example-radio-group {\r\n    display: -webkit-inline-box;\r\n    display: -ms-inline-flexbox;\r\n    display: inline-flex;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    margin:  0 0 0 5px;\r\n}\r\n\r\n.example-radio-button {\r\n    margin: 5px;\r\n}\r\n\r\n.example-selected-value {\r\n    margin: 15px 0;\r\n}\r\n\r\n.checked {\r\n    color: #ea5a5a;\r\n}\r\n\r\n.user-layout .styles1 {\r\n    border: 0;\r\n    border-bottom: 1px solid #dbdbdb;\r\n    font-family: \"Roboto-Regular\";\r\n    background: none;\r\n    padding: 10px 0px;\r\n    font-size: 13px;\r\n    max-width: 400px;\r\n    width: 100%;\r\n    color: #5d5d5d !important;\r\n    float: left;\r\n}\r\n\r\n.input-group {\r\n    position: relative;\r\n    display: table;\r\n    border-collapse: separate;\r\n    width: 100%;\r\n}\r\n\r\n.navbar-brand {}\r\n\r\n.btn {\r\n    border-radius: 16px !important;\r\n    padding: 6px 22px !important;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n    font-size: 18px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.timer {\r\n    font-family: \"Roboto-Bold\";\r\n    text-align: center;\r\n    color: #ea5a5a;\r\n}\r\n\r\n.navbar-brand h2 {\r\n    color: #fff !important;\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n    font-size: 40px !important;\r\n}\r\n\r\n.x-new {\r\n    background-color: #5d3c3c;\r\n    border: none;\r\n    min-height: 80px;\r\n    margin-bottom: 0;\r\n}\r\n\r\n.user-layout footer {\r\n    background: #111;\r\n    text-align: center;\r\n    color: #fff;\r\n    padding: 20px 0;\r\n    /* position: absolute; */\r\n    bottom: 0;\r\n    width: 100%;\r\n}\r\n\r\n.mrgrght {\r\n    margin-right: 10px;\r\n}\r\n\r\n.bg-color {\r\n    background: #f6e8e8;\r\n    padding: 20px 10px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\np {\r\n    font-family: \"Roboto-Regular\";\r\n}\r\n\r\n.survey-close .fa-exclamation-triangle {\r\n    color: #fba21b;\r\n    text-align: center;\r\n    font-size: 148px;\r\n}\r\n\r\n.survey-close h2 {\r\n    text-align: center;\r\n    font-family: \"Roboto-Bold\";\r\n    font-size: 50px;\r\n}\r\n\r\n.survey-close h3 {\r\n    text-align: center;\r\n    font-family: \"Roboto-Bold\";\r\n    font-size: 50px;\r\n    color: #d9534f;\r\n}\r\n\r\n.survey-close {\r\n    text-align: center;\r\n    padding-top: 9%;\r\n}\r\n\r\n.progress {\r\n    position: relative;\r\n    /* height: 25px; */\r\n}\r\n\r\n.progress > .progress-type {\r\n    position: absolute;\r\n    left: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 30px 2px 10px;\r\n    color: rgb(255, 255, 255);\r\n    background-color: rgba(25, 25, 25, 0.2);\r\n}\r\n\r\n.progress > .progress-completed {\r\n    position: absolute;\r\n    right: 0px;\r\n    font-weight: 800;\r\n    padding: 3px 10px 2px;\r\n}\r\n\r\n.progress-bar {\r\n    background-color: #da524f;\r\n}\r\n\r\n.bs-wizard {\r\n    margin-top: 14px;\r\n}\r\n\r\n/*Form Wizard*/\r\n\r\n.bs-wizard {\r\n    border-bottom: solid 1px #e0e0e0;\r\n    padding: 0 0 10px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step {\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step + .bs-wizard-step {}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {\r\n    color: #595959;\r\n    font-size: 16px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step .bs-wizard-info {\r\n    color: #999;\r\n    font-size: 14px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot {\r\n    position: absolute;\r\n    width: 30px;\r\n    height: 30px;\r\n    display: block;\r\n    background: #da524f94;\r\n    top: 45px;\r\n    left: 50%;\r\n    margin-top: -15px;\r\n    margin-left: -15px;\r\n    border-radius: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {\r\n    content: ' ';\r\n    width: 14px;\r\n    height: 14px;\r\n    background: #da524f;\r\n    border-radius: 50px;\r\n    position: absolute;\r\n    top: 8px;\r\n    left: 8px;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress {\r\n    position: relative;\r\n    border-radius: 0px;\r\n    height: 8px;\r\n    -webkit-box-shadow: none;\r\n            box-shadow: none;\r\n    margin: 20px 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step > .progress > .progress-bar {\r\n    width: 0px;\r\n    -webkit-box-shadow: none;\r\n            box-shadow: none;\r\n    background: #efc9c9;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {\r\n    width: 0%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {\r\n    width: 100%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {\r\n    opacity: 0;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:first-child > .progress {\r\n    left: 50%;\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step:last-child > .progress {\r\n    width: 50%;\r\n}\r\n\r\n.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {\r\n    pointer-events: none;\r\n}\r\n\r\n/******survey**********/\r\n\r\n.survey {}\r\n\r\n.survey header {\r\n    background: #4c7e9a;\r\n    width: 100%;\r\n    padding: 12px 0;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey header h2 {\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey header h4 {\r\n    color: #fff;\r\n    font-size: 12px;\r\n}\r\n\r\n.survey .logo {\r\n    margin: 0 auto;\r\n    max-width: 200px;\r\n    width: 100%;\r\n    color: #fff;\r\n    font-size: 18px;\r\n}\r\n\r\n.survey footer {\r\n    background: #111;\r\n    width: 100%;\r\n    padding: 10px 0;\r\n    text-align: center;\r\n    color: #fff;\r\n    text-align: center;\r\n    font-size: 12px;\r\n    margin-top: 20px;\r\n}\r\n\r\n.survey label {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #616161;\r\n    font-size: 13px;\r\n}\r\n\r\n.survey h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #111;\r\n    margin-bottom: 0;\r\n    font-size: 16px;\r\n}\r\n\r\n.survey .question {\r\n    color: #31708f;\r\n    background-color: #d9edf7;\r\n    border-color: #bce8f1;\r\n    padding: 11px;\r\n    margin-bottom: 20px;\r\n    border: 1px solid transparent;\r\n    border-radius: 4px;\r\n    overflow: hidden;\r\n}\r\n\r\n.survey .question h3 {\r\n    font-family: \"Roboto-Regular\";\r\n    color: #000;\r\n    margin-top: 0;\r\n}\r\n\r\n.survey .question .fa {\r\n    padding: 4px;\r\n}\r\n\r\n.survey .question .fa:hover {\r\n    opacity: 0.6;\r\n}\r\n\r\n.srvey-hd{\r\n    margin-top: 28px;\r\n}\r\n\r\n.bld{\r\n    font-weight: 700 !important\r\n  }\r\n\r\n.itlc{\r\n    font-style: italic !important;\r\n  }\r\n\r\n.star-container{\r\n    width: 104px\r\n}\r\n\r\n.rating label {\r\n    float: right;\r\n    position: relative;\r\n    width: 25px;\r\n    height: 40px;\r\n    cursor: pointer;\r\n  }\r\n\r\n.rating label:not(:first-of-type) {\r\n    padding-right: 2px;\r\n  }\r\n\r\n.rating label:before {\r\n    content: \"\\2605\";\r\n    font-size: 25px;\r\n    color: #CCCCCC;\r\n    line-height: 1;\r\n  }\r\n\r\n.rating input {\r\n    display: none;\r\n  }\r\n\r\n.rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before {\r\n    color: #F9DF4A;\r\n  }\r\n\r\n.progrs{\r\n    margin: 62px 0px 0 0;\r\n  }\r\n\r\n.progress {\r\n    position: relative;\r\n    height: 25px;\r\n}\r\n\r\n.progress[_ngcontent-c5] {\r\n    height: 5px;\r\n    border-radius: 0;\r\n}\r\n\r\n.progress {\r\n    height: 20px;\r\n    margin-bottom: 20px;\r\n    overflow: hidden;\r\n    background-color: #f5f5f5;\r\n    border-radius: 4px;\r\n    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);\r\n            box-shadow: inset 0 1px 2px rgba(0,0,0,.1);\r\n}\r\n\r\n.progress-bar {\r\n    float: left;\r\n    width: 0;\r\n    height: 100%;\r\n    font-size: 12px;\r\n    line-height: 20px;\r\n    color: #fff;\r\n    text-align: center;\r\n    background-color: #337ab7;\r\n    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);\r\n            box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);\r\n    -webkit-transition: width .6s ease;\r\n    transition: width .6s ease;\r\n}\r\n\r\n.mrgn-50{\r\n    margin: 0 0 50px 0;\r\n}\r\n\r\nlg-out{\r\n    margin: 0px 43px 9px 0;\r\n}\r\n\r\n.questn-container{\r\n    min-height: 800px;\r\n}\r\n\r\n.btn-mrgn{\r\n    margin: 14px 0 0 0;\r\n}\r\n\r\nsvg path,\r\nsvg rect{\r\n  fill: #EC0C0C;\r\n}", ""]);
 
 // exports
 
@@ -14140,15 +14525,21 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n  <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n        <div class=\"col-md-4 txt-right\">\r\n          <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n        </div>\r\n        <div class=\"col-md-8 \">\r\n            <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n        </div>\r\n      </div>\r\n      <ng-template #newhd>\r\n        <div class=\"col-md-12\">\r\n          <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n          \r\n        </div>\r\n      </ng-template>\r\n    </div>\r\n  </nav>\r\n  <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px;\">\r\n  <div class=\"container\">\r\n      <div class=\"col-md-12 questn-container\">\r\n          <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n          <div class=\"col-md-12\">\r\n              <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\" (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n              \r\n          </div>\r\n          <div class=\"col-md-12\">\r\n            <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n              <form action=\"\">\r\n                  <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\" [ngStyle]=\"{'background-color':theme.q_bg_color}\">\r\n                    <div *ngIf=\"cardNo == i\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n                       \r\n                      \r\n                      \r\n                    </div>\r\n                     \r\n                    \r\n\r\n                      <ng-template #star >\r\n                          <div *ngIf=\"cardNo == i\">\r\n                          <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                              <!-- <fieldset>\r\n                                <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                <div class=\"rating\">\r\n                                  <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                                    <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                                    <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\" ></rating>\r\n                                    \r\n                                  <!-- </ng-container> -->\r\n                      \r\n                                    <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                    <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                    <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                    <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                </div>\r\n                              <!-- </fieldset> -->\r\n                      \r\n                            </div>\r\n                            \r\n                            </div>\r\n                      </ng-template>\r\n\r\n\r\n                      <ng-template #text >\r\n                          <mat-form-field class=\"example-full-width\">\r\n                              <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                            </mat-form-field>\r\n                      \r\n                      </ng-template>\r\n                      \r\n                    </div>\r\n                    <div class=\"col-md-12\">\r\n                        <div class=\"col-md-6 progrs \">\r\n                            <h5 *ngIf=\"!survey.display_type.pageno\">&nbsp;</h5>\r\n                            \r\n                            <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': theme.progress_text_color}\">Page No. {{cardNo+1}} of {{questionCount}}</h5>\r\n                            <div class=\"progress\" >\r\n                                <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\"\r\n                                aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\" [ngStyle]=\"{'background-color': theme.progress_bar_color}\">\r\n                                  <span class=\"sr-only\">70% Complete</span>\r\n                                </div>\r\n                              </div> \r\n                        </div>\r\n                        <div class=\"col-md-6 progrs\">\r\n                            <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Back</button> \r\n                            \r\n                            <button *ngIf=\"cardNo < questionCount-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\" >Next</button> \r\n                            <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < questionCount-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Skip</button> </div>\r\n                        </div>\r\n                      \r\n                    <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\" >Submit</button> \r\n                    \r\n              </form>\r\n          </div>\r\n          \r\n          \r\n        </div>   \r\n  </div>\r\n     </div>  \r\n  <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n    <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n  </footer>\r\n            \r\n</div>\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n    \r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h4 class=\"modal-title\">Message</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <h4></h4>\r\n        \r\n        </div>\r\n      \r\n        <div class=\"modal-footer\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n        </div>\r\n      </div>\r\n    \r\n    </div>\r\n    </div>\r\n    <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n            <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                <mat-spinner></mat-spinner>\r\n            </div> -->\r\n            <div class=\"row\">\r\n                <div class=\"col-md-4\">\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n                      </div>\r\n                      <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                             <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                             width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                         <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                           <animateTransform attributeType=\"xml\"\r\n                             attributeName=\"transform\"\r\n                             type=\"rotate\"\r\n                             from=\"0 25 25\"\r\n                             to=\"360 25 25\"\r\n                             dur=\"0.6s\"\r\n                             repeatCount=\"indefinite\"/>\r\n                           </path>\r\n                         </svg>\r\n                      </div>\r\n                       \r\n                    </div>\r\n\r\n            <div class=\"modal-footer\">\r\n                \r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
+module.exports = "<div class=\"user-layout\" *ngIf=\"disp\">\r\n  <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n        <div class=\"col-md-4 txt-right\">\r\n          <img class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">\r\n        </div>\r\n        <div class=\"col-md-8 \">\r\n          <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\"\r\n            [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n\r\n        </div>\r\n      </div>\r\n      <ng-template #newhd>\r\n        <div class=\"col-md-12\">\r\n          <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\"\r\n            [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n\r\n        </div>\r\n      </ng-template>\r\n    </div>\r\n  </nav>\r\n  <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px;\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-12 questn-container\">\r\n        <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\">Logout</button>\r\n        <div class=\"col-md-12\">\r\n          <app-count-down-timer class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\" (onTimeOver)=\"timeOver()\"></app-count-down-timer>\r\n\r\n        </div>\r\n        <div class=\"col-md-12\">\r\n          <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill answer</h4>\r\n          <form action=\"\">\r\n            <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index;\" [ngStyle]=\"{'background-color':theme.q_bg_color}\">\r\n              <div *ngIf=\"cardNo == i\">\r\n                <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                  <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                    <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\">\r\n                      <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                    </mat-radio-button>\r\n                  </mat-radio-group>\r\n                </div>\r\n\r\n\r\n\r\n              </div>\r\n\r\n\r\n\r\n              <ng-template #star>\r\n                <div *ngIf=\"cardNo == i\">\r\n                  <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                    <!-- <fieldset>\r\n                                <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                    <div class=\"rating\">\r\n                      <!-- <ng-container *ngFor=\"let choice of item.options ; let x=index;\"> -->\r\n                      <!-- <input [(ngModel)]=\"survey.questions[i].ans\"  type=\"radio\" id=\"star{{5-x}}\" name=\"rating\" value=\"{{choice}}\" [required]=\"survey.display_type.skip == false\"  /><label  for=\"star{{5-x}}\" title=\"{{choice}}\"></label> [required]=\"survey.display_type.skip == false\" -->\r\n                      <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\"></rating>\r\n\r\n                      <!-- </ng-container> -->\r\n\r\n                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                    <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                    <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                    <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                    </div>\r\n                    <!-- </fieldset> -->\r\n\r\n                  </div>\r\n\r\n                </div>\r\n              </ng-template>\r\n\r\n\r\n              <ng-template #text>\r\n                <mat-form-field class=\"example-full-width\">\r\n                  <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                </mat-form-field>\r\n\r\n              </ng-template>\r\n\r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <div class=\"row\">\r\n                  <div class=\"col-md-6 progrs \">\r\n                      <h5 *ngIf=\"!survey.display_type.pageno\">&nbsp;</h5>\r\n      \r\n                      <h5 *ngIf=\"survey.display_type.pageno == true\" [ngStyle]=\"{'color': theme.progress_text_color}\">Page No. {{cardNo+1}} of {{questionCount}}</h5>\r\n                      <div class=\"progress\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"70\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width.%]=\"progressBarWidth\"\r\n                          [ngStyle]=\"{'background-color': theme.progress_bar_color}\">\r\n                          <span class=\"sr-only\">70% Complete</span>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"col-md-6 progrs\">\r\n                      <button *ngIf=\"cardNo > 0\" type=\"submit\" (click)=\"back(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\">Back</button>\r\n      \r\n                      <button *ngIf=\"cardNo < questionCount-1\" type=\"button\" (click)=\"next(cardNo)\" class=\"btn btn-danger ourbutton btn-mrgn\">Next</button>\r\n                      <button type=\"button\" *ngIf=\"survey.display_type.skip&&cardNo < questionCount-1\" (click)=\"skipQuestion()\" class=\"btn btn-danger ourbutton btn-mrgn\">Skip</button>\r\n                    </div>\r\n              </div>\r\n            </div>\r\n\r\n            <button *ngIf=\"cardNo == questionCount-1\" type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton mrgn-50\">Submit</button>\r\n\r\n          </form>\r\n        </div>\r\n\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n    <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n  </footer>\r\n\r\n</div>\r\n\r\n<div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Message</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <h4></h4>\r\n\r\n      </div>\r\n\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Message</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <h4></h4>\r\n\r\n      </div>\r\n\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n<div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n  <div class=\"modal-dialog\">\r\n\r\n    <!-- Modal content-->\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Message</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <h4></h4>\r\n\r\n      </div>\r\n      <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                <mat-spinner></mat-spinner>\r\n            </div> -->\r\n      <div class=\"row\">\r\n        <div class=\"col-md-4\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n        </div>\r\n        <div class=\"col-md-8\" *ngIf=\"showSpinner\">\r\n          <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n            width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n            <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n              <animateTransform attributeType=\"xml\" attributeName=\"transform\" type=\"rotate\" from=\"0 25 25\" to=\"360 25 25\" dur=\"0.6s\" repeatCount=\"indefinite\"\r\n              />\r\n            </path>\r\n          </svg>\r\n        </div>\r\n\r\n      </div>\r\n\r\n      <div class=\"modal-footer\">\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserSurveyMultipleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14158,13 +14549,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
+
 var UserSurveyMultipleComponent = /** @class */ (function () {
     function UserSurveyMultipleComponent(_activatedRoute, _userService, _companyService, routes, config, route, snackBar) {
         this._activatedRoute = _activatedRoute;
@@ -14318,7 +14708,10 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
     // Desc          : go to next questions
     UserSurveyMultipleComponent.prototype.next = function (i) {
         if (this.survey.questions[i].ans == '' || !this.survey.questions[i].ans) {
-            this.blankAns = true;
+            // this.blankAns = true;
+            var snackBarRef = this.snackBar.open('* Fill answer!', '', {
+                duration: 2000
+            });
         }
         else {
             this.cardNo = this.cardNo + 1;
@@ -14339,6 +14732,8 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
     // Desc          : back to previous question
     UserSurveyMultipleComponent.prototype.back = function () {
         this.cardNo = this.cardNo - 1;
+        this.progNo = this.progNo - 1;
+        this.progressBarWidth = (this.progNo / this.survey.questions.length) * 100;
     };
     // -----------------------------------End------------------------------------------
     // ---------------------------------Start-------------------------------------------
@@ -14352,6 +14747,8 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
     UserSurveyMultipleComponent.prototype.skipQuestion = function () {
         this.cardNo = this.cardNo + 1;
         this.blankAns = false;
+        this.progNo = this.progNo + 1;
+        this.progressBarWidth = (this.progNo / this.survey.questions.length) * 100;
     };
     // -----------------------------------End------------------------------------------
     // ---------------------------------Start-------------------------------------------
@@ -14427,20 +14824,20 @@ var UserSurveyMultipleComponent = /** @class */ (function () {
         return false;
     };
     UserSurveyMultipleComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user-survey-multiple',
             template: __webpack_require__("../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-survey-multiple/user-survey-multiple.component.css")],
             inputs: ['survey']
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            user_service_1.UserService,
-            company_service_1.CompanyService,
-            router_1.Router, config_1.Config, router_1.ActivatedRoute, material_1.MatSnackBar])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_5__angular_material__["z" /* MatSnackBar */]])
     ], UserSurveyMultipleComponent);
     return UserSurveyMultipleComponent;
 }());
-exports.UserSurveyMultipleComponent = UserSurveyMultipleComponent;
+
 
 
 /***/ }),
@@ -14466,15 +14863,21 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n          <div class=\"col-md-4 txt-right\">\r\n            <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n          </div>\r\n          <div class=\"col-md-8 \">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n              \r\n          </div>\r\n        </div>\r\n        <ng-template #newhd>\r\n          <div class=\"col-md-12\">\r\n            <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n          </div>\r\n        </ng-template>\r\n      </div>\r\n    </nav>\r\n    <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\"  (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                <form action=\"\">\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index\" [ngStyle]=\"{'background-color':theme.q_bg_color}\" style=\"margin-bottom:10px;padding:10px;\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                      </div>\r\n\r\n\r\n                      <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                      </div> -->\r\n\r\n                      <div class=\"row\">\r\n                          <div class=\"col-md-4\">\r\n                              <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton\" >Submit</button> \r\n                                </div>\r\n                                <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                       <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                       width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                   <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                     <animateTransform attributeType=\"xml\"\r\n                                       attributeName=\"transform\"\r\n                                       type=\"rotate\"\r\n                                       from=\"0 25 25\"\r\n                                       to=\"360 25 25\"\r\n                                       dur=\"0.6s\"\r\n                                       repeatCount=\"indefinite\"/>\r\n                                     </path>\r\n                                   </svg>\r\n                                </div>\r\n                                 \r\n                              </div>\r\n                      \r\n                \r\n                      \r\n                </form>\r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n       </div>  \r\n    <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n      \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Message</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" *ngIf=\"err\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closedErr()\">Close</button>\r\n            <button type=\"button\" *ngIf=\"!err\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n          </div>\r\n        </div>\r\n      \r\n      </div>\r\n      </div>\r\n\r\n\r\n\r\n\r\n\r\n      <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
+module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n    <nav class=\"navbar navbar-toggleable-md fixed-top x-new\" [ngStyle]=\"{'background-color':theme.h_bg_color }\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-8 col-md-offset-2\" *ngIf=\"survey.logo != '' else newhd\">\r\n          <div class=\"col-md-4 txt-right\">\r\n            <img  class=\"logo-img\" src=\"{{serviceUrl+'logo/'+survey.logo}}\" height=\"100\" alt=\"logo\">                   \r\n          </div>\r\n          <div class=\"col-md-8 \">\r\n              <h1 class=\"srvey-hd\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n              \r\n          </div>\r\n        </div>\r\n        <ng-template #newhd>\r\n          <div class=\"col-md-12\">\r\n            <h1 class=\"srvey-hd\" style=\"text-align:center\" [ngStyle]=\"{'font-size':theme.h_font_size, 'font-family':theme.h_font_family, 'color':theme.h_font_color}\" [ngClass]=\"{ 'itlc' : theme.h_font_italic, 'bld': theme.h_font_bold}\">{{survey.header_title}}</h1>\r\n            \r\n          </div>\r\n        </ng-template>\r\n      </div>\r\n    </nav>\r\n    <div [ngStyle]=\"{'background-color':theme.b_bg_color}\" style=\"padding-top:20px\">\r\n    <div class=\"container\">\r\n        <div class=\"col-md-12 questn-container\">\r\n            <button type=\"submit\" (click)=\"logout()\" class=\"btn btn-danger pull-right lg-out\" >Logout</button>\r\n            <div class=\"col-md-12\">\r\n                <app-count-down-timer  class=\"pull-right\" [inputDate]=\"survey.end_datetime\" [addClass]=\"'timer-survey'\"  (onTimeOver)=\"timeOver()\"></app-count-down-timer>             \r\n                \r\n            </div>\r\n            <div class=\"col-md-12\">\r\n              <h4 *ngIf=\"blankAns\" [ngStyle]=\"{'color':'#d9534f'}\">Fill all answers</h4>\r\n                <form action=\"\">\r\n                    <div class=\"col-md-12\" *ngFor=\"let item of survey.questions; let i=index\" [ngStyle]=\"{'background-color':theme.q_bg_color}\" style=\"margin-bottom:10px;padding:10px;\">\r\n                        <p [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{i+1}}. {{item.question}}</p>\r\n                        <div *ngIf=\"item.ans_type == 'Multiple choice'; else star\">\r\n                            <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"survey.questions[i].ans\" name=\"{{item._id}}\">\r\n                                <mat-radio-button class=\"example-radio-button\" *ngFor=\"let choice of item.options\" [value]=\"choice\" [required]=\"survey.display_type.skip == false\" >\r\n                                  <span [ngStyle]=\"{'font-size': theme.q_font_size, 'font-family':theme.q_font_family, 'color':theme.q_font_color}\" [ngClass]=\"{ 'itlc' : theme.q_font_italic, 'bld': theme.q_font_bold}\">{{choice}}</span>\r\n                                </mat-radio-button>\r\n                              </mat-radio-group>\r\n                        </div>\r\n\r\n\r\n                        <ng-template #star >\r\n                            <div class=\"star-container star-rating\" *ngIf=\"item.ans_type === 'star rating'; else text\">\r\n                                <!-- <fieldset>\r\n                                  <input type=\"radio\" id=\"{{'star'+x+1}}\" *ngFor=\"let choice of item.options; let x=index;\" name=\"rating\" value=\"{{x+1}}\" /><label *ngFor=\"let choice of item.options; let i=index;\" for=\"{{'star'+i+1}}\" title=\"{{choice}}\">5 stars</label> -->\r\n                                  <div class=\"rating\">\r\n                                    <!-- <ng-container *ngFor=\"let choice of item.options | reverse; let x=index;\"> -->\r\n                                        <!-- <star-rating-comp [starType]=\"'svg'\" [hoverEnabled]=\"true\"\r\n                                        [showHalfStars]=\"false\" [labelText]=\"'My text!'\"></star-rating-comp> -->\r\n                                        <rating [(ngModel)]=\"survey.questions[i].ans\" [titles]=\"item.options\" name=\"answer\" [max]=\"item.options.length\"></rating>\r\n                                    <!-- </ng-container> -->\r\n                                      <!-- <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\" /><label for=\"star4\"></label>\r\n                                      <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\" /><label for=\"star3\"></label>\r\n                                      <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\" /><label for=\"star2\"></label>\r\n                                      <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\" /><label for=\"star1\"></label> -->\r\n                                  </div>\r\n                                <!-- </fieldset> -->\r\n                              </div>\r\n                        </ng-template>\r\n\r\n\r\n                        <ng-template #text >\r\n                            <mat-form-field class=\"example-full-width\">\r\n                                <textarea matInput placeholder=\"Answer\" [(ngModel)]=\"survey.questions[i].ans\" name=\"txt\" [required]=\"survey.display_type.skip == false\"></textarea>\r\n                              </mat-form-field>\r\n                        </ng-template>\r\n                      </div>\r\n\r\n\r\n                      <!-- <div *ngIf=\"showSpinner\" class=\"deletespinner\">\r\n                          <mat-spinner></mat-spinner>\r\n                      </div> -->\r\n\r\n                      <div class=\"row\">\r\n                          <div class=\"col-md-4\">\r\n                              <button type=\"submit\" (click)=\"submitAns()\" class=\"btn btn-danger ourbutton btn-mrgn\" >Submit</button> \r\n                                </div>\r\n                                <div class=\"col-md-8\" *ngIf=\"showSpinner\" >\r\n                                       <svg version=\"1.1\" id=\"loader-1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n                                       width=\"40px\" height=\"40px\" viewBox=\"0 0 50 50\" style=\"enable-background:new 0 0 50 50;\" xml:space=\"preserve\">\r\n                                   <path fill=\"#000\" d=\"M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z\">\r\n                                     <animateTransform attributeType=\"xml\"\r\n                                       attributeName=\"transform\"\r\n                                       type=\"rotate\"\r\n                                       from=\"0 25 25\"\r\n                                       to=\"360 25 25\"\r\n                                       dur=\"0.6s\"\r\n                                       repeatCount=\"indefinite\"/>\r\n                                     </path>\r\n                                   </svg>\r\n                                </div>\r\n                                 \r\n                              </div>\r\n                      \r\n                \r\n                      \r\n                </form>\r\n            </div>\r\n            \r\n            \r\n          </div>   \r\n    </div>\r\n       </div>  \r\n    <footer [ngStyle]=\"{'background-color':theme.f_bg_color}\">\r\n      <p [ngStyle]=\"{'font-size':theme.f_font_size, 'font-family':theme.f_font_family,'color':theme.f_font_color}\">{{survey.footer_title}}</p>\r\n    </footer>\r\n              \r\n  </div>\r\n\r\n  <div id=\"myModal\" class=\"modal fade\" role=\"dialog\">\r\n      <div class=\"modal-dialog\">\r\n      \r\n        <!-- Modal content-->\r\n        <div class=\"modal-content\">\r\n          <div class=\"modal-header\">\r\n            <h4 class=\"modal-title\">Message</h4>\r\n          </div>\r\n          <div class=\"modal-body\">\r\n              <h4></h4>\r\n          \r\n          </div>\r\n        \r\n          <div class=\"modal-footer\">\r\n            <button type=\"button\" *ngIf=\"err\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closedErr()\">Close</button>\r\n            <button type=\"button\" *ngIf=\"!err\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n          </div>\r\n        </div>\r\n      \r\n      </div>\r\n      </div>\r\n\r\n\r\n\r\n\r\n\r\n      <div id=\"myModalx\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>\r\n    <div id=\"myModaly\" class=\"modal fade\" role=\"dialog\">\r\n        <div class=\"modal-dialog\">\r\n        \r\n          <!-- Modal content-->\r\n          <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n              <h4 class=\"modal-title\">Message</h4>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <h4></h4>\r\n            \r\n            </div>\r\n          \r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"submitAns()\">submit</button>\r\n              <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closed()\">Close</button>\r\n            </div>\r\n          </div>\r\n        \r\n        </div>\r\n    </div>"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserSurveySinglepageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14484,13 +14887,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
+
+
+
+
+
 // import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
 var UserSurveySinglepageComponent = /** @class */ (function () {
     function UserSurveySinglepageComponent(_activatedRoute, _userService, _companyService, snackBar, routes, config, route) {
@@ -14708,21 +15110,21 @@ var UserSurveySinglepageComponent = /** @class */ (function () {
         return false;
     };
     UserSurveySinglepageComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user-survey-singlepage',
             template: __webpack_require__("../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-survey-singlepage/user-survey-singlepage.component.css")],
             inputs: ['survey'],
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            user_service_1.UserService,
-            company_service_1.CompanyService,
-            material_1.MatSnackBar,
-            router_1.Router, config_1.Config, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["z" /* MatSnackBar */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], UserSurveySinglepageComponent);
     return UserSurveySinglepageComponent;
 }());
-exports.UserSurveySinglepageComponent = UserSurveySinglepageComponent;
+
 
 
 /***/ }),
@@ -14753,10 +15155,13 @@ module.exports = "<div class=\"container\">\r\n  <div class=\"col-md-12 txt-alig
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-survey-success/user-survey-success.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserSurveySuccessComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14766,10 +15171,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+
+
+
 var UserSurveySuccessComponent = /** @class */ (function () {
     function UserSurveySuccessComponent(routes, route, _userService) {
         this.routes = routes;
@@ -14834,16 +15238,16 @@ var UserSurveySuccessComponent = /** @class */ (function () {
         return false;
     };
     UserSurveySuccessComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user-survey-success',
             template: __webpack_require__("../../../../../src/app/components/user-survey-success/user-survey-success.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-survey-success/user-survey-success.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.Router, router_1.ActivatedRoute, user_service_1.UserService])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */]])
     ], UserSurveySuccessComponent);
     return UserSurveySuccessComponent;
 }());
-exports.UserSurveySuccessComponent = UserSurveySuccessComponent;
+
 
 
 /***/ }),
@@ -14874,10 +15278,15 @@ module.exports = "\r\n<div class=\"user-layout\" *ngIf=\"disp\">\r\n  <nav class
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserSurveyUpcomingComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -14887,12 +15296,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
+
+
+
 var UserSurveyUpcomingComponent = /** @class */ (function () {
     function UserSurveyUpcomingComponent(_activatedRoute, _userService, _companyService, routes, config, route) {
         this._activatedRoute = _activatedRoute;
@@ -14995,20 +15403,20 @@ var UserSurveyUpcomingComponent = /** @class */ (function () {
         return false;
     };
     UserSurveyUpcomingComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user-survey-upcoming',
             template: __webpack_require__("../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-survey-upcoming/user-survey-upcoming.component.css")],
             inputs: ['countTime', 'survey']
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            user_service_1.UserService,
-            company_service_1.CompanyService,
-            router_1.Router, config_1.Config, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], UserSurveyUpcomingComponent);
     return UserSurveyUpcomingComponent;
 }());
-exports.UserSurveyUpcomingComponent = UserSurveyUpcomingComponent;
+
 
 
 /***/ }),
@@ -15039,10 +15447,13 @@ module.exports = "\r\n\r\n      <div *ngIf=\"closed\" >\r\n          <app-user-s
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-survey/user-survey.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserSurveyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15052,10 +15463,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var user_service_1 = __webpack_require__("../../../../../src/app/services/user.service.ts");
+
+
+
 var UserSurveyComponent = /** @class */ (function () {
     function UserSurveyComponent(_activatedRoute, _userService, routes) {
         this._activatedRoute = _activatedRoute;
@@ -15161,18 +15571,18 @@ var UserSurveyComponent = /** @class */ (function () {
         });
     };
     UserSurveyComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user-survey',
             template: __webpack_require__("../../../../../src/app/components/user-survey/user-survey.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-survey/user-survey.component.css")]
         }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            user_service_1.UserService,
-            router_1.Router])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], UserSurveyComponent);
     return UserSurveyComponent;
 }());
-exports.UserSurveyComponent = UserSurveyComponent;
+
 
 
 /***/ }),
@@ -15203,10 +15613,17 @@ module.exports = "<div id=\"chart\"></div>"
 /***/ }),
 
 /***/ "../../../../../src/app/components/user-test/user-test.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserTestComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_company_service__ = __webpack_require__("../../../../../src/app/services/company.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15216,19 +15633,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 // import { AgmCoreModule, MapsAPILoader } from '@agm/core';
-var company_service_1 = __webpack_require__("../../../../../src/app/services/company.service.ts");
-var router_1 = __webpack_require__("../../../router/esm5/router.js");
-var socketIo = __webpack_require__("../../../../socket.io-client/lib/index.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
+
+
+
+
 // import * as d3 from 'd3-selection';
 // import * as d3Scale from 'd3-scale';
 // import * as d3Array from 'd3-array';
 // import * as d3Axis from 'd3-axis';
 // import * as d3Shape from 'd3-shape';
-var material_1 = __webpack_require__("../../../material/esm5/material.es5.js");
+
 var UserTestComponent = /** @class */ (function () {
     function UserTestComponent(_companyService, routes, config, route) {
         var _this = this;
@@ -15258,7 +15674,7 @@ var UserTestComponent = /** @class */ (function () {
         this.mail_not_readed_count = 0;
         this.noPositionAvailable = false;
         this.surveyId = 'all';
-        this.socket = socketIo(config.socketURL);
+        this.socket = __WEBPACK_IMPORTED_MODULE_3_socket_io_client__(config.socketURL);
         // this.socket = socketIo(config.siteUrl);
         this.width = 900 - this.margin.left - this.margin.right;
         this.height = 500 - this.margin.top - this.margin.bottom;
@@ -15616,37 +16032,36 @@ var UserTestComponent = /** @class */ (function () {
         });
     };
     __decorate([
-        core_1.ViewChild(material_1.MatPaginator),
-        __metadata("design:type", material_1.MatPaginator)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MatPaginator */])
     ], UserTestComponent.prototype, "paginator", void 0);
     __decorate([
-        core_1.ViewChild(material_1.MatSort),
-        __metadata("design:type", material_1.MatSort)
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_5__angular_material__["B" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5__angular_material__["B" /* MatSort */])
     ], UserTestComponent.prototype, "sort", void 0);
     UserTestComponent = __decorate([
-        core_1.Component({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user-test',
             template: __webpack_require__("../../../../../src/app/components/user-test/user-test.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/user-test/user-test.component.css")]
         }),
-        __metadata("design:paramtypes", [company_service_1.CompanyService,
-            router_1.Router,
-            config_1.Config,
-            router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_company_service__["a" /* CompanyService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__config_config__["a" /* Config */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
     ], UserTestComponent);
     return UserTestComponent;
 }());
-exports.UserTestComponent = UserTestComponent;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/config/config.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
 var Config = /** @class */ (function () {
     function Config() {
         this.socketURL = "http://localhost:3000";
@@ -15654,24 +16069,24 @@ var Config = /** @class */ (function () {
     }
     return Config;
 }());
-exports.Config = Config;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/pipe/reverse.pipe.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReversePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
+
 var ReversePipe = /** @class */ (function () {
     function ReversePipe() {
     }
@@ -15681,22 +16096,26 @@ var ReversePipe = /** @class */ (function () {
         return value.reverse();
     };
     ReversePipe = __decorate([
-        core_1.Pipe({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
             name: 'reverse'
         })
     ], ReversePipe);
     return ReversePipe;
 }());
-exports.ReversePipe = ReversePipe;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/services/admin.service.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15706,11 +16125,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var http_1 = __webpack_require__("../../../http/esm5/http.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-__webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+
+
+
+
 var AdminService = /** @class */ (function () {
     function AdminService(http, config) {
         this.http = http;
@@ -15718,7 +16136,7 @@ var AdminService = /** @class */ (function () {
         this.serviceUrl = config.siteUrl + '/admin/';
     }
     AdminService.prototype.setHeader = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return (headers);
     };
@@ -16006,7 +16424,7 @@ var AdminService = /** @class */ (function () {
     };
     // < ----------------------------------End------------------------------------------- 
     AdminService.prototype.setHeaderWithAuthorization = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
@@ -16053,7 +16471,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all companieslist
     AdminService.prototype.getAllcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16069,7 +16487,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : all subscribedcompanies
     //all subscribedcompanies
     AdminService.prototype.getAllsubcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allsubcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16084,7 +16502,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all subscribedactivecompanies
     AdminService.prototype.getAllsubactivecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allsubactivecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16099,7 +16517,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all subscribedblockcompanies
     AdminService.prototype.getAllsubblockcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allsubblockcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16114,7 +16532,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all subscribeddeletecompanies
     AdminService.prototype.getAllsubdeletecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allsubdeletecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16129,7 +16547,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all trailcompanies
     AdminService.prototype.getAlltrialcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'alltrialcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16144,7 +16562,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all trialactivecompanies
     AdminService.prototype.getAlltrialactivecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'alltrialactivecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16159,7 +16577,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all trialblockcompanies
     AdminService.prototype.getAlltrialblockcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'alltrialblockcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16174,7 +16592,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all trialdeletecompanies
     AdminService.prototype.getAlltrialdeletecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'alltrialdeletecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16190,7 +16608,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : all notverifiedcompanies
     //all not verified companies
     AdminService.prototype.getAllnotverficompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allnotverficompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16205,7 +16623,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all notverfiactivecompanies
     AdminService.prototype.getAllnotverfiactivecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allnotverfiactivecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16220,7 +16638,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all notverfiblockcompanies
     AdminService.prototype.getAllnotverfiblockcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allnotverfiblockcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16235,7 +16653,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all notverfideletecompanies
     AdminService.prototype.getAllnotverfideletecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allnotverfideletecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16251,7 +16669,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : all expired companies
     //all expired companies
     AdminService.prototype.getAllexpiredcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allexpiredcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16266,7 +16684,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all expiredactivecompanies
     AdminService.prototype.getAllexpiredactivecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allexpiredactivecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16281,7 +16699,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all expiredblockcompanies
     AdminService.prototype.getAllexpiredblockcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allexpiredblockcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16296,7 +16714,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all expireddeletecompanies
     AdminService.prototype.getAllexpireddeletecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allexpireddeletecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16311,7 +16729,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : Allactivecompanies
     AdminService.prototype.getAllactivecompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allactivecompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16327,7 +16745,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : all blocked companies
     //all blocked companies
     AdminService.prototype.getAllblockedcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allblockedcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16343,7 +16761,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : all deleted companies
     //all deleted companies
     AdminService.prototype.getAlldeletedcompanies = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'alldeletedcompanies', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16359,7 +16777,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : delete company
     //delete company
     AdminService.prototype.deleteCompany = function (id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.delete(this.serviceUrl + 'deletecompany/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16375,7 +16793,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : block company
     //block company
     AdminService.prototype.blockCompany = function (id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.put(this.serviceUrl + 'blockcompany/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16391,7 +16809,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : unblock company
     //unblock company
     AdminService.prototype.unblockCompany = function (id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.put(this.serviceUrl + 'unblockcompany/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16406,7 +16824,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all users
     AdminService.prototype.getAllusers = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allusers', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16421,7 +16839,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all active users
     AdminService.prototype.getAllactiveusers = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allactiveusers', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16436,7 +16854,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all block users
     AdminService.prototype.getAllblockusers = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allblockusers', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16451,7 +16869,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : all delete users
     AdminService.prototype.getAlldeleteusers = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'alldeleteusers', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16466,7 +16884,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : delete user
     AdminService.prototype.deleteUser = function (id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.delete(this.serviceUrl + 'deleteuser/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16481,7 +16899,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : block user
     AdminService.prototype.blockUser = function (id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.put(this.serviceUrl + 'blockuser/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16496,7 +16914,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : unblock user
     AdminService.prototype.unblockUser = function (id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.put(this.serviceUrl + 'unblockuser/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16511,7 +16929,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 01-01-2018
     // Desc          : all requested users
     AdminService.prototype.getAllrequsers = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allrequsers', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16526,7 +16944,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 03-01-2018
     // Desc          : reject users notifcation
     AdminService.prototype.rejectUser = function (id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.put(this.serviceUrl + 'rejectuser/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16541,7 +16959,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : accept user notifcation
     AdminService.prototype.acceptUser = function (id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.put(this.serviceUrl + 'acceptuser/' + id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16556,7 +16974,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : notification
     AdminService.prototype.getAdminnotification = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'notification', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16571,7 +16989,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : view status user notifcation
     AdminService.prototype.viewstatusUser = function (id, cmpid) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         var data = { user_id: id, company_id: cmpid };
         return this.http.put(this.serviceUrl + 'viewstatususer', data, { headers: headers })
@@ -16587,7 +17005,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : adminchart company vs status
     AdminService.prototype.getchart1 = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'adminchart1', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16602,7 +17020,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 11-01-2018
     // Desc          : adminchart company vs survey
     AdminService.prototype.getchartbar = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'admind3', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16645,7 +17063,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : getAllplans
     AdminService.prototype.getAllplans = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + 'allplans', { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16661,7 +17079,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : addPlans
     AdminService.prototype.addPlan = function (data) {
         // console.log(data)
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.post(this.serviceUrl + 'addplan', data, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16676,7 +17094,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified :
     // Desc          : to delete a plan
     AdminService.prototype.deletePlan = function (plan_id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.delete(this.serviceUrl + "deleteplan/" + plan_id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16691,7 +17109,7 @@ var AdminService = /** @class */ (function () {
     // Last Modified :
     // Desc          : to edite a plan
     AdminService.prototype.getSingleplan = function (plan_id) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.get(this.serviceUrl + "getsingleplan/" + plan_id, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16707,7 +17125,7 @@ var AdminService = /** @class */ (function () {
     // Desc          : to update a plan
     AdminService.prototype.updatePlan = function (plan) {
         // console.log(plan);
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return this.http.post(this.serviceUrl + "updateplan", plan, { headers: headers })
             .map(function (res) { return res.json(); });
@@ -16722,28 +17140,32 @@ var AdminService = /** @class */ (function () {
     // Last Modified : 
     // Desc          : bestPlan
     AdminService.prototype.bestPlan = function (id, best) {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         var data = { _id: id, value: best };
         return this.http.post(this.serviceUrl + 'bestplan', data, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AdminService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http, config_1.Config])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_2__config_config__["a" /* Config */]])
     ], AdminService);
     return AdminService;
 }());
-exports.AdminService = AdminService;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/services/company.service.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16753,11 +17175,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var http_1 = __webpack_require__("../../../http/esm5/http.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-__webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+
+
+
+
 var CompanyService = /** @class */ (function () {
     function CompanyService(http, config) {
         this.http = http;
@@ -16913,7 +17334,7 @@ var CompanyService = /** @class */ (function () {
     // Last Modified : 27-12-2017, Manu Prasad, Desc:
     // Desc          : to set header to call an api
     CompanyService.prototype.setHeader = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return (headers);
     };
@@ -17188,7 +17609,7 @@ var CompanyService = /** @class */ (function () {
     };
     // < ----------------------------------End------------------------------------------- 
     CompanyService.prototype.setHeaderWithAuthorization = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
@@ -17655,21 +18076,25 @@ var CompanyService = /** @class */ (function () {
             .map(function (res) { return res.json(); });
     };
     CompanyService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http, config_1.Config])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_2__config_config__["a" /* Config */]])
     ], CompanyService);
     return CompanyService;
 }());
-exports.CompanyService = CompanyService;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/services/user.service.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config_config__ = __webpack_require__("../../../../../src/app/config/config.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17679,11 +18104,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var config_1 = __webpack_require__("../../../../../src/app/config/config.ts");
-var http_1 = __webpack_require__("../../../http/esm5/http.js");
-__webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+
+
+
+
 var UserService = /** @class */ (function () {
     function UserService(http, config) {
         this.http = http;
@@ -17699,7 +18123,7 @@ var UserService = /** @class */ (function () {
     // Last Modified : 27-12-2017, Manu Prasad, Desc:
     // Desc          : to set header to call an api
     UserService.prototype.setHeader = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         return (headers);
     };
@@ -17747,7 +18171,7 @@ var UserService = /** @class */ (function () {
     };
     // ----------------------------------End-------------------------------------------
     UserService.prototype.setHeaderWithAuthorization = function () {
-        var headers = new http_1.Headers();
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
@@ -17855,21 +18279,27 @@ var UserService = /** @class */ (function () {
         localStorage.clear();
     };
     UserService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http, config_1.Config])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1__config_config__["a" /* Config */]])
     ], UserService);
     return UserService;
 }());
-exports.UserService = UserService;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/app/services/xlsx-to-json.service.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return XlsxToJsonService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ts_xlsx__ = __webpack_require__("../../../../ts-xlsx/lib/main.browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ts_xlsx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ts_xlsx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -17879,21 +18309,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var Observable_1 = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
-var _ = __webpack_require__("../../../../lodash/lodash.js");
-var XLSX = __webpack_require__("../../../../ts-xlsx/lib/main.browser.js");
+
+
+
+
 var XlsxToJsonService = /** @class */ (function () {
     function XlsxToJsonService() {
     }
     XlsxToJsonService.prototype.processFileToJson = function (object, file) {
         var reader = new FileReader();
         var _this = this;
-        return Observable_1.Observable.create(function (observer) {
+        return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["a" /* Observable */].create(function (observer) {
             reader.onload = function (e) {
                 var data = e.target['result'];
-                var workbook = XLSX.read(data, {
+                var workbook = __WEBPACK_IMPORTED_MODULE_3_ts_xlsx__["read"](data, {
                     type: 'binary'
                 });
                 object.sheets = _this.parseWorksheet(workbook, true, true);
@@ -17908,20 +18337,20 @@ var XlsxToJsonService = /** @class */ (function () {
             return this.to_json(workbook);
         }
         var sheets = {};
-        _.forEachRight(workbook.SheetNames, function (sheetName) {
+        __WEBPACK_IMPORTED_MODULE_2_lodash__["forEachRight"](workbook.SheetNames, function (sheetName) {
             var sheet = workbook.Sheets[sheetName];
             sheets[sheetName] = this.parseSheet(sheet, readCells);
         });
         return sheets;
     };
     XlsxToJsonService.prototype.parseSheet = function (sheet, readCells) {
-        var range = XLSX.utils.decode_range(sheet['!ref']);
+        var range = __WEBPACK_IMPORTED_MODULE_3_ts_xlsx__["utils"].decode_range(sheet['!ref']);
         var sheetData = [];
         if (readCells === true) {
-            _.forEachRight(_.range(range.s.r, range.e.r + 1), function (row) {
+            __WEBPACK_IMPORTED_MODULE_2_lodash__["forEachRight"](__WEBPACK_IMPORTED_MODULE_2_lodash__["range"](range.s.r, range.e.r + 1), function (row) {
                 var rowData = [];
-                _.forEachRight(_.range(range.s.c, range.e.c + 1), function (column) {
-                    var cellIndex = XLSX.utils.encode_cell({
+                __WEBPACK_IMPORTED_MODULE_2_lodash__["forEachRight"](__WEBPACK_IMPORTED_MODULE_2_lodash__["range"](range.s.c, range.e.c + 1), function (column) {
+                    var cellIndex = __WEBPACK_IMPORTED_MODULE_3_ts_xlsx__["utils"].encode_cell({
                         'c': column,
                         'r': row
                     });
@@ -17941,7 +18370,7 @@ var XlsxToJsonService = /** @class */ (function () {
     XlsxToJsonService.prototype.to_json = function (workbook) {
         var result = {};
         workbook.SheetNames.forEach(function (sheetName) {
-            var roa = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+            var roa = __WEBPACK_IMPORTED_MODULE_3_ts_xlsx__["utils"].sheet_to_json(workbook.Sheets[sheetName]);
             if (roa.length > 0) {
                 result[sheetName] = roa;
             }
@@ -17949,27 +18378,26 @@ var XlsxToJsonService = /** @class */ (function () {
         return result;
     };
     XlsxToJsonService = __decorate([
-        core_1.Injectable(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [])
     ], XlsxToJsonService);
     return XlsxToJsonService;
 }());
-exports.XlsxToJsonService = XlsxToJsonService;
+
 
 
 /***/ }),
 
 /***/ "../../../../../src/environments/environment.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.environment = {
+var environment = {
     production: false
 };
 
@@ -17977,19 +18405,22 @@ exports.environment = {
 /***/ }),
 
 /***/ "../../../../../src/main.ts":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/esm5/platform-browser-dynamic.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../../../core/esm5/core.js");
-var platform_browser_dynamic_1 = __webpack_require__("../../../platform-browser-dynamic/esm5/platform-browser-dynamic.js");
-var app_module_1 = __webpack_require__("../../../../../src/app/app.module.ts");
-var environment_1 = __webpack_require__("../../../../../src/environments/environment.ts");
-if (environment_1.environment.production) {
-    core_1.enableProdMode();
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
 }
-platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule)
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
 
 

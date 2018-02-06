@@ -13,6 +13,7 @@ export class AdminBlockedUsersComponent implements OnInit {
   displayedColumns = [ 'slno','username','email','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  id :any;
   showSpinner :Boolean=false
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -46,6 +47,12 @@ export class AdminBlockedUsersComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
+  }
+  getId(id){
+    // this.showSpinner =false
+    // this.showSpinnerDelete =false
+    this.id = id
+   //  console.log(this.id)
   }
 
   ngOnInit() {

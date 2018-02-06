@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class AdminSubscribedComponent implements OnInit {
   displayedColumns = [ 'companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
+  id :any;
   notExist =false;
   all_value=false;
   selected = 'all';
@@ -130,6 +131,12 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
     this.dataSource.filter = filterValue;
   }
 // -----------------------------------End------------------------------------------
+getId(id){
+  // this.showSpinner =false
+  // this.showSpinnerDelete =false
+  this.id = id
+ //  console.log(this.id)
+}
   // ---------------------------------Start-------------------------------------------
 // Function      : Admin company management
 // Params        : id
