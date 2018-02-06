@@ -35,9 +35,9 @@
     margin-top: 10px;
    
   }
-  h4{
+  /* h4{
     text-align: center;
-}
+} */
 .noItemFound{
   text-align: center;
   background-color: #ffffff;
@@ -51,4 +51,27 @@
 svg path,
 svg rect{
   fill: #EC0C0C;
+}
+.modal-content{border-radius:0;box-shadow:none;}
+.modal-header {
+    padding: 7px 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #da524f;
+}
+.modal-title {
+    margin: 0;
+    line-height: 26px;
+    font-size: 15px;
+    color: #fff;
+}
+.close {
+   
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #fff;
+    text-shadow: none;
+    filter: alpha(opacity=20);
+    opacity: inherit;
+    padding-top:0px;
 }

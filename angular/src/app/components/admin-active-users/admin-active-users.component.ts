@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class AdminActiveUsersComponent implements OnInit {
   displayedColumns = [ 'slno','username','email','action'];
+  id :any;
   dataSource: MatTableDataSource<any>;
   notExist =false;
   showSpinner :Boolean=false
@@ -44,7 +45,12 @@ export class AdminActiveUsersComponent implements OnInit {
         this.dataSource.sort = this.sort;
       });
   }
-
+  getId(id){
+    // this.showSpinner =false
+    // this.showSpinnerDelete =false
+    this.id = id
+   //  console.log(this.id)
+  }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
 // Function      : get logged user details
