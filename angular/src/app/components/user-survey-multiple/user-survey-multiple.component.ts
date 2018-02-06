@@ -184,7 +184,10 @@ submitAns(){
 // Desc          : go to next questions
 next(i){
   if(this.survey.questions[i].ans == '' || !this.survey.questions[i].ans){
-    this.blankAns = true;
+    // this.blankAns = true;
+    let snackBarRef =  this.snackBar.open('* Fill answer!', '', {
+      duration: 2000
+    });
   }else{
   this.cardNo = this.cardNo+1
   this.blankAns = false;
@@ -206,6 +209,10 @@ next(i){
 // Desc          : back to previous question
 back(){
   this.cardNo = this.cardNo-1
+  
+  this.progNo = this.progNo-1;
+      
+  this.progressBarWidth = (this.progNo/this.survey.questions.length)*100;
 }
 // -----------------------------------End------------------------------------------
 
@@ -221,6 +228,10 @@ back(){
 skipQuestion(){
   this.cardNo = this.cardNo+1
   this.blankAns = false;
+  
+  this.progNo = this.progNo+1;
+      
+  this.progressBarWidth = (this.progNo/this.survey.questions.length)*100;
   
 }
 // -----------------------------------End------------------------------------------
