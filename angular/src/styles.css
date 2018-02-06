@@ -1,5 +1,5 @@
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-@import '@angular/material/prebuilt-themes/indigo-pink.css'; 
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css'; 
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 .prev-img {
      /* background-color: #dd3;  */
@@ -384,7 +384,7 @@ font-size: 16px;
 }
 
 .plan-hd{
-    margin-top: 279px;
+    margin-top: 255px;
     font-size: 50px;
     color: #fff;
     font-weight: 700;
@@ -400,6 +400,7 @@ font-size: 16px;
     padding: 15px;
     color: #ffffff;
     padding-left: 0;
+    border-bottom: 1px solid #da3740;
 }
 .lim-hd i{
     color: #e7ff00;
@@ -446,7 +447,9 @@ background: #3b3b3b;
     left: 238px;
 }
 
-
+.up-plan{
+    margin-top: 171px !important;
+}
 
 
 
@@ -501,7 +504,11 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 10;
   border-radius: 5px;
+  margin-left: 3px;
 }
+/* .bst-vlue{
+    margin-left: -3px;
+} */
 .pricing-table .plan h3.name {
   font-size: 20px;
   /* background-color: #546e7a; */
@@ -557,7 +564,12 @@ h1, h2, h3, h4, h5, h6 {
 .pricing-table .bst-plan{
     box-shadow: 0px 0px 10px #424242;
   z-index: 100;
-  top: -14px
+  top: -22px;
+  margin-left: -3px;
+  max-width: 254px;
+}
+.bst-plan .details{
+    margin-top: 62px;
 }
 .pricing-table .plan:nth-child(2n) {
   

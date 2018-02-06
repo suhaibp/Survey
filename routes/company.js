@@ -1325,6 +1325,7 @@ var returnRouter = function (io) {
             { $set: { cmp_status: "Trail" } },
             { new: true },
             function (err, doc) {
+                console.log(doc);
                 if (err) {
                     return res.json({ success: false, msg: 'Company Not verified' });
                 }
@@ -2845,7 +2846,7 @@ var returnRouter = function (io) {
             var errMsg = '';
             if (req.body.is_registered == false) {
                 if (!validateEmail(req.body.newEmail) && !isErr) {
-                    errMsg = val + " is not a valid email";
+                    errMsg = req.body.newEmail + " is not a valid email";
                     isErr = true;
                 }
             }
