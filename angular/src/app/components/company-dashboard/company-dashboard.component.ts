@@ -27,6 +27,7 @@ export class CompanyDashboardComponent implements OnInit {
   locations = [];
   allSurveys: any;
   surveyId:any;
+  
   //chart2 start
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
