@@ -72,9 +72,12 @@ body {
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
-
+.dropdown-menu{
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
 .top-nav>.open>.dropdown-menu>li>a {
-    white-space: normal;
+    white-space: normal; 
 }
 
 ul.message-dropdown {
@@ -250,7 +253,7 @@ ul li{
     border-radius: 0;
 }
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
-    background-color:  #bd0c2b !important;
+    background-color:  #bb2a44 !important;
     color: #fff !important;
 }
 .logo-main{
