@@ -27,21 +27,22 @@ export class CompanyEmailVerificationComponent implements OnInit {
       this.companyService.verifyCompany(params.id).subscribe(data => {
         if(data.success){
         // this._flashMessagesService.show('Success...', { cssClass: 'alert-success', timeout: 4000 });
+        this.companyService.storeUserData(data.token, data.company);
         let snackBarRef =  this.snackBar.open('Successfully verified...', '', {
           duration: 2000
         });
         setTimeout(() => {  
-          this.routes.navigate(['/clogin']);
-        }, 4000);
+          this.routes.navigate(['/dashboard']);
+        }, 2000);
       }
       else{
         // this._flashMessagesService.show('Error...', { cssClass: 'alert-danger', timeout: 4000 });
-        let snackBarRef =  this.snackBar.open('Error...', '', {
+        let snackBarRef =  this.snackBar.open('Invalid Access...', '', {
           duration: 2000
         });
         setTimeout(() => {  
-          this.routes.navigate(['/clogin']);
-        }, 4000);
+          this.routes.navigate(['/home']);
+        }, 2000);
       }
       });
   });

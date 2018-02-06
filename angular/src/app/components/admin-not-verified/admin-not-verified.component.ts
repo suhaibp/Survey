@@ -11,6 +11,7 @@ export class AdminNotVerifiedComponent implements OnInit {
   displayedColumns = [ 'slno','companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  id :any;
   all_value = false;
   showSpinner :boolean = false;
   selected = 'all';
@@ -112,6 +113,13 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
 // ---------------------------------End-------------------------------------------    
         this.refresh();
       }
+      getId(id){
+        // this.showSpinner =false
+        // this.showSpinnerDelete =false
+        this.id = id
+       //  console.log(this.id)
+      }
+      
      // -----------------------------------End------------------------------------------  
      
      // ---------------------------------Start-------------------------------------------

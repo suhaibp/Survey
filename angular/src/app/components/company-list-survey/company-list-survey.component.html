@@ -90,16 +90,16 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
+                  <a *ngIf="row.status=='Upcoming'" [routerLink]="['/company-edit-survey', row._id]" mat-menu-item>
+                    <i class="material-icons">edit</i>
+                  <span>Edit</span>
+                </a>
                 <button *ngIf="row.status=='Upcoming'" (click)="setEditId(row._id)" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal3" mat-menu-item>
                 <!-- <button *ngIf="row.status=='Upcoming'" (click)="setEditId(row._id)" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#myModal3" mat-menu-item> -->
                     <i class="material-icons">delete</i>
                   <span>Delete</span>
                 </button>
-                <a *ngIf="row.status=='Upcoming'" href="/company-edit-survey/{{row._id}}" mat-menu-item>
-                    <i class="material-icons">edit</i>
-                  <span>Edit</span>
-                </a>
-                <a *ngIf="row.status != 'Upcoming'" href="/dashboard/{{row._id}}" mat-menu-item>
+                <a *ngIf="row.status != 'Upcoming'" [routerLink]="['/dashboard', row._id]"  mat-menu-item>
                     <i class="material-icons">dashboard</i>
                   <span>Report</span>
                 </a>

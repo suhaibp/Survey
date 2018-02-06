@@ -1,4 +1,4 @@
-<div class="user-layout" *ngIf="survey.display_type.ui != 'Multiple'">
+<div class="user-layout" *ngIf="survey.display_type.ui != 'Multiple'"  (keydown)="keyDownFunction($event)">
     
     <nav *ngIf="survey.showHeader"  class="navbar navbar-toggleable-md fixed-top x-new" [ngStyle]="{'background-color':survey.selectedTheme.h_bg_color }">
       <div class="container">
@@ -19,9 +19,9 @@
     </nav>
    
     <div style="padding-top:20px;"  [ngStyle]="{'background-color':survey.selectedTheme.b_bg_color }">
-        <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-left lg-out" >Back To Survey</button>
-    <div class="container">
         
+    <div class="container">
+        <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-left lg-out" >Back To Survey</button>
         <div class="col-md-12 questn-container">
             <button type="submit"  class="btn btn-danger pull-right lg-out" >Logout</button>
             <!-- <button type="submit" (click)="backTosurvey()" class="btn btn-danger pull-right lg-out" >Back To Survey</button> -->
@@ -70,7 +70,7 @@
                         </ng-template>
                         </div>
                       </div>
-                      <button type="submit" (click)="submitAns()" class="btn btn-danger ourbutton" >Submit</button> 
+                      <button type="submit" (click)="submitAns()" class="btn btn-danger ourbutton btn-mrgn" >Submit</button> 
                       
             </div>
             
@@ -95,7 +95,7 @@
 
 
 
-<div class="user-layout" *ngIf="survey.display_type.ui == 'Multiple'"  >
+<div class="user-layout" *ngIf="survey.display_type.ui == 'Multiple'"  (keydown)="keyDownFunction($event)" >
     <nav *ngIf="survey.showHeader"  class="navbar navbar-toggleable-md fixed-top x-new" [ngStyle]="{'background-color':survey.selectedTheme.h_bg_color }">
         <div class="container">
           <div class="col-md-8 col-md-offset-2">
@@ -141,17 +141,20 @@
                             
                         </div>
                         <div class="col-md-12">
-                            <div class="col-md-6 progrs ">
-                              <h5 *ngIf="!survey.display_type.pageno">&nbsp;</h5>
-                                <h5 *ngIf="survey.display_type.pageno == true" [ngStyle]="{'color': survey.selectedTheme.progress_text_color}">
-                                  Page No. {{cardNo+1}} of {{survey.questions.length}}
-                                </h5>
-                                <div class="progress" >
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                    aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressBarWidth" [ngStyle]="{'background-color': survey.selectedTheme.progress_bar_color}">
-                                    </div>
-                                  </div> 
-                            </div>
+                          <div class="row">
+                              <div class="col-md-6 progrs ">
+                                  <h5 *ngIf="!survey.display_type.pageno">&nbsp;</h5>
+                                    <h5 *ngIf="survey.display_type.pageno == true" [ngStyle]="{'color': survey.selectedTheme.progress_text_color}">
+                                      Page No. {{cardNo+1}} of {{survey.questions.length}}
+                                    </h5>
+                                    <div class="progress" >
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                                        aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressBarWidth" [ngStyle]="{'background-color': survey.selectedTheme.progress_bar_color}">
+                                        </div>
+                                      </div> 
+                                </div>
+                          </div>
+                           
                         <div class="col-md-6 progrs">
                             <button *ngIf="cardNo > 0" type="submit" (click)="back(cardNo)" class="btn btn-danger ourbutton btn-mrgn" >Back</button> 
                             
@@ -195,8 +198,7 @@
                         </ng-template>
                         
                       </div>
-                      
-                      <button *ngIf="cardNo == questionCount-1" type="submit" (click)="submitAns()" class="btn btn-danger ourbutton mrgn-50" >Submit</button> 
+                      <!-- <button *ngIf="cardNo == questionCount-1" type="submit" (click)="submitAns()" class="btn btn-danger ourbutton mrgn-50" >Submit</button>  -->
                       
             </div>
             

@@ -497,7 +497,7 @@ module.exports.deleteCompany = function (id, callback) {
 // Desc          : block company
 
 module.exports.blockCompany = function (id, callback) {
-    Company.findByIdAndUpdate(id, { block_statu                                      s: true }, callback);
+    Company.findByIdAndUpdate(id, { block_status: true }, callback);
 }
 // -----------------------------------End------------------------------------------
 // ---------------------------------Start-------------------------------------------

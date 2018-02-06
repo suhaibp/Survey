@@ -528,7 +528,7 @@ export class CompanyUsersComponent implements OnInit {
       } else {
         // this.isError = true;
 
-        this.msg = "* Faild, Group Already Exists!";
+        this.msg = "* Failed, Group Already Exists!";
         this.showSpinner = false
         let snackBarRef = this.snackBar.open(this.msg, '', {
           duration: 2000
@@ -674,6 +674,12 @@ export class CompanyUsersComponent implements OnInit {
       });
     }
 
+  }
+
+  keyDownFunction(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+    }
   }
 
 }

@@ -115,7 +115,6 @@ export class CompanyDashboardComponent implements OnInit {
         // console.log(this.surveyId + "surveyid");
       }
     });
-    
     // console.log('surveyId');
     // console.log(this.surveyId);
     // ---------------------------------Start-------------------------------------------
@@ -271,7 +270,7 @@ export class CompanyDashboardComponent implements OnInit {
     .sort(null)
     .padAngle(.03);
    
-  var w=500,h=500;
+  var w=370,h=370;
    
   var outerRadius=w/2;
   var innerRadius=w/3;
@@ -384,7 +383,7 @@ export class CompanyDashboardComponent implements OnInit {
               class:'legend',
               transform:function(d,i){
                   //Just a calculation for x & y position
-                  return 'translate(-35,' + ((i*legendHeight)-65) + ')';
+                  return 'translate(-60,' + ((i*legendHeight)-65) + ')';
               }
           });
       legend.append('rect')
@@ -401,7 +400,7 @@ export class CompanyDashboardComponent implements OnInit {
    
       legend.append('text')
           .attr({
-              x:30,
+              x:25,
               y:15
           })
           .text(function(d){

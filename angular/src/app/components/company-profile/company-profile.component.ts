@@ -13,6 +13,10 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CompanyProfileComponent implements OnInit {
   ProfileFormGroup: FormGroup;
+  currentPlan : any;
+  currentPlanName : any;
+  totalDays : any;
+  dateofExpire : any;
   selected : any;
   typeId : any;
   industryId : any;
@@ -144,8 +148,22 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
         industry :{_id : this.company.industry.id, name : this.company.industry.name},
         survey_attenders : this.surveyattenders,
       }
+        this.currentPlan = this.company.plans[this.company.plans.length - 1];
+        // console.log(this.currentPlan);
+        if (this.currentPlan) {
+          this.currentPlanName = this.currentPlan.plan_name;
+            this.totalDays = this.currentPlan.no_month * 30;
+            this.currentPlan.upgraded_date_time = new Date(this.currentPlan.upgraded_date_time);
+            // console.log(this.currentPlan.upgraded_date_time);
+            this.dateofExpire = this.currentPlan.upgraded_date_time.setDate(this.currentPlan.upgraded_date_time.getDate() + this.totalDays);
+            this.dateofExpire = new Date(this.dateofExpire);
+            var dd = this.dateofExpire.getDate();
+            var mm = this.dateofExpire.getMonth() + 1;
+            var y = this.dateofExpire.getFullYear();
+            this.dateofExpire = dd + '/'+ mm + '/'+ y;
+        }
     });
-// -----------------------------------End------------------------------------------    
+// -----------------------------------End------------------------------------------   
   }
 
   getOrgType(type){

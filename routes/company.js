@@ -327,7 +327,7 @@ var returnRouter = function (io) {
                     isErr = true;
                 }
 
-                if ( plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
+                if (plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                     errMsg = "* Failed, maximum allowed question  " + plans.no_question;
                     isErr = true;
                 }
@@ -353,6 +353,21 @@ var returnRouter = function (io) {
                     errMsg = "* Failed, End Date shold be greater than start date!";
                     isErr = true;
                 }
+
+                totalDays = plans.no_month * 30;
+                var date = new Date(plans.upgraded_date_time);
+                var dateofExpire = new Date(date.setTime( date.getTime() + totalDays * 86400000 ));
+
+                // if (start < plans.upgraded_date_time) {
+                //     errMsg = "* Failed, Survey Dates should be in subscription period";
+                //     isErr = true;
+                // }
+                //console.log(dateofExpire);
+                if (end > dateofExpire) {
+                    errMsg = "* Failed, Survey end date Must be within subscription period";
+                    isErr = true;
+                }
+                
 
                 if (!isErr && myTrim(req.body.name) == '') {
                     errMsg = "* Failed, Please Enter Survay Name!";
@@ -441,7 +456,9 @@ var returnRouter = function (io) {
 
                     survey.save(function (err, newSurvey) {
                         if (err) throw new Error(err);
-                        res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey });
+                        var today = new Date(req.body.start_date);
+                        today.setHours(00, 00, 00, 000);
+                        res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey,today:today });
                     });
 
                 } else {
@@ -690,7 +707,7 @@ var returnRouter = function (io) {
                                     io.sockets.emit("Invite Users", {
 
                                     });
-                                    res.json({ success: true, msg: "User Invited successfully" });
+                                    res.json({ success: true, msg: "User Invited successfully"});
 
                                 }
                             });
@@ -726,8 +743,8 @@ var returnRouter = function (io) {
     router.get('/show-mail-image/:id', (req, res, next) => {
 
         // var ip = req.header['x-forwarded-for'] || req.connection.remoteAddress;
-        //var ip = "59.92.233.134";
-        var ip = req.connection.remoteAddress;
+        var ip = "59.92.233.134";
+        // var ip = req.connection.remoteAddress;
         console.log("ip:" + ip);
         var geo = geoip.lookup(ip);
         lat = geo.ll[0];
@@ -946,7 +963,7 @@ var returnRouter = function (io) {
 
             var plans = (decoded.plans.length != 0) ? decoded.plans[decoded.plans.length - 1] : [];
 
-            if ( plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
+            if (plans.no_question.toLowerCase() != 'unlimited' && req.body.questions.length > plans.no_question) {
                 errMsg = "Failed, maximum allowed question  " + plans.no_question;
                 isErr = true;
             }
@@ -961,7 +978,7 @@ var returnRouter = function (io) {
             let now = new Date();
             now.setHours(00, 00, 00, 000);
 
-            if(req.body.start_date < now){
+            if (req.body.start_date < now) {
                 errMsg = "* Failed, Start Date already over!";
                 isErr = true;
             }
@@ -979,7 +996,20 @@ var returnRouter = function (io) {
                 isErr = true;
             }
 
+            totalDays = plans.no_month * 30;
+            var date = new Date(plans.upgraded_date_time);
+            var dateofExpire = new Date(date.setTime( date.getTime() + totalDays * 86400000 ));
 
+            // if (start < plans.upgraded_date_time) {
+            //     errMsg = "* Failed, Survey Dates should be in subscription period";
+            //     isErr = true;
+            // }
+            //console.log(dateofExpire);
+            if (end > dateofExpire) {
+                errMsg = "* Failed, Survey end date Must be within subscription period";
+                isErr = true;
+            }
+            
             if (!isErr && myTrim(req.body.name) == '') {
                 errMsg = "* Failed, Please Enter Survay Name!";
                 isErr = true;
@@ -1232,7 +1262,7 @@ var returnRouter = function (io) {
             password: req.body.password,
             survey_attenders: req.body.survey_attenders,
             is_profile_completed: true,
-            cmp_status: "Subscribed",
+            cmp_status: "Not Verified",
             plans: [{
                 plan_id: req.body.plans._id,
                 no_month: req.body.plans.no_month,
@@ -1322,7 +1352,7 @@ var returnRouter = function (io) {
 
     router.get('/companyVerification/:id', function (req, res) {
         Company.findOneAndUpdate({ verification_code: req.params.id, cmp_status: "Not Verified" },
-            { $set: { cmp_status: "Trail" } },
+            { $set: { cmp_status: "Subscribed" } },
             { new: true },
             function (err, doc) {
                 console.log(doc);
@@ -1330,12 +1360,24 @@ var returnRouter = function (io) {
                     return res.json({ success: false, msg: 'Company Not verified' });
                 }
                 if (doc == null) {
-                    return res.json({ success: true, msg: 'Company verified' });
+                    // return res.json({ success: true, msg: 'Company verified' });
+                    return res.json({ success: false, msg: 'Company Not verified' });
                 }
                 else {
-                    io.sockets.emit("Trail", {
+                    io.sockets.emit("Subscribed", {
                     });
-                    return res.json({ success: true, msg: 'Company verified' });
+                    // return res.json({ success: true, msg: 'Company verified' });
+                    const token = jwt.sign(doc.toJSON(), config.secret, {
+                        expiresIn: 60400 // sec 1 week
+                    });
+                    return res.json({
+                        success: true,
+                        token: 'JWT ' + token,
+                        company: {
+                            id: doc._id,
+                            role: doc.role,
+                        }
+                    });
                 }
 
             });
@@ -1416,6 +1458,7 @@ var returnRouter = function (io) {
             job_level: req.body.job_level,
             survey_attenders: req.body.survey_attenders,
             is_profile_completed: true,
+            cmp_status: "Subscribed",
         };
         async.series([
             function (callback) {

@@ -12,6 +12,7 @@ export class AdminAllCompaniesComponent implements OnInit {
   displayedColumns = [ 'slno','companyname','email','contactperson','contactnumber','companystatus','status','action'];
   dataSource: MatTableDataSource<any>;
   notExist =false;
+  id :any;
   selected = 'all';
   all_value =false;
   showSpinner :boolean = false;
@@ -120,6 +121,12 @@ this.adminService.getLoggedUSerDetails().subscribe(info =>{
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+     getId(id){
+    // this.showSpinner =false
+    // this.showSpinnerDelete =false
+    this.id = id
+   //  console.log(this.id)
   }
 //delete company
 deleteCompany(id){  

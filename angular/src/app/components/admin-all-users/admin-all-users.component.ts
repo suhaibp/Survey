@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class AdminAllUsersComponent implements OnInit {
   displayedColumns = [ 'slno','username','email','status','action'];
   dataSource: MatTableDataSource<any>;
+  id :any;
   notExist =false;
   showSpinner :Boolean =false
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -45,7 +46,12 @@ export class AdminAllUsersComponent implements OnInit {
         this.dataSource.sort = this.sort;
       });
   }
-
+  getId(id){
+    // this.showSpinner =false
+    // this.showSpinnerDelete =false
+    this.id = id
+   //  console.log(this.id)
+  }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
 // Function      : get logged user details

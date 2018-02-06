@@ -51,6 +51,7 @@ export class CompanyCreateSurveyComponent implements OnInit {
   addUserBtnDisbled:boolean = false;
   inviteBtnDisbled:boolean = false;
   minstartDate = new Date();
+  today = new Date();
   survey ={
     name: '',
     category:'',
@@ -76,7 +77,7 @@ export class CompanyCreateSurveyComponent implements OnInit {
   deleteIndex = 0;
 
   displayedColumns = ['select','email'];
-  selectedSurvey:any;
+  selectedSurvey:{};
   // displayedColumns = ['select', 'position', 'name', 'weight', 'symbol'];
   // dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
   dataSource: MatTableDataSource<any>;
@@ -301,6 +302,10 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   deleteQuestion(){
     console.log(this.deleteIndex);
     this.survey.questions.splice(this.deleteIndex , 1);
+    this.msg1 = "Question deleted Successfully";
+    let snackBarRef =  this.snackBar.open(this.msg1, '', {
+      duration: 2000
+    });
   }
 
   addMoreOption(){
@@ -395,6 +400,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       console.log(data);
       if(data.success){
         this.selectedSurvey = data.survey;
+        this.today = data.today;
         // this.isSuccess2 = true;
         this.msg2 = "Survey Created Successfully";
         this.showSpinner = false
@@ -479,7 +485,7 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
         // setTimeout(()=>{ 
           // this.isSuccess3 = false;
           // this.msg3 = '';
-          // this.routes.navigate(['./company-list-survey']);
+          //this.routes.navigate(['./company-list-survey']);
           window.location.href="./company-list-survey";
         // }, 2000);
       }else{
@@ -504,5 +510,6 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   onBackToSurevyClick(){
     this.preview = false;
   }
+  
  // ---------------------------------End-------------------------------------------
 }

@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class AdminExpiredComponent implements OnInit {
   displayedColumns = [ 'slno','companyname','email','contactperson','contactnumber','status','action'];
   dataSource: MatTableDataSource<any>;
+  id :any;
   notExist =false;
   all_value = false;
   selected = 'all';
@@ -65,7 +66,12 @@ export class AdminExpiredComponent implements OnInit {
        });
      }
   }
-  
+  getId(id){
+    // this.showSpinner =false
+    // this.showSpinnerDelete =false
+    this.id = id
+   //  console.log(this.id)
+  }
   loadToDataTable(data){
    this.notExist =false;
    if(data.length == 0){

@@ -225,3 +225,6 @@ ul.alert-dropdown {
 .active1{
     background-color: #eee;
 }
+.active1 a{
+    color: #d9534f;
+}

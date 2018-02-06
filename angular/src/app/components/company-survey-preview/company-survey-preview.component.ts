@@ -5,6 +5,7 @@ import { CompanyService } from './../../services/company.service';
 // declare var $:any;
 // import {RatingModule} from "ngx-rating";
 import {Config} from '../../config/config';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-company-survey-preview',
@@ -21,7 +22,7 @@ export class CompanySurveyPreviewComponent implements OnInit {
   public onBackBtnClick = new EventEmitter();
   progressBarWidth:any;
   blankAns:any;
-  constructor(private companyService : CompanyService, private config: Config, private routes: Router) { }
+  constructor(private companyService : CompanyService, private config: Config, private routes: Router, public snackBar: MatSnackBar) { }
   ngOnInit() {
 // ---------------------------------Start-------------------------------------------
 // Function      : get logged company details
@@ -78,10 +79,9 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
 
   next(i){
     if(this.survey.questions[i].ans == '' || !this.survey.questions[i].ans){
-      this.blankAns = true;
-      setTimeout(()=>{ 
-        this.blankAns = true;;
-      }, 2000);
+      let snackBarRef =  this.snackBar.open('* Fill answer!', '', {
+      duration: 2000
+    });
     }else{
       this.cardNo = this.cardNo+1
       this.blankAns = false;
@@ -91,12 +91,25 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       console.log(this.cardNo);
     }
   }
-  back(){
-    this.cardNo = this.cardNo-1
+  back(crd){
+  
+    this.cardNo = this.cardNo-1;
+    this.progNo = this.progNo-1;
+      
+      this.progressBarWidth = (this.progNo/this.survey.questions.length)*100;
   }
+  
   skipQuestion(){
     this.cardNo = this.cardNo+1
-    
+    this.progNo = this.progNo+1;
+      
+      this.progressBarWidth = (this.progNo/this.survey.questions.length)*100;
+  }
+
+  keyDownFunction(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+    }
   }
   // ---------------------------------End-------------------------------------------
 }
