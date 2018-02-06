@@ -354,6 +354,21 @@ var returnRouter = function (io) {
                     isErr = true;
                 }
 
+                totalDays = plans.no_month * 30;
+                var date = new Date(plans.upgraded_date_time);
+                var dateofExpire = new Date(date.setTime( date.getTime() + totalDays * 86400000 ));
+
+                // if (start < plans.upgraded_date_time) {
+                //     errMsg = "* Failed, Survey Dates should be in subscription period";
+                //     isErr = true;
+                // }
+                //console.log(dateofExpire);
+                if (end > dateofExpire) {
+                    errMsg = "* Failed, Survey end date Must be within subscription period";
+                    isErr = true;
+                }
+                
+
                 if (!isErr && myTrim(req.body.name) == '') {
                     errMsg = "* Failed, Please Enter Survay Name!";
                     isErr = true;
@@ -441,7 +456,9 @@ var returnRouter = function (io) {
 
                     survey.save(function (err, newSurvey) {
                         if (err) throw new Error(err);
-                        res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey });
+                        var today = new Date(req.body.start_date);
+                        today.setHours(00, 00, 00, 000);
+                        res.json({ success: true, msg: "Survey Created Successfully", survey: newSurvey,today:today });
                     });
 
                 } else {
@@ -690,7 +707,7 @@ var returnRouter = function (io) {
                                     io.sockets.emit("Invite Users", {
 
                                     });
-                                    res.json({ success: true, msg: "User Invited successfully" });
+                                    res.json({ success: true, msg: "User Invited successfully"});
 
                                 }
                             });
@@ -979,7 +996,20 @@ var returnRouter = function (io) {
                 isErr = true;
             }
 
+            totalDays = plans.no_month * 30;
+            var date = new Date(plans.upgraded_date_time);
+            var dateofExpire = new Date(date.setTime( date.getTime() + totalDays * 86400000 ));
 
+            // if (start < plans.upgraded_date_time) {
+            //     errMsg = "* Failed, Survey Dates should be in subscription period";
+            //     isErr = true;
+            // }
+            //console.log(dateofExpire);
+            if (end > dateofExpire) {
+                errMsg = "* Failed, Survey end date Must be within subscription period";
+                isErr = true;
+            }
+            
             if (!isErr && myTrim(req.body.name) == '') {
                 errMsg = "* Failed, Please Enter Survay Name!";
                 isErr = true;

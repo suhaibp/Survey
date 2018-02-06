@@ -1,7 +1,7 @@
 <body>
   <div id="wrapper">
     <!-- Navigation -->
-    <app-company-top-bar [open]="'open'" ></app-company-top-bar>
+    <app-company-top-bar [open]="true" ></app-company-top-bar>
     <div class="dx">
       <div *ngIf="!showPaymentInfo">
         <!-- <ul *ngFor="let plan of plans">
@@ -192,6 +192,7 @@
            
               <div class="row">
                 <div class="col-md-3">
+                  <a [routerLink]="['/dashboard']" class="btn btn-danger ourbutton" > Back To Dashboard</a>
                   <button type="submit" [disabled]="updateBtnDisbled" class="btn btn-danger ourbutton" (click)="confirm(selectedId)">Confirm</button>
         
                       </div>

@@ -105,5 +105,11 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
       
       this.progressBarWidth = (this.progNo/this.survey.questions.length)*100;
   }
+
+  keyDownFunction(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+    }
+  }
   // ---------------------------------End-------------------------------------------
 }
