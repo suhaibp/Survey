@@ -1,6 +1,16 @@
-.padd-top{padding-top:4em;}
+.padd-top{padding-top:7em;    background-color: #fff;}
 .btn{padding:0;}
 .mat-step-header .mat-step-icon {
     background-color: #d9534f;
     color: rgba(255,255,255,.87);
+}
+#hm-footer {
+    color: #fff;
+    background: #3b3b3b;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+body{
+    background-color: #fff !important;
 }

@@ -644,3 +644,6 @@ section{
     background-color: #fe3c47;
     border: 1px solid #fff
 }
+.mat-step-header .mat-step-icon{
+    background-color: #fe3c46 !important;
+}
