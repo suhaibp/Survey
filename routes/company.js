@@ -2249,9 +2249,11 @@ var returnRouter = function (io) {
                     },
                     function (err, deleteUser) {
                         if (err) {
-                            res.send("error deleting User");
+                            // res.send("error deleting User");
+                            return res.json({ success: false, msg: 'Failedtodelete' });
                         } else {
-                            res.json(deleteUser);
+                            // res.json(deleteUser);
+                            return res.json({ success: true, msg: 'successfully deleted' });
                         }
                     })
             }
