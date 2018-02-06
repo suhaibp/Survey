@@ -370,6 +370,10 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   deleteQuestion(){
     console.log(this.deleteIndex);
     this.survey.questions.splice(this.deleteIndex , 1);
+    this.msg1 = "Question deleted Successfully";
+    let snackBarRef =  this.snackBar.open(this.msg1, '', {
+      duration: 2000
+    });
   }
 
   addMoreOption(){
@@ -567,6 +571,12 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
   }
   onBackToSurevyClick(){
     this.preview = false;
+  }
+
+  keyDownFunction(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+    }
   }
 // ---------------------------------End-------------------------------------------
 }

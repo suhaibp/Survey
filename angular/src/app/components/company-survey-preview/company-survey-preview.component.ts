@@ -98,5 +98,11 @@ this.companyService.getLoggedUSerDetails().subscribe(info =>{
     this.cardNo = this.cardNo+1
     
   }
+
+  keyDownFunction(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+    }
+  }
   // ---------------------------------End-------------------------------------------
 }

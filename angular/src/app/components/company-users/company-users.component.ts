@@ -676,4 +676,10 @@ export class CompanyUsersComponent implements OnInit {
 
   }
 
+  keyDownFunction(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+    }
+  }
+
 }

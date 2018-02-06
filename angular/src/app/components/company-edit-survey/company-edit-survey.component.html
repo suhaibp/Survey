@@ -1,4 +1,4 @@
-<body *ngIf="!preview">
+<body *ngIf="!preview"  (keydown)="keyDownFunction($event)">
     
                   <div id="wrapper">
               
@@ -242,25 +242,53 @@
                                   
                               <!-- <form  role="form"  #finvite="ngForm" (ngSubmit)="finvite.form.valid && updateQuestion(finvite);" novalidate> -->
                               
-                                  <div class="form-group" >
-                                      
                                   
-                                  <mat-form-field class="filter">
+                                  <!-- <mat-form-field class="filter">
                                       
                                         <mat-select  (change)="updateUserList()" name="xyz" [(ngModel)]="selectedUserGroup"  >
                                           <mat-option value="all">All</mat-option>
                                           <mat-option value="{{grp._id}}" *ngFor="let grp of userGroups">{{grp.name}}</mat-option>
                                         </mat-select>
-                                      </mat-form-field>
+                                      </mat-form-field> -->
                                       
                                       <!-- <p>You selected: {{selected}} </p> -->
-                                    <div class="example-header">
+                                    <!-- <div class="example-header">
                                       <mat-form-field>
                                         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
                                       </mat-form-field>
+                                    </div> -->
+                                    <div >
+                                        <mat-form-field class="inputfileds" >
+                                            <input matInput placeholder="Email" [(ngModel)]="newUser" name="newUser" >
+                                          </mat-form-field>
+                                          <button  [disabled]="addUserBtnDisbled"  class="btn btn-danger ourbutton" (click)="addUser()">Add New User</button>
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                          <div class="col-md-8">
+                                              <div class="example-header">
+                                                  <mat-form-field>
+                                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                                                  </mat-form-field>
+                                                </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                              <div *ngIf="userGroups && userGroups.length > 0">
+                                                  <mat-form-field class="filter">
+                                                      
+                                                        <mat-select  (change)="updateUserList()" name="xyz" [(ngModel)]="selectedUserGroup"  >
+                                                          <mat-option value="all">All</mat-option>
+                                                          <mat-option value="{{grp._id}}" *ngFor="let grp of userGroups">{{grp.name}}</mat-option>
+                                                        </mat-select>
+                                                      </mat-form-field>
+                                                    </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
                                       
-                                      <div class="example-container mat-elevation-z8">
+                                      <div class="example-container mat-elevation-z8"  style="margin-top: 72px;">
 
                                           <div class="example-container mat-elevation-z8">
                                               <mat-table #table [dataSource]="dataSource">
@@ -297,16 +325,10 @@
                                         
                                       </div>
                                       <br>
-                                      {{selection.selected.length}} User Selected
+                                      {{selection.selected.length}} User<span *ngIf="selection.selected.length > 1">s</span> Selected
                                       <br>
 
-                                      <div >
-                                          <mat-form-field class="inputfileds" >
-                                              <input matInput placeholder="Email" [(ngModel)]="newUser" name="newUser" >
-                                            </mat-form-field>
-                                            <button  [disabled]="addUserBtnDisbled"  class="btn btn-danger ourbutton" (click)="addUser()">Add New User</button>
-                                      </div>
-                                  </div>
+                                      
 
                                   <div style="clear: both;"></div>
                                   <!-- <div *ngIf="isError3" class="text-danger text-left">

@@ -1,4 +1,4 @@
-<div class="user-layout" *ngIf="survey.display_type.ui != 'Multiple'">
+<div class="user-layout" *ngIf="survey.display_type.ui != 'Multiple'"  (keydown)="keyDownFunction($event)">
     
     <nav *ngIf="survey.showHeader"  class="navbar navbar-toggleable-md fixed-top x-new" [ngStyle]="{'background-color':survey.selectedTheme.h_bg_color }">
       <div class="container">
@@ -95,7 +95,7 @@
 
 
 
-<div class="user-layout" *ngIf="survey.display_type.ui == 'Multiple'"  >
+<div class="user-layout" *ngIf="survey.display_type.ui == 'Multiple'"  (keydown)="keyDownFunction($event)" >
     <nav *ngIf="survey.showHeader"  class="navbar navbar-toggleable-md fixed-top x-new" [ngStyle]="{'background-color':survey.selectedTheme.h_bg_color }">
         <div class="container">
           <div class="col-md-8 col-md-offset-2">

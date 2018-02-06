@@ -141,8 +141,16 @@
       min-height: 300px;
     }
 
-    .filter{
+    /* .filter{
       width: 20%;
       float: right;
       clear: left;
+    } */
+    .filter{
+      /* width: 5%; */
+      /* float: right;
+      clear: left; */
+      /* padding-bottom: 25px; */
+      margin-top: 24px;
+     
     }
